@@ -92,6 +92,8 @@ class HistoryStore:
                 embedding TEXT,
                 created_at TEXT NOT NULL
             )""")
+        # provenance tag: engine | legacy (backfilled) | manual (vet --ingest)
+        self._ensure_column("fingerprints", "source", "TEXT DEFAULT 'engine'")
 
         c.execute("""
             CREATE TABLE IF NOT EXISTS novelty_audits (
@@ -206,20 +208,20 @@ class HistoryStore:
             """INSERT OR REPLACE INTO fingerprints
                (rc_id, blueprint_id, persona_id, movement_string, commitment_curve,
                 rhythm_vector, topology_signature, trap_histogram, letter_sequence,
-                stylometry, embedding, created_at)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                stylometry, embedding, source, created_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (fp.rc_id, fp.blueprint_id, fp.persona_id, fp.movement_string,
              json.dumps(fp.commitment_curve), json.dumps(fp.rhythm_vector),
              json.dumps(fp.topology_signature), json.dumps(fp.trap_histogram),
              fp.letter_sequence, json.dumps(fp.stylometry),
-             json.dumps(fp.embedding) if fp.embedding else None, _now()))
+             json.dumps(fp.embedding) if fp.embedding else None, fp.source, _now()))
         self.conn.commit()
 
     def fingerprint_window(self, limit: int) -> list[Fingerprint]:
         rows = self.conn.execute(
             """SELECT rc_id, blueprint_id, persona_id, movement_string, commitment_curve,
                       rhythm_vector, topology_signature, trap_histogram, letter_sequence,
-                      stylometry, embedding
+                      stylometry, embedding, source
                FROM fingerprints ORDER BY created_at DESC LIMIT ?""", (limit,)).fetchall()
         out = []
         for r in rows:
@@ -229,7 +231,8 @@ class HistoryStore:
                 rhythm_vector=json.loads(r[5]), topology_signature=json.loads(r[6]),
                 trap_histogram=json.loads(r[7]), letter_sequence=r[8],
                 stylometry=json.loads(r[9]),
-                embedding=json.loads(r[10]) if r[10] else None))
+                embedding=json.loads(r[10]) if r[10] else None,
+                source=r[11] or "engine"))
         return out
 
     # -------------------------------------------------------------- rc & audit

@@ -11,16 +11,33 @@ SEED (optional): <paste 300-500 words from an Aeon/Psyche/Nautilus essay>
 
 Rules of thumb for use:
 - **One RC set per message.** Quality drops sharply if you ask for 2-3 at once.
-- **You are the novelty gate now.** Before each request, run
-  `python -m rc_engine.cli avoid` — it prints a paste-ready AVOID line built from the
-  last few engine-generated sets in the DB. It does NOT know about manual sets, so
-  also glance at RC_Tracker.xlsx and add any recent manual sets' structures, postures,
-  and topics to the line.
+- **Before each request**, run `python -m rc_engine.cli avoid` — it prints a
+  paste-ready AVOID line built from recent engine-generated sets. It does not cover
+  manual sets, so add any recent ones from RC_Tracker.xlsx to the line yourself.
+- **After each set, run the free gates and sync it** (see the loop below). Vetted
+  sets are stored with `source='manual'`, so you can always filter them apart from
+  engine sets later (`SELECT rc_id FROM fingerprints WHERE source='manual'`).
 - **Log every set in RC_Tracker.xlsx manually** (the script only reads the pipeline DB).
-- **Feed accepted manual sets back into the engine's novelty corpus:** save each one as
-  a `.txt` in `exported_rc_sets/` whose first line contains `RC ID: RC-MANUAL-<date>-<n>`,
-  then run `python -m rc_engine.cli backfill` ($0). Without this the engine cannot audit
-  future generations against your manual sets and may structurally collide with them.
+
+The manual loop (each set, ~30 seconds, $0):
+
+```bash
+python -m rc_engine.cli avoid                      # 1. build the AVOID line
+# 2. generate the set in claude.ai; save Claude's output verbatim as
+#    manual_rc_sets/RC-MANUAL-<yymmdd>-<n>.txt   (keep the [PASSAGE]/[QUESTIONS]/
+#    [ANSWER KEY...] markers exactly as produced — the parser relies on them)
+python -m rc_engine.cli vet manual_rc_sets/RC-MANUAL-260707-1.txt --tier elite
+# 3. it prints: novelty verdict vs the whole corpus (engine + prior manual sets),
+#    letter balance, length-bias audit, word-count band. Fix/regenerate if flagged.
+python -m rc_engine.cli vet manual_rc_sets/RC-MANUAL-260707-1.txt --tier elite --ingest
+# 4. on pass, the set's fingerprint joins the corpus — every future engine or
+#    manual generation is audited against it. Then log it in RC_Tracker.xlsx.
+```
+
+What vet can and cannot check without the API: it runs the rhythm, stylometry
+(voice), embedding (meaning), distractor-mechanism, and letter/length audits.
+It cannot see paragraph-function structure or the commitment curve (those need
+the compliance model), so keep AVOIDing recent argument *structures* yourself.
 - Works on Opus 4.8, Sonnet, and Haiku on the website; Opus gives the closest match to
   your elite tier. On Haiku, expect to reject/regenerate more often.
 

@@ -143,7 +143,12 @@ TIER_LETTERS = {"medium": "M", "hard": "H", "elite": "E"}
 #   falls back to ANY unused essay, then to seedless — so a batch never starves
 #   just because serious sources ran out.
 # ---------------------------------------------------------------------------
-SERIOUS_GENRES = ["Aeon", "Psyche", "Nautilus", "JSTOR"]
+SERIOUS_GENRES = [
+    "Aeon", "Psyche", "Nautilus", "JSTOR",
+    "Public Books", "The Point", "Hedgehog Review", "New Atlantis",
+    "Boston Review", "LARB", "Commonweal", "Lapham's Quarterly",
+    "LRB", "NYRB", "Harper's", "Dissent", "Noema",
+]
 TIER_SEED_GENRES = {
     "elite": SERIOUS_GENRES,
     "hard": SERIOUS_GENRES,
