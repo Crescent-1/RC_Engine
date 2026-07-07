@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Blueprint Psychometrics — structurally audited VARC mock content for CAT-level test preparation. 32 argument skeletons, 20 authorial voices, a nine-channel novelty audit on every set.">
+<title>Blueprint Psychometrics — Structurally audited VARC content</title>
+<style>
+  :root {
+    --paper: #F5F7F9;
+    --card: #FFFFFF;
+    --ink: #141F29;
+    --muted: #54636E;
+    --line: #C7D2DA;
+    --line-soft: #DFE6EC;
+    --accent: #1B4FA0;
+    --accent-soft: #E7EEF8;
+    --oxide: #9E3B2B;
+    --btn-bg: #1B4FA0;
+    --btn-fg: #FFFFFF;
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+    --mono: "Cascadia Mono", Consolas, "SF Mono", Menlo, "Courier New", monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --paper: #0D141B;
+      --card: #14202B;
+      --ink: #DEE6EC;
+      --muted: #91A5B3;
+      --line: #2C3B48;
+      --line-soft: #223140;
+      --accent: #7CACE8;
+      --accent-soft: #1A2C42;
+      --oxide: #D98B72;
+      --btn-bg: #2E64B8;
+      --btn-fg: #FFFFFF;
+    }
+  }
+  :root[data-theme="light"] {
+    --paper: #F5F7F9;
+    --card: #FFFFFF;
+    --ink: #141F29;
+    --muted: #54636E;
+    --line: #C7D2DA;
+    --line-soft: #DFE6EC;
+    --accent: #1B4FA0;
+    --accent-soft: #E7EEF8;
+    --oxide: #9E3B2B;
+    --btn-bg: #1B4FA0;
+    --btn-fg: #FFFFFF;
+  }
+  :root[data-theme="dark"] {
+    --paper: #0D141B;
+    --card: #14202B;
+    --ink: #DEE6EC;
+    --muted: #91A5B3;
+    --line: #2C3B48;
+    --line-soft: #223140;
+    --accent: #7CACE8;
+    --accent-soft: #1A2C42;
+    --oxide: #D98B72;
+    --btn-bg: #2E64B8;
+    --btn-fg: #FFFFFF;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { transition: none !important; }
+  }
+  body {
+    margin: 0;
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+  a:focus-visible, button:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .shell { max-width: 1060px; margin: 0 auto; padding: 0 24px; }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 20;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 16px; padding: 14px 0;
+  }
+  .wordmark {
+    font-family: var(--serif);
+    font-size: 1.05rem; letter-spacing: 0.01em;
+    color: var(--ink); text-decoration: none;
+    white-space: nowrap;
+  }
+  .wordmark .bp {
+    font-family: var(--mono); font-size: 0.72rem; color: var(--accent);
+    border: 1px solid var(--accent); padding: 2px 6px; margin-right: 9px;
+    letter-spacing: 0.08em; vertical-align: 2px;
+  }
+  .topnav { display: flex; gap: 22px; align-items: center; }
+  .topnav a {
+    font-size: 0.86rem; color: var(--muted); text-decoration: none;
+    letter-spacing: 0.02em;
+  }
+  .topnav a:hover { color: var(--ink); }
+  @media (max-width: 860px) { .topnav .navlink { display: none; } }
+
+  .btn {
+    display: inline-block; background: var(--btn-bg); color: var(--btn-fg);
+    font-size: 0.9rem; font-weight: 600; letter-spacing: 0.02em;
+    padding: 11px 20px; text-decoration: none; border: 1px solid var(--btn-bg);
+    transition: transform 120ms ease, box-shadow 120ms ease;
+  }
+  .btn:hover { transform: translateY(-1px); box-shadow: 0 3px 10px rgba(20,40,80,0.22); }
+  .btn.ghost {
+    background: transparent; color: var(--accent); border: 1px solid var(--accent);
+  }
+  .btn.small { padding: 8px 14px; font-size: 0.82rem; }
+
+  /* ---------- hero ---------- */
+  .hero { border-bottom: 1px solid var(--line); }
+  .hero-grid {
+    display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: 48px; align-items: center; padding: 72px 0 64px;
+  }
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; padding: 48px 0; } }
+  .eyebrow {
+    font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.18em;
+    text-transform: uppercase; color: var(--accent); margin: 0 0 18px;
+  }
+  h1 {
+    font-family: var(--serif); font-weight: 500;
+    font-size: clamp(2rem, 4.6vw, 3.1rem);
+    line-height: 1.12; margin: 0 0 20px; text-wrap: balance;
+  }
+  .lede { font-size: 1.08rem; color: var(--muted); max-width: 58ch; margin: 0 0 30px; }
+  .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+
+  .proofstrip {
+    border-top: 1px solid var(--line-soft);
+    margin-top: 56px; padding: 18px 0 26px;
+    display: flex; gap: 12px 36px; flex-wrap: wrap;
+  }
+  .proofstrip span {
+    font-family: var(--mono); font-size: 0.78rem; color: var(--muted);
+    letter-spacing: 0.04em;
+  }
+  .proofstrip b { color: var(--ink); font-weight: 600; }
+
+  /* ---------- blueprint diagram ---------- */
+  .bp-card {
+    border: 1px solid var(--line); background: var(--card);
+    box-shadow: 0 1px 0 var(--line-soft);
+  }
+  .bp-card svg { display: block; width: 100%; height: auto; }
+  .svg-frame { stroke: var(--line); fill: none; }
+  .svg-title { font-family: var(--mono); font-size: 8.5px; fill: var(--muted); letter-spacing: 0.08em; }
+  .svg-label { font-family: var(--mono); font-size: 8.5px; fill: var(--muted); }
+  .svg-label-accent { font-family: var(--mono); font-size: 8.5px; fill: var(--accent); }
+  .svg-para { fill: var(--accent-soft); stroke: var(--line); }
+  .svg-curve { stroke: var(--accent); stroke-width: 1.8; fill: none; }
+  .svg-node { fill: var(--accent); }
+  .svg-zero { stroke: var(--line); stroke-dasharray: 3 4; }
+  .svg-hinge { stroke: var(--oxide); stroke-dasharray: 2 3; }
+  .svg-hinge-label { font-family: var(--mono); font-size: 8.5px; fill: var(--oxide); }
+  .bp-caption {
+    font-family: var(--mono); font-size: 0.7rem; color: var(--muted);
+    border-top: 1px solid var(--line-soft); padding: 10px 14px; letter-spacing: 0.05em;
+  }
+
+  /* ---------- sections ---------- */
+  .section { padding: 72px 0; border-bottom: 1px solid var(--line); scroll-margin-top: 76px; }
+  .sec-head { display: flex; align-items: baseline; gap: 18px; margin-bottom: 14px; }
+  .sec-num {
+    font-family: var(--mono); font-size: 0.78rem; color: var(--accent);
+    letter-spacing: 0.12em; white-space: nowrap;
+  }
+  h2 {
+    font-family: var(--serif); font-weight: 500;
+    font-size: clamp(1.5rem, 3vw, 2.05rem);
+    line-height: 1.2; margin: 0; text-wrap: balance;
+  }
+  .section > .prose, .prose { max-width: 66ch; color: var(--ink); }
+  .prose.dim { color: var(--muted); }
+
+  /* problem cards */
+  .card-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+  @media (max-width: 860px) { .card-row { grid-template-columns: 1fr; } }
+  .xcard { border: 1px solid var(--line); background: var(--card); padding: 22px 22px 24px; }
+  .xcard .tag {
+    font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.14em;
+    color: var(--oxide); text-transform: uppercase; display: block; margin-bottom: 12px;
+  }
+  .xcard h3 { font-family: var(--serif); font-weight: 500; font-size: 1.15rem; margin: 0 0 8px; }
+  .xcard p { margin: 0; font-size: 0.92rem; color: var(--muted); }
+
+  .callout {
+    border-left: 3px solid var(--oxide);
+    background: var(--card); border-top: 1px solid var(--line-soft);
+    border-right: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft);
+    padding: 20px 24px; margin-top: 36px; max-width: 74ch;
+  }
+  .callout p { margin: 0; font-size: 0.98rem; }
+  .callout.blue { border-left-color: var(--accent); }
+
+  /* stats + pipeline */
+  .statrow { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin: 40px 0 8px; }
+  @media (max-width: 860px) { .statrow { grid-template-columns: repeat(2, 1fr); } }
+  .stat { border-top: 2px solid var(--accent); padding-top: 12px; }
+  .stat .n {
+    font-family: var(--serif); font-size: 1.9rem; line-height: 1;
+    font-variant-numeric: tabular-nums;
+  }
+  .stat .d { font-size: 0.82rem; color: var(--muted); margin-top: 6px; }
+
+  .pipeline { display: grid; grid-template-columns: repeat(5, 1fr); gap: 0; margin-top: 40px; border: 1px solid var(--line); background: var(--card); }
+  @media (max-width: 860px) { .pipeline { grid-template-columns: 1fr; } }
+  .pstep { padding: 20px 18px 22px; border-right: 1px solid var(--line-soft); }
+  .pstep:last-child { border-right: none; }
+  @media (max-width: 860px) { .pstep { border-right: none; border-bottom: 1px solid var(--line-soft); } .pstep:last-child { border-bottom: none; } }
+  .pstep .k { font-family: var(--mono); font-size: 0.68rem; color: var(--accent); letter-spacing: 0.12em; display: block; margin-bottom: 8px; }
+  .pstep h4 { margin: 0 0 6px; font-size: 0.98rem; font-weight: 600; }
+  .pstep p { margin: 0; font-size: 0.84rem; color: var(--muted); }
+
+  /* ---------- audit table ---------- */
+  .table-wrap { overflow-x: auto; margin-top: 36px; border: 1px solid var(--line); background: var(--card); }
+  table.audit { border-collapse: collapse; width: 100%; min-width: 720px; }
+  table.audit th {
+    font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); font-weight: 500;
+    text-align: left; padding: 14px 18px; border-bottom: 1px solid var(--line);
+  }
+  table.audit td { padding: 15px 18px; border-bottom: 1px solid var(--line-soft); vertical-align: top; font-size: 0.92rem; }
+  table.audit tr:last-child td { border-bottom: none; }
+  td.ch-num { font-family: var(--mono); color: var(--accent); font-size: 0.82rem; width: 34px; padding-right: 0; }
+  td.ch-name { font-weight: 600; white-space: nowrap; }
+  td.ch-exploit { color: var(--oxide); font-style: italic; }
+  td.ch-enforce { color: var(--muted); }
+  td.ch-enforce b { color: var(--ink); font-weight: 600; }
+
+  .probe {
+    margin-top: 36px; border: 1px solid var(--accent); background: var(--accent-soft);
+    padding: 26px 28px; max-width: 78ch;
+  }
+  .probe .k { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.16em; color: var(--accent); text-transform: uppercase; display: block; margin-bottom: 10px; }
+  .probe p { margin: 0; font-size: 0.98rem; }
+  .probe p + p { margin-top: 10px; }
+
+  /* gates */
+  .gate-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 36px; }
+  @media (max-width: 860px) { .gate-row { grid-template-columns: 1fr; } }
+  .gate { border: 1px solid var(--line); background: var(--card); padding: 22px; }
+  .gate .k { font-family: var(--mono); font-size: 0.68rem; color: var(--accent); letter-spacing: 0.12em; display: block; margin-bottom: 10px; text-transform: uppercase; }
+  .gate h3 { font-family: var(--serif); font-weight: 500; font-size: 1.15rem; margin: 0 0 8px; }
+  .gate p { margin: 0; font-size: 0.9rem; color: var(--muted); }
+
+  /* tiers */
+  .tier-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 40px; align-items: stretch; }
+  @media (max-width: 900px) { .tier-row { grid-template-columns: 1fr; } }
+  .tier { border: 1px solid var(--line); background: var(--card); padding: 26px 24px 28px; display: flex; flex-direction: column; position: relative; }
+  .tier.flag { border: 2px solid var(--accent); }
+  .tier .flagtag {
+    position: absolute; top: -11px; left: 20px; background: var(--accent); color: var(--btn-fg);
+    font-family: var(--mono); font-size: 0.64rem; letter-spacing: 0.14em; padding: 3px 10px;
+  }
+  .tier h3 { font-family: var(--serif); font-weight: 500; font-size: 1.3rem; margin: 0 0 4px; }
+  .tier .for { font-size: 0.82rem; color: var(--muted); margin: 0 0 18px; }
+  .tier .price { font-family: var(--serif); font-size: 1.6rem; margin: 0; font-variant-numeric: tabular-nums; }
+  .tier .per { font-size: 0.8rem; color: var(--muted); margin: 2px 0 18px; }
+  .tier ul { margin: 0 0 22px; padding: 0 0 0 18px; font-size: 0.9rem; color: var(--muted); display: grid; gap: 8px; }
+  .tier ul b { color: var(--ink); font-weight: 600; }
+  .tier .btn { margin-top: auto; text-align: center; }
+  .billing-note { font-size: 0.85rem; color: var(--muted); margin-top: 22px; max-width: 74ch; }
+
+  /* audition steps */
+  .steps { counter-reset: step; margin-top: 36px; display: grid; gap: 0; border: 1px solid var(--line); background: var(--card); }
+  .step { display: grid; grid-template-columns: 64px 1fr; border-bottom: 1px solid var(--line-soft); }
+  .step:last-child { border-bottom: none; }
+  .step .num {
+    font-family: var(--mono); color: var(--accent); font-size: 0.9rem;
+    display: flex; align-items: flex-start; justify-content: center; padding: 20px 0;
+    border-right: 1px solid var(--line-soft);
+  }
+  .step .body { padding: 18px 22px 20px; }
+  .step h4 { margin: 0 0 4px; font-size: 1rem; font-weight: 600; }
+  .step p { margin: 0; font-size: 0.9rem; color: var(--muted); }
+
+  /* FAQ */
+  .faq { margin-top: 30px; border-top: 1px solid var(--line); }
+  details { border-bottom: 1px solid var(--line); }
+  summary {
+    cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 20px;
+    padding: 20px 4px; font-family: var(--serif); font-size: 1.12rem;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: "+"; font-family: var(--mono); color: var(--accent); font-size: 1.1rem; }
+  details[open] summary::after { content: "–"; }
+  details .a { padding: 0 4px 22px; max-width: 70ch; color: var(--muted); font-size: 0.95rem; }
+  details .a p { margin: 0 0 10px; }
+  details .a p:last-child { margin-bottom: 0; }
+
+  /* footer / contact */
+  .contact { padding: 80px 0 26px; }
+  .contact-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; }
+  @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+  .contact h2 { margin-bottom: 14px; }
+  .contact .prose { color: var(--muted); }
+  .contact-box { border: 1px solid var(--line); background: var(--card); padding: 26px; height: fit-content; }
+  .contact-box .k { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.14em; color: var(--accent); text-transform: uppercase; display: block; margin-bottom: 12px; }
+  .contact-box p { margin: 0 0 14px; font-size: 0.92rem; }
+  .footer-meta {
+    border-top: 1px solid var(--line); margin-top: 70px; padding-top: 20px;
+    display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+    font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.05em;
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="shell topbar-inner">
+    <a class="wordmark" href="#top"><span class="bp">BP</span>Blueprint&nbsp;Psychometrics</a>
+    <nav class="topnav" aria-label="Sections">
+      <a class="navlink" href="#problem">The problem</a>
+      <a class="navlink" href="#method">Method</a>
+      <a class="navlink" href="#audit">The audit</a>
+      <a class="navlink" href="#engagements">Engagements</a>
+      <a class="navlink" href="#audition">Blind audition</a>
+      <a class="btn small" href="mailto:coolcresent1@gmail.com?subject=Structural%20audit%20request">Request an audit</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="shell">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">Structural content research · VARC</p>
+          <h1>Mock content your toppers cannot pattern&#8209;match.</h1>
+          <p class="lede">
+            We build reading-comprehension sets for CAT-level examinations in which the
+            argumentative structure itself is a sampled, audited variable — so your mock
+            series never develops a house style that serious aspirants learn to exploit.
+          </p>
+          <div class="cta-row">
+            <a class="btn" href="mailto:coolcresent1@gmail.com?subject=Structural%20audit%20request">Request a free structural audit</a>
+            <a class="btn ghost" href="#audition">Take the blind audition</a>
+          </div>
+        </div>
+        <figure class="bp-card" style="margin:0">
+          <svg viewBox="0 0 560 320" role="img" aria-label="A structural blueprint: five paragraph blocks with the author's commitment curve plotted across them, hinge marked at paragraph four.">
+            <rect x="8" y="8" width="544" height="304" class="svg-frame"/>
+            <line x1="8" y1="34" x2="552" y2="34" class="svg-frame"/>
+            <text x="20" y="25" class="svg-title">BLUEPRINT BP-2026-0142 · HIDDEN METADATA · NEVER SHIPPED TO STUDENTS</text>
+            <!-- paragraph blocks -->
+            <rect x="40"  y="200" width="88" height="64" class="svg-para"/>
+            <rect x="140" y="212" width="70" height="52" class="svg-para"/>
+            <rect x="222" y="192" width="96" height="72" class="svg-para"/>
+            <rect x="330" y="236" width="44" height="28" class="svg-para"/>
+            <rect x="386" y="206" width="76" height="58" class="svg-para"/>
+            <text x="76"  y="280" class="svg-label">P1</text>
+            <text x="168" y="280" class="svg-label">P2</text>
+            <text x="262" y="280" class="svg-label">P3</text>
+            <text x="344" y="280" class="svg-label">P4</text>
+            <text x="416" y="280" class="svg-label">P5</text>
+            <!-- zero line -->
+            <line x1="40" y1="122" x2="462" y2="122" class="svg-zero"/>
+            <text x="470" y="125" class="svg-label">0</text>
+            <!-- commitment curve: -0.3, 0.1, 0.2, 0.8, 0.6 -->
+            <polyline class="svg-curve" points="84,140 175,116 270,110 352,74 424,86"/>
+            <circle cx="84"  cy="140" r="3.2" class="svg-node"/>
+            <circle cx="175" cy="116" r="3.2" class="svg-node"/>
+            <circle cx="270" cy="110" r="3.2" class="svg-node"/>
+            <circle cx="352" cy="74"  r="3.2" class="svg-node"/>
+            <circle cx="424" cy="86"  r="3.2" class="svg-node"/>
+            <text x="46" y="158" class="svg-label-accent">apparent commitment to thesis</text>
+            <!-- hinge annotation -->
+            <line x1="352" y1="74" x2="352" y2="236" class="svg-hinge"/>
+            <text x="300" y="62" class="svg-hinge-label">hinge · retrospective reveal</text>
+            <!-- decoy annotation -->
+            <text x="52" y="188" class="svg-label">decoy stability planted</text>
+            <text x="392" y="196" class="svg-label">aperture: widens</text>
+          </svg>
+          <figcaption class="bp-caption">FIG. 1 — EVERY SET BEGINS AS A STRUCTURAL CONTRACT: MOVEMENT, PACING, CONVICTION ARC, DESIGNED MISREADINGS.</figcaption>
+        </figure>
+      </div>
+      <div class="proofstrip">
+        <span><b>32</b> argument skeletons</span>
+        <span><b>20</b> authorial voices</span>
+        <span><b>9</b> audit channels per set</span>
+        <span><b>100%</b> faculty-reviewed before delivery</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROBLEM ============ -->
+  <section class="section" id="problem">
+    <div class="shell">
+      <div class="sec-head"><span class="sec-num">§ 01</span><h2>Every mock series develops a house style.</h2></div>
+      <p class="prose dim">
+        One writer — or one prompt — produces one argumentative rhythm. By the third mock,
+        your serious repeaters have unconsciously learned it. They are no longer reading;
+        they are recognising.
+      </p>
+      <div class="card-row">
+        <div class="xcard">
+          <span class="tag">Learned by mock 3</span>
+          <h3>Where the reversal lands</h3>
+          <p>After enough sets from one source, students anticipate the paragraph where the
+          argument turns — and read only that paragraph carefully.</p>
+        </div>
+        <div class="xcard">
+          <span class="tag">Learned by mock 5</span>
+          <h3>How the author hedges</h3>
+          <p>Correct options inherit the writer's qualifying language. Toppers start selecting
+          answers by tone, not comprehension.</p>
+        </div>
+        <div class="xcard">
+          <span class="tag">Learned by mock 8</span>
+          <h3>Which option “feels” right</h3>
+          <p>Answer keys drift into patterns — letters, option lengths, hedging — that reward
+          test-cracking heuristics instead of reading.</p>
+        </div>
+      </div>
+      <div class="callout">
+        <p><b>The damage is invisible until exam day.</b> Repeat-takers' mock scores inflate,
+        your percentile predictions drift, and your mock data quietly stops being honest.
+        On the real paper the pattern isn't there — but the inflated expectation is.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ METHOD ============ -->
+  <section class="section" id="method">
+    <div class="shell">
+      <div class="sec-head"><span class="sec-num">§ 02</span><h2>Structure is decided before a single sentence is written.</h2></div>
+      <p class="prose dim">
+        Every set begins as a structural blueprint: an argument skeleton, an authorial voice,
+        paragraph choreography, a question topology, and a map of designed misreadings —
+        sampled from component libraries under strict exclusion rules, so no recently used
+        structure can recur. The passage is then written to satisfy that contract, the
+        questions are built to harvest exactly the misreadings the passage invites, and the
+        finished set is audited against its own plan and against everything we have ever
+        delivered to you.
+      </p>
+      <div class="statrow">
+        <div class="stat"><div class="n">32</div><div class="d">distinct argument skeletons — different reasons an essay exists</div></div>
+        <div class="stat"><div class="n">20</div><div class="d">authorial voices, statistically verified as different writers</div></div>
+        <div class="stat"><div class="n">10⁹</div><div class="d">usable structural combinations after compatibility rules</div></div>
+        <div class="stat"><div class="n">100</div><div class="d">most recent sets every new set is audited against</div></div>
+      </div>
+      <div class="pipeline">
+        <div class="pstep"><span class="k">STAGE 1</span><h4>Compose</h4><p>Sample the structural blueprint under exclusion windows — recently used structures are ineligible.</p></div>
+        <div class="pstep"><span class="k">STAGE 2</span><h4>Render</h4><p>Write the passage to the blueprint's contract; verify the realised structure matches the plan.</p></div>
+        <div class="pstep"><span class="k">STAGE 3</span><h4>Interrogate</h4><p>Build six questions from the plan; wrong options quote the exact misreadings the passage was designed to invite.</p></div>
+        <div class="pstep"><span class="k">STAGE 4</span><h4>Audit</h4><p>Score the finished set on nine novelty channels against your delivery history. Failures never ship.</p></div>
+        <div class="pstep"><span class="k">STAGE 5</span><h4>Gate</h4><p>Independent blind-solve, editorial rubric, and senior VARC faculty review — in that order.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ AUDIT ============ -->
+  <section class="section" id="audit">
+    <div class="shell">
+      <div class="sec-head"><span class="sec-num">§ 03</span><h2>The nine-channel novelty audit.</h2></div>
+      <p class="prose dim">
+        Aspirants don't just learn concepts — they learn your content's habits. Each channel
+        below tracks one habit students exploit. If any channel indicates that a student who
+        has seen your last hundred sets could anticipate this one, the set is rejected before
+        delivery.
+      </p>
+      <div class="table-wrap">
+        <table class="audit">
+          <thead>
+            <tr><th></th><th>Channel</th><th>What students exploit</th><th>What we enforce</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="ch-num">1</td><td class="ch-name">Argument skeleton</td>
+              <td class="ch-exploit">“These passages always argue the same way.”</td>
+              <td class="ch-enforce">Every passage is built on one of <b>32 distinct skeletons</b>; no two recent sets share one, and your corpus stays balanced across all of them.</td></tr>
+            <tr><td class="ch-num">2</td><td class="ch-name">Paragraph choreography</td>
+              <td class="ch-exploit">“Para 2 raises the objection, para 4 resolves it.”</td>
+              <td class="ch-enforce">The sequence of argumentative moves is tracked <b>like a chess line</b>; repeated move-orders are detected and rejected.</td></tr>
+            <tr><td class="ch-num">3</td><td class="ch-name">Conviction arc</td>
+              <td class="ch-exploit">“The author commits late — the answers live in the late paragraphs.”</td>
+              <td class="ch-enforce">We measure how strongly the author appears committed to the thesis, paragraph by paragraph, and <b>force that arc to vary</b> — the single strongest rhythm students unconsciously learn.</td></tr>
+            <tr><td class="ch-num">4</td><td class="ch-name">Pacing profile</td>
+              <td class="ch-exploit">“The short paragraph is always the pivot.”</td>
+              <td class="ch-enforce">Paragraph lengths, sentence cadence, and pivot placement are <b>fingerprinted</b>; repeated pacing shapes are blocked.</td></tr>
+            <tr><td class="ch-num">5</td><td class="ch-name">Question mix</td>
+              <td class="ch-exploit">“Q1 is the main-idea question; the last one is tone.”</td>
+              <td class="ch-enforce">Question types, order, and difficulty curves are <b>deliberately varied</b> — there is no fixed question formula to learn.</td></tr>
+            <tr><td class="ch-num">6</td><td class="ch-name">Wrong-answer logic</td>
+              <td class="ch-exploit">“Eliminate the extreme option and the too-broad option — done.”</td>
+              <td class="ch-enforce">The <b>way wrong options are wrong</b> keeps changing. Elimination heuristics that work on one set fail on the next.</td></tr>
+            <tr><td class="ch-num">7</td><td class="ch-name">Voice separation</td>
+              <td class="ch-exploit">“All these passages read like the same writer.”</td>
+              <td class="ch-enforce">Passages are written in 20 voices verified as <b>statistically different authors</b>, using the methods of authorship forensics.</td></tr>
+            <tr><td class="ch-num">8</td><td class="ch-name">Answer-key hygiene</td>
+              <td class="ch-exploit">“When in doubt, pick the longest option. Or C.”</td>
+              <td class="ch-enforce">Letters, option lengths, and hedging of correct answers are tested for exploitable patterns <b>across your whole series</b>, not just within one set.</td></tr>
+            <tr><td class="ch-num">9</td><td class="ch-name">Topic distance</td>
+              <td class="ch-exploit">“We've basically seen this passage before.”</td>
+              <td class="ch-enforce">Content-level similarity is checked against <b>every set in your history</b> — the oldest check, still enforced.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="probe">
+        <span class="k">The crackability probe</span>
+        <p>Once a week we run the harshest test we know: an advanced analysis system reads the
+        last ten passages from your series and attempts to <em>predict the structure of the next
+        one</em> — where the thesis appears, where the reversal lands, how it ends, what the
+        questions will ask.</p>
+        <p><b>We simulate the pattern-hunting topper, so your real ones find nothing to hunt.</b>
+        If the probe starts guessing right, the exposed patterns are rotated out before any
+        student sees them.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ GATES ============ -->
+  <section class="section" id="gates">
+    <div class="shell">
+      <div class="sec-head"><span class="sec-num">§ 04</span><h2>No set ships from a generator alone.</h2></div>
+      <div class="gate-row">
+        <div class="gate">
+          <span class="k">Gate A</span>
+          <h3>Independent blind solve</h3>
+          <p>A separate system must arrive at the answer key without ever seeing it. Any
+          disagreement is escalated to human adjudication — a defensible dispute means the
+          question is rebuilt, not argued.</p>
+        </div>
+        <div class="gate">
+          <span class="k">Gate B</span>
+          <h3>Editorial rubric</h3>
+          <p>Each set is judged against its own intended structure — a dense linear essay is
+          held to different standards than a reversal-driven one. One rubric for all content
+          is how house styles form.</p>
+        </div>
+        <div class="gate">
+          <span class="k">Gate C</span>
+          <h3>Faculty review</h3>
+          <p>Senior VARC faculty sign off on every set. Answer explanations name the exact
+          misreading each wrong option was designed to catch — your faculty receive teaching
+          notes, not just keys.</p>
+        </div>
+      </div>
+      <div class="callout blue">
+        <p><b>Structural territory.</b> No other client of ours ever receives a set built on
+        the same argumentative skeleton as yours. This exclusivity is enforced by our
+        production database — not by promise — and we can demonstrate it on request.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ ENGAGEMENTS ============ -->
+  <section class="section" id="engagements">
+    <div class="shell">
+      <div class="sec-head"><span class="sec-num">§ 05</span><h2>Engagements.</h2></div>
+      <p class="prose dim">Retainers are structured around your mock calendar, not arbitrary set counts.
+      All tiers include the nine-channel audit on every set.</p>
+      <div class="tier-row">
+        <div class="tier">
+          <h3>Practice Bench</h3>
+          <p class="for">For focused coachings and independent VARC mentors</p>
+          <p class="price">₹15,000</p>
+          <p class="per">per month, from</p>
+          <ul>
+            <li><b>24 sets monthly</b> — graded difficulty mix</li>
+            <li>Weekly delivery batches</li>
+            <li>Monthly novelty summary</li>
+            <li>Full answer rationales</li>
+          </ul>
+          <a class="btn ghost" href="mailto:coolcresent1@gmail.com?subject=Practice%20Bench%20enquiry">Enquire</a>
+        </div>
+        <div class="tier flag">
+          <span class="flagtag">FLAGSHIP</span>
+          <h3>Mock Vault</h3>
+          <p class="for">For institutes running their own mock series</p>
+          <p class="price">₹40,000</p>
+          <p class="per">per month, from</p>
+          <ul>
+            <li><b>One complete 10-mock VARC series monthly</b> (40 sets, 4 RCs per mock)</li>
+            <li>Difficulty curves designed per mock</li>
+            <li><b>Structural exclusivity</b> — enforced in our database</li>
+            <li>Per-mock novelty certificate</li>
+            <li>Trap-map teaching notes for faculty debriefs</li>
+            <li>72-hour correction SLA</li>
+          </ul>
+          <a class="btn" href="mailto:coolcresent1@gmail.com?subject=Mock%20Vault%20enquiry">Enquire</a>
+        </div>
+        <div class="tier">
+          <h3>Platform Feed</h3>
+          <p class="for">For test platforms and adaptive learning products</p>
+          <p class="price">₹75,000</p>
+          <p class="per">per month, from</p>
+          <ul>
+            <li><b>100+ sets monthly</b>, structured delivery (CSV / JSON)</li>
+            <li><b>Per-student novelty guarantee</b> — no student meets the same skeleton twice in a series</li>
+            <li>Difficulty metadata per question</li>
+            <li>Co-branded audit trail</li>
+          </ul>
+          <a class="btn ghost" href="mailto:coolcresent1@gmail.com?subject=Platform%20Feed%20enquiry">Enquire</a>
+        </div>
+      </div>
+      <p class="billing-note">
+        Billing is quarterly in advance. Annual contracts flex delivery across the season —
+        mock-heavy before the exam, question-bank building after. Category exclusivity within
+        a city is available as a retainer add-on.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============ AUDITION ============ -->
+  <section class="section" id="audition">
+    <div class="shell">
+      <div class="sec-head"><span class="sec-num">§ 06</span><h2>The blind audition.</h2></div>
+      <p class="prose dim">
+        Every content vendor claims quality. We'd rather your VARC head measure it —
+        on your content and ours, with the labels removed.
+      </p>
+      <div class="steps">
+        <div class="step"><div class="num">1</div><div class="body">
+          <h4>Send us 6–10 sets from your current series</h4>
+          <p>Within 48 hours you receive a structural repetition report: which argumentative
+          skeletons repeat, how correlated the conviction arcs are, and what patterns your
+          answer keys have drifted into. Free, and yours to keep either way.</p>
+        </div></div>
+        <div class="step"><div class="num">2</div><div class="body">
+          <h4>We send five passages</h4>
+          <p>Three are ours, one is by a professional writer, one is from a general-purpose AI
+          tool. No labels.</p>
+        </div></div>
+        <div class="step"><div class="num">3</div><div class="body">
+          <h4>Your VARC head scores them blind</h4>
+          <p>Quality ranking, authorship guesses, and any pair that “feels like the same author.”</p>
+        </div></div>
+        <div class="step"><div class="num">4</div><div class="body">
+          <h4>The stake</h4>
+          <p>If your faculty identify our three at better than chance, we walk away — and you
+          keep all five sets. We put this in writing before the audition.</p>
+        </div></div>
+        <div class="step"><div class="num">5</div><div class="body">
+          <h4>The pilot</h4>
+          <p>If not: one paid pilot — a complete mock VARC section, difficulty-curved — credited
+          in full against your first retainer month.</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FAQ ============ -->
+  <section class="section" id="faq">
+    <div class="shell">
+      <div class="sec-head"><span class="sec-num">§ 07</span><h2>Questions institutes ask us.</h2></div>
+      <div class="faq">
+        <details>
+          <summary>Is this AI-generated content?</summary>
+          <div class="a">
+            <p>The passages are produced by a generation engine we built — and that is precisely
+            why they can be audited. A human writer cannot prove that their fifteenth passage
+            is structurally unlike their first; our system proves it on nine channels, for
+            every set, against your full delivery history.</p>
+            <p>What no set ever is: raw generator output. Every set passes an independent
+            blind-solve check, an editorial rubric, and senior VARC faculty review before it
+            reaches you. The blind audition above exists because we're confident in the result.</p>
+          </div>
+        </details>
+        <details>
+          <summary>What happens if our faculty dispute an answer key?</summary>
+          <div class="a">
+            <p>Every key is independently blind-solved before delivery, and rationales name the
+            exact misreading each wrong option targets — so most disputes resolve on reading
+            the rationale. Where a reading is genuinely defensible, we rebuild the question
+            within the 72-hour SLA rather than argue. Disputed sets are replaced, not defended.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Who owns the content we receive?</summary>
+          <div class="a">
+            <p>You receive an exclusive licence for your delivered sets — no other client ever
+            receives them, nor any set built on the same argumentative skeleton. We retain the
+            underlying structural system and audit metadata; that is what makes the exclusivity
+            guarantee enforceable.</p>
+          </div>
+        </details>
+        <details>
+          <summary>Which exams do you cover?</summary>
+          <div class="a">
+            <p>The engine is calibrated for CAT-level VARC today — passage length, question
+            styles, and difficulty tiers are tuned to it. CLAT, OMET, and GRE-style variants
+            are available on request; the structural system is exam-agnostic.</p>
+          </div>
+        </details>
+        <details>
+          <summary>How quickly can a mock series be delivered?</summary>
+          <div class="a">
+            <p>Standard cadence is weekly delivery batches against your mock calendar. A complete
+            10-mock VARC series is delivered within one month of calibration — we lock passage
+            lengths, difficulty curves, and format to your paper pattern in the first week.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="contact" id="contact">
+    <div class="shell">
+      <div class="contact-grid">
+        <div>
+          <h2>Start with the audit — it costs you five minutes.</h2>
+          <p class="prose">
+            Send 6–10 RC sets from your current mock series. Within 48 hours you'll have a
+            structural repetition report showing exactly what your repeat-takers have already
+            learned to exploit. No commitment, and the report is yours either way.
+          </p>
+          <p class="prose" style="margin-top:14px">
+            We take on a limited number of institutes per category and city — the exclusivity
+            guarantee depends on it.
+          </p>
+          <div class="cta-row" style="margin-top:26px">
+            <a class="btn" href="mailto:coolcresent1@gmail.com?subject=Structural%20audit%20request">Request the free audit</a>
+          </div>
+        </div>
+        <div class="contact-box">
+          <span class="k">Who runs this</span>
+          <p><b>Blueprint Psychometrics</b> is built and operated by Ansh Upadhyay — a
+          quantitative analyst — with senior VARC faculty holding final editorial authority
+          on every delivered set.</p>
+          <p>Mumbai, India<br>
+          <a href="mailto:coolcresent1@gmail.com">coolcresent1@gmail.com</a></p>
+          <p style="margin:0; color:var(--muted); font-size:0.82rem">Replies within one working day.</p>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <span>BLUEPRINT PSYCHOMETRICS · STRUCTURAL CONTENT RESEARCH</span>
+        <span>MUMBAI · EST. 2026</span>
+      </div>
+    </div>
+  </section>
+</main>
+</body>
+</html>
