@@ -246,6 +246,12 @@ inherited from the passage's architecture — designed, not sprinkled on.
    allowed; systematic "longest = right" is blocked. (This is the safeguard you
    asked about; the corpus-wide trend is visible in `health`.)
 
+   The thesis slot also has a **corpus budget**: over the trailing keyed sets,
+   the thesis question's correct option may be the strictly longest in at most
+   **1 in 3** (`config.THESIS_LONGEST_WINDOW/MAX`). Exceeding it raises a corpus
+   flag in generation, `vet`, and `health`, and the question prompt instructs
+   the model to keep the thesis answer off the longest position outright.
+
 ---
 
 ## 7. GATE C — Full novelty (`novelty.py`, free)

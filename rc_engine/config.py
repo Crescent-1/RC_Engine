@@ -253,6 +253,15 @@ MIN_COMPOSITE_NOVELTY = 0.35
 COMPLIANCE_F1_THRESHOLD = 0.75
 JUDGE_SCORE_THRESHOLD = 7.0
 
+# Thesis-question length tell: the thesis slot is the most exploitable place
+# for a "longest option = right" heuristic, so beyond the per-set rule (any
+# thesis-longest set routes to needs_review / vet warning) there is a corpus
+# budget: over the trailing THESIS_LONGEST_WINDOW keyed sets, at most
+# THESIS_LONGEST_MAX may have the correct thesis option strictly longest
+# (i.e. no more than 1 in 3). Breaches surface as corpus flags.
+THESIS_LONGEST_WINDOW = 9
+THESIS_LONGEST_MAX = 3
+
 EMBED_MODEL_NAME = "BAAI/bge-small-en-v1.5"
 
 # Seedless mode: domains the refiner may invent topics within.

@@ -147,8 +147,11 @@ class RCPipeline:
 
         # ---- Gate C: full novelty ------------------------------------------
         fp = extract_fingerprint(rc_id, bp, passage, realized, qdata, embed=self.embed)
-        # record the length-bias stat on the fingerprint so `health` can trend it
+        # record the length-bias stats on the fingerprint so `health` can trend
+        # them; _thesis_longest is keyed only when the set has a thesis slot
         fp.stylometry["_correct_longest_count"] = length_bias["correct_longest_count"]
+        if length_bias["has_thesis_question"]:
+            fp.stylometry["_thesis_longest"] = 1 if length_bias["thesis_correct_longest"] else 0
         _inject_posture(fp)
         report = self.novelty.score(fp, bp_sims, include_question_channels=True)
         self.history.record_novelty_audit(bp.blueprint_id, rc_id, report.channel_scores,

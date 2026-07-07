@@ -29,6 +29,8 @@ DISTRACTOR RULES:
   be conceptual, not lexical.
 - All four options in a question: same register, parallel grammar, word counts within
   a spread of 8 words (longest at most 1.25x the shortest).
+- In thesis/main-point slots the correct option must NOT be the longest of the four:
+  write at least one wrong option with more words than the correct one.
 - Correct options must not be systematically the most hedged; in at least 2 questions
   phrase the correct option more flatly than its strongest distractor.
 - Application slots require a genuinely NEW scenario, not a paraphrase.
@@ -255,6 +257,8 @@ def length_bias_report(qdata: dict) -> dict:
         "warnings": warnings,
         "correct_longest_count": correct_longest_count,
         "thesis_correct_longest": thesis_correct_longest,
+        "has_thesis_question": any(q.get("slot_type") == "thesis"
+                                   for q in qdata["questions"]),
         "correct_length_ranks": ranks,
         # systematic within-set bias that should block auto-approval
         "biased": correct_longest_count > CORRECT_LONGEST_MAX or thesis_correct_longest,
