@@ -361,6 +361,7 @@ def cmd_health(args) -> int:
     lb_vals = []
     posture_counts: dict[str, int] = {}
     aph_keyed, aph_true = 0, 0
+    th_keyed, th_true = 0, 0
     for fp in history.fingerprint_window(window):
         v = fp.stylometry.get("_correct_longest_count")
         if isinstance(v, (int, float)):
@@ -371,6 +372,10 @@ def cmd_health(args) -> int:
         if a is not None:
             aph_keyed += 1
             aph_true += 1 if a else 0
+        t = fp.stylometry.get("_thesis_longest")
+        if t is not None:
+            th_keyed += 1
+            th_true += 1 if t else 0
     lb_mean = sum(lb_vals) / len(lb_vals) if lb_vals else None
     lb_rate = (lb_mean / 6) if lb_mean is not None else None
 
@@ -385,6 +390,10 @@ def cmd_health(args) -> int:
     else:
         print(f"  correct-is-longest:            no engine-generated sets yet "
               f"(legacy fingerprints don't carry this stat)")
+    if th_keyed:
+        print(f"  thesis-longest:                {th_true}/{th_keyed} keyed sets "
+              f"(budget: at most {config.THESIS_LONGEST_MAX} in "
+              f"{config.THESIS_LONGEST_WINDOW})")
     print(f"  family usage: {dict(sorted(fam_counts.items()))}")
     print(f"  closing postures (realized): {dict(sorted(posture_counts.items()))}")
     src_counts = dict(history.conn.execute(
@@ -428,6 +437,14 @@ def cmd_export(args) -> int:
 # ---------------------------------------------------------------------------
 
 _MECH_LINE = re.compile(r"(?m)^\s*\(([A-D])\)\s*([a-z][a-z_]{2,40})\s*[—\-–:]")
+
+# Manual sets carry no slot types; the thesis question is identified by stem
+# so the thesis-specific length rule and its 1-in-3 corpus budget apply.
+_THESIS_STEM = re.compile(
+    r"(?i)central\s+(?:thesis|claim|argument|idea|point)"
+    r"|main\s+(?:point|idea|argument|claim|thesis)"
+    r"|primary\s+(?:purpose|argument|claim|thesis)"
+    r"|passage'?s\s+thesis|overall\s+argument|principal\s+claim")
 
 
 def _parse_rc_txt(text: str) -> dict:
@@ -511,10 +528,15 @@ def cmd_vet(args) -> int:
             if letters[i] == letters[i + 1] == letters[i + 2]:
                 warnings.append(f"letter {letters[i]} correct 3x in a row")
                 break
+    lb = None
     if (letters and len(letters) == len(questions)
             and all(len(q["options"]) == 4 for q in questions)):
         for q, letter in zip(questions, letters):
             q["correct"] = letter
+        for q in questions:
+            if _THESIS_STEM.search(q["stem"]):
+                q["slot_type"] = "thesis"
+                break
         lb = length_bias_report({"questions": questions})
         warnings += [f"length bias: {w}" for w in lb["warnings"]]
 
@@ -530,6 +552,10 @@ def cmd_vet(args) -> int:
         source="manual")
     if parsed["posture"]:
         fp.stylometry["_closing_posture"] = parsed["posture"]
+    if lb is not None:
+        fp.stylometry["_correct_longest_count"] = lb["correct_longest_count"]
+        if lb["has_thesis_question"]:
+            fp.stylometry["_thesis_longest"] = 1 if lb["thesis_correct_longest"] else 0
     report = NoveltyScorer(history).score(fp, {},
                                           include_question_channels=bool(questions))
 

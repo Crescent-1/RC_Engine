@@ -219,6 +219,21 @@ class NoveltyScorer:
             if n_aph >= config.APHORISM_FLAG_MIN:
                 flags.append(f"aphorism endings: {n_aph}/{len(keyed)} of trailing "
                              f"{len(keyed)} keyed sets")
+
+        # thesis-longest budget: the candidate's thesis answer is the strictly
+        # longest option AND the trailing window is already at its 1-in-3 cap
+        if fp.stylometry.get("_thesis_longest"):
+            th_keyed = [w for w in self.history.fingerprint_window(
+                            config.THESIS_LONGEST_WINDOW * 3)
+                        if w.rc_id != fp.rc_id
+                        and w.stylometry.get("_thesis_longest") is not None]
+            th_keyed = th_keyed[:config.THESIS_LONGEST_WINDOW - 1]
+            n_th = 1 + sum(1 for w in th_keyed if w.stylometry["_thesis_longest"])
+            if n_th > config.THESIS_LONGEST_MAX:
+                flags.append(
+                    f"thesis-longest budget: {n_th}/{len(th_keyed) + 1} recent keyed "
+                    f"sets (max {config.THESIS_LONGEST_MAX} in "
+                    f"{config.THESIS_LONGEST_WINDOW})")
         return flags
 
 
