@@ -1,0 +1,49 @@
+# Reading Comprehension
+
+The standard story about how institutions earn trust runs through transparency. Make procedures visible, publish the criteria, expose the reasoning, and suspicion dissolves; what people fear is the hidden hand, the deliberation they cannot see. On this account trust is a residue of information, and its enemy is opacity. There is something to this. Bureaucracies that refuse to explain themselves do breed the paranoia they claim to be above.
+
+But the account mistakes a symptom for a cause. What actually reassures people is not that they can see how a decision was made, but that they believe they *could* if they wished — a belief most of them will never test. The auditability matters more than the audit. Transparency, in practice, functions less as a channel of information than as a standing promise that the channel exists, and the promise does most of the work while the channel stays mostly empty.
+
+This is where the naive reading collapses.
+
+Because once transparency becomes a promise rather than a practice, it can be manufactured. An institution can flood its public with disclosures — dashboards, reports, open datasets, real-time metrics — none of which anyone reads, and by the sheer volume of the offer produce the sensation of accountability without any of its substance. The more that is shown, the less any particular thing is examined; visibility saturates into noise. Here the sociologists of ritual are useful. What is enacted in these performances is not the transfer of knowledge but the affirmation of a relationship: *we are the kind of institution that shows, you are the kind of public that could look.* The content is almost beside the point. A misleading annual report, dense enough, can inspire more confidence than a candid two-line admission, precisely because its density signals the willingness to be seen.
+
+So transparency reassures by being available, not by being used — and its availability can be faked.
+
+That seems to hand the game to the cynics, for whom disclosure is theatre and trust a managed illusion. Yet the cynical reading overreaches in its own way. It assumes the public is merely duped, when in fact the arrangement is closer to a tacit contract that both sides understand and neither names. Citizens are not fooled into believing the reports are read; they participate in a fiction whose usefulness does not depend on anyone mistaking it for fact. The ritual works *because* it is recognized as ritual — a shared agreement to behave as though verification were ongoing, which frees everyone from the unbearable cost of verifying anything. To call this a deception is to miss that the parties are collaborators, not dupes and dupers.
+
+But collaboration is not the same as consent, and this is what unsettles the tidy picture. A fiction sustained by mutual convenience remains a fiction, and it can be broken — not by exposing hidden facts, since the facts were never hidden, but by someone declining to keep playing, by a single insistence that the channel actually be used. What such a person discovers is rarely a scandal. It is usually an absence: the machinery of accountability, examined closely, turning out to have been decorative all along. And the strange thing is how little this discovery changes, and how quickly the others look away.
+
+---
+
+## Questions
+
+**Q1. Which of the following best captures the central thesis of the passage?**
+
+(A) Institutional trust rests not on the actual use of transparency but on a mutually maintained fiction of its availability, an arrangement that is neither straightforward deception nor genuine accountability and that remains quietly precarious.
+
+(B) Transparency fails to generate trust because institutions manufacture disclosures that no one reads, and this manipulation exposes the public as fundamentally credulous participants in a managed illusion.
+
+(C) The visibility of institutional procedures is the true foundation of public trust, and paranoia arises whenever bureaucracies conceal their deliberations from the citizens they serve.
+
+(D) Since accountability is inherently theatrical, institutions should abandon the pretense of transparency and acknowledge that trust is sustained entirely through ritual performance rather than information.
+
+**Q2. The reference to "the sociologists of ritual" primarily serves to:**
+
+(A) provide empirical support for the claim that transparency dashboards are technically useless as sources of information.
+
+(B) reframe manufactured disclosure as relationship-affirmation rather than information-transfer, enabling the later move that the public is a collaborator rather than a dupe.
+
+(C) introduce a competing academic discipline in order to discredit the earlier information-based account of trust.
+
+(D) establish that institutions consciously design their reports to be too dense for the public to comprehend.
+
+**Q3. In context, the phrase "the machinery of accountability... turning out to have been decorative all along" most nearly means that:**
+
+(A) the accountability mechanisms were deliberately hidden from public view to protect institutional secrets.
+
+(B) the apparatus, when finally used, is found to perform no real verifying function, having existed only to be seen and not operated.
+
+(C) the accountability systems were destroyed by the person who insisted on using them.
+
+(D) the reports and dashboards contained falsified data that misled anyone who examined them.

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ansh Upadhyay — Data & GenAI Engineering</title>
+<meta name="description" content="Ansh Upadhyay — Data analytics and GenAI engineering. Production LLM pipelines, BigQuery, evaluation systems. Mumbai, India.">
+<style>
+  :root {
+    --bg: #0b0f14;
+    --surface: #111823;
+    --surface-2: #16202e;
+    --border: #223047;
+    --text: #dbe4f0;
+    --muted: #8296b0;
+    --accent: #4da3ff;
+    --accent-2: #7ee0c3;
+    --mono: "Cascadia Code", "JetBrains Mono", Consolas, monospace;
+    --sans: "Segoe UI", system-ui, -apple-system, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: var(--sans); line-height: 1.6; }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  .wrap { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+
+  nav {
+    position: sticky; top: 0; z-index: 10;
+    background: rgba(11,15,20,0.85); backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  nav .wrap { display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  nav .logo { font-family: var(--mono); font-size: 0.95rem; color: var(--accent-2); }
+  nav ul { display: flex; gap: 22px; list-style: none; }
+  nav ul a { color: var(--muted); font-size: 0.9rem; }
+  nav ul a:hover { color: var(--text); text-decoration: none; }
+
+  header { padding: 90px 0 70px; }
+  .kicker { font-family: var(--mono); color: var(--accent-2); font-size: 0.9rem; margin-bottom: 14px; }
+  h1 { font-size: clamp(2.2rem, 6vw, 3.4rem); line-height: 1.1; letter-spacing: -0.5px; }
+  .tagline { font-size: clamp(1.05rem, 2.5vw, 1.3rem); color: var(--muted); margin-top: 16px; max-width: 640px; }
+  .tagline strong { color: var(--text); font-weight: 600; }
+  .cta-row { margin-top: 30px; display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn {
+    display: inline-block; padding: 10px 20px; border-radius: 8px;
+    font-size: 0.92rem; font-weight: 600; border: 1px solid var(--border);
+    color: var(--text); transition: all 0.15s;
+  }
+  .btn:hover { text-decoration: none; border-color: var(--accent); transform: translateY(-1px); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: #08111c; }
+  .btn.primary:hover { filter: brightness(1.1); }
+
+  section { padding: 56px 0; border-top: 1px solid var(--border); }
+  h2 { font-size: 1.5rem; margin-bottom: 8px; }
+  h2::before { content: "// "; color: var(--accent-2); font-family: var(--mono); font-size: 1.1rem; }
+  .section-sub { color: var(--muted); margin-bottom: 32px; font-size: 0.95rem; }
+
+  .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; margin: 28px 0; }
+  .stat {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 16px; text-align: center;
+  }
+  .stat .num { font-family: var(--mono); font-size: 1.5rem; color: var(--accent); font-weight: 700; }
+  .stat .lbl { font-size: 0.78rem; color: var(--muted); margin-top: 4px; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
+    padding: 28px; margin-bottom: 20px;
+  }
+  .card h3 { font-size: 1.15rem; margin-bottom: 2px; }
+  .card .meta { font-family: var(--mono); font-size: 0.8rem; color: var(--accent-2); margin-bottom: 14px; }
+  .card ul { margin: 12px 0 0 18px; }
+  .card li { margin-bottom: 9px; color: var(--text); font-size: 0.95rem; }
+  .card li::marker { color: var(--accent); }
+
+  .flow {
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+    font-family: var(--mono); font-size: 0.8rem; margin: 20px 0;
+  }
+  .flow .node {
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: 6px;
+    padding: 7px 12px; color: var(--text);
+  }
+  .flow .node em { color: var(--accent-2); font-style: normal; display: block; font-size: 0.7rem; }
+  .flow .arrow { color: var(--muted); }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+  .tag {
+    font-family: var(--mono); font-size: 0.75rem; padding: 4px 10px;
+    border-radius: 999px; background: var(--surface-2); border: 1px solid var(--border); color: var(--muted);
+  }
+
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+  .skill-card { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 20px; }
+  .skill-card h4 { color: var(--accent); font-size: 0.95rem; margin-bottom: 8px; }
+  .skill-card p { color: var(--muted); font-size: 0.88rem; }
+
+  .timeline .entry { display: grid; grid-template-columns: 150px 1fr; gap: 20px; margin-bottom: 30px; }
+  .timeline .when { font-family: var(--mono); font-size: 0.8rem; color: var(--muted); padding-top: 4px; }
+  .timeline h3 { font-size: 1.05rem; }
+  .timeline .org { color: var(--accent-2); font-size: 0.9rem; margin-bottom: 8px; }
+  .timeline p { color: var(--muted); font-size: 0.92rem; }
+
+  footer { border-top: 1px solid var(--border); padding: 48px 0 64px; }
+  footer .contact-row { display: flex; gap: 20px; flex-wrap: wrap; margin-top: 18px; font-size: 0.95rem; }
+  footer .fineprint { margin-top: 36px; color: var(--muted); font-size: 0.78rem; font-family: var(--mono); }
+
+  @media (max-width: 640px) {
+    nav ul { display: none; }
+    .timeline .entry { grid-template-columns: 1fr; gap: 4px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <span class="logo">ansh@mumbai:~$</span>
+    <ul>
+      <li><a href="#work">Flagship Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="wrap">
+  <div class="kicker">Data Analytics &middot; GenAI Engineering &middot; Mumbai, India</div>
+  <h1>Ansh Upadhyay</h1>
+  <p class="tagline">
+    I build <strong>production LLM systems with real evaluation and hard cost discipline</strong> —
+    on a foundation of 3+ years shipping ETL, regulatory reporting, and BI for banking &amp; insurance clients at EY.
+  </p>
+  <div class="cta-row">
+    <a class="btn primary" href="#work">See the flagship project</a>
+    <a class="btn" href="mailto:anshupadhyay1@hotmail.com">Email me</a>
+  </div>
+</header>
+
+<section id="work">
+  <div class="wrap">
+    <h2>Flagship: Structural-Novelty LLM Content Engine</h2>
+    <p class="section-sub">A commercial multi-stage generation pipeline delivering exam-grade CAT Reading Comprehension sets, weekly, under contract.</p>
+
+    <div class="stat-grid">
+      <div class="stat"><div class="num">12/wk</div><div class="lbl">sets delivered commercially</div></div>
+      <div class="stat"><div class="num">&gt;10<sup style="font-size:0.9rem">9</sup></div><div class="lbl">valid structural blueprints</div></div>
+      <div class="stat"><div class="num">9</div><div class="lbl">novelty-detection channels</div></div>
+      <div class="stat"><div class="num">$0.15</div><div class="lbl">typical unit cost, $0.30 hard cap</div></div>
+    </div>
+
+    <div class="card">
+      <h3>The problem no prompt can solve</h3>
+      <p class="meta">why this needed engineering, not prompting</p>
+      <p>After a few hundred generated passages, students detect <em>structural</em> repetition — argumentative rhythm, reversal timing, question logic — long before any embedding-similarity check fires. Fixed prompts guarantee this failure: every output is the same essay wearing a different topic.</p>
+      <ul>
+        <li><strong>Structure as a sampled variable, not a prompt constant.</strong> A deterministic composer samples blueprints from combinatorial component libraries (32 argument families; 20 each of personas, endings, rhythms, revelation patterns, distractor profiles, question topologies) under exclusion windows, usage-decay weighting, and named compatibility rules.</li>
+        <li><strong>Cost-tiered multi-model orchestration.</strong> Claude Opus renders passages, Sonnet refines blueprints and adversarially blind-solves the questions, Haiku audits structural compliance and judges against blueprint-derived rubrics. A pre-call cost ledger makes overspend impossible by construction.</li>
+        <li><strong>A 9-channel novelty auditor.</strong> Levenshtein over paragraph-function strings, DTW on authorial commitment curves, Burrows' Delta stylometry, Jensen–Shannon divergence on distractor mechanisms, &chi;&sup2; answer-pattern tests, embedding cosine — semantics is deliberately just one channel of nine.</li>
+        <li><strong>Evaluation gates before spend.</strong> Cheap local checks run before expensive API calls; failed structure triggers targeted regeneration directives, not full re-runs. Full audit trail in SQLite: blueprints, fingerprints, novelty scores, per-call spend, corpus-health drift monitoring.</li>
+      </ul>
+
+      <div class="flow">
+        <span class="node">compose<em>local · free</em></span><span class="arrow">→</span>
+        <span class="node">refine<em>Sonnet</em></span><span class="arrow">→</span>
+        <span class="node">render<em>Opus</em></span><span class="arrow">→</span>
+        <span class="node">compliance<em>Haiku</em></span><span class="arrow">→</span>
+        <span class="node">novelty gate<em>local · free</em></span><span class="arrow">→</span>
+        <span class="node">questions<em>Opus</em></span><span class="arrow">→</span>
+        <span class="node">blind solver<em>Sonnet</em></span><span class="arrow">→</span>
+        <span class="node">judge<em>Haiku</em></span>
+      </div>
+
+      <div class="tags">
+        <span class="tag">Python</span><span class="tag">Anthropic Claude API</span><span class="tag">RAG · ChromaDB</span>
+        <span class="tag">bge-small embeddings</span><span class="tag">LLM-as-judge</span><span class="tag">SQLite</span>
+        <span class="tag">stylometry</span><span class="tag">DTW</span><span class="tag">cost governance</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience">
+  <div class="wrap">
+    <h2>Experience</h2>
+    <p class="section-sub">Banking-grade data engineering, then LLM systems on top of it.</p>
+    <div class="timeline">
+      <div class="entry">
+        <div class="when">2026 — present</div>
+        <div>
+          <h3>AI Engineer — LLM Content Pipeline (Freelance)</h3>
+          <div class="org">CAT Test-Prep Institute · contract</div>
+          <p>Designed, built, and operate the structural-novelty engine above. Reduced a full-time content-writing workload to ~2 hours/day of review and curation while meeting a 12-set weekly commercial quota.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">2023 — 2026</div>
+        <div>
+          <h3>Associate Consultant — Data Analytics</h3>
+          <div class="org">Ernst &amp; Young India LLP · Mumbai</div>
+          <p>End-to-end analytics workstreams for banking and insurance clients: ETL pipelines with incremental/full-load refresh and fact/dimension modelling (BigQuery SQL, Python, Airflow), regulatory reporting automation at daily/fortnightly/monthly cadence, Power BI delivery, and fuzzy-matching automation that cut manual data-cleaning effort ~40%.</p>
+        </div>
+      </div>
+      <div class="entry">
+        <div class="when">key projects</div>
+        <div>
+          <h3>Regulatory Reporting Automation — HSBC India</h3>
+          <div class="org">BigQuery SQL · Apache Airflow</div>
+          <p>Automated ETL for critical banking regulatory reports: business-logic mapping, KPI fact/dimension models, incremental loads, and data-lineage analysis across customer, account, and risk-categorisation data.</p>
+          <h3 style="margin-top:18px">Policy Reporting Automation — ABSLI</h3>
+          <div class="org">SQL Server · Power BI</div>
+          <p>SQL-based automated policy reporting (~80% efficiency gain, zero manual transformation errors) with dashboards for policy performance and compliance status.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <h2>Skills</h2>
+    <p class="section-sub">The uncommon combination: production data engineering + LLM evaluation + statistics.</p>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h4>GenAI &amp; LLM Engineering</h4>
+        <p>Claude API (Opus/Sonnet/Haiku), multi-stage pipeline orchestration, RAG, prompt engineering, structured generation, LLM-as-judge &amp; adversarial-solver evaluation, inference cost governance</p>
+      </div>
+      <div class="skill-card">
+        <h4>Similarity &amp; Evaluation Methods</h4>
+        <p>Embedding cosine, Burrows' Delta stylometry, Levenshtein/DTW distances, Jensen–Shannon divergence, &chi;&sup2; &amp; runs tests, KL-drift monitoring</p>
+      </div>
+      <div class="skill-card">
+        <h4>Data Engineering &amp; Query</h4>
+        <p>SQL (BigQuery, PL/SQL, SQL Server), Python (pandas, NumPy), ETL / Apache Airflow, SQLite, data lineage &amp; quality frameworks</p>
+      </div>
+      <div class="skill-card">
+        <h4>BI &amp; Analytics</h4>
+        <p>Power BI, Excel (advanced), data modelling, KPI design, segmentation, predictive modelling concepts, benchmarking</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <h2>Contact</h2>
+    <p class="section-sub">Open to AI engineering and applied-GenAI roles.</p>
+    <div class="contact-row">
+      <a href="mailto:anshupadhyay1@hotmail.com">anshupadhyay1@hotmail.com</a>
+      <span style="color:var(--muted)">·</span>
+      <a href="tel:+917415444058">+91 74154 44058</a>
+      <span style="color:var(--muted)">·</span>
+      <span style="color:var(--muted)">Mumbai, India</span>
+    </div>
+    <div class="contact-row">
+      <a href="#" title="add your LinkedIn URL">LinkedIn</a>
+      <span style="color:var(--muted)">·</span>
+      <a href="#" title="add your GitHub URL">GitHub</a>
+    </div>
+    <p class="fineprint">B.Tech CS, LNCT Bhopal (2019–23) · built with plain HTML/CSS — no framework, loads in one request</p>
+  </div>
+</footer>
+
+</body>
+</html>

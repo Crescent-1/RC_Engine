@@ -1,0 +1,55 @@
+# CAT-Style Reading Comprehension
+
+**Domain: Sociology of Institutions / Modernity**
+
+---
+
+## Passage
+
+We tend to imagine that institutions fail when they stop working, but the more troubling possibility is that they fail precisely by continuing to work — flawlessly, indefinitely, long after the conditions that justified them have dissolved. A bureaucracy designed to ration scarce goods does not sense the arrival of abundance; it goes on rationing. This is not incompetence. It is the opposite. The machinery performs exactly as specified, and its very reliability becomes the mechanism of its irrelevance.
+
+The standard diagnosis blames rigidity. On this view, institutions ossify because rules, once written, resist rewriting, and the people who administer them acquire a stake in their perpetuation. There is something to this. But the account is too flattering to us, because it implies that a more supple, more self-aware organization could have avoided the trap by staying alert to change.
+
+That reassurance does not survive scrutiny.
+
+The deeper difficulty is that an institution cannot register a change it was not built to perceive. Every organization encodes, in its routines and its categories, a theory of what matters — and that theory functions as a set of blinders as much as a set of lenses. The census that counts households cannot see the people who have no household. The performance metric that rewards throughput cannot detect the value that throughput destroys. What looks like willful blindness is frequently structural: the institution is not ignoring the signal; the signal never becomes information, because nothing in its apparatus is configured to receive it. Reform efforts that assume bad faith therefore misfire, since they attack a motive where the problem is a perceptual boundary. And here the rigidity thesis quietly inverts — the flexible, responsive organization is not the cure but a more dangerous case, because its responsiveness is calibrated only to the signals it can already read, and its confidence in its own adaptiveness makes it slower to suspect that whole domains of relevance lie outside its instruments.
+
+So perhaps the answer is to build institutions that continually revise their own categories.
+
+But an institution that endlessly questions its own categories cannot act, because action requires treating some description of the world as settled long enough to operate on it. The capacity to perceive and the capacity to perform stand in a relation of mutual obstruction: to see more is to hesitate longer, and to act decisively is to have foreclosed most of what might be seen. This is not a problem awaiting a clever design solution. It is a constitutive tension. Any institution that resolves it in favor of perception dissolves into a permanent seminar; any that resolves it in favor of action hardens into the very apparatus whose obsolescence we began by describing.
+
+What follows is uncomfortable. The failures we attribute to particular institutions — their cruelties, their absurdities, their persistence past all reason — may not be defects at all, but the price of institutional existence as such. There is no vantage from which an organization sees the world whole and still manages to move through it. We keep looking for the well-designed institution, the one that stays awake. It may be that wakefulness and function are simply not available at the same time, and that everything we call institutional pathology is only this trade-off, viewed after the fact, once we have decided which of the two we were willing to lose.
+
+---
+
+## Questions
+
+**Q1. Which of the following best captures the central thesis of the passage?**
+
+(A) Institutions fail chiefly because rules resist revision and administrators acquire vested interests in perpetuating them, and this rigidity can be mitigated only by cultivating self-aware, adaptive organizations.
+
+(B) Institutional dysfunction is less a remediable defect than a constitutive consequence of an unavoidable trade-off between an organization's capacity to perceive relevant change and its capacity to act.
+
+(C) The most dangerous institutions are the flexible and responsive ones, because their confidence in their own adaptiveness blinds them to domains of relevance lying beyond their existing instruments.
+
+(D) Because institutions encode theories of what matters that later become perceptual blinders, the remedy is to design organizations that continually revise their own categories in response to change.
+
+**Q2. The sentence "That reassurance does not survive scrutiny," standing alone as a paragraph, primarily functions to:**
+
+(A) concede that the rigidity thesis contains a partial truth before the passage extends it further.
+
+(B) mark the point at which the author abandons diagnosis in favor of prescription.
+
+(C) reject a consoling implication of the preceding account and pivot toward a more structural analysis.
+
+(D) summarize the failure of reform efforts that mistakenly assume bad faith on the part of institutions.
+
+**Q3. In context, the claim that for an institution "the signal never becomes information" most nearly means that:**
+
+(A) the institution suppresses inconvenient data because its administrators have a stake in the status quo.
+
+(B) the relevant change occurs but the institution lacks any apparatus configured to render it perceptible as something to act on.
+
+(C) the institution receives the data but deprioritizes it relative to signals that its metrics reward more highly.
+
+(D) the information exists but is distorted as it passes through the institution's rigid and outdated categories.

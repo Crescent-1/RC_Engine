@@ -1,0 +1,149 @@
+# RC Set — Philosophy of Science / Epistemology
+
+## Passage
+
+Ask a defender of science why the rest of us should believe it, and the answer arrives with the confidence of catechism: the method. Hypotheses are tested, errors exposed, conclusions revised; whatever survives this gauntlet earns our assent. The trouble is that historians and philosophers who went looking for the method found instead a sprawl of practices — modelling, field observation, statistical inference, simulation — sharing no common logical core. Worse, the episodes we most admire, from continental drift to the germ theory's slow victory, frequently violated whatever canons methodologists had drawn up in advance. Method-talk, it began to seem, was less a description of science than a piece of its public relations.
+
+The influential corrective relocates authority from procedure to community. What makes a scientific claim trustworthy, on this view, is not that any individual followed rules but that the claim survived organized scrutiny: venues for criticism, uptake of objections, shared standards, a rough equality among qualified critics. Objectivity becomes an emergent property of a well-ordered social system, not a virtue of solitary minds. This is a genuinely different picture, and it explains things the method story cannot — why peer review matters, why fraud is a social crime before it is a logical one, why a lone genius's unvetted claim carries less warrant than a boring consensus. Notice, though, what the account quietly concedes at the global level even as it triumphs locally: if trustworthiness lives in the social process, then the process itself becomes the thing that must be trusted, and the question we started with has not been answered so much as moved.
+
+Moved, and arguably made harder.
+
+For the layperson who could not audit the method can audit the community even less. From the outside, a consensus produced by vigorous mutual criticism and a consensus produced by shared training, career incentives, and the quiet exile of dissenters look identical: both present a unified front and denounce the same heretics. The social account tells us which features of a community make its agreements reliable, but those features are legible chiefly to insiders — which means the account, offered as an answer to the public, functions instead as reassurance addressed to those who least need it. Nor can we simply demand transparency; a community that performed all its disagreements in public would be paralyzed, and one that resolved them privately looks, from the cheap seats, like a guild.
+
+One response is to stop treating public trust as a belief needing grounds and start treating it as reliance without recourse — closer to boarding an airplane than to accepting a proof. We do not audit the pilot; we inhabit an arrangement. But this deflation purchases peace at a strange price: reliance that cannot in principle be vindicated to the one relying is difficult to distinguish, from within, from dogma with better manners. The original question — why believe them? — may be malformed, resting on a picture of justification no institution could satisfy. Or it may be exactly the right question, one that our best philosophy of science has learned to reroute rather than face. It is unclear which reading is the more unsettling.
+
+*(~525 words)*
+
+---
+
+## Questions
+
+**Q1. Which of the following best captures the central argument of the passage?**
+
+(A) Because no unified scientific method exists and scientific communities are opaque to outsiders, public trust in science lacks any rational foundation and rests ultimately on institutional prestige.
+
+(B) The social account of objectivity successfully replaces the discredited methodological account, since it alone explains practices like peer review and the diminished warrant of unvetted individual claims.
+
+(C) Successive accounts of why science deserves public trust each relocate rather than answer the layperson's justificatory question, leaving unresolved whether that question is itself coherent or merely evaded.
+
+(D) Public trust in science should be reconceived as pragmatic reliance rather than grounded belief, since the demand for justification available to outsiders rests on a picture no institution could satisfy.
+
+**Q2. The analogy of boarding an airplane in the final paragraph is introduced primarily in order to:**
+
+(A) Demonstrate that everyday acts of trust are typically performed without rational grounds, thereby showing that the demand for justification in the scientific case applies a double standard.
+
+(B) Articulate a deflationary escape route from the justificatory problem so that its hidden cost — the internal indistinguishability of such reliance from dogma — can then be exposed.
+
+(C) Establish that trust in science is a species of trust in technical expertise generally, extending the passage's argument from scientific communities to all professionalized institutions.
+
+(D) Resolve the tension developed in the fourth paragraph by showing that legibility to outsiders was never a genuine requirement on trustworthy institutional arrangements.
+
+**Q3. The claim that the social account "functions instead as reassurance addressed to those who least need it" is best understood to mean that:**
+
+(A) Scientists, being institutionally secure, have grown complacent about defending their authority and offer the social account chiefly to congratulate themselves rather than to persuade.
+
+(B) The public requires far more elaborate reassurance than insiders do, and the social account fails because it underestimates how demanding lay audiences have become.
+
+(C) The account flatters laypeople by implying they could evaluate scientific communities if they wished, when in fact such evaluation requires credentials most will never acquire.
+
+(D) The criteria the account supplies for distinguishing reliable consensus can be applied only by insiders who already extend trust, so the account fails precisely as an answer to the audience it was meant for.
+
+**Q4. A central bank's monetary policy committee announces unanimous interest-rate decisions. Committee members insist their conclusions emerge from fierce internal debate; critics observe that all members trained in the same two doctoral programmes and that dissenting economists are rarely reappointed. Public confidence in the committee declines. Which mechanism from the passage best explains this decline?**
+
+(A) From an external vantage point, a consensus forged through genuine mutual criticism and a consensus produced by shared formation and the removal of dissenters present identical faces, so outsiders cannot credit the former interpretation over the latter.
+
+(B) Institutions that describe their conclusions as products of a rigorous method are engaged in public relations, since no common logical core underlies the varied practices such committees actually employ.
+
+(C) Public confidence in expert bodies is a form of reliance without recourse, and reliance of this kind erodes naturally once the public recognizes it can never be vindicated to those who extend it.
+
+(D) Fraud and manipulation are social crimes before they are logical ones, and the committee's reappointment practices constitute exactly the kind of social breach that dissolves warranted trust.
+
+**Q5. The passage's move from "the community's reliability-conferring features are legible chiefly to insiders" to "the social account fails as an answer to the public" depends on which unstated assumption?**
+
+(A) Laypeople lack the cognitive capacity to acquire the training that would render a scientific community's internal critical practices legible to them.
+
+(B) Scientific communities in practice tend to suppress dissent and enforce homogeneity, so their unified fronts are more often manufactured than earned.
+
+(C) A justification for trusting an institution must be assessable by those whose trust is being solicited, not merely exist as a fact about the institution.
+
+(D) Transparency about internal disagreement, if achieved, would allow outsiders to distinguish critically produced consensus from guild-produced consensus.
+
+**Q6. Which of the following best describes the author's stance across the passage?**
+
+(A) A skeptical debunking posture that uses the failures of successive justificatory accounts to withdraw rational warrant from public deference to scientific institutions.
+
+(B) An engaged but deliberately unresolved posture that presses each account of scientific trustworthiness to its limit and declines to adjudicate whether the underlying demand for justification is legitimate or malformed.
+
+(C) A measured defense of the social account of objectivity, acknowledging its incompleteness while treating it as the most defensible successor to discredited method-talk.
+
+(D) An ironic detachment toward philosophy of science, suggesting that its professional debates about trust are irrelevant to how publics actually form their allegiances.
+
+---
+
+## Why this RC is difficult
+
+### Hidden Structural Shifts
+- **Movement 1 (Para 1):** The methodological account is stated *and* demolished within a single paragraph. Readers who freeze here treat the passage as anti-science polemic.
+- **Movement 2 (Para 2):** The social account is presented with genuine warmth — its explanatory victories are real, not strawmen. The trap is that the paragraph's final sentence quietly withdraws what the paragraph seemed to grant: local success, global relocation of the problem. Readers who stop mid-paragraph believe the passage endorses this account. This paragraph rewards rereading: only after Para 4 does one see that its "triumph" was staged for demolition.
+- **Movement 3 (Para 3):** A six-word pivot. Its brevity is a structural signal that the corrective is about to be corrected — many readers skim past it and are disoriented by Para 4's reversal.
+- **Movement 4 (Para 4):** The conceptual reversal — the social account, invoked *to answer* the layperson, turns out to be addressed *away from* the layperson. This invalidates the naive reading of Para 2.
+- **Movement 5 (Para 5):** A candidate resolution (deflation to reliance) is floated and immediately destabilized. The final sentence refuses to rank the two remaining readings. Readers who anchor here mistake a tested-and-qualified option for the thesis.
+
+### Core Distractor Traps
+- **Q1(A):** exploits structural freezing at Para 1 plus over-extension ("no rational foundation" — the passage leaves this open).
+- **Q1(B)/(D):** exploit premature closure at Para 2 and late-stage anchoring at Para 5 respectively; (D) converts a floated-then-qualified proposal into an endorsement.
+- **Q2(A)/(D):** exploit misidentification of structural role — treating the analogy as an *argument* rather than a *tested escape route*, or as resolving what the passage deliberately leaves open.
+- **Q4(B)/(C):** half-truths — real mechanisms from the passage, wrongly matched to a scenario whose engine is external indistinguishability.
+- **Q5(B):** a claim the passage actively refuses to make (communities *look* identical from outside; the passage never asserts they *are* corrupt); **Q5(A)** imports a capacity claim the argument never needs.
+- **Q6(C):** attractive because Para 2 is genuinely sympathetic; it freezes the stance at the passage's midpoint.
+
+### Tonal Ambiguity
+The author's voice is neither prosecutorial nor defensive. Para 1 is wry ("public relations"), Para 2 is generous then subversive, Para 4 is sympathetic to laypeople and to scientists simultaneously ("a community that performed all its disagreements in public would be paralyzed"), and Para 5 ends by refusing to say which failure — the question's or philosophy's — is worse. The stance is dialectical suspension: every position is inhabited long enough to feel its force, then vacated.
+
+### Paragraph Function Matrix
+
+| Para | Surface Content | Actual Argumentative Work |
+|------|----------------|---------------------------|
+| 1 | The "method" answer and its collapse | Establishes the justificatory question; discredits Position 1; sets a wry register |
+| 2 | The social/communal account of objectivity | Builds Position 2 sympathetically, then plants the local/global distinction that undoes it |
+| 3 | "Moved, and arguably made harder." | Pivot; converts Para 2's closing concession into the new problem |
+| 4 | External indistinguishability of consensus types | The reversal: Position 2 fails *specifically as public justification*; blocks the transparency escape |
+| 5 | Deflation to reliance; final disjunction | Tests Position 3, exposes its cost, reopens the original question at a higher level; refuses closure |
+
+---
+
+## Answer Key & Elimination Logic
+
+**Q1 — Correct: (C).** The bridge: each paragraph enacts one relocation (method → community → reliance), and the final disjunction ("malformed... or exactly the right question") is held open. (C) alone integrates all three movements plus the unresolved ending.
+- (A) **Structural freezing + over-resolution:** anchors on Paras 1 and 4, then converts "outsiders cannot verify" into "no rational foundation exists" — a global verdict the passage explicitly suspends.
+- (B) **Premature closure / local-global confusion:** true of Para 2's local claims; falsified by that paragraph's own final sentence and everything after.
+- (D) **Late-stage anchoring + false synthesis:** promotes the tested deflationary option to a recommendation ("should be reconceived"), erasing the "dogma with better manners" objection.
+
+**Q2 — Correct: (B).** The bridge: the analogy's role is architectural — it makes the deflationary position vivid enough that its cost ("cannot in principle be vindicated to the one relying") lands with force. The analogy is scaffolding for a critique, not a conclusion.
+- (A) **Framework importation:** the passage never argues everyday trust is groundless or alleges a double standard; this imports an argument-from-parity the text doesn't run.
+- (C) **Scope distortion:** generalizes to "all professionalized institutions," a global extension the passage never makes.
+- (D) **Over-resolution / structural misidentification:** claims the analogy resolves Para 4's tension, when the passage immediately shows the resolution fails on its own terms.
+
+**Q3 — Correct: (D).** The bridge: the preceding clause — "those features are legible chiefly to insiders" — fixes the referent. Insiders can apply the reliability criteria; insiders already trust; hence the account reassures the trusting and bypasses the doubting. (D) tracks this inferential chain exactly.
+- (A) **Causal distortion:** relocates the failure in scientists' motives (complacency, self-congratulation); the passage diagnoses an audience problem, not an attitude problem.
+- (B) **Reversal of the point:** the issue is not the *quantity* of reassurance the public needs but the *inaccessibility* of the criteria offered; (B) inverts a legibility problem into a demandingness problem.
+- (C) **Plausible fabrication:** the passage never claims the account flatters laypeople or implies they could evaluate communities; this manufactures an implicature absent from the local context.
+
+**Q4 — Correct: (A).** The bridge: the scenario reproduces Para 4's mechanism precisely — insiders assert vigorous criticism, outsiders observe homogeneous formation and exiled dissenters, and the two hypotheses generate identical observable outputs (unanimity). Confidence declines because the benign reading cannot be externally credited.
+- (B) **Mechanism mismatch (half-truth):** the method-as-PR critique is real in the passage but the scenario's trigger is not method-talk; it is the opacity of the committee's social process.
+- (C) **Temporal misreading + over-resolution:** treats the passage's deflationary *proposal* as an established causal law about how confidence erodes; the passage floats reliance as a response, not a sociological mechanism.
+- (D) **Local-global confusion:** "fraud as a social crime" appears in Para 2 as an explanatory success of the social account; nothing in the scenario involves fraud, and reappointment practices are ambiguous by the passage's own logic — that ambiguity is the point (A) captures.
+
+**Q5 — Correct: (C).** The bridge: the inference "criteria legible only to insiders → account fails as public answer" is invalid unless justifications must be *assessable by the trust-giver*. If a justification's mere existence sufficed, insider-legible criteria would still justify public trust. (C) is the necessary connective premise — deny it and Para 4's conclusion collapses.
+- (A) **Over-strong importation:** the argument needs only that the criteria are *not currently* legible to laypeople, not that laypeople are constitutively incapable; an unnecessarily strong premise is not a required assumption.
+- (B) **Claim the passage actively withholds:** Para 4's argument runs on *indistinguishability*, not on the empirical assertion that suppression is the norm; assuming (B) would actually change the argument from epistemic to sociological.
+- (D) **Contradicted premise:** the passage forecloses the transparency route ("would be paralyzed"); the argument assumes transparency is *not* a viable discriminator, the opposite of (D).
+
+**Q6 — Correct: (B).** The bridge: the author grants each position its strongest form (Para 2's genuine explanatory victories; Para 5's genuine appeal of deflation) before qualifying it, and the closing sentence explicitly declines adjudication ("It is unclear which reading is the more unsettling"). This is engaged irresolution, not neutrality.
+- (A) **Over-resolution toward skepticism:** the passage never withdraws warrant from deference; it questions whether the *demand for grounds* is coherent — a different, more reflexive move.
+- (C) **Structural freezing at Para 2:** mistakes the passage's most sympathetic paragraph for its settled position, ignoring Paras 3–4's reversal.
+- (D) **Tonal misreading + scope inversion:** the passage treats the philosophical question as urgent enough to accuse philosophy of *rerouting* it; irony about the debate's irrelevance is the opposite of the closing charge.
+
+---
+
+[Inspired by: "Why Trust Science?", Naomi Oreskes (Princeton University Press / The Tanner Lectures), with conceptual debts to Helen Longino's "Science as Social Knowledge"]
