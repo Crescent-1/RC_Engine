@@ -1,0 +1,90 @@
+RC ID: RC_E_0706_1 | Tier: elite | Score: 8.8 | Status: approved | Compliance F1: 1.0 | Novelty: 0.843 | Generated: 2026-07-06T08:52:03.499904+00:00
+======================================================================
+
+[PASSAGE]
+
+Ask a chess grandmaster why she sacrificed the knight, and she will tell you a story. She saw the weakness on the long diagonal; she judged the initiative worth a piece; she trusted her opponent to flinch. It is a lovely story, and I have no wish to spoil the dinner by doubting it. The trouble is that the story explains too much and predicts too little. Give me a hundred grandmasters and a hundred such positions and I will show you the sacrifice appearing at roughly the same rate whether or not any particular player consulted the long diagonal at all. The reasons people offer are sincere, various, and beautifully articulated, and they float above the regularity like the smell of good cooking above a kitchen that would produce the same meal without it. I am not saying the players are lying. I am saying their reasons are a running commentary on a game whose moves were already constrained by the board. We reach, understandably, for the agent — the deliberating, choosing, reason-giving self — because that is who we can interview. The interview is charming. It is also, I suspect, the least reliable witness in the building, precisely because it is the one that always has something to say.
+
+So perhaps the thing to explain is not the chooser but the distribution of choices. Drop the interview. Watch the pattern instead.
+
+Consider markets. Consider queues. Consider birds. Prices settle. Lines find their length. Flocks bank as one. No bird decides the turn. Each obeys three dull local rules, and the elegance is the sum. The equilibrium needs no author. It needs only agents too simple to have a story.
+
+And here the neat picture buckles, which is the interesting part. For the equilibrium account, having banished the deliberating chooser, quietly smuggles back a chooser of its own — the system — and grants it exactly the coherence it denied the individual. The flock does not deliberate, true. But when I say the market "finds" a price or the queue "seeks" its length, I have not eliminated purpose; I have relocated it, from the visible agent I could interrogate to an invisible one I cannot. That is a strange trade for a skeptic to make. The local rule was innocent. The global claim is not, because the local rules were never asked to add up to a thing that wants. What the agency-talk loses is real: it treats the running commentary as the cause, and mistakes fluency for control. What the systems-talk cannot see is also real: at the level where the pattern lives, the deliberating self has vanished entirely, and with it any account of the one moment that will not average out — the move no distribution predicted, made by a player who, this once, meant it. Neither picture holds that moment. Both explain around it. I may be missing something, but I do not think either of them is looking where it fell.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central thesis of the passage?
+(A) The equilibrium account of behaviour is superior because it explains regularities without relying on the unreliable testimony of a deliberating self.
+(B) The reasons people give for their choices are lies dressed up as sincere, articulate, beautifully constructed narratives.
+(C) Human choices, like the movements of flocks and the settling of prices, are ultimately governed by simple local rules that need no author.
+(D) Both the agent-based and system-based accounts of behaviour fail at the same point: neither can explain the singular, unaveraged moment that no distribution predicts.
+
+Q2. What is the primary function of the chess grandmaster example in the opening paragraph?
+(A) It sets up the problem the passage will pursue: agents' offered reasons float above a regularity they do not actually cause.
+(B) It illustrates how expertise allows skilled players to articulate the true causal basis of their strategic decisions.
+(C) It demonstrates that grandmasters sacrifice pieces irrationally, since the move appears at the same rate regardless of their reasoning.
+(D) It establishes the author's settled conclusion that introspective self-report is the least reliable source of explanation for behaviour.
+
+Q3. In the final paragraph, the author writes that 'I do not think either of them is looking where it fell.' This phrase is best understood to mean:
+(A) The deliberating self is the thing that fell, and only agency-talk can recover it from where it was lost.
+(B) Both accounts search in the wrong place, leaving the decisive, un-averaged moment unexamined by either.
+(C) The systems account is closer to the truth because at least it looks at the pattern where behaviour actually lives.
+(D) The author has located the flaw both accounts share and now knows precisely where the correct explanation must lie.
+
+Q4. According to the passage, what specifically does the equilibrium account 'smuggle back' after banishing the deliberating chooser?
+(A) A chooser of its own — the system — granted the very coherence it had denied the individual.
+(B) The three dull local rules that each bird obeys when a flock banks as one.
+(C) The sincere and articulate reasons offered by individual agents when they are interviewed.
+(D) The unreliable interview, reinstated as the system's own running commentary on its behaviour.
+
+Q5. The author's charge that saying a market 'finds' a price 'relocates' purpose rather than eliminating it depends on which unstated assumption?
+(A) Local rules, when summed, are logically incapable of producing any coherent aggregate pattern whatsoever.
+(B) A genuine skeptic must reject all metaphorical language when describing collective behaviour.
+(C) Systems and individuals share the same underlying mechanism, so any explanation of one must apply to the other.
+(D) Words like 'finds' and 'seeks' carry attributions of purpose that survive being transferred from an individual to a system.
+
+Q6. Which best describes the author's intellectual posture across the passage?
+(A) A resigned relativist who concludes that no explanation of behaviour can ever be preferred to another.
+(B) A partisan of systems thinking who exposes the naivety of agency-talk while defending the equilibrium view.
+(C) A skeptic who dismantles two rival explanations yet admits neither he nor they can capture the moment that matters.
+(D) A confident theorist who, having rejected both accounts, has begun constructing a third and better one.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — Integrates the full movement — the critique of agency-talk (para 1), the systems alternative (para 3), and the closing recognition that both 'explain around' the one moment that will not average out.
+  (A) scope_inflation — Treats the rehearsed rival position (para 3's systems view) as the endorsed answer, but para 4 shows the author faulting it for smuggling back a chooser.
+  (B) straw_version — Contradicts 'I am not saying the players are lying'; the author calls reasons sincere but non-causal, not deceptive.
+  (C) half_truth — Adopts the systems-talk's global conclusion, which the passage explicitly criticizes in para 4 for relocating rather than eliminating purpose.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The example is a launching device — it introduces the running-commentary problem that the whole passage develops, not a settled verdict about chess.
+  (B) stance_misread — Inverts the point: the author calls articulate reasons commentary that 'mistakes fluency for control,' not access to the true cause.
+  (C) causal_inversion — The regularity shows reasons don't drive the move, not that the move is irrational; the author never calls the sacrifice a mistake.
+  (D) half_truth — Mistakes the opening framing for the final thesis; para 4 complicates this by faulting the systems alternative too, so it is not the settled conclusion.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The 'it' is the one moment that 'will not average out'; the sentence extends the diagnosis that both pictures 'explain around' it rather than closing the gap.
+  (A) half_truth — Distorts the closing image: what 'fell' is the singular moment, and agency-talk is faulted for mistaking commentary for cause, not vindicated.
+  (C) false_symmetry — Breaks the deliberate symmetry — the author says 'neither picture holds that moment,' declining to rank the two accounts.
+  (D) premature_closure — Overstates resolution; 'I may be missing something' and the widening aperture signal an unresolved search, not a found answer.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Para 4 states the account 'quietly smuggles back a chooser of its own — the system — and grants it exactly the coherence it denied the individual.'
+  (B) category_slip — Confuses the innocent local rule with the smuggled item; the text says 'the local rule was innocent,' the global claim is what smuggles.
+  (C) adjacent_answer — Pulls from para 1's agency material; the smuggled thing is purpose relocated to the system, not the individual's reasons.
+  (D) terminological_twin — Fuses two distinct devices; the system is granted purpose/coherence, not a commentary or interview.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The move only works if purpose-laden verbs at the global level genuinely import agency; otherwise the relocation charge collapses into harmless metaphor.
+  (A) scope_inflation — Overreaches; the author grants that local rules do produce elegant patterns ('the elegance is the sum'), objecting only to purpose-talk.
+  (B) moderate_extremism — The author critiques one metaphor's implication, not all metaphor; 'strange trade for a skeptic' targets the purpose-import, not figurative speech.
+  (C) false_symmetry — The passage insists the two levels differ — the self 'has vanished' at the pattern level — so it assumes no shared mechanism.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — Captures the global stance: critical of both agency- and systems-talk while owning the residue ('I may be missing something'), avoiding endorsement of either.
+  (A) moderate_extremism — Overstates the resignation; the author diagnoses a specific shared blind spot rather than declaring all accounts equivalent or useless.
+  (B) stance_misread — Misses para 4's turn, where the author's skepticism swings onto the systems account he supposedly defends.
+  (D) premature_closure — The widening aperture and 'I may be missing something' foreclose confident construction; no third account is offered.
+
+[Inspired by: "Abyss", https://aeon.co/essays/what-ukrainian-war-widows-know-about-love-and-loss]

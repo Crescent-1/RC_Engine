@@ -1,0 +1,167 @@
+RC ID: RC_E_0705_4 | Row #7 | Tier: elite | Score: 8.8 | Status: approved | Generated: 2026-07-05T18:28:50.931970+00:00
+======================================================================
+
+# THE RECKONING OF DESERT
+
+## Passage
+
+Any defense of inequality that appeals to merit must first perform a quieter operation: it must locate, within the noise of outcomes, a self that could have chosen otherwise. This self is the load-bearing fiction of desert. Strip it away, and the entire architecture — reward tracking effort, position tracking cultivation — collapses into mere description of who happened to end up where. So the interesting question is not whether meritocracy is fair but whether the self it presupposes exists in the form the argument requires.
+
+Consider the strongest version of the meritocratic claim, which is not the crude one about bootstraps. The sophisticated version concedes unequal starting points and asks only that we credit the *marginal* contribution of will — whatever effort adds on top of circumstance. Two people with identical advantages diverge; surely the difference is theirs to own. This is more defensible than it first appears, and it is worth pausing on why.
+
+The concession is clever because it seems to quarantine luck. Circumstance sets the baseline; agency does the rest; we praise only the remainder. But the remainder is not clean. The capacity to convert advantage into effort — persistence, appetite for risk, tolerance for delayed reward — is itself distributed by the same forces that distribute advantage. A childhood of stability manufactures the very grit later credited as its opposite. So the "marginal contribution of will" is not a residue left after luck is subtracted; it is luck wearing the mask of its own overcoming. The correction does not rescue desert. It relocates the problem one level up and hopes no one follows.
+
+And yet the critic who presses this too hard proves too much. If every capacity dissolves into antecedent conditions, then so does the capacity to *criticize* meritocracy, to revise institutions, to want a better distribution. The dissolving acid does not stop at the boundary of the argument it was mixed to destroy. A self too porous to deserve anything is also too porous to reform anything. This is the embarrassment of the anti-desert position: it saws through the branch of agency while sitting on it, and the branch it needs for reform is the same one it denies for reward.
+
+There is a way to hold both, though it is uncomfortable.
+
+We might say desert is real as a *practice* and false as a *metaphysics*. Treating people as authors of their conduct is not a discovery about the deep structure of the will; it is a stance we adopt because the alternative — treating adults as weather systems — corrodes the reciprocity that makes shared life bearable. On this reading, the meritocrat and the critic are both making category errors. The meritocrat mistakes a useful attribution for a fact about nature. The critic mistakes the absence of that fact for the collapse of the practice. But notice what this maneuver quietly costs. If desert is only a practice we maintain for its effects, then inequality is no longer *justified* by merit — it is merely *tolerated* under a fiction we agree to keep. The justification was the whole point. We have saved the practice by conceding it was never doing the work we asked of it.
+
+Which leaves the tension exactly where it started, only now we can no longer pretend not to see it.
+
+---
+
+## Questions
+
+**Q1. Which of the following best captures the central argument of the passage?**
+
+(A) Meritocracy fails because starting conditions are unequal, and any honest account of desert must first equalize the distribution of advantage before crediting individual effort.
+
+(B) The concept of desert cannot ground inequality metaphysically, yet the attempt to abandon it also disables the agency reform requires, and the pragmatic rescue of desert as a mere practice forfeits the very justification it was meant to supply.
+
+(C) The sophisticated meritocrat is correct that we can credit the marginal contribution of will, provided we first concede that starting points differ and confine praise to what effort adds beyond circumstance.
+
+(D) Since agency dissolves entirely into antecedent conditions, both reward and reform rest on a fiction, and the only coherent stance is to treat adults as weather systems shaped wholly by forces they do not author.
+
+**Q2. The author writes that the anti-desert critic "saws through the branch of agency while sitting on it." The primary function of this observation is to:**
+
+(A) concede that the meritocratic position, despite its flaws, is ultimately more internally consistent than its critics allow.
+
+(B) introduce the passage's final synthesis, in which agency is preserved for reform while denied for reward.
+
+(C) destabilize the corrective that had just undermined meritocracy, exposing a symmetry of failure before any resolution is offered.
+
+(D) illustrate that circumstance manufactures the capacities later mistaken for individual will, extending the argument of the previous paragraph.
+
+**Q3. In context, the claim that the marginal contribution of will "is luck wearing the mask of its own overcoming" most precisely means that:**
+
+(A) individual effort is an illusion, since nothing a person does can be traced to anything but external circumstance.
+
+(B) the disposition that lets someone convert advantage into achievement is itself produced by the advantage it appears to transcend.
+
+(C) people who succeed disguise their luck as effort in order to protect their claim to the rewards they receive.
+
+(D) the residue of will left after subtracting circumstance is genuine but too small to justify large inequalities.
+
+**Q4. A hospital adopts a policy of publicly ranking surgeons by patient-survival rates to reward the "best" performers. Critics note that the top-ranked surgeons systematically decline high-risk cases, and that survival rates track patient pools more than skill. Which mechanism in the passage most directly illuminates this outcome?**
+
+(A) The pragmatic defense: ranking is tolerable as a practice even when it fails as a metaphysics, because reciprocity requires treating surgeons as authors of outcomes.
+
+(B) The reform embarrassment: any critique of the ranking depends on the same agency the ranking presupposes, so the critics undercut themselves.
+
+(C) The relocation problem: an apparent measure of individual contribution silently absorbs the antecedent conditions it claims to have factored out.
+
+(D) The category error: critics mistake the absence of a metaphysical fact about surgical skill for the collapse of the ranking practice itself.
+
+**Q5. The passage's move from "desert is false as metaphysics" to "desert is real as practice" depends on which unstated assumption?**
+
+(A) The reciprocity that sustains shared life cannot survive unless people are treated as responsible for their conduct, regardless of whether they metaphysically author it.
+
+(B) Metaphysical facts about the will are in principle unknowable, so practices must substitute for the certainty we cannot obtain.
+
+(C) A practice that produces good social effects is thereby shown to be metaphysically true after all, closing the gap the passage opened.
+
+(D) Inequality can be justified whenever the practice sustaining it delivers benefits that outweigh the costs of its underlying fiction.
+
+**Q6. Which best describes the author's intellectual posture in the final two paragraphs?**
+
+(A) Cautiously optimistic that reframing desert as a practice preserves what is valuable in meritocracy while discarding its errors.
+
+(B) Resigned pessimism, having demonstrated that every position on desert collapses and that no coherent stance remains available.
+
+(C) Analytically restrained in showing that the most promising reconciliation succeeds only by surrendering the justificatory claim that motivated the inquiry, so the tension is exposed rather than dissolved.
+
+(D) Quietly partisan toward the critic, using the pragmatic reading as a face-saving concession while leaving meritocracy's core unsalvageable.
+
+---
+
+## Why this RC is difficult
+
+### Hidden Structural Shifts
+
+The passage runs a four-stage dialectic disguised as a build toward synthesis:
+
+1. **Reframing** (¶1–2): the real question is not fairness but the *self* desert presupposes; the strongest meritocratic version is granted a hearing.
+2. **First destabilization** (¶3): the "marginal will" concession is shown to smuggle luck back in — the correction *relocates* rather than solves.
+3. **Counter-destabilization** (¶4): the critique is turned on itself — over-dissolving agency also disables reform. This is where readers freeze, expecting the passage to now pick a side.
+4. **False synthesis** (¶6): the practice/metaphysics split *looks* like resolution but is revealed to cost the justification itself. The short pivot (¶5, "There is a way… though it is uncomfortable") baits closure; the final one-liner reopens.
+
+Readers most often freeze at stage 3, reading the "embarrassment of the anti-desert position" as an endorsement of meritocracy (Q1-C, Q2-A trap), or at stage 4, reading the practice/metaphysics move as the passage's own settled view (Q1 near-miss, Q6-A).
+
+### Core Distractor Traps
+
+- **Structural freezing on ¶4**: treating the counter-critique as the conclusion yields pro-meritocracy readings (Q2-A). The passage undermines *both* sides.
+- **False synthesis**: taking ¶6 as resolution ignores its explicit self-subversion ("saved the practice by conceding it was never doing the work"). (Q1-D inversion; Q6-A/B).
+- **Framework importation**: Q5-C imports a pragmatist-verificationist claim (good effects ⇒ truth) the passage never makes and actively separates.
+- **Local/global confusion**: Q3-A and Q3-C read a local metaphor as a global denial of effort or as a psychology of self-deception, neither of which the sentence asserts.
+- **Scope distortion**: Q1-A anchors only on the equality-of-starting-points theme (a premise, not the thesis).
+
+### Tonal Ambiguity
+
+The author never occupies a position; each stance is voiced sympathetically ("This is more defensible than it first appears," "There is a way to hold both") and then withdrawn. The tone is diagnostic, not advocative — the "uncomfortable" and "embarrassment" register discomfort with *all* options. The closing sentence performs dialectical suspension, not defeat: the tension is *seen more clearly*, not dissolved or lamented.
+
+### Paragraph Function Matrix
+
+| ¶ | Function |
+|---|----------|
+| 1 | Reframes the problem: shifts from fairness to the presupposed self; sets stakes. |
+| 2 | Steel-mans the sophisticated meritocrat (marginal-will version) — sets up the trap. |
+| 3 | First reversal: the concession relocates luck rather than quarantining it. |
+| 4 | Counter-reversal: turns the acid on the critic — reform needs the agency it denied. |
+| 5 | Short pivot; baits synthesis ("uncomfortable"). |
+| 6 | False synthesis: practice/metaphysics split rescues the practice only by forfeiting justification. |
+| 7 | One-line reopening: restores the tension, now unconcealable. |
+
+---
+
+## Answer Key & Elimination Logic
+
+**Q1 — Correct: B.**
+Bridges all four stages: metaphysical failure (¶3), reform embarrassment (¶4), pragmatic rescue that forfeits justification (¶6).
+- A: **scope distortion / structural freezing** — anchors on the equality-of-starting-points premise (¶2) as if it were the thesis; ignores ¶4–6.
+- C: **temporal misreading** — endorses the ¶2 meritocratic version that ¶3 explicitly dismantles.
+- D: **false synthesis via inversion** — adopts the total-dissolution position the passage rejects in ¶4 as an "embarrassment."
+
+**Q2 — Correct: C.**
+The metaphor's job is to *destabilize the corrective* (¶4's counter-reversal), producing symmetry of failure before any resolution.
+- A: **local/global confusion** — reads the critique of the critic as an endorsement of meritocracy; the passage undermines both.
+- B: **temporal misreading** — the synthesis comes *later* (¶6); this sentence precedes and motivates it, and that synthesis isn't clean anyway.
+- D: **wrong paragraph attribution** — that is ¶3's function (circumstance manufacturing will), not this sentence's.
+
+**Q3 — Correct: B.**
+Directly restates ¶3: the converting disposition is produced by the advantage it seems to transcend.
+- A: **global overreach** — the passage denies clean *credit* for will, not the existence of effort.
+- C: **framework importation** — reads a psychology of deliberate disguise nowhere asserted; the mask is structural, not intentional.
+- D: **half-truth / reversal** — this is the position ¶3 *rejects* (that a genuine residue survives subtraction).
+
+**Q4 — Correct: C.**
+The ranking claims to isolate individual contribution but silently absorbs patient-pool conditions — the relocation problem of ¶3.
+- A: **misapplied stage** — imports the ¶6 pragmatic defense, irrelevant to *why the metric misfires*.
+- B: **misapplied stage** — the reform embarrassment (¶4) concerns critics' self-undercutting, not the metric's distortion.
+- D: **misapplied stage** — the category-error framing (¶6) addresses justification vs. practice, not the empirical contamination of the measure.
+
+**Q5 — Correct: A.**
+The practice-defense (¶6) only works if reciprocity genuinely *requires* treating people as responsible independent of metaphysics — the unstated premise licensing the move.
+- B: **plausible but unnecessary** — unknowability of the will is never invoked; the passage grants the metaphysical verdict (desert is false), it doesn't plead ignorance.
+- C: **framework importation** — a verificationist inference (effects ⇒ truth) the passage explicitly refuses by keeping practice and metaphysics apart.
+- D: **over-resolution** — restates a cost-benefit justification the passage's final line specifically denies ("no longer *justified*… merely *tolerated*").
+
+**Q6 — Correct: C.**
+Captures analytical restraint plus the recognition that the reconciliation succeeds only by surrendering justification — tension exposed, not dissolved.
+- A: **false synthesis** — mistakes the self-subverting ¶6 for a preserved-value optimism.
+- B: **over-resolution into despair** — the passage suspends the tension; it does not declare all positions void or mourn the loss.
+- D: **framework importation / stance-flattening** — assigns partisanship the author withholds; the critic is undermined in ¶4 as thoroughly as the meritocrat.
+
+---
+
+[Inspired by: "Ancient China's meritocratic ideal — and its Daoist critique," and adjacent debates on desert, luck egalitarianism, and free will in *Aeon*; conceptually related to Thomas Nagel's "Moral Luck" and Michael Sandel, *The Tyranny of Merit*.]

@@ -1,0 +1,90 @@
+RC ID: RC-ELITE-260706-0010 | Tier: elite | Score: 8.6 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.749 | Generated: 2026-07-06T14:17:18.093629+00:00
+======================================================================
+
+[PASSAGE]
+
+The story as it is usually handed down runs in one direction, unbroken: as villages thickened into cities and cities into kingdoms, the tangle of obligation outgrew the memory of any elder or the cadence of any recited oath, until the need to hold a rule steady across seasons and successors called forth the marked surface, and law, once sung, was set down to be seen.
+
+The clay refuses this tidiness. Long before any tablet names a penalty or fixes a right, the earliest marks count things. Sheep. Jars of oil. Owed measures of grain. The proto-cuneiform of Uruk, the tokens sealed in Mesopotamian bullae, the notched bones some prehistorians read as reckonings — these record what is owed, not what is forbidden. Assyriologists date the accounting centuries ahead of anything a jurist would recognize. So the arrow, if it points anywhere, points the other way: marking came first, and rules arrived to inhabit a technology already built for debt.
+
+Yet where the Mesopotamian record invites that reversal, the transactional evidence itself suggests something less linear. To mark a debt is already to assert that a claim persists, that it can be checked, that a third party might be summoned to confirm it — and a checkable, persisting, enforceable claim is not far from the germ of a rule. Chinese oracle-bone scholars note the same braiding: the notation that fixes an obligation is also the occasion of the dispute that demands sharper notation. Each transaction did both at once. The scratch that recorded the loan created the very possibility of contesting it, and the contest pressed the scratch toward precision. One cannot easily say the marking preceded the rule when the rule was what made the marking worth keeping.
+
+Push the loop one turn further and the ground gives way entirely. A token that records a binding claim presupposes a community that already treats certain claims as binding — that already distinguishes the owed from the given, the borrowed from the seized. But such a distinction cannot be held in common, negotiated, disputed, and honored without something already language-like doing the negotiating; the Egyptologist and the Vedic philologist arrive at the same wall from opposite roads. So the token does not stand at an origin. Behind it lies a settled agreement about obligation; behind that agreement lies the communicative work that made agreement possible; and that work, once it grows durable, is indistinguishable from the marking we set out to explain. The comfortable position was always the sequential one — that we could name a first term and derive the second. The burden now sits with whoever would defend an order at all: let them produce the token that binds without a prior rule, or the rule that binds without a prior sign, and hold either up unaccompanied. Neither has yet been found, and the loop admits us at any point while granting no entrance that is also a beginning.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central idea of the passage?
+(A) Because accounting marks demonstrably predate legal texts, the true sequence is reversed: marking came first, and rules arrived to inhabit a technology built for debt.
+(B) Writing was invented to hold law steady across seasons and successors, once obligation outgrew what any elder's memory or recited oath could carry.
+(C) No first term can be isolated: any mark that binds already presupposes a rule, and any rule presupposes a prior sign, so the origin dissolves into a loop with no entrance that is also a beginning.
+(D) Marking and rule sustain each other through mutual causation, so the debate over sequence is best settled by treating them as simultaneous twin inventions.
+
+Q2. Which claim does the author advance in his own voice, rather than report as a position to be complicated?
+(A) Notched bones read as reckonings are the securest proof that accounting anywhere long precedes law.
+(B) The recited oath and the elder's memory were adequate custodians of rule until settlement made surfaces necessary.
+(C) The neat one-directional story of writing arising to serve law is contradicted by the clay, which shows counting predating anything a jurist would recognize.
+(D) The evidence establishes the reversed sequence as the passage's real thesis: marking came first and rules later arrived to inhabit it.
+
+Q3. Regarding the relation between marking and rule in paragraph 3, which statement most accurately reflects the author's handling of the evidence?
+(A) Marking and rule are symmetrical equal partners, each backed by evidence of the same kind and weight, so neither can claim priority.
+(B) Marking and rule press on each other, but the passage documents the debt-record-to-rule direction far more concretely than the reverse, leaving the interdependence asserted rather than evenly evidenced.
+(C) Because the contest over a loan pressed the scratch toward precision, rule is shown to precede marking after all.
+(D) The oracle-bone scholars' observation proves that transactions always caused disputes, which always sharpened notation.
+
+Q4. In context, what does the author mean by 'the loop admits us at any point while granting no entrance that is also a beginning'?
+(A) Since every entry point is equally valid, marking, rule, and language must all have arisen at the same instant.
+(B) Any account of the sequence is admissible provided it begins with the marking that we set out to explain.
+(C) The origin exists but lies hidden, so scholars may enter the inquiry anywhere hoping eventually to locate the true first term.
+(D) One can start analyzing the marking–rule–communication cycle wherever one likes, but no chosen starting point functions as a genuine origin from which the others derive.
+
+Q5. What is the primary function of the sentence beginning 'Push the loop one turn further and the ground gives way entirely'?
+(A) It offers a final synthesis in which marking, rule, and language are reconciled as one durable communicative practice.
+(B) It signals a further escalation beyond mutual causation, extending the regress behind rule into prior communicative work and thereby collapsing the search for any first term.
+(C) It introduces the Egyptologist and Vedic philologist as fresh evidence proving language predates all obligation.
+(D) It concedes that the reversal of paragraph 2 was mistaken and restores the original account of law preceding writing.
+
+Q6. Which best describes the author's intellectual posture across the passage?
+(A) He dismantles the assumption that an origin can be ordered at all, shifting the burden onto anyone who would defend a first term rather than nominating one himself.
+(B) He weighs both sequences and finally endorses the reversed one, since the accounting evidence is older than any legal text.
+(C) He treats the two views as balanced rivals and suspends judgment, holding that the evidence is simply insufficient to decide.
+(D) He argues that marking and rule co-emerged simultaneously, resolving the priority dispute through their evident interdependence.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates the full movement from linear story through reversal through mutual causation to the final collapse of any orderable sequence.
+  (A) half_truth — This is paragraph 2's reversal, itself undone by paragraphs 3 and 4, so it is only one abandoned step.
+  (B) half_truth — This is paragraph 1's inherited story, which the passage sets up precisely to dismantle, not its thesis.
+  (D) premature_closure — Paragraph 4 pushes past simultaneity to an infinite regress, so 'settled' misreads the deliberately unresolved ending.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The author owns the rejection of the linear tale in paragraph 2 ('The clay refuses this tidiness') as his opening corrective, before he complicates even the reversal.
+  (A) example_promotion — The bones are hedged ('some prehistorians read'), a reported reading, not the author's own load-bearing claim.
+  (B) stance_misread — This restates the inherited story of paragraph 1 that the author explicitly refuses, not a view he advances.
+  (D) half_truth — The reversal is a step the author then dismantles in paragraphs 3-4; he does not endorse it as the thesis.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — Captures the braiding while noting the asymmetric evidentiary weight the blueprint flags: the 'rule shaped marking' side rests on inference, not the concrete Uruk-and-bullae record.
+  (A) false_symmetry — The passage's evidence for the 'law shaped writing' direction is thinner and inferential, not matched in weight to the accounting record.
+  (C) causal_inversion — Paragraph 3 refuses a clean priority; reading it as establishing rule-first reinstates the linearity being undone.
+  (D) scope_inflation — 'Each transaction did both' describes a braiding, not a universal law of always-causation with proven necessity.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — 'Admits at any point' means entry is arbitrary; 'no entrance that is also a beginning' denies that any entry is a first term, matching paragraph 4's regress.
+  (A) false_symmetry — Arbitrary entry implies no origin, not synchronous origin; simultaneity is a distinct claim paragraph 4 avoids.
+  (B) adjacent_answer — The line rejects privileging marking as the beginning; it precisely denies that any entrance is a beginning.
+  (C) premature_closure — The passage denies a first term is findable ('Neither has yet been found'), not merely that it is currently hidden.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The sentence marks the transition from paragraph 3's braiding to paragraph 4's deeper regress, the move that dissolves rather than resolves the tension.
+  (A) premature_closure — The move dissolves the question rather than synthesizing it; the ending withholds reconciliation.
+  (C) example_promotion — Those scholars illustrate a shared wall, not proof of a settled priority for language over obligation.
+  (D) stance_misread — The passage never restores paragraph 1's story; the turn deepens the loop rather than reverting to linearity.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — Captures the global stance: not choosing a side but reframing the question so the demand for sequence becomes the thing to be justified.
+  (B) half_truth — He entertains the reversal only to undo it; endorsing it ignores paragraphs 3-4's dissolution of ordering.
+  (C) false_symmetry — His point is not evidentiary insufficiency between equals but that the question of order is malformed.
+  (D) premature_closure — Simultaneity is a resolution the regress refuses; the passage leaves the aperture open rather than settling on co-emergence.
+
+[Inspired by: "Who are the fire-tamers?", https://aeon.co/essays/who-are-the-fire-taming-healers-of-modern-france]

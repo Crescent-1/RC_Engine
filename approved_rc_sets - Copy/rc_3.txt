@@ -1,0 +1,51 @@
+# CAT-Style Reading Comprehension
+
+## Passage
+
+The standard story about scientific measurement runs backward. We imagine that a phenomenon exists, stubbornly, out in the world, and that instruments arrive later to catch it—that the thermometer merely reports a temperature already present in the water. This picture flatters our realism. It also misdescribes almost everything about how quantitative science actually consolidates its objects.
+
+Consider intelligence. Before the test, "intelligence" was a loose folk term gesturing at quickness, judgment, a certain fluency under pressure. The instrument did not measure this thing; it manufactured a stable referent by insisting that whatever the test tracked was the thing worth naming. Measurement here is not detection but ratification. What gets counted becomes, retroactively, what was always meant.
+
+One might object that this proves too much. If instruments simply constituted their objects, science would be a closed loop, and yet bridges hold and vaccines work. The objection is correct as far as it goes. Instruments are disciplined by resistance; a badly calibrated scale eventually betrays itself against the world's pushback. But notice what the objection quietly concedes. It secures the *reliability* of measurement without securing the *identity* of the thing measured. That a procedure yields consistent numbers, and that those numbers let us build, tells us the procedure is stable. It does not tell us the numbers name a natural kind rather than an artifact of the procedure's own commitments.
+
+This is where the realist recovers too quickly.
+
+Because the deeper problem is that stability itself becomes evidence. Once a quantity behaves predictably, we begin treating its predictability as proof that we were carving nature correctly all along. The instrument's success underwrites the metaphysics that justified building it. Sociologists of science call this closure—not the moment a controversy is settled by facts, but the moment the facts that could reopen it stop being gathered. IQ correlates with income; the correlation is real; and the reality of the correlation is then read as confirmation that intelligence, the manufactured object, was tracking something antecedent. The loop closes not because it is true but because inquiry loses its appetite.
+
+Yet the constructivist who stops here has his own complacency. If every measured object were merely ratified convention, we could never be *surprised* by our instruments—and we constantly are. The neutrino was posited to save an accounting identity and then behaved in ways no accountant intended. Manufactured objects can acquire lives that embarrass their manufacturers. So the constructivist story, taken to its terminus, cannot explain the very recalcitrance that makes measurement worth doing.
+
+We are left, then, with neither picture. The realist cannot explain why our objects bear the fingerprints of the procedures that found them. The constructivist cannot explain why those objects sometimes turn and bite. What survives is a less comfortable thought: that measurement is a negotiation whose outcome is neither dictated by the world nor invented by us, and that the distinction between discovering and constituting—so clean in the textbooks—may be one the practice of science is structurally unable to draw. The instruments keep working. That was never the question.
+
+---
+
+## Questions
+
+**Q1.** Which of the following best captures the central argument of the passage?
+
+(A) Scientific measurement constructs rather than detects its objects, since instruments manufacture stable referents that folk concepts only vaguely anticipated.
+
+(B) Because instruments are disciplined by the world's resistance, measurement ultimately tracks natural kinds even when it begins from loosely defined folk concepts.
+
+(C) Neither realist nor constructivist accounts of measurement succeed, because each fails to explain a feature the other captures, leaving the discovery–constitution distinction practically undrawable.
+
+(D) The sociology of scientific closure reveals that measured quantities like IQ are artifacts of procedure whose apparent objectivity dissolves once inquiry resumes.
+
+**Q2.** What is the primary structural function of the neutrino example?
+
+(A) To provide empirical support for the realist claim that instruments detect antecedently existing entities.
+
+(B) To destabilize the constructivist position just after it has been used to undermine realism, preventing the argument from settling there.
+
+(C) To illustrate the concept of closure by showing how a controversy was prematurely settled by accounting conventions.
+
+(D) To demonstrate that folk concepts are always eventually replaced by rigorously quantified scientific objects.
+
+**Q3.** In context, the phrase "the facts that could reopen it stop being gathered" most precisely conveys that:
+
+(A) scientific communities suppress inconsistent data to protect established theories from refutation.
+
+(B) settlement in science arises less from decisive evidence than from a cessation of the inquiry that might disturb it.
+
+(C) measurement procedures become unreliable once researchers lose interest in recalibrating them.
+
+(D) closure occurs when new facts conclusively confirm the metaphysics behind an instrument.

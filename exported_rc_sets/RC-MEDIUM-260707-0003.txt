@@ -1,0 +1,92 @@
+RC ID: RC-MEDIUM-260707-0003 | Tier: medium | Score: 8.6 | Status: approved | Compliance F1: 1.0 | Novelty: 0.708 | Generated: 2026-07-07T03:38:59.044719+00:00
+======================================================================
+
+[PASSAGE]
+
+Consider a young woman from a neighborhood where the local high school's graduation rate hovers below fifty percent. She wins a scholarship to a selective preparatory academy, and once there she studies with a discipline that her teachers describe, without exaggeration, as unusual: four hours of homework nightly, weekends surrendered to problem sets, summers spent finishing coursework other students had abandoned. She graduates first in her cohort and matriculates at an elite university. The story, told this way, arrives pre-packaged with its own moral: talent plus effort overcomes disadvantage, and the rest of us should take note.
+
+Granted, she did do the work no one else was willing to do. But the scholarship she used to enter that academy existed only because a wealthy alumnus, prompted by his own child's teacher to fund "deserving cases," had endowed it two decades earlier. Her opportunity was itself the residue of somebody else's money and somebody else's judgment about who deserved it.
+
+Return again to her trajectory and a further layer surfaces. Her capacity for those four-hour nightly sessions depended on her mother's shift schedule, which happened to allow evenings at home rather than a second job; on a tutoring program at the academy funded by other parents' donations, open to her only because she'd been admitted at all; and on the simple absence of any obligation to earn wages herself, an absence not shared by several of her more exhausted classmates. The discipline was hers. Its preconditions were not distributed at random.
+
+None of this cancels the other. She worked harder than most of her peers; that labor was real and specific, not a fiction laid over passivity. It was also assembled, plank by plank, from conditions she did not build and could not have built alone. The tidy story cracks here.
+
+Now place her twenty years later, a hiring manager who credits her own success entirely to discipline and speaks of it, sincerely, as proof that merit finds a way. Reviewing résumés, she favors candidates who volunteered abroad, who speak in the cadences she recognizes, who mention the same handful of internships obtained through family friends — candidates, in short, who had the leisure her own trajectory required and rarely name as leisure. She is not lying about effort; she is misdiagnosing its source, mistaking a rare alignment of circumstances for a universal method, and hiring, without noticing, for the alignment rather than the method. This is not an argument for discarding merit as a concept; it is an argument that the belief in merit, held this innocently, becomes the mechanism by which the very advantages that produced her get quietly re-certified as qualifications. The myth does not just misdescribe the past. It manufactures the future in its own image, one hiring decision, one endowed scholarship, one grateful alumnus at a time.
+
+[QUESTIONS]
+
+Q1. According to the passage, what enabled the young woman to enter the selective preparatory academy in the first place?
+(A) Her own tutoring efforts and top exam scores, which independently qualified her for admission.
+(B) A scholarship endowed by a wealthy alumnus who had been prompted by his own child's teacher.
+(C) The essay is celebrating a success story and endorsing the idea that hard work always pays off.
+(D) A need-based government grant awarded after her high school's low graduation rate was reviewed.
+
+Q2. Which statement best captures the central argument of the passage as a whole?
+(A) The passage argues that effort matters more than circumstance in the long run, as her later success shows.
+(B) The passage shows that scholarships and hiring practices are the main obstacles facing disadvantaged students today.
+(C) Genuine individual effort and unequally distributed enabling conditions coexist, and unexamined belief in merit alone tends to reproduce existing advantage.
+(D) By adding contextual factors like tutoring and her mother's schedule, the essay argues her achievement was not really her own.
+
+Q3. In context, what does the phrase "The tidy story cracks here" mean?
+(A) The woman's account of her own discipline is revealed to have been exaggerated by her teachers.
+(B) The essay concludes by abandoning the concept of merit and calling for a purely structural solution instead.
+(C) The academy's scholarship program is shown to be fraudulent and undeserved by any student.
+(D) The simple narrative of effort overcoming disadvantage cannot fully survive once its unearned preconditions are made visible.
+
+Q4. Which best describes the author's intellectual posture toward the concept of merit?
+(A) Merit and circumstance are two independent forces that happen to combine without affecting each other's meaning.
+(B) Merit is a comforting fiction that dissolves entirely once circumstances are examined closely enough.
+(C) Merit should be replaced in hiring decisions by explicit measures of applicants' backgrounds and circumstances.
+(D) Merit is real but is often misattributed as self-sufficient, obscuring the conditions that made its exercise possible.
+
+Q5. What does the author mean by saying the hiring manager is "misdiagnosing its source, mistaking a rare alignment of circumstances for a universal method"?
+(A) She has forgotten the specific hardships of her own upbringing and now considers herself simply lucky.
+(B) She treats a fortunate, particular combination of enabling conditions as a repeatable formula anyone can apply.
+(C) She applies a rigorous statistical method to hiring that fails to account for regional differences in schooling.
+(D) She deliberately favors privileged candidates while pretending in public that she values effort instead.
+
+Q6. A city offers a small-business grant explicitly to 'self-made entrepreneurs who pulled themselves up without help.' Years later, grant recipients running review panels tend to select new applicants who, like themselves, had a debt-free family home to use as collateral and relatives who could cover early losses — a pattern the panelists don't consciously notice. Which dynamic from the passage does this scenario best illustrate?
+(A) An unexamined belief in self-made success quietly re-certifies the very unearned advantages that produced it.
+(B) The panelists are consciously excluding applicants who lack family wealth to protect their own status.
+(C) The grant program proves that structural barriers, not effort, fully determine entrepreneurial success.
+(D) The scenario shows that grant programs should abandon references to effort and self-reliance altogether.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — This is the specific origin the passage gives for the scholarship, introduced right after the 'pre-packaged moral' to begin cracking it open.
+  (A) adjacent_answer — Tutoring is mentioned later as a program *at* the academy, not as the reason she was admitted to it.
+  (C) missing_link — This skips the pivot in paragraph 2 ('Granted... But') where the essay begins complicating the tidy moral it just described.
+  (D) example_promotion — No government grant is mentioned; this invents a mechanism not present in the text.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — This integrates the paragraph 2 thesis, the paragraph 4 refusal to cancel one factor with the other, and the widening ending about hiring practices re-certifying advantage.
+  (A) causal_inversion — This reverses the essay's point that her later hiring behavior illustrates a misdiagnosis, not a vindication, of effort's sufficiency.
+  (B) scope_inflation — The passage uses one case to examine a belief structure, not to make an empirical claim about institutions generally.
+  (D) category_slip — This ignores the explicit claim that 'the discipline was hers' and that her labor 'was real and specific, not a fiction laid over passivity.'
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — It follows directly from the paragraph detailing her mother's schedule, the tutoring program, and freedom from wage work, all of which complicate the 'pre-packaged moral.'
+  (A) phrase_misuse — The passage says her teachers described her discipline as unusual 'without exaggeration'; nothing later retracts this.
+  (B) missing_link — The very next paragraph says 'none of this cancels the other,' explicitly declining to discard merit or effort.
+  (C) straw_version — No claim of fraud appears; the point is about unacknowledged preconditions, not illegitimacy of the scholarship itself.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — The passage repeatedly affirms effort as real while insisting its 'preconditions were not distributed at random,' and ends by describing merit-belief as a mechanism, not merit itself as false.
+  (A) false_symmetry — The passage shows circumstance shaping the very possibility of exercising merit, not two forces coexisting untouched.
+  (B) moderate_extremism — The text insists labor 'was real and specific,' resisting the claim that merit dissolves into nothing under scrutiny.
+  (C) framework_import — The essay diagnoses a belief's consequences; it never proposes a specific hiring policy or replacement framework.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — This directly follows the description of her favoring candidates with leisure and connections resembling her own, while believing she is only rewarding discipline.
+  (A) adjacent_answer — The text shows her crediting success 'entirely to discipline,' not to luck, which is the opposite emphasis described.
+  (C) terminological_twin — No statistical method is described; 'method' here refers loosely to a personal formula, not a technical hiring procedure.
+  (D) stance_misread — The passage explicitly says 'she is not lying about effort,' ruling out a claim of deliberate pretense.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — This mirrors the hiring manager's pattern: sincere belief in one's own merit becomes the mechanism selecting for shared, unnamed circumstantial advantages rather than the trait it claims to reward.
+  (B) stance_misread — As with the hiring manager, the pattern in the passage is sincere misattribution, not deliberate, conscious exclusion.
+  (C) scope_inflation — The passage never claims circumstance fully determines outcomes; it holds effort and precondition together, as this option fails to do.
+  (D) framework_import — The passage's argument targets an unexamined belief, not the vocabulary of effort itself, so this imports a policy conclusion absent from the text.
+
+[Inspired by: "No one is self-made", https://aeon.co/essays/zhuangzi-and-the-case-against-meritocracy]

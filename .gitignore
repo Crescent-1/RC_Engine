@@ -1,0 +1,22 @@
+# secrets — never commit the API key
+.env
+
+# SQLite databases (production, dry-run) — data lives outside VCS
+*.db
+
+# python bytecode
+__pycache__/
+*.pyc
+
+# Chroma vector store (binary, regenerable from RAG.py)
+essay_rc_db/
+
+# dry-run export folder (mock output only)
+exported_rc_sets_dryrun/
+
+# Office lock files
+~$*
+
+# local-machine Claude settings
+.claude/settings.local.json
+.claude/scheduled_tasks.lock

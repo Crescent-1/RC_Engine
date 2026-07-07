@@ -1,0 +1,169 @@
+RC ID: RC_E_0705_2 | Row #5 | Tier: elite | Score: 8.8 | Status: approved | Generated: 2026-07-05T18:26:34.426175+00:00
+======================================================================
+
+# THE VIOLENCE ECONOMY: An RC Passage and Question Set
+
+## PASSAGE
+
+To call a hitman a worker is to commit a small act of conceptual vandalism. The word "worker" carries a residue of dignity, of contribution, that we would rather not extend to men who kill for wages. And yet the sociological instinct behind the equation is sound: police officers, soldiers, cartel assassins, and guerrilla fighters are all, in some flat descriptive sense, specialists in the manufacture of harm who trade their skills for money and standing. They train. They are paid. They answer to a hierarchy. Whatever we feel about them, the labor-market analogy captures something the moral vocabulary conceals.
+
+But the analogy earns its power precisely by refusing to distinguish, and this refusal is where the trouble begins.
+
+For to say that legal and illegal violence workers occupy "the same occupation, two different employers" is to smuggle in a claim far stronger than the observed similarities warrant. Similar recruitment scripts—prestige, salary, a larger cause—do not establish that the states offering them and the cartels offering them are doing the same thing, any more than two firms competing for the same graduate are producing the same good. The recruitment mechanism is genuinely shared; the inference from shared mechanism to shared function is not. Here the labor framing overreaches. It notices that the boundary between the licit and the illicit is porous—the Zetas, after all, were founded by defecting special forces—and concludes that the boundary is therefore fictitious. Porousness is not fiction. A membrane through which things pass is still a membrane.
+
+And this is the move worth slowing down over. The claim that the state's monopoly on legitimate violence is "fragile" is offered as though fragility discredited legitimacy. It does not. That states collapse when they cannot pay their soldiers tells us that legitimacy is expensive to maintain, not that it was never real—much as a bridge that fails under load was nonetheless, until that moment, a bridge and not an illusion of one.
+
+Still, something in the deflationary account resists this rescue.
+
+Because if we grant that legitimacy is a real institutional achievement rather than a fiction, we have not thereby explained what makes it legitimate, and the labor framing has quietly exposed how little the usual answers explain. The comforting story—soldiers protect, criminals prey, and the difference is written into their souls—dissolves on contact with the evidence: the same men move between uniforms and cartels across a single career, sending wages home to the same mothers. What survives is not a difference in kind between the violent professions but a difference in the accounts societies are willing to underwrite. Legitimacy, on this reading, is not a property the soldier possesses and the assassin lacks. It is a story a community consents to tell, and the consent is doing the work.
+
+Which returns us, uncomfortably, to where we began. If legitimacy is consent-dependent, then the labor analogy was right to flatten the moral hierarchy—and if it is a genuine institutional achievement, then the analogy was wrong to. The essay cannot have it both ways, and the honest position may be that neither can we. We know that violence is work; we suspect that some violence is more than work; we cannot say, without circularity, which is which. The condottiere is among us, drawing his wage. Whether we have any principled ground for distinguishing his labor from the constable's, or only the ground of having decided, is the question the framing raises and then, having raised it, walks away from.
+
+---
+
+## QUESTIONS
+
+**Q1. Which of the following best captures the central thesis of the passage?**
+
+(A) The distinction between legal and illegal violence is a comforting fiction; once we recognize that all violence specialists are simply workers competing in a single labor market, the moral hierarchy separating soldiers from assassins collapses.
+
+(B) The labor-market analogy usefully dissolves naive moral distinctions between violence workers, but its own success in exposing the porousness of the legal-illegal boundary reveals that state legitimacy is nothing more than institutional propaganda.
+
+(C) The labor framing correctly discredits soul-based accounts of who becomes violent, yet its inference from shared recruitment to shared function overreaches; the resulting tension leaves us unable to say, non-circularly, whether legitimate violence differs in kind or only in the stories we consent to tell.
+
+(D) State legitimacy is a real institutional achievement whose fragility does not discredit it; the labor analogy errs in treating porous boundaries as fictitious ones, and a proper account restores the principled difference between the soldier and the hitman.
+
+**Q2. What is the primary structural function of the bridge analogy ("much as a bridge that fails under load...")?**
+
+(A) It illustrates the author's endorsement of the deflationary view by showing that all institutions are provisional constructions liable to sudden collapse.
+
+(B) It defends the reality of legitimacy against a specific inferential error—treating fragility as evidence of illusion—rather than settling whether legitimacy is ultimately justified.
+
+(C) It concedes that the state's monopoly on violence, like a failed bridge, was always only an appearance sustained until the moment of its exposure.
+
+(D) It introduces engineering vocabulary to lend the moral argument a false air of empirical precision, which the author subsequently dismantles.
+
+**Q3. In context, the phrase "a difference in the accounts societies are willing to underwrite" most nearly means that:**
+
+(A) legitimacy is determined by which violence workers a society is financially able to pay over the long term.
+
+(B) the moral standing of violence rests on a community's endorsed narrative rather than on any intrinsic trait separating its practitioners.
+
+(C) societies keep formal statistical records of legal violence workers while illegal ones remain uncounted and thus unaccountable.
+
+(D) the difference between soldiers and criminals is real but arises from the differing psychological profiles their occupations reinforce.
+
+**Q4. A national government, facing a fiscal crisis, stops paying its army; within months, entire units defect to a warlord offering higher wages, and citizens who once regarded the army as protectors now see no difference between the two forces. Which claim from the passage does this scenario most directly illustrate?**
+
+(A) That the recruitment scripts of states and non-state actors are functionally identical, proving the two are engaged in the same enterprise.
+
+(B) That legitimacy is expensive to maintain and consent-dependent, so its withdrawal exposes how much the perceived difference rested on the account a community was willing to sustain.
+
+(C) That violence is a cultural artifact erasable from human minds once societies change how they think about aggression.
+
+(D) That the porousness of the boundary between licit and illicit violence proves the boundary was always a fiction sustained by state propaganda.
+
+**Q5. The author's argument that "porousness is not fiction" depends on which unstated assumption?**
+
+(A) That the movement of individuals across a boundary can occur only if the boundary was never genuinely enforced in the first place.
+
+(B) That a distinction can remain real and operative even when the entities it separates are capable of crossing it.
+
+(C) That the state possesses moral authority which cartels categorically lack regardless of the accounts societies tell.
+
+(D) That the recruitment techniques used by states and cartels must differ in order for their functions to differ.
+
+**Q6. Which of the following best describes the author's intellectual posture in the passage?**
+
+(A) A restrained skepticism that ultimately vindicates the deflationary labor framing while acknowledging its rhetorical excesses.
+
+(B) A dialectical suspension in which the author successively rescues and then re-implicates the concept of legitimacy, declining to resolve whether its distinctions are grounded or merely consented to.
+
+(C) A measured defense of state legitimacy against sociological reductionism, tempered by sympathy for the material circumstances of violence workers.
+
+(D) An ironic detachment that treats both the labor framing and the legitimacy it critiques as equally naive constructions unworthy of endorsement.
+
+---
+
+## WHY THIS RC IS DIFFICULT
+
+### Hidden Structural Shifts
+
+The passage executes a **double reversal**, and readers freeze at either of two false stopping points.
+
+- **Movement 1 (¶1):** The labor analogy is granted real explanatory force. A reader anchoring here concludes the passage endorses flattening the moral hierarchy → drives them to Q1(A).
+- **Movement 2 (¶2–4):** The analogy is destabilized—shared *mechanism* ≠ shared *function*; porousness ≠ fiction; fragility ≠ illusion. A reader anchoring here concludes the passage *rescues* legitimacy → drives them to Q1(D).
+- **Movement 3 (¶5):** The rescue is itself re-implicated. Granting legitimacy is "real" does not explain what makes it legitimate; the honest residue is that legitimacy may be *consent-dependent*—which partly re-validates the deflationary reading.
+- **Movement 4 (¶6):** Explicit refusal of synthesis. The two readings are held in unresolved tension ("cannot have it both ways... neither can we").
+
+The paragraph that rewards rereading is **¶4** (the bridge): on first pass it reads as a decisive defense of legitimacy; retrospectively it is only a defense against *one inference*, not a positive vindication—which is exactly why ¶5 can reopen the wound.
+
+### Core Distractor Traps
+
+- **Q1(A):** Structural freezing at ¶1 + false synthesis (over-resolves toward deflation).
+- **Q1(B):** Half-truth—correctly tracks ¶2–3 but imports "propaganda," a conclusion the passage's ¶4 *actively refutes*. Scope inversion of the fragility argument.
+- **Q1(D):** Structural freezing at ¶4; treats the local rescue as the global conclusion, ignoring ¶5–6's reopening. The most seductive trap for careful readers.
+- **Q2(A)/(C):** Both misattribute the author's stance—the analogy defends legitimacy's *reality against an inference*, not its provisionality (C) or endorsement of deflation (A).
+- **Q3(A):** Local/global confusion—latches onto "underwrite" as financial, echoing the real "states fall when they can't pay" line, but misreads *this* clause.
+- **Q4(D):** Imports the exact fiction-claim the passage rejects; attractive because the scenario *feels* like boundary collapse.
+- **Q5(A):** Reverses the author's logic—this is the very inference "porousness is not fiction" denies.
+- **Q6(A)/(C):** Each resolves the deliberately suspended tension in one direction (deflation / legitimacy respectively).
+
+### Tonal Ambiguity
+
+The author is neither defending nor debunking legitimacy. The tone performs **recursive rescue-and-re-implication**: sympathetic to the labor framing's descriptive power, protective of legitimacy against sloppy inference, then unwilling to let that protection harden into vindication. The final gesture ("walks away from") is self-implicating—the essay diagnoses its own inability to close. This is dialectical suspension, not ambivalence or irony.
+
+### Paragraph Function Matrix
+
+| ¶ | Function |
+|---|----------|
+| 1 | Establishes labor analogy with genuine force; sets the anchoring trap |
+| 2 | One-line pivot; signals "trouble begins" |
+| 3 | First destabilization: mechanism≠function; porousness≠fiction |
+| 4 | Deepens defense via bridge analogy (fragility≠illusion); *appears* to resolve |
+| 5 | Reversal of the reversal: legitimacy as consent-dependent story; reopens deflation |
+| 6 | Refuses synthesis; states the undecidable residue explicitly |
+
+---
+
+## ANSWER KEY & ELIMINATION LOGIC
+
+**Q1 → (C)**
+- **(A)** False synthesis + structural freezing at ¶1; the passage explicitly resists this in ¶3–4.
+- **(B)** Scope inversion: "institutional propaganda" is precisely what ¶4 refutes ("legitimacy is expensive to maintain, not that it was never real").
+- **(D)** Temporal/structural misreading—stops at ¶4's local rescue, ignoring ¶5–6's reopening.
+- **(C) Bridge:** Integrates all four movements—grants the analogy's success against souls-based accounts (¶5), names the mechanism/function overreach (¶3), and preserves the unresolved circularity (¶6).
+
+**Q2 → (B)**
+- **(A)** Framework importation—makes the author a deflationist, contradicting ¶4's defensive intent.
+- **(C)** Reverses the analogy's point (defends reality, not appearance).
+- **(D)** Misidentifies structural role as rhetorical debunking; nothing in the text dismantles the analogy.
+- **(B) Bridge:** Correctly isolates the analogy as targeting the *fragility→illusion inference*, while noting it stops short of full justification (consistent with ¶5's reopening).
+
+**Q3 → (B)**
+- **(A)** Local/global confusion—conflates this clause with the separate "states fall when they can't pay" argument.
+- **(C)** Imports the census/statistics theme from the source domain not present here; scope distortion.
+- **(D)** Contradicts ¶5, which denies that the difference lies in psychological traits ("not a property the soldier possesses").
+- **(B) Bridge:** Directly paraphrases "a story a community consents to tell, and the consent is doing the work."
+
+**Q4 → (B)**
+- **(A)** Over-reads shared recruitment into "same enterprise"—the very inference ¶3 flags as overreach.
+- **(C)** Framework importation (Seville-style cultural-artifact claim absent from this passage).
+- **(D)** Imports the rejected "fiction" conclusion.
+- **(B) Bridge:** The scenario dramatizes ¶4–5: legitimacy is expensive and consent-dependent; its withdrawal reveals reliance on the underwritten account.
+
+**Q5 → (B)**
+- **(A)** Causal reversal—states the inference the author denies.
+- **(C)** Imported external premise the passage explicitly refuses to assert ("cannot say which is which").
+- **(D)** Contradicts ¶3, which grants the mechanism is genuinely shared while functions may differ.
+- **(B) Bridge:** "A membrane through which things pass is still a membrane" requires exactly the premise that crossing does not negate the distinction.
+
+**Q6 → (B)**
+- **(A)** Resolves the suspension toward deflation; contradicts ¶4's defense.
+- **(C)** Resolves toward legitimacy; contradicts ¶5–6's reopening; also imports "sympathy for material circumstances" not developed in this compressed version.
+- **(D)** Overstates detachment as dismissive irony; the author treats both positions as *serious*, not naive.
+- **(B) Bridge:** Captures the rescue-then-re-implicate rhythm and the explicit refusal to adjudicate in ¶6.
+
+---
+
+[Inspired by: "Violence is a job like any other," by Iván Farías Pelcastre / Alberto Aziz, *Aeon* — adapted from the essay on Charles Tilly's "violence specialists" and the labor-market framing of licit and illicit violence.]

@@ -1,0 +1,131 @@
+RC ID: RC_E_0705_6 | Row #9 | Tier: elite | Score: 7.4 | Status: approved | Generated: 2026-07-05T19:46:58.735098+00:00
+======================================================================
+
+[PASSAGE]
+
+We keep asking whether machines can be creative, but the question conceals a prior commitment that rarely gets examined: that creativity is the kind of thing a bounded agent possesses, like a heartbeat or a fingerprint, something located inside a person and then externalized into a poem. For most of the past century this assumption was doing quiet work under nearly every debate about art. The recent panic over generative language systems has done us the unintended favor of dragging it into daylight.
+
+Consider the reflexive defense mounted by writers and artists. When a text turns out to be machine-produced, readers report feeling cheated, as though a promise had been broken. The natural reading is that authorship confers value, that knowing a human struggled behind the words changes what the words are. But this defense sits awkwardly beside decades of the very theorizing these same writers once championed—theories that dismantled the lone genius, that located meaning not in the author's intention but in the act of reception. If a text is completed only in the reading, then the origin of the marks on the page was never where the value lived. The defenders have quietly retreated to a position they spent forty years demolishing.
+
+So the machine embarrasses the humanist. That much seems clear.
+
+It is less clear that the embarrassment cuts the way it first appears. Grant that reception, not production, is where literary value crystallizes. It does not follow that the identity of the producer is inert. Readers do not encounter marks in a vacuum; they read *under a description*, and the description "written by a person" is itself part of the material they interpret. To learn that a text was generated is not to receive new information about the words—the words are unchanged—but to lose access to a frame that was constituting the experience all along. The reception-centered theory, pressed hard enough, does not vindicate indifference to origins. It explains precisely why origins continue to matter: not as a fact about the text, but as a fact about the reading.
+
+Which leaves the more radical possibility untouched, and it is the one worth sitting with. Suppose language itself is not an expressive capacity that certain agents happen to possess but a technology that possesses its users—an artificial system with its own logic that took hold of us long before any machine learned to run it. On this view the machine is not mimicking a human faculty; it is operating the same apparatus we operate, from a different position within it. The comforting distinction between real users of language and mere manipulators of symbols would then be not false exactly, but a category we invented to keep ourselves on the correct side of a line we drew for reassurance.
+
+I do not think this fully dissolves the human case, and I distrust the tidiness with which it would. A system that took hold of us is still one we inhabit differently from a machine that was trained on our leavings—the feedback loop runs through us in a way it does not run through it. But once you concede that the terrain is shared, the question stops being whether machines have crossed onto our ground. The ground was never ours to begin with. What we called creativity may have been the name we gave to our not yet noticing the medium doing the work.
+
+[QUESTIONS 1-6]
+
+**Q1. Central Thesis**
+Which option best captures the central argument of the passage?
+
+(A) The passage shows that reader-response theory, properly applied, proves authorship is irrelevant to how texts acquire their literary value.
+(B) The passage argues that the AI debate exposes an unexamined view of creativity as agent-owned, then unsettles rather than resolves that view.
+(C) The passage demonstrates that writers who resist AI have betrayed the anti-genius theories they once defended and should therefore accept machine authorship.
+(D) The passage claims language is a technology possessing its users, which finally establishes that machines and humans are creative in identical ways.
+
+**Q2. Logical Function / Structural Role**
+The one-sentence paragraph "So the machine embarrasses the humanist. That much seems clear." primarily serves to:
+
+(A) restate the passage's settled conclusion in compressed form for emphasis.
+(B) concede a rival position the author will spend the rest defending.
+(C) mark a resting point the following paragraph immediately reopens and complicates.
+(D) signal the author's sympathy with the writers described just before it.
+
+**Q3. Contextual Inference**
+By saying readers "read *under a description*," the author most nearly means that:
+
+(A) readers require external criticism to interpret a text accurately.
+(B) the frame of assumed human origin partly constitutes the reading experience.
+(C) descriptions attached to a text override the plain meaning of its words.
+(D) readers project intentions the author never actually placed in the work.
+
+**Q4. Critical Reasoning Application**
+A gallery displays a painting as a lost old master; visitors report profound aesthetic experiences. When told it is a forgery, they feel their experience was cheapened, though the canvas is unchanged. Which passage claim best explains this?
+
+(A) The identity of a producer is inert once value crystallizes in reception.
+(B) Aesthetic value lives entirely in the physical properties of the object.
+(C) Forgeries lack the creative struggle that alone confers genuine value.
+(D) Losing an assumed origin removes a frame that was shaping the experience.
+
+**Q5. Implicit Assumption**
+The argument that reception-centered theory "explains precisely why origins continue to matter" depends on assuming that:
+
+(A) readers can never reliably detect whether a text was machine-produced.
+(B) a text's words change their meaning when its authorship is revealed.
+(C) the frame under which a text is read counts as part of what is interpreted.
+(D) human authors always struggle more than machines in producing texts.
+
+**Q6. Authorial Stance / Tone**
+The author's stance toward the "shared terrain" view in the final paragraph is best described as:
+
+(A) endorsing it wholeheartedly as the passage's triumphant resolution.
+(B) rejecting it as an overreach that dissolves the human entirely.
+(C) entertaining it while resisting its neatness and holding the tension open.
+(D) presenting it neutrally without any evaluative commitment at all.
+
+[WHY THIS RC IS DIFFICULT]
+
+**Hidden Structural Shifts**
+The passage runs four distinct positions across a deceptively short span. Paragraph 1 reframes the debate (creativity as possibly *not* agent-owned). Paragraph 2 builds the reception-centered attack on authorship—and most readers freeze here, taking "the defenders have retreated to a position they demolished" as the thesis. Paragraph 3's single line ("So the machine embarrasses the humanist") is a false summit; it *invites* premature closure. Paragraph 4 reverses: the same reception theory that seemed to make origins irrelevant is shown to *explain why origins matter*—a conceptual reversal that invalidates the naive reading of paragraph 2. Paragraphs 5–6 escalate to the radical "language as possessing technology" view, then the author refuses its tidiness and leaves the tension open. Readers who anchor on either the anti-authorship movement (para 2) or the radical dissolution (para 5) will misread the whole.
+
+**Core Distractor Traps**
+The dominant traps: (a) structural freezing at paragraph 2's embarrassment claim (Q1-C, Q2-A); (b) over-resolution of the deliberately reopened ending (Q1-A, Q1-D, Q6-A); (c) reversal of the paragraph-4 move, treating origins as inert after the author has restored their relevance (Q4-A, Q5 distractors); (d) framework importation—reading "read under a description" as a claim about criticism or authorial intention rather than the constituting frame (Q3-A, Q3-D).
+
+**Tonal Ambiguity**
+The author is neither AI-optimist nor humanist-defender. The voice performs a controlled self-implication: it dismantles the humanist reflex, then rescues part of it, then floats a radical thesis it explicitly "distrusts... for its tidiness." The closing line ("the name we gave to our not yet noticing") is elegiac and destabilizing rather than triumphant—the stance is dialectical suspension, not resolution.
+
+**Paragraph Function Matrix**
+
+| Para | Function |
+|------|----------|
+| 1 | Reframes debate; exposes buried assumption that creativity is agent-owned |
+| 2 | Builds reception-centered case against authorship (the trap-summit begins) |
+| 3 | Compressed false resting point inviting premature closure |
+| 4 | Conceptual reversal: reception theory now *explains* why origins matter |
+| 5 | Escalates to radical view—language as a technology possessing its users |
+| 6 | Qualifies the radical view, refuses synthesis, reopens the tension |
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+**Q1 — Correct: (B)**
+(B) names the governing move (exposing an unexamined view) and the final posture (unsettles rather than resolves)—compact and accurate to the full arc. **Bridge:** matches para 1's reframing plus paras 4–6's refusal of closure.
+(A) *Wrong — false synthesis / temporal misreading:* treats para 2's attack as the settled endpoint; para 4 explicitly restores authorship's relevance. It also overstates ("proves... irrelevant").
+(C) *Wrong — structural freezing:* anchors on the paragraph-2 "betrayal" observation and adds a prescriptive conclusion ("should accept machine authorship") the passage never endorses.
+(D) *Wrong — over-resolution / global distortion:* takes the para-5 radical view as the conclusion and hardens it into "identical ways," which para 6 directly resists.
+
+**Q2 — Correct: (C)**
+(C) identifies the line's structural role as a false summit reopened immediately after. **Bridge:** para 4 begins "It is less clear that the embarrassment cuts the way it first appears."
+(A) *Wrong — structural freezing:* calls it a settled conclusion; it is provisional, not settled.
+(B) *Wrong — role misidentification:* the author does not go on to *defend* the embarrassment; the author complicates it.
+(D) *Wrong — local/global confusion:* the line is analytic, not an expression of sympathy for the resisters.
+
+**Q3 — Correct: (B)**
+(B) captures "read under a description" as the assumed-origin frame partly constituting reading. **Bridge:** para 4 says the description "written by a person" is "part of the material they interpret."
+(A) *Wrong — framework importation:* imports the idea of external criticism, absent from the passage.
+(C) *Wrong — scope distortion:* the frame does not "override" the words; the author stresses the words are *unchanged*.
+(D) *Wrong — framework importation:* reintroduces authorial intention, precisely the model paras 2 and 4 move past.
+
+**Q4 — Correct: (D)**
+(D) applies the para-4 mechanism: losing an assumed origin removes a constituting frame though the object is unchanged. **Bridge:** exact parallel to "lose access to a frame that was constituting the experience."
+(A) *Wrong — reversal:* asserts origin is inert, the position para 4 overturns.
+(B) *Wrong — scope inversion:* locates value in physical properties, contradicting the reception frame.
+(C) *Wrong — structural freezing:* invokes the "creative struggle" view the passage treats as the naive, retreated position.
+
+**Q5 — Correct: (C)**
+(C) is the unstated premise: the reading-frame must count as part of what is interpreted for origins to "continue to matter." **Bridge:** without this, the para-4 move collapses.
+(A) *Wrong — plausible but unnecessary:* detectability is not required for the argument's logic.
+(B) *Wrong — claim the passage complicates:* the author insists the words are *unchanged*; meaning-of-words is not the mechanism.
+(D) *Wrong — framework importation:* reintroduces the struggle/authorship model the passage sets aside.
+
+**Q6 — Correct: (C)**
+(C) captures dialectical suspension—entertaining the view while resisting its tidiness. **Bridge:** para 6, "I distrust the tidiness with which it would," and the reopened close.
+(A) *Wrong — over-resolution:* the author explicitly refuses wholehearted endorsement.
+(B) *Wrong — scope inversion:* the author does not reject the view; he concedes the terrain is shared.
+(D) *Wrong — tonal misreading:* the stance is evaluatively engaged (distrust, resistance), not neutral.
+
+**Answer distribution:** B, C, B, D, C, C — no letter more than twice; no three consecutive identical; correct answers are not clustered at any single position.
+
+[SOURCE ATTRIBUTION]
+[Inspired by: "How AI can help us understand what makes us human" / "Writing After AI", Martin Puchner, Aeon]

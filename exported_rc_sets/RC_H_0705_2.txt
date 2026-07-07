@@ -1,0 +1,130 @@
+RC ID: RC_H_0705_2 | Row #2 | Tier: hard | Score: 8.4 | Status: approved | Generated: 2026-07-05T18:23:04.011472+00:00
+======================================================================
+
+# READING COMPREHENSION PASSAGE
+
+When Sartre insisted in 1945 that "existence precedes essence," he meant to overturn a hierarchy older than philosophy itself: the assumption that human beings arrive with a purpose already stitched into them, waiting only to be realized. On his account, we are first thrown into being and only afterward, through the accumulation of choices, become anything at all. The doctrine is exhilarating in its austerity. It abolishes excuses, dignifies the trembling moment of decision, and hands each person the full weight of authorship over a life. Yet the very radicalism that made the lecture resonate in a Paris still smelling of liberation is also where its architecture begins to buckle.
+
+Consider the move that Sartre treats as the linchpin of his ethics. Having stripped away God, human nature, and any pre-given values, he still wants to prevent his philosophy from collapsing into "anything goes." His device is a peculiar universalizing gesture: in choosing for myself, I choose "as if" I were legislating for all humanity, and this imagined constituency supposedly disciplines my will. But the gesture is borrowed. It is Kant's categorical imperative wearing existentialist clothing, and it sits awkwardly on a thinker who has just denied that humans share any common essence. If there is no shared nature, there is no shared standard by which my choice could be a model for anyone else. The egomaniac who authentically wills his own aggrandizement, and who cheerfully invites everyone to do likewise, passes Sartre's test as easily as the saint. Authenticity certifies the sincerity of a choice; it says nothing about its content.
+
+This is not a minor lacuna. It reveals that Sartre's ethics smuggles in the very universality it claims to have earned from within. Simone de Beauvoir, writing two years later, saw the gap and refused the smuggling. Her wager in *The Ethics of Ambiguity* is that freedom is never abstract but always *situated* — lived by particular people under particular constraints of poverty, oppression, and denied education. For her, the obligation to others' freedom is not imported through a Kantian back door; it follows necessarily from taking seriously that my own freedom is exercised in conditions that others' choices have shaped, and that shape theirs. Where Sartre gestures thinly at "situation," Beauvoir insists on the concrete social architecture within which the anguish of choice is sometimes swallowed whole by the anguish of survival.
+
+The difference is not merely emphasis. Sartre's version can be read, and has been read, as a self-help creed: seize your life, defy the categories others impose, remake yourself. That reading is not wrong, but it is incomplete, because it treats the chooser as unencumbered. Beauvoir's correction returns the body and the world to the picture. Willing one's own freedom, she argues, commits one to fighting for the conditions that make anyone else's freedom possible. Freedom that ignores its own conditions is, in the end, less a philosophy than a flattering wish.
+
+---
+
+# QUESTIONS
+
+**1. (Central Thesis)** Which of the following best captures the central argument of the passage?
+
+(A) Sartre's existentialism is philosophically incoherent and should be abandoned in favour of Beauvoir's situated ethics.
+
+(B) Sartre's doctrine of radical freedom is powerful but contains an unearned universalizing move that Beauvoir's situated conception of freedom repairs by grounding obligation in concrete conditions.
+
+(C) The categorical imperative is the only defensible foundation for existentialist ethics, and Sartre erred by disguising rather than acknowledging his debt to Kant.
+
+(D) Existentialism became popular in postwar Paris primarily because it offered an exhilarating, excuse-abolishing account of human choice.
+
+---
+
+**2. (Logical Function)** What is the primary function of the sentence introducing "the egomaniac who authentically wills his own aggrandizement"?
+
+(A) To provide a historical example of how existentialism was abused in the twentieth century.
+
+(B) To demonstrate that Sartre personally endorsed morally repugnant choices provided they were sincere.
+
+(C) To expose that Sartre's criterion of authenticity certifies the sincerity of a choice but cannot discriminate among its moral contents.
+
+(D) To argue that all universalizing ethical systems inevitably fail to exclude bad actors.
+
+---
+
+**3. (Contextual Inference)** The passage's claim that Sartre's universalizing gesture is "borrowed" most directly implies that:
+
+(A) Sartre openly credited Kant as the source of his ethical framework.
+
+(B) Sartre's ethics relies on a principle whose justification depends on assumptions his own system explicitly rejects.
+
+(C) The categorical imperative is incompatible with any form of atheism.
+
+(D) Existentialism cannot generate any ethical claims without external borrowing.
+
+---
+
+**4. (Critical Reasoning Application)** A management consultant argues: "Each employee should make decisions authentically — owning them fully, without blaming the organization — and that alone guarantees ethical conduct across the firm." Which criticism in the passage most closely parallels the flaw in this argument?
+
+(A) The objection that freedom is always situated within concrete social constraints.
+
+(B) The objection that authenticity guarantees the sincerity of a choice but not the moral worth of its content.
+
+(C) The objection that Sartre denied a common human nature while assuming a shared standard.
+
+(D) The observation that existentialism was often reduced to a self-help creed.
+
+---
+
+**5. (Implicit Assumption)** The passage's argument that Beauvoir's obligation to others "follows necessarily" rather than being "smuggled in" assumes which of the following?
+
+(A) That freedom exercised under conditions shaped by others generates a genuine obligation to those others, without appeal to an external moral principle.
+
+(B) That all human beings share an identical situation regardless of social position.
+
+(C) That Kant's categorical imperative is ultimately compatible with situated freedom.
+
+(D) That survival and freedom are the same kind of anguish.
+
+---
+
+**6. (Authorial Stance/Tone)** The author's attitude toward Sartre's lecture is best described as:
+
+(A) dismissive, treating the doctrine as a confused failure with no lasting value.
+
+(B) uncritically admiring, endorsing the doctrine's radical freedom without reservation.
+
+(C) appreciative of its power and appeal while judging one of its central ethical moves to be structurally flawed and improved upon by Beauvoir.
+
+(D) neutral and expository, declining to evaluate the competing frameworks.
+
+---
+
+# ANSWER KEY & ELIMINATION LOGIC
+
+**1. Correct: (B)**
+Structural bridge: The passage grants Sartre's power ("exhilarating," "resonate") but identifies the borrowed Kantian move as the point where "the architecture begins to buckle," then presents Beauvoir as the repair grounded in concrete conditions. (B) holds both halves.
+- (A) *Scope distortion*: the passage praises Sartre and never calls for abandonment; it says his reading is "not wrong, but incomplete."
+- (C) *Imported framework / causal reversal*: the passage criticizes Sartre's Kantian borrowing as ill-fitting; it does not endorse the categorical imperative as the "only defensible foundation."
+- (D) *Half-truth*: postwar popularity is mentioned in passing but is not the central argument, which concerns the ethics's internal flaw and Beauvoir's correction.
+
+**2. Correct: (C)**
+Structural bridge: The egomaniac example directly follows the claim that authenticity "certifies the sincerity of a choice; it says nothing about its content" — the sentence is the illustration of that gap.
+- (A) *Scope distortion*: the example is analytic, not a historical case study.
+- (B) *Causal/attribution error*: it shows a flaw in Sartre's *test*, not Sartre's personal endorsement of aggrandizement.
+- (D) *Scope distortion*: the passage targets Sartre's specific move, not "all universalizing systems."
+
+**3. Correct: (B)**
+Structural bridge: "Borrowed" is glossed by the passage as Kant "wearing existentialist clothing" that "sits awkwardly" because Sartre "denied that humans share any common essence" — i.e., the principle rests on assumptions Sartre rejects.
+- (A) *Causal reversal*: "smuggling" and "back door" imply the debt was *not* openly credited.
+- (C) *Imported framework*: the passage never claims the categorical imperative is incompatible with atheism as such.
+- (D) *Scope distortion*: the passage identifies one borrowed move, not a wholesale inability to generate ethics.
+
+**4. Correct: (B)**
+Structural bridge: The consultant equates authentic ownership with guaranteed ethical conduct — precisely the error the passage exposes via the egomaniac: authenticity secures sincerity, not moral content.
+- (A) *Wrong objection imported*: the situatedness critique is Beauvoir's separate point, not the authenticity/content gap the scenario exhibits.
+- (C) *Half-truth*: the common-standard problem is real in the passage but concerns the universalizing move, not the sincerity-vs-content confusion the scenario shows.
+- (D) *Scope distortion*: the self-help observation is descriptive of reception, not a criticism of the reasoning in the scenario.
+
+**5. Correct: (A)**
+Structural bridge: The passage says Beauvoir's obligation "follows necessarily" from freedom being "exercised in conditions that others' choices have shaped." For this to avoid "smuggling," the shaping relation itself must generate the obligation without an external principle — exactly (A).
+- (B) *Contradiction*: Beauvoir's whole point is that situations *differ* by social position.
+- (C) *Imported framework*: the passage contrasts Beauvoir's derivation with the Kantian smuggling; it does not reconcile them.
+- (D) *Half-truth / distortion*: the passage says survival-anguish can *swallow* freedom-anguish, not that they are identical.
+
+**6. Correct: (C)**
+Structural bridge: The tone combines praise ("exhilarating," "dignifies," "not wrong") with structural critique ("buckle," "smuggles," "unearned") and endorsement of Beauvoir's "correction."
+- (A) *Scope distortion*: too negative; the author affirms the doctrine's value and appeal.
+- (B) *Half-truth*: admiration is present but qualified by serious criticism.
+- (D) *Scope distortion*: the author clearly evaluates, siding with Beauvoir's repair.
+
+---
+
+[Inspired by: "Existentialism is a humanism, and it deserves a comeback" (on Sartre's 1945 lecture and Beauvoir's *The Ethics of Ambiguity*), Aeon]

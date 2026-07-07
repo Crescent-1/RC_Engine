@@ -1,0 +1,142 @@
+RC ID: RC_H_0705_3 | Row #3 | Tier: hard | Score: 8.2 | Status: approved | Generated: 2026-07-05T18:24:11.577461+00:00
+======================================================================
+
+# READING COMPREHENSION PASSAGE
+
+Before anaesthesia, the surgeon's art was bounded by what a conscious patient could endure. Speed was everything; a leg came off in seconds because it had to, and operations were confined to the body's surface. When ether arrived in the 1840s, some of the most eminent physicians of the age condemned it. Pain, one argued, was curative, sustaining the "actions of life"; others noted that conscious patients confirmed the surgical site and offered real-time diagnostic feedback. Their opposition was not obscurantism. It rested on the best clinical evidence then available, and it was largely correct about what it measured. What none of these critics could have foreseen was that anaesthesia would make open-heart surgery, transplantation and the entire architecture of modern surgical specialisation possible—an outcome inconceivable from within the practice of 1846.
+
+Cases of this kind share a structure worth naming. An innovation arrives whose costs are perfectly legible, because they register against the baseline of the practice being reorganised and can be measured with that practice's existing instruments. Its most profound benefits, however, depend on practices, institutions and concepts that do not yet exist at the moment of evaluation. Serious critics document the costs, often accurately, because costs of that kind are precisely what their inherited evaluative vocabulary is built to detect. No evaluation available in the critical moment could capture the benefits, since the vocabulary that would describe them is itself among the things the innovation will bring into being. This "legibility asymmetry" recurs across history—from Plato's Thamus warning that writing would corrode memory to Sousa predicting the phonograph would extinguish amateur musicianship. Each was empirically right about the displacement he named and blind to the possibility space the medium would open.
+
+The contemporary anxiety about artificial intelligence follows the same grammar. Careful studies show that offloading cognitive work to machines weakens the internal capacity for that work; students given answer-supplying AI tutors perform worse on unaided exams. These are serious findings by serious researchers. They are also, structurally, the AI debate's version of the physician who condemned ether: the most comprehensive evidence available, unable to register the most important thing that happens next.
+
+Yet the asymmetry supplies no blanket licence for enthusiasm. Its practical force depends on a second consideration: recoverability. Where a foreclosed benefit cannot be estimated but the cost is reversible—where a displaced skill can be relearned because some institutional locus has kept cultivating it—restriction wagers against benefits whose scale the evidence cannot access, and the foreclosure becomes the graver risk. But recoverability is subtle. A cognitive capacity might return through retraining, yet the programmes, mentorships and working communities that transmit such skills can dissolve on their own timetable, and the knowledge of how to reconstitute them scatters with the people who held it. Where costs are plausibly irrecoverable—where developmental windows close, or the ability to detect a problem vanishes with the skill it depends on—the asymmetry offers no reason to relax caution and may strengthen the case for restraint. Measurability and importance, in the end, are not the same thing; but neither licenses indifference to what cannot be undone.
+
+---
+
+# QUESTIONS
+
+**Q1. Central Thesis**
+
+Which of the following best captures the central argument of the passage?
+
+(A) Historical critics of innovations like anaesthesia and writing were fundamentally mistaken, and contemporary critics of AI are repeating their error by overstating measurable harms.
+
+(B) Because an innovation's deepest benefits are systematically invisible at the moment of evaluation while its costs are not, governance should favour experimentation—except where the costs are irreversible, in which case caution is warranted.
+
+(C) The most reliable way to evaluate a new technology is to defer judgment entirely until people equipped with future concepts can assess it retrospectively.
+
+(D) AI differs from earlier innovations because its benefits, unlike those of anaesthesia or the phonograph, can already be specified in advance by careful researchers.
+
+---
+
+**Q2. Logical Function / Structural Role**
+
+What is the primary function of the fourth paragraph (beginning "Yet the asymmetry supplies no blanket licence") within the passage's overall argument?
+
+(A) It abandons the legibility asymmetry as unworkable and replaces it with recoverability as the sole criterion for governance.
+
+(B) It concedes that critics of AI have been correct all along, undercutting the earlier historical analogies.
+
+(C) It qualifies the argument built in the first three paragraphs, introducing a second consideration that constrains when the asymmetry should override caution.
+
+(D) It provides empirical evidence to confirm that AI's benefits will eventually become measurable.
+
+---
+
+**Q3. Contextual Inference**
+
+The passage states that the physicians who opposed ether were "largely correct about what it measured." This qualification implies that:
+
+(A) their factual claims were false, but their moral reasoning was sound.
+
+(B) their observations were accurate within a framework that could not, in principle, register the innovation's most significant consequences.
+
+(C) later medicine vindicated their view that pain plays a curative role in surgery.
+
+(D) the errors of past critics were caused by insufficient data rather than by the structure of evaluation itself.
+
+---
+
+**Q4. Critical Reasoning Application**
+
+A city considers banning a new ride-sharing platform after studies show it reduces the number of licensed taxi drivers, a documented economic cost. Which consideration would the author most likely treat as decisive in evaluating this ban?
+
+(A) Whether the studies documenting the loss of taxi drivers are methodologically sound.
+
+(B) Whether the displaced driving skills and the institutions that train drivers could be reconstituted if the ban proved mistaken.
+
+(C) Whether the platform's benefits exceed its costs when both are measured against current transportation metrics.
+
+(D) Whether ride-sharing more closely resembles anaesthesia or the phonograph in its historical trajectory.
+
+---
+
+**Q5. Implicit Assumption**
+
+The author's claim that critics document costs "often accurately" while benefits remain unspecifiable rests on which unstated assumption?
+
+(A) That the benefits of an innovation always outweigh its costs in the long run.
+
+(B) That the vocabulary and instruments used to measure an innovation's effects are shaped by the practice the innovation is in the process of displacing.
+
+(C) That critics of innovation are generally less competent than its proponents.
+
+(D) That measurable costs are inherently less real than unmeasurable benefits.
+
+---
+
+**Q6. Authorial Stance / Tone**
+
+Which of the following best describes the author's stance toward the researchers who document AI's cognitive costs?
+
+(A) Dismissive, treating their work as alarmist and methodologically weak.
+
+(B) Respectful of their rigour while regarding their conclusions as structurally limited by the moment at which they are made.
+
+(C) Neutral, presenting their findings without evaluation.
+
+(D) Sympathetic to their alarm and ultimately persuaded that restriction is the safest course.
+
+---
+
+# ANSWER KEY & ELIMINATION LOGIC
+
+**Q1 — Correct: (B)**
+Structural bridge: The passage builds the asymmetry (paras 1–3) then explicitly qualifies it with recoverability (para 4), arriving at a conditional position—exactly what (B) states.
+- (A) *Scope distortion / half-truth*: The author insists critics were "largely correct" and "not obscurantism," not "fundamentally mistaken." Reverses the author's respectful stance.
+- (C) *Scope distortion*: The author acknowledges retrospective judgment matters but explicitly asks "how to govern in the meantime," rejecting total deferral.
+- (D) *Causal reversal / contradiction*: The passage argues AI's key benefits *cannot* yet be specified; it likens current researchers to past critics, not to seers.
+
+**Q2 — Correct: (C)**
+Structural bridge: "Yet" signals a turn that constrains rather than confirms; recoverability limits *when* the asymmetry overrides caution. This is qualification, not replacement.
+- (A) *Scope distortion*: Recoverability supplements the asymmetry as a "second consideration"; it is not the "sole criterion," and the asymmetry is not abandoned.
+- (B) *Half-truth*: The author grants critics document real things but never says they are "correct all along"—the historical analogies remain intact.
+- (D) *Imported/contradictory framework*: The paragraph offers no such confirmation; the passage denies benefits are presently measurable.
+
+**Q3 — Correct: (B)**
+Structural bridge: "Correct about what it measured" is precisely the legibility asymmetry—accurate within a limited frame, blind to consequences that frame cannot register.
+- (A) *Imported framework*: The passage frames the limitation as evaluative/structural, not a split between fact and morality.
+- (C) *Causal reversal*: The pain-as-curative claim is presented as an example of the critics' *error*, not later vindication.
+- (D) *Half-truth*: The passage explicitly locates the error in "the structure of evaluation itself," not merely in insufficient data.
+
+**Q4 — Correct: (B)**
+Structural bridge: Para 4 makes recoverability the decisive governance test where benefits are unestimable; whether the ban is reversible is the author's operative question.
+- (A) *Half-truth*: Methodological soundness is granted but never treated as decisive; documented costs are exactly what the author expects critics to establish.
+- (C) *Scope distortion*: The author argues cost-benefit weighing *against current metrics* is precisely what the asymmetry defeats.
+- (D) *Imported framework*: The historical-analogy classification is illustrative, not a diagnostic tool the author applies to new cases.
+
+**Q5 — Correct: (B)**
+Structural bridge: The asymmetry rests on the premise that measuring instruments belong to the displaced practice—hence they capture costs but not yet-unnamed benefits.
+- (A) *Scope distortion / overreach*: The author never claims benefits "always outweigh" costs; para 4 grants cases where irreversible costs dominate.
+- (C) *Contradiction*: The author explicitly calls the critics competent and their work "careful."
+- (D) *Distortion*: The passage says benefits are *presently* unmeasurable, not less real; it never denies costs' reality.
+
+**Q6 — Correct: (B)**
+Structural bridge: "Serious findings by serious researchers," yet "unable to register the most important thing that happens next"—respect paired with a structural limitation.
+- (A) *Reversal*: Directly contradicts "serious findings... serious researchers."
+- (C) *Half-truth*: The author does evaluate their conclusions as structurally limited; not neutral.
+- (D) *Scope distortion*: The author is sympathetic to their rigour but is *not* persuaded restriction is generally safest—only where costs are irrecoverable.
+
+---
+
+[Inspired by: "The illegible benefit," Aeon-style essay on the legibility asymmetry of technological innovation, echoing arguments associated with the anaesthesia/phonograph/AI comparison and Acemoglu, Kong & Ozdaglar's work on AI and collective knowledge.]

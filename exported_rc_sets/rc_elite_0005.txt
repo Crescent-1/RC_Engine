@@ -1,0 +1,159 @@
+RC Set #5 | Tier: elite | Score: 8.8 | Status: approved | Generated: 2026-07-04T19:12:08.643596+00:00
+======================================================================
+
+# READING COMPREHENSION
+
+**Passage:**
+
+The promise of ancient DNA was that it would settle arguments historians had circled for a century. Where texts could be read tendentiously and pottery shards assembled into whatever story the excavator preferred, a genome seemed to offer something recalcitrant — a fact that would not bend to nationalist appetite. Populations either mixed or they did not; the alleles do not care who is offended. For a certain kind of scholar, exhausted by the interminable quarrels over origins, this was liberation.
+
+It was also, on inspection, a category confusion dressed as a discovery.
+
+Consider what a genome actually records. It tracks the movement of bodies, the timing of admixture, the eventual hardening of endogamy into what would later be called caste. These are real signals, and dismissing them because they are politically inconvenient is its own kind of bad faith. The indigenist who denies that Steppe pastoralists ever arrived is not defending method; he is refusing evidence. So far the geneticists are on firm ground. The trouble begins when the signal is asked to carry meaning it never contained. That two populations mixed tells us nothing about whether the mixing was conquest, commerce, marriage, or slow demographic seepage over centuries nobody experienced as an event. The DNA is mute precisely where history becomes interesting — at the level of power, coercion, prestige, and the choices, however constrained, of the people doing the mixing.
+
+Here one expects the humanist's rejoinder: that culture escapes biology, that meaning cannot be sequenced. True enough, but the rejoinder conceals a second error, its mirror image. For if genetics overreaches by biologizing the social, the older text-based historiography routinely committed the reverse sin — treating the categories of the Rig Veda, or the self-descriptions of literate elites, as though they transparently reported the demographic realities of a subcontinent most of whose inhabitants left no words at all. The texts were not neutral either. They were the propaganda of the winners, and reading history off them was never the innocent alternative to reading it off the genome. Both methods purchase clarity by amputation. One discards the body; the other discards everyone who could not write.
+
+So the corrective needs correcting.
+
+What the genetic turn genuinely alters is not the answer to the old question but the standing of the question itself. To ask for the *origin* of a people — a single stream, a founding stock, a moment before which they were not and after which they were — is to import a grammar the evidence increasingly refuses. There is no bottom. Push the First Indians back sixty-five thousand years and you find them already arriving from somewhere; push further and the very unit whose origin you sought dissolves into a process that was never anywhere at rest. Origin-talk assumes a stillness that the data denies at every depth you probe.
+
+And yet — this is the part the debunkers miss — the stillness cannot simply be discarded, because the political present demands it. A modern nation cannot organize loyalty around a crucible that never settled. It needs an origin the way a court needs a plaintiff. The scholarly recognition that peoples are processes and the civic requirement that they be things are not going to be reconciled by better data, because they are not, at bottom, disagreements about data. The genome answered a question. It could not tell us why we insisted on asking it, or why, having been answered, we go on asking it still.
+
+---
+
+# QUESTIONS
+
+**Q1. Which of the following best captures the central argument of the passage?**
+
+(A) Ancient DNA has finally displaced text-based historiography as the more reliable method for reconstructing the deep past, provided its reductionist tendencies are checked against cultural evidence.
+
+(B) Both genetic and textual methods distort the past through selective omission, but the deeper difficulty is that the demand for an "origin" is a political need that no method, however refined, can satisfy or dissolve.
+
+(C) The indigenist refusal of migration evidence and the humanist refusal of genetic evidence are symmetrical errors, and a balanced historiography must synthesize biological and cultural data into a single account.
+
+(D) Because every population turns out to be the product of prior migration, claims of cultural exceptionalism are exposed as short-sighted, and the concept of a fixed national origin should be abandoned.
+
+**Q2. The short sentence "So the corrective needs correcting" functions primarily to:**
+
+(A) concede that the author's critique of genetics was overstated and requires retraction.
+
+(B) mark a transition from evaluating two flawed methods to questioning the very question both methods were trying to answer.
+
+(C) introduce the humanist rejoinder as the passage's preferred resolution to the biology-versus-culture dispute.
+
+(D) signal that textual historiography, once corrected, remains superior to genetic analysis.
+
+**Q3. In context, the claim that the texts "were the propaganda of the winners" is intended to convey that:**
+
+(A) written sources deliberately fabricated the arrival of Steppe pastoralists to serve elite interests.
+
+(B) textual historiography, far from being the neutral alternative to genetics, is itself compromised by whose experience it silently excludes.
+
+(C) the Rig Veda is less reliable than genomic data because its authors had explicit political motives.
+
+(D) literate elites suppressed evidence of endogamy that genetics has now recovered.
+
+**Q4. A demographer studying medieval European populations finds genetic evidence of large-scale admixture between two groups and concludes that the groups must have intermarried peacefully. Which idea from the passage most directly undermines this conclusion?**
+
+(A) That texts are the propaganda of the winners and cannot be read as transparent demographic records.
+
+(B) That the demand for a single origin imports a grammar the evidence refuses.
+
+(C) That admixture signals are real but silent as to whether mixing occurred through conquest, commerce, or coercion.
+
+(D) That reducing whole persons to genomes biologizes identities that are fundamentally social.
+
+**Q5. The passage's argument that no amount of better data will reconcile the scholarly and civic views of peoplehood depends on which unstated assumption?**
+
+(A) That civic and national institutions are inherently hostile to scientific findings about the past.
+
+(B) That the disagreement between the two views is not evidentiary in nature but stems from incompatible functions the two views serve.
+
+(C) That genetic data will eventually become sophisticated enough to describe cultural meaning.
+
+(D) That political communities could organize loyalty around a fluid conception of identity if properly educated.
+
+**Q6. Which best describes the author's intellectual posture across the passage?**
+
+(A) A skeptic who, having exposed the pretensions of genetics, endorses textual historiography as the surer path.
+
+(B) An adjudicator who weighs both methods and awards qualified victory to the one with fewer distortions.
+
+(C) A dialectician who validates each position only far enough to expose its limit, ending by relocating the problem beyond method entirely.
+
+(D) A pessimist who concludes that the deep past is fundamentally unknowable and that the debate is therefore futile.
+
+---
+
+# Why this RC is difficult
+
+**Hidden Structural Shifts:**
+The passage runs a four-stage movement that keeps overturning the reader's provisional resolution. (1) Genetics as liberation from tendentious history. (2) Immediate reversal — genetics is "category confusion," mute where history matters. A reader who freezes here concludes the passage is anti-genetics. (3) The humanist rejoinder is raised *and then itself undercut* — texts are equally amputating. Readers who anchor on "both methods amputate" freeze into a false-symmetry reading. (4) The real pivot ("So the corrective needs correcting"): the target is not either method but *origin-talk itself*. Then a final twist — origin-talk cannot merely be discarded because the political present *requires* it. The ending relocates the tension from epistemology to the irreconcilability of scholarly and civic functions. Readers freeze most often at stage 2 (thinking the essay debunks DNA) or stage 3 (thinking the essay preaches methodological balance).
+
+**Core Distractor Traps:**
+- Q1(A)/(D) anchor on early or late fragments — (A) mistakes stage-1 framing plus a check; (D) adopts the "abandon origins" reading the passage explicitly complicates in its final paragraph.
+- Q1(C) is the seductive false-synthesis trap: the passage denies reconciliation "by better data."
+- Q2(C)/(D) misassign the pivot as endorsing one method.
+- Q3(A)/(C)/(D) all read the "propaganda" line locally as a factual charge against texts, missing its structural role of destroying the *neutrality* of the textual alternative.
+- Q4(A)/(D) are real passage claims but address the wrong mechanism; only (C) targets the inference from admixture to peacefulness.
+- Q5(A)/(D) import external political theories; (C) reverses the passage.
+- Q6(A)/(B)/(D) collapse dialectical suspension into partisanship, adjudication, or despair.
+
+**Tonal Ambiguity:**
+The author appears anti-genetics, then anti-humanist, then anti-origin, then defends the persistence of origin-talk as politically inescapable. The stance is never endorsement — each position is granted validity only to the depth needed to expose its boundary. The closing sentences withhold resolution deliberately: the genome "could not tell us why we insisted on asking."
+
+**Paragraph Function Matrix:**
+
+| Paragraph | Function |
+|---|---|
+| 1 | Establishes the seductive framing: DNA as liberation from ideological history. |
+| 2 (pivot) | Compressed reversal — reframes that liberation as category confusion. |
+| 3 | Qualifies the reversal: genetics is partly valid, then diagnoses its exact limit (mute on power). |
+| 4 | Raises humanist rejoinder, then destroys the symmetry by indicting texts too. |
+| 5 (pivot) | Relocates the problem: the flaw is the *question* (origin), not the methods. |
+| 6 | Final destabilization: dissolves origin as a coherent unit. |
+| 7 | Reopens — origin-talk is politically indispensable; tension is civic, not evidentiary; no closure. |
+
+---
+
+# ANSWER KEY & ELIMINATION LOGIC
+
+**Q1 — Correct: (B)**
+Bridge: integrates all four movements — dual distortion (para 3–4) *plus* the higher-order claim that origin-demand is civic and irreconcilable by data (para 7).
+(A) Structural freezing at stage 1 + local/global confusion; the passage never crowns genetics.
+(C) False synthesis — directly contradicted by "not going to be reconciled by better data."
+(D) Temporal misreading — adopts the "abandon origins" conclusion that para 7 explicitly reopens rather than affirms.
+
+**Q2 — Correct: (B)**
+Bridge: the sentence turns from method-critique to question-critique (para 5 onward).
+(A) Misreads a structural pivot as authorial retraction.
+(C) Framework misassignment — the humanist view is undercut, not endorsed.
+(D) Reinstates a hierarchy the passage collapses.
+
+**Q3 — Correct: (B)**
+Bridge: the phrase's structural role is to deny textual *neutrality*, breaking the biology/culture symmetry ("everyone who could not write").
+(A) Over-literal — no claim of fabricated migration.
+(C) Reintroduces a method ranking the passage refuses at this point.
+(D) Imports the genetics-recovers-endogamy point from para 3; wrong locus.
+
+**Q4 — Correct: (C)**
+Bridge: exactly the admixture-does-not-specify-mechanism argument in para 3.
+(A) Real claim, wrong mechanism (textual neutrality, not admixture inference).
+(B) Concerns origin-talk, irrelevant to the peaceful-intermarriage error.
+(D) Reductionism point — adjacent but does not target the conquest/commerce ambiguity driving this specific inference.
+
+**Q5 — Correct: (B)**
+Bridge: "not, at bottom, disagreements about data" — the two views serve incompatible functions.
+(A) Framework importation — invents institutional hostility.
+(C) Reverses the passage (genes are called "mute" on meaning).
+(D) Plausible-but-unnecessary optimism the passage does not require and arguably denies.
+
+**Q6 — Correct: (C)**
+Bridge: each position is validated to its limit then transcended; ending relocates the problem beyond method — textbook dialectical suspension.
+(A) Structural freezing at stage 2.
+(B) "Adjudicator" imposes a verdict the passage withholds.
+(D) Scope distortion — the author calls the past knowable in parts; the irreducible problem is civic, not epistemic despair.
+
+---
+
+[Inspired by: *"The Origins of Indians: Historiography, Genetics, and the Contested Architecture of the Past"*, and the methodological debates surrounding David Reich's *Who We Are and How We Got Here* and Tony Joseph's *Early Indians*]

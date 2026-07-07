@@ -1,0 +1,92 @@
+RC ID: RC-ELITE-260706-0006 | Tier: elite | Score: 8.8 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.745 | Generated: 2026-07-06T14:00:11.829265+00:00
+======================================================================
+
+[PASSAGE]
+
+Ask a good doctor whether early screening saves lives, and the answer arrives fast: yes, obviously, catch the tumor small and you catch it in time. Every year I hear some version of this, and it has the ring of settled sense. The individual case is legible. A patient walks in, a scan finds a shadow, the shadow comes out, the patient walks home. What could be plainer? This is the humane view, the bedside view, and I will grant it its full force before I quarrel with anything. At the scale of one frightened person on one examining table, screening earlier is simply better medicine. That claim does real work, and I do not intend to insult it.
+
+The trouble begins the moment you count. Screening a healthy population turns up findings that would never have troubled anyone—slow lesions, indolent growths, the biological equivalent of a rattle in an engine that will outlast the car. The rival framing, which the epidemiologists press hard, calls this overdiagnosis, and it sounds like the responsible position: treat fewer, harm fewer, spare the anxious biopsies. Notice that framing carefully, because it is not mine, though I will let it speak. Here is my claim, stated plainly: a benefit that is real for each patient can be unreal for the patients taken together. Screening does something for the person that it does not do for the population. The bedside verdict and the ledger verdict are both honest, and they point opposite ways.
+
+Sharpen it. The benefit is not merely diluted at scale; it can reverse sign. A test that saves this man's life can, run across a million men, add more deaths from the treatments than it subtracts from the disease. Same intervention. Same logic. The arithmetic simply changes hands.
+
+Now, the fair objection. Surely, someone says, this is just a technical problem—better tests, sharper thresholds, and the two scales snap back into agreement. Refine the tool and the individual good becomes the aggregate good, as it always should have been. I want to concede as much of this as I honestly can, because the impulse is right and much of medicine has improved exactly this way. Yes: some scale gaps are fixable, and pretending otherwise is lazy. But concede too much and you miss what the concession quietly surrenders. The technical fix assumes the two verdicts want to converge. My whole point is that they need not. The gap is not always noise waiting to be cleaned up. Sometimes it is the shape of the thing.
+
+So sharpen once more, and surrender the comfort. The individual claim is true. The aggregate claim is true. They do not meet. There is no altitude from which both resolve, only a choice of which one you will act on today. I have spent a career signing off on protocols written for populations and then watching them applied, one body at a time, to people who are not populations. That is the vantage this whole argument was written from—the desk where the ledger lands and the patient waits. From there you learn the ugly thing early. Choosing the scale is not a preliminary to the decision. It is the decision. And nobody hands you the scale.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central thesis of the passage?
+(A) A benefit that is genuine for each patient can be false for patients taken together, and the two truths need not converge.
+(B) Catching a tumor early is obviously better medicine, since the small lesion comes out and the patient walks home safely.
+(C) Overdiagnosis shows that screening healthy populations mostly harms them, so fewer tests and fewer biopsies are the responsible course.
+(D) Better tests and sharper thresholds will eventually make the individual good and the aggregate good coincide as they should.
+
+Q2. If paragraph 2 (the paragraph introducing overdiagnosis and stating the author's plain claim) were deleted, how would the argument most change?
+(A) The passage would lose the concession that some scale gaps are fixable by refining the diagnostic tools.
+(B) The passage would lose its endorsement of the overdiagnosis position, leaving the case for fewer biopsies unsupported thereafter.
+(C) The passage would lose the moment where the author distinguishes his own claim from the epidemiologists' framing, blurring whose position is being argued.
+(D) The passage would lose the bedside scene of a frightened patient on the examining table that grounds the humane view.
+
+Q3. What is the primary structural function of the final paragraph beginning 'So sharpen once more'?
+(A) It shifts to the author's career biography chiefly to establish his authority as a signer of population protocols.
+(B) It refuses reconciliation and relocates the difficulty into the reader's forced choice of scale, leaving the tension unresolved.
+(C) It resolves the tension by showing that the individual claim ultimately outweighs the aggregate claim at the bedside.
+(D) It closes the argument by proposing that choosing the scale carefully will make the two verdicts eventually agree.
+
+Q4. If paragraph 3 (the 'reverse sign' paragraph) were replaced with a paragraph merely restating that the benefit is diluted at scale, how would the argument's force change?
+(A) The argument would lose its concession that many scale gaps can be fixed by refining the tools.
+(B) The argument would strengthen, because dilution is a more defensible claim than the extreme reversal-of-sign scenario.
+(C) The argument would be unaffected, since dilution and reversal are simply two names for the same aggregate effect.
+(D) The claim would weaken to a difference of degree, losing the sharper point that the same intervention can produce net harm at population scale.
+
+Q5. In context, the phrase 'the arithmetic simply changes hands' most nearly means that:
+(A) improving the arithmetic with better tools will restore agreement between the two scales.
+(B) the numbers are unreliable because different parties count the same cases differently.
+(C) the calculation is passed from clinicians to epidemiologists, who compute it more rigorously.
+(D) the same reasoning, applied across a population rather than one person, can yield the opposite conclusion.
+
+Q6. Which best describes the author's intellectual posture across the passage?
+(A) He grants each rival view real force, denies they can be reconciled, and insists the reader must choose a scale to act on.
+(B) He is a skeptic who ultimately sides with the population ledger against the sentimental bedside view.
+(C) He is an optimist who believes refined tools will eventually align the individual and aggregate goods.
+(D) He is a diplomat seeking a middle altitude from which both the individual and aggregate claims resolve.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — This integrates the paragraph-2 thesis with the paragraph-4 refusal of convergence and the closing insistence that the gap is structural, not correctable.
+  (B) phrase_misuse — This treats the opening bedside view, granted before the quarrel, as the author's settled conclusion, ignoring paragraph 2 onward.
+  (C) terminological_twin — This adopts the epidemiologists' framing the author explicitly says is 'not mine,' mistaking a rehearsed rival for the thesis.
+  (D) premature_closure — This is the technical-fix objection the author concedes only partly, then rejects in paragraph 4 as missing the point.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — Paragraph 2 is where the rival framing is voiced yet marked 'not mine' and the author's own claim is stated plainly; removing it collapses that separation.
+  (A) stage_misattribution — That concession lives in paragraph 4, not paragraph 2, which introduces overdiagnosis and the author's plain claim.
+  (B) terminological_twin — The author does not endorse the overdiagnosis framing; he lets it speak while stating it is not his, so no endorsement is lost.
+  (D) stage_misattribution — The examining-table scene belongs to paragraph 1's humane view, not to paragraph 2's counting problem.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The ending displaces rather than resolves: both claims stay true, no altitude reconciles them, and 'choosing the scale is the decision' hands the problem forward.
+  (A) half_truth — The career detail names the vantage point of the argument, not a credential; its function is to locate the choice, not to boast.
+  (C) phrase_misuse — The ending insists both claims are true and 'do not meet'; it grants no altitude of resolution, contrary to this reading.
+  (D) premature_closure — Paragraph 4 already denied the verdicts must converge; the ending offers a choice, not an agreement.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 explicitly escalates beyond dilution to reversal of sign—more deaths added than subtracted—which is the strong version the replacement would forfeit.
+  (A) stage_misattribution — That concession is in paragraph 4, not paragraph 3, so replacing paragraph 3 leaves it intact.
+  (B) moderate_extremism — The author deliberately sharpens toward reversal; treating dilution as the safer, stronger claim inverts the passage's escalation.
+  (C) false_symmetry — The author distinguishes them: 'not merely diluted... it can reverse sign,' making them different in kind, not synonyms.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The line follows 'Same intervention. Same logic,' clarifying that only the scale of application shifts while the computation itself flips the result.
+  (A) premature_closure — That is the technical-fix hope the author later resists; the phrase describes the reversal, not its repair.
+  (B) adjacent_answer — The point is not disputed data but that identical logic reverses across scales; both counts are honest, per paragraph 2.
+  (C) category_slip — The phrase concerns scale of application, not a handoff between professions; 'hands' is metaphorical for the shift in scope.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — He concedes the bedside view, lets the epidemiologists speak, concedes part of the technical fix, yet holds the verdicts irreconcilable and the choice unavoidable.
+  (B) stance_misread — He calls both verdicts honest and never subordinates one; the ending offers a choice, not a winner.
+  (C) premature_closure — He concedes some gaps are fixable but insists the verdicts 'need not' converge, rejecting this optimism.
+  (D) false_symmetry — He explicitly denies any 'altitude from which both resolve,' so a reconciling middle is precisely what he forecloses.
+
+[Inspired by: "The violence specialists", https://aeon.co/essays/organised-violence-is-a-trade-whether-legal-or-illegal]

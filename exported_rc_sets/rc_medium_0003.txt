@@ -1,0 +1,99 @@
+RC Set #3 | Tier: medium | Score: 8.6 | Status: approved | Generated: 2026-07-04T19:09:40.028730+00:00
+======================================================================
+
+# Reading Comprehension Passage (Medium Difficulty)
+
+For over a century, the question of who the ancient Indians were remained trapped in a stalemate between colonial-era migration theories and nationalist reassertions of pure indigeneity. The nineteenth-century notion that Indo-Aryan-speaking pastoralists arrived in the subcontinent from Central Asia around 1500 BCE was, initially, uncontroversial—even early Indian historians folded it into accounts of a composite civilization. But the mid-twentieth-century discovery of the Indus Valley Civilization, an urban society predating the Vedas, destabilized this consensus. A politically charged indigenist movement countered with the "Out of India" theory, insisting that Vedic culture and its languages had always been native to the subcontinent, radiating outward rather than arriving from elsewhere.
+
+Into this deadlock has stepped ancient DNA analysis, and its arrival has been treated, not unreasonably, as a kind of epistemological rescue. Genome sequencing from skeletal remains across Eurasia has traced a layered ancestry for South Asians: a deep foundational population descended from the original out-of-Africa migrants, a subsequent admixture with Iranian-related agriculturalists that underpinned the Indus cities, and finally an infusion of Steppe pastoralist ancestry arriving around 2000–1500 BCE, correlating with the spread of Indo-European languages. Where philology and archaeology had produced competing, ideologically inflected narratives, genetics appeared to offer something closer to verifiable fact—hard numbers extracted from bone rather than contested inscriptions.
+
+Yet this optimism deserves scrutiny. Population genetics necessarily reduces individuals to genomes and genomes to statistical signals, a method well suited to tracking biological movement but structurally blind to the human dimensions of history—power, ideology, language dominance, and the choices that shaped how populations actually mixed. A DNA sample can confirm that two groups interbred; it cannot say whether that mixing was conquest, trade, or coexistence, nor explain why caste endogamy later hardened genetic boundaries that had once been fluid. Treating genomic data as the final word risks a subtler danger than the old ideological distortions: the pseudo-scientific "biologizing" of identity, where social and cultural categories are mistaken for biological ones simply because they now come wrapped in the authority of a laboratory.
+
+The resolution, then, is not to discard genetics but to discipline its claims. Ancient DNA has genuinely narrowed the range of plausible migration scenarios and forced ideologically motivated theories to reckon with hard evidence. But its findings are most trustworthy when read alongside archaeology, linguistics, and historiography—disciplines attentive to the meanings, hierarchies, and choices that a genome, however precisely sequenced, was never built to record.
+
+---
+
+## Questions
+
+**Q1. Which of the following best captures the central argument of the passage?**
+
+A) Ancient DNA analysis has definitively settled the Aryan migration debate, proving indigenist theories wrong beyond dispute.
+B) While ancient DNA has meaningfully narrowed the long-standing debate over Indian origins, its findings are reliable only when interpreted alongside disciplines that can address the human and cultural dimensions genetics cannot capture.
+C) The discovery of the Indus Valley Civilization was the primary reason indigenist "Out of India" theories gained political traction in the twentieth century.
+D) Genetic research is fundamentally untrustworthy because it reduces human history to biological data, and historians should return to relying on archaeology and philology alone.
+
+**Q2. According to the passage, the arrival of Steppe pastoralist ancestry around 2000–1500 BCE correlates with which development?**
+
+A) The construction of the great urban centers of the Indus Valley Civilization
+B) The spread of Indo-European languages
+C) The onset of caste-based endogamy among South Asian populations
+D) The initial out-of-Africa migration into the subcontinent
+
+**Q3. Which of the following is the most logical inference from the passage's discussion of genetics' limitations?**
+
+A) Because DNA cannot indicate the social circumstances of intermixing, claims about how ancient hierarchies formed must draw on evidence beyond genetic data alone.
+B) Because DNA sampling is technically difficult, most claims about ancient Indian migration remain scientifically unverified.
+C) Because Steppe ancestry arrived after the Indus Valley collapse, the pastoralists must have been responsible for destroying Harappan cities.
+D) Because genetics can track biological movement, it must also be capable of explaining why caste endogamy developed over time.
+
+**Q4. Why does the author introduce the critique of genetic research after initially presenting it as resolving the historical debate?**
+
+A) To argue that genetic findings are more ideologically biased than the theories they replaced.
+B) To qualify the initial celebration of genetic evidence by highlighting its methodological limits, before arriving at a balanced conclusion.
+C) To provide additional evidence supporting the "Out of India" theory against migrationist claims.
+D) To suggest that ancient DNA research should be abandoned in favor of purely textual historiography.
+
+**Q5. In the context of the passage, "biologizing" (final paragraph of the critique) most nearly means:**
+
+A) Treating social and cultural categories as though they were rooted in biology
+B) Converting historical texts into quantifiable scientific data
+C) The laboratory process of extracting DNA from ancient skeletal remains
+D) The political weaponization of environmental science for nationalist ends
+
+**Q6. Which best describes the author's tone toward ancient DNA research?**
+
+A) Uniformly skeptical of ancient DNA research and dismissive of its scientific value
+B) Enthusiastically endorsing genetic determinism as the future of historical inquiry
+C) Cautiously appreciative of genetics' contribution while insistent on its methodological limits
+D) Neutral and purely descriptive, offering no evaluative judgment on the disciplines discussed
+
+---
+
+## Answer Key
+
+**Q1: B**
+Correct — The passage's structure moves from presenting genetics as an "epistemological rescue" (claim) to a critique of its reductionism (pivot) to a final synthesis urging genetics be "disciplined" by other disciplines. This option captures both halves of that arc.
+- A is a half-truth: it captures the opening claim but ignores the pivot's critique entirely.
+- C is a true detail from the passage but describes a historical trigger, not the passage's overall argument.
+- D overcorrects, mirroring only the pivot while ignoring the final paragraph's endorsement of genetics' genuine value.
+
+**Q2: B**
+Correct — The passage explicitly states Steppe pastoralist ancestry arrived "correlating with the spread of Indo-European languages."
+- A describes the Iranian-agriculturalist admixture layer, a different phase.
+- C is discussed elsewhere as something genetics can track but doesn't causally tie to Steppe arrival timing.
+- D refers to the earliest, unrelated ancestral layer.
+
+**Q3: A**
+Correct — This requires two steps: (1) DNA confirms mixing occurred but not its social nature (conquest/trade/coexistence); (2) therefore, explanations of resulting hierarchies need non-genetic corroboration. This is directly supported by the passage's reasoning.
+- B is an unsupported leap about sampling difficulty, not discussed in the passage.
+- C invents a causal claim (pastoralists destroying cities) never made or implied.
+- D contradicts the passage, which explicitly says genetics is "blind" to explaining why endogamy developed.
+
+**Q4: B**
+Correct — The critique functions as the pivot: it tempers the initial enthusiasm before the concluding paragraph offers a qualified, balanced position combining both views.
+- A is too strong; the author never claims genetics is "more" biased than older theories, only that it carries a different, subtler risk.
+- C is wrong direction; the critique is not marshalled in support of the indigenist theory.
+- D is an extreme distractor contradicted by the final paragraph's explicit endorsement of continued genetic research.
+
+**Q5: A**
+Correct — The passage uses "biologizing" to describe mistaking social/cultural categories for biological ones under the guise of scientific authority.
+- B, C, and D are literal or unrelated misreadings not supported by the surrounding sentence, which is about identity categories, not literal lab or political processes.
+
+**Q6: C**
+Correct — The author calls DNA analysis "not unreasonably" celebrated, praises its narrowing of debate, yet devotes a full paragraph to its limits — the hallmark of cautious, qualified appreciation rather than pure endorsement or rejection.
+- A and B represent the two extremes the passage explicitly avoids.
+- D is inaccurate since the author clearly evaluates and takes a position, rather than remaining neutral.
+
+---
+
+[Inspired by: "The Origins of Indians: Historiography, Genetics, and the Contested Architecture of the Past"]

@@ -1,0 +1,90 @@
+RC ID: RC-ELITE-260707-0015 | Tier: elite | Score: 8.6 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.784 | Generated: 2026-07-07T04:06:25.117186+00:00
+======================================================================
+
+[PASSAGE]
+
+There is a species of literary piety that treats every translation as a small catastrophe, a leaking vessel from which meaning drips away between languages. Something is always lost, the saying goes, as if loss were the natural condition of the work rather than the alibi of the lazy. I have never trusted it. The word *translate* descends from the Latin *translatus*, the participle of *transferre*, to carry across; a load carried across a river need not spill. A competent porter delivers the crate intact. Most of what passes for untranslatability, on inspection, is simply a translator who has not yet found the right word.
+
+The trouble is that the right word keeps refusing to exist. Take the German *gemütlich*, or the Portuguese *saudade*, or the way Homer's *polytropos* holds within one adjective both cunning and much-travelled — no single English coin carries the same weight, and the translator must strike a new one, choosing which face to show. Rhythm compounds the problem: a line that scans in the source falls flat rendered word for word, so the porter must repack the crate to make it balance. I concede this, reluctantly, because the examples give me no choice. What survives the concession, I told myself, is still a craft of approximation — skilled compromise, the disciplined narrowing of loss, the technician's art of getting as close as the two languages permit. The translator judges; but he judges toward a fixed target, and his judgments are corrections, not inventions.
+
+Then one notices what the receiving language actually keeps. The King James renderings of the Psalms are studied as English literature; Fitzgerald's *Rubáiyát* outlived, in influence, the Persian quatrains it loosely quarried; Schlegel's Shakespeare became a German possession, read as German. These are not approximations that got unusually near their targets. They are new verbal artifacts with aesthetic lives their originals never predicted — objects that later writers imitate, that shape a literature's own sense of its cadences. The buried layer here is the old word *auctor*, from *augere*, to make grow, to originate. A translation that a tradition builds upon is not a copy shading toward its source; it originates. And once that is admitted, the technician's model collapses. The translator is not narrowing loss against a fixed target. He is authoring.
+
+So I grant it: translation is authorship, and the porter was always a fiction. But an admission of this size arrives with an invoice, and the invoice falls due on a matter I had filed as trivial — the name on the spine. If the translator originates, then his name must carry an author's freight, an author's credit and an author's liability, printed as large and answered to as fully. That is the price, and it is steeper than it looks, because it revokes the reader's oldest comfort: the belief that in reading Tolstoy in English one is reading Tolstoy, unmediated, and not the second author whose invisibility was the whole condition of the illusion.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central thesis of the passage?
+(A) Translation is fundamentally a craft of skilled compromise, in which the technician judges toward a fixed target and gets as close as the two languages will permit.
+(B) Translation is not the disciplined narrowing of loss toward a fixed original but a form of authorship, and acknowledging this forces a reckoning with how translators are named and credited.
+(C) The complaint that meaning is lost in translation is a lazy alibi, since a competent translator can always deliver the original's meaning intact across languages.
+(D) Because certain translations outgrew their originals in influence, translation should be judged mainly by its independent literary success rather than its accuracy.
+
+Q2. The move from the King James Psalms and Fitzgerald's Rubáiyát to the claim that the translator 'originates' depends on which unstated premise?
+(A) A verbal artifact that a later tradition builds upon and imitates is thereby an origination, not a copy oriented toward a source.
+(B) A translation succeeds as authorship only when it surpasses its original in influence and outlives the source text entirely.
+(C) Languages differ enough that a source word like polytropos or saudade has no exact equivalent in the receiving tongue.
+(D) Skilled compromise and disciplined judgment toward a fixed target are what finally distinguish authorship from mere mechanical transcription of a source.
+
+Q3. What is the primary structural function of the final paragraph's turn to 'the name on the spine'?
+(A) It introduces the reader's psychology as a fresh counterexample that reopens the debate between fidelity and authorship.
+(B) It qualifies the authorship claim by conceding that readers of Tolstoy in English do, after all, encounter Tolstoy unmediated.
+(C) It converts a point the author had filed as trivial into the essay's real payload: the concrete, costly consequence the authorship thesis actually demands.
+(D) It restates the authorship thesis more forcefully, driving home the earlier claim that the translator is not narrowing loss but inventing.
+
+Q4. The claim that the translator's name 'must carry an author's freight' rests on which unstated assumption spanning the argument?
+(A) A translation's influence on later writers is what entitles the translator, rather than the original author, to appear on the spine.
+(B) Readers have a right to know precisely how much of a translated text departs from its source before assigning credit.
+(C) The original author's freight is diminished exactly to the degree the translator's is enlarged, the two credits summing to a fixed whole.
+(D) Whoever originates a verbal artifact incurs the credit and liability conventionally attached to authorship, whatever medium or source that origination began from.
+
+Q5. In context, the phrase 'the second author whose invisibility was the whole condition of the illusion' most nearly means that
+(A) translators deliberately conceal their contributions in order to preserve the reputation of the original author.
+(B) the original author and the translator share authorship equally, each remaining half-hidden behind the other.
+(C) a translation can succeed only when the translator's presence remains wholly undetectable to the reader.
+(D) the reader's sense of accessing Tolstoy directly held together only because the translator's authorship went unseen.
+
+Q6. Which best describes the author's intellectual posture across the passage?
+(A) He champions translation as authorship from the outset, using the porter analogy only to ridicule those who deny it.
+(B) He maintains throughout that untranslatability is an alibi for laziness, defending mechanical fidelity against sentimental complaints about loss.
+(C) He begins skeptical of a cliché, is argued by evidence into a stronger position than he intended, and follows that position to its uncomfortable cost.
+(D) He remains an undecided arbiter, weighing the craft view against the authorship view without committing to either as more correct.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — Integrates the full movement: the porter/craft model is displaced by the authorship claim, whose consequence is the naming problem raised in the final paragraph.
+  (A) stage_misattribution — Mistakes the paragraph-two concession, later explicitly said to 'collapse,' for the essay's conclusion.
+  (C) premature_closure — Freezes the confident opening takedown as the thesis, though the author immediately concedes untranslatability in paragraph two.
+  (D) scope_inflation — Inflates the examples into an evaluative rule about judging translations, whereas the passage uses them to establish authorship.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The examples only prove authorship if generating an aesthetic life a tradition builds upon counts as originating, the buried premise linking auctor to augere.
+  (B) nec_suff_swap — Turns the influential examples into a necessary condition, but the passage grounds origination in being built upon, not in surpassing.
+  (C) adjacent_answer — Cites the untranslatability premise from paragraph two, which supports compromise, not the origination move of paragraph three.
+  (D) stage_misattribution — Treats the craft-based concession as the criterion for authorship, though the passage says that model collapses once origination is admitted.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — The passage frames naming as the 'invoice' that 'falls due,' promoting an apparently minor matter into the destination the argument was heading toward.
+  (A) causal_inversion — The reader's comfort is presented as a cost of the settled thesis, not a counterexample reviving the resolved tension.
+  (B) stance_misread — Inverts the closing point, which says the unmediated reading was an illusion the translator's invisibility sustained.
+  (D) premature_closure — Expects mere reassertion, missing that the paragraph advances to a new consequence—credit and liability—not covered before.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — The naming demand follows only if origination, once granted, brings authorship's standard freight regardless of the work being a translation.
+  (A) half_truth — Influence establishes origination earlier, but the naming claim rests on authorship's freight, not on influence displacing the original author.
+  (B) framework_import — Imports a reader's-rights standard the passage never invokes; it speaks of revoking comfort, not honoring a right to disclosure.
+  (C) false_symmetry — Invents a zero-sum trade-off; the passage adds the translator's freight without claiming the original's shrinks proportionally.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The illusion of reading Tolstoy 'unmediated' depends precisely on not registering the translator as a second author, which the phrase makes explicit.
+  (A) causal_inversion — Reads intentional concealment into 'invisibility,' but the passage describes a structural condition of the reader's belief, not a translator's motive.
+  (B) false_symmetry — Imposes an equal split; the phrase concerns the translator's invisibility sustaining an illusion, not a balanced co-authorship.
+  (C) moderate_extremism — Converts a description of an illusion into a success criterion, which contradicts the essay's demand for visible naming.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — Captures the arc: initial confidence, reluctant concession ('the examples give me no choice'), collapse of his own craft model, and acceptance of the steep price.
+  (A) causal_inversion — Reverses the sequence; the porter figure states his own initial belief, later called 'a fiction,' not a target of ridicule.
+  (B) premature_closure — Fixes on the opening stance the author later abandons, ignoring his concessions and the collapse of the technician's model.
+  (D) stance_misread — The author explicitly commits—'the technician's model collapses'—so the tension is resolved, not left balanced.
+
+[Inspired by: "Words, words, words", https://aeon.co/essays/literature-fans-should-welcome-ai-as-a-fellow-wordsmith]

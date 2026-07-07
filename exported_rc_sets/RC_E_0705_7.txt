@@ -1,0 +1,132 @@
+RC ID: RC_E_0705_7 | Row #11 | Tier: elite | Score: 8.2 | Status: approved | Generated: 2026-07-05T20:30:15.133649+00:00
+======================================================================
+
+[PASSAGE]
+
+Wealth, we are told, corrodes the soul. The moralist's version of this claim is old and durable: proximity to great fortune breeds a species of exceptionalism, a quiet conviction that the ordinary frictions of life — waiting, scarcity, refusal — are contingencies that apply to other people. On this reading, the heir's problem is characterological. He becomes a certain kind of person because of what surrounds him, and the remedy, correspondingly, is characterological too: humility, downward mobility, the deliberate shedding of insulation. It is a satisfying story because it locates the disease in individuals and therefore promises a cure.
+
+But the story misdescribes the mechanism.
+
+What insulates the wealthy is not primarily a defect of feeling; it is a structure of exemption from consequence. The heir does not merely *feel* invincible — he has, in the most literal sense, been made exempt from the feedback that ordinarily disciplines belief. A poor decision costs him nothing that registers. Reality, for most people, is the name we give to the resistance that pushes back when we err; the very rich have purchased distance from that resistance, and distance from resistance is indistinguishable, phenomenologically, from being right. This is why the moralist's cure so often fails. You can exhort a man toward humility, but humility is a disposition that is *taught* by consequence, and you have removed the teacher. Voluntary descent, undertaken as a spiritual exercise, reproduces the very exemption it claims to renounce: the descent is elective, reversible, curated. One remains the author of one's own exposure, which is precisely not what exposure means.
+
+So the structural account seems to defeat the moral one. It doesn't, quite.
+
+Because the structural account, pressed to its conclusion, proves too much. If belief is disciplined only by consequence, and the rich are exempt from consequence, then their distorted self-understanding is not a failing they could be blamed for — it is simply what any of us would come to believe under identical conditions. The mechanism that explains the distortion also excuses it. And this is intolerable to the very intuition that set the inquiry in motion, because that intuition was not merely diagnostic; it was accusatory. We did not want to know only *why* the heir believes he deserves his position. We wanted to hold him responsible for continuing to believe it. The structural story, by dissolving the agent into his conditions, quietly evacuates the blame it was recruited to explain.
+
+Perhaps responsibility survives at a different location. Not in the origin of the belief, which is indeed environmental, but in the refusal to interrogate it once its origin is visible. A man cannot help the conditions that formed his convictions; he can, arguably, notice that they were formed. Yet even this concedes more than it should. The capacity to notice — the reflective distance, the leisure for self-examination, the very language of critique — is itself unevenly distributed, itself a possession, arriving with the same insulation that made the noticing necessary. The instrument of the cure is manufactured by the disease.
+
+We are left, then, with two accounts that cannot both be fully right and cannot be cleanly separated. The moral story needs an agent the structural story keeps dissolving; the structural story needs an exemption the moral story keeps trying to breach. Neither the estate nor the confession is quite the place where the reckoning could occur. It is not obvious that such a place exists.
+
+[QUESTIONS 1-6]
+
+**Q1 — Central Thesis**
+Which option best captures the central argument of the passage?
+
+(A) The author shows that structural exemption from consequence explains the distortions of wealth more accurately than any account resting on individual character or moral failing.
+(B) The author treats the moral and structural explanations of privilege as mutually undermining, leaving the site of responsibility unlocated rather than resolved.
+(C) The author argues that responsibility for wealth's distortions survives by relocating from the origin of belief to the wealthy person's later refusal to examine that belief honestly.
+(D) The author suggests that while both moral and structural accounts capture something true, a fuller view would combine the diagnostic strength of one with the accusatory force of the other.
+
+**Q2 — Logical Function**
+What is the primary function of the short paragraph "So the structural account seems to defeat the moral one. It doesn't, quite."?
+
+(A) It concedes that the moral account was correct after the structural critique failed to dislodge it.
+(B) It signals a coming reversal in which the structural account will be turned against itself.
+(C) It summarizes the passage's conclusion that neither account can finally prevail over the other.
+(D) It introduces a synthesis reconciling the moral and structural accounts already presented.
+
+**Q3 — Contextual Inference**
+"The instrument of the cure is manufactured by the disease" most precisely means:
+
+(A) The capacity for self-critique is produced by the same privilege that made self-critique necessary.
+(B) Attempts to cure wealth's distortions inevitably worsen the very condition they target.
+(C) The wealthy exploit reformist language to defend the fortunes they claim to renounce.
+(D) Only those afflicted by privilege can generate a genuine remedy for privilege.
+
+**Q4 — Critical Reasoning Application**
+A tenured economist, insulated from career risk, holds a theory long contradicted by evidence yet never revises it. Which passage mechanism best explains this?
+
+(A) His downward mobility was elective and therefore failed to expose him.
+(B) His capacity for reflection was unevenly distributed relative to his peers.
+(C) His exemption from consequence removed the resistance that would correct belief.
+(D) His refusal to interrogate the theory made him responsible for its persistence.
+
+**Q5 — Implicit Assumption**
+The structural account's claim that the mechanism "also excuses" the heir depends on which unstated assumption?
+
+(A) Blame requires that an agent could have believed otherwise under the same conditions.
+(B) Consequence is the only force capable of disciplining human belief over time.
+(C) The wealthy are aware that their convictions were environmentally produced.
+(D) Moral intuitions about desert are unreliable when applied to inherited wealth.
+
+**Q6 — Authorial Stance**
+The author's stance toward the two competing accounts is best described as:
+
+(A) endorsing the structural account while conceding the moral account's emotional appeal.
+(B) holding both accounts in unresolved tension while doubting a reconciling standpoint exists.
+(C) rejecting both accounts as inadequate and gesturing toward a third, unstated framework.
+(D) favoring the moral account once responsibility is relocated to the act of noticing.
+
+[WHY THIS RC IS DIFFICULT]
+
+**Hidden Structural Shifts**
+The passage stages three reversals — moral account undercut by structural, structural undercut by its own exculpatory logic, relocated-responsibility undercut by the uneven distribution of reflection. Readers freeze at the structural critique (para 3), mistaking a way-station for the destination. The final paragraph withholds synthesis, which readers instinctively supply.
+
+**Core Distractor Traps**
+- Q1 (A): structural freezing — locks onto para 3 before the self-defeat in para 4.
+- Q1 (D): false synthesis — offers the reconciliation the passage explicitly denies.
+- Q3 (D): scope inversion — converts a lament about who *has* the instrument into a claim about who alone can *make* it.
+- Q4 (D): local/global confusion — imports para 5's responsibility move where a consequence mechanism is asked.
+- Q6 (C): framework importation — invents an unstated "third framework" the passage never gestures toward.
+
+**Tonal Ambiguity**
+The author advances each corrective with apparent conviction, then withdraws it, so no position is ever simply held. The tone is analytically committed to the movement itself rather than to any station within it. Its final posture is suspended dissatisfaction, not balanced neutrality.
+
+**Paragraph Function Matrix**
+- Para 1 → States the moralist/characterological account attractively.
+- Para 2 → One-line pivot flagging the account's misdescription.
+- Para 3 → Builds the rival structural account and defeats the moral cure.
+- Para 4 → Turns the structural account against itself (dissolves blame).
+- Para 5 → Attempts to relocate responsibility, then undercuts that too.
+- Para 6 → Refuses synthesis; leaves the site of reckoning unlocated.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+**Q1 — Correct: B**
+Captures the mutual destabilization (paras 3–4) plus the unlocated conclusion (para 6) in one compact clause — the full dialectic without enumeration.
+- A: Structural freezing — treats para 3's structural account as the settled thesis, ignoring its self-defeat in para 4.
+- C: Structural freezing — elevates para 5's relocation move, which the same paragraph then withdraws.
+- D: False synthesis — constructs the combined view para 6 explicitly says cannot be cleanly assembled.
+
+**Q2 — Correct: B**
+The pivot's "It doesn't, quite" forecasts the para 4 reversal where the structural account undoes itself; its role is anticipatory, not summary.
+- A: Temporal misreading — the moral account is not vindicated here; both are later destabilized.
+- C: Structural freezing — reads the passage's ending onto an early transitional sentence.
+- D: False synthesis — no reconciliation follows; a self-undermining follows.
+
+**Q3 — Correct: A**
+Directly renders para 5: reflective capacity "arrives with the same insulation," so the remedy is produced by the condition it treats.
+- B: Causal distortion — the line concerns the cure's *source*, not its worsening effect.
+- C: Framework importation — smuggles in a cynical "reformist language" reading absent from the passage.
+- D: Scope inversion — turns a claim about the cure's origin into an exclusivity claim about who can produce it.
+
+**Q4 — Correct: C**
+The scenario is pure exemption-from-consequence: no feedback disciplines the economist's belief, matching para 3's mechanism exactly.
+- A: Local/global confusion — invokes elective descent (para 3), irrelevant to belief-correction here.
+- B: Framework importation — applies para 5's uneven-reflection point, not asked and not the operative mechanism.
+- D: Local/global confusion — imports para 5's responsibility relocation where an explanatory mechanism was requested.
+
+**Q5 — Correct: A**
+The "excuse" works only if blame presupposes the agent could have believed otherwise; identical conditions removing that possibility is the hidden premise (para 4).
+- B: Local/global confusion — a premise of the structural account generally, not the specific bridge to *excusing*.
+- C: Temporal misreading — awareness of origins belongs to para 5's later move, not the excusing step.
+- D: Framework importation — introduces skepticism about desert the passage never asserts.
+
+**Q6 — Correct: B**
+Matches para 6's explicit "cannot both be fully right... not obvious such a place exists" — unresolved tension plus doubt about a reconciling standpoint.
+- A: Structural freezing — reads the author as settling on the structural account, contradicted by para 4.
+- C: Framework importation — invents a third framework the passage never gestures toward.
+- D: Structural freezing — treats para 5's relocation as the author's endorsed position despite its withdrawal.
+
+[SOURCE ATTRIBUTION]
+[Inspired by: "What it's like to grow up in the shadow of extreme wealth" (on wealth, exemption, and moral self-understanding), Aeon]

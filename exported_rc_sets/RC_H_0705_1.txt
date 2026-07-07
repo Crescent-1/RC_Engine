@@ -1,0 +1,132 @@
+RC ID: RC_H_0705_1 | Row #1 | Tier: hard | Score: 8.8 | Status: approved | Generated: 2026-07-05T18:21:57.939156+00:00
+======================================================================
+
+# READING COMPREHENSION PASSAGE
+
+The prevailing therapeutic sensibility of modern life rests on an unstated metaphysics: that the self is a durable substance which loss may bruise but cannot annihilate. Grief, on this view, is a temporary distortion of an intact core, and the proper response to the grieving is compassionate management—a gentle steering back toward the norm of wellbeing. The consoling scripts we offer the bereaved ("you have your whole life ahead of you," "time heals") are less expressions of recognition than instruments of correction. Embedded within them is the assumption that recovery is both possible and obligatory, that the sufferer is misreporting her own condition, exaggerating a wound that will, in time, close over the unbroken person beneath.
+
+Yet certain testimonies resist this framework so stubbornly that they force a reconsideration of it. When a war widow says "I died the day he was killed," we instinctively hear a figure of speech, a hyperbole of mourning. But suppose the statement were treated not as symptom but as report. It would then contradict a lineage of thought—shared by Freudian psychoanalysis and ordinary common sense alike—according to which the self persists as long as biological life does, damaged perhaps, but fundamentally restorable. Freud believed that beneath trauma one could locate a self capable of repair. The philosopher Catherine Malabou proposes the opposite: what she terms *destructive plasticity*, a form of change that does not reshape identity but abolishes it, so that a genuinely new self emerges in the ruins of the old. On this account the person who declares her own death is not distorting reality; she is disclosing it.
+
+The consequences are considerable. If we grant the traumatised the authority to report their own condition truthfully, the entire order of truth and distortion inverts. The therapeutic apparatus, with its diagnoses and protocols of healing, ceases to be the road to clarity and becomes instead the mechanism that obscures it. The widow, formerly a deviation from how a life ought to unfold, becomes a witness to the hidden structure of existence: that the self is not autonomous but relational, formed through bonds whose severance can genuinely undo it. To love another is thus to entrust part of one's life to that person's mortality—to accept the risk of dying several times across a lifetime.
+
+This is not, however, an invitation to romanticise suffering as privileged access to sacred knowledge. What the moment of trauma discloses is precisely the *collapse* of meaning—the point at which language loses its purchase. The initiation it offers is an initiation into limit, not illumination. And here the argument must qualify itself: to say pain reveals a truth is not to say it should be sought, nor that every grieving person becomes a seer. The claim is narrower and harder—that the therapeutic wish to eliminate such pain may amount to a refusal to see what it exposes: that loss is the condition of connection, not an accident befalling it.
+
+*(Word count: 468)*
+
+---
+
+# QUESTIONS
+
+**1. (Central Thesis)** Which of the following best captures the central argument of the passage?
+
+(A) Modern therapeutic culture is cruel to the bereaved because it offers consoling scripts instead of genuine emotional support and practical help.
+
+(B) The testimonies of the traumatised, taken as truthful reports rather than symptoms, expose an unstated assumption of the therapeutic worldview—that the self is indestructible—and thereby reveal loss to be a constitutive condition of existence rather than an aberration.
+
+(C) Catherine Malabou's theory of destructive plasticity conclusively refutes Freud's belief that the self can be repaired after trauma.
+
+(D) Grief should be understood as a form of privileged spiritual knowledge that grants the sufferer access to hidden truths unavailable to the ordinary person.
+
+---
+
+**2. (Logical Function)** What is the primary function of the final paragraph ("This is not, however, an invitation to romanticise suffering...")?
+
+(A) It abandons the passage's earlier position by conceding that trauma offers no insight at all.
+
+(B) It introduces an entirely new argument about language that is unrelated to the preceding discussion of the self.
+
+(C) It qualifies and delimits the passage's claim, distinguishing the author's position from a mystical reading and specifying the narrow sense in which trauma "discloses" truth.
+
+(D) It restates the thesis in stronger terms, insisting that all grieving people become witnesses to existential truth.
+
+---
+
+**3. (Contextual Inference)** By describing the consoling scripts offered to the bereaved as "instruments of correction," the author most nearly implies that:
+
+(A) such scripts are ineffective because they are delivered by people lacking professional training.
+
+(B) the bereaved often misunderstand the good intentions behind everyday consolation.
+
+(C) ordinary compassion tacitly presumes the sufferer's report of her condition is inaccurate and must be steered back toward a prescribed norm.
+
+(D) consolation should be replaced entirely with silence in the presence of grief.
+
+---
+
+**4. (Critical Reasoning — Application)** Which of the following real-world scenarios most closely parallels the "inversion of truth and distortion" the author describes?
+
+(A) A doctor discovers that a patient's reported symptoms were caused by an undiagnosed physical illness rather than anxiety, and treats the illness.
+
+(B) A committee assumes a whistleblower's complaints are the product of bitterness, until it recognises that his so-called "grievances" were in fact accurate observations, and that the review process designed to correct him was itself concealing the misconduct.
+
+(C) A therapist helps a client reframe negative thoughts into more positive ones so the client can return to daily functioning.
+
+(D) A historian revises an earlier account after new documents surface, incorporating fresh evidence into an existing narrative.
+
+---
+
+**5. (Implicit Assumption)** The passage's argument that trauma can be a "report" of reality depends on which unstated assumption?
+
+(A) That all subjective reports of extreme experience are equally reliable regardless of context.
+
+(B) That the sincerity and insistence with which a claim is made can, under certain conditions, warrant treating it as evidence about reality rather than as mere distortion to be corrected.
+
+(C) That Freud's model of the psyche has been empirically disproven by neuroscience.
+
+(D) That biological life and personal identity are always coextensive.
+
+---
+
+**6. (Authorial Stance/Tone)** The author's overall stance toward the therapeutic worldview is best described as:
+
+(A) wholly dismissive, regarding it as a fraudulent enterprise with no legitimate function.
+
+(B) critically skeptical, questioning its foundational assumption about the self while acknowledging the difficulty of the alternative and refusing to romanticise it.
+
+(C) neutrally descriptive, presenting competing views without taking any position.
+
+(D) enthusiastically endorsing, viewing therapy as the necessary path to clarity about grief.
+
+---
+
+# ANSWER KEY & ELIMINATION LOGIC
+
+**1. Correct: (B)**
+Bridge: (B) integrates both tensions—the challenge to the "indestructible self" assumption *and* the reframing of loss as constitutive rather than accidental—which is where the passage arrives.
+- (A) *Half-truth / scope distortion*: The critique of scripts is a supporting move, not the thesis; the phrase "practical help" imports a concern the passage never raises.
+- (C) *Scope distortion*: Malabou is cited to open a possibility, not to "conclusively refute" Freud; the passage frames it as a proposal, not a settled verdict.
+- (D) *Causal/framework reversal*: The final paragraph explicitly rejects the "mystical" reading and denies that trauma grants "privileged access to sacred knowledge."
+
+**2. Correct: (C)**
+Bridge: The paragraph performs a self-qualifying function ("must qualify itself"), narrowing the claim and fencing it off from a mystical misreading—exactly the "identifiable but qualified position" the passage builds toward.
+- (A) *Overstatement*: It qualifies, not abandons; it still affirms trauma "discloses" something.
+- (B) *Scope distortion*: The language point is continuous with the earlier "collapse of meaning," not unrelated.
+- (D) *Direction reversal*: The paragraph *weakens and bounds* the claim ("narrower and harder"), it does not strengthen it into a universal.
+
+**3. Correct: (C)**
+Bridge: "Instruments of correction" ties directly to the passage's claim that consolation "presumes the sufferer is misreporting" and steers her "back toward the norm."
+- (A) *Imported framework*: Professional training is never the issue; the critique targets the underlying assumption, not competence.
+- (B) *Causal reversal*: The passage says consolers, not the bereaved, are the ones misunderstanding the situation.
+- (D) *Extreme overreach*: The passage critiques the *assumption* within consolation, never prescribes total silence.
+
+**4. Correct: (B)**
+Bridge: The whistleblower scenario reproduces the exact structure—a report dismissed as distortion turns out to be accurate, and the "corrective" apparatus is revealed as the concealing mechanism. This mirrors "the therapeutic apparatus... becomes the thing that obscures it."
+- (A) *Partial match / half-truth*: Captures reclassification of a symptom but lacks the crucial reversal in which the corrective system itself is exposed as obscuring truth.
+- (C) *Opposite case*: This *is* the therapeutic model the passage critiques, not the inversion of it.
+- (D) *Wrong mechanism*: Incorporating new evidence into an existing narrative is the "restorable self / continuous story" model the passage challenges—no inversion occurs.
+
+**5. Correct: (B)**
+Bridge: The passage rests on the move that "the insistence" of a claim can "warrant treating it as evidence"—a conditional epistemic assumption, not a blanket one.
+- (A) *Scope distortion*: The passage says "under certain conditions," not that *all* reports are *equally* reliable regardless of context.
+- (C) *Imported framework*: No empirical/neuroscientific claim is made; the contrast with Freud is philosophical.
+- (D) *Reversal of the point*: The passage is precisely *questioning* the coextension of biological life and identity, not assuming it.
+
+**6. Correct: (B)**
+Bridge: The author challenges the "unstated metaphysics" of the self yet devotes the final paragraph to acknowledging difficulty and refusing romanticisation—critical skepticism, not total rejection.
+- (A) *Overstatement*: The passage grants therapy a real function; the closing even concedes "not every grieving person becomes a seer," implying limits, not fraud.
+- (C) *Half-truth*: The author clearly takes a position ("the argument must qualify *itself*"), so "neutrally descriptive" understates the stance.
+- (D) *Direction reversal*: The passage explicitly denies therapy is "the road to clarity."
+
+---
+
+[Inspired by: "The widows' knowledge" (Aeon-style essay on Ukrainian war widows, trauma, and the self), drawing on Catherine Malabou, *Ontology of the Accident: An Essay on Destructive Plasticity* (2009)]

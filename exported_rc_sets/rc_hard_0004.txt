@@ -1,0 +1,127 @@
+RC Set #4 | Tier: hard | Score: 8.4 | Status: approved | Generated: 2026-07-04T19:10:42.053284+00:00
+======================================================================
+
+# READING COMPREHENSION PASSAGE
+
+For more than a century, the peopling of the Indian subcontinent has been contested less as a factual puzzle than as a proxy war over legitimacy. What is striking, on reviewing this intellectual lineage, is that the history of how the deep past has been imagined and mobilised is nearly as revealing as the deep past itself. The debate now sits at a volatile junction of text-based historiography, ideological anxiety, and a recent "genetic turn" that promises hard clarity while smuggling in fresh epistemological hazards.
+
+The instructive irony is that migration was once uncontroversial. In the nineteenth and early twentieth centuries, colonial administrators and pioneering Indian scholars alike accepted that Indo-Aryan-speaking pastoralists had entered the subcontinent from Central Asia in the second millennium BCE. For these earlier figures, an external influx did not diminish civilisational grandeur; it was simply one of several tributary streams feeding a composite culture. The anxiety came later. The excavation of a sophisticated, literate Indus Valley Civilisation—one predating the Rig Veda—shattered the tidy assumption that Indian civilisation began with the Vedic age. In the vacuum created by this displacement, and amplified by majoritarian politics, an indigenist counter-narrative hardened: the "Out of India" thesis, which inverted the arrow of diffusion and insisted that Vedic culture originated within the subcontinent and radiated outward.
+
+Into this impasse arrived ancient DNA. Population genetics now describes modern South Asians as a stratified product of successive migrations: a foundational layer of "First Indians," admixture with populations related to ancient Iranian agriculturalists, and, after the decline of the Indus cities, an infusion of Central Asian Steppe ancestry around 2000–1500 BCE. To many, this looked like empirical closure—a laboratory verdict silencing the ideologues.
+
+But treating genetic data as a totalising truth invites its own errors. The methodology proceeds by reduction: whole persons become genomes, genomes become fragments analysed at antiseptic remove. Genes can trace biological movement and even date the onset of caste endogamy, yet they are mute on culture, language, ideology, and power—the very forces that animate history. DNA can confirm that populations mixed; it cannot narrate the coercion, prestige, or choice that governed the mixing. To lean too heavily on biological markers is to risk "biologising" identities that are, at root, social constructions—thereby lending pseudo-scientific dress to precisely the essentialisms the data was meant to dissolve.
+
+The corrective, then, is not to dethrone genetics but to relocate it. Its findings are indispensable evidence, but evidence answers only the questions posed to it, and biology poses no questions about meaning. Set against the sheer scale of human movement—the tool-makers of Attirampakkam over 275,000 years ago, the bead-makers of 65,000 years past—modern claims of pristine, single-origin belonging appear not merely mistaken but oddly parochial. Ancient India was never a static monolith awaiting scientific ratification; it was an open crucible whose defining feature was mixture. The genetic turn, properly humbled, corroborates that openness even as it fails to explain it.
+
+---
+
+# QUESTIONS
+
+**Q1. Central Thesis**
+Which of the following best captures the author's central argument?
+
+(A) Genetic evidence has definitively resolved the origins debate, discrediting both the Aryan migration and Out of India camps.
+
+(B) The peopling of India was a story of continuous mixture, and while genetics confirms this openness, it must be treated as bounded evidence rather than a totalising, meaning-explaining truth.
+
+(C) The history of how India's past has been imagined is more important than the deep past itself.
+
+(D) Ideological distortions of Indian history began only with the discovery of the Indus Valley Civilisation.
+
+**Q2. Logical Function / Structural Role**
+The discussion of the Indus Valley Civilisation's excavation (paragraph 2) primarily serves to:
+
+(A) prove that the Rig Veda is a later composition than previously believed.
+
+(B) explain the historical trigger that converted an untroubled consensus into an anxious, ideologically charged dispute.
+
+(C) demonstrate that indigenist theories rest on sound archaeological foundations.
+
+(D) contrast colonial scholarship favourably against nationalist scholarship.
+
+**Q3. Contextual Inference**
+By describing genetics as needing to be "relocated" rather than "dethroned," the author implies that:
+
+(A) genetic findings should be discarded in favour of textual historiography.
+
+(B) genetics is valuable but should occupy a subordinate role that respects the limits of what biological data can address.
+
+(C) the genetic turn is essentially indistinguishable from earlier ideological projects.
+
+(D) only geneticists are qualified to arbitrate the origins debate.
+
+**Q4. Critical Reasoning Application**
+Which scenario most closely parallels the author's warning about "biologising" social identities?
+
+(A) A linguist uses grammatical structures to reconstruct the migration routes of a language family.
+
+(B) A researcher cites shared genetic markers among a caste group as proof that the group's social status is naturally ordained rather than historically imposed.
+
+(C) A historian consults ancient trade records to date the decline of a city.
+
+(D) An archaeologist dates pottery layers to establish a settlement's chronology.
+
+**Q5. Implicit Assumption**
+The author's claim that biology "poses no questions about meaning" depends on which unstated assumption?
+
+(A) That cultural meaning is constituted by forces—power, choice, ideology—that leave no direct biological signature.
+
+(B) That genetic data is frequently inaccurate in tracing ancestry.
+
+(C) That historians are inherently more objective than geneticists.
+
+(D) That the Steppe migration never actually occurred.
+
+**Q6. Authorial Stance / Tone**
+The author's overall stance toward the genetic turn is best described as:
+
+(A) uncritically celebratory of its capacity to end old disputes.
+
+(B) dismissive, regarding it as a fad that adds nothing to historiography.
+
+(C) qualified endorsement—valuing its evidence while insisting on strict awareness of its limits.
+
+(D) neutral and detached, refusing to take any evaluative position.
+
+---
+
+# ANSWER KEY & ELIMINATION LOGIC
+
+**Q1 — Correct: (B)**
+Bridge: The passage praises genetics as "indispensable evidence" yet insists it be "properly humbled" and "bounded"—corroborating openness while failing to explain it. (B) fuses both moves.
+- (A) *Scope distortion / half-truth:* the passage explicitly denies genetics is "totalising truth" and warns against treating it as closure.
+- (C) *Half-truth:* the author says the imagining is "nearly as revealing"—a hedge, not a claim of greater importance; it's a framing remark, not the thesis.
+- (D) *Scope distortion:* ideology is central, but the passage never says distortions *began only* with the IVC discovery.
+
+**Q2 — Correct: (B)**
+Bridge: The excavation "shattered the tidy assumption" and, "in the vacuum," an indigenist narrative "hardened"—it is the causal hinge from consensus to conflict.
+- (A) *Imported/incidental detail:* the Rig Veda's dating is mentioned but is not the paragraph's structural purpose.
+- (C) *Causal reversal:* the passage treats indigenism as a reactionary response, not as archaeologically well-founded.
+- (D) *Scope distortion:* no favourable colonial/nationalist contrast is drawn; both are grouped as accepting migration.
+
+**Q3 — Correct: (B)**
+Bridge: "Not to dethrone but to relocate" plus "indispensable evidence" that "answers only the questions posed to it" yields subordinate-but-respected placement.
+- (A) *Overcorrection:* "not to dethrone" explicitly rejects discarding genetics.
+- (C) *Half-truth:* the *risk* of resembling essentialism is noted, but the author does not equate genetics with ideology outright.
+- (D) *Unsupported:* the passage never grants geneticists exclusive authority—indeed the opposite.
+
+**Q4 — Correct: (B)**
+Bridge: This directly mirrors "biologising… social constructions," treating a historically imposed hierarchy as biologically natural.
+- (A) *Wrong domain:* linguistic reconstruction is legitimate methodology, not the essentialising error warned against.
+- (C) & (D) *Neutral evidence use:* dating decline or chronology is precisely the kind of bounded, factual use the author endorses.
+
+**Q5 — Correct: (A)**
+Bridge: The claim rests on meaning being generated by "coercion, prestige, or choice"—forces the passage lists as leaving no genetic trace.
+- (B) *Imported:* the author never questions genetic *accuracy*, only its explanatory reach.
+- (C) *Unsupported:* no claim of historian superiority is made.
+- (D) *Contradiction:* the Steppe migration is treated as established.
+
+**Q6 — Correct: (C)**
+Bridge: The passage both credits genetics ("indispensable," "corroborates openness") and demands vigilance ("properly humbled," "fails to explain")—qualified endorsement.
+- (A) *Half-truth:* the author explicitly resists uncritical celebration.
+- (B) *Overcorrection:* far from dismissive; genetics is called indispensable.
+- (D) *Scope distortion:* the tone is evaluative and prescriptive, not detached.
+
+---
+
+[Inspired by: "The Origins of Indians: Historiography, Genetics, and the Contested Architecture of the Past," and Tony Joseph's *Early Indians* / David Reich's *Who We Are and How We Got Here*]

@@ -1,0 +1,98 @@
+
+---
+
+**[PASSAGE]**
+
+Nobody defends memorization anymore, or nearly nobody. The case against it is old and feels finished: to memorize is to hold a thing without grasping it, to carry the date or the formula or the conjugated verb as dead cargo, retrievable on demand and understood not at all. We have all met the student who can recite the theorem and cannot use it, and we take him as proof that recall and comprehension are separate faculties — the first cheap, the second the only one worth cultivating. Teaching, on this view, should aim past memory at the understanding that memory can only counterfeit.
+
+The trouble is that this holds only at the smallest scale, and reverses above it. A single fact held without understanding is indeed inert. But no one understands a field by understanding its facts one at a time; understanding is what happens once enough of them are held at once, close enough to hand that the mind stops reaching for them and begins working with them. What looks, fact by fact, like the enemy of comprehension turns out, in bulk, to be its floor. The recall we disparage is what the reasoning we admire stands on.
+
+The same pattern appears in anyone fluent at something hard. The pianist does not decide, mid-phrase, where the notes lie; the fingers know, and the knowing has sunk below the level of attention, freeing attention for the phrase itself. The physician who reads a chart at a glance is not reasoning faster than the novice but reasoning less, because most of what the novice must work out she long ago stopped needing to. In each case a body of the memorized has fallen out of awareness and become the ground the person now thinks on top of. Fluency is not the escape from rote; it is rote, digested, and forgotten as rote.
+
+So memory earns its keep, but the keep is expensive and the payment comes first. What is memorized can never be shown as such — from the outside, deep fluency and shallow recall look alike, both merely knowing the answer — so a culture that credits only visible reasoning will go on valuing the foundation least. And the learner pays in advance, in the flat tedium of drill, for a fluency that will later be mistaken, by others and sometimes by herself, for a gift she was born with. The position holds; its price is only that it falls entirely on the person least able, while paying it, to see what she is buying.
+
+---
+
+**[QUESTIONS]**
+
+**Q1.** Which of the following best captures the passage's central claim?
+(A) The standard objection to memorization holds for isolated facts but reverses at scale, where a mass of material held at once becomes the ground on which understanding operates.
+(B) Memorization is a higher faculty than comprehension and ought to be restored as the primary aim of teaching.
+(C) We retain most durably the material we have first understood, so genuine understanding is what secures lasting memory.
+(D) Recall and comprehension are separate faculties, the first cheap and easily counterfeited, the second the only one truly worth the teacher's cultivation.
+
+**Q2.** What is the primary function of the third paragraph (the pianist and the physician)?
+(A) It broadens the essay into a general account of how skilled performance and professional expertise are acquired through years of sustained practice.
+(B) It shows that genuine fluency is reached only by leaving rote learning behind entirely.
+(C) It illustrates the preceding claim, showing memorized material dropping below attention to become the ground the expert thinks on.
+(D) It establishes that experts recall effortlessly because they had understood the material deeply in the first place.
+
+**Q3.** The passage treats the claim that recall and comprehension are wholly separate faculties as:
+(A) the author's own final and settled conclusion about how learning works.
+(B) a confusion with no truth to it at any scale whatever.
+(C) a view fully equivalent to, and interchangeable with, the author's own position on fluency.
+(D) a received view the author grants for isolated facts but rejects as a general account of how understanding forms.
+
+**Q4.** The argument most depends on the unstated assumption that:
+(A) memorizing a body of material is by itself sufficient to produce expert fluency.
+(B) material available automatically, without conscious recall, still counts as something the person knows rather than as its absence.
+(C) anyone who commits a large enough body of material to memory will, given enough time, necessarily arrive at fluency.
+(D) natural talent plays no part whatever in skilled performance.
+
+**Q5.** A translation student drills vocabulary lists for months, then reads a foreign passage without consciously recalling any single word. On the author's view, this is best understood as:
+(A) the drilled vocabulary having dropped below attention to become the ground her reading now runs on.
+(B) evidence that she grasped the words' meanings first and so retained them without further effort.
+(C) a sign that she has moved past memorization, the drill having been a scaffold she no longer needs.
+(D) proof that translation, unlike most other skills, happens to rest on memory to an unusual degree.
+
+**Q6.** Which finding, if true, would most *weaken* the author's central claim?
+(A) Some students can recite a theorem yet remain unable to apply it correctly.
+(B) Memorization on its own, without any practice, does not produce fluency.
+(C) Experts hold no larger store of readily available memorized material than novices, and outperform them purely through faster general reasoning.
+(D) Fluent performers typically report no awareness of recalling anything as they work.
+
+---
+
+**[ANSWER KEY & ELIMINATION LOGIC]**
+
+**Q1 — Correct: (A)**
+- (A) CORRECT — states the scale-inversion of para 2 ("holds only at the smallest scale, and reverses above it"; recall as the "floor").
+- (B) *straw_version* — inflates the defence of memory into a supremacy claim the author never makes; para 4 affirms memory's role without ranking it above comprehension.
+- (C) *causal_inversion* — reverses the direction: the author has memory undergirding understanding (para 2), not understanding securing memory.
+- (D) *stage_misattribution* — presents the para-1 received view as the thesis; para 2 exists to overturn it.
+
+**Q2 — Correct: (C)**
+- (A) *example_promotion* — elevates the illustrations (pianist, physician) into the essay's subject; they serve the memory claim, not a topic about expertise-acquisition.
+- (B) *premature_closure* — contradicts the paragraph's own close: fluency "is rote, digested," not the escape from it.
+- (C) CORRECT — the paragraph illustrates para 2's floor claim: the memorized falls "out of awareness and become[s] the ground."
+- (D) *causal_inversion* — flips the relation; the paragraph has reasoning-less-because-already-held, not effortless recall produced by prior understanding.
+
+**Q3 — Correct: (D)**
+- (A) *stance_misread* — takes the para-1 setup as the author's conclusion; para 2 turns against it.
+- (B) *straw_version* — "no truth at any scale" overshoots; the author grants it holds "at the smallest scale" (para 2).
+- (C) *false_symmetry* — treats the reported view and the author's as interchangeable, erasing the reversal that is the essay's whole point.
+- (D) CORRECT — granted for the single fact, rejected as a general account (para 2).
+
+**Q4 — Correct: (B)**
+- (A) *scope_inflation* — the argument never claims memory is sufficient; para 3 pairs it with the work that novices must still do.
+- (B) CORRECT — the floor claim (para 2) and "sunk below the level of attention" (para 3) both presuppose that automatic availability is still knowing.
+- (C) *nec_suff_swap* — converts a necessary condition into a guarantee; the passage makes memory the ground, not an assured route to fluency.
+- (D) *framework_import* — imports a talent-versus-training dispute the essay does not engage; para 4 in fact notes fluency being *mistaken* for inborn gift.
+
+**Q5 — Correct: (A)**
+- (A) CORRECT — direct application of para 3: drilled material dropped below attention, now the ground the reading runs on.
+- (B) *causal_inversion* — reverses the order the author gives (drill first, availability after), echoing the para-2 error.
+- (C) *premature_closure* — reads fluency as escape from rote; para 3 says fluency *is* rote digested.
+- (D) *stage_misattribution* — promotes one illustrative case into a special claim about translation; the author's point is general.
+
+**Q6 — Correct: (C)**
+- (A) *half_truth* — the author already grants this in para 1; a supporting observation, not a weakener.
+- (B) *scope_inflation* — attacks a sufficiency claim the author never makes (memory as ground, not as standalone cause).
+- (C) CORRECT — if experts hold no greater store of available material and win on reasoning speed alone, the memory-as-floor thesis (para 2) is undercut at its root.
+- (D) *adjacent_answer* — unawareness of recall confirms the "sunk below attention" mechanism (para 3), so it supports rather than weakens.
+
+---
+
+**[BLUEPRINT NOTE]** Structure: a claim that inverts at a different scale — memorization looks like comprehension's enemy fact-by-fact, becomes its floor in bulk | Posture: resolution_costed | Thesis visible: para 2 | Traps: example_promotion (para 3), causal_inversion (para 2)
+
+---

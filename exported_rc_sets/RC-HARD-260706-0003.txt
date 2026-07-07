@@ -1,0 +1,92 @@
+RC ID: RC-HARD-260706-0003 | Tier: hard | Score: 8.8 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.793 | Generated: 2026-07-06T13:48:42.842343+00:00
+======================================================================
+
+[PASSAGE]
+
+Consider the word "resilience." In ecology, where the term acquired its first precise usage, it named something narrow and measurable: the rate at which a perturbed system returns to a prior equilibrium. C.S. Holling, writing in 1973, drew the distinction sharply. There was the speed of return — engineering resilience, he called it — and there was a second property, the amount of disturbance a system could absorb before it flipped into a wholly different configuration. Both were quantifiable, at least in principle. Both required a specified reference state and a specified perturbation. Strip away either and the number dissolves. Resilience, on this account, is not a virtue a system possesses. It is a relation between a system, a shock of stated magnitude, and a defined outcome. No shock, no measure. No baseline, no meaning.
+
+What survives migration is rarely the definition. It is the aura — and the aura, in the studied cases, travels precisely because it has been cut loose from the constraints that once gave it teeth.
+
+Trace the term's departure from the discipline. By the 1990s it appears in psychology, where the reference state is a developmental norm and the perturbation is trauma; the measurement holds, if loosely. By the 2000s it is in urban planning, in corporate strategy, in the vocabulary of central banks. At each step something is left behind. First the specified perturbation goes — resilience becomes a capacity held against shocks unnamed. Then the baseline goes — for what state, exactly, is the resilient city supposed to recover? Then, in the most attenuated usage, the notion of recovery itself dissolves into mere endurance. A resilient person, we are now told, simply keeps going. The relation has collapsed into a trait.
+
+That collapsed version is, by the standards of its origin, a corruption — though whether corruption is the right instrument for reading it depends on what we take the concept to be doing once it circulates, which is not obviously the work it was built to do.
+
+Here the audit turns on itself. If the migrated term no longer measures anything, we might expect it to do no work; the evidence suggests otherwise. In the studied deployments — grant applications, therapeutic self-descriptions, municipal white papers — the degraded "resilience" functions less as a measurement than as a license, a way of naming a stance toward the unspecified future without committing to any baseline one might be held to. That is not nothing. It may even be the point. The uncomfortable possibility is that the technical version and the folk version were never rivals for the same job: one calibrates, the other consoles. Whether the consoling version thereby earns its keep, or merely borrows the credibility of the calibrated one, is a question the epistemics of concept-drift cannot settle alone — and here the historians of scientific language, who have watched such borrowings before, are the better-instrumented witnesses.
+
+[QUESTIONS]
+
+Q1. Which statement best captures what the passage ultimately claims about the ecological definition of resilience?
+(A) It survived migration intact because its constraints gave it lasting teeth.
+(B) It is the author's settled standard by which all later usage stands condemned.
+(C) It was always too narrow to describe the systems that ecologists actually studied.
+(D) It is presented as the term's origin, from which later usages progressively departed.
+
+Q2. What is the primary function of the sentence noting that the degraded term 'functions less as a measurement than as a license'?
+(A) It reopens the audit by granting the drifted term a genuine, non-measuring role.
+(B) It illustrates how grant applications misuse technical vocabulary carelessly.
+(C) It endorses the folk usage as the concept's rightful and superior purpose.
+(D) It concedes that measurement was never possible even in ecology.
+
+Q3. In context, the closing remark that historians of scientific language are 'the better-instrumented witnesses' most nearly implies that:
+(A) the question of whether consoling usage earns its credit requires tools beyond concept-drift epistemics.
+(B) scientific concepts should never be permitted to leave their disciplines.
+(C) the historians will confirm that the folk version merely borrows unearned credibility.
+(D) epistemics of concept-drift has been decisively discredited as a method.
+
+Q4. The word 'sustainability,' born as a forestry rule about harvesting no more timber than regrows, now appears in marketing to signal vague ecological virtue with no yield or renewal rate specified. Which mechanism from the passage best explains this shift?
+(A) The forestry meaning was corrupted, proving the marketing version does no real work.
+(B) The term simply narrowed to fit one specialized commercial audience.
+(C) A precise relation shed its specified baseline and became a free-floating aura conferring approval.
+(D) Marketers deliberately preserved the renewal rate to borrow forestry's credibility.
+
+Q5. The claim that a degraded term can still 'do work' by consoling rather than calibrating relies on which unstated assumption?
+(A) Technical originators intended the term to console future users.
+(B) Consolation and calibration are ultimately the same cognitive function.
+(C) A concept's usefulness need not depend on its retaining measurable content.
+(D) Every migrated concept eventually recovers some quantifiable baseline.
+
+Q6. Which best describes the author's posture toward the concept's degradation?
+(A) Remaining wholly neutral, treating both versions as equally valid measures.
+(B) Lamenting the corruption as a clear loss that later usages should reverse.
+(C) Celebrating the folk version as a richer improvement on sterile measurement.
+(D) Documenting the decay while withholding contempt, suspecting the drifted term may serve a legitimate need.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — The opening definition is a starting point the essay traces movement away from; paragraph 2 signals the thesis is about migration, not endorsement of the original.
+  (A) causal_inversion — Inverts paragraph 2: the aura travels precisely because it was cut loose from those constraints.
+  (B) nec_suff_swap — Treats the opening framing as the final verdict, but paragraph 4 explicitly questions whether 'corruption' is the right instrument.
+  (C) scope_inflation — The passage calls the ecological measure precise and quantifiable, not inadequate to its own domain.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — This move turns the essay against its own verdict of corruption, giving the folk version real work — the pivot the paragraph flags with 'the audit turns on itself.'
+  (B) example_promotion — Promotes an incidental example into the sentence's purpose; the point is functional reframing, not documenting carelessness.
+  (C) causal_inversion — Mistakes the rehearsed possibility for the author's endorsement; the passage leaves whether it 'earns its keep' unsettled.
+  (D) scope_inflation — Contradicts paragraph 1, which insists the ecological versions were quantifiable in principle.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — The ending displaces resolution onto another discipline rather than settling the dispute, matching the aperture's function.
+  (B) prior_belief — Imports a prohibitionist stance the essay's ambivalence deliberately avoids.
+  (C) nec_suff_swap — Reads the deferral as a resolved verdict, but the passage leaves the borrowing-versus-earning question open.
+  (D) moderate_extremism — The text says it 'cannot settle alone,' implying partial, not total, inadequacy.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — Directly maps the passage's core mechanism: loss of the reference state and perturbation, leaving a licensing aura rather than a measure.
+  (A) nec_suff_swap — Assumes losing measurement entails doing no work, which the passage explicitly denies of degraded terms.
+  (B) scope_inflation — Describes narrowing when the passage's pattern is broadening loss of constraint, the opposite direction.
+  (D) causal_inversion — Reverses the described process; the constraint is dropped, not preserved, in migration.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — Without this premise, a term that measures nothing could do no work; the essay's counter-move requires severing usefulness from measurement.
+  (A) stage_misattribution — Attributes later consoling function to the origin stage, which the passage confines to narrow measurement.
+  (B) false_symmetry — The passage insists the two versions were 'never rivals for the same job,' separating not equating them.
+  (D) scope_inflation — No recovery of baseline is assumed; the folk version works precisely by having none.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — Captures the sustained ambivalence: decline is charted precisely, yet 'that is not nothing' and the earns-its-keep question stays open.
+  (A) false_symmetry — The author distinguishes calibrating from consoling and denies they do the same job, so this flattens the tension.
+  (B) stance_misread — Reads settled condemnation, but the author questions whether 'corruption' is even the right frame.
+  (C) causal_inversion — Overstates approval; the passage grants the folk version work but never ranks it above the technical.
+
+[Inspired by: "Illegible benefits", https://aeon.co/essays/what-we-cant-measure-about-ai-yet]

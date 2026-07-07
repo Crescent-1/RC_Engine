@@ -1,0 +1,90 @@
+RC ID: RC-ELITE-260706-0005 | Tier: elite | Score: 8.6 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.839 | Generated: 2026-07-06T13:57:34.751532+00:00
+======================================================================
+
+[PASSAGE]
+
+I stood on the batture below St. Louis with a hydrologist who kept scraping the mud with the toe of his boot, as if he could read it. The river here has forgotten how to spill. A century of levees, he said, has cut the water from its old bottomlands, starving the marshes of silt and driving the fish and the wading birds toward a quiet vanishing. Reconnect the floodplain, and the river remembers itself.
+
+The engineers I met three weeks later did not speak of memory. They spoke of freeboard, of design storms, of the elevation certificates taped to refrigerator doors in the low wards. In a union hall in a district that floods on a bad spring, a woman from the residents' association laid out the arithmetic plainly: no insurance her neighbors could afford, no house they could sell, no second address to retreat to. Take down a wall, or even set one back, and you are not restoring a marsh in the abstract; you are choosing which occupied kitchens take the water first. Their claim was not a smaller version of the ecologists' claim. It ran on a different clock and answered to a different creature.
+
+The compromise everyone reaches for is the hybrid: setback levees that give the river a little room, engineered wetlands sculpted where the old marsh used to breathe. On the drawings it looks like reconciliation, green hatching between two blue lines. But a setback levee sets back from something and toward something else. The room you hand the river is somebody's field, somebody's block, somebody's cemetery. I watched a planner in Louisville trace a proposed berm with a pencil, and where the pencil lifted was where the water would now be permitted to stand. The engineered wetland does not abolish the risk any more than a detour abolishes the traffic; it moves the load to a road with fewer cars, or fewer voters, or less standing to object. Every elegant design I saw still contained, buried in its cross-section, an answer to the question of whose ground floods first. It merely stopped saying so out loud.
+
+So the tally. On one side, the households who cannot move, whose flooding is a matter of this decade and this rain. On the other, the herons and the paddlefish and the sediment, whose accounting runs in centuries and cannot file a claim. Downstream, a third party: the cities that inherit whatever pulse we release upriver, unconsulted. Three ledgers. Three clocks. The marsh's clock is slow and cannot speak. The engineer's clock is fast and speaks in certificates. Which of these should govern the river? I have written it as if the ledgers could be laid side by side and read against one another, as if welfare and biodiversity and downstream inheritance were sums in a common currency. They are not. That is the trouble with the way I have set it down here — the trouble with the very act of tallying. To count them together is already to assume they can be compared, and it is exactly that assumption the mud keeps refusing to confirm. The river does not add.
+
+[QUESTIONS]
+
+Q1. In context, the sentence "It merely stopped saying so out loud" (paragraph 3) most nearly means that the hybrid designs:
+(A) have grown too technical for residents to read in the elevation certificates they receive.
+(B) still allocate the flooding to particular people, but disguise that choice as reconciliation.
+(C) quietly abandon engineering standards in favor of the ecologists' vocabulary of memory.
+(D) genuinely resolve the conflict by giving the river room without harming any occupied ground.
+
+Q2. According to the residents' association woman in the union hall, the difficulty her neighbors face is best captured by which combination?
+(A) unaffordable insurance, unreadable certificates, and cemeteries lost to setback levees.
+(B) rising design storms, failing freeboard, and berms drawn wrongly by planners.
+(C) unaffordable insurance, unsellable houses, and no alternative address to retreat to.
+(D) vanishing marshes, starved silt, and wading birds driven toward a quiet loss.
+
+Q3. The analogy comparing an engineered wetland to a detour that "does not abolish the traffic" primarily serves to:
+(A) illustrate that road-building and river management share identical technical constraints.
+(B) concede that some risk reduction is achieved before the author's larger objection.
+(C) praise engineering ingenuity for solving what ecologists could only lament.
+(D) expose that the compromise redistributes flood risk rather than eliminating it.
+
+Q4. Which best describes the author's overall intellectual posture toward the river dispute?
+(A) He doubts the very framing that treats the competing claims as commensurable quantities.
+(B) He remains neutrally balanced, weighing each ledger equally before deferring judgment.
+(C) He favors ecological restoration as the sounder long-term good over immediate safety.
+(D) He endorses hybrid setback designs as the pragmatic reconciliation of both sides.
+
+Q5. When the author writes that the residents' "claim was not a smaller version of the ecologists' claim," he assumes that:
+(A) human welfare and ecosystem function are demands of distinct kinds, not points on one scale.
+(B) the residents lack the technical vocabulary to make a claim as large as the ecologists'.
+(C) the residents' safety concern is a practical constraint subordinate to the ecological aim.
+(D) ecologists and residents are simply pursuing the same goal at different speeds.
+
+Q6. The central thesis that emerges across the passage is best stated as:
+(A) Because three parties hold conflicting stakes, a fair common accounting must balance all three.
+(B) Reconnecting floodplains should govern the river because ecological time outlasts human deadlines.
+(C) The river's competing claims resist any shared measure, so the act of tallying them already misleads.
+(D) Well-designed hybrids can reconcile safety and restoration once cost allocation is made honest.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — The paragraph's whole argument is that the detour/berm relocates the load rather than eliminating it, and the design merely conceals whose ground floods first.
+  (A) phrase_misuse — It borrows 'certificates' from paragraph 2 but 'saying so out loud' concerns concealed cost allocation, not document literacy.
+  (C) category_slip — The passage never says engineers adopt ecological language; the phrase describes hidden distributive choices, not a shift in vocabulary.
+  (D) stance_misread — This is the TR3 trap: it reads the hybrid as dissolving the bind, but the detour analogy shows the cost is merely moved, not abolished.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — Paragraph 2 states her arithmetic directly: no affordable insurance, no sellable house, no second address.
+  (A) half_truth — It mixes one correct item with cemetery/certificate details drawn from later paragraphs, misstating her three-part arithmetic.
+  (B) adjacent_answer — These are the engineers' and planners' terms from nearby text, not the woman's stated arithmetic of insurance, sale, and retreat.
+  (D) level_confusion — These are the hydrologist's ecological concerns from paragraph 1, not the resident's human-welfare list.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The analogy structurally reframes the hybrid: like a detour moving traffic to a quieter road, the wetland moves the load to those with less standing to object.
+  (A) scope_inflation — The comparison is a limited rhetorical figure about relocation, not a claim that traffic and hydrology are technically equivalent domains.
+  (B) half_truth — The analogy denies abolition of the load, functioning as critique rather than as a concession of net risk reduction.
+  (C) stance_misread — The analogy undercuts the design's elegance rather than praising it; the point is concealed cost, not vindicated cleverness.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Paragraph 4 turns on itself: the author distrusts his own tally, arguing the ledgers cannot be laid in a common currency—the ending widens rather than resolves.
+  (B) false_symmetry — The author rejects the weighing metaphor itself, not adopting balanced neutrality but denying the ledgers can be weighed at all.
+  (C) stance_misread — This is the TR1 trap: the passage leaves the tension open and even questions comparison itself, never endorsing restoration as correct.
+  (D) premature_closure — Paragraph 3 dismantles the hybrid as concealed redistribution, so the author cannot rest on it as reconciliation.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — The passage insists the claims run 'on a different clock' and answer 'to a different creature,' presupposing they operate at different levels rather than differing in degree.
+  (B) straw_version — The woman lays out arithmetic 'plainly'; the passage credits her claim's legitimacy, not deficiency of scope or vocabulary.
+  (C) level_confusion — TR2 trap: it demotes the human claim to a constraint on ecology, but the author frames it as an equally legitimate demand of a different order.
+  (D) false_symmetry — The 'different clock, different creature' language denies a shared goal, asserting distinct kinds rather than shared aims at varying pace.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The full movement builds three incommensurable ledgers and then indicts the tally itself: 'to count them together is already to assume they can be compared'—'the river does not add.'
+  (A) framework_import — It imports a balancing-of-stakes framework the author explicitly rejects, since the ledgers share no common currency to balance.
+  (B) stance_misread — It resolves the open tension toward ecology, but the author refuses to name which clock governs and questions the comparison itself.
+  (D) premature_closure — Paragraph 3 shows honesty about allocation does not dissolve the bind; the hybrid still assigns whose ground floods first.
+
+[Inspired by: "The measure of flourishing", https://aeon.co/essays/it-doesnt-have-to-be-us-versus-nature]

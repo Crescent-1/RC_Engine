@@ -1,0 +1,138 @@
+# READING COMPREHENSION
+
+There is a familiar story about how institutions earn our trust: they do so by being reliable, and they are reliable because they follow rules impartially. The rule is the guarantor. It stands above the particular official, the particular case, the particular temptation. When a clerk processes your application by the book, you are protected not by his goodwill but by the impersonality of the procedure that binds him. This is the liberal romance of bureaucracy, and like most romances it survives on selective memory.
+
+What it forgets is that no rule interprets itself. Every rule arrives at the point of application already underdetermined, and someone must decide what it means here, now, for this irreducibly specific case. The clerk who "merely follows procedure" is in fact continuously legislating in miniature, closing gaps the rule left open. Sociologists once called this discretion and treated it as a residue — the friction the system had not yet engineered away. The assumption was that better rules would shrink it.
+
+They do not. They multiply it.
+
+This is the first reversal, and it is worth dwelling on, because the naive reading of the preceding paragraph is that discretion is simply an unavoidable imperfection to be minimized. It is not. Each attempt to specify a rule more precisely generates new boundary conditions, new edge cases, new questions about which sub-rule governs — and each of these must again be resolved by someone on the ground. Precision does not eliminate judgment; it relocates it, and often disguises it. The thicker the rulebook, the more invisible the discretion it silently authorizes, because the official can now point to the text and disclaim responsibility for the reading he nonetheless supplied.
+
+So one is tempted toward the opposite conclusion: that impersonality is a myth, that behind every procedure stands a person exercising unaccountable power, and that the honest thing would be to admit as much. Call this the realist correction. It has the appeal of hard-headedness.
+
+But it proves too much. If discretion were merely disguised will, we could not explain why bureaucracies are, in fact, more predictable than the individuals composing them — why the same office produces broadly similar outcomes across officials who share no values and have never met. Something is being transmitted. The rule does constrain, not by determining outcomes, but by shaping the space of permissible justifications an official must be prepared to offer. He may decide freely, but he cannot defend just any decision. The rule survives less as a cause than as a grammar of accountability.
+
+Which returns us, uncomfortably, near where we began — though not to the same place. The impersonality was never in the rule. It was in the obligation to answer for oneself in the rule's vocabulary, an obligation that is itself sustained by nothing more solid than the collective willingness to keep demanding answers. Remove that willingness and the grammar goes slack; the rulebook remains, and means nothing.
+
+Whether such willingness is itself a rule, or precisely the thing no rule can secure, is a question the machinery is designed never to ask of itself.
+
+---
+
+# QUESTIONS
+
+**Q1. Which of the following best captures the central argument of the passage?**
+
+(A) Bureaucratic impersonality is an illusion, since every rule ultimately depends on the unaccountable will of the official who applies it.
+
+(B) The trustworthiness of institutions derives not from rules themselves but from a sustained practice of holding officials answerable in the rule's terms, a practice no rule can guarantee.
+
+(C) More precise rules fail to reduce discretion and therefore should be abandoned in favor of openly acknowledging the personal power of officials.
+
+(D) Institutions are reliable because rules constrain officials impartially, protecting citizens from the goodwill or malice of individuals.
+
+**Q2. The one-sentence paragraph "They do not. They multiply it." primarily functions to:**
+
+(A) offer empirical evidence that refutes the sociological account of discretion introduced earlier.
+
+(B) mark the passage's final position on the relationship between rules and judgment.
+
+(C) execute an abrupt structural pivot that overturns the reader's likely inference from the preceding paragraph.
+
+(D) concede a minor point before the author restores the liberal romance of bureaucracy.
+
+**Q3. In context, the phrase "grammar of accountability" is best understood to mean:**
+
+(A) a rigid syntax of commands that dictates precisely which outcome an official must reach.
+
+(B) a constraint operating not on what officials decide but on the range of justifications they can be required to give.
+
+(C) a shared moral vocabulary that ensures officials arrive at ethically defensible conclusions.
+
+(D) the disguised personal will of the official, expressed through the language of procedure.
+
+**Q4. A city introduces a detailed 300-page manual to standardize how caseworkers assess disability claims, replacing an older two-page guideline. Complaints of arbitrary decisions rise rather than fall. Which mechanism from the passage best explains this?**
+
+(A) The willingness of the public to demand justifications has weakened, leaving the manual inert.
+
+(B) Caseworkers now openly admit that their decisions reflect personal will rather than procedure.
+
+(C) Greater textual precision generates more boundary conditions, relocating and concealing the discretion it purports to remove.
+
+(D) The manual has transformed discretion into a genuine cause of outcomes rather than a mere grammar.
+
+**Q5. The author's claim that bureaucracies are "more predictable than the individuals composing them" depends on which unstated assumption?**
+
+(A) Officials within an institution generally share the same underlying values and moral commitments.
+
+(B) Predictable regularity across differing individuals must have a source external to those individuals' private wills.
+
+(C) Rules determine outcomes directly whenever officials are properly trained to apply them.
+
+(D) Public willingness to demand accountability is uniformly distributed across all institutions.
+
+**Q6. Which best describes the author's intellectual posture in the passage's final movement?**
+
+(A) Guarded optimism that recognizing the grammar of accountability can secure institutional trust.
+
+(B) Detached neutrality between the liberal and realist accounts, declining to favor either.
+
+(C) A return to a refined version of the opening position that quietly exposes its foundation as unsecured and possibly ungroundable.
+
+(D) Resigned pessimism holding that bureaucratic impersonality is finally exposed as fraudulent.
+
+---
+
+# WHY THIS RC IS DIFFICULT
+
+**Hidden Structural Shifts**
+The passage runs a four-stage dialectic disguised as a return. (1) *Liberal romance*: rules guarantee trust. (2) *First reversal*: rules don't interpret themselves — discretion is ineliminable — with an explicit trap that this discretion is a mere flaw to minimize; the author instantly negates that (precision *multiplies* discretion). (3) *Realist correction*: impersonality is a myth, all is disguised will — then this is defeated ("proves too much") by the predictability observation. (4) *Refined return*: constraint survives as a "grammar of accountability" sustained only by collective willingness, which nothing secures. Readers freeze at stage 2 (mistaking the anti-rule move for the thesis) or at stage 3 (mistaking the realist correction for the endorsed view). The final paragraph reopens rather than resolves — most readers want closure and impute it.
+
+**Core Distractor Traps**
+- Q1(A)/(C) freeze at the realist stage, which the passage explicitly overturns. Q1(D) freezes at the opening romance.
+- Q2(A) misreads a rhetorical pivot as empirical evidence; (B) mistakes an early pivot for the conclusion (temporal misreading); (D) inverts the movement (there is no restoration).
+- Q3(A) imports outcome-determination the passage denies; (D) reimports the defeated realist reading; (C) smuggles in *moral* correctness never claimed.
+- Q4(A)/(D) misapply mechanisms from later stages; (B) describes an admission the passage never says occurs.
+- Q5(A) is a plausible-but-unnecessary premise the passage actively complicates (officials "share no values"); (C) is the very claim the passage denies; (D) imports a later concept irrelevantly.
+- Q6(A) over-resolves into optimism; (B) mistakes dialectical suspension for neutrality; (D) collapses back to the defeated realist pessimism.
+
+**Tonal Ambiguity**
+The author performs sympathy with each position, then withdraws it — never mockingly. The closing line is not a verdict but a deliberately withheld one; the stance is dialectical suspension with a faint unease ("uncomfortably," "means nothing"), not judgment.
+
+**Paragraph Function Matrix**
+
+| Paragraph | Function |
+|---|---|
+| 1 | Establishes liberal romance (thesis to be destabilized) |
+| 2 | First destabilization: rules underdetermine; discretion introduced |
+| 3 | Compressed pivot: precision multiplies rather than reduces judgment |
+| 4 | Retrospective correction of the naive reading; relocates/disguises discretion |
+| 5 | Realist counter-position introduced with surface appeal |
+| 6 | Defeats realism via predictability; introduces "grammar of accountability" |
+| 7 | Refined return: impersonality relocated to fragile collective willingness |
+| 8 | Reopening: the ground of that willingness left unaskable |
+
+---
+
+# ANSWER KEY & ELIMINATION LOGIC
+
+**Q1 — Correct: (B)**
+Bridges all four stages: rejects rule-as-guarantor (D), rejects pure will (A/C), and lands on accountability-practice as ungrounded. (A) freezes at the realist correction the passage defeats (structural freezing). (C) adds a policy prescription ("abandoned") the passage never endorses and reasons from the defeated stage (false synthesis + framework importation). (D) anchors on the opening romance explicitly dismantled (temporal/structural freezing).
+
+**Q2 — Correct: (C)**
+The line reverses the reader's expectation (that better rules shrink discretion). (A) miscasts a rhetorical pivot as empirical proof (local/global confusion). (B) treats an early pivot as the terminal position (temporal misreading). (D) inverts direction — no restoration of the romance occurs (causal/structural inversion).
+
+**Q3 — Correct: (B)**
+Directly paraphrases "shaping the space of permissible justifications." (A) reasserts outcome-determination the passage denies ("not by determining outcomes"). (C) imports moral defensibility not claimed — the officials "share no values." (D) reimports the defeated realist thesis (framework importation).
+
+**Q4 — Correct: (C)**
+Maps precisely onto the stage-2/4 mechanism: precision generates boundary conditions, relocating and concealing discretion. (A) imports the stage-7 mechanism (public willingness) irrelevant to a rule-thickening scenario (framework misapplication). (B) asserts an open admission the passage never claims happens. (D) contradicts the passage's insistence that the rule is "not a cause" (reversal).
+
+**Q5 — Correct: (B)**
+The inference from cross-individual regularity to "something is being transmitted" requires that such regularity cannot originate in private wills alone. (A) is explicitly complicated — officials "share no values" (passage-contradicted). (C) is the determinism the passage rejects (scope inversion). (D) imports a later, unrelated premise (framework importation).
+
+**Q6 — Correct: (C)**
+The final movement returns "near where we began — though not to the same place," then exposes the ground as "nothing more solid than collective willingness," and refuses to ask whether that is securable. (A) over-resolves into optimism. (B) confuses suspension with neutrality — the author does adjudicate between the intermediate positions. (D) collapses into the realism the passage defeated (structural freezing at stage 3).
+
+---
+
+[Inspired by: "The Rule of Rules," and more directly the discretion literature of Michael Lipsky, *Street-Level Bureaucracy: Dilemmas of the Individual in Public Services* (Russell Sage Foundation), read alongside Frederick Schauer, *Playing by the Rules* (Oxford University Press)]

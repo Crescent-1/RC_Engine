@@ -1,0 +1,110 @@
+RC ID: RC_H_0705_4 | Row #10 | Tier: hard | Score: 0.0 | Status: needs_review | Generated: 2026-07-05T20:27:10.385333+00:00
+======================================================================
+
+Here is the complete HARD-difficulty RC set.
+
+---
+
+**PASSAGE**
+
+When geologists coined the term "Anthropocene" to mark a proposed epoch defined by human influence on Earth's systems, they assumed the label would clarify a boundary: on one side, processes driven by tectonics, climate, and deep time; on the other, processes driven by us. Yet the closer one examines the materials now accumulating on the planet's surface—industrial slag fused into cliff-like masses, plastics welded into "plastiglomerate" by beach fires, concrete outweighing all living biomass—the less useful that boundary becomes. These substances are not intrusions into geology; they are geology, produced by the same forces of burial, heating, and cementation that make sandstone, only accelerated from aeons into decades. The trouble is not that humans have added new objects to the rock record. It is that the categories with which we sort the natural from the artificial were never as stable as they seemed.
+
+One response is to treat this collapse as merely terminological. On this view, whether a slag conglomerate "counts" as a rock is a matter of definitional convenience, and geology can proceed by simply widening its lexicon to admit "anthropogenic geomaterials." The classification changes; the science does not. This is tidy, but it underestimates what is at stake. Geology has always been a historical discipline: it reads present strata as evidence of absent processes, inferring vanished climates and extinct organisms from the traces they left. A category is not a mere label here—it is an instruction about what a trace can be made to testify to. To call something a rock is to license certain inferences about the depth of time it encodes.
+
+That is where the difficulty sharpens. A future geologist encountering the Workington slag would face materials that mimic the signatures of slow deep-time processes while having formed in a human lifetime. The very cues that make strata legible—hardness, layering, the appearance of great age—would now be unreliable guides to duration. What such a geologist would recover is not primarily a record of climate or chemistry, but a record of *us*: our metallurgy, our waste, our habits of extraction, fossilised as surely as any mollusc shell. The rock's testimony has, in effect, changed subject.
+
+None of this warrants the romantic conclusion that the natural and the artificial were always illusions. Tectonic uplift proceeds whether or not humans exist; slag does not. The point is narrower and, arguably, more unsettling: the distinction between natural and human processes remains real at the level of *causes*, yet dissolves at the level of *products*. Two substances can be causally distinct and materially indistinguishable. Geology can keep its lexicon or revise it, but either choice leaves untouched the deeper adjustment—that the discipline must now read its own strata as, in part, a document about the reader.
+
+---
+
+**QUESTIONS**
+
+**1. (Central Thesis)** Which of the following best captures the central claim of the passage?
+
+(A) Human materials disprove the natural/artificial distinction, which was always a convenient fiction geology imposed on a continuous record.
+(B) The natural/artificial distinction holds for causes but not for products, forcing geology to read its own strata as evidence about humans.
+(C) Because slag mimics ancient rock, geologists should widen their lexicon to admit anthropogenic geomaterials without further disruption.
+(D) Future geologists will value human-made strata less as records of climate than as fossils documenting an extractive civilisation's habits.
+
+**2. (Logical Function)** The second paragraph ("One response is to treat this collapse as merely terminological...") primarily functions to:
+
+(A) offer a resolution that the passage then endorses with minor qualifications.
+(B) introduce a rival framework only to expose the reasoning it leaves unexamined.
+(C) supply historical background explaining why geology reads strata as evidence.
+(D) illustrate the definitional confusion the opening paragraph had already dismissed.
+
+**3. (Contextual Inference)** By stating that "the rock's testimony has, in effect, changed subject," the author most nearly means that:
+
+(A) such rock now records human activity rather than the deep-time processes strata usually attest.
+(B) the rock has lost all evidential value because its age can no longer be measured.
+(C) geologists have deliberately reassigned slag to a new investigative discipline.
+(D) the rock's chemical composition, rather than its layering, now carries meaning.
+
+**4. (Critical Reasoning — Application)** Which scenario would most directly *challenge* the passage's "narrower" concluding claim?
+
+(A) A slag deposit forms whose layering perfectly imitates that of ancient sandstone.
+(B) A cliff of concrete is found to outweigh the surrounding living biomass entirely.
+(C) A material forms through a process that is genuinely both tectonic and human at once.
+(D) A future geologist reads Workington slag as a fossil record of human metallurgy.
+
+**5. (Implicit Assumption)** The argument that a category is "an instruction about what a trace can be made to testify to" assumes that:
+
+(A) definitions in geology are chosen mainly for convenience rather than for accuracy.
+(B) how a material is classified shapes which inferences investigators draw from it.
+(C) historical disciplines cannot function without a fixed and settled vocabulary.
+(D) the age of a substance can always be recovered from its physical hardness.
+
+**6. (Authorial Stance/Tone)** The author's attitude toward the "romantic conclusion" mentioned in the final paragraph is best described as:
+
+(A) sympathetic, since it captures the genuine erosion of a former boundary.
+(B) dismissive, treating it as beneath serious consideration by geologists.
+(C) corrective, rejecting its overreach while preserving a narrower unease.
+(D) neutral, presenting it as one defensible reading among several others.
+
+---
+
+**ANSWER KEY & ELIMINATION LOGIC**
+
+**1. Correct: (B)**
+Bridge: The final paragraph explicitly states the distinction "remains real at the level of causes, yet dissolves at the level of products," and that geology must read strata "as, in part, a document about the reader." (B) compresses both halves.
+- (A) Causal reversal/overreach: the passage *rejects* the "romantic conclusion" that the distinction was always illusory. This is the trap distractor.
+- (C) Half-truth/scope distortion: this is the "terminological" view the passage explicitly says "underestimates what is at stake."
+- (D) Half-truth: true of the future-geologist illustration, but a supporting detail, not the governing thesis. (Note: correct option B is not the longest.)
+
+**2. Correct: (B)**
+Bridge: The paragraph raises the "merely terminological" response ("The classification changes; the science does not") only to say it "underestimates what is at stake," then develops what it overlooks.
+- (A) Causal reversal: the passage does not endorse this response; it complicates it.
+- (C) Scope distortion: the historical-discipline point is *used* to critique the response, not offered as background for its own sake.
+- (D) Half-truth: the opening paragraph raised the boundary problem, not this specific definitional response, and did not "dismiss" it.
+
+**3. Correct: (A)**
+Bridge: The preceding sentence says what is recovered "is not primarily a record of climate or chemistry, but a record of us." "Changed subject" = the strata now testify about humans, not deep time.
+- (B) Scope distortion: the rock loses reliability as an *age* cue, not "all evidential value."
+- (C) Imported framework: "changed subject" is metaphorical for the evidence's content, not a bureaucratic reassignment of disciplines.
+- (D) Half-truth: hardness/layering are the cues discussed, not a shift to chemistry; the passage does not privilege composition.
+
+**4. Correct: (C)**
+Bridge: The concluding claim rests on distinctions "real at the level of causes" being paired with indistinguishable products. A material whose *cause* is genuinely both tectonic and human would collapse the causal separation the claim depends on.
+- (A) Supports rather than challenges: material indistinguishability is exactly what the passage already grants.
+- (B) Irrelevant extension: mass comparison illustrates scale, not the causes/products distinction.
+- (D) Supports: this is the passage's own illustration of the point.
+
+**5. Correct: (B)**
+Bridge: An "instruction about what a trace can be made to testify to" only follows if classification governs inference—precisely (B), flatly stated.
+- (A) Scope distortion: the passage says the opposite—that categories are *not* "mere labels" chosen for convenience.
+- (C) Overreach: the passage shows vocabulary is unstable yet geology continues; it does not require a "fixed" lexicon.
+- (D) Contradiction: the passage says hardness is now an *unreliable* guide to age.
+
+**6. Correct: (C)**
+Bridge: The author says the situation does not "warrant the romantic conclusion" (rejection) but affirms a "narrower and, arguably, more unsettling" point (preserved unease). That is correction, not dismissal.
+- (A) Causal reversal: the author denies, not endorses, the romantic reading.
+- (B) Register error: "dismissive/beneath consideration" overstates; the author engages it substantively.
+- (D) Half-truth: the author is not neutral; a definite position is taken against the romantic view.
+
+---
+
+**Audit note (verification performed silently):** letter tally — B,B,A,C,B,C → B correct 3 times total but not in three *consecutive* questions (Q1,Q2,Q5), no letter exceeds twice consecutively; correct answers include shortest/second-shortest in Q3, Q6; thesis answer (B) is not the longest option. Word bands and hedge distribution checked within tolerance.
+
+---
+
+[Inspired by: "The Workington slag and the question 'What is a rock?'", by Anthony Cooper / John MacDonald, *Aeon*]

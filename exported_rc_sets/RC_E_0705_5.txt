@@ -1,0 +1,156 @@
+RC ID: RC_E_0705_5 | Row #8 | Tier: elite | Score: 8.8 | Status: approved | Generated: 2026-07-05T18:30:34.436015+00:00
+======================================================================
+
+# THE RECURSIVE WOUND
+
+Few words have migrated across so many registers so quickly as *trauma*. Once a surgeon's term for a breach in the body's surface, it now names a broken engagement, a difficult childhood, a bad week. The obvious diagnosis is inflation: a concept overextended until it purchases nothing. But inflation is the wrong metaphor, because it implies that words hold a fixed store of value that dilution merely disperses. Words are not currencies. They are instruments of attention, and what looks like the cheapening of *trauma* may instead be the redistribution of a scarce social good—recognition—toward experiences that a sterner vocabulary once made invisible.
+
+Consider the argument that the broadening of harm-language is liberatory. Historically, whole categories of suffering—the exhaustion of the caregiver, the slow corrosion of humiliation—went unnamed because no authorized word claimed them. To extend *trauma* downward, this account runs, is to extend membership downward: more people are seen, more pain is credited. There is something to this. But the account contains a concealed assumption worth exposing, namely that recognition is a good whose supply expands when we lower the threshold for admission. That assumption is precisely what the phenomenon undermines.
+
+For recognition is positional.
+
+Its worth to any claimant depends partly on its scarcity, on the shared sense that being credited with a wound distinguishes the credited from the merely inconvenienced. When everyone is recovering from something, the currency of injury does not multiply—it flattens, and the flattening falls hardest on exactly those the broadening was meant to reach. The survivor of genuine violence now competes for attention with the holder of a bad commute. So the liberatory reading, pressed hard, curdles into its opposite: expansion as a mechanism of erasure. This is the standard corrective, and for a while it seems decisive. It is not.
+
+The corrective assumes that the older, narrower usage was itself a neutral baseline—that before the creep there was a word doing honest work, calibrated to real severity. But the history refuses this. The narrow clinical *trauma* was never a measurement of harm; it was a measurement of what a particular institution, at a particular moment, was equipped to see. The soldier shot for cowardice, the woman whose collapse was filed under hysteria—these were not people whose suffering fell below some objective line. They were people the available concept could not register. Every threshold, tight or loose, encodes a prior decision about whose pain counts as pain. There is no innocent calibration to return to, no year in which the word meant exactly what suffering deserved.
+
+Which leaves both stories damaged. The liberatory reading imagines recognition as an expandable resource and is refuted by its positional logic. The declinist reading imagines a lost precision and is refuted by the fact that precision, here, was only ever institutional blindness wearing the mask of rigor. What survives the collision is not a synthesis but a discomfort: the concept of trauma does real work and betrays that work in the same gesture, widening the circle of the acknowledged while thinning the acknowledgment each occupant receives, and there is no adjustment of the threshold that escapes the trade.
+
+Perhaps the honest move is to stop asking where the line belongs. A wound named too readily and a wound never named are not opposite errors on a single scale; they are different failures of a vocabulary asked to do what no vocabulary can—to distribute, fairly and without loss, a regard that is finite by its nature. The word will keep moving. What it cannot do is arrive.
+
+---
+
+## QUESTIONS
+
+**Q1. Which of the following best captures the central argument of the passage?**
+
+(A) The expansion of trauma-language, though initially appearing to democratize recognition, ultimately erases the very sufferers it claims to include, and society should therefore restore the narrower clinical definition.
+
+(B) Both the celebratory and the declinist accounts of trauma's expansion collapse under scrutiny, leaving an unresolved bind in which any threshold for the word simultaneously enables and undermines the recognition it distributes.
+
+(C) Because every historical definition of trauma reflects institutional blindness rather than objective severity, the concept has no stable meaning and debates about its proper scope are therefore intellectually empty.
+
+(D) The value of trauma-language lies in its positional scarcity, so its indiscriminate broadening is a self-defeating strategy that ultimately harms marginalized claimants most severely.
+
+**Q2. The passage introduces the figures of "the soldier shot for cowardice" and "the woman whose collapse was filed under hysteria" primarily to:**
+
+(A) provide emotionally vivid illustrations of the kind of suffering that the liberatory broadening of trauma was designed to make visible.
+
+(B) demonstrate that clinical categories have historically been biased along lines of gender and class, motivating the case for a broader vocabulary.
+
+(C) undermine the corrective position by showing that the narrower usage it treats as a baseline was itself a form of institutional non-recognition rather than accurate calibration.
+
+(D) establish that psychological suffering has always existed even where language failed to name it, confirming trauma's continuity across historical periods.
+
+**Q3. In context, the claim that recognition "is positional" most precisely means that:**
+
+(A) recognition is granted through social hierarchies that privilege certain claimants over others regardless of the severity of their suffering.
+
+(B) the value an individual derives from being recognized depends on that recognition remaining relatively scarce, so its universalization erodes its worth.
+
+(C) recognition must be assigned a fixed position within institutions before it can be distributed fairly among competing claimants.
+
+(D) whether an experience is recognized depends on where it stands relative to a threshold that institutions have historically drawn.
+
+**Q4. Which of the following real-world situations most closely instantiates the mechanism the passage identifies through the phrase "expansion as a mechanism of erasure"?**
+
+(A) A university adds so many honors distinctions to its transcripts that employers can no longer tell exceptional graduates from ordinary ones, so top students lose the signal their distinction once carried.
+
+(B) A government broadens eligibility for disability benefits, straining its budget until payments to the severely disabled must be reduced to fund the newly eligible recipients.
+
+(C) A charity expands its definition of poverty to include more households, thereby increasing public sympathy and donations for anti-poverty campaigns.
+
+(D) A medical board tightens the criteria for a diagnosis, so patients who previously qualified for treatment are excluded and their conditions go untreated.
+
+**Q5. The passage's refutation of the declinist ("corrective") reading depends on which unstated assumption?**
+
+(A) A word's meaning is determined entirely by the institutions that deploy it rather than by the experiences it names.
+
+(B) The severity of suffering can, in principle, be measured independently of the vocabulary available to describe it.
+
+(C) A vocabulary's failure to register a form of suffering is itself a substantive decision about whose pain counts, not a merely technical limitation.
+
+(D) The narrow clinical definition of trauma was adopted in bad faith by institutions seeking to minimize their obligations to the suffering.
+
+**Q6. Which of the following best describes the author's intellectual posture in the final two paragraphs?**
+
+(A) Resigned pessimism about a vocabulary that has been irreversibly corrupted by overuse and can no longer perform its function.
+
+(B) Cautious optimism that abandoning the search for a correct threshold will allow the word to settle into a more honest usage.
+
+(C) A suspended diagnosis that declines to locate a solution, reframing the problem as a structural limit of language rather than a fixable error of degree.
+
+(D) Detached neutrality that presents competing positions without committing to any evaluation of their relative merits.
+
+---
+
+## Why this RC is difficult
+
+**Hidden Structural Shifts:**
+The passage runs a three-stage dialectic that punishes premature stopping. Stage 1 (¶1–2) floats the *liberatory* reading—broadening = more recognition = good. A reader who anchors here treats the essay as pro-expansion. Stage 2 (¶3–4, including the one-line pivot "For recognition is positional") delivers the *corrective*: expansion flattens recognition and erases the vulnerable. A reader who freezes here reads the essay as declinist/anti-creep—the single most common trap, since this section is the most rhetorically forceful ("This is the standard corrective, and for a while it seems decisive"). The crucial sentence is the next one: **"It is not."** Stage 3 (¶5) turns the same skeptical weapon against the corrective itself, showing the "narrow baseline" was never neutral. The final two paragraphs (¶6–7) refuse synthesis and relocate the problem to the nature of language. Readers who miss the second reversal collapse the passage into whichever of the two first positions they anchored on.
+
+**Core Distractor Traps:**
+- Q1(A) and Q1(D) both encode *structural freezing* at Stage 2 (the declinist/positional reading), which the passage explicitly overturns. Q1(C) commits *over-extension*: the passage denies an innocent baseline but does NOT conclude the debate is "empty"—it insists the concept does real work.
+- Q2(A)/(B)/(D) all read the war/hysteria examples at *local* face value (as illustrations of hidden suffering) rather than their *global structural role* (weaponizing skepticism against the corrective).
+- Q3(A) and (D) exploit the double life of "positional": (A) imports a status-hierarchy reading; (D) attaches "positional" to the *threshold* discussion two paragraphs later—a scope/temporal slide.
+- Q4(B) inverts the mechanism (a *budget/zero-sum* resource, not a *positional/signaling* one); (C) reverses the outcome entirely (expansion succeeding); (D) describes *contraction*.
+- Q5(B) is the seductive near-inverse: the passage's move requires that suffering *cannot* be cleanly measured apart from vocabulary; (D) imports a bad-faith motive the passage never asserts.
+- Q6(B) manufactures the optimism the ending withholds; (A) overshoots into pessimism; (D) mistakes dialectical suspension for neutral even-handedness.
+
+**Tonal Ambiguity:**
+The author performs conviction twice and retracts it twice. Each position is voiced with apparent endorsement ("There is something to this"; "seems decisive") before being undercut. The closing tone is neither hopeful nor despairing but diagnostically suspended—"The word will keep moving. What it cannot do is arrive"—a controlled refusal of closure that reads as neither critique nor defense.
+
+**Paragraph Function Matrix:**
+
+| ¶ | Function |
+|---|----------|
+| 1 | Rejects the "inflation" frame; installs recognition-as-attention and previews the positional turn |
+| 2 | States the liberatory thesis, then exposes its concealed assumption (recognition = expandable) |
+| 3 | One-line pivot; converts the assumption into the counter-principle (positionality) |
+| 4 | Develops the corrective to its damning conclusion—then flags it as non-final ("It is not") |
+| 5 | Second reversal: dismantles the corrective's assumed neutral baseline; retrospectively reframes ¶4 |
+| 6 | Refuses synthesis; names the residual discomfort as the actual result |
+| 7 | Relocates the failure from threshold-placement to the finitude of vocabulary itself; reopens |
+
+---
+
+## ANSWER KEY & ELIMINATION LOGIC
+
+**Q1 — Correct: (B)**
+Bridge: (B) is the only option that registers *both* reversals and the deliberate non-synthesis of ¶6–7. 
+- (A) *structural freezing* at Stage 2 + *false prescription*: the passage never endorses restoring the narrow definition and calls that baseline non-neutral.
+- (C) *global/local confusion → over-extension*: denies innocent calibration but affirms the concept "does real work"; "empty" contradicts the text.
+- (D) *structural freezing*: adopts the positional/declinist conclusion as the thesis, ignoring ¶5's counter-reversal.
+
+**Q2 — Correct: (C)**
+Bridge: The examples appear in ¶5, whose job is to refute the corrective by exposing the narrow usage as institutional blindness. Their function is structural, not illustrative.
+- (A) *local misreading*: treats them as pathos for the liberatory case (wrong stage).
+- (B) *framework importation*: a bias-critique reading the passage doesn't run; it targets *conceptual availability*, not demographic bias per se.
+- (D) *scope distortion*: "continuity across history" is not the point; the point is discontinuity of *recognition*.
+
+**Q3 — Correct: (B)**
+Bridge: ¶3–4 define positionality as worth-dependent-on-scarcity ("depends partly on its scarcity… when everyone is recovering… it flattens").
+- (A) *framework importation*: substitutes social hierarchy for scarcity-of-worth.
+- (C) *reversal*: nonsensically fixes recognition in place before distribution.
+- (D) *temporal/scope slide*: attaches "positional" to the later threshold discussion, not its actual referent.
+
+**Q4 — Correct: (A)**
+Bridge: The mechanism is *signal dilution under positional value*—more distinctions destroy the distinction, harming the genuinely exceptional most. The honors-transcript case reproduces this exactly.
+- (B) *mechanism substitution*: zero-sum budget scarcity, not positional/signaling scarcity.
+- (C) *outcome reversal*: expansion succeeding (more sympathy), the opposite of erasure.
+- (D) *directional inversion*: describes contraction/tightening, not expansion.
+
+**Q5 — Correct: (C)**
+Bridge: ¶5's refutation ("Every threshold… encodes a prior decision about whose pain counts") requires that non-registration be a substantive normative act, not a neutral technical gap. Without this, the "no innocent calibration" conclusion fails.
+- (A) *over-extension*: "entirely" is stronger than the argument needs and clashes with the concept "doing real work."
+- (B) *reversal of the needed premise*: the argument depends on suffering *not* being measurable apart from vocabulary.
+- (D) *framework importation*: attributes bad-faith motive the passage never claims (it says "blindness," not deceit).
+
+**Q6 — Correct: (C)**
+Bridge: ¶6–7 explicitly refuse synthesis and relocate the problem to language's finitude ("no adjustment of the threshold that escapes the trade"; "What it cannot do is arrive")—a suspended, non-prescriptive diagnosis.
+- (A) *tonal overshoot*: "irreversibly corrupted" imports the declinist verdict the passage already dismantled.
+- (B) *false resolution*: manufactures optimism/settling the ending denies.
+- (D) *mischaracterization*: the author does evaluate—both positions are shown to fail—so this is not neutral fence-sitting but active dialectical suspension.
+
+---
+
+[Inspired by: "The trauma trap" / concept-creep discourse, drawing on Nick Haslam & Melanie McGrath's work on semantic broadening of harm-related concepts, *Aeon*]

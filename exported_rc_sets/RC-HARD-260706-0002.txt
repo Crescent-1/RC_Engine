@@ -1,0 +1,90 @@
+RC ID: RC-HARD-260706-0002 | Tier: hard | Score: 8.8 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.809 | Generated: 2026-07-06T13:46:10.208375+00:00
+======================================================================
+
+[PASSAGE]
+
+The question was answered a long time ago, and answered well. Free will is a confusion. This is not the shrill verdict of a partisan; it is the calm settlement of a field that has done its due diligence, weighed the alternatives with unusual patience, and found only one survivor. The libertarian's uncaused cause was inspected and found to be a superstition wearing a lab coat. The compatibilist's rescue—will is freedom from constraint, not from causation—was tested against ordinary usage and held. Determinism absorbed the rest. Even the holdouts concede the machinery: neurons fire on schedule, and the schedule does not consult us. Every serious survey confirms the drift. The textbooks agree. The philosophers of mind agree, more or less, in the way people agree who no longer expect to be surprised. What remains is bookkeeping. One tidies the vocabulary, retires the theological residue, and moves on to problems with a pulse. The matter is closed. The clock, so to speak, has been opened, and the movement inside runs exactly as predicted.
+
+How did it close? Not by a single proof but by a slow attrition of opponents. Each generation inherited the previous generation's exhaustion. The libertarian position grew tiresome to defend, so fewer defended it; fewer defenders meant weaker defense, which confirmed the weakness. There is a bolder reading available, and it has adherents: that the debate was never about metaphysics at all, only about which words we are permitted to keep. On this view the whole quarrel dissolves into grammar, and the winner is simply whoever last controlled the dictionary. Tidy. It has the appeal of every position that mistakes its own confidence for depth.
+
+Notice what the attrition selected for. Not truth—stamina. A verdict reached by the exhaustion of dissent records who tired first, not who was right. The consensus is a fact about the debaters, not about the will. This is the delayed referent: the "due diligence" of the opening was never diligence about free will; it was diligence about maintaining agreement. A field can be scrupulous about its manners and careless about its object. The machinery ran as predicted because it was built to. That is watchmaking, not discovery.
+
+So the tempting middle is refused. One could say the question is answered *and* the process was flawed, and split the difference. No. A conclusion certified by fatigue is not half-earned; it is uncertified. Whether free will survives inspection remains genuinely open, precisely because the inspection never happened. The clock keeps time. Nobody checked it against the sun.
+
+[QUESTIONS]
+
+Q1. The confident opening paragraph ("The matter is closed... runs exactly as predicted") functions primarily to:
+(A) summarize the libertarian and compatibilist positions so both can be fairly weighed
+(B) stage a consensus the author will later dismantle by exposing how it was reached
+(C) concede the strongest version of determinism before introducing a minor caveat
+(D) record the author's carefully qualified conclusion that free will is a settled confusion
+
+Q2. In context, the "bolder reading" that "the whole quarrel dissolves into grammar" is presented by the author as:
+(A) the author's own sharpened thesis, that the debate was only ever about controlling the dictionary
+(B) a compromise between libertarian and determinist camps the author later refines
+(C) a position the author finds appealing but ultimately too modest in its ambitions
+(D) a rival diagnosis the author names, credits with adherents, and then declines to accept
+
+Q3. Which best captures the central claim of the passage as a whole?
+(A) Because the inspection was flawed, the author now cautiously leans toward free will surviving after all
+(B) The free-will debate was always a dispute about vocabulary rather than about metaphysics
+(C) The consensus on free will records who tired of arguing, so the underlying question stays genuinely open
+(D) Determinism prevailed through slow attrition, which shows the field's admirable patience and rigor
+
+Q4. The author's move from "the verdict was reached by exhaustion" to "the verdict is uncertified" depends on which unstated assumption?
+(A) Agreement produced by fatigue carries no evidential weight about the matter agreed upon
+(B) Fields scrupulous about manners are usually careless about their actual objects
+(C) The libertarian position was abandoned because it was demonstrably false
+(D) A conclusion can only be certified if a single decisive proof establishes it
+
+Q5. A safety board declares a bridge design sound because, over decades, every engineer who objected retired or moved on, and the remaining team stopped raising concerns. Which passage mechanism does this best illustrate?
+(A) A settled position that records the departure of dissenters rather than any test of the object itself
+(B) A genuine verification whose thoroughness was vindicated by the absence of later objections
+(C) A prudent compromise that accepts the design while flagging that the process was imperfect
+(D) A bold reframing that turns a technical dispute into a mere quarrel over terminology
+
+Q6. The final lines ("The clock keeps time. Nobody checked it against the sun.") end the passage by:
+(A) gently suggesting that the free-will verdict is probably mistaken once properly checked
+(B) confirming that the field's clockwork determinism runs exactly as its builders intended
+(C) reopening the object of inquiry while leaving its verdict deliberately undecided
+(D) conceding that the question is answered but the manner of answering was regrettable
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — Paragraphs 3-4 reveal the opening's certainty is the very thing under attack, making it a set-up rather than a claim the author owns.
+  (A) stage_misattribution — Those positions appear as already-decided casualties, not as options being weighed by the author for the reader.
+  (C) half_truth — The opening is not a concession the author later trims; paragraph 3 rejects its foundation entirely, not partially.
+  (D) overqualification — Falls into TR1: mistakes the ventriloquized field-consensus of paragraph 1 for the author's own hedged verdict, which paragraph 4 refuses.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — The author calls it "tidy" and says it "mistakes its own confidence for depth," marking it as reported-then-rejected, not endorsed.
+  (A) moderate_extremism — Falls into TR2: adopts the rehearsed rival as the author's view, ignoring the dismissive "mistakes its confidence for depth."
+  (B) framework_import — It is not a compromise between those camps but a meta-claim about language, and the author refines nothing from it.
+  (C) stance_misread — The author faults it for false depth, not for modesty; "too modest" inverts the actual objection.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — Integrates paragraph 3's "stamina not truth" with paragraph 4's insistence that the question "remains genuinely open."
+  (A) overqualification — Falls into TR3: reads the ending as tilting toward a verdict, but paragraph 4 leaves survival "genuinely open," not favored.
+  (B) stance_misread — That is the rejected "bolder reading" of paragraph 2, not the author's own conclusion.
+  (D) causal_inversion — The author treats attrition as discrediting the verdict, reversing the passage's judgment on that patience.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Without this, exhaustion could still track truth; the passage needs fatigue and evidence to be disconnected to call the verdict uncertified.
+  (B) scope_inflation — Paragraph 3 says a field *can* be both, a possibility claim, not the general rule this option asserts.
+  (C) causal_inversion — The passage says it was abandoned from tiresomeness, which is the opposite of demonstrated falsity.
+  (D) nec_suff_swap — The author rejects proof-by-attrition, not proof-by-multiple-steps; "single proof" is explicitly disclaimed in paragraph 2.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — Mirrors paragraph 3: consensus reached by attrition of objectors is a fact about the debaters, not about the bridge's soundness.
+  (B) causal_inversion — Absence of objections is here caused by departure, not by verification, reversing the passage's watchmaking point.
+  (C) false_symmetry — That is the "tempting middle" paragraph 4 explicitly refuses, not the mechanism the scenario displays.
+  (D) framework_import — Imports the rejected "grammar" reading of paragraph 2; the scenario is about vanished dissenters, not redefined words.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The clock still runs (verdict stands socially) but was never measured against reality (the sun), so the question stays open, not resolved.
+  (A) overqualification — The ending withholds any lean; "nobody checked" leaves outcome open rather than tilting toward the verdict being wrong.
+  (B) phrase_misuse — It reuses the watchmaking image to indict, not confirm; the sun-line withdraws the certification the opening claimed.
+  (D) false_symmetry — This is the split-the-difference stance paragraph 4 rejects as "uncertified," so the ending cannot be endorsing it.
+
+[Inspired by: "The anguish of choice", https://aeon.co/essays/re-reading-sartres-lecture-existentialism-is-a-humanism]
