@@ -129,6 +129,7 @@ class Fingerprint:
     letter_sequence: str
     stylometry: dict                       # word -> relative freq (plus _stats keys)
     embedding: list[float] | None = None
+    source: str = "engine"                 # engine | legacy | manual (filterable)
 
 
 @dataclass

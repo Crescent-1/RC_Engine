@@ -13,9 +13,9 @@ from __future__ import annotations
 import statistics
 
 from . import config
-from .fingerprints import (burrows_delta, cosine, jensen_shannon,
-                           movement_similarity, pearson, topology_similarity,
-                           zscored_cosine)
+from .fingerprints import (UNKNOWN_MOVEMENT, burrows_delta, cosine,
+                           jensen_shannon, movement_similarity, pearson,
+                           topology_similarity, zscored_cosine)
 from .models import Fingerprint, NoveltyReport
 from .registry import posture_class
 
@@ -32,9 +32,16 @@ class NoveltyScorer:
                   include_question_channels: bool) -> dict:
         scores: dict[str, float] = {}
 
-        lev, jac = movement_similarity(fp.movement_string, other.movement_string)
-        scores["movement_levenshtein"] = lev
-        scores["movement_bigram_jaccard"] = jac
+        if (fp.movement_string in UNKNOWN_MOVEMENT
+                or other.movement_string in UNKNOWN_MOVEMENT):
+            # no compliance annotation on one side — unknown structure is not
+            # evidence of similar structure
+            scores["movement_levenshtein"] = 0.0
+            scores["movement_bigram_jaccard"] = 0.0
+        else:
+            lev, jac = movement_similarity(fp.movement_string, other.movement_string)
+            scores["movement_levenshtein"] = lev
+            scores["movement_bigram_jaccard"] = jac
 
         r = pearson(fp.commitment_curve, other.commitment_curve)
         same_sign_ends = (fp.commitment_curve and other.commitment_curve and
@@ -59,8 +66,13 @@ class NoveltyScorer:
         scores["stylometry_sim"] = max(0.0, 1.0 - delta / 2.0)
 
         if include_question_channels:
-            scores["topology_similarity"] = topology_similarity(
-                fp.topology_signature, other.topology_signature)
+            if fp.topology_signature and other.topology_signature:
+                scores["topology_similarity"] = topology_similarity(
+                    fp.topology_signature, other.topology_signature)
+            else:
+                # backfilled/manual fingerprints carry no topology annotation;
+                # empty-vs-empty would otherwise score as identical
+                scores["topology_similarity"] = 0.0
             scores["distractor_jsd"] = jensen_shannon(fp.trap_histogram,
                                                       other.trap_histogram)
         return scores
@@ -129,7 +141,7 @@ class NoveltyScorer:
                 breached.append(f"rhythm_cosine {s['rhythm_cosine']:.2f} vs {other.rc_id}")
             if s["embedding_cosine"] > caps["embedding_cosine"]:
                 breached.append(f"embedding_cosine {s['embedding_cosine']:.2f} vs {other.rc_id}")
-            if (other.persona_id and fp.persona_id != other.persona_id
+            if (fp.persona_id and other.persona_id and fp.persona_id != other.persona_id
                     and s["stylometry_delta"] < caps["stylometry_delta_floor"]):
                 breached.append(f"persona_leak delta={s['stylometry_delta']:.2f} vs {other.rc_id}")
             if include_question_channels and \

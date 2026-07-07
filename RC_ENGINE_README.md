@@ -34,6 +34,11 @@ python -m rc_engine.cli export --status approved
 
 # $0 — paste-ready AVOID line for MANUAL_GENERATION_PROMPT.md (last N shipped sets)
 python -m rc_engine.cli avoid --n 4
+
+# $0 — free gates on a manually generated RC .txt (novelty vs corpus, letter
+#      balance, length bias); --ingest stores it with source='manual' so the
+#      corpus stays in sync and manual sets stay filterable
+python -m rc_engine.cli vet manual_rc_sets/RC-MANUAL-260707-1.txt --tier elite --ingest
 ```
 
 ## Cost guarantees (what "no surprises" means concretely)

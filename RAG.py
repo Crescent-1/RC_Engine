@@ -41,6 +41,7 @@ DEFAULT_MIN_WORDS = 1000
 #               publishes complete, self-contained scholarly essays at ~800
 #               words, so it uses a lower bar than magazine feeds.
 FEEDS = {
+    # Core long-form idea/essay sources.
     "https://aeon.co/feed.rss":
         {"genre": "Aeon", "js": True, "paths": ["/essays/"]},
     "https://psyche.co/feed.rss":
@@ -49,14 +50,63 @@ FEEDS = {
         {"genre": "Nautilus", "js": False, "paths": None},
     "https://daily.jstor.org/feed/":
         {"genre": "JSTOR", "js": False, "paths": None, "min_words": 800},
+
+    # Argument-rich magazines/reviews: best pool for hard/elite RC seeds.
+    "https://www.publicbooks.org/feed/":
+        {"genre": "Public Books", "js": False, "paths": None, "min_words": 900},
+    "https://thepointmag.com/feed/":
+        {"genre": "The Point", "js": False, "paths": None, "min_words": 1000},
+    "https://hedgehogreview.com/feed":
+        {"genre": "Hedgehog Review", "js": False, "paths": None, "min_words": 900},
+    "https://www.thenewatlantis.com/feed":
+        {"genre": "New Atlantis", "js": False, "paths": None, "min_words": 1000},
+    "https://www.bostonreview.net/feed/":
+        {"genre": "Boston Review", "js": False, "paths": None, "min_words": 900},
+    "https://lareviewofbooks.org/feed/":
+        {"genre": "LARB", "js": False, "paths": None, "min_words": 900},
+    "https://www.commonwealmagazine.org/rss.xml":
+        {"genre": "Commonweal", "js": False, "paths": None, "min_words": 900},
+    "https://www.laphamsquarterly.org/feed":
+        {"genre": "Lapham's Quarterly", "js": False, "paths": None, "min_words": 900},
+    "https://www.lrb.co.uk/feeds/rss":
+        {"genre": "LRB", "js": False, "paths": None, "min_words": 1200},
+    "https://www.nybooks.com/feed/":
+        {"genre": "NYRB", "js": False, "paths": None, "min_words": 1200},
+    "https://harpers.org/feed/":
+        {"genre": "Harper's", "js": False, "paths": None, "min_words": 1000},
+    "https://www.dissentmagazine.org/feed/":
+        {"genre": "Dissent", "js": False, "paths": None, "min_words": 900},
+    "https://jacobin.com/feed/":
+        {"genre": "Jacobin", "js": False, "paths": None, "min_words": 1000},
+    "https://www.noemamag.com/feed/":
+        {"genre": "Noema", "js": False, "paths": None, "min_words": 900},
+    "https://www.tabletmag.com/feed":
+        {"genre": "Tablet", "js": False, "paths": None, "min_words": 1000},
+    "https://newrepublic.com/rss.xml":
+        {"genre": "New Republic", "js": False, "paths": None, "min_words": 900},
+    "https://www.thenation.com/feed/?post_type=article":
+        {"genre": "The Nation", "js": False, "paths": None, "min_words": 1000},
+
+    # Reliable science/technology explainers. These broaden medium/hard topics
+    # without making the elite pool too newsy.
+    "https://www.quantamagazine.org/feed/":
+        {"genre": "Quanta", "js": False, "paths": None, "min_words": 900},
+    "https://knowablemagazine.org/rss":
+        {"genre": "Knowable", "js": False, "paths": None, "min_words": 800},
+    "https://undark.org/feed/":
+        {"genre": "Undark", "js": False, "paths": None, "min_words": 900},
+    "https://www.scientificamerican.com/feed/":
+        {"genre": "Scientific American", "js": False, "paths": None, "min_words": 800},
+    "https://arstechnica.com/feed/":
+        {"genre": "Ars Technica", "js": False, "paths": None, "min_words": 900},
+
+    # Lighter but dependable domain variety.
     "https://www.smithsonianmag.com/rss/history/":
-        {"genre": "history", "js": False, "paths": None},
+        {"genre": "history", "js": False, "paths": None, "min_words": 700},
     "https://www.smithsonianmag.com/rss/science-nature/":
-        {"genre": "science", "js": False, "paths": None},
+        {"genre": "science", "js": False, "paths": None, "min_words": 700},
     "https://www.smithsonianmag.com/rss/arts-culture/":
         {"genre": "arts-culture", "js": False, "paths": None},
-    "https://www.smithsonianmag.com/rss/travel/":
-        {"genre": "travel", "js": False, "paths": None},
     "https://www.smithsonianmag.com/rss/innovation/":
         {"genre": "innovation", "js": False, "paths": None},
 }

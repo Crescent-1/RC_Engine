@@ -7,6 +7,7 @@
   python -m rc_engine.cli health                # corpus health snapshot, $0
   python -m rc_engine.cli export [--status approved]
   python -m rc_engine.cli avoid [--n 4]         # AVOID line for the manual prompt, $0
+  python -m rc_engine.cli vet FILE [--ingest]   # free gates on a manual RC .txt, $0
 """
 
 from __future__ import annotations
@@ -231,8 +232,10 @@ def cmd_generate(args) -> int:
 # backfill — local-only fingerprints for legacy rc_sets rows
 # ---------------------------------------------------------------------------
 
-def _legacy_fingerprint(rc_id: str, rc_text: str, emb_json: str | None):
-    from .fingerprints import rhythm_vector, stylometry_profile, _embed
+def _legacy_fingerprint(rc_id: str, rc_text: str, emb_json: str | None,
+                        source: str = "legacy"):
+    from .fingerprints import (parse_answer_letters, rhythm_vector,
+                               stylometry_profile, _embed)
     from .models import Fingerprint
 
     m = re.search(r"\nQ\s*1\b", rc_text)
@@ -240,8 +243,6 @@ def _legacy_fingerprint(rc_id: str, rc_text: str, emb_json: str | None):
     passage = re.sub(r"\[PASSAGE\]", "", passage)
     # strip export header ("RC ID: ... ====== ")
     passage = re.sub(r"^RC ID:.*?={10,}\s*", "", passage, flags=re.DOTALL).strip()
-    key = re.findall(r"(?i)Q\s*[1-6][^A-D\n]{0,40}?(?:correct|answer)[^A-D\n]{0,15}?\(?([A-D])\b",
-                     rc_text)
     embedding = json.loads(emb_json) if emb_json else _embed(passage)
     return Fingerprint(
         rc_id=rc_id, blueprint_id="", persona_id="",
@@ -249,9 +250,10 @@ def _legacy_fingerprint(rc_id: str, rc_text: str, emb_json: str | None):
         commitment_curve=[0.0, 0.0, 0.0],
         rhythm_vector=rhythm_vector(passage),
         topology_signature=[], trap_histogram={},
-        letter_sequence="".join(key[:6]),
+        letter_sequence=parse_answer_letters(rc_text),
         stylometry=stylometry_profile(passage),
-        embedding=embedding)
+        embedding=embedding,
+        source=source)
 
 
 def cmd_backfill(args) -> int:
@@ -288,6 +290,38 @@ def cmd_backfill(args) -> int:
             history.record_fingerprint(_legacy_fingerprint(rc_id, text, None))
             existing.add(rc_id)
             n += 1
+
+    # 3) maintenance on existing rows (idempotent): retag blueprint-less
+    #    fingerprints as 'legacy' and fill letter sequences the old parser missed
+    from .fingerprints import parse_answer_letters
+    retagged = history.conn.execute(
+        """UPDATE fingerprints SET source='legacy'
+           WHERE (blueprint_id IS NULL OR blueprint_id='')
+             AND COALESCE(source, 'engine') = 'engine'""").rowcount
+    refilled = 0
+    for rc_id, old in history.conn.execute(
+            "SELECT rc_id, letter_sequence FROM fingerprints "
+            "WHERE length(letter_sequence) < 6").fetchall():
+        row = history.conn.execute(
+            "SELECT rc_text FROM rc_sets WHERE rc_id = ?", (rc_id,)).fetchone()
+        text = row[0] if row and row[0] else None
+        if not text:
+            for d in (args.from_txt or []):
+                p = os.path.join(d, f"{rc_id}.txt")
+                if os.path.isfile(p):
+                    with open(p, encoding="utf-8", errors="replace") as f:
+                        text = f.read()
+                    break
+        letters = parse_answer_letters(text) if text else ""
+        if len(letters) > len(old):
+            history.conn.execute(
+                "UPDATE fingerprints SET letter_sequence = ? WHERE rc_id = ?",
+                (letters, rc_id))
+            refilled += 1
+    history.conn.commit()
+    if retagged or refilled:
+        print(f"[backfill] maintenance: {retagged} fingerprint(s) retagged 'legacy', "
+              f"{refilled} empty letter sequence(s) filled")
 
     print(f"Backfilled {n} legacy fingerprint(s); {len(existing)} total in store. "
           f"New generations now audit against them.")
@@ -353,6 +387,9 @@ def cmd_health(args) -> int:
               f"(legacy fingerprints don't carry this stat)")
     print(f"  family usage: {dict(sorted(fam_counts.items()))}")
     print(f"  closing postures (realized): {dict(sorted(posture_counts.items()))}")
+    src_counts = dict(history.conn.execute(
+        "SELECT COALESCE(source, 'engine'), COUNT(*) FROM fingerprints GROUP BY 1"))
+    print(f"  fingerprints by source:        {src_counts}")
     if aph_keyed:
         print(f"  aphorism endings:              {aph_true}/{aph_keyed} keyed sets "
               f"(register-rotation baseline ~12.5%)")
@@ -384,6 +421,150 @@ def cmd_export(args) -> int:
     print(f"Exported {len(rows)} set(s) to '{args.out}/'")
     history.close()
     return 0
+
+
+# ---------------------------------------------------------------------------
+# vet — free gates for a manually generated RC (.txt); --ingest to sync it
+# ---------------------------------------------------------------------------
+
+_MECH_LINE = re.compile(r"(?m)^\s*\(([A-D])\)\s*([a-z][a-z_]{2,40})\s*[—\-–:]")
+
+
+def _parse_rc_txt(text: str) -> dict:
+    """Parse MANUAL_GENERATION_PROMPT.md's OUTPUT FORMAT (which the engine's
+    own exports also follow). Tolerant of missing sections."""
+    body = re.sub(r"^RC ID:.*?={10,}\s*", "", text, flags=re.DOTALL)
+
+    def _section(start: str, end: str) -> str | None:
+        s = body.find(start)
+        if s == -1:
+            return None
+        s += len(start)
+        e = body.find(end, s)
+        return body[s:e if e != -1 else len(body)].strip()
+
+    passage = _section("[PASSAGE]", "[QUESTIONS]")
+    qblock = _section("[QUESTIONS]", "[ANSWER KEY")
+    keyblock = body[body.find("[ANSWER KEY"):] if "[ANSWER KEY" in body else ""
+    if passage is None:   # no markers: passage = everything before Q1
+        m = re.search(r"\nQ\s*1[.)]", body)
+        passage = body[:m.start()].strip() if m else body.strip()
+
+    questions = []
+    if qblock:
+        for qm in re.finditer(r"(?ms)^Q(\d)[.)]\s*(.*?)(?=^Q\d[.)]|\Z)", qblock):
+            parts = re.split(r"(?m)^\(([A-D])\)\s*", qm.group(2))
+            options = {parts[i]: {"text": " ".join(parts[i + 1].split())}
+                       for i in range(1, len(parts) - 1, 2)}
+            questions.append({"q": int(qm.group(1)),
+                              "stem": parts[0].strip(), "options": options})
+
+    from .fingerprints import parse_answer_letters
+    mechanisms: dict[str, int] = {}
+    for _letter, mech in _MECH_LINE.findall(keyblock):
+        mechanisms[mech] = mechanisms.get(mech, 0) + 1
+    pm = re.search(r"Posture:\s*([a-z_]+)", keyblock)
+    return {"passage": passage, "questions": questions,
+            "letters": parse_answer_letters(text),
+            "mechanisms": mechanisms, "posture": pm.group(1) if pm else None}
+
+
+def cmd_vet(args) -> int:
+    from .fingerprints import rhythm_vector, stylometry_profile, _embed
+    from .models import Fingerprint
+    from .novelty import NoveltyScorer
+    from .question_engine import length_bias_report
+
+    if not os.path.isfile(args.file):
+        print(f"File not found: {args.file}")
+        return 1
+    with open(args.file, encoding="utf-8", errors="replace") as f:
+        text = f.read()
+    parsed = _parse_rc_txt(text)
+    passage, questions, letters = parsed["passage"], parsed["questions"], parsed["letters"]
+
+    m = re.search(r"RC ID:\s*(\S+)", text)
+    rc_id = args.id or (m.group(1) if m
+                        else os.path.splitext(os.path.basename(args.file))[0])
+    words = len(passage.split())
+    print(f"[vet] {rc_id}: {words}-word passage, {len(questions)} question(s), "
+          f"key '{letters or '?'}', {sum(parsed['mechanisms'].values())} named mechanism(s)")
+
+    # -- structural + letter audits (the manual prompt's Stage-4 rules) ------
+    warnings: list[str] = []
+    if len(questions) != 6:
+        warnings.append(f"expected 6 questions, parsed {len(questions)}")
+    for q in questions:
+        if len(q["options"]) != 4:
+            warnings.append(f"Q{q['q']}: parsed {len(q['options'])}/4 options")
+    if letters and len(letters) != len(questions):
+        warnings.append(f"answer key covers {len(letters)}/{len(questions)} questions")
+    if args.tier:
+        lo, hi = config.TIER_PARAMS[args.tier]["passage_words"]
+        if not lo - 40 <= words <= hi + 40:
+            warnings.append(f"passage {words} words vs {args.tier} band {lo}-{hi}")
+    if letters:
+        for c in "ABCD":
+            if letters.count(c) > 3:
+                warnings.append(f"letter {c} correct {letters.count(c)}x (max 3)")
+        for i in range(len(letters) - 2):
+            if letters[i] == letters[i + 1] == letters[i + 2]:
+                warnings.append(f"letter {letters[i]} correct 3x in a row")
+                break
+    if (letters and len(letters) == len(questions)
+            and all(len(q["options"]) == 4 for q in questions)):
+        for q, letter in zip(questions, letters):
+            q["correct"] = letter
+        lb = length_bias_report({"questions": questions})
+        warnings += [f"length bias: {w}" for w in lb["warnings"]]
+
+    # -- novelty vs corpus (channels available without a compliance audit) ---
+    history = HistoryStore(args.db)
+    fp = Fingerprint(
+        rc_id=rc_id, blueprint_id="", persona_id="",
+        movement_string="MANUAL_UNKNOWN", commitment_curve=[0.0, 0.0, 0.0],
+        rhythm_vector=rhythm_vector(passage), topology_signature=[],
+        trap_histogram=parsed["mechanisms"], letter_sequence=letters,
+        stylometry=stylometry_profile(passage),
+        embedding=None if args.no_embed else _embed(passage),
+        source="manual")
+    if parsed["posture"]:
+        fp.stylometry["_closing_posture"] = parsed["posture"]
+    report = NoveltyScorer(history).score(fp, {},
+                                          include_question_channels=bool(questions))
+
+    print(f"\n  novelty:  {report.verdict}  (composite {report.composite}, "
+          f"nearest {report.channel_scores.get('nearest')})")
+    for b in report.breached:
+        print(f"    BREACH  {b}")
+    for fl in report.corpus_flags:
+        print(f"    corpus  {fl}")
+    if warnings:
+        for w in warnings:
+            print(f"    WARN    {w}")
+    else:
+        print("  audits:   clean")
+
+    ok = report.verdict == "pass" and not warnings
+    if args.ingest:
+        if not ok and not args.force:
+            print("\nNOT ingested (see flags above). Fix the set or re-run with --force.")
+            history.close()
+            return 1
+        replaced = history.conn.execute(
+            "SELECT 1 FROM fingerprints WHERE rc_id = ?", (rc_id,)).fetchone()
+        history.record_fingerprint(fp)
+        history.record_novelty_audit("manual", rc_id, report.channel_scores,
+                                     report.composite, f"vet:{report.verdict}",
+                                     "; ".join(report.breached))
+        print(f"\nIngested {'(replaced) ' if replaced else ''}{rc_id} as "
+              f"source='manual' — future generations now audit against it.")
+    elif ok:
+        print("\nPASS — re-run with --ingest to add it to the corpus.")
+    else:
+        print("\nReview the flags above before shipping this set.")
+    history.close()
+    return 0 if ok or args.ingest else 1
 
 
 # ---------------------------------------------------------------------------
@@ -484,11 +665,25 @@ def main(argv=None) -> int:
     a.add_argument("--n", type=int, default=4,
                    help="how many recent shipped sets to include")
 
+    v = sub.add_parser("vet", help="run the free gates on a manual RC .txt ($0)")
+    v.add_argument("file", help="RC .txt in the manual prompt's output format")
+    v.add_argument("--db", default=config.DB_PATH)
+    v.add_argument("--id", default=None,
+                   help="rc_id override (default: 'RC ID:' line, else filename)")
+    v.add_argument("--tier", choices=["medium", "hard", "elite"], default=None,
+                   help="also check the passage word count against this tier's band")
+    v.add_argument("--ingest", action="store_true",
+                   help="on pass, store the fingerprint with source='manual'")
+    v.add_argument("--force", action="store_true",
+                   help="ingest even with breaches/warnings")
+    v.add_argument("--no-embed", action="store_true",
+                   help="skip the embedding channel (faster)")
+
     args = p.parse_args(argv)
     return {"estimate": cmd_estimate, "selftest": cmd_selftest,
             "generate": cmd_generate, "backfill": cmd_backfill,
             "health": cmd_health, "export": cmd_export,
-            "avoid": cmd_avoid}[args.cmd](args)
+            "avoid": cmd_avoid, "vet": cmd_vet}[args.cmd](args)
 
 
 if __name__ == "__main__":

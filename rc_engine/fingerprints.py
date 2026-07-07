@@ -21,6 +21,31 @@ FUNCTION_WORDS = [
     "partly", "largely", "merely", "only", "even", "still", "almost", "nearly",
 ]
 
+# Fingerprints built from raw text (backfill, vet) have no compliance-audit
+# annotation; their movement strings are sentinels, never real function tokens.
+# The novelty scorer masks the movement channel when it sees one — otherwise
+# two annotation-less sets would compare as movement-identical (sim 1.0).
+UNKNOWN_MOVEMENT = ("LEGACY_UNKNOWN", "MANUAL_UNKNOWN")
+
+# Answer-key line in engine exports and the manual prompt's output format:
+#   "Q1 — Correct answer: (B)"   /   "Q1 - Correct answer: (C)"
+_ANSWER_LINE = re.compile(
+    r"(?im)^\s*Q\s*(\d)\W{0,10}correct\s+answer\W{0,10}([A-D])\b")
+# Older manual exports use a markdown key: "**1. Correct: (B)**"
+_ANSWER_LINE_ALT = re.compile(
+    r"(?im)^\W{0,6}(\d)\W{0,4}correct\W{0,12}([A-D])\b")
+
+
+def parse_answer_letters(text: str) -> str:
+    """Extract the answer-letter sequence from an RC's answer-key block.
+    Tolerant: returns '' when the text carries no recognizable key."""
+    letters: dict[int, str] = {}
+    for pattern in (_ANSWER_LINE, _ANSWER_LINE_ALT):
+        for qnum, letter in pattern.findall(text):
+            letters.setdefault(int(qnum), letter.upper())
+    return "".join(letters[k] for k in sorted(letters))
+
+
 _EMBEDDER = None
 _EMBED_FAILED = False
 
