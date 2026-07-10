@@ -1,0 +1,99 @@
+RC ID: RC-MANUAL-260708-3 | Tier: elite | Source: manual | Vet: novelty pass, audits clean | Date: 2026-07-08
+======================================================================
+
+[PASSAGE]
+
+When anthropologists began studying expertise itself — how diagnostic skill is transmitted among, say, avalanche forecasters or wine graders — a difficulty announced itself before the first field note was filed. We were proposing to become experts in expertise. Whatever we learned about how the studied practitioners came to trust their own judgments would, if it held, apply to us as we came to trust ours. The instrument we were calibrating was the same instrument doing the calibrating.
+
+Take the standard finding first, because it is genuinely robust: across most of the trades we followed, practitioners could not articulate the grounds of their best calls. The avalanche forecaster feels the slope is wrong; pressed, she supplies a rationalization that her own logbook, cross-checked against outcomes, does not support. What we know here is fairly secure — the reconstructions are post hoc. How we know it is worth pausing on: we know it because our transcripts of practitioners' explanations diverge from their recorded decisions, a method that assumes the transcript is the better record.
+
+That assumption is where the recursion enters. For the same skepticism turns, without special pleading, on the fieldworker. When I judge that a forecaster's stated reason is a rationalization, I too am reading a slope — the interview — and issuing a confident call whose grounds I would, if pressed, reconstruct after the fact. Some of my most assured interpretations, the ones I could defend at length, are on this account exactly the ones I should trust least, since fluency of defense is what we learned to discount in the people we studied. The finding, applied inward, does not weaken; it sharpens, and it sharpens against its holder.
+
+One is tempted here to resolve the loop by ranking the levels — to say the analyst's skepticism operates one storey above the practitioner's intuition and is therefore exempt, the way a proofreader need not doubt the alphabet she checks against. But the temptation trades on a difference the evidence does not license: nothing in what we observed marks the interpreter's cognition as a different kind from the forecaster's, only as differently aimed. The storeys are the same material. To claim the auditor's floor is load-bearing in a way the audited floor is not would be to smuggle back the very exemption the study was convened to test.
+
+So the honest report ends without the summary its form seems to promise. I could state a position — that all expert confidence, mine included, is post-hoc narration — but stating it with the assurance a conclusion requires would perform precisely the fluency the finding tells me to distrust, and stating its opposite would do the same. What can be set down is narrower: that the method here has not yet found the place to stand from which it could certify its own results, and that to announce a verdict now, while the instrument still reads its own reflection, would be to mistake the warmth of a well-turned ending for the coldness of a checked one.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the author's operating position across the passage as a whole?
+
+(A) Expert confidence is uniformly post-hoc narration, a conclusion the fieldwork establishes for practitioners and the author then honestly extends to himself.
+(B) Because the study's skepticism about practitioners applies equally to the author's own judgments, no verdict can be certified from within the inquiry.
+(C) The analyst's skepticism, operating a level above practitioners' intuition, escapes the doubt it directs downward and can therefore be stated with confidence.
+(D) The study fails because introspective interview data are unreliable, and better behavioral instruments would let the author reach the verdict now suspended.
+
+Q2. What is the function of the fourth paragraph (the "ranking the levels" / proofreader passage) in the argument's structure?
+
+(A) It supplies the resolution the essay has been building toward, establishing that the auditor's level is exempt from the practitioner's error.
+(B) It concedes that the fieldworker's skepticism is a different kind of cognition from the practitioner's intuition.
+(C) It raises then refuses an escape from the recursion, denying that "one storey above" earns the analyst any exemption.
+(D) It changes the subject from avalanche forecasting to proofreading in order to introduce a second, unrelated case study.
+
+Q3. The author distinguishes "what we know" from "how we know it" about practitioners' post-hoc rationalizations (paragraph 2) primarily in order to:
+
+(A) establish the finding as secure while exposing an assumption that later turns on the analyst.
+(B) concede that the finding about practitioners is too weak to support any further argument.
+(C) demonstrate that transcripts are treated as a more reliable record than practitioners' own spoken explanations.
+(D) contrast two rival schools of anthropological method and side with the one favoring transcripts.
+
+Q4. Consider a claim by another researcher: "A critic can reliably detect self-serving reasoning in others while remaining free of it herself, because criticism and the reasoning it examines are different mental operations." How does the passage bear on this claim?
+
+(A) It supports the claim, since the author treats his own skepticism as exempt from the doubt he applies to forecasters.
+(B) It is neutral, because the passage concerns only avalanche forecasting and wine grading, and not criticism.
+(C) It endorses the claim's stated conclusion while rejecting its premise about wholly different mental operations.
+(D) It undercuts the claim, since nothing observed marks the interpreter's cognition as a different kind, only as differently aimed.
+
+Q5. Which assumption is required for the author's closing refusal to state a verdict to be the honest response rather than mere evasion?
+
+(A) That practitioners in most trades can, when pressed, accurately articulate the grounds of their best judgments.
+(B) That fluency in defending a judgment marks unreliability, applying to the analyst's own confident interpretations too.
+(C) That the analyst occupies a methodological vantage exempt from the skepticism directed at practitioners.
+(D) That behavioral records and interview transcripts count as equally reliable sources of evidence.
+
+Q6. Why does the author decline to conclude that "all expert confidence, mine included, is post-hoc narration," even though the essay seems to be driving toward it?
+
+(A) Because he has found positive evidence that expert confidence is often well-grounded, contradicting the claim.
+(B) Because stating that verdict with a conclusion's assurance would itself display the fluency the finding tells him to distrust.
+(C) Because the claim applies only to the practitioners he studied and cannot be extended to himself without new data.
+(D) Because he intends to defer the conclusion to a later study with better instruments, not to withhold it on principle.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — reconstructs the unstated operating position from how the loop is managed: the finding "applied inward, does not weaken; it sharpens" (para 3) and the method "has not yet found the place to stand" (para 5), so no verdict can be certified now.
+  (A) premature_closure — takes the content of the verdict the author explicitly refuses to assert (para 5, "I could state a position... but") and reports it as the settled conclusion; the essay withholds exactly this.
+  (C) stance_misread — adopts the level-ranking exemption the author raises only to reject in para 4 ("the temptation trades on a difference the evidence does not license") as if it were his own view.
+  (D) framework_import — imports a methodological-fix narrative (better instruments, deferred verdict) that para 5 rules out; the suspension is argued as the correct present verdict, not a wait for data.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — para 4 states the ranking temptation ("one storey above... therefore exempt") and denies it ("trades on a difference the evidence does not license"), refusing the escape from recursion.
+  (A) stance_misread — reads the paragraph's setup clause as its payload; the proofreader analogy is the exemption being refused, not granted.
+  (B) level_confusion — asserts the very "different kind" of cognition the paragraph explicitly denies ("only as differently aimed"); confuses the position raised with the position endorsed.
+  (D) example_promotion — promotes the proofreader, used as an illustrative analogy, into a second case study; forecasting and proofreading are not parallel field sites here.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — para 2 marks the finding "fairly secure" (what we know) while flagging that the method "assumes the transcript is the better record" (how we know), the assumption para 3 turns inward.
+  (B) stance_misread — inverts the paragraph, which calls the finding "genuinely robust"; the how/what split questions grounds, not the finding's strength.
+  (C) scope_inflation — inflates the local working assumption ("assumes the transcript is the better record") into an unconditional "always," which the passage never claims and later destabilizes.
+  (D) framework_import — imports a schools-of-method dispute the passage does not stage; the distinction is epistemic, not factional.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — the other researcher's "different mental operations" is precisely the level exemption para 4 rejects: "nothing... marks the interpreter's cognition as a different kind... only as differently aimed."
+  (A) stance_misread — attributes to the author the exemption he refuses; he applies the doubt inward (para 3), not around himself.
+  (B) scope_inflation — treats the field cases as the passage's whole scope; the recursion is explicitly generalized to the interpreter's own judging in para 3.
+  (C) half_truth — the passage does reject the premise, but it does not endorse the conclusion; it withholds any verdict (para 5), so "endorses the conclusion" is false.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — the refusal is honest only if "fluency of defense is what we learned to discount" (para 3) genuinely binds the analyst's own assured interpretations; that is what makes asserting the verdict self-undermining (para 5).
+  (A) causal_inversion — reverses the robust finding; practitioners in most trades cannot articulate their grounds (para 2), and the refusal depends on that, not its opposite.
+  (C) stance_misread — names the exemption the author rejects (para 4) as a required premise; his refusal depends on denying it.
+  (D) half_truth — the passage questions the transcript-is-better assumption but nowhere needs the two records to be equally reliable; this is not the load-bearing premise of the refusal.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — para 5: stating the verdict "with the assurance a conclusion requires would perform precisely the fluency the finding tells me to distrust, and stating its opposite would do the same."
+  (A) straw_version — invents positive counter-evidence the essay never offers; the finding about post-hoc reconstruction is called robust, not contradicted.
+  (C) level_confusion — restricts the finding to practitioners, but para 3 turns it inward "without special pleading"; the extension to himself is the whole move.
+  (D) framework_import — recasts a principled present suspension as a scheduling delay awaiting better instruments, which para 5's reasoning excludes.
+
+[BLUEPRINT NOTE]
+Structure: self-application — expertise-skepticism voiced by an expert-in-expertise, recursion managed in the open, loop inhabited at the close | Posture: refusal_suspended | Thesis visible: never stated outright (reconstructed from loop management) | Traps: level_confusion (para 4 storey-ranking), stance_misread (para 5 "I could state a position")

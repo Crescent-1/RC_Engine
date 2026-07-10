@@ -1,0 +1,85 @@
+[PASSAGE]
+People often describe expertise as the accumulation of reliable knowledge. The image is attractive because it suggests a simple trajectory: more evidence, more certainty, more authority. Yet many occupations whose judgments are widely trusted seem to mature in a different way. Their defining achievement is not that they settle every dispute, but that they learn which disagreements deserve to remain unsettled. This is easy to mistake for caution or institutional self-protection. It can also look like a reluctance to commit. Neither description explains why some fields become more dependable precisely as their practitioners grow less eager to offer universal rules.
+The history of mapmaking offers a suggestive comparison. Early maps often aspired to completeness. Blank regions were filled with conjecture because an unfinished map appeared defective. Later cartographers became comfortable leaving spaces unmarked when evidence failed them. The blank area did not advertise ignorance alone; it indicated that different standards governed different portions of the page. Modern expertise often undergoes a similar transformation. It replaces premature completion with disciplined omission. From a distance this appears as shrinking confidence, although it may instead reflect increasing precision about where confidence is justified. The authority of the map changes not because every territory has been charted, but because the cartographer no longer disguises uncertain ground as settled land.
+This does not mean that every profession advances by embracing ambiguity. Some fields decline into endless qualification because they lose the ability to distinguish unresolved questions from merely difficult ones. Nor does restraint automatically deserve admiration. Institutions can invoke uncertainty to shield themselves from accountability, just as individuals can mistake hesitation for intellectual depth. The important difference lies elsewhere. Mature expertise acquires criteria for deciding when disagreement signals incomplete evidence and when it signals that the phenomenon itself admits several equally serviceable descriptions. Those criteria are rarely visible from outside the practice, which is why outsiders often judge only the surface appearance of disagreement while missing the standards that organize it.
+The temptation, then, is to ask whether experts possess more certainty than non-experts. That question obscures a more revealing one: whether they have become better at allocating certainty to the right objects. An accomplished architect does not calculate every measurement with equal intensity, nor does a skilled translator treat every word as equally resistant to interpretation. Competence appears in the distribution of attention before it appears in the accumulation of answers. Once expertise is viewed in that way, disputes over whether experts are "confident enough" become secondary to the structure that guides their confidence.
+The familiar contrast between certainty and uncertainty therefore captures less than it promises. The more consequential distinction separates practices that merely accumulate answers from those that continually refine the boundaries within which answers can responsibly travel. A field may possess fewer sweeping conclusions than it did decades earlier and yet deserve greater trust, not because uncertainty has become a virtue in itself, but because its judgments increasingly reveal that the real achievement was learning where confidence could be spent without pretending that every question demanded the same currency, a difference that changes what counts as expertise in the first place.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central thesis of the passage?
+(A) Expertise becomes trustworthy chiefly because experienced practitioners accumulate a larger body of settled knowledge than novices can access.
+(B) The defining feature of mature expertise is not greater certainty itself but a refined ability to determine where certainty is warranted and where disciplined restraint is appropriate.
+(C) Public distrust of experts mainly arises because outsiders misunderstand the technical language used within professional institutions.
+(D) Different professions inevitably develop different standards because every subject matter resists universal methods.
+
+Q2. What is the primary function of the discussion of historical mapmaking in the passage?
+(A) To argue that cartography is uniquely representative of how all scientific disciplines evolved.
+(B) To illustrate, through an analogy, how leaving some areas deliberately unresolved can reflect improved standards rather than diminished competence.
+(C) To demonstrate that earlier mapmakers were less ethical because they knowingly concealed ignorance.
+(D) To provide historical evidence that incomplete information always produces better judgments than complete information.
+
+Q3. Which of the following views would the author most likely reject?
+(A) Institutional claims of uncertainty should automatically be treated as evidence of intellectual maturity.
+(B) The visible presence of disagreement is not sufficient to judge the quality of an expert practice.
+(C) Some fields can misuse uncertainty to avoid accountability.
+(D) Mature expertise requires standards for distinguishing different kinds of unresolved questions.
+
+Q4. The phrase "allocating certainty to the right objects" most nearly refers to:
+(A) ensuring that every important question eventually receives an equally confident answer.
+(B) deciding which members of an institution deserve greater authority than others.
+(C) matching degrees of confidence to the kinds of questions that justify them rather than distributing confidence uniformly.
+(D) transferring established conclusions from one discipline to another whenever they appear applicable.
+
+Q5. Suppose a research community begins publishing fewer universal theories but develops increasingly explicit rules for identifying which claims remain provisional. This example would most directly:
+(A) weaken the author's argument by showing that declining certainty inevitably reduces expertise.
+(B) support the author's claim that improvement can consist in refining the limits of justified confidence rather than expanding the number of definitive answers.
+(C) contradict the analogy with mapmaking because theories differ from geographical representations.
+(D) show that institutions become more trustworthy whenever they produce fewer conclusions.
+
+Q6. If the fourth paragraph ("The temptation, then, is to ask...") were removed, what would be the greatest loss to the argument?
+(A) The passage would lose its explanation of why early maps contained conjectural regions.
+(B) The argument would no longer acknowledge that institutions sometimes exploit uncertainty for self-protection.
+(C) The passage would no longer distinguish between professions that advance and those that decline.
+(D) The transition from criticizing the certainty-versus-uncertainty framing to proposing the more important question about how confidence is structured would largely disappear.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (A) premature_closure — Mistakes the opening assumption for the author's conclusion; the passage later revises this view.
+  (B) CORRECT — The final two paragraphs argue that expertise lies in distributing confidence appropriately, not merely possessing more certainty.
+  (C) adjacent_answer — Distrust of experts is mentioned only indirectly; it is not the main thesis.
+  (D) scope_inflation — Generalizes the discussion into a claim about inevitable methodological diversity that the passage never makes.
+
+Q2 — Correct answer: (B)
+  (A) example_promotion — Elevates the analogy into the passage's principal historical claim.
+  (B) CORRECT — The mapmaking example demonstrates that leaving blanks can indicate improved standards rather than weaker knowledge.
+  (C) causal_inversion — Recasts the analogy as a moral accusation absent from the text.
+  (D) straw_version — Distorts the analogy into the claim that incompleteness is always superior.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — Paragraph 3 explicitly warns that uncertainty can be used to avoid accountability and is not automatically admirable.
+  (B) stance_misread — The author affirms this idea by arguing outsiders often misread visible disagreement.
+  (C) half_truth — This statement is explicitly accepted in paragraph 3, so it cannot be the rejected view.
+  (D) adjacent_answer — This accurately reflects the author's account of mature expertise.
+
+Q4 — Correct answer: (C)
+  (A) phrase_misuse — Misreads "allocating" as eventually answering everything with equal confidence.
+  (B) terminological_twin — Confuses allocation of certainty with allocation of institutional authority.
+  (C) CORRECT — The phrase refers to assigning confidence according to where it is justified, as explained through the architect and translator examples.
+  (D) framework_import — Imports the idea of transferring knowledge across disciplines, which the passage never discusses.
+
+Q5 — Correct answer: (B)
+  (A) causal_inversion — Treats fewer universal theories as evidence against expertise despite the author's contrary claim.
+  (B) CORRECT — The hypothetical directly mirrors the passage's argument that refining justified limits can mark intellectual progress.
+  (C) framework_import — Introduces an irrelevant distinction between theories and maps while ignoring the analogy's structural role.
+  (D) nec_suff_swap — Mistakes one possible indicator for a sufficient condition of trustworthiness.
+
+Q6 — Correct answer: (D)
+  (A) detail_promotion (example_promotion) — Focuses on a supporting analogy rather than the removed paragraph's structural role.
+  (B) stage_misattribution — Attributes content from paragraph 3 to paragraph 4.
+  (C) stage_misattribution — Again assigns paragraph 3's distinction to the deleted paragraph.
+  (D) CORRECT — Paragraph 4 reframes the debate by replacing the certainty question with the distribution-of-confidence question, preparing the final resolution.
+
+[BLUEPRINT NOTE]
+Structure: An apparent debate about certainty is displaced by a deeper question about the distribution of confidence across judgments. | Posture: reframe_displace | Thesis visible: para 4 | Traps: stage_misattribution, example_promotion

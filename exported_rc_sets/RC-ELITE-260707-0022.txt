@@ -1,0 +1,90 @@
+RC ID: RC-ELITE-260707-0022 | Tier: elite | Score: 8.8 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.714 | Generated: 2026-07-07T21:11:05.200728+00:00
+======================================================================
+
+[PASSAGE]
+
+Since the 1980s, when the study of psychological injury acquired its modern instruments, a remarkable pattern has come into view. Across populations that share almost nothing else — soldiers returning from combat, drivers pulled from wrecked cars, survivors of assault, witnesses to sudden death — researchers began to find the same constellation of responses recurring with an almost mechanical regularity: the intrusive memory that arrives unbidden, the state of hyperarousal in which the body treats a slammed door as a gunshot, the avoidance that reroutes a whole life around a single street or sound. The consistency was striking precisely because the events were so various. Whatever else these people had endured, their minds seemed to answer overwhelming experience in one recognizable grammar, as though the psyche, pushed past a certain threshold, broke along predictable seams.
+
+But consider what the finding rests on. The clinician does not observe the seams directly. She asks. The intake questionnaire supplies the categories. Criterion A supplies the qualifying event. The interview names the sensations in advance — Do you re-experience it? Do you feel on edge? — and the patient, hearing the question, learns what to look for. This is not fraud. It is teaching. The checklist trains the eye. It hands both parties a vocabulary, and the vocabulary comes with instructions. None of this makes the racing heart imaginary. The pounding is real. What the instrument shapes is not whether something happened in the body but which parts of that something get gathered up, named, and reported as a symptom rather than as ordinary distress.
+
+Picture a family in a hospital corridor while a relative is resuscitated after a crash — the same ordeal, the same fluorescent hours, the same body on the far side of the door. One daughter is a university lecturer who has spent three years reading students' emails that describe missed deadlines as traumatizing; she has absorbed the word until it is a lens, and she experiences the corridor as an event she will need, later, to process. Beside her, the older mother has no such word available. She waits. She is frightened, exhausted, undone — but she does not experience herself as being wounded in a way that will require repair, because the category that would make that experience legible was never given to her. It is tempting to read this as the young being more fragile than the old. That reading misses the mechanism. The lecturer is not more sensitive; she has been handed an instrument, and the instrument is doing constitutive work — assembling a certain suffering into 'trauma' — that in her mother simply has no assembly point.
+
+Something happened that no vocabulary invented and no silence could dissolve: broken ribs, a shattered face, a body kept alive by machines. That residue is not negotiable, and no critique of the checklist touches it. What the checklist touches is the line drawn through the suffering — the boundary separating trauma proper from grief, fear, and the ordinary catastrophe of loving someone. That line cannot be read off the injury. It can only be read off the language a person carried into the corridor. So the sharper question is not whether trauma is real but which distributions of the word have already settled into a population before its crashes arrive — and that will hold until the public vocabulary shifts again, as it is shifting now, one forwarded student email at a time.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central thesis of the passage?
+(A) Younger, word-saturated people experience ordinary hardship as trauma, while older generations endure the same events without lasting harm.
+(B) The intake questionnaire commits a kind of quiet fraud by teaching patients to invent symptoms they would not otherwise have felt.
+(C) The body's injury is real, but the vocabulary a person carries determines which suffering gets assembled and named as trauma.
+(D) Because the same symptom cluster recurs so reliably across unrelated populations, research has settled what trauma objectively is.
+
+Q2. A community with no word for 'burnout' works punishing hours and reports exhaustion; after the term arrives through media, workers begin describing the same fatigue as a clinical condition requiring recovery. Which passage idea best explains this shift?
+(A) A vocabulary settling into a population changes which real distress gets gathered up and named as a condition.
+(B) The fatigue was never physically real; burnout is just a social construct with no bodily basis underneath.
+(C) Media exposure made these workers genuinely more fragile than earlier generations who worked harder without complaint.
+(D) The workers began deliberately exaggerating their tiredness once a rewarding clinical label became available to them.
+
+Q3. When the author says the lecturer 'has been handed an instrument, and the instrument is doing constitutive work,' the phrase most nearly means that
+(A) the instrument fabricates a suffering in the lecturer that has no real bodily or emotional basis at all.
+(B) younger people, being more exposed to therapeutic language, are inherently more sensitive to distressing corridor experiences.
+(C) her acquired vocabulary actively assembles her distress into 'trauma,' a shaping her mother's experience lacks any point to attach to.
+(D) the lecturer consciously chooses to frame the hospital ordeal as trauma in order to make sense of it.
+
+Q4. The argument that the line dividing 'trauma proper' from grief and fear 'can only be read off the language a person carried into the corridor' depends on which unstated assumption?
+(A) Physical injuries produce identical psychological responses regardless of who suffers them.
+(B) Clinicians deliberately withhold diagnostic categories from certain populations to shape their responses.
+(C) People without a therapeutic vocabulary suffer less severely than those who possess one.
+(D) The injury itself does not contain a built-in boundary marking where ordinary distress ends and trauma begins.
+
+Q5. In a legal setting, a jury is asked, 'Did the defendant act recklessly?' The question's own framing leads witnesses to reorganize their memory of the incident around the concept of recklessness. Which passage idea does this most closely parallel?
+(A) Across unrelated populations, overwhelming events produce the same recurring constellation of responses.
+(B) The interview names sensations in advance, so the patient learns what to look for and reports accordingly.
+(C) Public vocabulary shifts gradually, one forwarded message at a time, reshaping populations before their crises arrive.
+(D) The bodily residue of an event is non-negotiable and untouched by any critique of the instrument.
+
+Q6. Which best describes the author's intellectual posture toward the diagnostic category of trauma?
+(A) Skeptical of how the category draws its boundary, yet insistent that the bodily suffering it names is real.
+(B) Confident that expanding trauma vocabulary among the young is a welcome and overdue correction to older stoicism.
+(C) Persuaded that the reliable symptom pattern proves trauma is a fixed fact of the psyche awaiting fuller measurement.
+(D) Convinced that trauma is fundamentally a diagnostic fiction that dissolves once the checklist's authority is questioned.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates the whole movement: the residue is non-negotiable (para 4) while the diagnostic language draws the line through suffering that constitutes trauma.
+  (A) half_truth — Distorts paragraph 3, which warns that the generational reading 'misses the mechanism' of constitutive vocabulary.
+  (B) straw_version — Paragraph 2 explicitly denies fraud and denies the pounding heart is imaginary; it calls the process teaching, not invention.
+  (D) half_truth — Takes only paragraph 1's pattern and ignores paragraphs 2-4, which show the finding rests on instruments that shape what gets reported.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Mirrors paragraph 2 and paragraph 4: the instrument or word does constitutive work on genuine bodily distress without inventing it.
+  (B) adjacent_answer — Paragraph 2 insists the pounding is real; the word shapes naming, not the underlying physiology, so this overshoots into pure construction.
+  (C) half_truth — Repeats the fragility reading the passage rejects in paragraph 3 as missing the constitutive mechanism.
+  (D) straw_version — The passage frames the process as teaching a lens, not conscious exaggeration for reward.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — Local context contrasts the lecturer's lens with the mother's absent 'assembly point,' making the word the active constructor of the category.
+  (A) adjacent_answer — The residue and distress are real; the instrument only determines how they get assembled, per paragraphs 2 and 4.
+  (B) half_truth — The passage says explicitly the lecturer 'is not more sensitive,' rejecting the sensitivity reading right at this sentence.
+  (D) stance_misread — The word functions as an absorbed lens, not a deliberate choice; 'constitutive' means structuring, not electing.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — For language to be the sole source of the line, the bodily event must be assumed silent about that boundary — 'that line cannot be read off the injury.'
+  (A) scope_inflation — The passage stresses variation in how suffering is named, not identical responses; this overstates uniformity.
+  (B) causal_inversion — The mother simply lacks the word by circumstance; no deliberate withholding is claimed anywhere.
+  (C) half_truth — The mother is 'frightened, exhausted, undone'; the claim is about naming, not lesser suffering.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — Directly parallels paragraph 2: the question hands over a vocabulary with instructions, training the eye to gather experience under that category.
+  (A) stage_misattribution — This is paragraph 1's discovered-pattern claim, not the paragraph 2 point about framing shaping what is reported.
+  (C) level_confusion — That is the closing population-level point; the scenario operates at the single-interview framing level of paragraph 2.
+  (D) adjacent_answer — Paragraph 4's residue point concerns what language cannot alter, whereas the scenario is precisely about framing altering testimony.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — Holds the passage's central non-binary: the critique targets the line-drawing (para 4) while affirming the non-negotiable residue and real pounding (para 2).
+  (B) stance_misread — The author diagnoses the vocabulary's constitutive work without endorsing its spread as a correction.
+  (C) half_truth — This adopts paragraph 1's framing that paragraphs 2-4 deliberately displace and complicate.
+  (D) adjacent_answer — Paragraph 4 says no critique of the checklist touches the residue; the author does not dissolve trauma.
+
+[Inspired by: "Trauma creep", https://aeon.co/essays/not-everything-is-trauma-language-needs-to-mean-something]

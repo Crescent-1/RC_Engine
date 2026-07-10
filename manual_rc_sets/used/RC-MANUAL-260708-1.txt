@@ -1,0 +1,88 @@
+[PASSAGE]
+
+Every teacher of writing I know repeats the same complaint, and I used to repeat it too. Students no longer hold a thought in the head. They externalize everything: notes, outlines, phones, the search bar. The muscle of memory, we say, therefore wastes. We call this offloading, and we say it as a diagnosis, the way one names a deficiency. The mind, on this account, has grown lazy because it has grown assisted, and the assistance is the wound.
+
+I have come to think the complaint mistakes the symptom for the disease, and I want to say why with some care. Offloading is not the failure of a memory that should have done the work. It is what a well-run memory does when the environment becomes reliable enough to trust. Ask what decision the lament would change. If a student who never memorizes a phone number is failing, then curing him means restoring a habit that buys nothing. The number is on the device, retrievable in less time than recall would take. The head that declines to store what the world stores for it is not weaker. It is doing the arithmetic correctly.
+
+The evidence for this is duller than the alarm suggests. When people expect information to remain available, they remember where it lives rather than what it says. When they expect it to vanish, they encode the content instead. The mechanism tracks the reliability of the store, not the strength of the mind. That is why the same person offloads a grocery list and memorizes a lover's moods. Nothing has decayed. A system that once had only its own tissue to write on now has cheaper media nearby, and it allocates accordingly, the way any careful accountant moves what he can off the expensive ledger.
+
+None of this means the worry is empty. It means the worry was misfiled. The cost is real, but it sits elsewhere. Not in a wasting faculty but in a dependency, so that when the reliable store fails, the person who trusted it correctly is left holding nothing. That is a claim about the fragility of infrastructure, not the decline of minds, and the two demand different remedies. The faculty is intact and doing its job. What we have built around it is what cannot be trusted to stay.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central claim of the passage?
+(A) Cognitive offloading is not a decaying memory but a memory working correctly against a reliable environment; the real cost lies in dependence on that environment, not in a lost faculty.
+(B) Memory has not declined at all, and the widespread worry about offloading is therefore an empty alarm that careful teachers should entirely abandon.
+(C) Because devices retrieve information faster than recall can, students are right to stop memorizing, and education should be fully redesigned around external storage.
+(D) Offloading weakens memory by letting the assisted mind grow lazy over time, and the remedy is to deliberately restore the habits of internal storage that reliable devices have gradually eroded.
+
+Q2. The author's overall posture toward the teachers' complaint he once shared is best described as:
+(A) full endorsement, now supported with mechanism and evidence he earlier lacked
+(B) a reversal that relocates the complaint's truth rather than denying it outright
+(C) detached neutrality, presenting both readings without settling between them
+(D) dismissal of the complaint as a confusion with nothing correct in it
+
+Q3. What is the function of the grocery-list-versus-lover's-moods contrast in the third paragraph?
+(A) It concedes that some memories decay while others survive, a qualification the author allows against his reversal
+(B) It shows the same intact memory allocating by the reliability of the store, which supports that nothing has weakened
+(C) It illustrates that emotional content is inherently far more memorable than purely factual content in general
+(D) It marks the specific point at which the author begins to doubt his own earlier reversal
+
+Q4. Consider a workplace that moves its records to a cloud service; employees stop memorizing procedures, and when the service suffers an outage, work halts. On the author's account, this episode is best read as:
+(A) confirmation that reliance on external storage had eroded the employees' capacity to remember
+(B) evidence that the employees had been offloading irrationally rather than doing the arithmetic correctly
+(C) an instance of the infrastructural fragility the author names, not of a decayed faculty
+(D) a case the author's argument cannot accommodate, since he holds the store to be reliable
+
+Q5. Which assumption is the author's argument in the second paragraph relying on?
+(A) That memory is a finite, fixed quantity that external assistance and cognitive aids will necessarily and inevitably diminish over time
+(B) That faculty failure is judged by whether the diagnosis would change behavior, and that habits buying nothing aren't worth restoring
+(C) That students will always have reliable and dependable access to their digital devices whenever they need them for academic purposes
+(D) That emotional memories and factual memories are completely stored and processed through different underlying neural cognitive mechanisms in the brain
+
+Q6. In the final paragraph, the phrase "the worry was misfiled" functions to:
+(A) retract evidence from third paragraph, treating its findings as misfiled under wrong category
+(B) concede that the worry is indeed groundless and should be dropped
+(C) preserve the worry's substance while reassigning it from wasting faculty to fragile infrastructure
+(D) suggest the teachers were dishonest in raising their complaint to students
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — states the para 2 reversal (offloading as correct allocation against a reliable store) joined to the para 4 relocation of cost into dependency; both movements are present.
+  (B) premature_closure — stops at "nothing declined" and calls the worry "empty," but para 4 explicitly says the worry was "not empty," only misfiled; it drops the second half of the thesis.
+  (C) scope_inflation — inflates the para 2 phone-number example into a policy that education be "redesigned," a prescription the author never makes and which the verdict-oriented voice avoids.
+  (D) stance_misread — restates the very lament of para 1 that the author spends the essay overturning; it is the position rejected, not held.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — para 2 reverses the complaint, para 4 keeps its truth ("the cost is real") while moving it to infrastructure; a relocation, not a denial.
+  (A) stance_misread — the author does not endorse the complaint; he says it "mistakes the symptom for the disease" (para 2).
+  (C) straw_version — flattens a committed verdict into neutrality; the pragmatist voice settles ("The faculty is intact"), it does not suspend judgment.
+  (D) half_truth — captures the reversal but omits para 4's concession that the worry retains a real cost; "nothing correct in it" overshoots.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — the contrast shows one intact system allocating by reliability of the store (offload the list, encode the moods), directly supporting "Nothing has decayed" (para 3).
+  (A) half_truth — reads the contrast as conceding decay ("some memories decay"), but the paragraph's point is that none decayed; allocation differs, capacity does not.
+  (C) framework_import — imports a generic "emotion is more memorable" thesis the passage never argues; the variable named is reliability of the store, not emotional salience.
+  (D) stage_misattribution — places the author's self-doubt here, but the doubt/qualification belongs to para 4, and even there it relocates rather than retracts.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — matches para 4 exactly: the cost surfaces "when the reliable store fails," a fragility of infrastructure, not a decayed faculty.
+  (A) causal_inversion — reverses the author's direction: he holds the faculty intact and the store fragile, so an outage exposes dependency, not eroded capacity.
+  (B) stance_misread — the author calls offloading against a reliable store the correct arithmetic (para 2); the employees offloaded rationally, so "irrationally" contradicts him.
+  (D) scope_inflation — treats "reliable" as an absolute claim; the author's whole para 4 turns on reliable stores sometimes failing, so the case fits rather than breaks the argument.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — para 2 tests the diagnosis by asking "what decision the lament would change" and rejects restoring a habit that "buys nothing"; the argument leans on this pragmatic criterion.
+  (A) causal_inversion — attributes to the author the very premise he rejects (assistance necessarily diminishes memory); that is the lament of para 1.
+  (C) adjacent_answer — plausibly nearby, but device-access is the concern of para 4's cost, not a premise the para 2 arithmetic depends on.
+  (D) framework_import — borrows the para 3 example's flavor as if it were a load-bearing assumption of para 2, where the argument turns on retrieval cost, not storage mechanisms.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — "misfiled" keeps the worry's content ("the cost is real") but reassigns it from faculty to infrastructure (para 4), the essay's qualified verdict.
+  (A) stage_misattribution — no evidence is retracted; the para 3 findings stand, and "misfiled" refers to the worry's category, not the data.
+  (B) premature_closure — "misfiled" is explicitly distinguished from "empty" or groundless in the same paragraph; the worry survives, relocated.
+  (D) straw_version — invents an accusation of dishonesty the text never makes; misfiling is an error of category, not of good faith.
+
+[BLUEPRINT NOTE]
+Structure: diagnostic reversal — lament of memory-decay re-read as correct allocation, then cost relocated to infrastructure | Posture: resolution_qualified | Thesis visible: para 2 | Traps: causal_inversion, premature_closure

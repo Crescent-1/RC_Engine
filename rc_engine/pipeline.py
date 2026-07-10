@@ -158,9 +158,20 @@ class RCPipeline:
                                           report.composite, f"full:{report.verdict}",
                                           "; ".join(report.breached))
         if report.verdict != "pass":
-            self.history.set_blueprint_status(bp.blueprint_id, "rejected_novelty")
-            return RCResult(None, bp.blueprint_id, tier, "rejected_novelty",
+            rc_text = assemble_rc_text(bp, passage, qdata)
+            self.history.insert_rc_set(
+                rc_id=rc_id, tier=tier, rc_text=rc_text, status="rejected_novelty",
+                judge={"scores": {}, "average": 0.0, "verdict": "not_run_novelty"},
+                solver=None, avg=0.0, blueprint_id=bp.blueprint_id,
+                compliance_f1=realized.f1, novelty_composite=report.composite,
+                total_cost=ledger.spent_usd, essay_doc_id=seed.doc_id, essay_url=seed.url,
+                domain=bp.topic, embedding=fp.embedding, attempts=1)
+            self.history.record_fingerprint(fp)
+            self.history.set_blueprint_status(bp.blueprint_id, "rejected_novelty", rc_id)
+            return RCResult(rc_id, bp.blueprint_id, tier, "rejected_novelty",
+                            rc_text=rc_text,
                             novelty_composite=report.composite,
+                            compliance_f1=realized.f1,
                             cost_usd=ledger.spent_usd, cost_lines=ledger.lines,
                             notes=notes + [f"full novelty: {report.breached or report.composite}"])
         notes.extend(f"corpus flag: {f}" for f in report.corpus_flags)
@@ -319,10 +330,17 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
         print(f"\n[STOP] API exhausted ({e}) — batch stopped cleanly; "
               f"completed work is committed. Re-run later to continue.")
     total = sum(r.cost_usd for r in results)
-    print(f"\n--- Batch summary: {len([r for r in results if r.rc_id])} shipped, "
+    shipped_statuses = {"approved", "needs_review", "solver_dispute"}
+    print(f"\n--- Batch summary: {len([r for r in results if r.rc_id and r.status in shipped_statuses])} shipped, "
           f"{len(results)} attempts, total ${total:.4f} ---")
     for r in results:
+        reason = ""
+        if r.status == "rejected_novelty":
+            reason = next((n for n in r.notes if "novelty:" in n), "")
+            if len(reason) > 120:
+                reason = reason[:117] + "..."
         print(f"  {str(r.rc_id):16s} | {r.tier:6s} | {r.status:16s} | "
               f"f1={r.compliance_f1} novelty={r.novelty_composite} "
-              f"score={r.average_score} ${r.cost_usd:.4f}")
+              f"score={r.average_score} ${r.cost_usd:.4f}"
+              f"{' | ' + reason if reason else ''}")
     return results

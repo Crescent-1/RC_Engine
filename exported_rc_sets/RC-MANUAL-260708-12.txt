@@ -1,0 +1,93 @@
+RC ID: RC-MANUAL-260708-12 | Tier: elite | Source: manual | Vet: novelty pass, audits clean | Date: 2026-07-08
+======================================================================
+
+[PASSAGE]
+
+The case for the forger deserves a better hearing than its champions usually give it. Put crudely, it says that a panel no eye can tell from a Vermeer is as good as a Vermeer, and that the fuss over provenance is auction-house theology. Put well, it is harder to wave off. Any property that counts toward a picture's aesthetic worth, the argument runs, must be a property one can locate in the picture; a virtue that leaves no visible trace — one lodged entirely in a signature, a ledger, a chain of ownership — is not an aesthetic virtue but a certificate, and certificates are the business of notaries, not of critics. Stated so, the position has the inconvenient merit of being largely correct.
+
+I am willing to grant it more than its own advocates dare. The history of expert authentication is not a flattering one: the studied cases show connoisseurs certifying, with the full solemnity of the trained eye, works later traced to a workshop in Delft or a hand in the present century. More damning, the celebrated "touch" of the master is, in a good many documented episodes, assigned after the label is known and not before — the attribution arrives first, and the sensitive description hurries after, dressed as its cause. To this extent the forger's friends are right, and righter than they tend to argue: much of what passes for perception is retrospection with a good tailor.
+
+And yet the same premise, pressed, declines to stay on their side. If only the visible counts, then everything visible counts — including the properties a stroke takes on when one sees it as a first venture rather than a patient copy. The identical mark reads as hesitation in the maker and as caution in the mimic; boldness and mere confidence occupy the same pigment. What one knows does not wait outside the picture, decently apart from the seeing; it enters the seeing and rearranges it. The autonomist wins the field only by fixing "the visible" at the thickness of the varnish, and the eye he appeals to has never been so thin.
+
+So the verdict, when it comes, keeps something for each party and flatters neither. Authorship earns its aesthetic keep exactly where it alters what is seen, and nowhere else — which surrenders a wide territory the connoisseur has long billed for. In the decorative panel, the competent minor landscape, the object whose interest never turned on whose hand it was, the forgery loses nothing by being a forgery, and the expert who exacts a premium there is charging rent on an empty room. The price of saying that authorship matters, said honestly, is admitting how seldom it does.
+
+Which leaves the criterion in the opponent's hands, where it is safer. Let the burden fall on the attributionist to exhibit, canvas by canvas, what the name makes newly visible; where he can show it, the label has earned its aesthetic wage, and where he cannot, the panel is exactly as good as it looks. It is not the concession they wanted, but it is a real one, and the test I am handing back — show, canvas by canvas, what the name makes visible — is one they are free to turn on my own attributions.
+
+[QUESTIONS]
+
+Q1. Which of the following best states the passage's central claim?
+(A) Because expert authentication has so often failed, a picture's aesthetic value must rest on its visible surface alone.
+(B) Authorship bears on aesthetic value only where it changes what one sees; where it changes nothing, an indistinguishable forgery keeps the original's worth.
+(C) The forger's strongest case is granted a sympathetic hearing only so it can be shown, in the end, that provenance stays aesthetically decisive.
+(D) Concern with authorship is auction-house theology, and critics do better to attend to the object and ignore the ledger.
+
+Q2. What is the function of the second paragraph in the argument?
+(A) It assembles the opponent's best evidence so that the later refutation of autonomism can be made more complete.
+(B) It shows connoisseurship to be entirely worthless, leaving only the bare visible surface to carry all aesthetic value.
+(C) It proves that every single celebrated attribution is merely a retrospective invention with no perceptual basis at all.
+(D) It concedes real ground to the autonomist — the poor authentication record and after-the-label "touch" — granting the view more than its advocates do.
+
+Q3. If the third paragraph were removed, how would the argument change?
+(A) It would collapse into agreement with the autonomist, losing the step that shows knowledge enters the seeing and rearranges it.
+(B) Nothing essential would change, since the paragraph merely restates the concession of the second paragraph in other words.
+(C) The verdict would still stand, because the decisive point is the unreliability of experts, not the mutability of the visible.
+(D) The essay would become a stronger, more confident defense of connoisseurship, since this paragraph is its principal concession to the forger's side.
+
+Q4. In context, to "charge rent on an empty room" (paragraph 4) means:
+(A) exploiting buyers financially by inflating the market price a work commands once it has been formally authenticated.
+(B) mistaking a forgery for a genuine original and then setting its price accordingly.
+(C) claiming an aesthetic premium for authorship where authorship makes no difference to what is seen.
+(D) charging for a connoisseurship that, given the authentication record, is unreliable in every case.
+
+Q5. A symphony long attributed to Haydn is shown to be by a minor contemporary; it sounds exactly as it did. On the author's principle, the right thing to say is:
+(A) The reattribution must necessarily lower this work's aesthetic value, since on this view authorship still remains decisive throughout.
+(B) The work is as good as before if the new name changes nothing heard, earning its keep only where it adds something audible.
+(C) The work's value is entirely unchanged, because aesthetic worth always rests on the bare sounding surface alone here.
+(D) Since attribution is merely auction-house theology, the change of name concerns collectors and cataloguers but no one who actually listens.
+
+Q6. Which best describes the position the author finally reaches?
+(A) an endorsement of the autonomist view: the bare visible surface is all that any aesthetic value can rest on.
+(B) a cautious suspension between the connoisseur and the autonomist, declining in the end to settle which side is right.
+(C) a refutation of the autonomist case which, after hearing it out at full strength, is shown in the end to give up nothing of substance.
+(D) a settled verdict that authorship matters, reached at an openly paid cost — a wide class of cases conceded to the view he opposes.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — states the para 4 verdict: authorship "earns its aesthetic keep exactly where it alters what is seen, and nowhere else," so the indistinguishable forgery "loses nothing" where seeing is unchanged.
+  (A) half_truth — takes para 2's real concession about authentication and rides it all the way to full autonomism; para 3 blocks this ("the same premise, pressed, declines to stay on their side").
+  (C) stance_misread — reads the genuine steel-manning as a setup for demolition and lands on "provenance remains decisive," but para 4 concedes "a wide territory" to the opponent rather than defeating him.
+  (D) scope_inflation — adopts the crude version the essay explicitly upgrades in para 1 ("Put crudely... Put well"); the author never tells critics to ignore authorship wholesale.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — para 2 grants the autonomist the misattribution record and the after-the-label "touch," "more than its own advocates dare" — a real concession, not a feint.
+  (A) stance_misread — recasts the concession as ammunition stockpiled for a coming refutation; the passage's turn in para 3 tightens, but para 4 keeps the concession rather than reversing it.
+  (B) half_truth — "connoisseurship worthless, only the surface counts" overshoots; para 2 faults the record of authentication, and para 3 restores a role for knowledge in perception.
+  (C) scope_inflation — "every celebrated attribution" universalizes para 2's careful quantifier ("a good many documented episodes").
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — para 3 is the pivot supplying "everything visible counts... it enters the seeing and rearranges it"; without it, only para 2's concession remains and autonomism carries.
+  (B) stance_misread — treats the pivot as a paraphrase of the concession; para 3 turns against the autonomist rather than repeating agreement with him.
+  (C) half_truth — makes expert unreliability the load-bearing point, but that is para 2's concession; the verdict actually rests on the mutability of the visible established in para 3.
+  (D) example_promotion — miscasts the pivot as the essay's chief concession to the forger; para 2, not para 3, is that concession.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — the phrase names the connoisseur who "exacts a premium" in cases where authorship "never turned on whose hand it was," i.e., where it changes nothing seen (para 4).
+  (A) phrase_misuse — reads the image as ordinary market gouging; the passage's target is an aesthetic premium, not a financial markup as such.
+  (B) level_confusion — swaps the aesthetic point for a factual mix-up of fake and genuine, which the phrase is not about.
+  (D) half_truth — folds in para 2's unreliability theme and universalizes it ("in every case"); the "empty room" is specifically the case where authorship makes no visible difference, not any unreliable judgment.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — applies the para 4 criterion directly: value is unchanged unless the true name makes some feature "newly visible" (here, audible), in which case the attribution "earns its keep."
+  (A) stance_misread — assumes authorship is decisive as such, the position the author concedes away in para 4.
+  (C) half_truth — reaches the "unchanged" answer via blanket autonomism ("always rests on the sounding surface"), the very fixity para 3 rejects; it happens to be right in this instance for the wrong reason, and wrong as a general rule.
+  (D) scope_inflation — revives the crude "auction-house theology" dismissal para 1 sets aside; the author holds the reattribution can matter where it alters hearing.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — resolution_costed: "the verdict... keeps something for each party," affirming authorship while "surrender[ing] a wide territory" and naming the price ("how seldom it does," para 4).
+  (A) premature_closure — closes on the autonomist's thesis, which para 3 refutes and para 4 only partly grants.
+  (B) stance_misread (as refusal) — reads the two-sided verdict as an undecided suspension; para 4 delivers a definite verdict and para 5 issues an operative criterion.
+  (C) stance_misread — casts the essay as a refutation that concedes nothing, contradicting para 4's admitted cost and para 5's returned criterion.
+
+[BLUEPRINT NOTE]
+Structure: hospitable critic (F24) — the forger's case steel-manned and granted more than its advocates dare, followed to a verdict that costs the connoisseur's side | Posture: resolution_costed (authorship matters, but a wide class of cases conceded to the opponent) | Thesis visible: para 4 | Traps: stance_misread (reading the genuine concession as tactical steel-manning before a demolition), half_truth (para 2's concession ridden all the way to full autonomism)

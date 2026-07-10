@@ -1,0 +1,91 @@
+RC ID: RC-MANUAL-260708-2 | Tier: hard | Source: manual | Vet: novelty pass, audits clean | Date: 2026-07-08
+======================================================================
+
+[PASSAGE]
+
+Two laboratories measure the same thing and disagree, and the disagreement will not go away. Ask a working geophysicist whether the mantle beneath a given ridge is "convecting" and the answer arrives quickly; ask two of them and the answers diverge, though the seismic tomography on both screens is identical. The dispute is usually filed under precision. More instruments, finer grids, longer baselines: the assumption is that convection is out there, faintly, and the argument is about whether present tools can yet resolve it. Decades of finer grids have not closed the gap. That should have been the first clue.
+
+Watch the two camps at a conference and the shape of the trouble clarifies. One camp counts a system as convecting when heat moves by bulk material transport at all, however sluggishly, however briefly. The other reserves the word for a regime: sustained overturning cells, a threshold crossed, a pattern that persists. Present the first camp with a slow, intermittent creep and it says convection, weak but real. Present the second with the identical creep and it says not yet, not convection. Each accuses the other of sloppiness. Neither is being sloppy.
+
+What looks like an empirical standoff is a disagreement about where to cut the word. Convection, for one camp, names a mechanism; for the other, a phase. A mechanism is present the instant its characteristic motion begins; a phase is present only once a system has settled into it. These are different clocks, not different readings of one clock, and no instrument adjudicates between clocks. Sharpen the tomography to infinite resolution and both camps see the same creep in the same voxel and still part ways, because the parting was never about the creep. To insist the question is merely verbal, though, is to miss what the verbal choice is doing. Behind each definition sits a bet about which regularities the science should be built to catch: the camp that indexes mechanism is keeping faith with continuity of process; the camp that indexes phase is keeping faith with the reality of thresholds.
+
+So the interesting quarrel is not the one the two camps think they are having. Whether the mantle convects is undecidable only because two research programs have been laid over a single word, and the word cannot serve both. The live question is which regularities a mature theory of planetary interiors should be organized to track — continuities that ignore thresholds, or thresholds that interrupt continuities — and that question no finer grid will touch. It is answered, when it is answered, by whether the thresholds a theory posits go on earning their place in its explanations.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central claim of the passage?
+(A) The dispute over mantle convection is empirical at its root and will yield to instruments of sufficiently fine resolution.
+(B) The convection dispute is verbal in origin but points past itself to a substantive choice about which regularities a theory of planetary interiors should track.
+(C) Because the two camps merely attach different meanings to one word, their disagreement is a pseudo-problem that dissolves once the ambiguity is noted.
+(D) The camp that treats convection as a phase has the better of the argument, since thresholds are more fundamental to planetary science than continuous processes.
+
+Q2. The sentence "Decades of finer grids have not closed the gap. That should have been the first clue" functions in the argument to:
+(A) concede that our current instruments remain simply too coarse to settle the question for now.
+(B) signal that the persistence of disagreement under improving measurement shows the dispute is not measurement-bound.
+(C) establish that the two rival camps are equally careless in their handling of the data.
+(D) introduce the surprising claim that convection does not really occur in the mantle at all.
+
+Q3. On the author's view, the difference between the two camps is best described as a difference between:
+(A) two competing readings of the very same underlying seismic data.
+(B) a genuinely rigorous camp set against a merely sloppy one.
+(C) treating a term as naming a mechanism versus naming a phase.
+(D) those who believe the mantle convects and those who deny it convects.
+
+Q4. Which of the following, if true, would most WEAKEN the author's position?
+(A) A newly deployed instrument array resolves the mantle's motion an order of magnitude more finely than ever before.
+(B) Asked to define "convection" explicitly, the two camps agree on one definition yet still disagree about the ridge.
+(C) Most working geophysicists still file the whole dispute under precision rather than under semantics itself.
+(D) The two rival camps publish in different journals and rarely ever cite each other's work.
+
+Q5. The author's remark that to call the question "merely verbal" is "to miss what the verbal choice is doing" implies which assumption?
+(A) A choice of definition can encode a substantive commitment about which patterns a science should be built to capture.
+(B) Verbal disagreements are, in the end, always just disguised real empirical disagreements in every case.
+(C) Any dispute that survives steadily improved measurement must therefore be purely terminological in its nature.
+(D) The correctness of a definition is finally settled by simple majority usage among working practitioners.
+
+Q6. Consider a parallel case: two ecologists disagree whether a sparsely recolonized clearing is a "forest," one counting any tree cover, the other requiring a closed canopy. On the author's logic, the productive question is:
+(A) which of the two teams has actually counted the individual trees in the clearing more accurately.
+(B) whether higher-resolution aerial imagery would somehow finally reveal the clearing's true underlying canopy density at last.
+(C) which regularities a theory of the system should be organized to track, given that the rival definitions bet on different ones.
+(D) whether "forest" merely means different things to the two ecologists, so the dispute is a pseudo-problem.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — states the para 3-4 movement: the standoff is semantic in origin ("a disagreement about where to cut the word") yet displaces onto a real question about which regularities a mature theory should track (para 4).
+  (A) stage_misattribution — restates the para 1 "precision" framing the passage sets up precisely to reject; "Decades of finer grids have not closed the gap" repudiates it.
+  (C) straw_version — the planted straw reading: it stops at "merely verbal," the exact position para 3 warns against ("to insist the question is merely verbal... is to miss what the verbal choice is doing").
+  (D) stance_misread — the author declines to crown either camp; para 3 casts both as keeping faith with a different regularity, and para 4 leaves the threshold question to be earned, not awarded.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — the two-word strike ("first clue") points to para 3's diagnosis: failure to close the gap under better instruments is the tell that the dispute is not measurement-bound.
+  (A) premature_closure — adopts the very "too coarse" assumption the sentence is deployed to overturn.
+  (C) straw_version — imports the "sloppiness" motif but inverts it; para 2 says "Neither is being sloppy."
+  (D) scope_inflation — inflates a remark about instruments into a first-order geophysical denial the author never makes; the author holds the convection question undecidable-as-posed, not answered in the negative.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — para 3 states it directly: "Convection, for one camp, names a mechanism; for the other, a phase," glossed as "different clocks."
+  (A) half_truth — the shared data is real (identical tomography, para 1) but the author's whole point is that the difference is not a difference of readings; "the parting was never about the creep."
+  (B) straw_version — echoes the mutual accusation the passage explicitly retires: "Neither is being sloppy" (para 2).
+  (D) terminological_twin — the twin of the real thesis: it treats "does it convect?" as a first-order factual split, whereas the author locates the split one level up, in what the word is cut to mean.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — the author's diagnosis is that the disagreement is generated by rival cuts of one word; if the camps share an explicit definition and still disagree about the same ridge, the semantic-origin thesis loses its mechanism.
+  (A) stage_misattribution — finer resolution is exactly what para 1 and para 3 say cannot touch the dispute, so it leaves the position untouched rather than weakening it.
+  (C) half_truth — that practitioners file it under precision is already granted in para 1 and is the view the essay overturns; restating it does not bear on the thesis's truth.
+  (D) adjacent_answer — sociologically plausible and thematically nearby, but citation patterns say nothing about whether the disagreement is semantic in origin.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — para 3 ties each definition to "a bet about which regularities the science should be built to catch," so a definition can carry a substantive commitment.
+  (B) scope_inflation — universalizes "always"; the author claims it for this dispute, not that every verbal disagreement is a disguised empirical one.
+  (C) nec_suff_swap — converts the passage's diagnostic clue (survival under better measurement suggests non-empirical) into a sufficient law that any such dispute "must be purely terminological" — the opposite of the author's "not merely verbal" point.
+  (D) framework_import — imports a usage-as-authority criterion the passage never invokes; para 4 makes definitions earn their place through explanatory payoff, not headcount.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — transfers the para 4 reframing: past the word-cut, the live question is which regularities the theory should be organized to track, given rival definitional bets.
+  (B) stage_misattribution — reruns the "finer instrument" fix the author says cannot touch a dispute of this kind.
+  (D) straw_version — the same "merely a pseudo-problem" trap from Q1, now in the parallel case; para 3 blocks it.
+  (A) level_confusion — treats the split as a first-order counting error, one level below the definitional disagreement the author identifies.
+
+[BLUEPRINT NOTE]
+Structure: definitional undertow — surface empirical standoff staged, camps shown talking past each other, mechanism-vs-phase cut exposed, question displaced to which regularities a theory should track | Posture: reframe_displace | Thesis visible: para 3 | Traps: terminological_twin (Q3-D, "does it convect" as first-order split), straw_version (Q1-C, Q3-B, Q6-D, "merely verbal/sloppy")

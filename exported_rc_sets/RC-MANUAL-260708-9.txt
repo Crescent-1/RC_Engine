@@ -1,0 +1,91 @@
+RC ID: RC-MANUAL-260708-9 | Tier: elite | Source: manual | Vet: novelty pass, audits clean | Date: 2026-07-08
+======================================================================
+
+[PASSAGE]
+
+Every chemist is taught, early and firmly, to assign oxidation numbers — to pretend that the electrons in a compound belong wholly to one atom or another, so that each atom carries a tidy integer charge. Every chemist is also taught, usually in the same term, that this is not what the electrons do. Bonds are shared; charge smears; the integers correspond to nothing you could measure with an instrument. I have watched a hundred students discover the fraud and wait, briefly, for the correction to follow. It does not follow. We keep the fiction, examine on it, and build a career's worth of reasoning atop a quantity we have already conceded does not exist.
+
+The reflex of the philosopher is to call this a convenient falsehood and move on, filing it beside the frictionless plane. That misses what is actually being stored. The value of the oxidation number is not that it is roughly right most of the time; it is that we know, with unusual precision, exactly where and how it goes wrong. It strains at the peroxides, where oxygen misbehaves; it fractures at the mixed-valence oxides, where the bookkeeping demands a fractional charge and the atom obliges by being, in effect, two atoms at once; it collapses in the organometallics, where whole schools of chemistry have organized themselves around the point of collapse. The error comes with a map of its own failures, and that map is not incidental to it — the map is the knowledge. A student who has memorized only the correct answer has learned nothing; a student who knows the places the answer breaks has learned the bonding.
+
+So the temptation, periodically indulged by reformers, is to replace the integers with the truth — with the continuous, computed charge densities that are, after all, what the electrons really do. Here the mistake is a mistake about levels. The reformer imagines he is upgrading a false claim to a true one. What he is actually doing is discarding a coordinate system in which the failures are legible for one in which they are merely present. The smeared density is more faithful and tells you less; it does not announce where it becomes surprising, because it has flattened the reference against which surprise was defined. To be disenchanted about the oxidation number is not to believe it — I do not, and neither, when pressed, does anyone who uses it well — but to see that its wrongness is doing work no right answer has been shown to do.
+
+I will not pretend this settles into a principle. The defense holds only while the failure modes stay taught alongside the rule, and the moment they are dropped — the moment a cohort learns the integers as facts rather than as a well-charted lie — the justification lapses, and we are merely propagating an error like any discipline too tired to revise. Keep the fiction, then, but keep it the way one keeps a fault line marked: not because the ground is solid there, but because that is where you have learned to read the trembling. What the reformer and I disagree about is not the chemistry. It is what a discipline is for, and I am not sure the disagreement reduces further than that.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the position the passage arrives at?
+(A) The oxidation number survives only because chemists, when pressed, still privately believe the integers represent real and measurable charges.
+(B) Oxidation numbers should be kept because they are approximately correct in most compounds and break down only in a handful of exotic, rarely encountered cases.
+(C) Keep the oxidation number only while the places it fails are taught with it, for the discipline's knowledge lives in that failure map.
+(D) Since smeared charge density is what the electrons really do, chemistry ought to replace the integer bookkeeping with computed densities.
+
+Q2. What is the function of the claim that "the map is the knowledge" (paragraph 2) in the argument?
+(A) It separates its defense from the "convenient falsehood" filing, placing the error's value in the legibility of its failures rather than in being roughly right.
+(B) It concedes that the oxidation numbers are only a rough approximation whose errors are far too minor to matter.
+(C) It argues that once the failures have been catalogued, the integers can safely be discarded in favor of the truth.
+(D) It claims the map of failures proves the integers are, after all, physically real wherever they do not break.
+
+Q3. In paragraph 3, "the mistake is a mistake about levels" characterizes the reformer's error as:
+(A) confusing exotic compounds with ordinary ones when deciding which cases the rule is meant to cover.
+(B) swapping one coordinate system for another, mistaking that for upgrading a false claim to a true one.
+(C) believing that computed charge densities are less faithful to the electrons than the integer charges are.
+(D) mistaking the students' rote-memorized answers for the genuine understanding of chemical bonding that the passage locates elsewhere.
+
+Q4. Which best states the author's own attitude toward the oxidation number, as distinct from the reformer's and from the philosopher's?
+(A) He believes the integer charges are physically real in the well-behaved compounds and become fictional only at the specific points where the bookkeeping breaks down.
+(B) He regards it merely as a convenient falsehood, one to be quietly filed away beside the old frictionless plane.
+(C) He defends it as the one true description that the continuous, computed charge densities merely approximate in the end.
+(D) He holds that its wrongness does work no correct answer has been shown to do, while not himself believing the integers are true.
+
+Q5. Which situation is the closest parallel to the author's defense of keeping the oxidation number?
+(A) A cartographer keeps a flat map for daily use because computing the globe's true curvature is too laborious for ordinary trips.
+(B) An engineering firm drops its old approximate stress formula for exact simulation software as soon as that software becomes available.
+(C) A grammar course keeps a simplified rule for regular verbs and drills the irregular ones where it breaks, treating those as substance.
+(D) A medical textbook keeps an outdated disease classification only because revising every edition would be costly, and no one wants the work.
+
+Q6. Which finding, if established, would most weaken the author's defense of retaining the error?
+(A) Direct evidence that the oxidation numbers turn out to be exactly correct in the peroxides after all.
+(B) A demonstration that students taught the smeared densities, plus notes on where they turn surprising, learn bonding as well.
+(C) A survey showing that most working chemists happen to find the oxidation numbers convenient to use.
+(D) A finding that the computed charge densities are more faithful to the actual electrons than the integer charges are.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — assembles the distributed thesis: the value lies in the failure map (para 2, "the map is the knowledge") and the defense "holds only while the failure modes stay taught alongside the rule" (para 4).
+  (A) straw_version — has the author naively believing the integers true; para 3 explicitly denies this ("I do not, and neither... does anyone who uses it well").
+  (B) half_truth — "approximately correct most of the time" is exactly the value the passage rejects in para 2 ("not that it is roughly right"); it also shrinks the failure sites the essay treats as load-bearing.
+  (D) stance_misread — states the reformer's program (para 3), which the author raises in order to refuse.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — the sentence follows "That misses what is actually being stored" (para 2), marking the break from the philosopher's "convenient falsehood" filing and relocating the value in the legibility of failure.
+  (B) half_truth — "rough approximation, errors too minor to matter" contradicts para 2, which makes the failure points central, not negligible.
+  (C) causal_inversion — reverses the argument; the map is presented as reason to keep the error, not as clearance to discard it.
+  (D) level_confusion — turns a claim about where the bookkeeping fails into a claim that the integers are physically real, the very level-mistake para 3 diagnoses.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — para 3: the reformer "imagines he is upgrading a false claim to a true one" when he is "discarding a coordinate system in which the failures are legible."
+  (A) phrase_misuse — reads "levels" as a sorting of compound types; the passage's "levels" are the object-claim versus the coordinate system, not exotic-versus-ordinary cases.
+  (C) causal_inversion — the passage says the density is "more faithful" (para 3), not less; this flips the concession.
+  (D) adjacent_answer — a true statement, but it belongs to para 2's memorization point, not to what "a mistake about levels" names in para 3.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — para 3: "its wrongness is doing work no right answer has been shown to do," paired with "To be disenchanted about the oxidation number is not to believe it."
+  (A) level_confusion — grants the integers real charge in well-behaved cases; para 3 denies belief outright and para 1 says the integers "correspond to nothing you could measure."
+  (B) stance_misread — this is the philosopher's reflex the author sets aside in para 2 ("That misses what is actually being stored").
+  (C) causal_inversion — makes the integers the truth and the densities the approximation; para 3 states the reverse.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — reproduces the mechanism: a simplification kept because the exceptions where it breaks carry the real knowledge (para 2's failure map as "the bonding").
+  (A) straw_version — a labor-saving useful fiction, precisely the "convenient falsehood" framing para 2 rejects; nothing about failures being the knowledge.
+  (B) stance_misread — enacts the reformer's swap-for-the-exact-tool move (para 3), the opposite of the author's defense.
+  (D) example_promotion — retention by cost and fatigue is the degenerate case para 4 warns against ("any discipline too tired to revise"), not the defense.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — severs the claimed necessity: if failure-legibility can be preserved atop the faithful densities, then the false integers are not required to store it, undercutting para 3's "no right answer has been shown to do."
+  (A) adjacent_answer — removing one failure site leaves the mechanism (knowledge stored in the remaining failures) intact; it does not touch the defense.
+  (D) half_truth — the passage already concedes the densities are "more faithful" (para 3); restating a granted point cannot weaken the argument built on it.
+  (C) false_symmetry — convenience is beside the author's claim, which concerns stored information, not user comfort; if anything it is congenial.
+
+[BLUEPRINT NOTE]
+Structure: preserved error (INV-B) — oxidation numbers kept because the discipline's knowledge lives in the mapped failure sites; narrator defends without believing | Posture: resolution_qualified (keep the error, but only while its failure modes stay taught) | Thesis visible: distributed across restatements (paras 2-4), no single thesis sentence | Traps: straw_version (author believing the integers true), level_confusion (object-claim vs. coordinate system)

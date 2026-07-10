@@ -1,0 +1,99 @@
+RC ID: RC-MANUAL-260708-6 | Tier: elite | Source: manual | Vet: novelty pass, audits clean | Date: 2026-07-08
+======================================================================
+
+[PASSAGE]
+
+The settlements I have been describing — firms, faculties, one ministry of middling size — share a ceremony marking the departure of a member. In the week before a worker leaves, a functionary from the personnel priesthood summons her to a closed room for what the tribe calls the exit interview. The stated purpose is instrumental: the departing member, freed from ordinary caution, will yield candid knowledge, and the settlement will use it to improve itself. The ceremony is scheduled late, usually the final afternoon, after the farewells; the badge is surrendered on the way out.
+
+By its own measure the rite fails, and not marginally. Informants inside the priesthood report that transcripts are typed, tagged, and deposited in a shared repository; the access logs, which two settlements allowed me to inspect, show the files are almost never reopened. The same complaints recur across cohorts, sometimes verbatim — the manager who does not delegate, the promotion path that forks into fog — and the studied settlements changed no practice traceable to an interview in the periods observed. Both parties appear to know this. Departing members perform graciousness rather than candor; roughly a third of my informants admitted withholding their true reasons for leaving, wary of the small world of their trade. A ceremony that gathers guarded testimony for an unread archive should, on instrumental logic, have been abandoned generations of hires ago. It has instead spread.
+
+What the rite reliably accomplishes is something no memo asks of it. It converts a rupture into an event with a form. Grievance is spoken once, in an enclosed space, to a listener designated for the purpose, and is thereby discharged — the tribe's version of a confession that ends a matter rather than opening one. The leaver is transmuted from defector into alumnus, a kin category with obligations running both ways. I found no evidence of design; the functionaries believe sincerely in the data, and their sincerity is, as in most liturgies, part of the apparatus.
+
+It is tempting to file this as hypocrisy — a failure wearing the costume of a purpose. The field notes point elsewhere. In these settlements a stated goal operates less as a blueprint than as a license: a purpose respectable enough to convene the room, the listener, the hour. And the failure is not incidental to the success but its enabling condition. Were the transcripts read and acted upon, candor would acquire consequences; the sealed room would unseal; the confession would become testimony, which is a different and more dangerous genre. The rite works because its official product is inert.
+
+Which returns me to the repository, the detail I had filed as an embarrassment. The question worth the fieldwork is not why the interview fails to improve retention — on the evidence, it was never positioned to — but what an unread archive does for those who remain. It certifies to the settlement's living members that leaving is a speakable act with a container: one may go, say the unsayable once, and be filed rather than feared. The archive is less a database than a reliquary, and its power seems to depend on staying closed. When I asked one functionary whether anyone would ever read the files, she said she hoped not, and logged my visit in the register by the door.
+
+[QUESTIONS]
+
+Q1. Which of the following best states the passage's central claim?
+
+(A) Because institutional procedures are in general pretexts, the data that institutions collect about themselves — interviews, surveys, reviews — can be assumed to serve no purpose beyond decorating decisions already made elsewhere.
+(B) The exit interview is a documented failure that gathers guarded testimony almost no one ever reads, and it has persisted across settlements chiefly through bureaucratic inertia.
+(C) In the settlements studied, a stated goal licenses a ceremony rather than directs it, and the interview does its real work — sealing departures — because its official output goes unused.
+(D) Personnel departments quietly preserve the exit interview because they recognize its data is useless and prefer that departing members' grievances remain contained within a closed room.
+
+Q2. The unread repository is mentioned in the second paragraph and again in the last. What is the function of this detail across the essay?
+
+(A) First presented as evidence of the rite's failure, it is promoted in the final paragraph to the essay's central object.
+(B) It serves throughout as proof that the exit interviews fail, a verdict the final paragraph restates in even stronger terms.
+(C) It generalizes the argument, wrongly showing that the settlements studied never act on any data they collect about themselves.
+(D) It is introduced in the last paragraph as fresh evidence that settlements should improve how interview findings are circulated.
+
+Q3. Which best captures the author's view of the personnel functionaries, as distinct from views the passage reports or entertains?
+
+(A) They privately understand the data to be useless, as the closing functionary's remark that she hoped no one would read the files reveals about the priesthood at large.
+(B) They are hypocrites maintaining a failure in the costume of a purpose, a judgment the author arrives at in the fourth paragraph.
+(C) They believe in the data only until a settlement builds the capacity to act on it, at which point their role in the ceremony lapses.
+(D) They sincerely believe in the instrumental purpose, and that sincerity is itself part of what allows the whole rite to function.
+
+Q4. In the fourth paragraph, the claim that "its official product is inert" is best understood to mean:
+
+(A) the transcripts are so poorly collected and guarded that they could not really inform decisions even if consulted.
+(B) the unusedness of the transcripts is what permits the room to stay sealed, making inertness a functional condition rather than a defect awaiting repair.
+(C) because the data always goes unused, the ceremony ultimately fails at both its stated and its unstated purposes.
+(D) the data is dormant for now, and would become the rite's true product once settlements developed reliable habits of reading it.
+
+Q5. A university department conducts an annual curriculum review that has never altered the curriculum. Following the author's method, an investigator should first:
+
+(A) conclude that the review has plainly failed its purpose and recommend it be retired to save faculty hours.
+(B) design new accountability mechanisms — published minutes, implementation deadlines — so that the review's findings finally produce change.
+(C) infer that committee work in universities is ceremonial as a class, and extend the finding to hiring and tenure procedures.
+(D) ask what unstated work the review performs for the department, and whether its lack of consequence is part of what permits that work.
+
+Q6. Which finding, if true, would most weaken the author's claim that the interview's failure at its stated goal is the enabling condition of its unstated success?
+
+(A) A follow-up study firmly confirming that roughly a third of departing members withhold their true reasons for leaving.
+(B) Settlements where transcripts are acted upon and known to be still show departing members candid and departures cleanly sealed.
+(C) Records showing that a small number of the interviews have occasionally produced a suggestion that a settlement adopted.
+(D) Evidence that other rites in the same settlements, such as onboarding rituals, also generate documents that are rarely reopened.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — states the para 4 thesis (goal as "license," failure as "enabling condition") together with para 3's identification of the real work (rupture converted, leaver transmuted).
+  (A) scope_inflation — inflates a finding about one rite in "the settlements studied" into a law about institutional procedures in general; the passage quantifies carefully ("the studied settlements," para 2) and never universalizes.
+  (B) half_truth — accurately reports the para 2 failure but stops there; para 2 explicitly frames persistence as a puzzle inertia cannot solve ("should... have been abandoned... It has instead spread"), and paras 3-4 answer it.
+  (D) stance_misread — attributes knowing design to the priesthood; para 3 states "I found no evidence of design; the functionaries believe sincerely in the data."
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — para 2 files the repository as failure evidence ("unread archive"); para 5 opens "Which returns me to the repository" and makes its staying closed the essay's positive finding (reliquary, container).
+  (B) premature_closure — freezes the detail at its para 2 role; para 5 reframes rather than restates, asking what the unread archive does "for those who remain."
+  (C) scope_inflation — stretches one archive's disuse into settlements never acting on any self-collected data, a claim the passage nowhere makes.
+  (D) stage_misattribution — misplaces the detail's introduction at para 5 and assigns it an improvement agenda the essay rejects (para 4: reading the files would unseal the room).
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — para 3: the functionaries "believe sincerely in the data, and their sincerity is, as in most liturgies, part of the apparatus."
+  (A) example_promotion — promotes one functionary's closing remark into the private knowledge of the priesthood at large; the passage presents her hope as a telling particular, not a confession of general cynicism, and para 3 rules out design.
+  (B) stance_misread — para 4 raises hypocrisy only to refuse it ("The field notes point elsewhere"); this option adopts the entertained view as the author's verdict.
+  (C) half_truth — borrows para 4's conditional about reading the transcripts but converts it into a prediction about the functionaries' beliefs lapsing, which the passage never offers.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — para 4's logic: were transcripts "read and acted upon, candor would acquire consequences; the sealed room would unseal," so the product's inertness is what the rite's success runs on.
+  (A) phrase_misuse — reads "inert" as a data-quality complaint; the passage's point is about consequence, not collection — guardedness is noted in para 2 but is not what "inert" names.
+  (C) causal_inversion — reverses the argument: unusedness is presented as the condition of the unstated success, not the cause of a double failure.
+  (D) half_truth — treats inertness as temporary dormancy awaiting better uptake; para 4 makes the opposite point, that uptake would convert confession into "testimony, which is a different and more dangerous genre."
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — mirrors the essay's movement: from failure-at-stated-goal (para 2) to asking what the rite reliably accomplishes (para 3) and whether inertness enables it (para 4).
+  (A) premature_closure — repeats the "instrumental logic" of para 2 that the essay is built to overturn; abolition treats failure as the finding rather than the starting puzzle.
+  (B) framework_import — imports a managerial-fix framework; para 4 argues consequences would destroy the very conditions of the ceremony's real work.
+  (C) scope_inflation — leaps from one procedure to committee work "as a class," the same over-generalization the passage's careful quantifiers ("the studied settlements") avoid.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — directly severs the claimed dependency: if candor and clean sealing survive when the product is consequential and known to be, then inertness is not the enabling condition (para 4).
+  (A) adjacent_answer — restates a fact already in para 2 (a third withhold reasons); confirmation of the passage's own data cannot weaken its thesis.
+  (C) half_truth — occasional adopted suggestions show the product is not perfectly inert, but the enabling-condition claim concerns the sealed room's freedom from expected consequences, which rare exceptions do not create.
+  (D) false_symmetry — treats a parallel between rites as evidence against the mechanism; other unread archives are compatible with, if anything congenial to, the author's account.
+
+[BLUEPRINT NOTE]
+Structure: successful failure — exit-interview rite fails its instrumental goal, succeeds at sealing departure; goals reframed as licenses | Posture: reframe_displace (the question that matters: what the unread archive does for those who remain) | Thesis visible: para 4 | Traps: scope_inflation (para 2's careful quantifiers invite universalizing), half_truth (para 2's failure narration invites stopping at "it fails")

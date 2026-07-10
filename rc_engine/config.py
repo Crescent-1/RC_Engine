@@ -221,12 +221,11 @@ BLUEPRINT_HAMMING_WEIGHTS = {
 
 FINGERPRINT_WINDOW = 100
 
-# Below this corpus size the curve_pearson breach check is skipped entirely:
+# Below this corpus size the curve_pearson breach check is kept composite-only:
 # commitment curves are 4-6 coarse values and late-thesis tiers all share a
-# "low early, rising late" shape, so on a small corpus the channel rejects
-# what the tier's structure inherently produces. The curve still contributes
-# to the composite score; only the hard pairwise cap is suspended.
-CURVE_CAP_MIN_CORPUS = 25
+# "low early, rising late" shape. A curve match is useful evidence, but too
+# coarse to hard-veto a billion-way blueprint space until the corpus is large.
+CURVE_CAP_MIN_CORPUS = 75
 
 NOVELTY_CAPS = {
     "movement_levenshtein": 0.70,   # similarity cap
@@ -236,6 +235,17 @@ NOVELTY_CAPS = {
     "topology_similarity": 0.75,
     "embedding_cosine": 0.80,
     "stylometry_delta_floor": 0.90,  # Burrows' Delta BELOW this vs a different-persona RC = leak
+}
+
+# Coarse semantic/shape channels should not veto alone. They become hard
+# rejects only when a second channel says the same pair is structurally close,
+# or when the score is so high that it is probably a duplicate topic/arc.
+NOVELTY_SUPPORT_CAPS = {
+    "blueprint_sim": 0.35,
+    "movement_similarity": 0.45,
+    "rhythm_cosine": 0.88,
+    "curve_pearson_extreme": 0.98,
+    "embedding_cosine_extreme": 0.92,
 }
 
 COMPOSITE_WEIGHTS = {
