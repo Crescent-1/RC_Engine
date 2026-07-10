@@ -1,0 +1,88 @@
+[PASSAGE]
+
+Anthropologists who study expertise have been arguing about the same thing for forty years, and the argument has the stability of a well-set trap. On one side, the apprenticeship school: expert skill is tacit, lodged in the trained body, learned by standing beside a master and absorbing what no manual records. On the other, the codification school: what looks ineffable is only unarticulated rule, latent structure the expert follows without being able to recite, and patient study can write it down. The witnesses are distinguished, the fieldwork on both sides is real, and the verdict never comes.
+
+Examine the exhibits and a pattern emerges that should trouble both counsel. The apprenticeship school's best evidence is the residue: whenever a craft is reduced to protocol, something escapes, and the seasoned practitioner still outperforms the fully instructed novice. The codification school's best evidence is the history of that residue — that yesterday's unteachable knack becomes today's checklist, the ineffable shrinking under study. Neither side notices that these are the same fact told twice. A residue that is always present and always diminishing is exactly what each school requires: it hands the first its mystery and the second its progress, in perpetuity. The dispute does not persist despite the evidence. It persists because the evidence was built to feed both mouths.
+
+The reason the trap holds is a premise the two schools share and neither inspects: that expertise is a possession, something an individual has, the only question being where inside the expert it sits — in the hand or in an unspoken rulebook. Set that premise beside the fieldwork and it wobbles. The diagnostician who is unmistakably expert in her own clinic becomes a merely careful stranger when she locums across town; the skill that seemed to travel in her body stayed behind with her instruments, her colleagues, her nurses' half-second glances, the deference of patients who knew her name. Expertise in these records is less a thing carried than a standing conferred, assembled at a site and dismantled when the site changes. If that is right, the residue and the checklist are both taking inventory of a warehouse that was never where the goods were kept.
+
+This is not a ruling for the relational account. That the container premise wobbles is not proof that expertise is nothing but arrangement, and the ethnographies that would decide it have not been done. The point is narrower and less convenient: the standing dispute cannot be settled from within, because both parties are underwritten by the assumption whose abandonment any settlement requires, and each is professionally built on it — the romantics of the workshop and the engineers of the protocol alike need the expert to be a container. Until one of them consents to empty it, the case cannot close. The ledger stays open, its two columns balanced against each other and neither against the world.
+
+[QUESTIONS]
+
+Q1. Which of the following best states the central claim of the passage?
+(A) The apprenticeship school is vindicated, since a residue always escapes codification and expertise therefore proves to be embodied.
+(B) The two schools' quarrel cannot be settled from within, because both rest on an unexamined premise — expertise as a possession in the individual — that any settlement would require abandoning.
+(C) Expertise is not a property held by individuals at all but is wholly constituted by institutional settings, a finding that resolves the long anthropological dispute decisively in favour of the relational account.
+(D) The dispute is merely verbal, since the two schools attach different meanings to the word "expertise."
+
+Q2. The remark that the two schools' bodies of evidence "are the same fact told twice" functions to:
+(A) concede that the evidence is evenly balanced between the two schools.
+(B) argue that the codification school is winning, because the residue keeps shrinking.
+(C) reveal that the opposing exhibits are one phenomenon, so the feud is mutually sustaining rather than genuinely undecided.
+(D) introduce the relational account as a third body of evidence weighed against the first two.
+
+Q3. The passage identifies which assumption as shared by both schools?
+(A) that expertise is something an individual possesses, the only open question being where in the expert it is located.
+(B) that expert skill can never, in principle, be written down.
+(C) that ethnographic fieldwork is capable of settling the dispute.
+(D) that codifying a craft always leaves a residue no protocol captures.
+
+Q4. According to the passage, the dispute between the schools persists because:
+(A) the residue endures only so long as the two schools keep disputing; end the feud and it would dissolve.
+(B) the fieldwork on both sides is too thin to decide the question either way.
+(C) the two schools have never agreed on what "expertise" denotes.
+(D) one fact — a residue always present and always diminishing — supplies each school exactly what it needs, so the evidence sustains both at once.
+
+Q5. The author's refusal to rule for either school is best characterized as:
+(A) a suspension held not because the sides are evenly matched but because any verdict awaits abandoning the shared premise, which neither camp will surrender.
+(B) a decision, in the end, for the relational account as the correct resolution of the dispute.
+(C) a judgment that the two schools are equally well supported, leaving the matter to future evidence.
+(D) a conclusion that the question of expertise is meaningless as posed.
+
+Q6. A parallel quarrel divides students of the sommelier's palate: one camp holds the skill an unteachable bodily gift, the other that it decomposes into measurable chemical discriminations. On the passage's logic, the productive move is to:
+(A) side with the bodily-gift camp, since some discriminations escape chemical analysis.
+(B) side with the chemical camp, since instruments capture more of the palate every year and the residue is thus an illusion.
+(C) declare the palate constituted by its setting, settling the sommelier dispute for the relational side.
+(D) ask whether the palate is a possession lodged in the taster at all — testing whether the skill travels when she leaves her own cellar, tools, and house style.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — states the para 3 diagnosis (the shared "possession" premise) joined to the para 4 verdict that no settlement is possible "from within" until that premise is dropped.
+  (A) stance_misread — crowns the apprenticeship school using its para 2 exhibit (the residue), a ruling para 4 explicitly declines.
+  (C) adjacent_answer — the planted near-miss: it rides the para 3 relational imagery to a decisive verdict, but para 4 opens "This is not a ruling for the relational account"; it is also the strictly longest option, offered to bait.
+  (D) terminological_twin — imports a "different meanings of one word" reading; the passage locates the trouble in a shared premise both camps hold, not in divergent definitions.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — para 2 uses "the same fact told twice" to show the residue's always-present/always-shrinking structure feeds both schools, making the feud self-sustaining ("built to feed both mouths").
+  (A) half_truth — "evenly balanced" is precisely the appearance para 2 dismantles; the point is not balance but a single fact doing double duty.
+  (B) causal_inversion — declares one camp the winner from the shrinking residue, whereas the passage says the shrinkage is what keeps the codifiers in business without ending the dispute.
+  (D) level_confusion — the relational account arrives only in para 3; here there are just two exhibits, not a third.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — para 3 names it directly: expertise as "a possession, something an individual has, the only question being where inside the expert it sits."
+  (B) example_promotion — promotes one school's commitment (apprenticeship) into a premise supposedly shared; the codifiers deny it.
+  (C) adjacent_answer — fieldwork is discussed (para 1, para 4) but never offered as the shared assumption; para 4 says the deciding ethnographies "have not been done."
+  (D) example_promotion — the residue is the apprenticeship school's exhibit (para 2), not a premise both sides examine.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — para 2 states it: "A residue that is always present and always diminishing is exactly what each school requires... It persists because the evidence was built to feed both mouths."
+  (A) causal_inversion — the planted inversion: it makes the dispute the cause and the residue the effect; the passage runs the arrow the other way — the residue-fact sustains the dispute.
+  (B) adjacent_answer — para 1 grants the fieldwork "is real"; thin evidence is not the reason offered for the deadlock.
+  (C) terminological_twin — reruns the different-meanings explanation the passage never uses; the deadlock is traced to a shared premise, not a lexical split.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — refusal_suspended: para 4 refuses the verdict yet grounds the refusal in the unabandoned shared premise ("the case cannot close" until a camp "consents to empty it"), not in even balance.
+  (B) adjacent_answer — the tempting misread that the essay quietly backs the relational side; para 4's first sentence forbids it.
+  (C) false_symmetry — recasts the suspension as a declaration of equal support, the balanced-scales picture para 2 already undercut.
+  (D) straw_version — "meaningless as posed" overshoots; the author holds the question answerable, but only after the premise is surrendered.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — transfers the para 3 test: interrogate the possession premise itself by checking whether the skill "travels," exactly as the locum diagnostician's did not.
+  (A) example_promotion — sides with the embodiment camp on its residue exhibit, the move para 4 declines to make.
+  (B) causal_inversion — mirrors the codifiers' claim that a shrinking residue proves them right, the inference para 2 shows cannot close the case.
+  (C) adjacent_answer — leaps to crowning the relational account, the very ruling para 4 withholds ("not a ruling for the relational account").
+
+[BLUEPRINT NOTE]
+Structure: coalition of errors — apprenticeship vs codification schools, each sustained by the other via one always-shrinking residue, both resting on the unexamined premise that expertise is a possession inside the individual | Posture: refusal_suspended with E10 open-ledger close | Thesis visible: para 3 | Traps: causal_inversion (Q4-A, Q2-B, Q6-B — reversing the residue/dispute arrow), adjacent_answer (Q1-C, Q5-B, Q6-C — crowning the relational account the author refuses to endorse)

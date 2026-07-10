@@ -1,0 +1,85 @@
+[PASSAGE]
+When a scientific theory finally carries the day, we reach for one of two explanations, and they have quarreled for a century. The first is that the evidence compelled it: the world spoke, the rival accounts failed to fit, and any honest observer had to yield. The second holds that assent was manufactured — that interests and the rhetorical skill of a theory's partisans did the work the evidence could not. The two stories share a stage. Both take the decisive contest to have occurred among the people competent to judge: the specialists at the frontier who could weigh the rival accounts.
+What neither story explains is the rest of us. A consensus is not the verdict of the dozen who could referee the dispute; it is a condition of the whole field, thousands who never refereed anything and never could have. The interesting question is not how the competent few were persuaded but how their persuasion became everyone's, including those in no position to check it.
+The answer lies downstream of the argument, in the years after it. A theory passes into consensus not when the competent are convinced but when it becomes teachable — when it can be compressed into a textbook chapter and set as a problem undergraduates can finish before lunch. What is inherited this way is not held as a claim once contested; it arrives as the settled floor of the discipline, what you learn in order to do the work at all. The generation that receives it never weighed it against the rivals, which by then have not been refuted so much as dropped from the syllabus. Selection here runs on a criterion no evidentialist and no debunker names: not which theory is truest, and not which serves whom, but which is easiest to reproduce in a mind that will never assess it.
+It would be easy to hear in this the old debunking: consensus as an accident of pedagogy, belief without warrant. That is not the claim. Teachability is a real property of theories, and not unrelated to truth — a true account tends to be teachable because the world keeps vindicating it in the exercises, the problems come out, the predictions land. But the relation is loose at the joints. A theory can be eminently teachable for reasons indifferent to whether it is right: because it is tidy, or because it spares the student ambiguities a truer account would force him to sit with.
+So the consensus is earned, and the word should stand. But it is earned by a test that quarrel has no room for — neither the evidence at the frontier nor the interests behind it, but whether a theory can be got into the next mind without distortion. That test tracks truth often enough that calling that agreement baseless would be a slander. That it tracks truth only roughly, by a mechanism indifferent to the gap when the two come apart, is the part worth refusing to forget.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the passage's central claim?
+(A) The received evidentialist account is right: theories win consensus because the evidence competent specialists weigh finally compels their assent.
+(B) A field's consensus forms downstream, as a theory becomes teachable, on a criterion distinct from both evidence and interest that tracks truth only roughly.
+(C) Scientific consensus is manufactured by the interests, institutional advantage, and rhetorical skill of a theory's partisans, rather than settled by any evidence the specialists could weigh at the frontier.
+(D) Because the generation that inherits a theory never weighs it against its rivals, the agreement a discipline reaches about it is without genuine warrant.
+
+Q2. The author's closing posture toward the consensus is best described as holding that it is:
+(A) baseless, having formed among those who never judged the evidence.
+(B) endorsed on the debunkers' terms over the evidentialists', siding with interest against evidence.
+(C) something he remains undecided about, declining to say which of the two rival stories better explains how a consensus forms.
+(D) genuinely earned, though by a criterion that tracks truth only roughly.
+
+Q3. What is the primary function of the third paragraph ("The answer lies downstream…")?
+(A) It relocates where consensus is decided — from the frontier to the downstream of teaching — and names teachability as the operative criterion.
+(B) It offers a concrete illustration of the debunkers' claim that interest and rhetoric, not evidence, decide which of the competing theories finally prevails.
+(C) It concedes that, because the inheritors never judge the theory, the resulting consensus cannot be counted as knowledge.
+(D) It restates the puzzle raised in the previous paragraph without yet proposing any resolution to it.
+
+Q4. How does the author's account of how consensus forms differ from the debunker's account he reports?
+(A) Unlike the debunker, he denies that any factor beyond the evidence itself plays a part in forming consensus.
+(B) Like the debunker, he treats the decisive contest as settled among the competent few at the frontier, disputing only what it was that persuaded them.
+(C) He locates the mechanism in a theory's fitness for being taught, a property he distinguishes from the interests and rhetoric the debunker invokes.
+(D) He agrees with the debunker that consensus is manufactured, differing only over which interests do the manufacturing.
+
+Q5. In one field a rival model predicts slightly better but resists any clean classroom formulation, while the incumbent, easily set as solvable problems, is what each new cohort learns and comes to accept. On the author's view, this is best understood as:
+(A) a straightforward case of the evidence compelling assent, since the model that spreads is the one the students find they can actually work with.
+(B) the incumbent's teachability, not its truth, carrying it into consensus — exactly the loose joint between teachability and truth the author flags.
+(C) manufactured consensus in the debunker's sense, the incumbent's partisans having imposed their interests on the field.
+(D) a consensus the author would call baseless, since it rests on teachability rather than on the better-predicting model.
+
+Q6. Which finding, if established, would most weaken the author's central claim?
+(A) Some theories that are difficult to teach are nonetheless true, and remain accepted despite that difficulty.
+(B) A small number of students in each cohort privately come to doubt the theory their training required them to accept.
+(C) In several documented episodes, debunking historians were later shown to have overstated the role institutional interests played.
+(D) In several fields the competent specialists reach full agreement before any textbook exists, and later teaching only transmits a verdict the evidence had already fixed.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct: (B)
+  (A) stage_misattribution — presents the para-1 evidentialist setup as the thesis; para 3 exists to displace it.
+  (B) CORRECT — the downstream/teachability criterion, distinct from evidence and interest and truth-tracking only roughly (paras 3-5).
+  (C) framework_import — imports the debunker's interest-and-rhetoric frame the author explicitly separates himself from (para 4, "That is not the claim").
+  (D) premature_closure — stops at "without warrant," which para 5 overrides ("the consensus is earned").
+
+Q2 — Correct: (D)
+  (A) premature_closure — contradicts para 5's verdict that the consensus is earned.
+  (B) stance_misread — the author names a criterion no debunker names (para 3); he does not side with interest.
+  (C) stance_misread — misreads a resolved posture as suspension; para 5 delivers a verdict rather than declining one.
+  (D) CORRECT — earned, with the qualification that the earning-criterion tracks truth only roughly (para 5).
+
+Q3 — Correct: (A)
+  (A) CORRECT — para 3 moves the locus of decision downstream and names teachability as the selecting criterion.
+  (B) stage_misattribution — the paragraph names a criterion distinct from interest/rhetoric, so it is not an instance of the debunker's claim (para 3 close).
+  (C) premature_closure — the "cannot be knowledge" reading is the one para 4 heads off ("belief without warrant... That is not the claim").
+  (D) adjacent_answer — para 2 raises the puzzle; para 3 resolves it rather than merely restating it.
+
+Q4 — Correct: (C)
+  (A) stance_misread — the author does invoke a non-evidential factor (teachability, para 3), so he does not confine consensus to the evidence.
+  (B) stage_misattribution — the author relocates the arena downstream (para 2-3); he does not, like the debunker, keep it at the frontier.
+  (C) CORRECT — teachability, a property he distinguishes from interest and rhetoric (para 4).
+  (D) framework_import — collapses the author into the debunker's "manufactured by interests" frame he rejects (para 4).
+
+Q5 — Correct: (B)
+  (A) phrase_misuse — "work with" here means teachable/tractable, not evidentially compelling; para 3 separates the two.
+  (B) CORRECT — teachability rather than truth carrying the theory into consensus, the loose joint of para 4.
+  (C) framework_import — the case contains no partisans imposing interests; it imports the debunker frame para 4 excludes.
+  (D) premature_closure — the author calls such consensus earned, not baseless (para 5), even where teachability and truth diverge.
+
+Q6 — Correct: (D)
+  (A) half_truth — para 4 already grants the teachability-truth relation is loose; a supporting observation, not a weakener.
+  (B) level_confusion — individual private doubt does not bear on how field-wide consensus forms (the para 2 population claim).
+  (C) adjacent_answer — targets the debunker's account, not the author's downstream mechanism, leaving the central claim intact.
+  (D) CORRECT — if agreement is fixed at the frontier by the evidence before teaching, and teaching merely transmits it, the downstream-teachability mechanism (paras 3-5) loses its work.
+
+[BLUEPRINT NOTE]
+Structure: a settled debate re-examined for how the consensus actually formed — the evidence-vs-interest quarrel bypassed by locating consensus downstream, in teachability | Posture: resolution_qualified | Thesis visible: para 3 | Traps: framework_import (para 1, author read as social-constructionist debunker), premature_closure (para 3, "never weighed it -> consensus baseless")

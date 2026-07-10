@@ -1,0 +1,85 @@
+[PASSAGE]
+The impulse to christen the contemporary moment is a remarkably durable modern reflex. Scarcely a decade passes without the declaration of a new overarching epoch: we are told we inhabit the Information Age, the Anthropocene, the Post-Truth era, or the terminal stage of financialized capitalism. This taxonomic frenzy is generally treated as a symptom of accelerating technological change or ecological panic. We name the present to domesticate it, assuming that if we can bracket our historical moment with a definitive title, we might somehow gain leverage over its frighteningly open trajectory.
+The conceptual apparatus we use for this bracketing was inherited directly from nineteenth-century historicism, which proposed that any given period is animated by a singular, underlying logic. To read history, in this tradition, is to track the succession of these cohesive totalities. The medieval, the Renaissance, the Enlightenment—each is understood not merely as an arbitrary span of years, but as a bounded cultural organism possessing a distinct intellectual, economic, and material constitution. Identifying the structural core of an era becomes the historian's primary diagnostic task, extracting the deep signal of historical movement from the chaotic noise of daily events. It is a compelling method, offering the retrospective assurance that history proceeds according to discernible rhythms.
+Yet when this diagnostic apparatus is turned upon the immediate present, the machinery begins to misfire. The resulting friction is usually attributed to the sheer velocity of contemporary existence. It feels impossible to distill a unifying logic when political architectures fracture overnight, financial markets operate at algorithmic speeds, and ecological baselines shift continually beneath our feet. The lived experience of the present is one of absolute heterogeneity, a barrage of intersecting, contradictory vectors that refuses to coalesce into a singular narrative shape. We naturally assume our era is uniquely illegible simply because it is moving too fast for the shutter speed of traditional historical analysis.
+But this assumption preserves the analytic tool by blaming the subject matter. The failure to name our own era definitively is not a consequence of contemporary velocity, nor is it merely a deficit of critical distance; rather, applying the method to the present exposes the structural illusion of historical categorization itself. The "spirit of an age" is not an empirical property residing in the past, waiting patiently to be unearthed by diligent research. It is a retrospective imposition, the specific coherence that a later generation requires its predecessors to have had in order to logically explain its own origins. To attempt to diagnose the zeitgeist of the present is to try applying a mechanism of retroactive simplification to a reality that has not yet been simplified by death.
+The anxious question of what epoch we currently occupy therefore dissolves entirely, revealing itself to be a fundamental category mistake rather than a solvable puzzle. We cannot step outside our own historical shadow to observe its definitive shape, because the shape only forms when the light of a subsequent era is cast backward upon the ruins of our own. Surrendering the demand for a neat historical title means accepting a severe kind of structural blindness as our permanent condition. We are left to operate within the mess of an unresolved present, forced to make our political and moral wagers without the comforting assurance that time has already organized our moment into a legible chapter.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central thesis of the passage?
+(A) The present era lacks a unifying historical logic because of the unprecedented velocity of modern technological and ecological change.
+(B) The failure to categorize the present stems from a lack of critical distance, which prevents us from seeing the spirit of the age.
+(C) History does not proceed in identifiable periods; therefore, the entire academic discipline of historical analysis is fundamentally flawed and useless.
+(D) The effort to define our current historical epoch is futile because the concept of an epoch is a retrospective projection, not a present reality.
+
+Q2. What is the primary function of the third paragraph in the overall structure of the argument?
+(A) It provides the author's primary justification for why contemporary existence continually resists rigid historical categorization.
+(B) It articulates a conventional explanation for why the present seems illegible, an explanation the author subsequently dismantles.
+(C) It highlights the chaotic reality of modern life in order to contrast it with the organized rhythms of past historical periods.
+(D) It demonstrates how algorithmic speeds and ecological shifts have permanently disrupted traditional historical methods and structures.
+
+Q3. Which of the following most accurately describes the author's final posture regarding our inability to name the current era?
+(A) We must abandon the pursuit of naming our era, accepting the cost of navigating the present without the comfort of historical legibility.
+(B) While we cannot accurately name our era today due to systemic proximity, future historians will easily identify its core underlying logic.
+(C) We remain perpetually suspended between the psychological human need to comprehensively categorize the present and the sheer structural impossibility of doing so accurately.
+(D) Abandoning the flawed diagnostic tools of nineteenth-century historicism will finally allow us to observe the true, deeply heterogeneous shape of the complex contemporary present.
+
+Q4. In the context of the fourth paragraph, what does the author most likely mean by stating that reality has "not yet been simplified by death"?
+(A) The inevitable structural collapse of a defined historical period once its singular unifying cultural logic has been entirely exhausted by its inhabitants.
+(B) The mortality of individuals, which alone provides the necessary critical distance to evaluate an era objectively without systemic bias.
+(C) The process by which the contradictions of a lived era are flattened into a cohesive narrative by future historians.
+(D) The destructive nature of intersecting contemporary crises that continually threaten the survival and inherent legibility of the current epoch.
+
+Q5. The author's critique in the fourth paragraph relies on which of the following implicit assumptions?
+(A) A specific historical period must possess a distinct intellectual and material constitution in order to be validly recognized as an epoch.
+(B) Earlier generations experienced their own present as a legible and organized chapter in history, unlike the citizens of the modern era.
+(C) The sheer velocity of technological and ecological change is a uniquely modern phenomenon entirely without any meaningful historical precedent.
+(D) The coherence we perceive in past eras is primarily a product of the historian's retrospective needs rather than the lived reality of those periods.
+
+Q6. Based on the passage, how would the author most likely interpret a future historian in the twenty-fourth century labeling the twenty-first century as the "Era of Fragmentation"?
+(A) They would consider it a partially accurate historical label, provided the twenty-fourth-century historian maintained sufficient critical distance from the chaotic events.
+(B) They would view this title as a reflection of the future's need to understand its origins, rather than an objective historical discovery.
+(C) They would reject it as a retrospective imposition because the twenty-first century was fundamentally defined by absolute heterogeneity rather than mere historical fragmentation.
+(D) They would applaud it as a highly successful application of nineteenth-century historicism to a previously illegible and deeply chaotic historical period.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — This captures the structural pivot of the essay found in paragraph four: the failure to name the era is not due to the era itself, but because epochs are "retrospective impositions" created by future generations.
+  (A) stage_misattribution — A strong reader rushing through paragraph three might select this, as it perfectly summarizes the assumption the author sets up. However, paragraph four explicitly rejects this explanation ("But this assumption preserves the analytic tool by blaming the subject matter").
+  (B) causal_inversion — The author explicitly denies this in paragraph four, stating the failure is "not... merely a deficit of critical distance," but rather an illusion of the categorization process itself.
+  (C) scope_inflation — The author is specifically critiquing the historicist project of "epoch-naming" (identifying a unifying zeitgeist). Concluding that all of historical analysis is useless wildly inflates the passage's specific epistemological critique.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — Paragraph three explains the friction between the historicist tool and the present by citing "contemporary velocity" and "absolute heterogeneity." Paragraph four opens with "But this assumption preserves the analytic tool..." showing that paragraph three was merely setting up a conventional, flawed explanation.
+  (A) stance_misread — This misattributes the views in paragraph three to the author. The author argues that contemporary existence resists categorization because categorization is a retrospective illusion, not because modern life is uniquely fast.
+  (C) half_truth — While paragraph three does highlight chaotic modern life, its structural function is not to draw a factual contrast with the past (the author believes the past was likely chaotic too, before it was "simplified by death").
+  (D) adjacent_answer — Algorithmic speeds and ecological shifts are mentioned in paragraph three, but they are cited as the perceived reasons for disruption, not the author's actual diagnosis of why the method fails.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — The final paragraph dissolves the question and explicitly states the cost of this dissolution: "Surrendering the demand... means accepting a severe kind of structural blindness as our permanent condition."
+  (B) premature_closure — The author does not believe future historians will "easily identify its core underlying logic" as an objective truth; any logic they identify will be a "retrospective imposition."
+  (C) false_symmetry — The author does not leave us suspended between a psychological need and an impossibility. The closing explicitly dissolves the question entirely, telling us to surrender the demand and accept the mess.
+  (D) terminological_twin — Uses the passage's terminology ("heterogeneous shape"), but wrongly claims abandoning historicism allows us to see this shape. The passage concludes that we are left with "structural blindness," not true vision.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — In the context of paragraph four, to be "simplified by death" means passing into history, where later generations apply "retroactive simplification" to create a cohesive narrative out of what was actually a messy, unresolved present.
+  (A) phrase_misuse — The phrase does not refer to the structural collapse of a period or the exhaustion of its logic, but rather the way historians posthumously organize a period.
+  (B) framework_import — The passage rejects the concept of "critical distance" as the missing ingredient in paragraph four. Death here refers to the passing of the era itself, which allows future historians to impose order on it.
+  (D) level_confusion — This traps readers who carry the ecological and political panics of paragraph three into paragraph four. "Death" here is an epistemological metaphor about time, not a literal reference to apocalyptic crises.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The author asserts in paragraph four that the "spirit of an age" is an imposition required by a later generation "to logically explain its own origins." This assumes that the coherence we see in past eras was created by later historians, not lived by the inhabitants.
+  (A) nec_suff_swap — This is the assumption of nineteenth-century historicists (paragraph two), which the author is critiquing, not the author's own underlying assumption.
+  (B) straw_version — The author does not believe earlier generations experienced their present as legible. In fact, the argument implies all eras are messy to their inhabitants until they are retroactively simplified.
+  (C) example_promotion — While velocity is discussed in paragraph three, the author's critique in paragraph four explicitly states that the failure to categorize is not a consequence of contemporary velocity. Therefore, this assumption is irrelevant to the author's actual critique.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — This perfectly applies the author's rule from paragraph four: any historical title is a "retrospective imposition, the specific coherence that a later generation requires... to logically explain its own origins."
+  (A) false_symmetry — The author fundamentally rejects the notion that a label becomes "accurate" just because there is critical distance; the label is always an imposition.
+  (C) terminological_twin — While the author uses "heterogeneity" to describe the present, the author would not reject the future's label on the grounds that they got the "real" label wrong. The author believes all overarching labels are retroactive simplifications.
+  (D) stage_misattribution — The author critiques nineteenth-century historicism as an "illusion." They would not applaud a future historian for successfully applying a flawed, illusory mechanism.
+
+[BLUEPRINT NOTE]
+Structure: a theory applied to itself | Posture: refusal_dissolved | Thesis visible: para 4 | Traps: stage_misattribution, level_confusion

@@ -98,6 +98,15 @@ class NoveltyScorer:
 
     # ----------------------------------------------------------------- gates
 
+    def _coarse_channel_supported(self, s: dict, blueprint_sim: float) -> bool:
+        support = config.NOVELTY_SUPPORT_CAPS
+        movement = max(s["movement_levenshtein"], s["movement_bigram_jaccard"])
+        return (
+            blueprint_sim >= support["blueprint_sim"]
+            or movement >= support["movement_similarity"]
+            or s["rhythm_cosine"] >= support["rhythm_cosine"]
+        )
+
     def score(self, fp: Fingerprint, blueprint_sims: dict[str, float],
               include_question_channels: bool) -> NoveltyReport:
         window = self.history.fingerprint_window(config.FINGERPRINT_WINDOW)
@@ -135,12 +144,17 @@ class NoveltyScorer:
                 breached.append(f"movement_levenshtein {s['movement_levenshtein']:.2f} vs {other.rc_id}")
             if s["movement_bigram_jaccard"] > caps["movement_bigram_jaccard"]:
                 breached.append(f"movement_bigram_jaccard {s['movement_bigram_jaccard']:.2f} vs {other.rc_id}")
+            coarse_supported = self._coarse_channel_supported(s, bp_sim)
             if curve_cap_active and s["curve_pearson"] > caps["curve_pearson"]:
-                breached.append(f"curve_pearson {s['curve_pearson']:.2f} vs {other.rc_id}")
+                if (coarse_supported
+                        or s["curve_pearson"] >= config.NOVELTY_SUPPORT_CAPS["curve_pearson_extreme"]):
+                    breached.append(f"curve_pearson {s['curve_pearson']:.2f} vs {other.rc_id}")
             if s["rhythm_cosine"] > caps["rhythm_cosine"]:
                 breached.append(f"rhythm_cosine {s['rhythm_cosine']:.2f} vs {other.rc_id}")
             if s["embedding_cosine"] > caps["embedding_cosine"]:
-                breached.append(f"embedding_cosine {s['embedding_cosine']:.2f} vs {other.rc_id}")
+                if (coarse_supported
+                        or s["embedding_cosine"] >= config.NOVELTY_SUPPORT_CAPS["embedding_cosine_extreme"]):
+                    breached.append(f"embedding_cosine {s['embedding_cosine']:.2f} vs {other.rc_id}")
             if (fp.persona_id and other.persona_id and fp.persona_id != other.persona_id
                     and s["stylometry_delta"] < caps["stylometry_delta_floor"]):
                 breached.append(f"persona_leak delta={s['stylometry_delta']:.2f} vs {other.rc_id}")
