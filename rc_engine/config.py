@@ -15,6 +15,11 @@ RC cleanly with status 'budget_abort'.
 import os
 
 DB_PATH = os.environ.get("RC_ENGINE_DB", "rc_pipeline.db")
+# The production DB lives inside a OneDrive-synced folder (sync + SQLite is a
+# known corruption risk), so write paths back it up to a local non-synced dir.
+DB_BACKUP_DIR = os.environ.get(
+    "RC_ENGINE_BACKUP_DIR", os.path.expanduser(r"~\rc_data\backups"))
+DB_BACKUP_KEEP = 10
 ENGINE_VERSION = "rc-engine-v2.0"
 BLUEPRINT_SCHEMA_VERSION = "2.0"
 
@@ -273,6 +278,40 @@ THESIS_LONGEST_WINDOW = 9
 THESIS_LONGEST_MAX = 3
 
 EMBED_MODEL_NAME = "BAAI/bge-small-en-v1.5"
+
+# How many recent blueprint topics (shipped + rejected) the refine prompt
+# lists as AVOID territories — proactive topical divergence at ~$0.0003/call.
+REFINE_AVOID_TOPICS = 12
+
+# ---------------------------------------------------------------------------
+# Pre-render topic-collision precheck (local embeddings, $0 per check).
+# Catches embedding-channel collisions BEFORE the expensive render call: the
+# refined blueprint's topic document is embedded and compared against prior
+# blueprint topics and corpus passage embeddings. On collision the blueprint
+# is re-refined (~$0.01) instead of discovering the duplicate after render +
+# compliance (~$0.07 wasted).
+# Rollout: enabled in LOG-ONLY mode first (records topic_precheck audits,
+# never blocks). Set TOPIC_PRECHECK_ENFORCE = True after reviewing a batch.
+# ---------------------------------------------------------------------------
+# Thresholds backtested (2026-07-11) against the 20 historical embedding-breach
+# rejections vs the 9 shipped sets, chronologically simulated:
+#   topic-vs-passage 0.75 -> caught 15/20 breaches, flagged 3/9 shipped
+#   topic-vs-topic   0.80 -> secondary signal (noisier: shipped sets can share
+#                            topic territory with rejected attempts)
+# A false positive costs one re-refine (~$0.01-0.03); a miss costs a wasted
+# render + compliance (~$0.07).
+TOPIC_PRECHECK_ENABLED = True
+TOPIC_PRECHECK_ENFORCE = False           # log-only until reviewed on a real batch
+TOPIC_PRECHECK_COSINE = 0.80             # topic-doc vs prior topic-doc
+TOPIC_PRECHECK_PASSAGE_COSINE = 0.75     # topic-doc vs stored passage embedding
+TOPIC_PRECHECK_MAX_REREFINES = 2
+
+# Seed pre-screen: embed the seed excerpt before composing and rotate seeds
+# whose territory is already saturated in the corpus — today a colliding seed
+# costs a full render before rotation. Rotation is free (the untried seed
+# stays unused); false positives only burn seeds, never RCs.
+SEED_PRESCREEN_COSINE = 0.75
+SEED_PRESCREEN_MAX_ROTATIONS = 3
 
 # Seedless mode: domains the refiner may invent topics within.
 DOMAIN_POOL = [

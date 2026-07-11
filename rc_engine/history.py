@@ -5,6 +5,7 @@ existing export tooling keeps working on the same database file."""
 from __future__ import annotations
 
 import json
+import os
 import sqlite3
 from datetime import datetime, timezone
 
@@ -23,6 +24,32 @@ class HistoryStore:
 
     def close(self):
         self.conn.close()
+
+    def backup_to(self, dest_dir: str = config.DB_BACKUP_DIR,
+                  keep: int = config.DB_BACKUP_KEEP) -> str | None:
+        """Copy the DB to a non-synced local folder via SQLite's online backup
+        API (safe against a live/locked DB, unlike a file copy). Keeps the
+        newest `keep` backups. Never fatal — returns the path or None."""
+        try:
+            check = self.conn.execute("PRAGMA integrity_check").fetchone()[0]
+            if check != "ok":
+                print(f"[backup] WARNING: integrity_check reported: {check}")
+            os.makedirs(dest_dir, exist_ok=True)
+            stamp = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
+            dest = os.path.join(dest_dir, f"rc_pipeline-{stamp}.db")
+            target = sqlite3.connect(dest)
+            with target:
+                self.conn.backup(target)
+            target.close()
+            backups = sorted(f for f in os.listdir(dest_dir)
+                             if f.startswith("rc_pipeline-") and f.endswith(".db"))
+            for old in backups[:-keep]:
+                os.remove(os.path.join(dest_dir, old))
+            print(f"[backup] DB -> {dest} (integrity: {check}; keeping last {keep})")
+            return dest
+        except Exception as e:
+            print(f"[backup] failed (non-fatal): {e}")
+            return None
 
     # ------------------------------------------------------------------ init
 
@@ -61,6 +88,22 @@ class HistoryStore:
                 created_at TEXT NOT NULL
             )""")
         c.execute("CREATE INDEX IF NOT EXISTS idx_bp_status ON blueprints(status, created_at)")
+
+        c.execute("""
+            CREATE TABLE IF NOT EXISTS rendered_passages (
+                blueprint_id TEXT PRIMARY KEY,
+                tier TEXT NOT NULL,
+                passage TEXT NOT NULL,
+                realized_json TEXT NOT NULL,
+                compliance_f1 REAL,
+                seed_doc_id TEXT, seed_url TEXT, seed_title TEXT,
+                spent_usd REAL NOT NULL,
+                status TEXT NOT NULL,
+                fail_notes TEXT,
+                created_at TEXT NOT NULL
+            )""")
+        c.execute("""CREATE INDEX IF NOT EXISTS idx_rp_status
+                     ON rendered_passages(status, created_at)""")
 
         c.execute("""
             CREATE TABLE IF NOT EXISTS component_usage (
@@ -169,6 +212,33 @@ class HistoryStore:
             out.append(d)
         return out
 
+    def recent_topics(self, limit: int = 12,
+                      statuses: tuple[str, ...] = ("shipped", "composed",
+                                                   "rejected_novelty",
+                                                   "rejected_questions")) -> list[str]:
+        """Distinct topics of recent blueprints — shipped AND rejected, because
+        a topic that just collided on the embedding channel is exactly what the
+        next refine call must steer away from."""
+        placeholders = ",".join("?" * len(statuses))
+        rows = self.conn.execute(
+            f"""SELECT blueprint_json FROM blueprints
+                WHERE status IN ({placeholders})
+                ORDER BY created_at DESC LIMIT ?""",
+            (*statuses, limit * 3)).fetchall()
+        out: list[str] = []
+        seen: set[str] = set()
+        for (bj,) in rows:
+            try:
+                t = (json.loads(bj).get("topic") or "").strip()
+            except (ValueError, TypeError):
+                continue
+            if t and t.lower() not in seen:
+                seen.add(t.lower())
+                out.append(t)
+            if len(out) >= limit:
+                break
+        return out
+
     def component_positions(self, ctype: str) -> dict[str, int]:
         """For each component id: how many shipped RCs ago it was last used
         (0 = most recent shipped RC). Used for exclusion windows."""
@@ -200,6 +270,60 @@ class HistoryStore:
     def shipped_combo_hashes(self) -> set[str]:
         return {r[0] for r in self.conn.execute(
             "SELECT combo_hash FROM blueprints WHERE status = 'shipped'")}
+
+    # ------------------------------------------------------ rendered passages
+
+    def record_rendered_passage(self, blueprint_id: str, tier: str, passage: str,
+                                realized_json: str, compliance_f1: float,
+                                seed_doc_id: str | None, seed_url: str | None,
+                                seed_title: str | None, spent_usd: float,
+                                status: str = "awaiting_questions"):
+        self.conn.execute(
+            """INSERT OR REPLACE INTO rendered_passages
+               (blueprint_id, tier, passage, realized_json, compliance_f1,
+                seed_doc_id, seed_url, seed_title, spent_usd, status, fail_notes,
+                created_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?)""",
+            (blueprint_id, tier, passage, realized_json, compliance_f1,
+             seed_doc_id, seed_url, seed_title, spent_usd, status, _now()))
+        self.conn.commit()
+
+    def set_passage_status(self, blueprint_id: str, status: str,
+                           fail_notes: str | None = None):
+        self.conn.execute(
+            "UPDATE rendered_passages SET status = ?, fail_notes = ? WHERE blueprint_id = ?",
+            (status, fail_notes, blueprint_id))
+        self.conn.commit()
+
+    def load_rendered_passage(self, blueprint_id: str) -> dict | None:
+        row = self.conn.execute(
+            """SELECT rp.blueprint_id, rp.tier, rp.passage, rp.realized_json,
+                      rp.compliance_f1, rp.seed_doc_id, rp.seed_url, rp.seed_title,
+                      rp.spent_usd, rp.status, rp.fail_notes, rp.created_at,
+                      b.blueprint_json
+               FROM rendered_passages rp
+               JOIN blueprints b ON b.blueprint_id = rp.blueprint_id
+               WHERE rp.blueprint_id = ?""", (blueprint_id,)).fetchone()
+        return self._passage_row_to_dict(row) if row else None
+
+    def load_resumable_passages(self, status: str = "questions_failed") -> list[dict]:
+        rows = self.conn.execute(
+            """SELECT rp.blueprint_id, rp.tier, rp.passage, rp.realized_json,
+                      rp.compliance_f1, rp.seed_doc_id, rp.seed_url, rp.seed_title,
+                      rp.spent_usd, rp.status, rp.fail_notes, rp.created_at,
+                      b.blueprint_json
+               FROM rendered_passages rp
+               JOIN blueprints b ON b.blueprint_id = rp.blueprint_id
+               WHERE rp.status = ?
+               ORDER BY rp.created_at DESC""", (status,)).fetchall()
+        return [self._passage_row_to_dict(r) for r in rows]
+
+    @staticmethod
+    def _passage_row_to_dict(row) -> dict:
+        keys = ["blueprint_id", "tier", "passage", "realized_json", "compliance_f1",
+                "seed_doc_id", "seed_url", "seed_title", "spent_usd", "status",
+                "fail_notes", "created_at", "blueprint_json"]
+        return dict(zip(keys, row))
 
     # ----------------------------------------------------------- fingerprints
 
