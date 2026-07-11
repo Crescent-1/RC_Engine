@@ -83,11 +83,26 @@ def cmd_estimate(_args) -> int:
 # selftest ($0)
 # ---------------------------------------------------------------------------
 
+class _FlakyQuestionsMock(MockLLMClient):
+    """Mock whose questions stage returns invalid JSON the first N calls —
+    exercises the failed_questions -> rendered_passages -> resume path."""
+
+    def __init__(self, fail_times: int):
+        super().__init__()
+        self.fail_remaining = fail_times
+
+    def _questions(self, ctx) -> str:
+        if self.fail_remaining > 0:
+            self.fail_remaining -= 1
+            return "THIS IS NOT JSON"
+        return super()._questions(ctx)
+
+
 def cmd_selftest(_args) -> int:
     import tempfile
     failures = []
 
-    print("[1/4] Component library validation...")
+    print("[1/5] Component library validation...")
     try:
         reg = ComponentRegistry()
         counts = {t: len(reg.ids(t)) for t in reg.libraries}
@@ -96,11 +111,11 @@ def cmd_selftest(_args) -> int:
         print(f"      FAIL: {e}")
         return 1
 
-    print("[2/4] Cost model sanity (happy path within budget for every tier)...")
+    print("[2/5] Cost model sanity (happy path within budget for every tier)...")
     if cmd_estimate(None) != 0:
         failures.append("estimate")
 
-    print("[3/4] Budget guard unit check...")
+    print("[3/5] Budget guard unit check...")
     ledger = CostLedger(budget_usd=0.01)
     try:
         ledger.guard("questions", 20000, config.OPUS, 3200)
@@ -109,7 +124,7 @@ def cmd_selftest(_args) -> int:
     except BudgetExceeded:
         print("      OK: guard raised BudgetExceeded before any spend")
 
-    print("[4/4] Mock end-to-end pipeline (3 RCs, $0, temp DB)...")
+    print("[4/5] Mock end-to-end pipeline (3 RCs, $0, temp DB)...")
     fd, tmpdb = tempfile.mkstemp(suffix=".db")
     os.close(fd)
     os.unlink(tmpdb)
@@ -138,6 +153,49 @@ def cmd_selftest(_args) -> int:
             for marker in ("[PASSAGE]", "[QUESTIONS]", "[ANSWER KEY", "Q6."):
                 if marker not in rc_text:
                     failures.append(f"rc_text missing {marker}")
+        history.close()
+    finally:
+        if os.path.exists(tmpdb):
+            os.unlink(tmpdb)
+
+    print("[5/5] Questions-fail -> resume path (flaky mock, $0, temp DB)...")
+    fd, tmpdb = tempfile.mkstemp(suffix=".db")
+    os.close(fd)
+    os.unlink(tmpdb)
+    try:
+        history = HistoryStore(tmpdb)
+        flaky = _FlakyQuestionsMock(fail_times=config.MAX_QUESTION_ATTEMPTS)
+        pipe = RCPipeline(history, flaky, embed=False)
+        res = pipe.generate_one("elite")
+        if res.status != "failed_questions":
+            failures.append(f"flaky mock: expected failed_questions, got {res.status}")
+        else:
+            row = history.conn.execute(
+                "SELECT status, spent_usd FROM rendered_passages WHERE blueprint_id = ?",
+                (res.blueprint_id,)).fetchone()
+            if not row or row[0] != "questions_failed":
+                failures.append(f"flaky mock: rendered_passages status "
+                                f"{row[0] if row else None!r}, expected questions_failed")
+            res2 = pipe.resume_questions(res.blueprint_id)
+            if res2.rc_id is None or res2.status not in ("approved", "needs_review",
+                                                         "solver_dispute"):
+                failures.append(f"resume: expected a shipped RC, got {res2.status}")
+            row2 = history.conn.execute(
+                "SELECT status FROM rendered_passages WHERE blueprint_id = ?",
+                (res.blueprint_id,)).fetchone()
+            if not row2 or row2[0] != "consumed":
+                failures.append(f"resume: passage status "
+                                f"{row2[0] if row2 else None!r}, expected consumed")
+            if res2.rc_id and row:
+                total = history.conn.execute(
+                    "SELECT total_cost_usd FROM rc_sets WHERE rc_id = ?",
+                    (res2.rc_id,)).fetchone()[0]
+                if abs(total - (row[1] + res2.cost_usd)) > 1e-9:
+                    failures.append(f"resume: rc_sets total ${total} != prior "
+                                    f"${row[1]} + new ${res2.cost_usd}")
+            if not failures:
+                print(f"      OK: failed_questions persisted; resume shipped "
+                      f"{res2.rc_id} ({res2.status}) without re-rendering")
         history.close()
     finally:
         if os.path.exists(tmpdb):
@@ -224,8 +282,73 @@ def cmd_generate(args) -> int:
     if not args.no_export:
         out_dir = "exported_rc_sets_dryrun" if args.dry_run else "exported_rc_sets"
         cmd_export(argparse.Namespace(db=args.db, status=None, out=out_dir))
+    if not args.dry_run:
+        history.backup_to()
     history.close()
     return 0 if any(r.rc_id for r in results) else 1
+
+
+# ---------------------------------------------------------------------------
+# retry-questions — regenerate questions on a persisted, novelty-clean passage
+# ---------------------------------------------------------------------------
+
+def cmd_retry_questions(args) -> int:
+    if args.dry_run:
+        llm = MockLLMClient()
+        if args.db == config.DB_PATH:
+            args.db = "rc_engine_dryrun.db"
+        print(f"[dry-run] Using MockLLMClient — $0, no API calls. DB: {args.db}")
+    elif args.blueprint or args.all:
+        if not os.environ.get("ANTHROPIC_API_KEY"):
+            print("ANTHROPIC_API_KEY not set.")
+            return 1
+        llm = LLMClient()
+    else:
+        llm = None                      # list mode is free — no client needed
+
+    history = HistoryStore(args.db)
+    rows = history.load_resumable_passages()
+
+    if not args.blueprint and not args.all:
+        if not rows:
+            print("No resumable passages (status='questions_failed').")
+        else:
+            print(f"{len(rows)} resumable passage(s) — re-run with "
+                  f"--blueprint BP_ID or --all:")
+            for r in rows:
+                try:
+                    topic = json.loads(r["blueprint_json"]).get("topic", "")
+                except (ValueError, TypeError):
+                    topic = ""
+                print(f"  {r['blueprint_id']} | {r['tier']:6s} | "
+                      f"spent ${r['spent_usd']:.4f} | {r['created_at'][:16]} | "
+                      f"{topic[:60]}")
+                if r["fail_notes"]:
+                    print(f"      failed: {r['fail_notes'][:110]}")
+        history.close()
+        return 0
+
+    targets = [r["blueprint_id"] for r in rows] if args.all else [args.blueprint]
+    if not targets:
+        print("Nothing to resume.")
+        history.close()
+        return 0
+    pipe = RCPipeline(history, llm, embed=not (args.no_embed or args.dry_run))
+    shipped = 0
+    for bp_id in targets:
+        print(f"\n=== retry-questions {bp_id} ===")
+        res = pipe.resume_questions(bp_id, extra_guidance=args.note)
+        print(f"  -> {res.status} rc_id={res.rc_id} "
+              f"new spend ${res.cost_usd:.4f}")
+        for n in res.notes:
+            print(f"     {n}")
+        if res.rc_id:
+            shipped += 1
+    if shipped:
+        out_dir = "exported_rc_sets_dryrun" if args.dry_run else "exported_rc_sets"
+        cmd_export(argparse.Namespace(db=args.db, status=None, out=out_dir))
+    history.close()
+    return 0 if shipped else 1
 
 
 # ---------------------------------------------------------------------------
@@ -399,6 +522,11 @@ def cmd_health(args) -> int:
     src_counts = dict(history.conn.execute(
         "SELECT COALESCE(source, 'engine'), COUNT(*) FROM fingerprints GROUP BY 1"))
     print(f"  fingerprints by source:        {src_counts}")
+    n_fp_total = sum(src_counts.values())
+    if n_fp_total < config.CURVE_CAP_MIN_CORPUS:
+        print(f"  curve cap (novelty):           dormant — activates at "
+              f"{config.CURVE_CAP_MIN_CORPUS} fingerprints "
+              f"({n_fp_total}/{config.CURVE_CAP_MIN_CORPUS})")
     if aph_keyed:
         print(f"  aphorism endings:              {aph_true}/{aph_keyed} keyed sets "
               f"(register-rotation baseline ~12.5%)")
@@ -585,6 +713,7 @@ def cmd_vet(args) -> int:
                                      "; ".join(report.breached))
         print(f"\nIngested {'(replaced) ' if replaced else ''}{rc_id} as "
               f"source='manual' — future generations now audit against it.")
+        history.backup_to()
     elif ok:
         print("\nPASS — re-run with --ingest to add it to the corpus.")
     else:
@@ -673,6 +802,19 @@ def main(argv=None) -> int:
     g.add_argument("--max-usd", type=float, default=None,
                    help="batch spending cap (default: 1.25 x sum of requested tier budgets)")
 
+    r = sub.add_parser("retry-questions",
+                       help="regenerate questions on a persisted passage whose "
+                            "questions failed (questions-stage cost only)")
+    r.add_argument("--blueprint", default=None,
+                   help="blueprint id (BP_...) to resume; omit to list resumable passages")
+    r.add_argument("--all", action="store_true",
+                   help="resume every questions_failed passage")
+    r.add_argument("--note", default=None,
+                   help="extra directives appended to the question prompt")
+    r.add_argument("--db", default=config.DB_PATH)
+    r.add_argument("--dry-run", action="store_true", help="mock client, $0")
+    r.add_argument("--no-embed", action="store_true", help="disable embedding channel")
+
     b = sub.add_parser("backfill", help="fingerprint legacy rc_sets rows and/or exported txt ($0)")
     b.add_argument("--db", default=config.DB_PATH)
     b.add_argument("--from-txt", nargs="*", default=["exported_rc_sets", "approved_rc_sets - Copy"],
@@ -709,7 +851,8 @@ def main(argv=None) -> int:
     return {"estimate": cmd_estimate, "selftest": cmd_selftest,
             "generate": cmd_generate, "backfill": cmd_backfill,
             "health": cmd_health, "export": cmd_export,
-            "avoid": cmd_avoid, "vet": cmd_vet}[args.cmd](args)
+            "avoid": cmd_avoid, "vet": cmd_vet,
+            "retry-questions": cmd_retry_questions}[args.cmd](args)
 
 
 if __name__ == "__main__":

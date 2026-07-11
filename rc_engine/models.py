@@ -115,6 +115,13 @@ class RealizedStructure:
     def movement_string(self) -> str:
         return "|".join(self.paragraph_functions)
 
+    def to_json(self) -> str:
+        return json.dumps(asdict(self), ensure_ascii=False)
+
+    @classmethod
+    def from_json(cls, s: str) -> "RealizedStructure":
+        return cls(**json.loads(s))
+
 
 @dataclass
 class Fingerprint:

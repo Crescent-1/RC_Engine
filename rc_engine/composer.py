@@ -272,10 +272,36 @@ class BlueprintComposer:
         base_user = self._refine_user_prompt(bp, family, revelation, ending, profile, seed)
         refined = self._refine_with_retry(bp, model, max_tokens, base_user,
                                           mechanisms, ledger)
+        return self._apply_refined(bp, refined, mechanisms)
 
+    def refine_only(self, bp: Blueprint, seed: SeedEssay, ledger: CostLedger,
+                    avoid_topics: list[str] | None = None) -> Blueprint:
+        """Re-run the refine stage on an existing blueprint (structure stays
+        fixed), steering the topic away from avoid_topics. Used by the
+        pre-render topic-collision precheck: a re-refine costs ~$0.01-0.03 vs
+        ~$0.07 for a render + compliance that novelty would then reject."""
+        family = self.registry.get("family", bp.family_id)
+        revelation = self.registry.get("revelation", bp.revelation_id)
+        ending = self.registry.get("ending", bp.ending_id)
+        profile = self.registry.get("distractor_profile", bp.distractor_profile_id)
+        model, max_tokens = config.STAGE_CONFIG["refine"][bp.tier]
+        mechanisms = [profile["primary"], profile["secondary"]]
+        user = self._refine_user_prompt(bp, family, revelation, ending, profile, seed)
+        if avoid_topics:
+            user += ("\n\nCRITICAL: a previous topic for this structure was too "
+                     "semantically close to existing passages. Choose a DIFFERENT "
+                     "domain, far from ALL of these:\n  - "
+                     + "\n  - ".join(t for t in avoid_topics if t))
+        refined = self._refine_with_retry(bp, model, max_tokens, user,
+                                          mechanisms, ledger)
+        return self._apply_refined(bp, refined, mechanisms)
+
+    def _apply_refined(self, bp: Blueprint, refined: dict,
+                       mechanisms: list[str]) -> Blueprint:
         bp.topic = refined.get("topic", "") or bp.topic
         bp.tension_system = refined.get("tension_system", {})
-        bp.trap_map = self._sanitize_traps(refined.get("trap_map", []), mechanisms, len(movement))
+        bp.trap_map = self._sanitize_traps(refined.get("trap_map", []), mechanisms,
+                                           len(bp.movement))
         gists = {b.get("para"): b.get("gist", "") for b in refined.get("paragraph_briefs", [])}
         for p in bp.movement:
             p.gist = gists.get(p.para, "")
@@ -380,6 +406,15 @@ class BlueprintComposer:
         movement_lines = "\n".join(
             f"  para {p.para}: {p.function} ({p.len_words[0]}-{p.len_words[1]} words)"
             for p in bp.movement)
+        # topical divergence up front (~150 input tokens on the cheap refine
+        # model) so passages stop colliding on the embedding channel AFTER the
+        # expensive render call; includes recently rejected topics on purpose
+        avoid_part = ""
+        avoid = self.history.recent_topics(config.REFINE_AVOID_TOPICS)
+        if avoid:
+            avoid_part = ("\nAVOID these recently used topical territories — invent "
+                          "something semantically distant from ALL of them:\n  - "
+                          + "\n  - ".join(avoid) + "\n")
         return f"""STRUCTURAL BLUEPRINT (fixed — invent content for it):
 ARGUMENT FAMILY: {family['name']} — {family['core']}
 Difficulty must come from: {family['difficulty_source']}
@@ -392,5 +427,5 @@ REQUIRED CLOSING POSTURE: {family['closing_posture']} — {self.registry.closing
 (the 'fate' fields in tension_system must be consistent with this posture)
 INSTABILITY DEGREE: {bp.instability} (0 = neat closure, 1 = fully suspended; this governs how contested the middle feels — the ending's stance is governed by the closing posture above)
 ALLOWED TRAP MECHANISMS: {profile['primary']}, {profile['secondary']}
-{seed_part}
+{seed_part}{avoid_part}
 Produce the JSON now."""

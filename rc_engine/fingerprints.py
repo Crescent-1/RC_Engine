@@ -65,6 +65,12 @@ def _embed(text: str) -> list[float] | None:
     return [float(x) for x in _EMBEDDER.encode(text, normalize_embeddings=True)]
 
 
+def embed_text(text: str) -> list[float] | None:
+    """Public wrapper over the lazy local embedder ($0, no API call).
+    Returns None when the model is unavailable — callers must degrade."""
+    return _embed(text)
+
+
 def _sentences(text: str) -> list[str]:
     return [s for s in re.split(r"(?<=[.!?])\s+", text) if s.strip()]
 

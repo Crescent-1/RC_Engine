@@ -113,9 +113,10 @@ respects three things drawn from history:
 3. **Compatibility rules** — drop any pick that clashes with an earlier pick.
 
 Then it does a **distance pre-check**: compare this candidate blueprint against
-the last 50 shipped ones. If it's more than 55% similar to any of them (by
-component overlap), throw it away and resample. This is the *cheap* novelty
-gate — it rejects clones before spending a cent.
+the last 50 shipped ones. If its component-overlap distance to any of them is
+below 0.55 — i.e. it's more than **45% similar** (`config.MIN_BLUEPRINT_DISTANCE
+= 0.55`) — throw it away and resample. This is the *cheap* novelty gate — it
+rejects clones before spending a cent.
 
 It also samples, deterministically:
 - **paragraph movement** — merges the family's function sequence with the
@@ -206,10 +207,15 @@ This is the part that makes the whole system worth building. Humans notice
 | Stylometry | same *voice* wearing a different topic | Burrows' Delta on function words |
 | Embedding | same *meaning* | cosine on the passage embedding (this is the *only* channel your old pipeline had) |
 
-Each channel has a hard cap. If any single channel is breached against any RC in
-the trailing window, the RC is **rejected** and a fresh blueprint is composed
-(up to 3 tries). There's also a composite score: if the weighted blend is too
-similar overall, reject even if no single channel tripped.
+Each *structural* channel (movement, rhythm, stylometry) has a hard cap: breach
+it against any RC in the trailing window and the RC is **rejected**, and a fresh
+blueprint is composed (up to 3 tries). The two *coarse* channels — embedding and
+commitment curve — no longer veto alone: they reject only when a structural
+channel supports the match (`config.NOVELTY_SUPPORT_CAPS`) or the score is
+extreme (curve ≥ 0.98, embedding ≥ 0.92). The curve cap is dormant entirely
+until the corpus reaches `CURVE_CAP_MIN_CORPUS = 75` fingerprints. There's also
+a composite score: if the weighted blend is too similar overall, reject even if
+no single channel tripped.
 
 The key insight: **embeddings are 1 of 6 channels here.** Two passages can be
 about totally different topics (low embedding similarity) yet have the identical
@@ -305,8 +311,10 @@ reached, and any single-RC crash is caught so it can never kill the whole run.
 API rate-limit/credit exhaustion stops the batch cleanly with all finished work
 saved — re-run to continue.
 
-Typical real cost: elite happy path ≈ **$0.15**; a novelty-rejected attempt ≤
-~$0.09 because it dies before the question call.
+Typical real cost: elite happy path ≈ **$0.15**. A **Gate-B** (passage-level)
+novelty rejection costs ≤ ~$0.09 because it dies before the question call; a
+**Gate-C** (full) rejection has already paid for the Opus question call and
+costs close to the full happy path.
 
 ### Memory (`history.py`) — how "don't repeat" is possible
 
@@ -316,9 +324,12 @@ pipeline. New tables:
 - `blueprints` — every blueprint (even rejected ones), with its component IDs
   and combo hash. Drives the exclusion windows.
 - `component_usage` — which block was used when. Drives decay weighting.
-- `fingerprints` — the structural signature of every shipped RC (movement
-  string, commitment curve, rhythm vector, stylometry, embedding, letter
-  sequence, length-bias stat). This is what novelty compares against.
+- `fingerprints` — the structural signature of every shipped RC, every
+  Gate-C-rejected set (its passage + questions were fully paid for, so future
+  generations must diverge from it too), and every manually vetted set
+  (`vet --ingest`, `source='manual'`) — movement string, commitment curve,
+  rhythm vector, stylometry, embedding, letter sequence, length-bias stat.
+  This is what novelty compares against.
 - `novelty_audits` — a record of every similarity check, pass or fail.
 - `corpus_health` — periodic snapshots of drift.
 
@@ -333,7 +344,7 @@ pipeline. New tables:
 | `approved` | passed compliance, novelty, solver, judge, and length-bias | yes, after normal review |
 | `needs_review` | complete but a human should look (low judge score, length-bias flag, or a stage was budget-skipped) | after review |
 | `solver_dispute` | the blind solver disagrees with the key | fix key first |
-| `rejected_novelty` | too structurally close to an existing RC; auto-recomposed up to 3× | never shipped |
+| `rejected_novelty` | too structurally close to an existing RC; auto-recomposed up to 3×. Gate-B rejects persist only the blueprint + audit; Gate-C rejects also persist an `rc_sets` row + fingerprint (never exported) | never shipped |
 | `budget_abort` | would have exceeded the cap; nothing shipped, spend logged | n/a |
 | `failed_*` | composition/render/question failure; batch continues | n/a |
 

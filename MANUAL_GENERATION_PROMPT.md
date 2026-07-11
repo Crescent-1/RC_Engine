@@ -132,6 +132,12 @@ traps from the passage's own logic, especially the two misreadings planted in St
 2. Closing posture realized as committed; final sentence obeys its register.
 3. The correct option is the strictly LONGEST option in at most 2 of 6 questions —
    rewrite option lengths until this holds.
+3b. Within each question, keep the four options in a tight length band: word
+   spread (longest minus shortest) at most 8 words AND longest/shortest word
+   ratio at most 1.35. The vet gate blocks ingestion on violations — rewrite
+   option lengths until every question passes.
+3c. The THESIS/main-idea question's correct option must NOT be the strictly
+   longest of its four options (this tell is also budgeted corpus-wide at 1-in-3).
 4. Answer letters roughly balanced (no letter more than 3 times; not the same letter on
    consecutive questions more than once).
 5. No forbidden phrases; no option refutable by "not mentioned" or "too extreme" alone.

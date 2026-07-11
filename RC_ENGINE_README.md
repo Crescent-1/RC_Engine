@@ -53,10 +53,25 @@ python -m rc_engine.cli vet manual_rc_sets/RC-MANUAL-260707-1.txt --tier elite -
 2. **Batch cap**: `run_batch` stops starting new work once cumulative spend
    reaches `--max-usd` (default 1.25 × sum of requested tier budgets).
 3. **Typical costs** (from `estimate`): elite happy path ≈ **$0.15**, hard ≈
-   $0.15, medium ≈ $0.07. Novelty rejections abort *before* the expensive
-   question call, so a rejected attempt costs ≤ ~$0.09.
+   $0.15, medium ≈ $0.07. A **Gate-B** (passage-level) novelty rejection aborts
+   *before* the expensive question call, so it costs ≤ ~$0.09; a **Gate-C**
+   (full) rejection has already paid for questions and costs close to the full
+   happy path.
 4. **API exhaustion** (rate limit / credits) stops the batch cleanly; finished
    work is already committed. Re-run the same command to continue.
+5. **Question failures don't re-pay for passages**: once a passage clears the
+   passage-level novelty gate it is persisted (`rendered_passages`); if the
+   question stage then fails, the batch retries questions-only on the same
+   passage, and `retry-questions` can resume it later. Prior spend still
+   counts against the tier cap — the per-RC guarantee is unchanged.
+
+## DB safety
+
+`rc_pipeline.db` lives in a OneDrive-synced folder; live sync + SQLite is a
+known corruption risk. Every real `generate` run and `vet --ingest` therefore
+backs the DB up (SQLite online-backup API + `PRAGMA integrity_check`) to a
+local non-synced folder — default `%USERPROFILE%\rc_data\backups\`, override
+with `RC_ENGINE_BACKUP_DIR`; the newest 10 are kept.
 
 ## What each stage does
 
@@ -86,6 +101,11 @@ python -m rc_engine.cli vet manual_rc_sets/RC-MANUAL-260707-1.txt --tier elite -
 - Component libraries: `rc_engine/components/*.json` — edit/add entries freely;
   `selftest` validates them. Adding a family/persona/etc. requires no code change.
 - Novelty strictness: `NOVELTY_CAPS`, `MIN_COMPOSITE_NOVELTY`, `EXCLUSION_WINDOWS`.
+- Length-bias: per set, the correct option may be strictly longest in at most 2
+  of 6 questions (`CORRECT_LONGEST_MAX`). Corpus-wide, the **thesis** question's
+  correct option may be strictly longest in at most 1 of every 3 keyed sets
+  (`THESIS_LONGEST_WINDOW`/`THESIS_LONGEST_MAX`); breaches surface as corpus
+  flags in `generate`, `vet`, and `health`.
 - After ANY edit: `python -m rc_engine.cli selftest` (it is the pre-flight check).
 
 ## First production run (recommended sequence)

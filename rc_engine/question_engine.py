@@ -63,15 +63,20 @@ class QuestionEngine:
         self.registry = registry
         self.llm = llm
 
-    def build(self, bp: Blueprint, passage: str, ledger: CostLedger) -> dict:
+    def build(self, bp: Blueprint, passage: str, ledger: CostLedger,
+              extra_guidance: str | None = None) -> dict:
         """Returns {"questions": [...], "letters": [...], "trap_usage": {...}}
-        with letters already assigned per the blueprint's letter plan."""
+        with letters already assigned per the blueprint's letter plan.
+        extra_guidance: optional operator directives (e.g. from a resumed
+        retry) appended verbatim to the user prompt."""
         model, max_tokens = config.STAGE_CONFIG["questions"][bp.tier]
         topo = self.registry.get("topology", bp.topology_id)
         profile = self.registry.get("distractor_profile", bp.distractor_profile_id)
         slots = self._assign_traps(topo["slots"], bp)
 
         user = self._prompt(bp, passage, slots, topo, profile)
+        if extra_guidance:
+            user += f"\n\nADDITIONAL DIRECTIVES:\n{extra_guidance}"
         last_err = None
         for _ in range(config.MAX_QUESTION_ATTEMPTS):
             text, truncated = self.llm.call(

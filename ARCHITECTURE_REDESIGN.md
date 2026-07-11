@@ -453,7 +453,7 @@ Nine channels. Embeddings are one of nine. Every channel produces similarity ∈
 | 9 | **Semantic embedding** | existing bge-small passage embedding | cosine | > 0.80 (tightened from 0.85, since it is no longer the only gate) |
 
 **Composite:** `novelty = 1 − max_over_window( Σ wᵢ · simᵢ )` with weights `w = [.20, .18, .14, .08, .14, .10, .08, —, .08]` (channel 8 is corpus-level, applied separately). Verdict:
-- any single pairwise cap breached → **reject** (regenerate: composition-time breaches resample the blueprint; render-time breaches re-render with directives)
+- any single pairwise cap breached → **reject** (regenerate: composition-time breaches resample the blueprint; render-time breaches re-render with directives). *As implemented since `25800c3`: channels 3 and 9 (curve, embedding) additionally require a supporting structural channel or an extreme score before they veto — see `novelty.py::_coarse_channel_supported` and `config.NOVELTY_SUPPORT_CAPS`; the curve cap stays dormant below `CURVE_CAP_MIN_CORPUS = 75` fingerprints.*
 - composite novelty < 0.35 vs any window RC → reject
 - corpus-level flags (channels 6, 8, coverage KL) → **hold export batch**, not the RC — these are distributional leaks fixed by scheduling, not regeneration.
 
