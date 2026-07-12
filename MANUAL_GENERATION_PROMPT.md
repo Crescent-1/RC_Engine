@@ -78,7 +78,10 @@ Choose and commit internally to:
    argument, or lands on a concrete particular, or ends on a quietly qualified clause.
    At most 1 set in 8 may end aphoristically.
 5. **Persona** — a distinct authorial voice (register, sentence rhythm, hedging style,
-   metaphor domains). Vary it across the session.
+   metaphor domains). Vary it across the session. Also commit one small *texture tell*
+   for this set only (e.g., slightly dry understatement; one concrete field detail
+   carried across paragraphs; a self-interruption habit) so the prose is not the same
+   polished house voice every time.
 6. **Thesis revelation** — decide the paragraph where the author's final position first
    becomes visible. Before that point a careful reader must NOT be able to state it.
    Medium: visible by paragraph 2. Hard: paragraph 3 or later. Elite: penultimate
@@ -105,6 +108,24 @@ Hard rules:
 - FORBIDDEN words/phrases: furthermore, moreover, in conclusion, it is a testament,
   tapestry, delve, paradigm shift, navigate the complexities, underscores, multifaceted.
 - Honor the closing posture and final-sentence register EXACTLY as committed in Stage 1.
+- HUMAN TEXTURE (a touch only — keep the intellect; break the factory polish):
+  - Plant one concrete, slightly stubborn particular that is not immediately cashed out as
+    a system-metaphor: a room, a job title, a tool, a dated practice, a named place, a
+    small physical action. It must earn its place in the argument, not decorate it.
+  - Allow one sentence per passage that is plainer or more workmanlike than its neighbors —
+    a sentence a tired essayist would leave, not a display sentence.
+  - Uneven polish is good: not every sentence equally epigrammatic. Let one clause trail,
+    re-steer midstream ("— no: more precisely,"), or land on an ordinary word.
+  - Mix sentence subjects. Avoid a run of abstract openers ("The doctrine… The residue…
+    The mechanism… The ledger…"). Prefer some human agents, some concrete nouns, some
+    "I / we / they" when the persona allows.
+  - Do NOT default to the invisible house cadence "I grant X. The trouble is Y. What
+    remains is Z." unless Stage 1's structure genuinely requires that shape; if you hear
+    yourself writing it, rebuild the paragraph.
+  - Soft-ban overused house metaphors unless the topic forces them: ledger/residue/
+    aperture/altitude/settling field as stock furniture. Invent fresher local images.
+  - Still forbidden as "humanizing": typos, slang, emojis, throat-clearing, fake childhood
+    anecdotes, "as someone who…", direct reader address, moral lectures.
 
 ## STAGE 3 — Questions (exactly 6)
 
@@ -143,6 +164,9 @@ traps from the passage's own logic, especially the two misreadings planted in St
 5. No forbidden phrases; no option refutable by "not mentioned" or "too extreme" alone.
 6. Every wrong-option explanation names its mechanism and ties it to a specific passage
    location.
+7. Human texture present: at least one stubborn concrete particular, at least one plainer
+   sentence, and no unbroken abstract-noun parade or stock "grant / trouble / remains"
+   cadence unless the blueprint required it.
 
 ## OUTPUT FORMAT (produce exactly this, nothing else)
 

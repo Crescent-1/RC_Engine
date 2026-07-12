@@ -13,6 +13,13 @@ spent + worst > budget, BudgetExceeded is raised BEFORE any tokens are
 bought. The pipeline treats this as: skip (solver/judge) or abort the RC
 (core stages). An RC therefore cannot exceed its tier budget — not
 approximately, structurally.
+
+Amendment (budget slack): a few stages listed in config.BUDGET_GUARD_SLACK
+carry a small per-stage tolerance so the deliberately-conservative estimate
+does not strand a fully-paid, novelty-clean passage on a worst case that
+rarely materializes. For those stages the bound is spend <= budget * (1 +
+slack) — e.g. the questions stage on the hard tier may overshoot by at most
+~$0.033. Every other stage keeps the strict budget ceiling.
 """
 
 from __future__ import annotations
@@ -54,7 +61,13 @@ class CostLedger:
 
     def guard(self, stage: str, prompt_chars: int, model: str, max_tokens: int):
         worst = self.worst_case(prompt_chars, model, max_tokens)
-        if self.spent_usd + worst > self.budget_usd:
+        # The worst-case estimate is deliberately ~25-30% conservative (chars//3 +
+        # the full max_tokens ceiling), so it aborts on false positives. A few
+        # stages carry a small slack so a fully-paid, novelty-clean passage is
+        # never stranded for a worst case that almost never materializes. The
+        # tier invariant becomes: spend <= budget * (1 + slack) on that one stage.
+        slack = config.BUDGET_GUARD_SLACK.get(stage, 0.0)
+        if self.spent_usd + worst > self.budget_usd * (1.0 + slack):
             raise BudgetExceeded(stage, worst, self.spent_usd, self.budget_usd)
 
     def record(self, stage: str, model: str, in_tok: int, out_tok: int) -> float:
@@ -95,7 +108,14 @@ class LLMClient:
         # Sonnet 5 runs adaptive thinking by default when `thinking` is omitted;
         # thinking tokens count against max_tokens, so every small-ceiling call
         # stops at max_tokens ("truncated"). The budget model assumes no thinking.
-        extra = {"thinking": {"type": "disabled"}} if model == config.SONNET else {}
+        extra: dict = {}
+        if model == config.SONNET:
+            extra["thinking"] = {"type": "disabled"}
+        # Optional effort (output_config) — e.g. medium-tier Opus at "low".
+        # Resolved from context["tier"] when present, else from blueprint.tier.
+        effort = self._resolve_effort(stage, context)
+        if effort:
+            extra["output_config"] = {"effort": effort}
         try:
             resp = self._client.messages.create(
                 model=model, max_tokens=max_tokens, system=system,
@@ -113,6 +133,22 @@ class LLMClient:
         text = "".join(b.text for b in resp.content if b.type == "text")
         ledger.record(stage, model, resp.usage.input_tokens, resp.usage.output_tokens)
         return text, resp.stop_reason == "max_tokens"
+
+    @staticmethod
+    def _resolve_effort(stage: str, context: dict | None) -> str | None:
+        """Look up STAGE_EFFORT[stage][tier] when configured."""
+        table = getattr(config, "STAGE_EFFORT", None) or {}
+        by_tier = table.get(stage) or {}
+        if not by_tier:
+            return None
+        ctx = context or {}
+        tier = ctx.get("tier")
+        if not tier:
+            bp = ctx.get("blueprint")
+            tier = getattr(bp, "tier", None) if bp is not None else None
+        if not tier:
+            return None
+        return by_tier.get(tier)
 
 
 # ---------------------------------------------------------------------------

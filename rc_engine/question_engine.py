@@ -31,9 +31,31 @@ DISTRACTOR RULES:
   a spread of 8 words (longest at most 1.25x the shortest).
 - In thesis/main-point slots the correct option must NOT be the longest of the four:
   write at least one wrong option with more words than the correct one.
+- ACROSS THE SET: in at least 4 of the 6 questions the correct option must NOT be
+  the strictly longest of its four — pad a wrong option or compress the correct one.
+  The correct option may be strictly longest in AT MOST 2 of the 6 questions.
+- Never make "longest option = right" a reliable heuristic anywhere in the set.
 - Correct options must not be systematically the most hedged; in at least 2 questions
   phrase the correct option more flatly than its strongest distractor.
 - Application slots require a genuinely NEW scenario, not a paraphrase.
+
+LENGTH-BIAS SELF-CHECK (mandatory before you emit JSON):
+After drafting all 6 questions, re-count word lengths for every option (A-D texts
+as you wrote them — ignore letters; count the option strings only).
+1. Per question: max_words - min_words <= 8; max/min <= 1.25.
+2. Set-wide: count how many questions have the correct option as the STRICTLY
+   longest (unique max). That count must be <= 2. If it is 3+, fix before emit —
+   prefer lengthening a wrong option with one precise clause; only then shorten
+   the correct option.
+3. Thesis / main-point / global slots: correct must NOT be strictly longest.
+4. COMPREHENSIBILITY LOCK when adjusting length:
+   - Never trim into fragments, telegraphic stubs, or options that lose the claim.
+   - After any cut, the option must still be a full grammatical proposition a CAT
+     test-taker can parse in one read — subject, predicate, and the content that
+     makes it right or wrong must remain explicit.
+   - Do not delete qualifiers that change meaning (scope, stance, causality).
+   - Prefer adding substance to a distractor over gutting the correct answer.
+5. Only after this recheck passes, emit the JSON.
 
 Respond ONLY with valid JSON, no markdown fences:
 {
@@ -64,12 +86,15 @@ class QuestionEngine:
         self.llm = llm
 
     def build(self, bp: Blueprint, passage: str, ledger: CostLedger,
-              extra_guidance: str | None = None) -> dict:
+              extra_guidance: str | None = None,
+              stage: str = "questions") -> dict:
         """Returns {"questions": [...], "letters": [...], "trap_usage": {...}}
         with letters already assigned per the blueprint's letter plan.
         extra_guidance: optional operator directives (e.g. from a resumed
-        retry) appended verbatim to the user prompt."""
-        model, max_tokens = config.STAGE_CONFIG["questions"][bp.tier]
+        retry) appended verbatim to the user prompt.
+        stage: which STAGE_CONFIG entry drives model/max_tokens and cost
+        labelling (normally 'questions')."""
+        model, max_tokens = config.STAGE_CONFIG[stage][bp.tier]
         topo = self.registry.get("topology", bp.topology_id)
         profile = self.registry.get("distractor_profile", bp.distractor_profile_id)
         slots = self._assign_traps(topo["slots"], bp)
@@ -80,7 +105,7 @@ class QuestionEngine:
         last_err = None
         for _ in range(config.MAX_QUESTION_ATTEMPTS):
             text, truncated = self.llm.call(
-                ledger, "questions", model, max_tokens, QUESTION_SYSTEM, user,
+                ledger, stage, model, max_tokens, QUESTION_SYSTEM, user,
                 context={"blueprint": bp, "slots": slots,
                          "mechanisms": [profile["primary"], profile["secondary"]]})
             try:
@@ -149,6 +174,9 @@ HIDDEN BLUEPRINT CONTEXT (never reveal to students):
 QUESTION PLAN ({topo['name']}{'; ' + style if style else ''}):
 {chr(10).join(slot_lines)}
 
+Before emitting JSON: recheck option word counts for length bias (correct strictly
+longest in at most 2/6; never on thesis/main-point). If you trim for parity, keep
+every option a complete, comprehensible sentence — no clipped fragments.
 Write the 6 questions now as JSON."""
 
     def _validate(self, data: dict, truncated: bool) -> list[dict]:
@@ -240,10 +268,11 @@ def length_bias_report(qdata: dict) -> dict:
     for q in qdata["questions"]:
         wc = {l: len(q["options"][l]["text"].split()) for l in "ABCD"}
         spread = max(wc.values()) - min(wc.values())
-        if spread > 8:
-            warnings.append(f"Q{q['q']}: option word spread {spread} > 8 ({wc})")
-        if min(wc.values()) and max(wc.values()) / min(wc.values()) > 1.35:
-            warnings.append(f"Q{q['q']}: option length ratio > 1.35")
+        if spread > OPTION_LENGTH_SPREAD_MAX:
+            warnings.append(f"Q{q['q']}: option word spread {spread} > "
+                            f"{OPTION_LENGTH_SPREAD_MAX} ({wc})")
+        if min(wc.values()) and max(wc.values()) / min(wc.values()) > OPTION_LENGTH_RATIO_WARN:
+            warnings.append(f"Q{q['q']}: option length ratio > {OPTION_LENGTH_RATIO_WARN}")
         mx = max(wc.values())
         is_strict_longest = wc[q["correct"]] == mx and list(wc.values()).count(mx) == 1
         if is_strict_longest:
@@ -273,6 +302,15 @@ def length_bias_report(qdata: dict) -> dict:
 # At most this many of 6 correct options may be the strictly longest before the
 # set is treated as length-biased (matches the legacy judge's B1 threshold).
 CORRECT_LONGEST_MAX = 2
+
+# Option-length parity thresholds (single source of truth for the audit).
+# The prompt asks the model to AIM at ratio <= _TARGET and spread <= _SPREAD_MAX;
+# the validator only WARNS past _RATIO_WARN. The gap between target (1.25) and
+# warn (1.35) is a deliberate buffer so ordinary phrasing variation is not
+# flagged — the prompt aims tighter than the gate enforces.
+OPTION_LENGTH_SPREAD_MAX = 8
+OPTION_LENGTH_RATIO_TARGET = 1.25
+OPTION_LENGTH_RATIO_WARN = 1.35
 
 
 def option_band_check(qdata: dict) -> list[str]:

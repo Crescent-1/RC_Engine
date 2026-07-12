@@ -13,47 +13,47 @@ What remains, once the warehouse is emptied, is not nothing. The reaction times 
 [QUESTIONS]
 
 Q1. Which of the following best states the central claim of the passage?
-(A) The question of how long it takes to find a word dissolves, because it presupposes a stored item and an act of finding that scrutiny does not reveal.
-(B) Words are not stored in the mind at all, and knowledge of a language is best understood as a formless flux without stable structure.
-(C) Lexical retrieval is a genuine locatable event, but the reaction-time methods currently used to measure it remain too coarse to pin down the precise instant at which the stored word is reached.
-(D) The tip-of-the-tongue state is the strongest available evidence that words wait on shelves to be pulled.
+(A) The word-finding question dissolves, because it presupposes a stored item and an act of finding that scrutiny does not reveal.
+(B) Words are not stored in the mind at all, and knowledge of a language is best read as formless flux without structure.
+(C) Lexical retrieval is a genuine event, but reaction-time methods remain too coarse to pin the precise access instant.
+(D) The tip-of-the-tongue state is the strongest available evidence that words wait on shelves ready to be pulled.
 
 Q2. The sentence "The tip-of-the-tongue state seems to clinch it: there sits the word, on its shelf, and the clerk cannot reach it" functions in the argument to:
 (A) present the author's considered view that the word is a stored item momentarily out of reach.
-(B) prove that speakers can consciously inspect the contents of the mental warehouse.
-(C) establish that reaction-time measurements are unreliable near the moment of access.
-(D) stage the most persuasive case for the warehouse picture so the next paragraph can take it apart.
+(B) prove that speakers can consciously inspect the contents of the mental warehouse itself.
+(C) establish that reaction-time measurements are unreliable near the moment of lexical access.
+(D) stage the most persuasive case for the warehouse picture so the next paragraph can dismantle it.
 
 Q3. "The mistake was never in the stopwatch. It was in the noun" most nearly means:
-(A) the error lay not in the precision of measurement but in the object presupposed by the word "retrieval."
-(B) the timing instruments were flawed and produced numbers that cannot be trusted.
+(A) the error lay not in measurement precision but in the object presupposed by the word "retrieval."
+(B) the timing instruments were flawed and produced numbers that cannot be trusted at all.
 (C) the term "word" is ambiguous between two camps who mean different things by it.
-(D) speakers have no genuine knowledge of the words in their language.
+(D) speakers have no genuine knowledge of the words that belong in their language.
 
 Q4. Regarding a candidate's crossing of the "winning threshold," the passage holds that this crossing is:
-(A) the sufficient event that constitutes lexical access, occurring at a datable instant just before articulation.
-(B) necessary before the mouth moves, yet not the single sufficient retrieval-event the warehouse picture promised.
-(C) neither necessary nor relevant to speaking, a mere by-product of measurement.
-(D) evidence that the settling does, after all, have one identifiable seat.
+(A) the sufficient event that constitutes lexical access, occurring at a datable instant before articulation.
+(B) necessary before the mouth moves, yet not the single sufficient retrieval-event the warehouse promised.
+(C) neither necessary nor relevant to speaking, a mere by-product of experimental measurement alone.
+(D) evidence that the settling does, after all, have one identifiable seat in the process.
 
 Q5. The passage's closing posture toward the question "how long does it take to find a word?" is best described as:
-(A) leaving the question open, since the evidence could still resolve either way with better methods.
-(B) answering it in the negative — concluding that words are not stored.
-(C) reframing it as a question about the brain's anatomy rather than its timing.
-(D) showing it has no answer as posed, because the object it assumes is absent, while its measurements survive intact.
+(A) leaving the question open, since evidence could still resolve either way with better methods.
+(B) answering it in the negative — concluding that words are not stored in the mind at all.
+(C) reframing it as a question about the brain's anatomy rather than about its timing.
+(D) showing it has no answer as posed, because the object assumed is absent, while measurements survive.
 
 Q6. A researcher asks at what precise instant a listener recognizes a spoken word. On the passage's logic, the best response is that:
-(A) listeners do not really recognize words, so the recognition times are illusory.
-(B) the question treats a distributed settling as a datable point-event, though the recognition times remain informative even if no single instant of recognition exists.
-(C) finer-grained equipment will eventually locate the exact instant the question asks for.
-(D) recognition must be filed under the listener's private experience rather than the signal.
+(A) listeners do not really recognize words, so measured recognition times are wholly illusory.
+(B) the question treats a distributed settling as a datable point-event, though the times remain informative.
+(C) finer-grained equipment will eventually locate the exact instant the question is asking for.
+(D) recognition must be filed under the listener's private experience rather than under the signal.
 
 [ANSWER KEY & ELIMINATION LOGIC]
 
 Q1 — Correct answer: (A)
   (A) CORRECT — states the para 3 dissolution ("neither survives the look") joined to the para 5 residue that the measurements remain; the object, not the timing, is what goes missing.
   (B) premature_closure — the planted over-reading; para 4 raises "nothing is stored... formless flux" precisely to forbid it ("That does not follow, and the field's own data forbid it").
-  (C) stage_misattribution — pins the trouble on measurement coarseness, exactly the diagnosis para 3 rejects ("The mistake was never in the stopwatch"); also the strictly longest option, offered to bait.
+  (C) stage_misattribution — pins the trouble on measurement coarseness, exactly the diagnosis para 3 rejects ("The mistake was never in the stopwatch").
   (D) example_promotion — promotes the para 2 illustration (TOT) into the thesis; para 3 dismantles that very case.
 
 Q2 — Correct answer: (D)

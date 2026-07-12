@@ -46,7 +46,10 @@ CHARS_PER_TOKEN_ESTIMATE = 3
 # ---------------------------------------------------------------------------
 
 TIER_BUDGET_USD = {
-    "medium": 0.12,
+    # Medium now uses Opus for render + questions (same quality path as hard,
+    # shorter passage). Budget raised from $0.12 so happy path + one retry
+    # still fits; Sonnet was the quality bottleneck on both prose and MCQs.
+    "medium": 0.20,
     "hard": 0.22,
     "elite": 0.30,
 }
@@ -57,13 +60,16 @@ TIER_BUDGET_USD = {
 
 STAGE_CONFIG = {
     # stage: {tier: (model, max_tokens)}
+    # Medium: Opus on the two quality-critical stages (render, questions).
+    # Refine stays Haiku (structure already fixed); solver stays Sonnet (cheap
+    # optional gate). Hard/elite unchanged.
     "refine": {
         "medium": (HAIKU, 1600),
         "hard": (SONNET, 2400),
         "elite": (SONNET, 2400),
     },
     "render": {
-        "medium": (SONNET, 1400),
+        "medium": (OPUS, 1500),   # was Sonnet — passage quality bottleneck
         "hard": (OPUS, 1600),
         "elite": (OPUS, 1600),
     },
@@ -73,7 +79,7 @@ STAGE_CONFIG = {
         "elite": (HAIKU, 1600),
     },
     "questions": {
-        "medium": (SONNET, 3200),
+        "medium": (OPUS, 3200),   # was Sonnet — MCQ / length-bias bottleneck
         "hard": (OPUS, 3200),
         "elite": (OPUS, 3200),
     },
@@ -87,6 +93,19 @@ STAGE_CONFIG = {
         "hard": (HAIKU, 1600),
         "elite": (HAIKU, 1600),
     },
+}
+
+# Anthropic output_config.effort per stage/tier (None = API default "high").
+# Medium uses Opus at "low" for render+questions: same model family as hard,
+# fewer tokens / lower latency / lower $ than default high effort. Hard/elite
+# stay at default high for max quality. Valid: low | medium | high | xhigh | max.
+STAGE_EFFORT = {
+    "refine":     {"medium": None, "hard": None, "elite": None},
+    "render":     {"medium": "low", "hard": None, "elite": None},
+    "compliance": {"medium": None, "hard": None, "elite": None},
+    "questions":  {"medium": "low", "hard": None, "elite": None},
+    "solver":     {"medium": None, "hard": None, "elite": None},
+    "judge":      {"medium": None, "hard": None, "elite": None},
 }
 
 # Typical input sizes per stage (tokens) — used only by `cli estimate` to
@@ -107,9 +126,32 @@ MAX_RENDER_ATTEMPTS = 2      # render + compliance loop
 MAX_QUESTION_ATTEMPTS = 2
 MAX_JUDGE_ATTEMPTS = 2
 
+# One render-level retry with breach-specific directives before a Gate-B novelty
+# rejection falls back to a full recompose. Only fires for render-movable
+# channels (rhythm/curve/embedding/stylometry), never blueprint-derived movement.
+GATE_B_RENDER_RETRY = 1
+
+# Corpus-aware negative steering ($0): seed the render contract with directives
+# that push the passage's prose texture (sentence rhythm, opening altitude) away
+# from its nearest corpus neighbours, so the soft stylometry/rhythm channels are
+# diversified at the source instead of caught after a paid render. Structural
+# axes fixed by the blueprint (thesis schedule, closing posture) are never touched.
+DIVERGENCE_DIRECTIVES_ENABLED = True
+DIVERGENCE_MAX_NEIGHBORS = 2
+
 # Stages that may be skipped (not aborted) when the remaining budget cannot
 # cover their worst case. Order = priority of spend.
 OPTIONAL_STAGES = ("solver", "judge")
+
+# Per-stage slack on the worst-case budget guard. The guard's input estimate is
+# deliberately ~25-30% conservative (chars//3 + the full max_tokens ceiling), so
+# it aborts on false positives. For the questions stage only, allow a small
+# overshoot so a fully-paid, novelty-clean passage is never stranded for the sake
+# of a worst case that almost never materializes. Bound on the tier invariant:
+# at most budget * (1 + slack) on exactly one stage (hard tier: +$0.033).
+BUDGET_GUARD_SLACK = {
+    "questions": 0.15,
+}
 
 # ---------------------------------------------------------------------------
 # Tier structural parameter regions
@@ -119,7 +161,14 @@ TIER_PARAMS = {
     "medium": {
         "instability_range": (0.15, 0.40),
         "passage_words": (400, 450),
-        "allowed_topologies": ["QT01", "QT02", "QT05", "QT20"],
+        # Broader than the original 4 — those four all hit 1.0 topology
+        # collisions once a few mediums/elites shipped, so every medium
+        # attempt died at the free precheck. Still avoid the hardest curves
+        # (cliff ambush-only sets, double counterfactual, etc.).
+        "allowed_topologies": [
+            "QT01", "QT02", "QT03", "QT04", "QT05", "QT06",
+            "QT08", "QT13", "QT14", "QT16", "QT20",
+        ],
         # medium uses only structurally simpler families (tier_floor == medium)
     },
     "hard": {
@@ -140,25 +189,30 @@ TIER_PARAMS = {
 TIER_LETTERS = {"medium": "M", "hard": "H", "elite": "E"}
 
 # ---------------------------------------------------------------------------
-# Seed sourcing: which RAG genres each tier prefers.
-#   The elite/hard prompt design assumes serious long-form register (Aeon,
-#   Psyche, Nautilus, JSTOR Daily). Medium accepts anything, including the
-#   lighter Smithsonian feeds. Labels here must match RAG.py FEEDS genres.
-#   None = any genre. If a tier's preferred pool is exhausted the seed provider
-#   falls back to ANY unused essay, then to seedless — so a batch never starves
-#   just because serious sources ran out.
+# Seed sourcing: preferred genre pools per tier (labels = RAG.py FEEDS genres).
+#   Hard/elite draw uniformly at random ONLY from CAT_SEED_GENRES (multi-move
+#   essay sources). They do NOT fall back to news/op-ed or Smithsonian-lite.
+#   Medium may draw from any unused essay (including political / explainer).
 # ---------------------------------------------------------------------------
-SERIOUS_GENRES = [
+# Gold + solid CAT seed genres (see RAG FEEDS "CAT gold" block).
+CAT_SEED_GENRES = [
     "Aeon", "Psyche", "Nautilus", "JSTOR",
     "Public Books", "The Point", "Hedgehog Review", "New Atlantis",
     "Boston Review", "LARB", "Commonweal", "Lapham's Quarterly",
-    "LRB", "NYRB", "Harper's", "Dissent", "Noema",
+    "LRB", "NYRB", "Harper's", "Noema",
+    "Quanta", "Undark",
 ]
+# Back-compat alias
+SERIOUS_GENRES = CAT_SEED_GENRES
+
 TIER_SEED_GENRES = {
-    "elite": SERIOUS_GENRES,
-    "hard": SERIOUS_GENRES,
-    "medium": None,   # any genre
+    "elite": CAT_SEED_GENRES,   # random within CAT-quality pool only
+    "hard": CAT_SEED_GENRES,    # same
+    "medium": None,             # any unused genre at random
 }
+# When True, hard/elite never fall back to non-preferred genres (seedless
+# instead). Keeps Nation / SciAm / Smithsonian out of hard/elite.
+TIER_SEED_STRICT = True
 
 # ---------------------------------------------------------------------------
 # Composer: exclusion windows (in shipped RCs) and decay weighting
@@ -251,6 +305,14 @@ NOVELTY_SUPPORT_CAPS = {
     "rhythm_cosine": 0.88,
     "curve_pearson_extreme": 0.98,
     "embedding_cosine_extreme": 0.92,
+    # persona_leak: a low Burrows' Delta only *means* "same author wrote the same
+    # essay twice" when a second structural channel agrees. Below this extreme
+    # floor the voices are near-identical regardless of structure, so reject
+    # unconditionally; between here and stylometry_delta_floor, require support.
+    # (The single generator has a house voice that trips the 0.90 floor on nearly
+    # every render; blind re-rolls cannot change it, so an unsupported breach is a
+    # false positive that only burns a paid render.)
+    "stylometry_delta_extreme": 0.70,
 }
 
 COMPOSITE_WEIGHTS = {
@@ -301,10 +363,27 @@ REFINE_AVOID_TOPICS = 12
 # A false positive costs one re-refine (~$0.01-0.03); a miss costs a wasted
 # render + compliance (~$0.07).
 TOPIC_PRECHECK_ENABLED = True
-TOPIC_PRECHECK_ENFORCE = False           # log-only until reviewed on a real batch
+TOPIC_PRECHECK_ENFORCE = True            # enforced: blocks colliding topics pre-render
 TOPIC_PRECHECK_COSINE = 0.80             # topic-doc vs prior topic-doc
 TOPIC_PRECHECK_PASSAGE_COSINE = 0.75     # topic-doc vs stored passage embedding
 TOPIC_PRECHECK_MAX_REREFINES = 2
+
+# Free pre-render topology clearance: a blueprint whose planned topology signature
+# is too close to the corpus is re-picked (local registry shuffle, $0) BEFORE any
+# paid render — otherwise a topology collision is only caught at Gate C, after the
+# Opus questions call has already been paid for (~$0.15 wasted).
+TOPOLOGY_PRECHECK_ENABLED = True
+TOPOLOGY_PRECHECK_MAX_REPICKS = 5
+
+# Free pre-render movement clearance: planned paragraph-function sequence is
+# compared to the fingerprint window with the same NOVELTY_CAPS as Gate B.
+# Identical / near-identical movement is a family-level skeleton collision —
+# seed rotation alone cannot fix it. On hit we ban the family + movement
+# string and recompose (refine only, no render) before any Opus passage call.
+# Gate-B movement rejects also accumulate into the same ban sets for the
+# batch recompose loop so a second paid render never re-uses F24's skeleton.
+MOVEMENT_PRECHECK_ENABLED = True
+MOVEMENT_PRECHECK_MAX_RECOMPOSES = 3   # local recompose attempts inside generate_one
 
 # Seed pre-screen: embed the seed excerpt before composing and rotate seeds
 # whose territory is already saturated in the corpus — today a colliding seed

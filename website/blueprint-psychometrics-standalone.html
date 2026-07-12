@@ -1,0 +1,2263 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#06080f" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f5f6fa" media="(prefers-color-scheme: light)">
+  <meta name="description" content="The Blueprint Engine — a structural novelty engine for CAT-grade reading comprehension. Argument architecture sampled from a two-billion-combination space, written to contract, and audited on nine statistical channels before anything ships.">
+  <meta name="author" content="Blueprint Psychometrics">
+  <meta property="og:title" content="Blueprint Psychometrics — The RC engine with no house style">
+  <meta property="og:description" content="Structure is sampled, tracked, and audited — nine novelty channels against everything ever shipped. Mock content serious students cannot pattern-match.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <title>Blueprint Psychometrics — The RC engine with no house style</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23070b12'/%3E%3Cpath d='M8 22V10h4.2c2.4 0 3.9 1.2 3.9 3.1 0 1.3-.7 2.3-1.9 2.8L18 22h-3.2l-3.2-5.4H11V22H8zm3-7.8h1.1c1 0 1.6-.5 1.6-1.3s-.6-1.3-1.6-1.3H11v2.6z' fill='%236b8cff'/%3E%3Ccircle cx='23' cy='11' r='2' fill='%234fd1a5'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500;1,6..72,600&display=swap" rel="stylesheet">
+  <style>
+/* ==========================================================================
+   Blueprint Psychometrics — design system v2
+   Zero-dependency, dark-first, editorial-meets-engineering.
+   ========================================================================== */
+
+/* ---------- tokens ---------- */
+:root {
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "Newsreader", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", monospace;
+
+  --bg: #06080f;
+  --bg-2: #0a0e19;
+  --panel: rgba(15, 20, 35, 0.72);
+  --panel-solid: #0d1322;
+  --line: rgba(148, 163, 204, 0.14);
+  --line-strong: rgba(148, 163, 204, 0.28);
+  --ink: #e9edf7;
+  --ink-dim: #99a3ba;
+  --ink-faint: #626d85;
+
+  --accent: #6b8cff;
+  --accent-ink: #a8bcff;
+  --accent-2: #4fd1a5;
+  --danger: #ff6b7a;
+  --warn: #f0b45c;
+
+  --glow: rgba(107, 140, 255, 0.16);
+  --radius: 14px;
+  --radius-sm: 9px;
+  --shell: 1160px;
+  --ease: cubic-bezier(0.22, 0.9, 0.3, 1);
+}
+
+html[data-theme="light"] {
+  --bg: #f6f7fb;
+  --bg-2: #eef0f7;
+  --panel: rgba(255, 255, 255, 0.8);
+  --panel-solid: #ffffff;
+  --line: rgba(20, 30, 60, 0.12);
+  --line-strong: rgba(20, 30, 60, 0.24);
+  --ink: #131725;
+  --ink-dim: #4e576e;
+  --ink-faint: #8089a0;
+
+  --accent: #3d5ae0;
+  --accent-ink: #3049b8;
+  --accent-2: #0d8f6f;
+  --danger: #d43d4f;
+  --warn: #a96f14;
+  --glow: rgba(61, 90, 224, 0.10);
+}
+
+/* ---------- reset ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16.5px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+img, svg, canvas { display: block; max-width: 100%; }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+a { color: var(--accent-ink); text-decoration: none; }
+ul, ol { padding: 0; }
+::selection { background: rgba(107, 140, 255, 0.32); color: inherit; }
+
+.mono { font-family: var(--mono); font-size: 0.78em; letter-spacing: 0.02em; }
+
+.skip-link {
+  position: absolute; left: -999px; top: 8px; z-index: 200;
+  background: var(--accent); color: #fff; padding: 8px 16px; border-radius: 8px;
+}
+.skip-link:focus { left: 8px; }
+
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+/* ---------- ambient canvas ---------- */
+#field {
+  position: fixed; inset: 0; z-index: -1; width: 100%; height: 100%;
+  opacity: 0.6;
+}
+html[data-theme="light"] #field { opacity: 0.35; }
+
+/* ---------- scroll rail ---------- */
+.scroll-rail {
+  position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 120;
+  background: transparent; pointer-events: none;
+}
+.scroll-rail__bar {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+/* ---------- shell & sections ---------- */
+.shell { max-width: var(--shell); margin: 0 auto; padding: 0 28px; }
+.shell--narrow { max-width: 880px; }
+
+.section { padding: clamp(88px, 12vw, 150px) 0; position: relative; }
+.section--alt {
+  background:
+    linear-gradient(180deg, transparent, rgba(107, 140, 255, 0.025) 18%, rgba(107, 140, 255, 0.025) 82%, transparent),
+    var(--bg-2);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.section--dark {
+  background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(107, 140, 255, 0.07), transparent), #04060c;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+html[data-theme="light"] .section--dark {
+  background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(61, 90, 224, 0.10), transparent), #0e1224;
+  color: #e9edf7;
+}
+
+.sec-head { max-width: 780px; margin-bottom: clamp(44px, 6vw, 72px); }
+.sec-kicker {
+  font-family: var(--mono); font-size: 12.5px; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent-ink); margin-bottom: 18px;
+}
+.sec-title {
+  font-family: var(--serif); font-weight: 500; font-size: clamp(30px, 4.4vw, 46px);
+  line-height: 1.12; letter-spacing: -0.012em; text-wrap: balance;
+}
+.sec-title em { font-style: italic; color: var(--accent-ink); }
+.sec-lede { margin-top: 20px; color: var(--ink-dim); font-size: 17.5px; max-width: 680px; }
+.sec-lede strong { color: var(--ink); font-weight: 600; }
+
+/* ---------- reveal animation (progressive enhancement: hidden only when JS runs) ---------- */
+html.js [data-reveal] {
+  opacity: 0; transform: translateY(26px);
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+html.js [data-reveal].is-in { opacity: 1; transform: none; }
+
+/* ---------- buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  border-radius: 10px; font-weight: 600; letter-spacing: 0.01em;
+  padding: 12px 22px; font-size: 15px; border: 1px solid transparent;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease),
+              background 0.25s var(--ease), border-color 0.25s var(--ease);
+  will-change: transform;
+}
+.btn--lg { padding: 15px 28px; font-size: 16px; }
+.btn--sm { padding: 8px 16px; font-size: 13.5px; border-radius: 8px; }
+.btn--block { width: 100%; }
+.btn--primary {
+  background: linear-gradient(180deg, #7d99ff, #5f7ef7);
+  color: #0a0f22; box-shadow: 0 8px 28px -10px rgba(107, 140, 255, 0.55);
+}
+.btn--primary:hover { transform: translateY(-2px); box-shadow: 0 14px 34px -10px rgba(107, 140, 255, 0.7); }
+.btn--ghost {
+  border-color: var(--line-strong); color: var(--ink);
+  background: rgba(148, 163, 204, 0.05);
+}
+.btn--ghost:hover { border-color: var(--accent); transform: translateY(-2px); }
+.btn__chev { transition: transform 0.25s var(--ease); }
+.btn:hover .btn__chev { transform: translateX(4px); }
+
+.icon-btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 34px; height: 34px; border-radius: 9px; border: 1px solid var(--line);
+  color: var(--ink-dim); transition: color 0.2s, border-color 0.2s, transform 0.2s;
+}
+.icon-btn:hover { color: var(--ink); border-color: var(--line-strong); transform: translateY(-1px); }
+
+/* ---------- topbar ---------- */
+.topbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  background: color-mix(in srgb, var(--bg) 78%, transparent);
+  border-bottom: 1px solid var(--line);
+}
+.topbar__inner { display: flex; align-items: center; gap: 28px; height: 62px; }
+.topbar__actions { display: flex; align-items: center; gap: 12px; margin-left: auto; }
+
+.logo { display: inline-flex; align-items: center; gap: 11px; color: var(--ink); }
+.logo__mark {
+  font-family: var(--mono); font-size: 12px; font-weight: 500;
+  width: 30px; height: 30px; display: grid; place-items: center;
+  background: linear-gradient(135deg, rgba(107, 140, 255, 0.25), rgba(79, 209, 165, 0.18));
+  border: 1px solid var(--line-strong); border-radius: 8px; color: var(--accent-ink);
+}
+.logo__text { font-weight: 650; font-size: 15.5px; letter-spacing: -0.01em; }
+.logo__text span { color: var(--ink-dim); font-weight: 450; }
+
+.nav { display: flex; gap: 4px; }
+.nav a {
+  color: var(--ink-dim); font-size: 14px; font-weight: 500;
+  padding: 7px 12px; border-radius: 8px; transition: color 0.2s, background 0.2s;
+}
+.nav a:hover { color: var(--ink); background: rgba(148, 163, 204, 0.08); }
+.nav a.is-active { color: var(--ink); background: rgba(107, 140, 255, 0.12); }
+
+html[data-theme="dark"] .icon-btn .i-moon { display: none; }
+html[data-theme="light"] .icon-btn .i-sun { display: none; }
+
+/* ---------- hero ---------- */
+.hero { padding: 150px 0 64px; position: relative; }
+.hero__grid {
+  display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 56px; align-items: center;
+}
+.eyebrow {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  margin-bottom: 26px; color: var(--ink-faint);
+  font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+}
+.pill {
+  border: 1px solid var(--line-strong); border-radius: 99px; padding: 5px 13px;
+  color: var(--accent-ink); background: rgba(107, 140, 255, 0.07);
+}
+.hero__title {
+  font-family: var(--serif); font-weight: 500;
+  font-size: clamp(40px, 6.2vw, 68px); line-height: 1.04; letter-spacing: -0.02em;
+}
+.hero__title em {
+  font-style: italic;
+  background: linear-gradient(92deg, var(--accent-ink), var(--accent-2));
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+}
+.hero__lede { margin-top: 26px; max-width: 560px; color: var(--ink-dim); font-size: 18px; }
+.hero__lede strong { color: var(--ink); font-weight: 600; }
+.hero__cta { display: flex; gap: 14px; margin-top: 34px; flex-wrap: wrap; }
+.hero__trust {
+  display: flex; gap: 22px; flex-wrap: wrap; list-style: none; margin-top: 34px;
+  color: var(--ink-faint); font-size: 13.5px;
+}
+.hero__trust li { display: flex; align-items: center; gap: 8px; }
+.hero__trust li::before {
+  content: ""; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--accent-2); box-shadow: 0 0 8px var(--accent-2);
+}
+
+/* composer card */
+.hero__viz { position: relative; }
+.composer-card {
+  background: var(--panel); border: 1px solid var(--line-strong); border-radius: var(--radius);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 30px 80px -30px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(107, 140, 255, 0.04) inset;
+  overflow: hidden;
+}
+.composer-card__head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 18px; border-bottom: 1px solid var(--line);
+  color: var(--ink-faint); font-size: 12px;
+}
+.composer-card__state { display: inline-flex; align-items: center; gap: 8px; font-family: var(--mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--warn); }
+.composer-card__state i {
+  width: 7px; height: 7px; border-radius: 50%; background: currentColor;
+  animation: blink 1.1s ease-in-out infinite;
+}
+.composer-card__state.is-locked { color: var(--accent-2); }
+.composer-card__state.is-locked i { animation: none; box-shadow: 0 0 10px var(--accent-2); }
+@keyframes blink { 50% { opacity: 0.25; } }
+
+.composer-rows { list-style: none; padding: 6px 0; }
+.composer-rows li {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 16px;
+  padding: 9px 18px; border-bottom: 1px dashed var(--line);
+}
+.composer-rows li:last-child { border-bottom: 0; }
+.composer-rows__k { color: var(--ink-faint); font-size: 12.5px; font-family: var(--mono); letter-spacing: 0.04em; }
+.composer-rows__v {
+  font-family: var(--serif); font-style: italic; font-size: 17px; color: var(--ink-dim);
+  text-align: right; transition: color 0.3s;
+}
+.composer-rows__v.is-locked { color: var(--ink); }
+.composer-card__foot {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 13px 18px; border-top: 1px solid var(--line);
+  color: var(--ink-faint); font-size: 11.5px;
+}
+.composer-dist b { color: var(--accent-2); }
+.hero__viz-cap { margin-top: 16px; color: var(--ink-faint); font-size: 13.5px; max-width: 420px; }
+
+/* proof strip */
+.proof-strip {
+  display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px;
+  margin-top: 76px; padding-top: 34px;
+  border-top: 1px solid var(--line);
+}
+.proof-strip__item strong {
+  display: block; font-family: var(--serif); font-size: clamp(26px, 3vw, 36px);
+  font-weight: 500; letter-spacing: -0.01em;
+}
+.proof-strip__item span { color: var(--ink-faint); font-size: 13px; }
+
+/* ---------- skeleton demo (problem) ---------- */
+.skeleton-demo { margin: 0; }
+.skeleton-demo__cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.sk-card {
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 20px 20px 16px;
+}
+.sk-card__topic { color: var(--ink-faint); font-size: 12.5px; line-height: 1.5; margin-bottom: 16px; }
+.sk-card__topic strong { color: var(--ink); font-size: 14.5px; font-weight: 600; }
+.sk-card__paras { display: flex; flex-direction: column; gap: 7px; }
+.skp {
+  height: 12px; border-radius: 4px; width: 100%;
+  transition: background 0.6s var(--ease), box-shadow 0.6s var(--ease);
+}
+.skp--short { width: 38%; }
+.skp[data-fn="frame"]   { background: rgba(107, 140, 255, 0.55); }
+.skp[data-fn="concede"] { background: rgba(79, 209, 165, 0.5); }
+.skp[data-fn="rival"]   { background: rgba(240, 180, 92, 0.5); }
+.skp[data-fn="hinge"]   { background: rgba(255, 107, 122, 0.65); box-shadow: 0 0 14px rgba(255, 107, 122, 0.35); }
+.skp[data-fn="close"]   { background: rgba(168, 188, 255, 0.45); }
+html.js .skeleton-demo:not(.is-revealed) .skp { background: rgba(148, 163, 204, 0.16); box-shadow: none; }
+.sk-card__curve { margin-top: 14px; opacity: 1; transition: opacity 0.8s var(--ease) 0.35s; }
+.sk-card__curve polyline {
+  stroke: var(--accent); stroke-width: 1.8;
+  stroke-dasharray: 320; stroke-dashoffset: 0;
+  transition: stroke-dashoffset 1.4s var(--ease) 0.4s;
+}
+html.js .skeleton-demo:not(.is-revealed) .sk-card__curve { opacity: 0; }
+html.js .skeleton-demo:not(.is-revealed) .sk-card__curve polyline { stroke-dashoffset: 320; }
+
+.skeleton-demo__cap {
+  display: flex; align-items: center; gap: 18px; flex-wrap: wrap;
+  margin-top: 22px; color: var(--ink-faint); font-size: 13px;
+}
+.sk-legend { display: inline-flex; align-items: center; gap: 7px; opacity: 1; transition: opacity 0.6s var(--ease) 0.5s; }
+html.js .skeleton-demo:not(.is-revealed) .sk-legend { opacity: 0; }
+.sk-dot { width: 9px; height: 9px; border-radius: 3px; display: inline-block; }
+.sk-dot--frame { background: rgba(107, 140, 255, 0.8); }
+.sk-dot--concede { background: rgba(79, 209, 165, 0.8); }
+.sk-dot--rival { background: rgba(240, 180, 92, 0.8); }
+.sk-dot--hinge { background: rgba(255, 107, 122, 0.9); }
+.sk-dot--close { background: rgba(168, 188, 255, 0.7); }
+.skeleton-demo__verdict {
+  flex-basis: 100%; margin-top: 10px; color: var(--ink);
+  font-family: var(--serif); font-style: italic; font-size: 19px; font-weight: 500;
+  opacity: 1;
+  transition: opacity 0.7s var(--ease) 0.9s, transform 0.7s var(--ease) 0.9s;
+}
+html.js .skeleton-demo:not(.is-revealed) .skeleton-demo__verdict { opacity: 0; transform: translateY(8px); }
+
+/* ---------- callouts ---------- */
+.callout {
+  margin-top: clamp(40px, 5vw, 60px); padding: 24px 28px;
+  border-radius: var(--radius); border: 1px solid var(--line);
+  background: var(--panel); color: var(--ink-dim); font-size: 16px;
+  max-width: 860px;
+}
+.callout strong { color: var(--ink); display: block; margin-bottom: 6px; font-size: 17px; }
+.callout--danger { border-left: 3px solid var(--danger); }
+.callout--accent { border-left: 3px solid var(--accent-2); }
+
+/* ---------- failure modes ---------- */
+.fail-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.fail-card {
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 28px 26px; display: flex; flex-direction: column; gap: 14px;
+  transition: border-color 0.3s, transform 0.3s var(--ease);
+}
+.fail-card:hover { border-color: var(--line-strong); transform: translateY(-3px); }
+.fail-card h3 { font-size: 19px; font-weight: 650; letter-spacing: -0.01em; }
+.fail-card p { color: var(--ink-dim); font-size: 15px; }
+.fail-card__leak {
+  margin-top: auto; color: var(--danger); font-size: 12.5px !important;
+  border-top: 1px dashed var(--line); padding-top: 14px;
+}
+.fail-thesis {
+  margin-top: clamp(40px, 5vw, 56px); max-width: 720px;
+  font-family: var(--serif); font-size: clamp(20px, 2.4vw, 26px); line-height: 1.4;
+  color: var(--ink-dim); font-weight: 400;
+}
+.fail-thesis strong { color: var(--ink); font-weight: 500; }
+
+/* ---------- component space ---------- */
+.space { margin-bottom: clamp(44px, 5vw, 64px); }
+.space__libs { display: flex; align-items: stretch; gap: 10px; flex-wrap: wrap; }
+.space__lib {
+  flex: 1 1 100px; min-width: 96px;
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius-sm);
+  padding: 16px 12px; text-align: center;
+  transition: border-color 0.3s, transform 0.3s var(--ease);
+}
+.space__lib:hover { border-color: var(--accent); transform: translateY(-3px); }
+.space__lib b { display: block; font-family: var(--serif); font-size: 30px; font-weight: 500; color: var(--accent-ink); }
+.space__lib span { color: var(--ink-faint); font-size: 12px; line-height: 1.35; display: inline-block; margin-top: 4px; }
+.space__x { align-self: center; color: var(--ink-faint); font-size: 18px; }
+.space__count { margin-top: 18px; color: var(--ink-faint); font-size: 13.5px !important; }
+.space__count b { color: var(--ink); font-weight: 500; }
+
+/* ---------- sampler ---------- */
+.sampler {
+  background: var(--panel); border: 1px solid var(--line-strong); border-radius: var(--radius);
+  overflow: hidden;
+}
+.sampler__head { padding: 26px 30px 8px; max-width: 760px; }
+.sampler__head h3 { font-family: var(--serif); font-size: 24px; font-weight: 500; margin-bottom: 8px; }
+.sampler__head p { color: var(--ink-dim); font-size: 14.5px; }
+.sampler__body {
+  display: grid; grid-template-columns: minmax(0, 1fr) 280px; gap: 28px;
+  padding: 22px 30px 30px; align-items: start;
+}
+.sampler__slots { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.slot {
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  padding: 12px 16px; background: rgba(148, 163, 204, 0.03);
+  display: flex; flex-direction: column; gap: 2px; min-height: 84px;
+}
+.slot__k { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); }
+.slot__v { font-family: var(--serif); font-style: italic; font-size: 18px; color: var(--ink); }
+.slot__d { color: var(--ink-faint); font-size: 12.5px; }
+.slot.is-rolling .slot__v { color: var(--accent-ink); }
+.sampler__side { display: flex; flex-direction: column; gap: 16px; }
+.sampler__check { color: var(--ink-faint); font-size: 13px !important; }
+.sampler__check b { color: var(--accent-2); }
+.sampler__check.is-fail b { color: var(--danger); }
+.sampler__note { color: var(--ink-faint); font-size: 13px; }
+
+/* ---------- principle quote ---------- */
+.principle { margin: clamp(48px, 6vw, 72px) auto 0; max-width: 760px; text-align: center; }
+.principle p {
+  font-family: var(--serif); font-size: clamp(22px, 3vw, 30px); font-weight: 400;
+  line-height: 1.35; color: var(--ink);
+}
+.principle em { color: var(--accent-ink); }
+
+/* ---------- pipeline ---------- */
+.pipe-layout {
+  display: grid; grid-template-columns: 300px minmax(0, 1fr); gap: clamp(28px, 5vw, 72px);
+  align-items: start;
+}
+.pipe-sticky { position: sticky; top: 100px; }
+.pipe-svg { width: 100%; max-width: 280px; }
+.pipe-svg__spine { stroke: var(--line-strong); stroke-width: 1.5; stroke-dasharray: 3 6; }
+.pipe-node circle, .pipe-node rect {
+  fill: var(--bg-2); stroke: var(--line-strong); stroke-width: 1.5;
+  transition: fill 0.35s, stroke 0.35s, filter 0.35s;
+}
+.pipe-node text {
+  fill: var(--ink-faint); font-family: var(--mono); font-size: 12.5px;
+  transition: fill 0.35s;
+}
+.pipe-node.is-active circle, .pipe-node.is-active rect {
+  fill: rgba(107, 140, 255, 0.25); stroke: var(--accent);
+  filter: drop-shadow(0 0 6px rgba(107, 140, 255, 0.6));
+}
+.pipe-node--gate.is-active rect {
+  fill: rgba(79, 209, 165, 0.2); stroke: var(--accent-2);
+  filter: drop-shadow(0 0 6px rgba(79, 209, 165, 0.55));
+}
+.pipe-node.is-active text { fill: var(--ink); }
+.pipe-node.is-done circle, .pipe-node.is-done rect { stroke: var(--accent); fill: rgba(107, 140, 255, 0.12); }
+.pipe-node.is-done text { fill: var(--ink-dim); }
+
+.pipe-steps { list-style: none; display: flex; flex-direction: column; gap: 18px; }
+.pipe-step {
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 24px 28px; transition: border-color 0.35s, background 0.35s;
+}
+.pipe-step.is-active { border-color: var(--accent); }
+.pipe-step__meta { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; color: var(--ink-faint); font-size: 12px; }
+.tag {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em;
+  border: 1px solid var(--line); border-radius: 99px; padding: 3px 10px; color: var(--ink-faint);
+}
+.tag--free { color: var(--accent-2); border-color: rgba(79, 209, 165, 0.4); }
+.tag--hot { color: var(--warn); border-color: rgba(240, 180, 92, 0.4); }
+.pipe-step h3 { font-size: 18.5px; font-weight: 650; letter-spacing: -0.01em; margin-bottom: 8px; }
+.pipe-step p { color: var(--ink-dim); font-size: 15px; }
+.pipe-step em { color: var(--ink); font-style: italic; }
+
+/* ---------- audit console ---------- */
+.console {
+  background: #070a13; border: 1px solid var(--line-strong); border-radius: var(--radius);
+  overflow: hidden; margin-bottom: clamp(48px, 6vw, 72px);
+  box-shadow: 0 30px 90px -40px rgba(0, 0, 0, 0.8);
+}
+html[data-theme="light"] .console { background: #10152a; color: #e9edf7; }
+.console__head {
+  display: flex; align-items: center; justify-content: space-between; gap: 14px;
+  padding: 14px 20px; border-bottom: 1px solid rgba(148, 163, 204, 0.16);
+  color: #8b95ad; font-size: 12px;
+}
+.console__actions { display: inline-flex; align-items: center; gap: 12px; }
+.console .icon-btn { border-color: rgba(148, 163, 204, 0.25); color: #8b95ad; }
+.console__verdict { font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: #8b95ad; }
+.console__verdict.is-reject { color: var(--danger); }
+.console__verdict.is-pass { color: var(--accent-2); }
+.console__rows { padding: 14px 20px 6px; display: flex; flex-direction: column; gap: 9px; min-height: 180px; }
+.crow { display: grid; grid-template-columns: 200px minmax(0, 1fr) 64px; gap: 14px; align-items: center; }
+.crow__name { font-family: var(--mono); font-size: 12px; color: #a7b0c7; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.crow__track { position: relative; height: 8px; border-radius: 4px; background: rgba(148, 163, 204, 0.12); }
+.crow__fill {
+  position: absolute; inset: 0 auto 0 0; width: 0%; border-radius: 4px;
+  background: linear-gradient(90deg, rgba(107, 140, 255, 0.65), rgba(107, 140, 255, 0.95));
+  transition: width 0.9s var(--ease);
+}
+.crow.is-breach .crow__fill { background: linear-gradient(90deg, rgba(255, 107, 122, 0.7), rgba(255, 107, 122, 1)); }
+.crow__cap { position: absolute; top: -3px; bottom: -3px; width: 2px; background: rgba(240, 180, 92, 0.9); border-radius: 1px; }
+.crow__val { font-family: var(--mono); font-size: 12px; color: #8b95ad; text-align: right; }
+.crow.is-breach .crow__val { color: var(--danger); }
+.console__cap { padding: 12px 20px 18px; color: #6d7690; font-size: 13px; }
+
+.console__verdict.is-stamp { animation: stamp 0.4s var(--ease); }
+@keyframes stamp { 0% { transform: scale(1.6); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+
+/* ---------- channels grid ---------- */
+.channels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.ch {
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 24px 24px 18px; display: flex; flex-direction: column; gap: 10px;
+  transition: border-color 0.3s, transform 0.3s var(--ease);
+}
+.ch:hover { border-color: var(--accent); transform: translateY(-3px); }
+.ch__n { color: var(--accent-ink); font-size: 12px; }
+.ch h3 { font-size: 17.5px; font-weight: 650; letter-spacing: -0.01em; }
+.ch__exploit {
+  font-family: var(--serif); font-style: italic; color: var(--warn);
+  font-size: 15.5px; line-height: 1.45;
+}
+.ch p:not(.ch__exploit):not(.ch__metric) { color: var(--ink-dim); font-size: 14px; }
+.ch__metric {
+  margin-top: auto; padding-top: 12px; border-top: 1px dashed var(--line);
+  color: var(--ink-faint); font-size: 11.5px !important; letter-spacing: 0.04em;
+}
+
+/* ---------- trap demo ---------- */
+.trap-demo {
+  display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  gap: clamp(20px, 4vw, 44px); align-items: start; margin-bottom: clamp(40px, 5vw, 56px);
+}
+.trap-demo__label { color: var(--ink-faint); font-size: 11.5px !important; letter-spacing: 0.12em; margin-bottom: 12px; }
+.trap-demo__plan { position: relative; }
+.trap-card {
+  background: var(--panel); border: 1px solid rgba(240, 180, 92, 0.35); border-radius: var(--radius);
+  padding: 22px 24px;
+}
+.trap-card__id { color: var(--warn); font-size: 12px !important; margin-bottom: 10px; }
+.trap-card__text { color: var(--ink-dim); font-size: 15px; }
+.trap-card__mech { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line); color: var(--ink-faint); font-size: 12px !important; }
+.trap-card__mech b { color: var(--warn); }
+.trap-demo__wire { position: absolute; right: -56px; top: 45%; width: 60px; display: none; }
+.trap-demo__wire path { stroke: var(--line-strong); stroke-width: 1.5; stroke-dasharray: 4 5; fill: none; }
+.trap-demo__wire circle { fill: var(--warn); }
+@media (min-width: 1024px) { .trap-demo__wire { display: block; } }
+
+.q-card {
+  background: var(--panel); border: 1px solid var(--line-strong); border-radius: var(--radius);
+  padding: 24px;
+}
+.q-card__stem { font-weight: 600; font-size: 16.5px; margin-bottom: 16px; }
+.q-opt {
+  display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 12px; align-items: start;
+  width: 100%; text-align: left; padding: 12px 14px; border-radius: var(--radius-sm);
+  border: 1px solid var(--line); margin-bottom: 8px; color: var(--ink-dim); font-size: 14.5px;
+  transition: border-color 0.25s, background 0.25s, color 0.25s;
+}
+.q-opt:hover { border-color: var(--line-strong); color: var(--ink); }
+.q-opt__l {
+  font-family: var(--mono); font-size: 12px; color: var(--ink-faint);
+  border: 1px solid var(--line); border-radius: 6px; width: 24px; height: 24px;
+  display: grid; place-items: center;
+}
+.q-opt__chip { font-size: 11px !important; color: var(--warn); white-space: nowrap; opacity: 0; transition: opacity 0.3s; }
+.q-opt.is-open { border-color: rgba(240, 180, 92, 0.5); }
+.q-opt.is-open .q-opt__chip { opacity: 1; }
+.q-opt--correct.is-open { border-color: rgba(79, 209, 165, 0.6); background: rgba(79, 209, 165, 0.06); }
+.q-opt--correct.is-open .q-opt__chip { color: var(--accent-2); }
+.q-card__hint { margin-top: 12px; color: var(--ink-faint); font-size: 13.5px; min-height: 42px; }
+
+/* mech strip */
+.mech-strip {
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 24px 28px;
+}
+.mech-strip__intro { color: var(--ink-dim); font-size: 15.5px; max-width: 720px; margin-bottom: 16px; }
+.mech-strip__intro strong { color: var(--ink); }
+.mech-strip__chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.mech-strip__chips span {
+  font-size: 12px; color: var(--ink-dim); border: 1px solid var(--line);
+  border-radius: 99px; padding: 5px 12px; background: rgba(148, 163, 204, 0.04);
+}
+
+/* ---------- hygiene ---------- */
+.hyg-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+.hyg {
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 26px 28px;
+}
+.hyg h3 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 21px; margin-bottom: 14px; color: var(--warn); }
+.hyg p:not(.hyg__viz) { color: var(--ink-dim); font-size: 14.5px; }
+.hyg__viz { display: flex; gap: 8px; margin-bottom: 14px; color: var(--ink); }
+.hyg__viz span {
+  border: 1px solid var(--line-strong); border-radius: 7px; width: 32px; height: 32px;
+  display: grid; place-items: center; font-size: 13px !important; background: rgba(148, 163, 204, 0.05);
+}
+.hyg__viz--words { font-family: var(--serif); color: var(--ink-dim); font-size: 16px; gap: 14px; flex-wrap: wrap; }
+.hyg__bars { display: flex; align-items: flex-end; gap: 8px; height: 40px; margin-bottom: 14px; }
+.hyg__bars i {
+  width: 30px; border-radius: 4px 4px 0 0; height: calc(var(--h) * 100%);
+  background: rgba(148, 163, 204, 0.25);
+}
+.hyg__bars i.is-key { background: var(--accent); }
+
+/* ---------- probe band ---------- */
+.probe-band { text-align: center; padding: 10px 0; }
+.probe-band .sec-kicker { color: var(--accent-2); }
+.probe-band .sec-title { color: #eef1fa; margin-bottom: 26px; }
+.probe-band .sec-title em { color: #a8bcff; }
+.probe-band__text { color: #9aa4bd; max-width: 640px; margin: 0 auto 30px; font-size: 16.5px; }
+.probe-band__readout {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 28px;
+  color: #7e88a3; font-size: 13px !important; margin-bottom: 30px;
+}
+.probe-band__readout b.no { color: #4fd1a5; font-weight: 500; }
+.probe-band__punch {
+  font-family: var(--serif); font-style: italic; font-size: clamp(19px, 2.4vw, 24px);
+  color: #dfe5f3; max-width: 620px; margin: 0 auto;
+}
+
+/* ---------- gates & ledger ---------- */
+.gates-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-bottom: clamp(40px, 5vw, 56px); }
+.gate {
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 26px;
+}
+.gate__k { color: var(--accent-ink); font-size: 11.5px !important; letter-spacing: 0.12em; display: block; margin-bottom: 12px; }
+.gate h3 { font-size: 18px; font-weight: 650; margin-bottom: 10px; letter-spacing: -0.01em; }
+.gate p { color: var(--ink-dim); font-size: 14.5px; }
+
+.ledger {
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 26px 28px;
+}
+.ledger__intro { color: var(--ink-dim); font-size: 15.5px; max-width: 740px; margin-bottom: 18px; }
+.ledger__table { display: flex; flex-direction: column; }
+.ledger__row {
+  display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 18px; align-items: baseline;
+  padding: 12px 0; border-top: 1px dashed var(--line); color: var(--ink-dim); font-size: 14.5px;
+}
+.status { font-size: 12px !important; }
+.status--ok { color: var(--accent-2); }
+.status--warn { color: var(--warn); }
+.status--bad { color: var(--danger); }
+
+/* ---------- moat ---------- */
+.moat-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.moat {
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 28px 26px;
+}
+.moat h3 { font-family: var(--serif); font-weight: 500; font-size: 21px; margin-bottom: 12px; letter-spacing: -0.01em; }
+.moat p { color: var(--ink-dim); font-size: 14.5px; }
+.moat strong { color: var(--ink); }
+
+/* ---------- roadmap ---------- */
+.road { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+.road__col {
+  border: 1px solid var(--line); border-radius: var(--radius); padding: 24px 26px;
+  background: var(--panel);
+}
+.road__k { color: var(--accent-ink); font-size: 11.5px !important; letter-spacing: 0.14em; margin-bottom: 16px; }
+.road__col:first-child .road__k { color: var(--accent-2); }
+.road__col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+.road__col li { color: var(--ink-dim); font-size: 14.5px; padding-left: 18px; position: relative; }
+.road__col li::before {
+  content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--line-strong);
+}
+.road__col:first-child li::before { background: var(--accent-2); }
+
+/* ---------- tiers ---------- */
+.tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; align-items: stretch; }
+.tier {
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 30px 28px; display: flex; flex-direction: column; position: relative;
+  transition: border-color 0.3s, transform 0.3s var(--ease);
+}
+.tier:hover { transform: translateY(-4px); border-color: var(--line-strong); }
+.tier--flag { border-color: var(--accent); box-shadow: 0 24px 70px -30px var(--glow), 0 0 0 1px rgba(107, 140, 255, 0.15) inset; }
+.tier__badge {
+  position: absolute; top: -11px; left: 28px;
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2)); color: #0a0f22;
+  padding: 4px 12px; border-radius: 99px; font-weight: 600;
+}
+.tier h3 { font-family: var(--serif); font-weight: 500; font-size: 24px; }
+.tier__for { color: var(--ink-faint); font-size: 13.5px; margin: 6px 0 18px; }
+.tier__price { font-size: 30px; font-weight: 650; letter-spacing: -0.02em; margin-bottom: 20px; }
+.tier__price span { font-size: 13.5px; color: var(--ink-faint); font-weight: 450; margin-left: 6px; }
+.tier ul { list-style: none; display: flex; flex-direction: column; gap: 11px; margin-bottom: 26px; }
+.tier li { color: var(--ink-dim); font-size: 14.5px; padding-left: 22px; position: relative; }
+.tier li::before { content: "→"; position: absolute; left: 0; color: var(--accent-ink); font-size: 13px; }
+.tier li strong { color: var(--ink); }
+.tier .btn { margin-top: auto; }
+.billing-note { margin-top: 30px; color: var(--ink-faint); font-size: 14px; max-width: 760px; }
+
+/* ---------- audition steps ---------- */
+.steps { list-style: none; display: flex; flex-direction: column; max-width: 800px; }
+.steps li {
+  display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 20px;
+  padding: 24px 0; border-bottom: 1px dashed var(--line);
+}
+.steps li:last-child { border-bottom: 0; }
+.steps__n {
+  font-family: var(--serif); font-size: 26px; color: var(--accent-ink);
+  width: 46px; height: 46px; border: 1px solid var(--line-strong); border-radius: 12px;
+  display: grid; place-items: center; background: var(--panel);
+}
+.steps h3 { font-size: 17.5px; font-weight: 650; margin-bottom: 6px; letter-spacing: -0.01em; }
+.steps p { color: var(--ink-dim); font-size: 14.5px; }
+.audition-cta { margin-top: 40px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+.audition-cta p { color: var(--ink-faint); font-size: 13.5px; max-width: 320px; }
+
+/* ---------- FAQ ---------- */
+.faq details {
+  border: 1px solid var(--line); border-radius: var(--radius-sm);
+  background: var(--panel); margin-bottom: 10px; overflow: hidden;
+}
+.faq summary {
+  list-style: none; cursor: pointer; padding: 18px 22px;
+  font-weight: 600; font-size: 15.5px; position: relative;
+  transition: color 0.2s;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; position: absolute; right: 22px; top: 50%; transform: translateY(-50%);
+  color: var(--ink-faint); font-size: 20px; font-weight: 400; transition: transform 0.3s var(--ease);
+}
+.faq details[open] summary::after { transform: translateY(-50%) rotate(45deg); color: var(--accent-ink); }
+.faq summary:hover { color: var(--accent-ink); }
+.faq__a { padding: 0 22px 20px; color: var(--ink-dim); font-size: 14.5px; }
+.faq__a p + p { margin-top: 10px; }
+
+/* ---------- contact ---------- */
+.contact__grid {
+  display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: clamp(32px, 5vw, 64px); align-items: start;
+}
+.contact__cta { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
+.contact-card {
+  background: var(--panel); border: 1px solid var(--line-strong); border-radius: var(--radius);
+  padding: 30px;
+}
+.contact-card__k { color: var(--ink-faint); font-size: 11px !important; letter-spacing: 0.14em; margin-bottom: 14px; }
+.contact-card p { color: var(--ink-dim); font-size: 15px; }
+.contact-card strong { color: var(--ink); }
+.contact-card__meta { margin-top: 18px; padding-top: 18px; border-top: 1px dashed var(--line); line-height: 1.9; }
+.contact-card__meta span { color: var(--ink-faint); font-size: 13px; }
+
+/* ---------- footer ---------- */
+.footer { border-top: 1px solid var(--line); padding: 30px 0 100px; }
+.footer__inner {
+  display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+  color: var(--ink-faint); font-size: 13px;
+}
+.footer kbd {
+  font-family: var(--mono); font-size: 11px; border: 1px solid var(--line-strong);
+  border-bottom-width: 2px; border-radius: 5px; padding: 1px 6px;
+}
+
+/* ---------- sticky CTA ---------- */
+.sticky-cta {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 90;
+  background: color-mix(in srgb, var(--bg) 85%, transparent);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--line);
+  transform: translateY(100%); transition: transform 0.45s var(--ease);
+}
+.sticky-cta.is-visible { transform: none; }
+.sticky-cta__inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding-top: 12px; padding-bottom: 12px;
+}
+.sticky-cta p { color: var(--ink-dim); font-size: 14px; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 1024px) {
+  .hero__grid { grid-template-columns: 1fr; gap: 44px; }
+  .hero__viz { max-width: 560px; }
+  .pipe-layout { grid-template-columns: 1fr; }
+  .pipe-sticky { display: none; }
+  .channels-grid { grid-template-columns: repeat(2, 1fr); }
+  .trap-demo { grid-template-columns: 1fr; }
+  .proof-strip { grid-template-columns: repeat(3, 1fr); gap: 24px 12px; }
+}
+@media (max-width: 760px) {
+  body { font-size: 15.5px; }
+  .nav { display: none; }
+  .skeleton-demo__cards { grid-template-columns: 1fr; }
+  .fail-grid, .gates-grid, .moat-grid, .road, .tiers, .channels-grid { grid-template-columns: 1fr; }
+  .hyg-grid { grid-template-columns: 1fr; }
+  .sampler__body { grid-template-columns: 1fr; }
+  .sampler__slots { grid-template-columns: 1fr; }
+  .contact__grid { grid-template-columns: 1fr; }
+  .crow { grid-template-columns: 120px minmax(0, 1fr) 44px; gap: 10px; }
+  .ledger__row { grid-template-columns: 1fr; gap: 4px; }
+  .proof-strip { grid-template-columns: repeat(2, 1fr); }
+  .hero { padding-top: 120px; }
+  .sticky-cta p { font-size: 12.5px; }
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  [data-reveal] { opacity: 1; transform: none; }
+  #field { display: none; }
+}
+
+</style>
+  <script>document.documentElement.classList.add("js");</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Blueprint Psychometrics",
+    "description": "Structural novelty engine for CAT-grade VARC content — nine-channel audited, faculty-gated, database-enforced exclusivity.",
+    "email": "coolcresent1@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Mumbai", "addressCountry": "IN" },
+    "founder": { "@type": "Person", "name": "Ansh Upadhyay" }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <canvas id="field" aria-hidden="true"></canvas>
+
+  <div class="scroll-rail" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Reading progress">
+    <div class="scroll-rail__bar"></div>
+  </div>
+
+  <header class="topbar">
+    <div class="shell topbar__inner">
+      <a class="logo" href="#top" aria-label="Blueprint Psychometrics home">
+        <span class="logo__mark" aria-hidden="true">BP</span>
+        <span class="logo__text">Blueprint<span>Psychometrics</span></span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#problem">Problem</a>
+        <a href="#engine">Engine</a>
+        <a href="#audit">Audit</a>
+        <a href="#craft">Craft</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#audition">Audition</a>
+      </nav>
+      <div class="topbar__actions">
+        <button type="button" class="icon-btn" id="theme-toggle" aria-label="Toggle colour theme" title="Theme (T)">
+          <svg class="i-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="i-moon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"/></svg>
+        </button>
+        <a class="btn btn--sm btn--primary" href="mailto:coolcresent1@gmail.com?subject=Structural%20audit%20request"><span>Free audit</span></a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ============================================================ HERO -->
+    <section class="hero" id="top">
+      <div class="shell hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow" data-reveal>
+            <span class="pill">Structural novelty engine · VARC</span>
+            <span class="eyebrow__meta">Mumbai · shipping weekly</span>
+          </p>
+          <h1 class="hero__title" data-reveal>
+            Every mock series<br>develops a tell.<br><em>This one can’t.</em>
+          </h1>
+          <p class="hero__lede" data-reveal>
+            The Blueprint Engine generates CAT-calibre reading comprehension in which the
+            <strong>argument’s architecture</strong> — not just its topic — is sampled from a
+            two-billion-combination space, written to contract, and statistically audited
+            against every set that came before it. Serious students hunt patterns.
+            Here, there are none to find.
+          </p>
+          <div class="hero__cta" data-reveal>
+            <a class="btn btn--primary btn--lg" href="#audition">
+              <span>Run the blind audition</span><span class="btn__chev" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="#engine"><span>See inside the engine</span></a>
+          </div>
+          <ul class="hero__trust" data-reveal>
+            <li>Faculty gate on every set</li>
+            <li>Nine-channel audit trail</li>
+            <li>Exclusivity enforced in the database</li>
+          </ul>
+        </div>
+
+        <aside class="hero__viz" data-reveal aria-label="A blueprint being composed, live">
+          <div class="composer-card" id="hero-composer">
+            <div class="composer-card__head">
+              <span class="mono" id="composer-id">BLUEPRINT · BP-2026-07-0143</span>
+              <span class="composer-card__state is-locked" id="composer-state"><i></i><b>contract locked</b></span>
+            </div>
+            <ul class="composer-rows">
+              <li><span class="composer-rows__k">Argument family</span><span class="composer-rows__v is-locked" data-slot="0">The Vanishing Object</span></li>
+              <li><span class="composer-rows__k">Authorial voice</span><span class="composer-rows__v is-locked" data-slot="1">The Epistemic Auditor</span></li>
+              <li><span class="composer-rows__k">Ending</span><span class="composer-rows__v is-locked" data-slot="2">The Instrument Doubt</span></li>
+              <li><span class="composer-rows__k">Paragraph rhythm</span><span class="composer-rows__v is-locked" data-slot="3">Trapdoor</span></li>
+              <li><span class="composer-rows__k">Thesis reveal</span><span class="composer-rows__v is-locked" data-slot="4">Retrospective Reveal</span></li>
+              <li><span class="composer-rows__k">Distractor profile</span><span class="composer-rows__v is-locked" data-slot="5">The Time Traveler</span></li>
+              <li><span class="composer-rows__k">Question topology</span><span class="composer-rows__v is-locked" data-slot="6">The Ambush</span></li>
+            </ul>
+            <div class="composer-card__foot">
+              <span class="mono composer-hash" id="composer-hash">combo&nbsp;·&nbsp;<b>4f2a9c01de</b>&nbsp;·&nbsp;never reused</span>
+              <span class="mono composer-dist" id="composer-dist">distance vs last 50 · <b>0.71 PASS</b></span>
+            </div>
+          </div>
+          <p class="hero__viz-cap">Structure is committed as data — movement, pacing, conviction arc, designed
+          misreadings — before a single sentence is written.</p>
+        </aside>
+      </div>
+
+      <div class="shell proof-strip" data-reveal>
+        <div class="proof-strip__item"><strong data-count="32">32</strong><span>argument families</span></div>
+        <div class="proof-strip__item"><strong data-count="20">20</strong><span>authorial voices</span></div>
+        <div class="proof-strip__item"><strong>10⁹+</strong><span>valid blueprints</span></div>
+        <div class="proof-strip__item"><strong data-count="9">9</strong><span>audit channels per set</span></div>
+        <div class="proof-strip__item"><strong>0</strong><span>sets shipped unaudited</span></div>
+      </div>
+    </section>
+
+    <!-- ============================================================ 01 · PROBLEM -->
+    <section class="section" id="problem">
+      <div class="shell">
+        <header class="sec-head" data-reveal>
+          <p class="sec-kicker">01 — The problem</p>
+          <h2 class="sec-title">By mock three, they’re not reading.<br>They’re <em>recognising</em>.</h2>
+          <p class="sec-lede">
+            One writer — or one prompt — produces one argumentative rhythm. Long before any
+            plagiarism checker fires, your most serious students have absorbed it: where the
+            reversal lands, how the author hedges, which option “feels” correct.
+          </p>
+        </header>
+
+        <figure class="skeleton-demo" data-reveal aria-label="Three passages on different topics revealed to share one identical structure">
+          <div class="skeleton-demo__cards">
+            <div class="sk-card" data-sk>
+              <p class="sk-card__topic">Mock 4 · RC 2<br><strong>Coral reef restoration</strong></p>
+              <div class="sk-card__paras">
+                <span class="skp" data-fn="frame"></span>
+                <span class="skp" data-fn="concede"></span>
+                <span class="skp" data-fn="rival"></span>
+                <span class="skp skp--short" data-fn="hinge"></span>
+                <span class="skp" data-fn="close"></span>
+              </div>
+              <svg class="sk-card__curve" viewBox="0 0 200 48" aria-hidden="true"><polyline points="10,36 55,30 100,28 145,10 190,16" fill="none"/></svg>
+            </div>
+            <div class="sk-card" data-sk>
+              <p class="sk-card__topic">Mock 6 · RC 1<br><strong>Copyright &amp; folk music</strong></p>
+              <div class="sk-card__paras">
+                <span class="skp" data-fn="frame"></span>
+                <span class="skp" data-fn="concede"></span>
+                <span class="skp" data-fn="rival"></span>
+                <span class="skp skp--short" data-fn="hinge"></span>
+                <span class="skp" data-fn="close"></span>
+              </div>
+              <svg class="sk-card__curve" viewBox="0 0 200 48" aria-hidden="true"><polyline points="10,36 55,30 100,28 145,10 190,16" fill="none"/></svg>
+            </div>
+            <div class="sk-card" data-sk>
+              <p class="sk-card__topic">Mock 9 · RC 3<br><strong>Medieval guild economics</strong></p>
+              <div class="sk-card__paras">
+                <span class="skp" data-fn="frame"></span>
+                <span class="skp" data-fn="concede"></span>
+                <span class="skp" data-fn="rival"></span>
+                <span class="skp skp--short" data-fn="hinge"></span>
+                <span class="skp" data-fn="close"></span>
+              </div>
+              <svg class="sk-card__curve" viewBox="0 0 200 48" aria-hidden="true"><polyline points="10,36 55,30 100,28 145,10 190,16" fill="none"/></svg>
+            </div>
+          </div>
+          <figcaption class="skeleton-demo__cap">
+            <span class="sk-legend"><i class="sk-dot sk-dot--frame"></i>framing</span>
+            <span class="sk-legend"><i class="sk-dot sk-dot--concede"></i>concession</span>
+            <span class="sk-legend"><i class="sk-dot sk-dot--rival"></i>rival view</span>
+            <span class="sk-legend"><i class="sk-dot sk-dot--hinge"></i>the turn</span>
+            <span class="sk-legend"><i class="sk-dot sk-dot--close"></i>reopened ending</span>
+            <strong class="skeleton-demo__verdict">Three topics. One skeleton. That skeleton is what students learn.</strong>
+          </figcaption>
+        </figure>
+
+        <div class="callout callout--danger" data-reveal>
+          <strong>The damage stays invisible until exam day.</strong>
+          Pattern-matched mocks silently inflate scores, so percentile forecasts drift — and the
+          student discovers the gap on the one paper that counts. A series that leaks structure
+          doesn’t just get boring. It breaks the honesty of your data.
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ 02 · FAILURE MODES -->
+    <section class="section section--alt" id="failures">
+      <div class="shell">
+        <header class="sec-head" data-reveal>
+          <p class="sec-kicker">02 — Why it keeps happening</p>
+          <h2 class="sec-title">Every way of producing content leaks — each in its own way.</h2>
+        </header>
+        <div class="fail-grid">
+          <article class="fail-card" data-reveal>
+            <h3>The human writer</h3>
+            <p>Even excellent writers have one voice, one instinct for where an argument should turn.
+            Fifteen passages in, their fingerprints are everywhere — and no writer can <em>prove</em>
+            passage fifteen is structurally unlike passage one.</p>
+            <p class="fail-card__leak mono">leak: house style</p>
+          </article>
+          <article class="fail-card" data-reveal>
+            <h3>The single-prompt generator</h3>
+            <p>One prompt encodes one frozen essay shape — the same destabilised opening, the same
+            corrective middle, the same artfully reopened ending. Every output is the same essay
+            wearing a different topic.</p>
+            <p class="fail-card__leak mono">leak: one skeleton, infinitely reprinted</p>
+          </article>
+          <article class="fail-card" data-reveal>
+            <h3>The similarity checker</h3>
+            <p>Embedding checks compare <em>meaning</em>. Two passages on unrelated topics can share an
+            identical argumentative skeleton and score as total strangers. Students notice structural
+            repetition long before any topic overlap exists.</p>
+            <p class="fail-card__leak mono">leak: structure is invisible to it</p>
+          </article>
+        </div>
+        <p class="fail-thesis" data-reveal>
+          The failure is not a quality problem. It is a <strong>measurement problem</strong>: nobody
+          audits content for structural repetition. So we built the instrument — and then built the
+          engine around it.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ 03 · THE INVERSION -->
+    <section class="section" id="engine">
+      <div class="shell">
+        <header class="sec-head" data-reveal>
+          <p class="sec-kicker">03 — The inversion</p>
+          <h2 class="sec-title">Structure first. <em>Prose second.</em></h2>
+          <p class="sec-lede">
+            Before a word of the passage exists, the engine commits to a <strong>blueprint</strong>:
+            a machine-readable contract fixing the argument’s shape, the author’s voice, the paragraph
+            pacing, when the thesis becomes visible, which misreadings the passage will invite, and how
+            all six questions will interrogate it. A deterministic sampler owns structure.
+            The language model is only ever allowed to own content.
+          </p>
+        </header>
+
+        <div class="space" data-reveal>
+          <div class="space__libs" role="list" aria-label="The seven component libraries">
+            <div class="space__lib" role="listitem"><b>32</b><span>argument<br>families</span></div>
+            <span class="space__x" aria-hidden="true">×</span>
+            <div class="space__lib" role="listitem"><b>20</b><span>authorial<br>voices</span></div>
+            <span class="space__x" aria-hidden="true">×</span>
+            <div class="space__lib" role="listitem"><b>20</b><span>endings</span></div>
+            <span class="space__x" aria-hidden="true">×</span>
+            <div class="space__lib" role="listitem"><b>20</b><span>rhythms</span></div>
+            <span class="space__x" aria-hidden="true">×</span>
+            <div class="space__lib" role="listitem"><b>20</b><span>thesis<br>reveals</span></div>
+            <span class="space__x" aria-hidden="true">×</span>
+            <div class="space__lib" role="listitem"><b>20</b><span>distractor<br>profiles</span></div>
+            <span class="space__x" aria-hidden="true">×</span>
+            <div class="space__lib" role="listitem"><b>20</b><span>question<br>topologies</span></div>
+          </div>
+          <p class="space__count mono" data-reveal>= <b id="combo-count">2,048,000,000</b> raw combinations
+            · <b>~8×10⁸</b> after compatibility rules · a student never meets the same skeleton twice</p>
+        </div>
+
+        <div class="sampler" data-reveal>
+          <div class="sampler__head">
+            <h3>Deal yourself a blueprint</h3>
+            <p>Live sample from the real component libraries. The engine does this under exclusion
+            windows — a family just used is locked for the next 25 sets, a topology for 12, a voice
+            for 10 — then verifies the pick is at least 55% structurally distant from the last 50 shipped.</p>
+          </div>
+          <div class="sampler__body">
+            <div class="sampler__slots" id="sampler-slots" aria-live="polite">
+              <div class="slot"><span class="slot__k">Family</span><span class="slot__v" data-sample="0">The Vanishing Object</span><span class="slot__d" data-gloss="0">inquiry dissolves its own object</span></div>
+              <div class="slot"><span class="slot__k">Voice</span><span class="slot__v" data-sample="1">The Epistemic Auditor</span><span class="slot__d" data-gloss="1"></span></div>
+              <div class="slot"><span class="slot__k">Ending</span><span class="slot__v" data-sample="2">The Instrument Doubt</span><span class="slot__d" data-gloss="2"></span></div>
+              <div class="slot"><span class="slot__k">Rhythm</span><span class="slot__v" data-sample="3">Trapdoor</span><span class="slot__d" data-gloss="3"></span></div>
+              <div class="slot"><span class="slot__k">Reveal</span><span class="slot__v" data-sample="4">Retrospective Reveal</span><span class="slot__d" data-gloss="4"></span></div>
+              <div class="slot"><span class="slot__k">Distractors</span><span class="slot__v" data-sample="5">The Time Traveler</span><span class="slot__d" data-gloss="5"></span></div>
+              <div class="slot"><span class="slot__k">Topology</span><span class="slot__v" data-sample="6">The Ambush</span><span class="slot__d" data-gloss="6"></span></div>
+            </div>
+            <div class="sampler__side">
+              <button type="button" class="btn btn--primary" id="sampler-btn"><span>Compose a blueprint</span></button>
+              <p class="mono sampler__check" id="sampler-check">distance vs last 50 · <b>0.71</b> · PASS</p>
+              <p class="sampler__note">Exclusion windows, decay weighting toward under-used components, and
+              ~26 named compatibility rules run before anything is accepted.</p>
+            </div>
+          </div>
+        </div>
+
+        <blockquote class="principle" data-reveal>
+          <p>“Novelty isn’t checked at the end. It’s <em>born at the beginning</em> — and then verified twice more.”</p>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- ============================================================ 04 · PIPELINE -->
+    <section class="section section--alt" id="pipeline">
+      <div class="shell">
+        <header class="sec-head" data-reveal>
+          <p class="sec-kicker">04 — The assembly line</p>
+          <h2 class="sec-title">One set. Nine judgments. <em>Any of them can kill it.</em></h2>
+          <p class="sec-lede">Follow a single elite set from command to corpus. Cheap checks run early
+          so failures die before they get expensive; nothing survives on generation alone.</p>
+        </header>
+
+        <div class="pipe-layout">
+          <div class="pipe-sticky">
+            <svg class="pipe-svg" viewBox="0 0 260 560" aria-hidden="true" id="pipe-svg">
+              <line class="pipe-svg__spine" x1="36" y1="28" x2="36" y2="532"/>
+              <g class="pipe-node" data-node="0"><circle cx="36" cy="28" r="7"/><text x="60" y="33">Compose</text></g>
+              <g class="pipe-node" data-node="1"><circle cx="36" cy="98" r="7"/><text x="60" y="103">Refine</text></g>
+              <g class="pipe-node" data-node="2"><circle cx="36" cy="168" r="7"/><text x="60" y="173">Render</text></g>
+              <g class="pipe-node" data-node="3"><circle cx="36" cy="238" r="7"/><text x="60" y="243">Comply</text></g>
+              <g class="pipe-node pipe-node--gate" data-node="4"><rect x="24" y="296" width="24" height="24" rx="5"/><text x="60" y="313">Gate B · novelty</text></g>
+              <g class="pipe-node" data-node="5"><circle cx="36" cy="378" r="7"/><text x="60" y="383">Interrogate</text></g>
+              <g class="pipe-node pipe-node--gate" data-node="6"><rect x="24" y="436" width="24" height="24" rx="5"/><text x="60" y="453">Gate C · novelty</text></g>
+              <g class="pipe-node" data-node="7"><circle cx="36" cy="518" r="7"/><text x="60" y="523">Solve &amp; judge</text></g>
+            </svg>
+          </div>
+
+          <ol class="pipe-steps">
+            <li class="pipe-step" data-step="0" data-reveal>
+              <div class="pipe-step__meta"><span class="mono">STAGE 1</span><span class="tag tag--free">deterministic · free</span></div>
+              <h3>Compose the blueprint</h3>
+              <p>Seven components sampled under exclusion windows and decay weights, filtered by named
+              compatibility rules, then distance-checked against the last 50 blueprints. Clones are
+              rejected before a rupee is spent.</p>
+            </li>
+            <li class="pipe-step" data-step="1" data-reveal>
+              <div class="pipe-step__meta"><span class="mono">STAGE 1b</span><span class="tag">one small model call</span></div>
+              <h3>Refine the content plan</h3>
+              <p>The skeleton says <em>what ¶3 does</em>; the refine pass decides what it’s about — topic,
+              competing tensions, and a trap map of three specific misreadings the passage will invite.
+              It cannot touch a single structural choice.</p>
+            </li>
+            <li class="pipe-step" data-step="2" data-reveal>
+              <div class="pipe-step__meta"><span class="mono">STAGE 2</span><span class="tag tag--hot">the expensive call</span></div>
+              <h3>Render the passage</h3>
+              <p>The strongest model writes prose into the contract: per-paragraph function, word range and
+              cadence, the thesis-reveal schedule, the ending directive, a forbidden-phrase list. It invents
+              every sentence. It chooses no shape.</p>
+            </li>
+            <li class="pipe-step" data-step="3" data-reveal>
+              <div class="pipe-step__meta"><span class="mono">STAGE 2b</span><span class="tag">independent audit</span></div>
+              <h3>Verify the structure landed</h3>
+              <p>A separate auditor re-derives the passage’s structure blind and scores it against the plan.
+              Below threshold, the passage is re-rendered with targeted directives — “the turn fired in ¶3;
+              move it to ¶4” — not thrown away. What’s stored is the structure students will actually read.</p>
+            </li>
+            <li class="pipe-step" data-step="4" data-reveal>
+              <div class="pipe-step__meta"><span class="mono">GATE B</span><span class="tag tag--free">statistical · free</span></div>
+              <h3>Novelty check, before questions exist</h3>
+              <p>Movement, pacing, conviction arc, voice, meaning — compared against the corpus
+              <em>before</em> the question call. A passage that resembles history dies here, cheaply,
+              and a fresh blueprint is composed.</p>
+            </li>
+            <li class="pipe-step" data-step="5" data-reveal>
+              <div class="pipe-step__meta"><span class="mono">STAGE 3</span><span class="tag tag--hot">designed difficulty</span></div>
+              <h3>Interrogate the passage</h3>
+              <p>Six questions generated from the blueprint’s topology — not reverse-engineered from the
+              prose. Trap-harvesting options quote the exact misreading the passage was built to invite.
+              Answer letters are assigned mechanically from a pre-sampled plan the model never sees.</p>
+            </li>
+            <li class="pipe-step" data-step="6" data-reveal>
+              <div class="pipe-step__meta"><span class="mono">GATE C</span><span class="tag tag--free">statistical · free</span></div>
+              <h3>Full-set novelty, plus corpus watch</h3>
+              <p>Question topology and wrong-answer mechanics join the audit. Corpus-level drift —
+              letter bias, over-predictable trap logic — raises flags that can hold an export batch
+              even when every individual set is clean.</p>
+            </li>
+            <li class="pipe-step" data-step="7" data-reveal>
+              <div class="pipe-step__meta"><span class="mono">STAGE 4</span><span class="tag">adversarial</span></div>
+              <h3>Blind-solve, judge, human gate</h3>
+              <p>An independent solver must reach the key without seeing it — disagreement escalates to a
+              human, never to auto-regeneration. A rubric judge scores the set against <em>its own</em>
+              blueprint’s intent. Senior VARC faculty hold final authority on everything delivered.</p>
+            </li>
+          </ol>
+        </div>
+
+        <div class="callout callout--accent" data-reveal>
+          <strong>Cost discipline is structural too.</strong> Every model call passes a pre-flight budget
+          guard; a set that would exceed its ceiling aborts and ships nothing. There is no code path that
+          overspends — which is why the audit can afford to reject aggressively.
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ 05 · NINE-CHANNEL AUDIT -->
+    <section class="section" id="audit">
+      <div class="shell">
+        <header class="sec-head" data-reveal>
+          <p class="sec-kicker">05 — The audit</p>
+          <h2 class="sec-title">Nine channels. One question:<br><em>could a student who read everything predict this?</em></h2>
+          <p class="sec-lede">
+            Every finished set is fingerprinted and scored against the trailing hundred on nine
+            independent similarity channels. Meaning is one of the nine. The other eight see what
+            embedding checks are blind to — and any breach means the set never ships.
+          </p>
+        </header>
+
+        <div class="console" data-reveal aria-label="A novelty audit rejecting one set and passing its recomposition">
+          <div class="console__head">
+            <span class="mono" id="console-title">AUDIT · RC-E-0711-2 · vs trailing 100</span>
+            <div class="console__actions">
+              <span class="console__verdict mono is-pass" id="console-verdict">pass · composite novelty 0.67 · cleared to ship</span>
+              <button type="button" class="icon-btn" id="console-replay" aria-label="Replay audit animation" title="Replay">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M3 12a9 9 0 1 0 2.6-6.4"/><path d="M3 4v5h5"/></svg>
+              </button>
+            </div>
+          </div>
+          <div class="console__rows" id="console-rows">
+            <div class="crow" data-cap="0.45"><span class="crow__name">blueprint distance</span><span class="crow__track"><span class="crow__fill" style="width:22%"></span><span class="crow__cap" style="left:45%"></span></span><span class="crow__val">0.22</span></div>
+            <div class="crow" data-cap="0.70"><span class="crow__name">movement string</span><span class="crow__track"><span class="crow__fill" style="width:38%"></span><span class="crow__cap" style="left:70%"></span></span><span class="crow__val">0.38</span></div>
+            <div class="crow" data-cap="0.85"><span class="crow__name">conviction arc</span><span class="crow__track"><span class="crow__fill" style="width:41%"></span><span class="crow__cap" style="left:85%"></span></span><span class="crow__val">0.41</span></div>
+            <div class="crow" data-cap="0.92"><span class="crow__name">rhythm vector</span><span class="crow__track"><span class="crow__fill" style="width:35%"></span><span class="crow__cap" style="left:92%"></span></span><span class="crow__val">0.35</span></div>
+            <div class="crow" data-cap="0.75"><span class="crow__name">question topology</span><span class="crow__track"><span class="crow__fill" style="width:29%"></span><span class="crow__cap" style="left:75%"></span></span><span class="crow__val">0.29</span></div>
+            <div class="crow" data-cap="0.80"><span class="crow__name">distractor mix</span><span class="crow__track"><span class="crow__fill" style="width:42%"></span><span class="crow__cap" style="left:80%"></span></span><span class="crow__val">0.42</span></div>
+            <div class="crow" data-cap="0.72"><span class="crow__name">voice stylometry</span><span class="crow__track"><span class="crow__fill" style="width:37%"></span><span class="crow__cap" style="left:72%"></span></span><span class="crow__val">0.37</span></div>
+            <div class="crow" data-cap="0.78"><span class="crow__name">answer behaviour</span><span class="crow__track"><span class="crow__fill" style="width:28%"></span><span class="crow__cap" style="left:78%"></span></span><span class="crow__val">0.28</span></div>
+            <div class="crow" data-cap="0.80"><span class="crow__name">topic embedding</span><span class="crow__track"><span class="crow__fill" style="width:31%"></span><span class="crow__cap" style="left:80%"></span></span><span class="crow__val">0.31</span></div>
+          </div>
+          <p class="console__cap" id="console-cap">Channel caps are hard limits — a single structural breach rejects the set and a fresh blueprint is composed.</p>
+        </div>
+
+        <div class="channels-grid" data-reveal>
+          <article class="ch"><span class="ch__n mono">01</span><h3>Argument skeleton</h3>
+            <p class="ch__exploit">“These passages always argue the same way.”</p>
+            <p>Component-level overlap between blueprints, weighted by what students notice most. Too close to any recent set → rejected at composition, before any spend.</p>
+            <p class="ch__metric mono">weighted categorical distance</p></article>
+          <article class="ch"><span class="ch__n mono">02</span><h3>Paragraph choreography</h3>
+            <p class="ch__exploit">“¶2 raises the objection, ¶4 resolves it.”</p>
+            <p>The realised sequence of argumentative moves, tracked like a chess line. Repeated move-orders and repeated transitions are both caught.</p>
+            <p class="ch__metric mono">edit distance on function strings</p></article>
+          <article class="ch"><span class="ch__n mono">03</span><h3>Conviction arc</h3>
+            <p class="ch__exploit">“The author always commits late — answers live in the last paragraphs.”</p>
+            <p>How committed the author sounds, paragraph by paragraph, as a signed curve. The single most learnable author signature — measured on every set and forced to vary.</p>
+            <p class="ch__metric mono">dynamic time warping on curves</p></article>
+          <article class="ch"><span class="ch__n mono">04</span><h3>Pacing profile</h3>
+            <p class="ch__exploit">“The short paragraph is always the pivot.”</p>
+            <p>Paragraph lengths, sentence cadence, pivot placement — the music of the prose, fingerprinted and blocked from repeating.</p>
+            <p class="ch__metric mono">cosine on rhythm vectors</p></article>
+          <article class="ch"><span class="ch__n mono">05</span><h3>Question mix</h3>
+            <p class="ch__exploit">“Q1 is main-idea. The last one is tone.”</p>
+            <p>Type distribution, ordering, and difficulty curve of the six questions. There is no fixed question formula to learn because there is no fixed question formula.</p>
+            <p class="ch__metric mono">earth-mover’s + order distance</p></article>
+          <article class="ch"><span class="ch__n mono">06</span><h3>Wrong-answer logic</h3>
+            <p class="ch__exploit">“Cut the extreme option and the too-broad option. Done.”</p>
+            <p>The <em>mechanisms</em> of wrongness are tracked as a distribution. Here, too much predictability is the failure — elimination heuristics that work on one set must fail on the next.</p>
+            <p class="ch__metric mono">divergence on mechanism histograms</p></article>
+          <article class="ch"><span class="ch__n mono">07</span><h3>Voice separation</h3>
+            <p class="ch__exploit">“All these passages read like one writer.”</p>
+            <p>Function-word stylometry — the same forensics used to attribute anonymous authorship — verifies that different voices really are statistically different writers.</p>
+            <p class="ch__metric mono">Burrows’ Delta</p></article>
+          <article class="ch"><span class="ch__n mono">08</span><h3>Answer-key behaviour</h3>
+            <p class="ch__exploit">“When unsure: longest option, most hedged, or C.”</p>
+            <p>Letters, option lengths, and hedging of correct answers are tested for exploitable trends across your whole series — not just inside one set.</p>
+            <p class="ch__metric mono">runs test + χ² across sets</p></article>
+          <article class="ch"><span class="ch__n mono">09</span><h3>Topic distance</h3>
+            <p class="ch__exploit">“We’ve basically read this passage before.”</p>
+            <p>Semantic similarity against every set in your history. The oldest check in the industry — still enforced, now demoted to one voice among nine.</p>
+            <p class="ch__metric mono">embedding cosine</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ 06 · DESIGNED MISREADINGS -->
+    <section class="section section--alt" id="craft">
+      <div class="shell">
+        <header class="sec-head" data-reveal>
+          <p class="sec-kicker">06 — Designed misreadings</p>
+          <h2 class="sec-title">Wrong answers are engineered <em>before the passage exists.</em></h2>
+          <p class="sec-lede">
+            The blueprint plants specific misreadings — a paragraph written so a fast reader hears
+            endorsement where there is only steelmanning. Questions then harvest exactly those traps.
+            Difficulty is inherited from architecture, not sprinkled on afterwards.
+          </p>
+        </header>
+
+        <div class="trap-demo" data-reveal>
+          <div class="trap-demo__plan">
+            <p class="mono trap-demo__label">FROM THE BLUEPRINT · trap map</p>
+            <div class="trap-card">
+              <p class="mono trap-card__id">TR2 · anchored in ¶3</p>
+              <p class="trap-card__text">¶3 steelmans the psychometric case for “attention” as a stable,
+              measurable kind — so generously that a fast reader hears the author endorsing it.</p>
+              <p class="mono trap-card__mech">invited misreading → <b>level_confusion</b> · harvested by Q2</p>
+            </div>
+            <svg class="trap-demo__wire" viewBox="0 0 60 120" aria-hidden="true">
+              <path d="M8 12 C 48 12, 12 108, 52 108" fill="none"/>
+              <circle cx="8" cy="12" r="3.5"/><circle cx="52" cy="108" r="3.5"/>
+            </svg>
+          </div>
+          <div class="trap-demo__q">
+            <p class="mono trap-demo__label">FROM THE SET · Q2</p>
+            <div class="q-card">
+              <p class="q-card__stem">The primary function of the third paragraph is to:</p>
+              <button type="button" class="q-opt" data-mech="level_confusion" data-note="Harvests TR2 — mistakes a reported position, presented at full strength, for the author’s own view.">
+                <span class="q-opt__l">A</span>
+                <span>endorse the psychometric case for attention as a stable psychological kind</span>
+                <span class="q-opt__chip mono" aria-hidden="true"></span>
+              </button>
+              <button type="button" class="q-opt q-opt--correct" data-mech="correct" data-note="The paragraph presents the strongest version of a view the passage then undermines — the reading the trap was built to obscure.">
+                <span class="q-opt__l">B</span>
+                <span>present the strongest available version of a position the passage will go on to undermine</span>
+                <span class="q-opt__chip mono" aria-hidden="true"></span>
+              </button>
+              <button type="button" class="q-opt" data-mech="premature_closure" data-note="Resolves a tension the passage deliberately leaves open — punishes the reader who craves a settled verdict.">
+                <span class="q-opt__l">C</span>
+                <span>concede that the passage’s central question cannot be settled empirically</span>
+                <span class="q-opt__chip mono" aria-hidden="true"></span>
+              </button>
+              <button type="button" class="q-opt" data-mech="adjacent_answer" data-note="A true-sounding claim about the wrong thing — the correct answer to a question that wasn’t asked.">
+                <span class="q-opt__l">D</span>
+                <span>introduce a methodological distinction that the rest of the passage quietly abandons</span>
+                <span class="q-opt__chip mono" aria-hidden="true"></span>
+              </button>
+              <p class="q-card__hint" id="q-hint">Select an option to see the mechanism behind it.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="mech-strip" data-reveal>
+          <p class="mech-strip__intro">Every wrong option implements a <strong>named mechanism</strong> from a
+          taxonomy of twenty — and the answer key explains each one, so faculty receive teaching notes, not just letters.</p>
+          <div class="mech-strip__chips" aria-label="Sample of the trap mechanism taxonomy">
+            <span class="mono">premature_closure</span><span class="mono">scope_inflation</span>
+            <span class="mono">stage_misattribution</span><span class="mono">causal_inversion</span>
+            <span class="mono">level_confusion</span><span class="mono">false_symmetry</span>
+            <span class="mono">straw_version</span><span class="mono">terminological_twin</span>
+            <span class="mono">example_promotion</span><span class="mono">adjacent_answer</span>
+            <span class="mono">+ 10 more</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ 07 · HYGIENE -->
+    <section class="section" id="hygiene">
+      <div class="shell">
+        <header class="sec-head" data-reveal>
+          <p class="sec-kicker">07 — Answer-key hygiene</p>
+          <h2 class="sec-title">The shortcuts toppers swear by, <em>mechanically removed.</em></h2>
+          <p class="sec-lede">Some tells don’t live in the prose — they live in the keys. These are closed
+          by construction, not by hoping the generator behaves.</p>
+        </header>
+        <div class="hyg-grid">
+          <article class="hyg" data-reveal>
+            <h3>“Pick C when unsure.”</h3>
+            <p class="hyg__viz mono" aria-hidden="true"><span>C</span><span>A</span><span>D</span><span>B</span><span>A</span><span>D</span></p>
+            <p>Answer letters are sampled as a plan <em>before</em> questions exist and assigned
+            mechanically — the model returns options unlabelled and never gets to cluster keys.
+            Letter behaviour is then χ²-tested across your whole series.</p>
+          </article>
+          <article class="hyg" data-reveal>
+            <h3>“The longest option is right.”</h3>
+            <div class="hyg__bars" aria-hidden="true"><i style="--h:.55"></i><i style="--h:.9" class="is-key"></i><i style="--h:.7"></i><i style="--h:.62"></i></div>
+            <p>Per set, the correct option may be strictly longest in at most two of six questions —
+            and the main-idea question’s answer is budgeted corpus-wide, because that’s the one
+            students check first. Violations can never auto-approve.</p>
+          </article>
+          <article class="hyg" data-reveal>
+            <h3>“The most hedged option is right.”</h3>
+            <p class="hyg__viz hyg__viz--words"><em>arguably…</em> <em>in most cases…</em> <em>granted…</em></p>
+            <p>Every authorial voice carries its own hedging inventory, so qualification patterns differ
+            set to set — and one distractor profile exists specifically to make over-hedged options
+            <em>wrong</em>. The “moderate answer” heuristic stops paying.</p>
+          </article>
+          <article class="hyg" data-reveal>
+            <h3>“Extreme words mean wrong.”</h3>
+            <p class="hyg__viz mono">always ≠ wrong</p>
+            <p>Lexical extremity is treated as a wasted distractor. Traps are built from the passage’s own
+            logic — a misreading a strong reader could genuinely commit — so “scan for <em>always</em> and
+            <em>never</em>” eliminates nothing.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ 08 · THE PROBE -->
+    <section class="section section--dark" id="probe">
+      <div class="shell shell--narrow">
+        <div class="probe-band" data-reveal>
+          <p class="sec-kicker">08 — The adversary</p>
+          <h2 class="sec-title">We built the pattern-hunting topper<br><em>so yours finds nothing to hunt.</em></h2>
+          <p class="probe-band__text">
+            The harshest test in the protocol: an adversarial model is shown the last ten passages of a
+            series and asked to predict the eleventh — where the thesis will surface, where the reversal
+            will land, how it will end, what the questions will ask. Rising prediction accuracy means a
+            pattern is forming; the exposed components rotate out of circulation before any student
+            could exploit them.
+          </p>
+          <div class="probe-band__readout mono" data-reveal aria-label="Probe prediction readout">
+            <span>predict thesis paragraph → <b class="no">wrong</b></span>
+            <span>predict reversal position → <b class="no">wrong</b></span>
+            <span>predict ending aperture → <b class="no">wrong</b></span>
+            <span>predict question types → <b class="no">wrong</b></span>
+          </div>
+          <p class="probe-band__punch">If a strong model armed with your entire history can’t call the next
+          set’s shape, a student juggling six sections certainly can’t.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ 09 · GATES & HONESTY -->
+    <section class="section" id="gates">
+      <div class="shell">
+        <header class="sec-head" data-reveal>
+          <p class="sec-kicker">09 — Quality gates</p>
+          <h2 class="sec-title">No set ships on generation alone.<br><em>And the engine publishes its failure modes.</em></h2>
+        </header>
+
+        <div class="gates-grid">
+          <article class="gate" data-reveal>
+            <span class="gate__k mono">GATE · SOLVE</span>
+            <h3>Independent blind solve</h3>
+            <p>A separate system answers all six questions without ever seeing the key. Disagreement is
+            never auto-regenerated away — it escalates to a human, because a defensible dispute means
+            either a broken key or a genuinely brutal question. Both deserve eyes.</p>
+          </article>
+          <article class="gate" data-reveal>
+            <span class="gate__k mono">GATE · JUDGE</span>
+            <h3>Blueprint-aware rubric</h3>
+            <p>The set is scored against <em>its own</em> intended structure. A deliberately linear,
+            dense passage is judged for being linear and dense — not penalised for lacking a reversal
+            it was never meant to have. One universal rubric is how house styles form.</p>
+          </article>
+          <article class="gate" data-reveal>
+            <span class="gate__k mono">GATE · FACULTY</span>
+            <h3>Human editorial authority</h3>
+            <p>Senior VARC faculty sign off on every delivered set, with rationales that name the
+            misreading each wrong option was designed to catch — debrief material for your classroom,
+            not just an answer key.</p>
+          </article>
+        </div>
+
+        <div class="ledger" data-reveal>
+          <p class="ledger__intro">Every set ends its run with a verdict on record — including the ones
+          you never see. Transparency about rejection is what makes the approvals mean something.</p>
+          <div class="ledger__table" role="table" aria-label="Engine verdicts">
+            <div class="ledger__row" role="row"><span class="mono status status--ok" role="cell">approved</span><span role="cell">Passed structure, novelty, blind-solve, judge, and hygiene checks. Eligible for faculty review and delivery.</span></div>
+            <div class="ledger__row" role="row"><span class="mono status status--warn" role="cell">needs_review</span><span role="cell">Complete but flagged — a low judge score or a hygiene breach routes it to a human. Never auto-approved.</span></div>
+            <div class="ledger__row" role="row"><span class="mono status status--warn" role="cell">solver_dispute</span><span role="cell">The blind solver read it differently. A human adjudicates; defensible disputes rebuild the question.</span></div>
+            <div class="ledger__row" role="row"><span class="mono status status--bad" role="cell">rejected_novelty</span><span role="cell">Structurally too close to history. Recomposed from scratch — and its fingerprint still joins the corpus so nothing may resemble <em>it</em> either.</span></div>
+            <div class="ledger__row" role="row"><span class="mono status status--bad" role="cell">budget_abort</span><span role="cell">Would have exceeded its cost ceiling. Nothing ships; the spend is logged. Discipline over hope.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ 10 · THE MOAT -->
+    <section class="section section--alt" id="moat">
+      <div class="shell">
+        <header class="sec-head" data-reveal>
+          <p class="sec-kicker">10 — Why this compounds</p>
+          <h2 class="sec-title">The moat is <em>memory</em>, not generation.</h2>
+          <p class="sec-lede">Anyone can generate a good passage. The asset is knowing everything your
+          students have already seen — and being able to guarantee distance from it.</p>
+        </header>
+        <div class="moat-grid">
+          <article class="moat" data-reveal>
+            <h3>A corpus that remembers everything</h3>
+            <p>Every shipped set, every rejected set, every manually vetted set leaves a structural
+            fingerprint — movement, arc, rhythm, voice, keys. Each new set is audited against all of it.
+            A competitor with an identical engine starts tomorrow with amnesia about your students.</p>
+          </article>
+          <article class="moat" data-reveal>
+            <h3>Exclusivity as a database constraint</h3>
+            <p>No two clients ever receive sets sharing an argumentative skeleton — enforced by
+            combination-hash disjointness in the production database, auditable on request. You aren’t
+            buying content. You’re buying <strong>structural territory</strong>.</p>
+          </article>
+          <article class="moat" data-reveal>
+            <h3>Provenance, when content leaks</h3>
+            <p>Mock content ends up on Telegram; that’s the industry. Structural fingerprints and key
+            plans double as a watermark — a leaked set identifies the batch it came from. Your licence
+            is enforceable because the evidence already exists.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ 11 · ROADMAP -->
+    <section class="section" id="roadmap">
+      <div class="shell">
+        <header class="sec-head" data-reveal>
+          <p class="sec-kicker">11 — Trajectory</p>
+          <h2 class="sec-title">Built for the corpus at ten times this size.</h2>
+        </header>
+        <div class="road" data-reveal>
+          <div class="road__col">
+            <p class="mono road__k">RUNNING NOW</p>
+            <ul>
+              <li>Blueprint-first pipeline with twice-enforced novelty</li>
+              <li>Nine-channel audit on every set, with full audit trail</li>
+              <li>Answer-key hygiene budgets, per set and corpus-wide</li>
+              <li>Weekly corpus-health telemetry: drift, balance, bias</li>
+            </ul>
+          </div>
+          <div class="road__col">
+            <p class="mono road__k">ROLLING OUT</p>
+            <ul>
+              <li>Automated crackability probe on a fixed cadence</li>
+              <li>Component lifecycle: heavily-used families enter cool-off and must re-audition</li>
+              <li>Per-student exposure guarantees — no student meets a skeleton twice in a series</li>
+            </ul>
+          </div>
+          <div class="road__col">
+            <p class="mono road__k">ON THE MAP</p>
+            <ul>
+              <li>Difficulty calibrated from real response data, per family and slot</li>
+              <li>Second-exposure score-lift tracking — the ground-truth leakage metric</li>
+              <li>Exam-agnostic variants: CLAT, OMET, GRE-style from the same libraries</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ 12 · PRICING -->
+    <section class="section section--alt" id="pricing">
+      <div class="shell">
+        <header class="sec-head" data-reveal>
+          <p class="sec-kicker">12 — Engagements</p>
+          <h2 class="sec-title">Retainers built around your mock calendar.</h2>
+          <p class="sec-lede">Every tier includes the nine-channel audit on every set. You are pricing
+          inventory that keeps your percentile data honest — not a per-set commodity.</p>
+        </header>
+
+        <div class="tiers">
+          <article class="tier" data-reveal>
+            <h3>Practice Bench</h3>
+            <p class="tier__for">Focused coachings &amp; independent VARC mentors</p>
+            <p class="tier__price">₹15,000<span>/mo from</span></p>
+            <ul>
+              <li><strong>24 sets monthly</strong> — graded difficulty mix</li>
+              <li>Weekly delivery batches</li>
+              <li>Monthly novelty summary</li>
+              <li>Full trap-anatomy rationales</li>
+            </ul>
+            <a class="btn btn--ghost btn--block" href="mailto:coolcresent1@gmail.com?subject=Practice%20Bench%20enquiry">Enquire</a>
+          </article>
+
+          <article class="tier tier--flag" data-reveal>
+            <span class="tier__badge">Flagship</span>
+            <h3>Mock Vault</h3>
+            <p class="tier__for">Institutes running their own mock series</p>
+            <p class="tier__price">₹40,000<span>/mo from</span></p>
+            <ul>
+              <li><strong>Full 10-mock VARC series / month</strong> (40 sets)</li>
+              <li>Difficulty curves designed per mock</li>
+              <li><strong>Structural exclusivity</strong> — enforced in the database</li>
+              <li>Per-mock novelty certificate</li>
+              <li>Trap-map teaching notes for debriefs</li>
+              <li>72-hour correction SLA</li>
+            </ul>
+            <a class="btn btn--primary btn--block" href="mailto:coolcresent1@gmail.com?subject=Mock%20Vault%20enquiry">Enquire</a>
+          </article>
+
+          <article class="tier" data-reveal>
+            <h3>Platform Feed</h3>
+            <p class="tier__for">Test platforms &amp; adaptive learning products</p>
+            <p class="tier__price">₹75,000<span>/mo from</span></p>
+            <ul>
+              <li><strong>100+ sets monthly</strong> — CSV / JSON delivery</li>
+              <li><strong>Per-student novelty guarantee</strong></li>
+              <li>Difficulty metadata on every question</li>
+              <li>Co-branded audit trail</li>
+            </ul>
+            <a class="btn btn--ghost btn--block" href="mailto:coolcresent1@gmail.com?subject=Platform%20Feed%20enquiry">Enquire</a>
+          </article>
+        </div>
+
+        <p class="billing-note" data-reveal>
+          Quarterly advance billing. Annual contracts flex with the season — mock-heavy before the exam,
+          bank-building after. Category exclusivity within a city available as an add-on (+30–40%).
+          One-time Legacy Corpus Audit of your existing bank: ₹20–25k.
+        </p>
+      </div>
+    </section>
+
+    <!-- ============================================================ 13 · AUDITION -->
+    <section class="section" id="audition">
+      <div class="shell">
+        <header class="sec-head" data-reveal>
+          <p class="sec-kicker">13 — The blind audition</p>
+          <h2 class="sec-title">Don’t take our word for any of this.<br><em>Take the labels off.</em></h2>
+          <p class="sec-lede">Every vendor claims quality. We’d rather your VARC head measure it — on
+          your content and ours, blind, with the stake in writing before we start.</p>
+        </header>
+
+        <ol class="steps" data-reveal>
+          <li><span class="steps__n">1</span><div>
+            <h3>Send 6–10 sets from your current series</h3>
+            <p>Within 48 hours you get a structural repetition report: repeating skeletons, correlated
+            conviction arcs, answer-key drift — what your repeat-takers have already unconsciously
+            learned. Free, and yours either way.</p></div></li>
+          <li><span class="steps__n">2</span><div>
+            <h3>We send five passages</h3>
+            <p>Three ours — different families, different voices, different endings. One by a strong
+            professional writer. One from a general-purpose AI tool. No labels.</p></div></li>
+          <li><span class="steps__n">3</span><div>
+            <h3>Your VARC head scores them blind</h3>
+            <p>Quality ranking, authorship guesses, and any pair that “feels like the same writer.”</p></div></li>
+          <li><span class="steps__n">4</span><div>
+            <h3>The stake</h3>
+            <p>If your faculty identify our three at better than chance, we walk away and you keep all
+            five sets. Committed in writing before the pack is sent.</p></div></li>
+          <li><span class="steps__n">5</span><div>
+            <h3>The pilot</h3>
+            <p>Otherwise: one paid pilot — a complete, difficulty-curved mock VARC section — credited in
+            full against your first retainer month.</p></div></li>
+        </ol>
+
+        <div class="audition-cta" data-reveal>
+          <a class="btn btn--primary btn--lg" href="mailto:coolcresent1@gmail.com?subject=Blind%20audition%20request">
+            <span>Start the blind audition</span><span class="btn__chev" aria-hidden="true">→</span>
+          </a>
+          <p>One institute per category per city — exclusivity depends on it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ FAQ -->
+    <section class="section section--alt" id="faq">
+      <div class="shell shell--narrow">
+        <header class="sec-head" data-reveal>
+          <p class="sec-kicker">14 — FAQ</p>
+          <h2 class="sec-title">What institutes ask before they sign.</h2>
+        </header>
+        <div class="faq" data-reveal>
+          <details>
+            <summary>Is this AI-generated content?</summary>
+            <div class="faq__a">
+              <p>The passages are produced by an engine we built — and that is precisely why they can be
+              audited. A human writer cannot prove their fifteenth passage is structurally unlike their
+              first. We prove it, on nine channels, for every set, against your full history.</p>
+              <p>What no set ever is: raw generator output. Blind-solve, blueprint-aware judging, hygiene
+              budgets, and senior VARC faculty review stand between generation and delivery — always.
+              The blind audition exists because we’re happy to be tested on the result.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What happens when our faculty dispute an answer key?</summary>
+            <div class="faq__a">
+              <p>Keys are independently blind-solved before delivery, and every rationale names the
+              misreading each wrong option targets — most disputes resolve on the rationale alone. Where
+              a rival reading is genuinely defensible, we rebuild the question within the 72-hour SLA.
+              Disputed items are replaced, not argued into the ground.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Who owns the content we receive?</summary>
+            <div class="faq__a">
+              <p>You hold an exclusive licence to your delivered sets — no other client receives them, nor
+              any set built on the same argumentative skeleton. We retain the structural system and audit
+              metadata, which is exactly what makes that exclusivity enforceable rather than promised.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Which exams do you cover?</summary>
+            <div class="faq__a">
+              <p>Calibrated for CAT-level VARC today — passage lengths, question styles, and difficulty
+              tiers matched to the real paper’s register. CLAT, OMET, and GRE-style variants are available
+              on request; the structural libraries are exam-agnostic and only the surface parameters change.</p>
+            </div>
+          </details>
+          <details>
+            <summary>How fast can a full mock series land?</summary>
+            <div class="faq__a">
+              <p>Delivery is weekly against your mock calendar. A complete 10-mock VARC series lands within
+              one month of calibration — week one locks lengths, difficulty curves, and format to your
+              paper pattern.</p>
+            </div>
+          </details>
+          <details>
+            <summary>If every institute buys this, what’s our edge?</summary>
+            <div class="faq__a">
+              <p>Structural territory is engineered scarcity: with roughly a billion usable blueprints,
+              no two clients ever share an argumentative skeleton, and we serve one institute per category
+              per city. More fundamentally, the moat is the memory of what <em>your</em> students have
+              seen — that history is yours and cannot be replicated by anyone starting fresh.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================ CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="shell contact__grid">
+        <div data-reveal>
+          <p class="sec-kicker">15 — Start</p>
+          <h2 class="sec-title">Start with the audit.<br>Five minutes from you. Forty-eight hours from us.</h2>
+          <p class="sec-lede">
+            Send 6–10 RC sets from your current series and get back a structural repetition report showing
+            exactly what your repeat-takers have already learned to exploit. No commitment — the report is
+            yours either way.
+          </p>
+          <div class="contact__cta">
+            <a class="btn btn--primary btn--lg" href="mailto:coolcresent1@gmail.com?subject=Structural%20audit%20request">
+              <span>Request the free audit</span><span class="btn__chev" aria-hidden="true">→</span>
+            </a>
+            <a class="btn btn--ghost btn--lg" href="mailto:coolcresent1@gmail.com?subject=Blind%20audition%20request">Book the audition</a>
+          </div>
+        </div>
+        <aside class="contact-card" data-reveal>
+          <p class="contact-card__k mono">WHO RUNS THIS</p>
+          <p><strong>Blueprint Psychometrics</strong> is built and operated by Ansh Upadhyay, with senior
+          VARC faculty holding final editorial authority on every delivered set.</p>
+          <p class="contact-card__meta">
+            Mumbai, India<br>
+            <a href="mailto:coolcresent1@gmail.com">coolcresent1@gmail.com</a><br>
+            <span>Replies within one working day</span>
+          </p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer__inner">
+      <span class="footer__brand">Blueprint Psychometrics · Structural content research</span>
+      <span>Mumbai · Est. 2026</span>
+      <span>Press <kbd>T</kbd> for theme</span>
+    </div>
+  </footer>
+
+  <div class="sticky-cta" id="sticky-cta" hidden>
+    <div class="shell sticky-cta__inner">
+      <p>Free structural audit of your mock series — returned in 48 hours.</p>
+      <a class="btn btn--primary btn--sm" href="mailto:coolcresent1@gmail.com?subject=Structural%20audit%20request">Request audit</a>
+    </div>
+  </div>
+
+  <script>
+/**
+ * Blueprint Psychometrics — site interactions v2
+ * Zero dependencies. Every animation degrades gracefully under
+ * prefers-reduced-motion and without JS (content is fully static HTML).
+ */
+(() => {
+  "use strict";
+
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const root = document.documentElement;
+  const THEME_KEY = "bp-theme";
+
+  /* ---------------------------------------------------------------- theme */
+  const systemTheme = () =>
+    window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+
+  function applyTheme(t) {
+    root.setAttribute("data-theme", t);
+    try { localStorage.setItem(THEME_KEY, t); } catch (_) {}
+  }
+
+  (function initTheme() {
+    let stored = null;
+    try { stored = localStorage.getItem(THEME_KEY); } catch (_) {}
+    applyTheme(stored === "light" || stored === "dark" ? stored : systemTheme());
+  })();
+
+  $("#theme-toggle")?.addEventListener("click", () => {
+    applyTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark");
+  });
+  addEventListener("keydown", (e) => {
+    if (e.key.toLowerCase() === "t" && !/input|textarea|select/i.test(e.target.tagName)) {
+      applyTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark");
+    }
+  });
+
+  /* ---------------------------------------------------------- scroll rail */
+  const rail = $(".scroll-rail");
+  const railBar = $(".scroll-rail__bar");
+  function updateRail() {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    const p = h > 0 ? (scrollY / h) * 100 : 0;
+    railBar.style.width = p + "%";
+    rail.setAttribute("aria-valuenow", Math.round(p));
+  }
+  addEventListener("scroll", updateRail, { passive: true });
+  updateRail();
+
+  /* --------------------------------------------------------------- reveal */
+  const revealIO = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (e.isIntersecting) { e.target.classList.add("is-in"); revealIO.unobserve(e.target); }
+    }
+  }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+  $$("[data-reveal]").forEach((el) => revealIO.observe(el));
+
+  // Failsafe: if IntersectionObserver never delivers (frame-starved webviews,
+  // exotic embedders), un-hide everything rather than leave a blank page.
+  addEventListener("load", () => {
+    setTimeout(() => {
+      if (!$("[data-reveal].is-in")) {
+        $$("[data-reveal]").forEach((el) => el.classList.add("is-in"));
+        $(".skeleton-demo")?.classList.add("is-revealed");
+      }
+    }, 1200);
+  });
+
+  /* ----------------------------------------------------------- nav active */
+  const navLinks = $$(".nav a");
+  const navTargets = navLinks
+    .map((a) => $(a.getAttribute("href")))
+    .filter(Boolean);
+  const navIO = new IntersectionObserver((entries) => {
+    for (const e of entries) {
+      if (!e.isIntersecting) continue;
+      navLinks.forEach((a) =>
+        a.classList.toggle("is-active", a.getAttribute("href") === "#" + e.target.id));
+    }
+  }, { rootMargin: "-40% 0px -55% 0px" });
+  navTargets.forEach((t) => navIO.observe(t));
+
+  /* -------------------------------------------------------- ambient field */
+  const canvas = $("#field");
+  if (canvas && !reduced) {
+    const ctx = canvas.getContext("2d");
+    let w, h, nodes = [], raf;
+    const N = 42;
+    function resize() {
+      w = canvas.width = innerWidth * devicePixelRatio;
+      h = canvas.height = innerHeight * devicePixelRatio;
+    }
+    function seed() {
+      nodes = Array.from({ length: N }, () => ({
+        x: Math.random() * w, y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.12 * devicePixelRatio,
+        vy: (Math.random() - 0.5) * 0.12 * devicePixelRatio,
+        r: (Math.random() * 1.1 + 0.4) * devicePixelRatio,
+      }));
+    }
+    function tick() {
+      ctx.clearRect(0, 0, w, h);
+      const dark = root.getAttribute("data-theme") === "dark";
+      const dot = dark ? "rgba(140,160,220," : "rgba(60,80,160,";
+      const link = dark ? "rgba(107,140,255," : "rgba(61,90,224,";
+      for (const n of nodes) {
+        n.x += n.vx; n.y += n.vy;
+        if (n.x < 0 || n.x > w) n.vx *= -1;
+        if (n.y < 0 || n.y > h) n.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2);
+        ctx.fillStyle = dot + "0.35)";
+        ctx.fill();
+      }
+      const maxD = 150 * devicePixelRatio;
+      for (let i = 0; i < N; i++) for (let j = i + 1; j < N; j++) {
+        const a = nodes[i], b = nodes[j];
+        const dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy);
+        if (d < maxD) {
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = link + (0.08 * (1 - d / maxD)).toFixed(3) + ")";
+          ctx.lineWidth = devicePixelRatio * 0.7;
+          ctx.stroke();
+        }
+      }
+      raf = requestAnimationFrame(tick);
+    }
+    resize(); seed(); tick();
+    addEventListener("resize", () => { resize(); seed(); });
+    document.addEventListener("visibilitychange", () => {
+      if (document.hidden) cancelAnimationFrame(raf); else tick();
+    });
+  }
+
+  /* ------------------------------------------------------- component data */
+  const LIB = {
+    families: [
+      ["The Autopsy", "how a consensus formed, not who was right"],
+      ["The Borrowed Lens", "an imported framework distorts more than it reveals"],
+      ["The Scale Shift", "the claim inverts when you zoom out"],
+      ["The Definitional Undertow", "the real fight is over the key term"],
+      ["The Reluctant Conversion", "the author argues themselves across the line"],
+      ["The Third Thing", "both rivals share one hidden premise"],
+      ["The Vanishing Object", "inquiry dissolves its own object"],
+      ["The Costed Victory", "the thesis stands — diminished"],
+      ["The Time-Lag Argument", "judged by criteria from a vanished era"],
+      ["The Practitioner's Rebuke", "theory meets detail that breaks it"],
+      ["The Asymmetry Hunt", "a habitual symmetry comes apart"],
+      ["The Successful Failure", "failed its goal, succeeded at another"],
+      ["The Category Refugee", "no taxonomy fits without mutilation"],
+      ["The Inheritance Dispute", "two traditions claim one ancestor"],
+      ["The Diagnostic Reversal", "the disease re-read as adaptation"],
+      ["The Silent Partner", "an invisible condition erodes"],
+      ["The Half-Life", "a concept decays as it migrates"],
+      ["The Double Bind", "two legitimate, incompatible demands"],
+      ["The Wrong Question", "answered, found wanting, reframed"],
+      ["The Minority Report", "a lost view steelmanned, not endorsed"],
+      ["The Instrument Effect", "the method produces what it finds"],
+      ["The Threshold Argument", "degree becomes kind — but where?"],
+      ["The Proxy War", "a technical dispute hides a commitment"],
+      ["The Hospitable Critic", "sincere admiration, fatal objection"],
+      ["The Ecology", "agents refused; equilibrium described"],
+      ["The Untranslatable", "resistance to translation as evidence"],
+      ["The Simultaneity Problem", "the causal arrow breaks"],
+      ["The Boring Truth", "spectacle deflated for a hard mundane fact"],
+      ["The Moving Target", "a critique outlived by its object"],
+      ["The Self-Application", "a theory applied to itself"],
+      ["The Load-Bearing Anecdote", "one incident, three readings"],
+      ["The Coalition of Errors", "a true belief held for bad reasons"],
+    ],
+    personas: [
+      "The Forensic Skeptic", "The Disenchanted Insider", "The Genial Contrarian",
+      "The Systems Cartographer", "The Moral Accountant", "The Historian of the Present",
+      "The Reluctant Modernist", "The Analytic Miniaturist", "The Field Reporter Turned Theorist",
+      "The Recovering Enthusiast", "The Institutional Anthropologist", "The Epistemic Auditor",
+      "The Comparative Synthesist", "The Patient Explicator", "The Ironic Formalist",
+      "The Pragmatist Judge", "The Melancholy Realist", "The Precision Provocateur",
+      "The Archaeologist of Ideas", "The Cold Enthusiast",
+    ],
+    endings: [
+      "The Widened Aperture", "The Returned Key", "The Burden Shift", "The Practical Deflation",
+      "The Residue", "The Horizon Clause", "The Quiet Verdict", "The Displacement",
+      "The Cost Disclosure", "The Open Ledger", "The Retrospective Frame", "The Scale Exit",
+      "The Instrument Doubt", "The Minor Character Promotion", "The Refused Synthesis",
+      "The Time Bomb", "The Narrowed Claim", "The Anti-Conclusion", "The Handover",
+      "The Earned Banality",
+    ],
+    rhythms: [
+      "Monolith & Shards", "Staircase", "Inverted Staircase", "Pendulum", "Twin Peaks",
+      "Slow Fuse", "Front-Load", "Interruption", "Braid", "Spiral", "Ledger", "Wave",
+      "Trapdoor", "Overture", "Long Corridor", "Eddy", "Counterweight", "Cold Open",
+      "Descent", "Ascent",
+    ],
+    reveals: [
+      "Immediate-then-Eroded", "Decoy First", "Negative Space", "Late Crystallization",
+      "Two-Stage", "Borrowed Mouth", "Question Form", "Retrospective Reveal",
+      "Progressive Sharpening", "Casual Aside", "Definitional Smuggle", "Concessive Carrier",
+      "Split Thesis", "Counter-Punch", "Example-Borne", "Escalating Denial", "Frame Shift",
+      "Delayed Referent", "Convergence", "Erosion Reversal",
+    ],
+    distractors: [
+      "The Premature Closer", "The Scope Inflater", "The Time Traveler", "The Sympathetic Import",
+      "The Half-Truth Ledger", "The Inversion Artist", "The Tone Deaf", "The Vocabulary Magnet",
+      "The Reasonable Extremist", "The Straw Vendor", "The Category Slipper",
+      "The Consensus Peddler", "The Symmetry Faker", "The Level Confuser",
+      "The Necessary/Sufficient Swapper", "The Example Promoter", "The Missing Link",
+      "The Overqualifier", "The Adjacent Answer", "The Terminological Twin",
+    ],
+    topologies: [
+      "Classic Gauntlet", "Inverted", "Structural Emphasis", "Application Heavy",
+      "Local–Global Ladder", "The Ambush", "Assumption Cluster", "Tone Split",
+      "Cross-Paragraph Weave", "The Decoy Mirror", "Evidence Audit", "Counterfactual Set",
+      "The Compression Test", "The Expansion Test", "Sequential Dependency", "Deep Drill",
+      "Author vs. Reported", "Strengthen/Weaken Pair", "The Ending Interrogation",
+      "The Uniform Field",
+    ],
+  };
+  const LIB_ORDER = ["families", "personas", "endings", "rhythms", "reveals", "distractors", "topologies"];
+  const pick = (arr) => arr[Math.floor(Math.random() * arr.length)];
+  const nameOf = (lib, item) => (lib === "families" ? item[0] : item);
+  const hash = () => Array.from({ length: 10 }, () => "0123456789abcdef"[Math.floor(Math.random() * 16)]).join("");
+
+  /* --------------------------------------------------------- hero composer */
+  const composer = $("#hero-composer");
+  if (composer) {
+    const slots = $$("[data-slot]", composer);
+    const state = $("#composer-state");
+    const hashEl = $("#composer-hash");
+    const distEl = $("#composer-dist");
+    const idEl = $("#composer-id");
+    let run = 0;
+
+    function compose() {
+      const myRun = ++run;
+      state.classList.remove("is-locked");
+      state.querySelector("b").textContent = "composing";
+      hashEl.innerHTML = "combo · sampling under exclusion windows…";
+      distEl.textContent = "";
+      idEl.textContent = "BLUEPRINT · BP-2026-07-0" + (140 + Math.floor(Math.random() * 60));
+      slots.forEach((s) => { s.classList.remove("is-locked"); });
+
+      if (reduced) {
+        slots.forEach((s, i) => {
+          s.textContent = nameOf(LIB_ORDER[i], pick(LIB[LIB_ORDER[i]]));
+          s.classList.add("is-locked");
+        });
+        lock(myRun);
+        return;
+      }
+
+      slots.forEach((slot, i) => {
+        const lib = LIB[LIB_ORDER[i]];
+        let ticks = 0;
+        const max = 7 + i * 3;
+        const iv = setInterval(() => {
+          if (myRun !== run) { clearInterval(iv); return; }
+          slot.textContent = nameOf(LIB_ORDER[i], pick(lib));
+          if (++ticks >= max) {
+            clearInterval(iv);
+            slot.classList.add("is-locked");
+            if (i === slots.length - 1) lock(myRun);
+          }
+        }, 90);
+      });
+    }
+    function lock(myRun) {
+      if (myRun !== run) return;
+      state.classList.add("is-locked");
+      state.querySelector("b").textContent = "contract locked";
+      hashEl.innerHTML = "combo · <b>" + hash() + "</b> · never reused";
+      const d = (0.58 + Math.random() * 0.3).toFixed(2);
+      distEl.innerHTML = "distance vs last 50 · <b>" + d + " PASS</b>";
+    }
+    // First run when hero becomes visible; re-run every 9s while visible.
+    let composerTimer = null;
+    const composerIO = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          compose();
+          if (!reduced && !composerTimer) composerTimer = setInterval(compose, 9000);
+        } else if (composerTimer) { clearInterval(composerTimer); composerTimer = null; }
+      }
+    }, { threshold: 0.2 });
+    composerIO.observe(composer);
+  }
+
+  /* -------------------------------------------------------- skeleton demo */
+  const skDemo = $(".skeleton-demo");
+  if (skDemo) {
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) { skDemo.classList.add("is-revealed"); io.disconnect(); }
+      }
+    }, { threshold: 0.45 });
+    io.observe(skDemo);
+  }
+
+  /* ------------------------------------------------------ pipeline scroll */
+  const pipeSteps = $$(".pipe-step");
+  const pipeNodes = $$(".pipe-node");
+  if (pipeSteps.length) {
+    const stepIO = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        const idx = Number(e.target.dataset.step);
+        pipeSteps.forEach((s) => s.classList.toggle("is-active", s === e.target));
+        pipeNodes.forEach((n) => {
+          const ni = Number(n.dataset.node);
+          n.classList.toggle("is-active", ni === idx);
+          n.classList.toggle("is-done", ni < idx);
+        });
+      }
+    }, { rootMargin: "-42% 0px -50% 0px" });
+    pipeSteps.forEach((s) => stepIO.observe(s));
+  }
+
+  /* -------------------------------------------------------- audit console */
+  const CONSOLE_CHANNELS = [
+    ["blueprint distance", 0.45],
+    ["movement string", 0.70],
+    ["conviction arc", 0.85],
+    ["rhythm vector", 0.92],
+    ["question topology", 0.75],
+    ["distractor mix", 0.80],
+    ["voice stylometry", 0.72],
+    ["answer behaviour", 0.78],
+    ["topic embedding", 0.80],
+  ];
+  // Two scripted runs: first breaches "movement string", recompose passes all.
+  const RUN_REJECT = [0.31, 0.74, 0.52, 0.44, 0.38, 0.47, 0.41, 0.33, 0.36];
+  const RUN_PASS   = [0.22, 0.38, 0.41, 0.35, 0.29, 0.42, 0.37, 0.28, 0.31];
+
+  const consoleEl = $(".console");
+  if (consoleEl) {
+    const verdictEl = $("#console-verdict");
+    const titleEl = $("#console-title");
+    const capEl = $("#console-cap");
+    const rows = $$("#console-rows .crow"); // pre-rendered in HTML (no-JS fallback shows the pass state)
+
+    let playing = false;
+    function setRow(i, sim, breach) {
+      const row = rows[i];
+      row.classList.toggle("is-breach", breach);
+      $(".crow__fill", row).style.width = (sim * 100).toFixed(0) + "%";
+      $(".crow__val", row).textContent = sim.toFixed(2);
+    }
+    function resetRows() {
+      rows.forEach((row) => {
+        row.classList.remove("is-breach");
+        $(".crow__fill", row).style.width = "0%";
+        $(".crow__val", row).textContent = "—";
+      });
+    }
+    function verdict(text, cls) {
+      verdictEl.textContent = text;
+      verdictEl.className = "console__verdict mono is-stamp " + (cls || "");
+      setTimeout(() => verdictEl.classList.remove("is-stamp"), 450);
+    }
+    async function play() {
+      if (playing) return;
+      playing = true;
+      const wait = (ms) => new Promise((r) => setTimeout(r, reduced ? 0 : ms));
+
+      // Run 1 — rejection
+      resetRows();
+      titleEl.textContent = "AUDIT · RC-E-0711-2 · vs trailing 100";
+      capEl.textContent = "Channel caps are hard limits — a single structural breach rejects the set and a fresh blueprint is composed.";
+      verdict("running…");
+      await wait(350);
+      for (let i = 0; i < 9; i++) {
+        const sim = RUN_REJECT[i];
+        const breach = sim > CONSOLE_CHANNELS[i][1];
+        setRow(i, sim, breach);
+        await wait(240);
+      }
+      verdict("rejected · movement too close to RC-E-0630-1", "is-reject");
+      await wait(1900);
+
+      // Run 2 — recomposed set passes
+      resetRows();
+      titleEl.textContent = "AUDIT · RC-E-0711-2R · recomposed · vs trailing 100";
+      verdict("recomposing · fresh blueprint…");
+      await wait(900);
+      for (let i = 0; i < 9; i++) {
+        setRow(i, RUN_PASS[i], false);
+        await wait(200);
+      }
+      verdict("pass · composite novelty 0.67 · cleared to ship", "is-pass");
+      capEl.textContent = "The rejected attempt still enters the corpus memory — future sets must diverge from it too.";
+      playing = false;
+    }
+    $("#console-replay")?.addEventListener("click", play);
+    const cio = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) { play(); cio.disconnect(); }
+      }
+    }, { threshold: 0.35 });
+    cio.observe(consoleEl);
+  }
+
+  /* -------------------------------------------------------------- sampler */
+  const samplerBtn = $("#sampler-btn");
+  if (samplerBtn) {
+    const vEls = $$("[data-sample]");
+    const gEls = $$("[data-gloss]");
+    const check = $("#sampler-check");
+    let rolling = false;
+    function roll() {
+      if (rolling) return;
+      rolling = true;
+      const finals = LIB_ORDER.map((lib) => pick(LIB[lib]));
+      if (reduced) { settle(finals); return; }
+      vEls.forEach((el) => el.closest(".slot").classList.add("is-rolling"));
+      let ticks = 0;
+      const iv = setInterval(() => {
+        vEls.forEach((el, i) => {
+          el.textContent = nameOf(LIB_ORDER[i], pick(LIB[LIB_ORDER[i]]));
+        });
+        if (++ticks >= 9) { clearInterval(iv); settle(finals); }
+      }, 75);
+    }
+    function settle(finals) {
+      vEls.forEach((el, i) => {
+        el.textContent = nameOf(LIB_ORDER[i], finals[i]);
+        el.closest(".slot").classList.remove("is-rolling");
+      });
+      gEls.forEach((el, i) => {
+        el.textContent = LIB_ORDER[i] === "families" ? finals[i][1] : "";
+      });
+      // Occasionally dramatise a pre-check rejection + auto-resample.
+      const d = 0.42 + Math.random() * 0.5;
+      if (d < 0.55) {
+        check.classList.add("is-fail");
+        check.innerHTML = "distance vs last 50 · <b>" + d.toFixed(2) + "</b> · REJECTED — resampling…";
+        setTimeout(() => { rolling = false; roll(); }, reduced ? 0 : 900);
+      } else {
+        check.classList.remove("is-fail");
+        check.innerHTML = "distance vs last 50 · <b>" + d.toFixed(2) + "</b> · PASS";
+        rolling = false;
+      }
+    }
+    samplerBtn.addEventListener("click", roll);
+  }
+
+  /* -------------------------------------------------------- trap question */
+  const qHint = $("#q-hint");
+  $$(".q-opt").forEach((opt) => {
+    opt.addEventListener("click", () => {
+      $$(".q-opt").forEach((o) => o.classList.remove("is-open"));
+      opt.classList.add("is-open");
+      const mech = opt.dataset.mech;
+      const chip = $(".q-opt__chip", opt);
+      chip.textContent = mech === "correct" ? "✓ correct" : mech;
+      if (qHint) qHint.textContent = opt.dataset.note;
+    });
+  });
+
+  /* ------------------------------------------------------------ counters */
+  const counters = $$("[data-count]");
+  if (counters.length && !reduced) {
+    const cio = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (!e.isIntersecting) continue;
+        cio.unobserve(e.target);
+        const end = Number(e.target.dataset.count);
+        const t0 = performance.now();
+        const dur = 1100;
+        const step = (t) => {
+          const p = Math.min(1, (t - t0) / dur);
+          e.target.textContent = Math.round(end * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }
+    }, { threshold: 0.6 });
+    counters.forEach((c) => cio.observe(c));
+  }
+
+  /* ----------------------------------------------------------- sticky CTA */
+  const sticky = $("#sticky-cta");
+  if (sticky) {
+    sticky.hidden = false;
+    const contact = $("#contact");
+    const hero = $("#top");
+    function updateSticky() {
+      const past = scrollY > (hero?.offsetHeight || 600) * 1.2;
+      const nearEnd = contact &&
+        contact.getBoundingClientRect().top < innerHeight * 0.85;
+      sticky.classList.toggle("is-visible", past && !nearEnd);
+    }
+    addEventListener("scroll", updateSticky, { passive: true });
+    updateSticky();
+  }
+})();
+
+</script>
+</body>
+</html>

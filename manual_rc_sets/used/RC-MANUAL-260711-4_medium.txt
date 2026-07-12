@@ -1,0 +1,78 @@
+[PASSAGE]
+The reversible act is the great convenience of the age, and its praise is always framed in the same terms: the cost of error has come down. The keystroke undone, the draft that was never sent, the order returned within thirty days, the software rolled back, the trial run in the sandbox where nothing that happens is real. Where once a decision closed a door behind you, now the door stands open, and the man who chose badly may simply choose again. The gain is entered on the ledger as a reduction in risk.
+
+It is not, quite. What reversibility mostly does is move the deliberation, not shrink it — from before the act to after it. The question should I becomes the question do I like what happened, and for a very large class of decisions this is an unambiguous improvement, because trying is a cheaper and more accurate way of finding out than thinking is. But the two questions are not the same question, and the substitution goes through silently. Some things can be settled by sampling and inspecting the result. Others cannot, and the reason they cannot is that the trying changes the person who was supposed to do the inspecting.
+
+Consider the writer who no longer chooses his sentence but generates twenty and picks the one he likes. Selection is a real faculty, and often the better one; but it is not composition, and a man who has done only the first for ten years has not been practising the second. Or the commitment entered lightly because it can be exited lightly: the vow held open for review is not a weaker version of the vow, it is a different instrument, and whatever the closed door was doing — and it was doing something, or nobody would have kept building doors — it is not doing it here. In each case what is lost is not accuracy. It is a kind of deliberation that only exists under the condition of not being able to take it back.
+
+So the ledger entry is right as far as it goes, and it goes fairly far: most errors are cheaper to make and unmake than to prevent, and reversibility has made most of life more forgiving in a way that only a fool would deplore. The qualification is narrower and harder to see. Reversibility quietly converts questions of judgment into questions of preference-after-sampling, and it converts them all, including the ones that were not of that kind to begin with — and it is precisely those, being the ones whose answers required a closed door, that leave no trace of themselves when the door is left open and the conversion goes through unnoticed.
+[QUESTIONS]
+
+Q1. Which of the following best captures the passage's central claim?
+(A) Reversibility is a genuine gain that also converts judgment into preference-after-sampling — including for the questions that could only be settled with the door shut.
+(B) The praise of reversibility is misplaced, since the cost of error has not in fact come down and most reversals prove more expensive than the original decision.
+(C) Because deliberation before the act and inspection after it amount to the same operation performed at different moments, nothing of consequence is lost when one replaces the other.
+(D) People who rely on reversible tools become worse at making decisions generally, since the capacity for judgment atrophies without regular exercise under real stakes.
+
+Q2. The claim that reversibility "move[s] the deliberation, not shrink[s] it" serves in the argument to:
+(A) establish that the reduction in the cost of error is illusory, the same effort being expended either way.
+(B) concede the reformers' case in full before the essay turns to a separate topic.
+(C) reframe the gain as a relocation, which sets up the question of which deliberations survive being relocated.
+(D) show that decisions made after the fact are as sound as those made before it.
+
+Q3. What is the primary function of the writer-and-his-twenty-sentences example in the third paragraph?
+(A) It shows that generating options is inferior to composing, and that writers who select are producing worse prose.
+(B) It illustrates the substitution of one faculty for another, the second unpractised — a loss not of accuracy.
+(C) It demonstrates that writing is unusual among activities in resisting the benefits of reversibility.
+(D) It supplies the essay's thesis, which is that the tools of revision have degraded contemporary prose.
+
+Q4. The author's overall posture is best described as:
+(A) endorsing the standard praise of reversibility, with reservations too minor to affect the verdict.
+(B) suspending judgment, since the gains and the losses are of kinds that cannot be weighed against one another.
+(C) affirming the standard praise while identifying a specific and narrow class of question it fails to cover.
+(D) rejecting the standard praise, on the ground that the deliberation it dispenses with was the valuable part.
+
+Q5. A hiring manager, given a tool that lets her rescind any offer within ninety days at no cost, stops interviewing carefully and simply hires and observes. On the author's account, this is best described as:
+(A) a straightforward improvement, since observing a candidate at work is a more accurate test than an interview.
+(B) a case where the trying alters the person who was to inspect, and therefore one the author's framework cannot address.
+(C) an error of the kind the essay warns against, since no hiring question can be settled by sampling.
+(D) mostly the good case, a question well settled by sampling, the worry applying only to whatever required an irrevocable choice.
+
+Q6. The argument most depends on the unstated assumption that:
+(A) some deliberations have content that cannot be reconstructed once the act they concerned has become revocable.
+(B) most people, given the option to reverse a decision, will exercise it rather than live with the outcome.
+(C) irreversible decisions are, on the whole, made more carefully than reversible ones usually are.
+(D) the tools that make acts reversible were designed without regard for their effects on judgment.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+Q1 — Correct answer: (A)
+(A) CORRECT — the gain granted (paras 1, 4) plus the silent conversion of judgment into preference-after-sampling, applied indiscriminately (para 4).
+(B) straw_version — the essay concedes the cost of error genuinely falls ("only a fool would deplore"); it disputes what else happens, not the ledger entry.
+(C) false_symmetry — treats should I and do I like what happened as one question at two times; para 2 insists "the two questions are not the same question."
+(D) scope_inflation — a general atrophy-of-judgment claim; the essay's loss is confined to deliberations that required a closed door.
+Q2 — Correct answer: (C)
+(A) adjacent_answer — nearly right in shape, wrong in content: the essay does not say the gain is illusory, only that it is a relocation with a residue.
+(B) half_truth — the concession is real but partial, and what follows is not a separate topic but the qualification of that very claim.
+(C) CORRECT — relocation reframes the gain and raises the survival question that paras 2–3 answer.
+(D) nec_suff_swap — para 2 says sampling is often more accurate, not that after-the-fact judgment is always as sound; the exceptions are the essay's subject.
+Q3 — Correct answer: (B)
+(A) scope_inflation — the passage calls selection "a real faculty, and often the better one"; the point is not inferior output but an unpractised capacity.
+(B) CORRECT — one faculty substituted for another, and the loss explicitly "not… accuracy."
+(C) example_promotion — makes writing a special case; the vow in the same paragraph shows the pattern is general.
+(D) level_confusion — reads an illustration of the mechanism as a thesis about the state of contemporary prose, a claim the essay never advances.
+Q4 — Correct answer: (C)
+(A) moderate_extremism — sounds balanced and lands close, but para 4 treats the qualification as consequential precisely because it is invisible, not as minor.
+(B) false_symmetry — no suspension; the verdict is affirmed ("right as far as it goes, and it goes fairly far").
+(C) CORRECT — affirmation with a narrow, named qualification (para 4).
+(D) half_truth — captures para 3's loss and drops the concession that governs the essay's verdict.
+Q5 — Correct answer: (D)
+(A) half_truth — true of most of the case, and precisely the reading para 2 warns goes through "silently"; it omits the residue para 4 is about.
+(B) phrase_misuse — borrows para 2's phrase and misapplies it; nothing here alters the manager's capacity to judge, and the framework addresses the case squarely.
+(C) scope_inflation — the essay grants that most questions are well settled by sampling; "no hiring question" overshoots.
+(D) CORRECT — the good case with the narrow residue, exactly the split para 4 draws.
+Q6 — Correct answer: (A)
+(A) CORRECT — para 3's loss ("a kind of deliberation that only exists under the condition of not being able to take it back") and para 4's "leave no trace" both require this.
+(B) level_confusion — a behavioural claim about how often people reverse; the argument concerns what a decision becomes when reversal is available, whether or not it is used.
+(C) nec_suff_swap — care is not the issue; para 3 says what is lost "is not accuracy," so greater care under irreversibility is neither claimed nor needed.
+(D) adjacent_answer — designers' intentions are irrelevant to the conversion the essay describes, which goes through unnoticed regardless.
+[BLUEPRINT NOTE] Structure: a gain conceded in full, then shown to work by silently converting one kind of question into another — and to apply the conversion to the questions that could not survive it | Posture: resolution_qualified | Thesis visible: para 2 | Traps: false_symmetry (para 2, before/after deliberation as one question relocated), scope_inflation (para 3, the narrow residue read as general atrophy of judgment)

@@ -14,16 +14,16 @@ Q1. Which of the following best states the passage's central claim?
 (D) Since general theories of institutional capture are themselves inevitably captured, social criticism should confine itself permanently to particular case studies.
 
 Q2. The second paragraph ("They were not resisted...") primarily serves to:
-(A) supply a concrete instance of the proxy failures catalogued in the opening paragraph.
-(B) announce the essay's conclusion that the critics were defeated by the institutions they studied.
-(C) mark the turn from the outcome the critics anticipated to the stranger one that actually occurred, posing the puzzle the rest of the essay interprets.
-(D) show that administrators and critics had converged on a shared view of measurement, dissolving the original dispute.
+(A) supply one concrete instance of the proxy failures already catalogued in the opening paragraph.
+(B) announce as the essay's conclusion that the critics were defeated by the institutions they studied.
+(C) mark the turn from expected resistance to the stranger outcome that occurred, posing the essay's puzzle.
+(D) show administrators and critics had converged on a shared view of measurement, dissolving the original dispute.
 
 Q3. The author's judgment of the critique's institutional uptake differs from that of the original critics in that the author:
-(A) reads the uptake as the theory's strongest confirmation, faulting the critics only for assuming their argument was immune to the capture it described.
-(B) accepts that the uptake amounted to defeat, but attributes it to the critics' prophetic tone rather than to their analysis.
-(C) believes the critique drove institutions to abandon quantification, where the critics perceived only its continued expansion.
-(D) holds that the critics erred in claiming that numbers always mislead, whereas well-designed indicators can serve honest purposes.
+(A) reads the uptake as the theory's strongest confirmation, faulting critics only for assuming their argument was capture-proof.
+(B) accepts that the uptake amounted to defeat, but blames the critics' prophetic tone rather than their analysis.
+(C) believes the critique drove institutions to abandon quantification, while critics saw only its continued expansion.
+(D) holds that the critics erred in claiming numbers always mislead, whereas better indicators can serve honest ends.
 
 Q4. The claim that the critique's vocabulary "can no longer do critical work, whatever the intentions of the person using it" depends on the assumption that:
 (A) those who invoke the vocabulary in official settings are largely insincere, deploying it as camouflage for business as usual.
@@ -38,10 +38,10 @@ Q5. Which scenario most closely parallels the process described in the third and
 (D) A hospital found to be gaming a mortality statistic replaces it with a risk-adjusted measure that is harder to manipulate.
 
 Q6. In context, the image of the critics' "weapon picked up, examined, and mounted on the wall of the enemy's lobby" conveys:
-(A) how the uptake looked from the critics' side — trophy-taking that neutralised their work — a reading the author then contests.
-(B) the author's own settled verdict that the critique has been reduced to a purely decorative fixture within the institutions it once targeted.
-(C) that institutions preserved the critics' writings unaltered, honouring them as historical artefacts while ignoring their arguments.
-(D) the essay's later point that criticism must proceed through slow, local description rather than portable slogans.
+(A) how the uptake looked from the critics' side: trophy-taking that neutralised their work, a reading the author then contests.
+(B) the author's own settled verdict that the critique is now a purely decorative fixture in the institutions it once targeted.
+(C) that institutions preserved the critics' writings unaltered, honouring them as historical artefacts and ignoring the arguments entirely.
+(D) the essay's later claim that criticism must now proceed through slow local description rather than portable slogans.
 
 [ANSWER KEY & ELIMINATION LOGIC]
 

@@ -11,40 +11,40 @@ But say that a design "was selected by the market" and you have quietly filed th
 [QUESTIONS]
 
 Q1. Which of the following best states the passage's central claim?
-(A) The evolutionary lens genuinely illuminates the unintended drift of technologies, but at the cost of obscuring the human choices behind them — worth keeping only if that price is acknowledged.
-(B) Technologies are in fact a species of organism, evolving by variation and selection exactly as living things do, so the biological account is not a metaphor but the literal truth of how machines change over time.
-(C) The story of the standard keyboard proves that no one ever really chooses a technology; designs simply lock in and survive on their own.
-(D) Because the evolutionary frame erases human agency, historians of technology should abandon it and return to older vocabularies of plan and purpose.
+(A) The evolutionary lens illuminates unintended technological drift but obscures human choice — worth keeping only if that price is acknowledged.
+(B) Technologies are organisms evolving by variation and selection exactly as living things do, so the biological account is literal truth.
+(C) The keyboard story proves that no one ever really chooses a technology; designs simply lock in and survive alone.
+(D) Because the evolutionary frame erases agency, historians should abandon it and return to vocabularies of plan and purpose.
 
 Q2. The author's overall stance toward the evolutionary lens is best described as:
-(A) enthusiastic adoption, with no reservations at all once its considerable explanatory power has been granted
-(B) polite rejection, since its costs finally outweigh what it reveals
+(A) enthusiastic adoption, with no reservations once its explanatory power is fully granted
+(B) polite rejection, since its costs finally outweigh everything that the lens reveals
 (C) qualified acceptance that affirms its value while insisting on naming what it hides
-(D) neutral cataloguing of its strengths and weaknesses without reaching a verdict
+(D) neutral cataloguing of its strengths and weaknesses without reaching any final settled verdict
 
 Q3. The third paragraph's account of the keyboard functions to:
-(A) prove that human choice plays no genuine role in which technologies survive
-(B) concede, before the objection is raised, that the borrowed frame really does see what older vocabularies missed
-(C) supply the single example on which the essay's whole thesis depends
-(D) demonstrate that the market always selects the most efficient design available
+(A) prove that human choice plays no genuine role in which technologies can survive
+(B) concede, before the objection, that the borrowed frame sees what older vocabularies missed
+(C) supply the single example on which the essay's whole central thesis depends
+(D) demonstrate that the market always selects the most efficient design available now
 
 Q4. A reader says: "If technologies evolve, then asking who is responsible for a harmful design is as pointless as blaming a species for its traits." The author would most likely:
-(A) agree, since the essay shows that choice dissolves into selection pressures
-(B) agree, but only for technologies that have already locked in
-(C) object that the market, not individuals, is the responsible agent
-(D) object that this takes the lens as literally true and pays exactly the cost the essay warns of — filing the deciders "under weather"
+(A) agree, since the essay shows that choice dissolves into selection pressures fully
+(B) agree, but only for technologies that have already locked in for good
+(C) object that the market, not any individual, is the true responsible agent
+(D) object that this literalizes the lens and pays the cost of filing deciders under weather
 
 Q5. In context, "filed the people who chose it under weather" means:
-(A) recategorized human deciders as an impersonal environmental force, so that their choosing drops out of view
-(B) accused market forecasters of being as unreliable as weather forecasters
-(C) shown that consumer decisions are ultimately as unpredictable as the climate
-(D) claimed that technological change is governed entirely by large-scale conditions that lie beyond the reach of any individual's control
+(A) recategorized human deciders as an impersonal force, so their choosing drops out of view
+(B) accused market forecasters of being about as unreliable as ordinary weather forecasts do
+(C) shown that consumer decisions are ultimately as unpredictable as the climate itself is
+(D) claimed technological change is governed only by conditions beyond any individual's control
 
 Q6. The essay's closing "specific coin" — the price of adopting the lens — is:
-(A) that the frame merely decorates the history with borrowed vocabulary without adding any genuine explanatory power of its own
-(B) that older vocabularies of plan and purpose are lost for good
-(C) that it becomes harder to recognize a present choice as a choice while it is still open to be made
-(D) that the frame overstates how often outcomes exceed intentions
+(A) that the frame merely decorates history with borrowed vocabulary and adds no real power
+(B) that older vocabularies of plan and purpose are lost for good once the lens is used
+(C) that it becomes harder to see a present choice as a choice while it remains open
+(D) that the frame overstates how often outcomes exceed the intentions of their makers
 
 [ANSWER KEY & ELIMINATION LOGIC]
 

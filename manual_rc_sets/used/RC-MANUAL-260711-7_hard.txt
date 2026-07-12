@@ -1,0 +1,84 @@
+[PASSAGE]
+There are two stories about technical standards, and they have been quarrelling for decades. In the first, the better one wins: the shipping container, the four-foot-eight-and-a-half-inch gauge, the plug that does not electrocute you, prevail because they work. In the second, they win by accident and are then stuck — QWERTY, the gauge that a cart rut chose, the format that got to market first. The second story now carries most of the prestige, having the pleasing shape of a debunking. What is less often noticed is that both describe adoption as a decision: something an industry got right, or got wrong.
+The container did not persuade anybody. Once the ships were built to the box, the cranes calibrated to the box, the insurers pricing anything else as exotic cargo, the port that preferred loose stowage was not out-argued. It was made to pay for its preference, and went on paying until the preference became a luxury. What spread was not a verdict on merit but a change in the price of refusal — and the price of refusal is set by everyone else's compliance, not by the standard's own qualities.
+This is why the quarrel has stayed alive so long. To the small port, the odd-shaped machine, the crate of live goats, the standard is a constraint, and the constraint is not imaginary. To the network — the thing that lets a bolt from one country fit a nut from another, that lets a box leave Ningbo without anyone in Rotterdam being told what is inside — it is the enabling condition of movement itself. Both descriptions hold, at their own scales, and one can spend a career oscillating between them with the sensation of having discovered something.
+The oscillation is not a hard problem. It is a question whose answer is "both," and its persistence conceals a better one. Whatever cannot be boxed does not disappear when the box wins. It is displaced, and it lands somewhere: on the handlers who repack odd cargo at the edge of the yard, on the small port that now trucks its freight three hundred miles to a large one, on the shipper who pays a surcharge for the exception and passes it to whoever cannot refuse it in turn. That residue is where a standard's costs are actually settled, and unlike the quarrel it has an address. Follow the exception; see who is billed for it. The answer is determinate, it varies from standard to standard, and it is the thing neither story was built to see, since one is busy admiring the box and the other is busy explaining that the box need not have won.
+At the gate the surcharge appears on the invoice as a line marked handling, and at the edge of the yard the goats are repacked by hand.
+
+[QUESTIONS]
+
+Q1. Which best states what the passage finally argues?
+(A) Standards prevail through lock-in rather than merit, and the debunkers have therefore been vindicated against the older triumphalist story.
+(B) Whether a standard liberates or constrains depends entirely on the observer's position, so the dispute cannot be settled.
+(C) The container succeeded because it lowered costs across the network, which is why resistance to it proved so short-lived.
+(D) The quarrel is answerable and dull; the real question is where the unstandardisable residue lands and who pays.
+
+Q2. The author's view differs from that of the lock-in theorists chiefly in that the author:
+(A) believes that merit does, after all, explain which technical standards ultimately prevail in practice.
+(B) denies that adoption is best modelled as a decision, whether a good one or a mistaken one.
+(C) accepts their account of the container but rejects the account they give of QWERTY.
+(D) holds that lock-in is real but rare, and that most standards stay contestable after adoption.
+
+Q3. The sentence "It was made to pay for its preference, and went on paying until the preference became a luxury" functions to:
+(A) illustrate an injustice done to small ports by the modern shipping industry.
+(B) concede that some ports resisted the container longer than the standard story allows.
+(C) redescribe adoption as a shift in the cost of refusing, not a judgment about merit.
+(D) show that the container was, in the end, genuinely the better technology overall.
+
+Q4. The argument of the final two paragraphs assumes that:
+(A) the cargo a standard cannot accommodate continues to exist and must be handled by someone.
+(B) surcharges are an accurate measure of the total welfare loss a standard imposes.
+(C) standards are adopted only where a network already exists to enforce them.
+(D) small ports and handlers have no means of organising against the terms imposed on them.
+
+Q5. Which case would best exemplify the inquiry the author recommends?
+(A) Demonstrating that a rival container dimension, had it been chosen first, would have carried more cargo per ship.
+(B) Establishing that the winning electrical plug design was safer than the designs it displaced.
+(C) Showing that two hospital record systems each work well and that clinicians disagree about which is better.
+(D) Tracing which clinics absorb the unpaid labour of re-entering patient histories that a national record format cannot represent.
+
+Q6. If the second paragraph were removed, the argument would lose:
+(A) its only concrete illustration, leaving the closing claims unsupported by any example.
+(B) the ground for treating both received stories as sharing a mistaken picture of adoption.
+(C) nothing essential, since the point about the price of refusal is restated in the final paragraph.
+(D) its concession to the merit story, without which the debunkers' account would stand unopposed.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+(D) CORRECT — Para 4 calls the quarrel a question "whose answer is 'both'" and displaces it toward the residue, which "has an address"; the closing image supplies that address.
+(A) adjacent_answer — Endorses the second reported story, but para 1 faults it for the same assumption as the first, and para 4 declines to take its side.
+(B) false_symmetry — Turns para 3's dual-scale description into relativism; the author says both descriptions hold and that the quarrel is easy, not undecidable.
+(C) causal_inversion — Reverses para 2, where compliance by others, not cost advantage, made refusal unaffordable; resistance is described as bought out, not persuaded.
+
+Q2 — Correct answer: (B)
+(B) CORRECT — Para 1's closing sentence names the shared assumption ("adoption as a decision"), and para 2 replaces it with the price of refusal.
+(A) stance_misread — The author never restores merit; para 2 says what spread was "not a verdict on merit."
+(C) false_symmetry — Invents a split verdict across examples; the objection is to the model of adoption, not to particular cases.
+(D) framework_import — Imports a frequency claim about lock-in from the debunkers' own literature; the passage makes no claim about how often lock-in occurs.
+
+Q3 — Correct answer: (C)
+(C) CORRECT — The sentence carries para 2's redescription and is glossed immediately afterwards ("a change in the price of refusal").
+(A) framework_import — Reads a moral grievance into a descriptive mechanism; the costs are named as an address in para 4, not as an indictment of an industry.
+(B) adjacent_answer — Duration of resistance is incidental; the point is what ended it.
+(D) causal_inversion — Makes merit the cause of what para 2 explicitly attributes to everyone else's compliance.
+
+Q4 — Correct answer: (A)
+(A) CORRECT — "Whatever cannot be boxed does not disappear when the box wins" is the premise that makes the residue traceable and gives it an address.
+(B) nec_suff_swap — The passage uses the surcharge as a trail to follow, not as a measure of total loss; treating it as sufficient for measuring welfare goes beyond the claim.
+(C) level_confusion — Confuses the mechanism by which refusal becomes costly with a precondition for adoption; para 2 describes the network forming around the box, not preceding it.
+(D) straw_version — Powerlessness is not assumed; "cannot refuse it in turn" describes a pricing chain, not the absence of any recourse.
+
+Q5 — Correct answer: (D)
+(D) CORRECT — Follows the exception to whoever is billed for it — the unpaid labour absorbed by particular clinics — exactly the determinate inquiry para 4 recommends.
+(A) adjacent_answer — A counterfactual about which standard should have won: the old quarrel in new clothes.
+(B) adjacent_answer — Merit adjudication, which para 1 identifies as the first story's move.
+(C) false_symmetry — Rests in the "both are right" oscillation para 4 dismisses as not a hard problem.
+
+Q6 — Correct answer: (B)
+(B) CORRECT — Para 2 is what converts para 1's observation about a shared assumption into an argued alternative; without it, para 4's displacement has no mechanism behind it.
+(A) example_promotion — Treats the paragraph as illustration when it carries the passage's mechanism; the goats and the yard supply illustration in any case.
+(C) nec_suff_swap — The final paragraph presupposes the price-of-refusal analysis rather than establishing it.
+(D) stance_misread — Para 2 concedes nothing to the merit story; it denies merit any role in the spread.
+
+[BLUEPRINT NOTE] Structure: two rival explanations of adoption share a false picture (adoption as decision), which is replaced by a cost mechanism and then used to displace the standing question | Posture: reframe_displace | Thesis visible: para 4 | Traps: false_symmetry via dual-scale paragraph (para 3), stance_misread toward the debunkers (para 1)

@@ -13,40 +13,40 @@ So the question worth keeping is not whether the institution has been compelled 
 [QUESTIONS]
 
 Q1. Which of the following best states the passage's central claim?
-(A) Institutional disclosure functions largely as theatre, staged to conceal the very workings it presents.
-(B) The reform achieved the openness it sought yet left untouched what mattered, because the decisive variable is the direction of legibility — who can see whom — rather than the quantity disclosed.
-(C) Because institutions answer disclosure demands with unusable volume, the reform ultimately failed to open them at all, leaving their real decisions as hidden as they were before its advocates began.
-(D) Transparency is the era's central institutional achievement, and its logic ought to be carried into the domains that remain closed.
+(A) Institutional disclosure functions largely as theatre, staged to conceal the workings it pretends to present openly.
+(B) The reform achieved openness yet left untouched what mattered: who can see whom, not how much is disclosed.
+(C) Because institutions answer with unusable volume, the reform failed to open them, leaving decisions as hidden as before.
+(D) Transparency is the era's central institutional achievement, and its logic ought to be carried into domains still closed.
 
 Q2. The author's overall posture toward the transparency reform is best described as regarding it as:
-(A) an unambivalent triumph, which he chronicles as a champion of the cause.
-(B) a failure he grew disillusioned with, having decided it was misconceived from its inception.
-(C) a real success that missed the variable that mattered, with his admiration and his dissatisfaction aimed at different things rather than at whether it worked.
-(D) a reform whose gains and harms he tallies and finds to cancel out.
+(A) an unambivalent triumph, which he chronicles throughout as a champion of the cause itself.
+(B) a failure he grew disillusioned with, having decided it was misconceived from its first inception.
+(C) a real success that missed the variable that mattered, with admiration and dissatisfaction aimed at different things.
+(D) a reform whose gains and harms he carefully tallies and then finds to cancel each other out completely.
 
 Q3. What is the primary function of the third paragraph ("But a reflex is easy to feed…") in the argument?
-(A) It marks the essay's turn, showing that the reform's success bred a new concealment by volume and preparing the claim that hiding relocated rather than ended.
-(B) It delivers the essay's governing thesis, that the direction of seeing outweighs the amount an institution reveals.
-(C) It establishes that disclosure, once it becomes reflexive, cannot make an institution genuinely legible at all.
-(D) It shows that institutions embraced disclosure precisely in order to bury their reasons beneath procedural bulk.
+(A) It marks the essay's turn, showing success bred concealment by volume and preparing the claim that hiding relocated.
+(B) It delivers the essay's governing thesis, that the direction of seeing clearly outweighs how much an institution reveals.
+(C) It establishes that disclosure, once reflexive, cannot make an institution genuinely legible in practice at all.
+(D) It shows that institutions embraced disclosure precisely to bury their reasons beneath bulk of procedure.
 
 Q4. In context, "the glass … now faces inward, and the citizen stands on its lit side" most nearly means:
-(A) Citizens at last enjoy a clearer, better-lit view into the institution's inner workings.
-(B) The institution has turned its scrutiny inward on itself, sharpening its internal oversight.
-(C) Observation now runs both ways in equal measure, each side able to check the other as fully as it is itself checked.
-(D) The apparatus once trained on the institution now falls on the citizen, who has become the observed party.
+(A) Citizens at last enjoy a clearer, better-lit view into the institution's own inner workings and staff.
+(B) The institution has turned its scrutiny inward on itself, sharpening internal oversight of its staff.
+(C) Observation now runs both ways equally, each side able to check the other as fully as it is checked.
+(D) The apparatus once trained on the institution now falls on the citizen, who has become the observed.
 
 Q5. A city ordered to publish police-misconduct files releases them as millions of unindexed scanned images, while its predictive-policing system builds detailed profiles of residents. On the author's framework, this is best described as:
-(A) a breach of transparency norms, since records made unusable do not count as disclosed.
-(B) genuine disclosure that changes little, the decisive fact being the asymmetry — residents rendered far more readable to the system than it is to them.
-(C) a satisfied obligation, since publishing the files meets the reform's stated aim and thereby settles the accountability concern in full.
-(D) proof that disclosure is worthless and that such mandates ought to be abandoned.
+(A) a breach of transparency norms, since records made unusable do not truly count as fully disclosed material.
+(B) genuine disclosure that changes little; the decisive fact is asymmetry — residents more readable than the system is.
+(C) a satisfied obligation, since publishing the files meets the reform's stated aim and settles accountability fully.
+(D) proof that disclosure is worthless and that such publication mandates ought simply to be abandoned at once.
 
 Q6. Which finding, if established, would most weaken the author's central claim?
-(A) Most published disclosures are never read by the citizens they are meant to inform.
-(B) A handful of agencies still refuse to publish and remain as closed as they ever were.
-(C) Where disclosure was made genuinely usable — indexed and searchable — institutions grew markedly more accountable and the gap in who-sees-whom measurably narrowed.
-(D) Institutions have compiled records on citizens for as long as bureaucracies have existed, so nothing about the direction of seeing changed with this reform.
+(A) Most published disclosures are never read by the citizens they are officially meant to inform in practice.
+(B) A handful of agencies still refuse to publish and remain as closed as they ever previously were before.
+(C) Where disclosure was made usable — indexed and searchable — institutions grew more accountable and the who-sees-whom gap narrowed.
+(D) Institutions compiled citizen records long before this reform, so the direction of seeing never really changed then.
 
 [ANSWER KEY & ELIMINATION LOGIC]
 

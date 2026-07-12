@@ -13,40 +13,40 @@ None of this convicts property-criticism of error on its own ground; for the thi
 [QUESTIONS]
 
 Q1. Which of the following best states the central claim of the passage?
-(A) The untranslatability of hāl exposes critical vocabularies as commitments about where aesthetic value is located, leaving performance ill-served by object-calibrated terms.
-(B) Persian and Sanskrit aesthetics converge in demonstrating that aesthetic value is at bottom a psychological event within the audience, a fact that criticism focused on artworks and their properties has systematically failed to register.
-(C) Aesthetic terms are so embedded in their home traditions that translation between critical vocabularies is impossible.
-(D) Property-based criticism is mistaken in principle and should be replaced by event-based terms across all art forms.
+(A) The untranslatability of hāl exposes critical vocabularies as commitments about where value is located, leaving performance ill-served by object-terms.
+(B) Persian and Sanskrit aesthetics show that aesthetic value is a psychological event in the audience that property-criticism has failed to register.
+(C) Aesthetic terms are so embedded in their home traditions that translation between critical vocabularies is simply impossible.
+(D) Property-based criticism is mistaken in principle and should be replaced by event-based terms across every art form.
 
 Q2. The discussion of rasa in the fourth paragraph functions primarily to:
-(A) supply the definition of hāl that the earlier paragraphs had withheld.
-(B) show that Sanskrit poetics anticipated and already solved the problem hāl poses.
-(C) offer a second aesthetic term that fails to survive translation into English.
-(D) break the deadlock between filing the evening under the work and under the psyche, by showing an unrelated tradition refusing both filings — making the refusal itself evidence.
+(A) supply the definition of hāl that the earlier paragraphs of the essay had withheld from the reader.
+(B) show that Sanskrit poetics anticipated and already solved the problem that hāl still poses today.
+(C) offer a second aesthetic term that fails to survive translation into English critical practice.
+(D) break the work/psyche deadlock by showing an unrelated tradition refusing both filings as evidence.
 
 Q3. In context, "What hāl names spoils in transit, like fruit picked for a market it will never reach" most nearly means:
-(A) the concept loses its prestige and authority once removed from its home tradition.
-(B) English reviewers deliberately coarsen borrowed terms to fit their columns.
-(C) the occurrence hāl designates cannot be carried by words built to attach value to portable objects.
-(D) hāl refers to an experience so fleeting that no vocabulary, including the Persian one that coined it, can genuinely record it.
+(A) the concept loses its prestige and authority once it is removed from its home tradition.
+(B) English reviewers deliberately coarsen borrowed terms in order to fit their own columns.
+(C) the occurrence hāl names cannot be carried by words built to attach value to portable objects.
+(D) hāl names an experience so fleeting that no vocabulary, even Persian, can genuinely record it.
 
 Q4. The author's treatment of "flow" is best described as:
-(A) endorsing it as the closest English criticism has yet come to hāl, flawed only in overlooking performances where technical mastery and absorption come apart.
-(B) crediting it with a real advance — treating an occurrence rather than a thing — while rejecting its location of that occurrence in the performer's mind.
-(C) dismissing it as a laboratory artifact with no bearing on aesthetic questions.
-(D) accepting its account of what performers undergo while denying that listeners undergo anything comparable.
+(A) endorsing it as the closest English has come to hāl, flawed only where technical mastery and absorption come apart.
+(B) crediting a real advance — treating an occurrence not a thing — while rejecting its mind-filing of that occurrence.
+(C) dismissing it as a laboratory artifact with no genuine bearing on aesthetic questions of performance at all.
+(D) accepting its account of what performers undergo while denying that listeners undergo anything comparable today.
 
 Q5. Which statement about hāl is the passage actually committed to?
-(A) It is a heightened emotional state produced in listeners by masterful singing — roughly what English reviewers gesture at with the word "presence."
-(B) It is the Persian equivalent of rasa.
+(A) It is a heightened state in listeners from masterful singing — roughly what reviewers mean by "presence."
+(B) It is simply the Persian equivalent of the Sanskrit aesthetic term known as rasa.
 (C) It is a subtle property of performances, detectable only by listeners trained in the repertoire.
-(D) Its arrival is independent of technical perfection, and its location resists assignment to work or mind alike.
+(D) Its arrival is independent of technical perfection, and its location resists work or mind alike.
 
 Q6. A jazz critic reports that a quartet's set was harmonically sloppy yet "the room caught fire," and finds her reviewing vocabulary unable to register the second fact except as metaphor. On the passage's argument, her difficulty is best explained as:
-(A) an inventory problem: her critical terms were drawn up to appraise works, so an event-located value can enter her review only as figure of speech.
-(B) a psychological problem: she lacks a technical term for the performers' state of absorption.
-(C) evidence that jazz has generated its own untranslatable concept and awaits a borrowed word.
-(D) confirmation that judgments of live performance are irreducibly subjective, so no vocabulary, object-calibrated or otherwise, could have registered what she felt.
+(A) an inventory problem: her terms were drawn up for works, so event-located value enters only as figure of speech.
+(B) a psychological problem: she lacks a technical term for the performers' own state of absorption in the set.
+(C) evidence that jazz has generated its own untranslatable concept and now awaits some borrowed word from outside.
+(D) confirmation that live-performance judgments are irreducibly subjective, so no vocabulary could register what she felt.
 
 [ANSWER KEY & ELIMINATION LOGIC]
 

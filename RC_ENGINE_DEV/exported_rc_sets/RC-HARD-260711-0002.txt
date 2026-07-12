@@ -1,0 +1,90 @@
+RC ID: RC-HARD-260711-0002 | Tier: hard | Score: 8.8 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.708 | Generated: 2026-07-11T19:53:38.826060+00:00
+======================================================================
+
+[PASSAGE]
+
+In legal interpretation, in philosophical semantics, and in the ordinary quarrels of speakers who accuse one another of twisting words, the phrase "literal meaning" is entered as though it named a settled account. It functions as a standard of correctness: the meaning a sentence carries before intention, before circumstance, before the interested reading of any party. Judges reach for it to fix a contract's terms; philosophers deposit it as the semantic core on which pragmatic surplus later accrues; a witness is asked what a word "really" means. The concept presents itself as native to language, an unremovable floor. One might suspect the whole difficulty is verbal—that a sharper technical term would clear the ledger. The record does not support so tidy a settlement.
+
+Granted that "literal meaning" was not discovered but manufactured, assembled in the seventeenth and eighteenth centuries alongside a specific ambition—a language purged of ambiguity, its signs answering to fixed referents, its propositions transparent to any competent mind—the concept inherits the assumptions of that workshop. The Port-Royal logicians, and later the early analytic project, wrote as though words attached to things with minimal slippage, as though the situation of utterance added nothing a careful grammar could not subtract. This was not error awaiting correction; it was a design premised on conditions its designers took for granted, and the premise is what the concept still carries.
+
+The criteria of literalness follow from that design: a meaning must be decontextualized, indifferent to who speaks and when, exhaustively definable in advance. Each criterion presupposes a linguistic world—stable publics, fixed social roles, indexicals held to a minimum, referents that stay put. Twentieth-century pragmatics dismantled the first; sociolinguistics recorded how thoroughly role and register saturate reference; computational semantics, attempting to specify meaning exhaustively for machines, ran aground on precisely the context the criteria promised to ignore. The evidence converges: the world the criteria describe is not the world in which speakers operate. It does not follow that the concept is therefore void wherever it appears.
+
+For it may still hold. Consider the narrow room where variation is suppressed by force—a statute's defined terms, a tax schedule, a protocol whose vocabulary is stipulated and policed. There, context is not absent but artificially flattened, and literalness earns its keep. The record permits this much and no more. Whether the room is representative, whether law and interpretation may borrow a standard bred in it and apply it to ordinary speech, whether the flattening scales—these the evidence does not decide, and prudence forbids deciding them by assertion. What survives, then, is a shrunken claim: literal meaning is coherent where its conditions are manufactured, and only where they are.
+
+[QUESTIONS]
+
+Q1. Which statement best captures the passage's central claim?
+(A) Literal meaning was decisively refuted by twentieth-century linguistics and should no longer figure in legal or philosophical argument at all.
+(B) The trouble with 'literal meaning' is merely verbal, and adopting a sharper technical term in its place would resolve every dispute it now generates.
+(C) Literal meaning carries assumptions from an era whose linguistic conditions no longer generally hold, surviving only where those conditions are artificially imposed.
+(D) Judges, philosophers, and ordinary speakers agree that literal meaning names a settled and objective standard of correctness.
+
+Q2. How does the passage characterize the Enlightenment assumptions behind 'literal meaning'?
+(A) As a design built on conditions its makers took for granted, not as an error later theory corrected.
+(B) As assumptions confined to grammar that never touched philosophical semantics or reference.
+(C) As deliberate fictions the Port-Royal logicians knew to be false but retained for convenience.
+(D) As mistakes that modern theory diagnosed and repaired, marking a straightforward advance from confusion toward accuracy.
+
+Q3. What is the function of the paragraph-three sentence 'It does not follow that the concept is therefore void wherever it appears'?
+(A) It introduces a new empirical objection drawn from computational semantics against pragmatic theory.
+(B) It concedes that because literal meaning fails in general, it must be discarded even where institutions depend on it.
+(C) It blocks the inference from general incoherence to total abandonment, reserving space for the narrowed survival argued next.
+(D) It reaffirms that the criteria of literalness accurately describe the world in which speakers actually operate.
+
+Q4. In context, what does describing certain settings as places where 'context is not absent but artificially flattened' imply?
+(A) These settings show that literal meaning was always coherent and never depended on any historical premise.
+(B) Variation still exists but is suppressed by stipulation and enforcement, letting literalness function within an engineered exception.
+(C) Such settings prove context is genuinely irrelevant to meaning, vindicating the original decontextualized criteria after all.
+(D) The flattening occurs automatically in all institutions, requiring no deliberate policing of vocabulary.
+
+Q5. Why does the passage decline to settle whether law may borrow literalness for ordinary speech?
+(A) Because settling it would contradict the earlier finding that literal meaning is entirely void.
+(B) Because the evidence does not decide whether the engineered room is representative, and deciding by assertion would exceed it.
+(C) Because the author regards the question as trivial and unworthy of the essay's forensic attention.
+(D) Because law has already resolved the matter, leaving nothing for the passage to adjudicate.
+
+Q6. What is the effect of ending on the 'shrunken claim' that literal meaning holds only where its conditions are manufactured?
+(A) It preserves the concept at drastically reduced scope while leaving its transfer to ordinary language deliberately unadjudicated.
+(B) It concludes that literalness must be purged from every institution, including statutes and tax schedules.
+(C) It quietly restores the concept's full original authority once the historical objection has been aired and dismissed.
+(D) It signals that the whole problem was verbal and dissolves once the right technical term is adopted.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates the historical excavation and the final narrowing: the concept persists on inherited premises and holds only in engineered contexts.
+  (A) causal_inversion — The passage denies total abandonment, granting the concept survives in flattened institutional settings.
+  (B) causal_inversion — Reverses the passage's cause: it explicitly rejects the definitional fix as too tidy for the record.
+  (D) detail_as_thesis — This describes the opening appearance the passage proceeds to unsettle, not its actual thesis.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Paragraph 2 states directly: 'not error awaiting correction; it was a design premised on conditions.'
+  (B) scope_narrowing — The passage extends the premise to the analytic project and to reference, not grammar alone.
+  (C) fabrication — Nothing suggests the logicians knew the premise false; they took its conditions for granted.
+  (D) nec_suff_swap — The passage explicitly refuses the progress narrative, calling the premise a design rather than an error.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — The sentence pivots from the mismatch evidence to the fourth paragraph's limited endorsement, forestalling overreach.
+  (A) detail_misplacement — No new objection appears; the sentence is a logical hinge, not fresh evidence.
+  (B) causal_inversion — The sentence does the opposite, denying that general failure entails abandonment everywhere.
+  (D) contradiction — The preceding lines establish the criteria's world is not the speakers' world; this reverses that finding.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The 'defined terms,' 'stipulated and policed' examples show context managed by force, not naturally missing.
+  (A) causal_inversion — Coherence here is conditional on manufactured conditions, contradicting any claim of premise-independence.
+  (C) nec_suff_swap — Flattening by force is not absence; the passage treats these as exceptions, not vindications.
+  (D) scope_broadening — The passage stresses stipulation and policing, making the flattening deliberate, not automatic or universal.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The ending states the record permits only the narrow claim and that prudence forbids resolving the rest.
+  (A) causal_inversion — The passage never found the concept entirely void; it grants a surviving domain.
+  (C) tonal_misread — The suspension is argued as a verdict on evidence, not dismissed as trivial.
+  (D) fabrication — The passage presents the scaling question as open, not as institutionally settled.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The narrowed claim salvages coherence for engineered contexts yet refuses to generalize, matching the argued suspension.
+  (B) scope_broadening — Those very institutions are where the passage says literalness earns its keep.
+  (C) causal_inversion — The ending reduces, not restores, scope; the objection is sustained, not dismissed.
+  (D) causal_inversion — The passage rejected the verbal-fix reading in paragraph one; the closing does not revive it.
+
+[Inspired by: "How the concept of 'literal meaning' came to presume a stability that modern language never possessed, yet continues to organize legal and philosophical argument as if it did.", engine-composed]

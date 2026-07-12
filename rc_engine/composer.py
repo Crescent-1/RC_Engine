@@ -74,13 +74,19 @@ class BlueprintComposer:
 
     # ------------------------------------------------------------- sampling
 
-    def _eligible(self, ctype: str, tier: str) -> list[str]:
+    def _eligible(self, ctype: str, tier: str,
+                  ban_families: set[str] | None = None) -> list[str]:
         ids = self.registry.ids(ctype)
         if ctype == "family":
             floor = TIER_ORDER[tier]
             ids = [i for i in ids
                    if TIER_ORDER[self.registry.get("family", i)["tier_floor"]] <= floor]
             ids = self._posture_filter(ids)
+            if ban_families:
+                filtered = [i for i in ids if i not in ban_families]
+                # never empty the pool: fall back rather than dead-end the slot
+                if filtered:
+                    ids = filtered
         if ctype == "topology":
             allowed = config.TIER_PARAMS[tier]["allowed_topologies"]
             if allowed:
@@ -134,8 +140,18 @@ class BlueprintComposer:
                        for w, i in zip(weights, ids)]
         return self.rng.choices(ids, weights=weights, k=1)[0]
 
-    def sample_skeleton(self, tier: str) -> dict:
-        """Returns {"family": ..., "persona": ..., ...} or raises."""
+    def sample_skeleton(self, tier: str,
+                        ban_families: set[str] | None = None,
+                        ban_movements: set[str] | None = None) -> dict:
+        """Returns {"family": ..., "persona": ..., ...} or raises.
+
+        ban_families / ban_movements: slot-local bans from a prior movement
+        collision (precheck or Gate B). Families are dropped from the pool;
+        movement strings are checked after the family's function sequence is
+        built (same family + rhythm can still insert fillers — reject those).
+        """
+        ban_f = set(ban_families or ())
+        ban_m = set(ban_movements or ())
         order = ["family", "topology", "revelation", "persona", "ending",
                  "rhythm", "distractor_profile"]
         recent = self.history.recent_shipped_blueprints(config.BLUEPRINT_DISTANCE_WINDOW)
@@ -148,7 +164,7 @@ class BlueprintComposer:
             ids: dict[str, str] = {}
             ok = True
             for ctype in order:
-                pool = self._eligible(ctype, tier)
+                pool = self._eligible(ctype, tier, ban_families=ban_f)
                 # drop candidates that violate constraints against already-picked ids
                 pool = [c for c in pool if self.rules.is_valid({**ids, ctype: c})]
                 if not pool:
@@ -173,6 +189,16 @@ class BlueprintComposer:
             worst = max((blueprint_categorical_similarity(ids, b) for b in recent), default=0.0)
             if 1.0 - worst < config.MIN_BLUEPRINT_DISTANCE:
                 continue
+            # Planned movement must not reuse a banned skeleton (family-fixed
+            # function sequence, optional filler inserts).
+            if ban_m:
+                fam = self.registry.get("family", ids["family"])
+                rh = self.registry.get("rhythm", ids["rhythm"])
+                ms = "|".join(p.function for p in self._build_movement(fam, rh))
+                if ms in ban_m:
+                    # force the next attempt off this family
+                    ban_f.add(ids["family"])
+                    continue
             return ids
         raise CompositionExhausted(
             f"could not sample a valid {tier} blueprint in "
@@ -236,8 +262,11 @@ class BlueprintComposer:
 
     # --------------------------------------------------------------- compose
 
-    def compose(self, tier: str, seed: SeedEssay, ledger: CostLedger) -> Blueprint:
-        ids = self.sample_skeleton(tier)
+    def compose(self, tier: str, seed: SeedEssay, ledger: CostLedger,
+                ban_families: set[str] | None = None,
+                ban_movements: set[str] | None = None) -> Blueprint:
+        ids = self.sample_skeleton(tier, ban_families=ban_families,
+                                   ban_movements=ban_movements)
         family = self.registry.get("family", ids["family"])
         rhythm = self.registry.get("rhythm", ids["rhythm"])
         ending = self.registry.get("ending", ids["ending"])

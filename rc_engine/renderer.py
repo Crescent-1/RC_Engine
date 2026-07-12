@@ -30,7 +30,24 @@ HARD RULES:
 5. The thesis must first become visible exactly where the revelation schedule says,
    in the manner it says.
 6. Stay entirely in the specified persona's voice. Do not use any forbidden phrase.
-7. No moralizing, no policy prescriptions, no direct address to the reader."""
+7. No moralizing, no policy prescriptions, no direct address to the reader.
+8. HUMAN TEXTURE (a touch only — keep the intellect; break factory polish):
+   - Plant one concrete, slightly stubborn particular that is not immediately cashed
+     out as a system-metaphor (a room, job title, tool, dated practice, named place,
+     small physical action). It must earn its place in the argument.
+   - Allow one sentence that is plainer / more workmanlike than its neighbors — not
+     every sentence equally epigrammatic. One midstream re-steer is fine
+     ("— no: more precisely,").
+   - Mix sentence subjects; avoid a run of abstract openers ("The doctrine… The
+     residue… The mechanism… The ledger…"). Prefer some agents and concrete nouns
+     when the persona allows.
+   - Do not default to the stock cadence "I grant X. The trouble is Y. What remains
+     is Z." unless the movement plan requires that shape; rebuild the paragraph if
+     you hear yourself writing it.
+   - Soft-ban stock house metaphors (ledger / residue / aperture / altitude as
+     default furniture) unless the topic forces them; invent fresher local images.
+   - Still forbidden as "humanizing": typos, slang, throat-clearing, fake anecdotes,
+     "as someone who…", reader address, moral lectures."""
 
 
 class PassageRenderer:
@@ -83,6 +100,7 @@ class PassageRenderer:
         ts = bp.tension_system or {}
         primary = ts.get("primary", {})
         secondary = ts.get("secondary", {})
+        total_lo, total_hi = config.TIER_PARAMS[bp.tier]["passage_words"]
 
         return f"""STRUCTURAL CONTRACT
 
@@ -104,6 +122,12 @@ AUTHORIAL PERSONA: {persona['name']}
   Characteristic moves: {'; '.join(persona['signature_moves'])}
   Pronoun posture: {persona.get('pronoun_posture', 'neutral')}
   Metaphor domains to draw from: {', '.join(persona.get('metaphor_domains', []))}
+  Texture: invent one small voice tell unique to THIS passage (a concrete detail
+  habit, a self-correction tic, or a slightly plainer register dip) so it does not
+  read as the generator's default house polish.
+
+TOTAL LENGTH: {total_lo}-{total_hi} words across all paragraphs (the per-paragraph
+ranges below sum into this band — stay inside it).
 
 PARAGRAPH MOVEMENT PLAN ({len(bp.movement)} paragraphs; rhythm: {rhythm['name']} — {rhythm['cadence_note']}):
 {chr(10).join(movement_lines)}

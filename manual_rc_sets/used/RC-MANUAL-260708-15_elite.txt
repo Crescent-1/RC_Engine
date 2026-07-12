@@ -9,39 +9,39 @@ The familiar contrast between certainty and uncertainty therefore captures less 
 
 Q1. Which of the following best captures the central thesis of the passage?
 (A) Expertise becomes trustworthy chiefly because experienced practitioners accumulate a larger body of settled knowledge than novices can access.
-(B) The defining feature of mature expertise is not greater certainty itself but a refined ability to determine where certainty is warranted and where disciplined restraint is appropriate.
-(C) Public distrust of experts mainly arises because outsiders misunderstand the technical language used within professional institutions.
-(D) Different professions inevitably develop different standards because every subject matter resists universal methods.
+(B) Mature expertise is not greater certainty but deciding where certainty is warranted and where restraint is appropriate.
+(C) Public distrust of experts mainly arises because outsiders misunderstand the technical language used inside institutions.
+(D) Different professions develop different standards because every subject matter resists universal methods of inquiry.
 
 Q2. What is the primary function of the discussion of historical mapmaking in the passage?
-(A) To argue that cartography is uniquely representative of how all scientific disciplines evolved.
-(B) To illustrate, through an analogy, how leaving some areas deliberately unresolved can reflect improved standards rather than diminished competence.
-(C) To demonstrate that earlier mapmakers were less ethical because they knowingly concealed ignorance.
+(A) To argue that cartography is uniquely representative of how all scientific disciplines evolved over time.
+(B) To illustrate how leaving some areas deliberately unresolved can reflect improved standards rather than weaker competence.
+(C) To demonstrate that earlier mapmakers were less ethical because they knowingly concealed their own ignorance then.
 (D) To provide historical evidence that incomplete information always produces better judgments than complete information.
 
 Q3. Which of the following views would the author most likely reject?
 (A) Institutional claims of uncertainty should automatically be treated as evidence of intellectual maturity.
 (B) The visible presence of disagreement is not sufficient to judge the quality of an expert practice.
-(C) Some fields can misuse uncertainty to avoid accountability.
-(D) Mature expertise requires standards for distinguishing different kinds of unresolved questions.
+(C) Some fields can misuse claims of uncertainty in order to avoid public accountability.
+(D) Mature expertise requires standards for distinguishing different kinds of unresolved questions carefully.
 
 Q4. The phrase "allocating certainty to the right objects" most nearly refers to:
-(A) ensuring that every important question eventually receives an equally confident answer.
-(B) deciding which members of an institution deserve greater authority than others.
-(C) matching degrees of confidence to the kinds of questions that justify them rather than distributing confidence uniformly.
-(D) transferring established conclusions from one discipline to another whenever they appear applicable.
+(A) ensuring that every important question eventually receives an equally confident answer in the end.
+(B) deciding which members of an institution deserve greater authority than the others around them do.
+(C) matching degrees of confidence to the kinds of questions that justify them, not distributing confidence uniformly.
+(D) transferring established conclusions from one discipline to another whenever they appear broadly applicable.
 
 Q5. Suppose a research community begins publishing fewer universal theories but develops increasingly explicit rules for identifying which claims remain provisional. This example would most directly:
-(A) weaken the author's argument by showing that declining certainty inevitably reduces expertise.
-(B) support the author's claim that improvement can consist in refining the limits of justified confidence rather than expanding the number of definitive answers.
-(C) contradict the analogy with mapmaking because theories differ from geographical representations.
-(D) show that institutions become more trustworthy whenever they produce fewer conclusions.
+(A) weaken the author's argument by showing that declining certainty inevitably reduces genuine expertise overall.
+(B) support the claim that improvement can mean refining limits of justified confidence rather than adding definitive answers.
+(C) contradict the analogy with mapmaking because theories differ in kind from ordinary geographical representations.
+(D) show that institutions become more trustworthy whenever they simply produce fewer published conclusions than before.
 
 Q6. If the fourth paragraph ("The temptation, then, is to ask...") were removed, what would be the greatest loss to the argument?
-(A) The passage would lose its explanation of why early maps contained conjectural regions.
+(A) The passage would lose its explanation of why early maps so often contained conjectural blank regions.
 (B) The argument would no longer acknowledge that institutions sometimes exploit uncertainty for self-protection.
-(C) The passage would no longer distinguish between professions that advance and those that decline.
-(D) The transition from criticizing the certainty-versus-uncertainty framing to proposing the more important question about how confidence is structured would largely disappear.
+(C) The passage would no longer distinguish between professions that advance and those that decline over time.
+(D) The shift from criticizing the certainty frame to asking how confidence is structured would largely disappear.
 
 [ANSWER KEY & ELIMINATION LOGIC]
 

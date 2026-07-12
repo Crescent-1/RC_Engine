@@ -1,0 +1,92 @@
+RC ID: RC-HARD-260711-0001 | Tier: hard | Score: 7.4 | Status: needs_review | Compliance F1: 1.0 | Novelty: 1.0 | Generated: 2026-07-11T19:43:07.894171+00:00
+======================================================================
+
+[PASSAGE]
+
+Consider the Victorian ideal in its cleanest form. The self-made man rises through the world by a logic almost geometric: effort produces skill, skill produces prosperity, prosperity confirms virtue, and virtue justifies station. Each rung of the ladder implies the one before it, so that a man's position becomes legible as a moral biography rather than an accident. It is a satisfying architecture, this ladder—every rail load-bearing, every step accounted for. Samuel Smiles could write it into a doctrine because it required so little external scaffolding; the causal chain seemed to hold itself up.
+
+But look again, more slowly, at what the ladder assumes. It assumes a level floor to plant its feet on—some starting point from which effort begins to count. To a first approximation this is a small omission. Looked at again, it is the whole question: what happens to the man who has will in abundance but no capital to leverage it, no floor at all beneath the first rung? That gap, incidentally, between the theory's tidy causality and the unequal ground it stands on, turns out to be the more interesting object than either the ladder or the man climbing it.
+
+The practitioners have their answer ready. Census returns, bankruptcy filings, probate records: three generations of English fortune show the same surnames recurring at the top, the same clustering by inheritance rather than industry. Merit, on this reckoning, predicts almost nothing.
+
+So the theory is refuted. Except it isn't, quite. A theory of moral formation is not falsified by a distribution of wealth, any more than a ladder's design is disproved by the fact that most people never reach it. The practitioner's numbers are real. The rungs are real too. Both descriptions hold at once, describing different floors of the same building.
+
+We have, in fact, been standing the whole time where the Victorians themselves stood—inside the collision, not above it. They read Smiles and audited their own account books in the same week, endorsing the ladder's logic while watching capital settle along bloodlines it could not touch. Their refusal to abandon either conviction was not muddle; it was the only honest response available to people who needed the ladder to be climbable and could see, in the same glance, that most of them were standing on no floor at all. To hold both is not evasion but the more accurate report of what the evidence, taken whole, actually permits us to conclude.
+
+[QUESTIONS]
+
+Q1. Which statement best captures the passage's central argument?
+(A) The moral theory of self-made success and the empirical record of inherited wealth describe different aspects of the same reality, and holding both unresolved is the most accurate response.
+(B) Census and bankruptcy records decisively overturn the self-made man ideal, proving that practitioner evidence settles the question in favor of inherited circumstance.
+(C) Victorian writers like Smiles were simply mistaken about causation, and later historians corrected this error using better data.
+(D) The self-made man ideal remains theoretically sound because moral formation cannot be measured by wealth distribution at all.
+
+Q2. What is the primary function of the detailed, coherent presentation of the self-made man ideal in paragraph 1?
+(A) It establishes the theory's internal logic so persuasively that its later limitation can be introduced as an examination of that same structure, not a dismissal.
+(B) It signals the essay's ultimate endorsement of the self-made man ideal as the correct account of social mobility.
+(C) It offers a neutral summary of Victorian values with no bearing on the essay's later argument.
+(D) It provides a historical account of Samuel Smiles that is later contradicted entirely by census evidence.
+
+Q3. In paragraph 4, what does the author mean by saying both descriptions 'hold at once, describing different floors of the same building'?
+(A) The building metaphor suggests the practitioner's evidence is structurally more foundational and therefore more authoritative.
+(B) The metaphor indicates that the theory applies only to the past while the empirical record applies only to the present.
+(C) The moral theory and the empirical record are not competing claims about the same phenomenon but accounts operating at different explanatory levels, both valid.
+(D) The author is declining to take a position because the evidence on both sides is equally weak and inconclusive.
+
+Q4. According to paragraph 3, what specific kinds of records does the practitioner evidence draw on?
+(A) Census returns, wage surveys, and newspaper obituaries.
+(B) Trade guild registries and church baptismal records.
+(C) Parliamentary debates, tax ledgers, and personal diaries.
+(D) Census returns, bankruptcy filings, and probate records.
+
+Q5. The argument in paragraph 4 that the theory is 'not falsified' by wealth-clustering data depends on which unstated assumption?
+(A) Wealth-clustering data is inherently unreliable and therefore cannot be used to test any moral or social theory.
+(B) Moral theories about effort and virtue are true by definition and therefore immune to any empirical challenge whatsoever.
+(C) The self-made man ideal was always intended as a literal statistical prediction about wealth distribution.
+(D) A claim about moral causation and a claim about statistical distribution answer different kinds of questions and cannot straightforwardly disprove one another.
+
+Q6. Which best describes the author's intellectual posture across the passage?
+(A) A historian offering a detached, value-free chronicle without any argumentative claim of his own.
+(B) One who treats the unresolved coexistence of theory and evidence as itself a substantive, evidence-grounded conclusion rather than a failure to choose.
+(C) An advocate who ultimately favors the practitioner evidence while gesturing toward fairness to the theory.
+(D) A skeptic who regards both the theory and the evidence as equally unreliable and therefore withholds all judgment.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — This matches paragraphs 4-5, where neither side is crowned and the suspension itself is defended as the correct reading of the evidence.
+  (B) scope_inflation — The passage explicitly denies that practitioner data refutes the theory; it treats both descriptions as coexisting rather than one defeating the other.
+  (C) false_cause — The passage never frames the relationship as a correction of error; it frames it as two coexisting, unresolved descriptions.
+  (D) example_promotion — This elevates the theory's defense into an outright victory, ignoring that the passage treats real constraints from practice as equally valid.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The passage's plan is to build the theory's elegance first, then reread it critically in paragraph 2 without discarding it; paragraph 1 sets up that continuity.
+  (B) example_promotion — The passage later refuses to endorse the theory outright; the elegance shown is a setup for scrutiny, not a final verdict.
+  (C) irrelevant_distinction — The paragraph is structurally essential, feeding directly into the reread in paragraph 2; it is not disconnected filler.
+  (D) scope_inflation — Paragraph 4 explicitly denies that the theory is contradicted; the account is reread, not overturned.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — The surrounding sentences explicitly deny refutation and assert coexistence, framing the suspension as a substantive epistemic conclusion rather than avoidance.
+  (A) scope_inflation — The passage grants no greater authority to either side; the metaphor conveys parity, not hierarchy.
+  (B) temporal_confusion — No temporal division is made; both descriptions are treated as simultaneously true, not sequential or period-specific.
+  (D) example_promotion — The passage argues the suspension is the accurate conclusion given the evidence, not a retreat from weak or inconclusive data.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — The passage names these three sources directly as the basis for showing wealth clustering by inheritance.
+  (A) partial_match — Only census returns is correct; wage surveys and obituaries replace the actual bankruptcy filings and probate records.
+  (B) unlisted_detail — These sources do not appear anywhere in the passage's account of the practitioner rebuttal.
+  (C) unlisted_detail — None of these sources are mentioned in the passage; they are invented substitutes for the actual named records.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — Without this assumption, the analogy to the ladder's design not being disproved by non-attainment would collapse, and the data would count as direct refutation.
+  (A) example_promotion — The passage treats the data as real and valid; it never questions its reliability, only its relevance to a differently-framed claim.
+  (B) scope_inflation — The passage does not claim immunity from all challenge, only that this particular kind of data does not settle this particular kind of claim.
+  (C) reversal — This is the opposite of the passage's point, which is that the theory was never purely empirical in the first place.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — Paragraph 5 explicitly argues the suspension is 'the more accurate report of what the evidence, taken whole, actually permits,' rejecting mere balance or avoidance.
+  (A) irrelevant_distinction — The final paragraph makes an explicit argumentative claim about what the evidence permits, which is not value-free chronicling.
+  (C) scope_inflation — The passage explicitly refuses to let practitioner evidence refute the theory, denying any covert favoring of one side.
+  (D) example_promotion — The passage treats both the theory's logic and the data as real and valid, not as unreliable claims warranting blanket doubt.
+
+[Inspired by: "How the Victorian ideal of the 'self-made man' collapsed under the weight of inherited capital, yet persists anyway", engine-composed]
