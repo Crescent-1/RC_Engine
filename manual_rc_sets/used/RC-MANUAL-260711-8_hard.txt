@@ -1,0 +1,89 @@
+[PASSAGE]
+
+The will instructs that the letters be burned, the house pulled down, the money spent in perpetuity on a chair in Sanskrit metrics. The executors comply, and mostly feel that they must, though it is not easy to say to whom the duty runs. The man who wrote the clause has no interests left to frustrate and no experience left to spoil. He cannot be disappointed, since disappointment requires somebody to have it. Yet the sense of obligation does not weaken when the mourners disperse; if anything, it hardens.
+
+Two defences of that sense are standard. The first holds that the dead can be wronged: an interest survives its holder, and breaking faith harms a person who is simply not around to feel the harm. It is a doctrine one can state but not easily inhabit, and it purchases the obligation at the cost of a metaphysics few of its users would defend anywhere else. The second holds that the duty is really owed to the living — to the survivors who are watching, whose grief would be injured by the breach. This is more sober, and it proves too little. Brod's fault, if it was one, was not an injury to Kafka's mourners; there were hardly any, and none of them wanted the manuscripts burned.
+
+Consider instead what a promise would amount to if it lapsed at the promisee's death. It would not be a promise. It would be a lease, terminating on a date the promisor cannot control, and everyone would price it accordingly while he was still alive. But the ability to reach past one's own ending — to found something, to bequeath, to have the letters burned, to be trusted about the disposition of a life's work — is a power the living want and cannot exercise on their own. It exists only because the practice is reliable in advance, and the practice is reliable in advance only because the dead man's grip is not routinely pried loose when he is no longer there to hold on.
+
+So the dead are owed nothing, and must nonetheless be treated much as if they were owed everything. The price of that is real and should be named rather than softened. The practice will sometimes bind the living to preferences the world has finished with, and there is no clean rule saying when the binding may be broken — not because the rule is hard to find, but because a rule that named its exceptions would be read, in advance, by everyone contemplating a will, and the promise would become a lease again the moment the exceptions were legible. The credibility that makes the power worth having is bought precisely by tolerating the absurd cases.
+
+The committee meets each spring, reads the clause again, and appoints another lecturer in Sanskrit metrics, to four students who registered by mistake.
+
+[QUESTIONS]
+
+Q1. The passage principally argues that:
+(A) obligations to the dead rest not on debts to them but on the living's future-binding need, at absurd cost.
+(B) obligations to the dead should be honoured because interests can outlive the people who once held them.
+(C) obligations to the dead are illusory, and executors comply out of sentiment rather than genuine duty.
+(D) obligations to the dead hold only where living survivors would be pained by the breach itself.
+
+Q2. The author's treatment of the posthumous-harm defence differs from its proponents' in that the author:
+(A) accepts it for wills but not for ordinary private promises among the living.
+(B) rejects it as false because the dead cannot be harmed in any sense whatever.
+(C) grants it can be stated, at a metaphysical price its users would not pay elsewhere.
+(D) reformulates it, arguing that the dead retain interests only for as long as they are remembered.
+
+Q3. The reference to Brod and Kafka's manuscripts serves to:
+(A) show that literary executors have historically ignored the instructions they were given.
+(B) test the survivors-based defence against a case in which no survivor's grief explains the wrong.
+(C) illustrate the harm suffered by an author whose wishes are overridden after death.
+(D) suggest that duties to the dead give way whenever great works of art are at stake.
+
+Q4. The claim that no clean rule can specify the exceptions rests on the assumption that:
+(A) the cases in which a bequest turns absurd are too varied to admit of classification.
+(B) executors, left to their own judgment, are unlikely to reach defensible decisions alone.
+(C) the dead have an interest in the enforcement of their instructions exactly as written.
+(D) a promisor who could foresee the conditions of release would discount the promise while still alive.
+
+Q5. Which finding would most weaken the author's account?
+(A) Evidence that many testators write clauses they expect to be quietly disregarded later.
+(B) Evidence that some legal systems permit courts to vary obsolete charitable bequests.
+(C) Evidence that bequeathing, founding and confiding persist where instructions are openly ignored.
+(D) Evidence that survivors report distress when a will's instructions are broken in practice.
+
+Q6. On the author's account, which comes closest to a case where breaking the instruction would be least troubling?
+(A) A clause impossible to perform, so departing from it exercises no real discretion.
+(B) A clause funding a chair in a subject that now attracts almost no students at all.
+(C) A clause requiring the destruction of papers of great scholarly value to historians.
+(D) A clause that the testator's heirs unanimously find distasteful or personally offensive.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+(A) CORRECT — Para 3 locates the source in a power "the living want and cannot exercise on their own"; para 4 affirms the resulting duty and names its price ("tolerating the absurd cases").
+(B) adjacent_answer — The posthumous-harm defence reported and set aside in para 2.
+(C) stance_misread — Reads para 1's denial of frustrable interests as a denial of duty; para 4 affirms the duty in the same breath as the denial.
+(D) adjacent_answer — The survivors' defence, refuted by the Kafka case in para 2.
+
+Q2 — Correct answer: (C)
+(C) CORRECT — Para 2: "a doctrine one can state but not easily inhabit," purchased "at the cost of a metaphysics few of its users would defend anywhere else."
+(A) false_symmetry — Invents a split between wills and promises; para 3 treats them as instances of one practice.
+(B) straw_version — Overstates the objection into a metaphysical denial; the author's complaint is about the doctrine's cost and coherence in use, not its outright falsity.
+(D) framework_import — Grafts a memory-based theory of surviving interests onto the passage, which nowhere makes duration of memory relevant.
+
+Q3 — Correct answer: (B)
+(B) CORRECT — The case is introduced against the survivors' defence: "there were hardly any, and none of them wanted the manuscripts burned," so grief cannot be doing the work.
+(A) example_promotion — Turns a single test case into a historical generalisation about executors.
+(C) category_slip — Reinstates harm to the dead author, the very notion para 2 has just declined to inhabit.
+(D) adjacent_answer — Reads the example as licensing an exception for great works; para 4 denies that the exceptions can be specified at all.
+
+Q4 — Correct answer: (D)
+(D) CORRECT — Para 4's stated reason: legible exceptions would be "read, in advance, by everyone contemplating a will," and "the promise would become a lease again."
+(A) adjacent_answer — Attributes the difficulty to the untidiness of cases, which para 4 expressly disclaims ("not because the rule is hard to find").
+(B) level_confusion — Relocates the problem in executors' competence rather than in what advertising the exceptions does to the promise ex ante.
+(C) category_slip — Reintroduces an interest held by the dead, which para 1 denies and para 3 replaces.
+
+Q5 — Correct answer: (C)
+(C) CORRECT — Para 3 makes the whole practice rest on the claim that reliability in advance is what enables founding, bequeathing and confiding. If those persist where instructions are openly set aside, the enabling role — and with it the costed verdict — falls away.
+(B) adjacent_answer — Such doctrines exist and are compatible with the account; para 4 concedes that bindings sometimes fail, only denying that the exceptions can be specified in advance.
+(A) level_confusion — Concerns testators' private expectations, not whether the practice is reliable enough to be worth having.
+(D) nec_suff_swap — Supports the survivors' defence the author has already found insufficient; distress may accompany breaches without grounding the duty.
+
+Q6 — Correct answer: (A)
+(A) CORRECT — Para 4's mechanism is that legible discretion to break is what converts the promise into a lease. Impossibility engages no discretion and so advertises no exception to future testators.
+(B) adjacent_answer — Precisely the case the author says must be tolerated; the closing paragraph shows the clause honoured.
+(C) category_slip — Invokes the value of the papers, an exception the argument cannot license without becoming legible.
+(D) nec_suff_swap — Makes the heirs' distaste sufficient to release, which would license exactly the discounting para 4 warns of.
+
+[BLUEPRINT NOTE] Structure: an obligation whose apparent addressee is shown to be the wrong one, relocated to the ex ante needs of the living, with the exception-rule self-undermining | Posture: resolution_costed | Thesis visible: para 3 (completed in para 4) | Traps: stance_misread toward "no duty" (para 1), category_slip toward posthumous interests (para 2)

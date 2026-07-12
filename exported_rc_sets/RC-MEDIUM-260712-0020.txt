@@ -1,0 +1,90 @@
+RC ID: RC-MEDIUM-260712-0020 | Tier: medium | Score: 8.4 | Status: approved | Compliance F1: 1.0 | Novelty: 0.711 | Generated: 2026-07-12T09:06:20.525743+00:00
+======================================================================
+
+[PASSAGE]
+
+In a warehouse outside Turin, sometime in 1956, a man with a clipboard measured the elbow height of four hundred assembly workers and wrote down a single number. That number became a bench. The bench became a standard. This was the working method of mid-century industrial ergonomics: gather the population, find the fiftieth percentile of every joint and reach, and build the workstation around that composite phantom, the average man. Deviation was noise to be minimized, not a signal to be honored. It sounds, to a modern ear, like a machine for grinding down the particular—a cold arithmetic that erased the tall, the left-handed, the arthritic. The engineers who did it were not sentimental. They believed the body was a measurable thing, and that measurement, aggregated, yielded a truth no single body could supply.
+
+They were not wrong to believe it. Averaging gave them systems. Reproducible systems. Teachable ones. A safety protocol built on the mean could be printed, shipped, obeyed in Osaka and Milan alike. Most workers really did cluster near that mean. The move worth noticing was quieter than efficiency: they treated the body as a system prior to treating it as a person. That priority—not scale, not economy—was the intellectual bet.
+
+When the agenda swung toward inclusive design, toward the adjustable chair and the accommodated wrist, we gained something plainly good and lost something quietly. We stopped studying how labour distributes across a whole population. The institutional memory of coordinating three hundred bodies in one room—what fails, what queues, where the load piles up—thinned out. Customization answers for one worker at a time. It has no grammar for the crowd. We traded a general knowledge of work for a fine skill at individual adjustment, and mistook the trade for a pure advance.
+
+The doctrine was still false. The average man never sat at any bench. Accommodation was real progress, and I would not undo it. But the bill came due elsewhere: we no longer ask what organizing principle should govern a shared workspace if not the average. The automated line is arriving that must fit no fixed body at all—only a shifting mix of them. It will ask the old question again. We have forgotten the old answer.
+
+[QUESTIONS]
+
+Q1. According to the passage, what was the deeper 'move worth noticing' in mid-century industrial ergonomics?
+(A) They discovered that no single body actually clustered near the statistical mean of the measured workforce.
+(B) They naively ignored real workers, wrongly grinding down the tall, the left-handed, and the arthritic for cold arithmetic.
+(C) They treated the body as a system prior to treating it as a person — the real intellectual bet.
+(D) They pursued efficiency and economy of scale above every other design consideration in the factory.
+
+Q2. What does the phrase 'that composite phantom, the average man' convey as used in the passage?
+(A) A constructed statistical figure corresponding to no actual person yet used to design real workstations.
+(B) A genuine worker whose measured elbow height became the bench standard for all four hundred colleagues on the line.
+(C) An ethical failure the engineers privately recognized but chose to standardize and ship worldwide anyway.
+(D) A scalable and teachable design standard whose reproducibility makes it clearly superior to variation-aware alternatives.
+
+Q3. Why does the passage insist that accommodation 'was real progress, and I would not undo it'?
+(A) To block the reading that the essay laments inclusive design, keeping its complaint about lost knowledge.
+(B) To concede that averaging was scientifically true after all, thereby fully vindicating the old industrial engineers.
+(C) To argue that adjustable design was in fact worse overall than the earlier averaging doctrine and should be rolled back.
+(D) To lament individualization itself as a mistake the essay wishes designers had never made in the first place.
+
+Q4. What work does the reference to the 'automated line' arriving in the final paragraph perform?
+(A) It offers a technical forecast about factory robotics eventually displacing human assembly workers from the line entirely.
+(B) It reopens the abandoned question of a shared workspace's organizing principle beyond the average.
+(C) It proves that automation will finally vindicate the mid-century averaging method once robots replace fixed benches.
+(D) It illustrates how customization has already solved the problem of coordinating many bodies in one room.
+
+Q5. Which statement best captures the central argument of the passage?
+(A) Averaging was a false and unethical doctrine that inclusive design has now rightly and permanently corrected without remainder.
+(B) In gaining individual accommodation, we quietly lost a general knowledge of coordinating whole populations at work.
+(C) Scalable mean-body design remains superior because it is teachable, reproducible, and obeyed across distant factories alike.
+(D) Customized workstations serve every worker better than composite standards ever did in the industrial past, end of story.
+
+Q6. The claim that a coming automated line 'will ask the old question again' relies on which unstated assumption?
+(A) The mid-century average man was a scientifically valid figure that engineers had correctly measured and should restore.
+(B) Workers today no longer cluster near any statistical mean the way earlier assembly populations once did in factories.
+(C) Automated systems are incapable of adjusting themselves to any individual worker's measurements in real time on a line.
+(D) A workspace serving a shifting mix of bodies still needs some organizing principle beyond individual adjustment.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Paragraph 2 explicitly names this priority as the intellectual bet, distinct from scale or economy.
+  (A) half_truth — The passage says most workers really did cluster near the mean; only the phantom average man sat nowhere.
+  (B) phrase_misuse — This adopts the 'sounds like' framing of paragraph 1 that the passage sets up only to overturn.
+  (D) terminological_twin — Paragraph 2 states the notable move was 'quieter than efficiency,' not scale or economy.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Paragraph 4's 'the average man never sat at any bench' confirms the phantom is a useful fiction, not a real body.
+  (B) category_slip — The measured worker was one of four hundred; the average is a composite, not any single person.
+  (C) stance_misread — The passage says the engineers sincerely believed the aggregate yielded truth; it invents hidden guilt.
+  (D) phrase_misuse — This treats scalability as the defended value; the passage praises the standard's virtues but calls the doctrine false.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — The concession isolates the actual loss—population-level knowledge—so the argument is not mistaken for anti-progress nostalgia.
+  (B) causal_inversion — Paragraph 4 opens 'The doctrine was still false'; the concession is about accommodation, not the doctrine's truth.
+  (C) false_symmetry — The passage weighs a trade, not a ranking; it never claims accommodation was worse overall.
+  (D) phrase_misuse — Directly contradicted by 'I would not undo it'; the essay laments a forgotten skill, not accommodation.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The line fits 'no fixed body' but 'a shifting mix,' reviving the population-level question the essay says we forgot.
+  (A) framework_import — The essay uses the line conceptually to revive a design question, not to predict labor displacement.
+  (C) scope_inflation — The passage says the line 'must fit no fixed body,' not that it restores the mean; it asks the question anew.
+  (D) causal_inversion — Paragraph 3 says customization 'has no grammar for the crowd'; the line exposes that gap rather than closing it.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The passage displaces the standardization-vs-particularity tension into a loss of population-level knowledge that accommodation cannot supply.
+  (A) premature_closure — The passage reopens the old question at the end; it denies the matter is settled and honors what averaging knew.
+  (C) phrase_misuse — Those virtues are granted, but the doctrine is called false; scalability is not the value being defended.
+  (D) half_truth — Accommodation is affirmed, but the essay stresses what customization cannot do—reason about the crowd.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — Only if crowd-level coordination remains necessary does customization's silence count as a genuine loss to be revived.
+  (A) stage_misattribution — The passage calls the doctrine false; the assumption concerns organizing principles, not the phantom's validity.
+  (B) scope_inflation — The passage never claims clustering ended; the revived question is about shared principles, not lost clustering.
+  (C) nec_suff_swap — The essay grants the line fits a shifting mix; the gap is population reasoning, not the impossibility of adjustment.
+
+[Inspired by: "Woodrow Wilson’s Legacy Is Loaded With Good and Bad, but His Work to Even the Economic Playing Field Is Often Overlooked", https://www.smithsonianmag.com/history/woodrow-wilson-legacy-loaded-good-bad-work-even-economic-playing-field-often-overlooked-180988853/]

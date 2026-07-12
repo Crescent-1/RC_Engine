@@ -1,0 +1,84 @@
+[PASSAGE]
+Boredom is a young word. It enters English around the middle of the nineteenth century, arrives late in most of its neighbours, and behind it there is only a scatter of distant relations: the monk's acedia, the courtier's ennui, the taedium Seneca describes as a queasiness at sameness. Historians of feeling have taken the lateness seriously, and the inference they draw from it comes in one of two shapes. Either the experience is not the plain, universal thing it appears to be, or our vocabulary is a far poorer record of inner life than we like to think.
+The first has become the more attractive. On that account boredom is manufactured: an artifact of clock time, of the working week that invented the empty Sunday, of a childhood in which somebody else decides when the afternoon ends. Time must first be cut into units and then owed to someone before it can be felt as wasted; the word arrives with the condition and dates it. The rival account is duller and, for a while, more persuasive. The feeling is old, it says, and the lexicon is merely slow. Naming lags experience, particularly experience nobody thought worth dignifying with a name.
+The evidence assembled for that second view is genuinely impressive. Seneca's nausea. Pascal's man who cannot sit quietly alone in a room. The marginalia of medieval copyists, who complain of thin ink, cold fingers, and pages that will not end. Read at speed, these are boredom in period costume, and the manufacture thesis begins to look like an argument that mistook a silence in the dictionary for a silence in the world.
+They are not, however, the refutation they seem, because the manufacture theorist has no trouble absorbing them. Acedia, he can say, is a sin: a failure of the soul before God, with an addressee and a remedy. Boredom has no addressee; it is a grievance against the world at large, and its structure — not its unpleasantness — is what the modern conditions produced. The sceptic then absorbs that reply in turn: the difference, he says, is an interpretation laid over a constant feeling, and interpretations are precisely what change. Each account can eat the other's evidence without indigestion. Nor could it be otherwise, since the archive is a record of what was sayable, not of what was felt; both hypotheses predict exactly the texts we have, and no further text will separate them.
+Suspension here is not a failure of nerve but the verdict the evidence supports, and it is not idle, because it withdraws the move both parties keep making: the youth of the word is no evidence about the age of the feeling, in either direction, and never was. What survives is smaller and firmer. The copyist at Reichenau stays where the parchment leaves him, complaining about the ink, in a condition we are not entitled to call ours and not entitled to call foreign.
+
+[QUESTIONS]
+
+Q1. Which best captures the central claim of the passage?
+(A) Boredom is best understood as a modern manufacture, since the word appears alongside the very conditions — clock time, the empty Sunday, the supervised childhood — that produce the feeling it names.
+(B) The surviving evidence cannot decide between the two accounts of boredom, and seeing why also removes the lexical argument on which both sides have relied.
+(C) The sceptical account is the stronger one, since Seneca, Pascal and the copyists together show that the feeling long predates any word that we now have for it.
+(D) Because the words available to a culture determine what its members are able to feel, historians of emotion should give up the search for feelings lying behind the vocabulary.
+
+Q2. The third paragraph functions in the argument chiefly to:
+(A) supply what the author treats as decisive evidence for the conclusion he finally draws.
+(B) expose the sceptic misreading his sources, since acedia and ennui are plainly not boredom.
+(C) present the sceptical case at full strength so the next paragraph can show it is not decisive.
+(D) offer a rival causal story, replacing clock time with monastic and courtly conditions as the feeling's origin.
+
+Q3. The claim that "no further text will separate them" rests on the assumption that:
+(A) any textual trace of the feeling can be redescribed by each account in terms its own theory already licenses.
+(B) the archive is fragmentary, so that better-preserved sources might eventually settle the question one way or the other.
+(C) the writers of the archive were, on the whole, reliable and candid reporters of their own inner states.
+(D) emotions are constituted only by the words a culture already makes available for naming them.
+
+Q4. The author's position differs from the sceptic's principally in that the author:
+(A) denies that Seneca or the copyists ever felt anything truly resembling boredom at all.
+(B) treats the lateness of the word itself as clear evidence that the feeling is late.
+(C) holds that the two camps have been arguing past each other about different things all along.
+(D) regards the sceptic's evidence as absorbable by the rival, not as telling against it.
+
+Q5. Which discovery would most undermine the author's claim of underdetermination?
+(A) A further trove of copyists' marginalia complaining, in similar terms, of tedium at the desk.
+(B) An antique text describing a listless dissatisfaction with no addressee and no available remedy.
+(C) Evidence that "boredom" existed as a dialect word two centuries earlier than the standard dating.
+(D) Psychological findings that boredom in modern subjects correlates strongly with unstructured time.
+
+Q6. In context, "the archive is a record of what was sayable, not of what was felt" serves to:
+(A) suggest people in the past hid their true feelings behind conventional formulas of speech.
+(B) assert that a person can feel only what the language of the period permits them to say.
+(C) explain why the two accounts predict the same texts, and hence why the texts cannot choose between them.
+(D) concede that historians of feeling can never know anything at all about the inner lives of the dead.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+(B) CORRECT — Para 4 establishes mutual absorbability and identical textual predictions; para 5 draws the consequence that the lexical inference "never was" available. Both halves are the argument.
+(A) adjacent_answer — Restates the manufacture thesis reported in para 2 as though it were the author's; para 4 explicitly declines to endorse it.
+(C) stance_misread — Takes para 3's admiration ("genuinely impressive") for endorsement; para 4 opens by denying that this evidence refutes anything.
+(D) framework_import — Imports a strong linguistic-determinism doctrine the author never uses; his point concerns what texts can show, not what speakers can feel.
+
+Q2 — Correct answer: (C)
+(C) CORRECT — Para 3 marshals the sceptic's best material ("read at speed... boredom in period costume") precisely so para 4's "not, however, the refutation they seem" can bite.
+(A) example_promotion — Promotes illustrative material to load-bearing proof; the author's conclusion rests on the symmetry argument of para 4, not on Seneca or Pascal.
+(B) straw_version — The author never says the sceptic misreads his sources; he grants they may be absorbed either way.
+(D) category_slip — Converts evidence about the feeling's existence into an alternative causal story about its origin, a question para 3 does not raise.
+
+Q3 — Correct answer: (A)
+(A) CORRECT — Para 4's two absorptions (acedia as sin without addressee; interpretation laid over constant feeling) show each theory pre-equipped to reclassify any trace; without that, a decisive text would remain possible.
+(B) level_confusion — Treats in-principle underdetermination as a shortage of surviving documents; the author's claim is that no further text, however well preserved, would separate the accounts.
+(C) adjacent_answer — Plausible-sounding but idle: the author's argument runs through what texts can establish, whether or not their authors were candid.
+(D) framework_import — Smuggles in the manufacture thesis as a premise of the author's own neutrality argument.
+
+Q4 — Correct answer: (D)
+(D) CORRECT — Para 4: the manufacture theorist "has no trouble absorbing" Seneca and the copyists, which is exactly the sceptic's case; the author's disagreement is about the evidence's force, not its content.
+(A) straw_version — The author takes no view on what the copyists felt; para 5 pointedly refuses to call the condition either ours or foreign.
+(B) stance_misread — Para 5 states the opposite: word-age is not evidence about feeling-age in either direction.
+(C) false_symmetry — Both parties are answering the same question (is the feeling old?); the trouble is that the evidence cannot adjudicate it, not that they have been talking past one another.
+
+Q5 — Correct answer: (B)
+(B) CORRECT — Para 4 makes the manufacture theorist's absorption depend on a stated structural difference — an addressee and a remedy. An ancient text lacking both cannot be absorbed on his own criterion, so the symmetry breaks.
+(A) example_promotion — More of the same kind of evidence, which para 4 has already shown to be absorbable; volume was never the issue.
+(C) level_confusion — Redates the word, when para 5 has denied that the word's date bears on the feeling at all; this attacks a premise the author has already discarded.
+(D) framework_import — Brings modern psychological correlation to bear on a question about historical evidence; it speaks to neither hypothesis's textual predictions.
+
+Q6 — Correct answer: (C)
+(C) CORRECT — The clause is the reason offered for the sentence it sits in ("both hypotheses predict exactly the texts we have"), fixing the limits of what the archive can adjudicate.
+(A) phrase_misuse — Converts an epistemic claim about evidence into a psychological claim about dissimulation; concealment is nowhere at issue.
+(B) framework_import — Reads the clause as linguistic determinism, which would side with one hypothesis, whereas the clause is what makes them indistinguishable.
+(D) scope_inflation — Expands a targeted underdetermination between two rivals into blanket ignorance about the past; para 5 insists something firm survives.
+
+[BLUEPRINT NOTE] Structure: two rival explanations of a lexical gap shown to be evidentially indistinguishable in principle | Posture: refusal_suspended | Thesis visible: para 4 | Traps: stance_misread (para 3), level_confusion (para 4)

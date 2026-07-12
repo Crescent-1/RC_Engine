@@ -1,0 +1,92 @@
+RC ID: RC-ELITE-260712-0028 | Tier: elite | Score: 8.8 | Status: approved | Compliance F1: 1.0 | Novelty: 0.636 | Generated: 2026-07-12T07:51:15.761490+00:00
+======================================================================
+
+[PASSAGE]
+
+The oboist did nothing loud. Between the second and third movements, in a hall that had grown warm under a full house, she sounded the A again, softly, and tuned to it. Her colleagues split at once. Some called it vanity dressed as diligence, a soloist's flourish in a section role. Others called it plain responsiveness: the strings had drifted sharp, the winds flat, and the printed pitch of the opening no longer held. The conductor said nothing. The concertmaster, later, said a great deal. And what began as a gesture lasting four seconds became, in the green room, a quarrel that no one present could quite finish.
+
+The record shows this fault-line is neither new nor local. German ensembles have long tolerated mid-work adjustment as ordinary craft; several British orchestras treat it as a breach; period-instrument groups retune openly and often. No governing body, in any archive one can consult, has ever written the rule down. The practice survives entirely as inherited habit.
+
+The stakes have since outgrown the etiquette committee. Recording contracts now specify, in clauses once reserved for edits, whether audible retuning may remain on the master. Critics have taken sides with a heat the matter seems not to warrant, one faction charging that a fixed reference pitch honors the composer's intention, the other that refusing to correct a drifting hall cheats the listener of the sound actually meant. Each accuses the other of betrayal. It would be easy to read this as a turf war over who governs an orchestra, a contest of authority between players, conductors, and labels. That reading mistakes the noise for the signal.
+
+For the two camps are not disagreeing about pitch. They are asserting, through it, two incompatible accounts of what a musical work is: a fixed text that performance merely transmits, or an unrepeatable occasion that the score only initiates. Every act of retuning, or of refusing, quietly files a brief for one ontology against the other. One might expect the honest verdict here to be that both accounts have merits and neither should displace the other.
+
+That expectation should be resisted. The commitment each musician holds was formed before argument, in the years of training that taught the hand how a score is to be obeyed or served; it is constitutive, not chosen, and so cannot be defended without circularity, since every reason one might offer already assumes the position it means to prove. Direct debate about what music is collapses into assertion answered by assertion. This is precisely why the proxy forms: the pitch question is the only ground on which the deeper claim can be made without dissolving. And on that deeper claim the record does, in the end, favor one side, for the fixed-text account cannot explain why a drifting hall should ever be corrected, while the occasion account explains both the correction and the refusal as competing fidelities to a single living event—which suggests, though the etiquette will never say so, that the work was always the performance, provided one grants that a recipe is not yet a meal.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central idea of the passage?
+(A) A dispute over retuning is really a proxy for two rival theories of what a musical work is, and the evidence favors one.
+(B) Whether the oboist was right to retune between movements is a question of concert etiquette that the passage carefully settles by the close.
+(C) Because musicians' commitments are formed before argument, no genuine resolution of the pitch dispute is finally possible for either side.
+(D) Different national traditions treat mid-work retuning differently, showing that performance conventions are inherited habits rather than written rules.
+
+Q2. According to the passage, why have critics and recording contracts entered the retuning question?
+(A) Because the real issue is institutional authority — who among players, conductors, and labels ultimately governs the orchestra's decisions.
+(B) Because retuning has grown from a matter of manners into a contest each side reads as betrayal.
+(C) Because a governing body finally wrote the rule down, forcing contracts to specify the permitted treatment of the master recording.
+(D) Because period-instrument groups retune so openly that other ensembles were pressured to formalize their own opposing standards in writing.
+
+Q3. What is the function of the sentence 'One might expect the honest verdict here to be that both accounts have merits and neither should displace the other'?
+(A) It introduces the sociological reading, that the quarrel is a turf war over who governs an orchestra's decisions.
+(B) It voices the balanced view the passage sets up in order to reject it and argue for one side.
+(C) It signals the passage's own settled conclusion that both ontologies are valid and neither should be allowed to displace the other.
+(D) It concedes that the pitch dispute cannot be resolved because each musician's commitment was formed before argument began.
+
+Q4. In context, the claim that each musician's commitment 'cannot be defended without circularity' means that
+(A) the two theories of the work are equally valid, so neither camp can rightly claim its reasons are stronger.
+(B) musicians deliberately choose their theory of the work and then rationalize it with reasons after the fact.
+(C) musicians lack the vocabulary to explain their training, so their disputes stay confined to the practical pitch question.
+(D) any reason a musician gives already presupposes the very theory of the work it is meant to establish.
+
+Q5. The closing image of the recipe and the meal chiefly serves to
+(A) crystallize the verdict that the work exists only in performance, the score being mere instruction.
+(B) suggest that etiquette will eventually catch up and formally endorse the occasion account of the work.
+(C) restore balance between the two accounts by granting the score real value even after favoring performance.
+(D) concede that the fixed-text account, like a recipe, ultimately preserves what performance can only reproduce.
+
+Q6. Given how the passage ends, which statement best describes what it leaves open?
+(A) It leaves open which institution — players, conductors, or labels — should hold final authority over retuning decisions.
+(B) It leaves both the pitch practice and the underlying theory of the work genuinely undecided for future debate.
+(C) It settles the ontological question yet leaves the practice itself unresolved, since etiquette will never name the verdict.
+(D) It resolves the etiquette dispute so decisively that orchestras will now adopt a uniform standard for audible retuning.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Integrates paragraphs 4–5, where the pitch quarrel is unmasked as an ontological contest that the record ultimately resolves toward the occasion account.
+  (B) stance_misread — Falls for TR1: treats the etiquette anecdote of paragraph 1 as the real subject, ignoring the ontology reframing in paragraph 4.
+  (C) premature_closure — Stops at the circularity point in paragraph 5 and misses that the passage does, 'in the end,' favor one side.
+  (D) example_promotion — Promotes the paragraph-2 survey of German and British practice into the thesis, whereas it merely establishes the dispute's reach.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — Matches paragraph 3, where the stakes 'outgrow the etiquette committee' and each faction accuses the other of betrayal over reference pitch.
+  (A) level_confusion — Falls for TR2: the passage explicitly calls the turf-war reading mistaking 'the noise for the signal.'
+  (C) half_truth — Contradicts paragraph 2, which states no governing body has ever written the rule down.
+  (D) scope_inflation — Invents a causal pressure not in the text; period-instrument practice is cited only as one variant in paragraph 2.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The next paragraph opens 'That expectation should be resisted,' making the sentence a foil the passage overturns rather than endorses.
+  (A) level_confusion — Misplaces the turf-war framing, which belongs to paragraph 3, onto this ontology-level sentence.
+  (C) stance_misread — Falls for TR3: mistakes the anticipated pluralist verdict for the author's position, which the following line explicitly resists.
+  (D) premature_closure — Confuses the constitutive-commitment point of paragraph 5 with this earlier setup sentence, and skips the eventual verdict.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — Paraphrases paragraph 5 directly: every offered reason 'already assumes the position it means to prove,' making direct defense circular.
+  (A) false_symmetry — Imports a symmetry the passage rejects; circularity is a feature of direct debate, not proof of equal validity.
+  (B) causal_inversion — Reverses the text's point that the commitment is 'constitutive, not chosen,' not a deliberate selection later rationalized.
+  (C) adjacent_answer — Substitutes a vocabulary deficit for the logical circularity the passage actually specifies in paragraph 5.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — It caps paragraph 5's conclusion that 'the work was always the performance,' the score initiating rather than constituting the work.
+  (B) scope_inflation — The passage says etiquette 'will never say so'; no future institutional endorsement is implied.
+  (C) stance_misread — Reads the caveat as re-balancing, but the analogy reinforces the one-sided verdict rather than softening it.
+  (D) causal_inversion — Inverts the analogy: the recipe is precisely 'not yet a meal,' so the fixed text is subordinated, not vindicated.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The ending resolves the deeper claim while widening the aperture: the record favors one side, but 'the etiquette will never say so.'
+  (A) level_confusion — Returns to the turf-war reading the passage dismissed as noise rather than the signal it actually pursues.
+  (B) premature_closure — Denies the closure the passage achieves; the record does 'in the end favor one side' on the deeper claim.
+  (D) scope_inflation — Overstates practical consequence; the passage says the etiquette 'will never say so,' predicting no uniform standard.
+
+[Inspired by: "Who do you think you are? There are two answers", https://psyche.co/ideas/who-do-you-think-you-are-there-are-two-answers]

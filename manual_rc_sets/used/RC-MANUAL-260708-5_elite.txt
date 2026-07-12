@@ -1,0 +1,90 @@
+[PASSAGE]
+
+A concert of Persian classical song ends, and the listeners filing out do not ask whether the singer was skilled. They ask whether hāl came. The word is Sufi in ancestry and common in Tehran green rooms; it names whatever makes one evening an event and another, note for note its equal, a recital. At home the word works without friction. Trouble begins at the border, when a critic writing in English reaches for an equivalent and finds the shelves stocked with the wrong kind of goods.
+
+The first consignment offered in exchange: "atmosphere," "mood," "presence." Each is a property word. Where the London reviewer writes that a performance possessed presence, the Tehran listener says that hāl arrived — and the grammar is the tell. Properties are possessed; hāl visits. A property belongs to the performance and can be praised in the singer's absence; hāl is said to come, to descend, occasionally to refuse. Property words travel well precisely because they fasten to objects, and objects can be shipped. What hāl names spoils in transit, like fruit picked for a market it will never reach.
+
+The laboratory tradition makes the second attempt. "Flow" — the psychologist's term for absorbed, self-forgetting performance — at least treats an occurrence rather than a thing. But flow is filed under the performer's mind, and hāl declines the filing: veterans of the repertoire insist it can desert a technically flawless night and descend, unearned, on a singer whose voice is breaking. It seems to belong to the room, if it belongs anywhere. So the deadlock: one customs house registers the evening under the work, the other under the psyche. Neither ledger has a column for what the listeners were pointing at.
+
+A third tradition breaks the tie. Sanskrit poetics built its edifice on rasa — "taste," "savour" — and its theorists spent centuries insisting, against exactly these two filings, that rasa resides neither in the dramatic work nor in the spectator's private feeling but in the tasting itself, an event requiring both and reducible to neither. Two traditions with no common ancestor arriving at the same refusal suggest the refusal is load-bearing. The resistance of hāl to translation is not a lexical gap awaiting a cleverer dictionary; it marks a disagreement about where aesthetic value lives. A critical vocabulary is an inventory of locations, and the inventory English criticism inherited was drawn up for goods that hold still: the painting, the printed poem. Performance got appraised with instruments calibrated for objects.
+
+None of this convicts property-criticism of error on its own ground; for the things that hold still, it holds. The verdict is narrower and firmer: judgment of performance, in any tradition, needs terms for events, and borrowing object-terms smuggles in a metaphysics along with the vocabulary. Until reviewing learns to grade evenings rather than works, hāl will stay where it is. Some words refuse the crossing not because the road is poor but because what they name has no address on the far side.
+
+[QUESTIONS]
+
+Q1. Which of the following best states the central claim of the passage?
+(A) The untranslatability of hāl exposes critical vocabularies as commitments about where value is located, leaving performance ill-served by object-terms.
+(B) Persian and Sanskrit aesthetics show that aesthetic value is a psychological event in the audience that property-criticism has failed to register.
+(C) Aesthetic terms are so embedded in their home traditions that translation between critical vocabularies is simply impossible.
+(D) Property-based criticism is mistaken in principle and should be replaced by event-based terms across every art form.
+
+Q2. The discussion of rasa in the fourth paragraph functions primarily to:
+(A) supply the definition of hāl that the earlier paragraphs of the essay had withheld from the reader.
+(B) show that Sanskrit poetics anticipated and already solved the problem that hāl still poses today.
+(C) offer a second aesthetic term that fails to survive translation into English critical practice.
+(D) break the work/psyche deadlock by showing an unrelated tradition refusing both filings as evidence.
+
+Q3. In context, "What hāl names spoils in transit, like fruit picked for a market it will never reach" most nearly means:
+(A) the concept loses its prestige and authority once it is removed from its home tradition.
+(B) English reviewers deliberately coarsen borrowed terms in order to fit their own columns.
+(C) the occurrence hāl names cannot be carried by words built to attach value to portable objects.
+(D) hāl names an experience so fleeting that no vocabulary, even Persian, can genuinely record it.
+
+Q4. The author's treatment of "flow" is best described as:
+(A) endorsing it as the closest English has come to hāl, flawed only where technical mastery and absorption come apart.
+(B) crediting a real advance — treating an occurrence not a thing — while rejecting its mind-filing of that occurrence.
+(C) dismissing it as a laboratory artifact with no genuine bearing on aesthetic questions of performance at all.
+(D) accepting its account of what performers undergo while denying that listeners undergo anything comparable today.
+
+Q5. Which statement about hāl is the passage actually committed to?
+(A) It is a heightened state in listeners from masterful singing — roughly what reviewers mean by "presence."
+(B) It is simply the Persian equivalent of the Sanskrit aesthetic term known as rasa.
+(C) It is a subtle property of performances, detectable only by listeners trained in the repertoire.
+(D) Its arrival is independent of technical perfection, and its location resists work or mind alike.
+
+Q6. A jazz critic reports that a quartet's set was harmonically sloppy yet "the room caught fire," and finds her reviewing vocabulary unable to register the second fact except as metaphor. On the passage's argument, her difficulty is best explained as:
+(A) an inventory problem: her terms were drawn up for works, so event-located value enters only as figure of speech.
+(B) a psychological problem: she lacks a technical term for the performers' own state of absorption in the set.
+(C) evidence that jazz has generated its own untranslatable concept and now awaits some borrowed word from outside.
+(D) confirmation that live-performance judgments are irreducibly subjective, so no vocabulary could register what she felt.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — compresses the para 4 thesis ("a critical vocabulary is an inventory of locations... drawn up for goods that hold still") with the para 5 verdict that performance judgment needs event-terms.
+  (B) framework_import — imports the psychological filing the passage explicitly retires in para 3 ("flow is filed under the performer's mind, and hāl declines the filing"); rasa likewise refuses "the spectator's private feeling" (para 4).
+  (C) scope_inflation — inflates one word's resistance into a general impossibility; para 4 says the resistance "marks a disagreement about where aesthetic value lives," not that vocabularies cannot meet.
+  (D) stance_misread — para 5 opens by protecting property-criticism "on its own ground"; the verdict is confined to performance, not "all art forms."
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — para 3 ends on a two-ledger deadlock; para 4 opens "A third tradition breaks the tie," and the convergence of unrelated refusals is expressly treated as "load-bearing" evidence.
+  (A) phrase_misuse — the planted trap: rasa is glossed ("taste," "savour") but hāl never is; the passage's whole method is to characterize hāl by what it declines, and a reader wanting a definition will promote this option.
+  (B) half_truth — Sanskrit theorists did resist both filings, but the passage uses them as corroboration of a refusal, not as possessors of a solution hāl can import.
+  (C) level_confusion — treats rasa as another item in the translation-failure series of paras 2-3, one level below its actual role as independent evidence about value's location.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — follows directly from the preceding sentence: "Property words travel well precisely because they fasten to objects, and objects can be shipped"; hāl spoils because it is not that kind of cargo.
+  (A) adjacent_answer — prestige and authority are near the passage's trade imagery but the failure described is semantic carriage, not loss of standing.
+  (B) stance_misread — assigns bad faith to reviewers; para 2 shows them reaching in earnest for equivalents and finding "the wrong kind of goods."
+  (D) scope_inflation — the home vocabulary handles hāl "without friction" (para 1); only the crossing fails, not naming as such.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — para 3 grants that flow "at least treats an occurrence rather than a thing," then rejects the mind-filing via performances where hāl and technique come apart.
+  (A) half_truth — captures the concession but inverts its weight; the flawless-night counterexample is the refutation of flow's filing, not a minor gap in an otherwise endorsed translation.
+  (C) straw_version — the passage credits the laboratory tradition with a real advance; "irrelevant to aesthetics" is a harsher position than anything in para 3.
+  (D) stage_misattribution — manufactures a performer/listener asymmetry the passage never draws; the objection is about where flow files the event, not who undergoes it.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — both halves are textual: hāl "can desert a technically flawless night" (para 3), and neither ledger — work nor psyche — "has a column" for it (para 3), a refusal para 4 generalizes.
+  (A) phrase_misuse — a confident definition the passage never issues, and one that adopts the listener-mind filing while equating hāl with "presence," the property word para 2 rejects.
+  (B) terminological_twin — the traditions converge on a refusal about location, not on a shared concept; "equivalent" is exactly what para 4's argument does not claim.
+  (C) framework_import — smuggles in the property filing ("a subtle property of performances") that para 2's grammar argument ("properties are possessed; hāl visits") is built to block.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — applies para 4-5: her terms are an inventory drawn up for works, so an event-located value ("the room caught fire" — para 3's "it seems to belong to the room") enters only as metaphor until reviewing learns "to grade evenings rather than works."
+  (B) framework_import — refiles the difficulty under performer psychology, the flow move para 3 rejects; her report concerns the room, not the quartet's absorption.
+  (C) example_promotion — promotes the case into a hunt for a new untranslatable noun; the passage's diagnosis is about the reviewing inventory, not about jazz lacking a word.
+  (D) level_confusion — converts a claim about vocabularies' location-commitments into a claim about subjectivity; para 5 insists event-terms are possible ("needs terms for events"), so "no vocabulary could" contradicts the verdict.
+
+[BLUEPRINT NOTE]
+Structure: the untranslatable — hāl introduced in use, property-word translation fails, psychological translation fails, rasa breaks the deadlock and the resistance itself becomes evidence about where aesthetic value lives | Posture: resolution_qualified with horizon clause ("until reviewing learns to grade evenings rather than works") | Thesis visible: para 4 | Traps: phrase_misuse (Q2-A, Q5-A — confident definitions of the undefined term), framework_import (Q1-B, Q5-C, Q6-B — refiling hāl under mind or property)

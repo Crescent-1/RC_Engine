@@ -156,7 +156,13 @@ class NoveltyScorer:
                         or s["embedding_cosine"] >= config.NOVELTY_SUPPORT_CAPS["embedding_cosine_extreme"]):
                     breached.append(f"embedding_cosine {s['embedding_cosine']:.2f} vs {other.rc_id}")
             if (fp.persona_id and other.persona_id and fp.persona_id != other.persona_id
-                    and s["stylometry_delta"] < caps["stylometry_delta_floor"]):
+                    and s["stylometry_delta"] < caps["stylometry_delta_floor"]
+                    and (coarse_supported
+                         or s["stylometry_delta"]
+                            < config.NOVELTY_SUPPORT_CAPS["stylometry_delta_extreme"])):
+                # A stylometric echo alone is the generator's house voice, not a
+                # duplicate essay; only reject when a structural channel agrees
+                # (coarse_supported) or the voices are near-identical (extreme).
                 breached.append(f"persona_leak delta={s['stylometry_delta']:.2f} vs {other.rc_id}")
             if include_question_channels and \
                     s["topology_similarity"] > caps["topology_similarity"]:

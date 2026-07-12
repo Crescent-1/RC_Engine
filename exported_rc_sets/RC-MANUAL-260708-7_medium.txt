@@ -1,0 +1,88 @@
+[PASSAGE]
+
+Two rival processions arrive at the same tomb. One lays its wreath for the Smith of the invisible hand, apostle of self-interest and the unplanned market; the other for the Smith of sympathy and the impartial spectator, a moralist embarrassed by his libertarian afterlife. Each delegation carries its own volume — the Wealth of Nations against the Theory of Moral Sentiments — and each accuses the other of holding a forgery. The dispute has the shape of a custody battle: two claimants, one estate, and a judge expected to name the legitimate heir.
+
+I want to say the judge should decline the case, and not for want of evidence. The custody frame assumes the inheritance is a doctrine — a body of conclusions to be owned, defended, and handed down intact. But what Smith left was not a doctrine; it was a tool built to work on a particular problem, and a tool is not inherited the way a fortune is. Ask what the two volumes were for, together, and the fight over which is the real will dissolves — not because both sides are right, but because both have mistaken the object.
+
+The problem was specific and, in the 1750s, urgent. A commercial society was dissolving the old bonds — kinship, rank, the mutual obligations of a settled hierarchy — that had once done the work of holding conduct in place. The question Smith set himself was how a society of strangers trading for gain could remain a moral order at all, once the feudal ligatures were cut. Sympathy and the market were not two philosophies for two heirs to divide; they were two halves of one answer to that single question — the spectator supplying the restraint the market could not, the market supplying the coordination sympathy could not reach. Split them and you do not get two Smiths. You get two fragments of a mechanism, each useless for the work it was cut to do.
+
+Return now to the tomb. The delegations are not fighting over an heir; they are each hoping the dead man will settle a quarrel he never posed — our quarrel, over whether markets need a conscience bolted on or run clean without one. That is a live and serious question, but it is ours, and Smith's authority cannot adjudicate it, because he was answering a different one. What lies in the estate, unclaimed by either party, is the question itself: how strangers hold together once the old bonds are cut. It is still open, and neither wreath is laid on it.
+
+[QUESTIONS]
+
+Q1. Which of the following best states the passage's central claim?
+(A) Smith's two books are not rival doctrines but two halves of one tool, so the heir contest dissolves rather than being won.
+(B) Each camp has preserved one authentic half of Smith, so the legitimate inheritance is a synthesis that fully honours both volumes alike.
+(C) The Smith of moral sympathy is the genuine heir, and the libertarian reading is the forgery moralists accuse it of being.
+(D) Because Smith answered an eighteenth-century problem, his work has no real bearing on present disputes about markets.
+
+Q2. The author's response to the "who is the true heir?" question is best described as:
+(A) adjudicating it firmly in favour of the moral-sentiments reading of Smith overall
+(B) declaring it fully undecidable because the evidence on each side is equally strong overall
+(C) setting it aside as misframed and relocating attention to the question his work answered
+(D) suspending judgment until still more of Smith's remaining writings can be weighed carefully
+
+Q3. What is the function of the third paragraph's account of commercial society dissolving the old bonds?
+(A) to show the single problem both volumes were built to address, so splitting them misreads the tool
+(B) to establish that the market half of Smith's thought is the more historically important of the two
+(C) to date Smith's ideas so thoroughly that they can be declared irrelevant to the present day
+(D) to argue that feudal hierarchy was a more moral order than the commercial one that replaced it
+
+Q4. A reader concludes: "So the right view is to combine the two Smiths — take the sympathy from one book and the market from the other and balance them." The author would most likely respond that:
+(A) this is exactly the synthesis the essay itself recommends as the right view
+(B) this still treats the two as separable shares, when they are halves of one mechanism
+(C) this correctly identifies sympathy as the senior partner that should govern the market
+(D) balancing is impossible because the two claims are equal in weight, leaving any judge deadlocked
+
+Q5. In the final paragraph, the claim that Smith "was answering a different one" primarily serves to:
+(A) concede that Smith's work ultimately fails to answer any question we now find pressing
+(B) reveal that the author, after all, favours running markets "clean without" a conscience
+(C) explain why Smith's authority cannot settle our quarrel about markets and conscience
+(D) suggest that the present quarrel is trivial next to the deeper problem Smith originally set himself
+
+Q6. The argument that "a tool is not inherited the way a fortune is" depends on which assumption?
+(A) that the value of Smith's work lies in the problem it addressed, not in conclusions to be owned
+(B) that Smith intended his two books to be read as a single continuous work from the start
+(C) that intellectual inheritances are always far more contested than ordinary material ones ever are
+(D) that no thinker's ideas can outlive the era that produced them, and so must be judged obsolete
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — states the para 2–3 thesis (the two volumes are "two halves of one answer," a tool not a doctrine) joined to the para 4 dissolution of the custody fight; "not because both sides are right" is honoured.
+  (B) false_symmetry — recasts the claimants as balanced holders of authentic halves to be merged; para 3 explicitly denies this ("Split them and you do not get two Smiths... two fragments of a mechanism"), so a synthesis is precisely what the essay refuses.
+  (C) stance_misread — crowns the moralist as heir, but para 2 says the fight dissolves "not because both sides are right" and para 4 names no heir at all.
+  (D) premature_closure — pushes the dating into "no real bearing on present disputes"; para 4 calls the present quarrel "live and serious," denying only that Smith can adjudicate it.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — para 2's "the judge should decline the case" (misframing) plus para 4's relocation to "the question itself"; a displacement, not a ruling.
+  (A) stance_misread — the author names no heir; the dissolution is "not because both sides are right" (para 2).
+  (B) false_symmetry — "undecidable because equally strong" imports a balance the essay rejects; para 2 declines "not for want of evidence."
+  (D) premature_closure — frames the stance as a hold pending more texts; the objection is that the frame is wrong, not that evidence is thin.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — para 3 lays out the single 1750s problem and makes sympathy and the market "two halves of one answer to that single question."
+  (B) stance_misread — promotes the market half to primacy; para 3 makes the halves co-equal, neither senior.
+  (C) scope_inflation — turns dating into a verdict of irrelevance; para 4 keeps the question "still open," not dead.
+  (D) straw_version — invents a pro-feudal moral ranking; para 3 only notes the bonds were "cut" and asserts no superiority for hierarchy.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — mirrors para 3: the halves form "one mechanism," and "Split them... each useless for the work it was cut to do," so they are not separable shares to balance.
+  (A) stance_misread — the essay does not recommend synthesis; it denies the shares can be divided at all.
+  (C) stance_misread — "sympathy as senior partner" contradicts the co-equal-halves framing of para 3.
+  (D) false_symmetry — the equal-and-opposing-weight deadlock is exactly the balance-of-claims picture the essay dismantles.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — para 4: Smith's authority "cannot adjudicate it, because he was answering a different one"; the point is a mismatch of questions.
+  (A) half_truth — "fails to answer any question we find pressing" overshoots; the only gap is that his question is not ours.
+  (B) stance_misread — attributes a pro-market verdict to the author; para 4 assigns "run clean without one" to one delegation's view, not to him.
+  (D) scope_inflation — calls the present quarrel trivial, but para 4 calls it "live and serious."
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — para 2 grounds the tool/fortune contrast: the inheritance is "a tool built to work on a particular problem," not conclusions to be "owned, defended, and handed down."
+  (B) adjacent_answer — single-continuous-work intention sits near the claim but is not what it rests on; the load-bearing premise is problem-versus-conclusions, not textual unity.
+  (C) scope_inflation — "always more contested" generalizes far beyond the specific tool-not-fortune point.
+  (D) framework_import — smuggles in an obsolescence thesis the essay withholds; para 4 leaves the question open rather than declaring Smith's ideas expired.
+
+[BLUEPRINT NOTE]
+Structure: inheritance dispute — two claimants to Smith re-read so the custody fight dissolves and is displaced onto the question his work was built for | Posture: reframe_displace | Thesis visible: para 2 | Traps: false_symmetry, stance_misread

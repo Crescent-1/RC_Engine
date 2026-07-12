@@ -1,0 +1,90 @@
+RC ID: RC-HARD-260712-0010 | Tier: hard | Score: 8.8 | Status: approved | Compliance F1: 1.0 | Novelty: 0.808 | Generated: 2026-07-12T08:02:00.332556+00:00
+======================================================================
+
+[PASSAGE]
+
+In the classrooms and locker rooms and open-plan offices where the tribe assembles, one story is told to the young before almost any other. The gifted, they are warned, often falter; the ordinary child who practices past exhaustion, who returns to the failed problem a hundredth time, will in the long accounting overtake her. Effort, sustained, outweighs endowment. Call this belief the grit story, and note first how little dispute it excites: coaches nod, teachers reprint it on posters, the retired executive builds his memoir upon it. The observer who arrives among these people finds a doctrine held with the calm of a thing no longer questioned. I will not question it either. Not yet, and not on the terms they offer.
+
+Watch, though, how the doctrine is defended. The elders cite the same three or four strivers, always the ones who won. The founder who slept in the office. The runner who trained through injury. Where are the sleepless founders who went bankrupt? Uncounted. The studies once invoked were small; they have largely failed to replicate. And the word itself flexes. When a persistent man fails, the ritual redescribes him as merely stubborn. When a lucky man succeeds, grit is discovered in his past. A definition that bends to every outcome explains none. The arguments, examined one by one, do not hold.
+
+Yet the conclusion need not fall with them. Set aside the anecdotes entirely. There remains separate work, gathered by people uninterested in the totem: on how habits consolidate, on the modest predictive weight of delayed gratification, on the ten-thousand-hour grind by which expertise is actually laid down. None of this rescues the poster. It supports something smaller and duller — that sustained practice matters at the margin, some of the time, for some kinds of skill. The grand claim is not vindicated. A quieter cousin of it merely survives, wearing the same name and almost none of the promises.
+
+Here the observer's real puzzle opens. Suppose the modest claim is roughly true. It was not adopted because it was true. It was adopted through cherry-picked heroes and studies that dissolved on inspection, and it was then taught, printed, examined, and built into the promotion rites of institutions on exactly that rotten footing. Does the belief's truth clean the record? One instinct says yes: a conclusion owes nothing to the bad company it kept on the way in. Another says the debt is real — that a tribe which reasons this badly toward a true thing has not earned it, and will hold it carelessly, and will not know when it has drifted past the evidence into the poster again. I cannot settle which instinct is right. What remains, after the best surviving version is stated, is a residue of unearned confidence — the suspicion that the belief is trusted for reasons no one has retired, and that its truth, if it is a truth, is held more tightly than anything about how it was acquired could justify.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central concern of the passage?
+(A) The observer concludes that a belief's truth fully absolves it of any debt owed to the poor arguments that first carried it into practice, so its history can be set aside without remainder.
+(B) Even if the popular belief turns out true, the shoddy reasoning that installed it leaves lingering doubt about how firmly it deserves to be held.
+(C) The essay methodically assembles the case for the grit narrative, showing that persistent effort reliably overtakes natural talent across most fields of human endeavour and institutional life.
+(D) Because the studies failed to replicate and the definition bends to every outcome, the grit belief must be discarded as simply false, with no modest cousin left standing.
+
+Q2. What role does the question 'Where are the sleepless founders who went bankrupt?' play in the second paragraph?
+(A) It exposes a selection flaw in how the doctrine is defended, since only winners among strivers are counted.
+(B) It concedes that persistence sometimes fails, thereby preparing the reader to accept the narrower cousin claim developed later in paragraph three of the essay.
+(C) It shifts the definition of grit toward stubbornness, illustrating how the word flexes with every outcome and undercuts consistent measurement.
+(D) It supplies a decisive counter-case whose bankrupt founder single-handedly disproves the claim that effort outweighs endowment in every domain.
+
+Q3. In the third paragraph, what work does the surviving 'separate work' on habits and delayed gratification perform?
+(A) It demonstrates that the elders' cherry-picked heroes were sound examples after all, once proper research is consulted and the totem is rehabilitated.
+(B) It proves that delayed gratification predicts success strongly enough to justify the promotion rites and poster culture built upon the belief.
+(C) It rescues a smaller, duller claim about practice at the margin without vindicating the grand promise on the poster.
+(D) It restores the grit narrative to its full strength by replacing the failed studies with sturdier, better-designed empirical support for the original claim.
+
+Q4. Across paragraphs two and three, how do the failed replications and the surviving studies function together?
+(A) The failures discredit the original defence, while the survivors license only a shrunken version of the belief.
+(B) The failed studies matter little, since the vivid strivers cited by the elders already carry the full argumentative weight of the doctrine.
+(C) They reveal that the elders simply cited the wrong studies, which the newer research now corrects thoroughly in the doctrine's favour.
+(D) Together they show the belief was always empirically groundless, so no version of it, however modest, can be salvaged at all.
+
+Q5. The closing puzzle — whether a true belief still owes a debt to its bad reasoning — depends on which unstated assumption?
+(A) Institutions that print posters and run promotion rites will always eventually drift past their evidence into overreach and empty slogans.
+(B) Because independent evidence survives, the original popular grit narrative has now been vindicated in essentially its full ambitious form and original promises.
+(C) How a belief is acquired can affect how responsibly it is held, even when the belief itself happens to be true.
+(D) A conclusion's truth is entirely independent of the arguments once offered for it, so its history of acquisition is simply irrelevant.
+
+Q6. Which best describes the author's intellectual posture by the passage's end?
+(A) Treating the two instincts as equally mistaken, the author rejects both and proposes a third rule for weighing a belief's history against its present truth.
+(B) Unwilling to declare the belief true or false, the author dwells on a doubt about confidence that neither side resolves.
+(C) Having dismantled every argument, the author quietly concludes the belief is false and warns the tribe against continuing to teach it as settled doctrine.
+(D) Persuaded that the surviving research vindicates the doctrine, the author defends the tribe's confidence as fully warranted by the available evidence.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — Integrates the whole arc: arguments fail, a modest version survives, yet the residue of unearned confidence remains open — matching the left-open tension.
+  (A) stance_misread — The author names two instincts and refuses to settle which is right, so no such absolution is concluded.
+  (C) scope_inflation — Falls into TR1: the plain early statement is not an endorsement; paragraph 2 dismantles the arguments and paragraph 3 shrinks the claim.
+  (D) premature_closure — Paragraph 3 explicitly says a modest version survives; the passage refuses to declare the belief false.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The rhetorical question names survivorship bias — a defect in the argument-form (cherry-picked heroes), not a refutation of the claim itself.
+  (B) stage_misattribution — The narrower claim rests on independent studies in paragraph 3, not on this rhetorical question about selection.
+  (C) adjacent_answer — The flexing-definition point is a separate objection; this question concerns which cases get counted.
+  (D) example_promotion — Falls into TR2: the uncounted failures illustrate a flaw in the defence, not a counter-anecdote that refutes the general claim.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — The passage states this evidence supports something modest and explicitly denies it rescues the poster or the grand claim.
+  (A) causal_inversion — The independent work is gathered by people 'uninterested in the totem'; it does not vindicate the anecdotes.
+  (B) half_truth — The passage grants only 'modest predictive weight,' far short of justifying institutional rites.
+  (D) scope_inflation — The text says 'None of this rescues the poster'; the grand claim is not restored, only a quieter cousin survives.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Spans both paragraphs: replication failure undermines the elders' evidence, and separate research supports a narrowed claim, not the grand one.
+  (B) example_promotion — Paragraph 2 treats those strivers as a selection flaw, not as legitimate weight-bearing evidence.
+  (C) causal_inversion — The surviving work does not correct the doctrine in its favour; it supports a smaller claim wearing the same name.
+  (D) premature_closure — Paragraph 3 salvages a modest version; the passage does not deny all empirical footing.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — The 'debt is real' instinct assumes acquisition-quality bears on holding-quality independent of truth-value — the premise that makes the puzzle live.
+  (A) moderate_extremism — The passage raises drift as a suspicion tied to careless holding, not as a guaranteed institutional law.
+  (B) scope_inflation — Falls into TR3: paragraph 3 replaces the grand claim with a narrow cousin; nothing is vindicated in full.
+  (D) false_symmetry — That is the rival instinct the author declines to endorse, not the assumption the puzzle requires.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — Matches the widening aperture: the author states both instincts, refuses to settle, and ends on an unresolved residue of unearned confidence.
+  (A) false_symmetry — The author says he cannot settle which instinct is right, not that both are wrong or that a new rule is offered.
+  (C) premature_closure — The author explicitly keeps a modest version alive and never declares falsity or issues such a warning.
+  (D) stance_misread — The closing 'unearned confidence' directly contradicts any defence of warranted confidence.
+
+[Inspired by: "Who do you think you are? There are two answers", https://psyche.co/ideas/who-do-you-think-you-are-there-are-two-answers]

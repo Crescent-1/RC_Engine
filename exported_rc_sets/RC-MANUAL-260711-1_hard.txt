@@ -1,0 +1,80 @@
+[PASSAGE]
+A gift must not be a payment, and everyone knows what this requires. The price is peeled off before wrapping. The recipient says it is too much, the giver that it is nothing. A decent interval must pass before anything comes back — too quickly and you insult someone, too slowly and you forget them. Return something of wildly different value and you have said something you did not mean. The anthropologists who counted found what anyone could predict: debts, terms, a rough equivalence maintained over years by people who would be offended to hear it named.
+
+The conclusion nearly draws itself. This is barter that has learned manners. The disavowal — the sticker peeled off, the protest of unworthiness — is the lie that keeps the machinery quiet, caught by the anthropologist in the act.
+
+But consider what sort of lie this would have to be. The recipient knows the sticker was there. The giver knows he knows. Children are taught the interval, taught to protest, corrected when wrong. Nothing here is hidden; every party to it can describe the concealment on request. In a bazaar the opening price is not the price, and both know it, neither deceived; the figure is not a falsehood but a form's first move, and a man who took it literally would not be more honest, only incompetent. The gift's disavowal has that shape. It is not a lie that fails to fool anybody. It is a rule.
+
+Which would settle the matter, except that the rule has a condition it cannot inspect. What it prescribes is that one not reckon; what it can require is only that one not appear to. A person may peel the sticker, protest, wait the correct nine weeks, compute all the way through — and have followed every rule. The gift was supposed to differ from the payment precisely at the reckoning, and the reckoning is the one place the rule cannot go. Nor can anyone else. The observer sees conduct, and conduct is what a perfect performance also produces. The giver's testimony is worth no more, since what she finds when she looks inward was put there by the training: introspection here is not a window onto the rule's success but the rule again, speaking in the first person.
+
+So the question stays open, for a reason worth stating plainly. This is not a shortage of evidence, to be repaired by better fieldwork. There are two vantages from which a gift could be seen, and each is disqualified for this question — the observer by what conduct cannot show him, the participant by having been taught what to feel. My aunt works the sticker off with her thumbnail before wrapping, and if you ask her why she says only that one does not mention it; she could not tell you whether she means she has forgotten what it cost or that the cost is not a thing one says. There is nowhere further to look.
+[QUESTIONS]
+
+Q1. Which of the following best states the passage's central claim?
+(A) The gift is exchange that lies about itself, and the disavowal is the deception that keeps the transaction running smoothly for both parties.
+(B) The proprieties of gift-giving are best understood as a set of learned social conventions, taught to children and maintained by mutual embarrassment among adults.
+(C) The disavowal is a public rule, not a concealment; whether a gift is genuine or a perfect performance cannot be settled from either vantage.
+(D) Because a gift and a payment turn out to be indistinguishable in practice, the distinction between them is one the anthropologist may safely discard.
+
+Q2. The author's relation to the view stated in the second paragraph is best described as:
+(A) accepting its evidence about equivalence and debt while rejecting its characterization of the disavowal as deception.
+(B) endorsing it outright, having found the anthropologists' count decisive against the participants' own account of what they are doing.
+(C) dismissing it as resting on fieldwork too thin to support the generalization it draws about reciprocity and its intervals.
+(D) treating it as compatible with his own conclusion, since both hold the giver's protest fails to describe what she is doing.
+
+Q3. What is the primary function of the bazaar comparison in the third paragraph?
+(A) It concedes that gift-giving, much like ordinary haggling, is at bottom a commercial transaction merely dressed up in ceremony.
+(B) It supplies the contrast that distinguishes the two vantages, the participant's and the observer's, drawn in the final paragraph.
+(C) It shows that skilled participants in any exchange learn to conceal their true valuations from one another as routine.
+(D) It offers a public non-truth that deceives no one, making the disavowal a form's rule, not a lie.
+
+Q4. In context, "introspection here is not a window onto the rule's success but the rule again, speaking in the first person" most nearly means:
+(A) The giver's report of her motives cannot certify her non-reckoning, since that report is itself a product of the training.
+(B) Givers are, as a rule, insincere about their motives, and their self-reports should be treated as strategic rather than truthful.
+(C) Sustained self-examination would eventually let a giver determine whether she had reckoned, though few take the trouble.
+(D) The rule of the gift is one that its participants can state but no observer standing outside the practice can.
+
+Q5. A man hands over a present and says, evenly and without embarrassment, that he is giving it because she gave him one of comparable value last month. On the author's account, this is best understood as:
+(A) an exposure of the lie the practice depends on, since he has said aloud what the peeled sticker exists to keep unsaid.
+(B) a violation of the interval rule, which requires a decent delay rather than an explicit accounting of what is owed.
+(C) a breach of a constitutive rule rather than a revelation, since the reckoning was never hidden — only unsayable.
+(D) proof that his gift was in fact a payment, the admission having settled a question the author leaves open for other givers.
+
+Q6. Which finding, if established, would most weaken the author's central claim?
+(A) In many societies the interval before reciprocation is far less strictly fixed than the passage suggests.
+(B) A measure independent of both conduct and self-report reliably sorts givers who reckoned from those who did not.
+(C) Most givers, when questioned closely, will readily concede that they had a rough sense of what the item cost.
+(D) Children who are taught the conventions early continue to observe them long after anyone is watching, suggesting the training runs deep.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+Q1 — Correct answer: (C)
+(A) terminological_twin — twins "public rule" with "lie"; para 3 dismantles exactly this ("a lie that fails to fool anybody… is a rule").
+(B) scope_inflation — true but toothless; it flattens the essay into a description of manners, dropping both the rule/lie argument (para 3) and the undecidability (paras 4–5).
+(C) CORRECT — the rule finding (para 3) plus the argued suspension (paras 4–5).
+(D) adjacent_answer — the author holds the distinction is real but unverifiable; "indistinguishable, so discard it" converts an epistemic limit into an ontological verdict he never reaches (para 4: "the gift was supposed to differ… at the reckoning").
+Q2 — Correct answer: (A)
+(A) CORRECT — para 1 grants debts, terms, equivalence; para 3 rejects the "lie" reading of the disavowal.
+(B) half_truth — captures the concession of para 1 and misses the "But" that governs para 3.
+(C) straw_version — the author never impugns the fieldwork; he accepts what it counted and disputes what it means.
+(D) false_symmetry — makes the cynic and the author allies by blurring "the protest is a lie" with "the protest cannot certify anything"; the second is an epistemic claim about verification, not an accusation of falsehood.
+Q3 — Correct answer: (D)
+(A) scope_inflation — takes the analogy for a concession to the very reading para 3 is written to defeat.
+(B) adjacent_answer — the participant/observer split does real work, but in para 5; the bazaar is doing the lie-versus-rule job in para 3.
+(C) terminological_twin — reads the opening price as concealment of a real valuation; the passage's point is that nobody is deceived, so concealment is the wrong category.
+(D) CORRECT — a publicly known non-truth that deceives no one; the man who takes it literally is "not more honest, only incompetent."
+Q4 — Correct answer: (A)
+(A) CORRECT — the training authors the introspective report, so the report cannot verify what the rule cannot reach (para 4).
+(B) terminological_twin — swaps "unreliable as evidence" for "insincere"; insincerity is a charge the essay explicitly declines.
+(C) nec_suff_swap — treats better introspection as sufficient to settle the question; para 5 says the vantage is disqualified in kind, not merely underused.
+(D) level_confusion — relocates the difficulty from the giver's access to her own reckoning onto a stateable-versus-unstateable rule; the rule is stateable — para 3 insists everyone can describe it.
+Q5 — Correct answer: (C)
+(A) terminological_twin — "exposure of the lie" imports the para-2 vocabulary the author rejects; you cannot expose what "every party to it can describe on request."
+(B) half_truth — the interval is real (para 1) but is not what he violated; he violated the unsayability, which is the constitutive part.
+(C) CORRECT — a rule broken, not a secret revealed (paras 3–4).
+(D) nec_suff_swap — treats the admission as sufficient to settle the gift/payment question; para 4 makes the reckoning inaccessible in principle, and saying it aloud shows only that he says it.
+Q6 — Correct answer: (B)
+(A) adjacent_answer — bears on the ethnographic detail of para 1, not on the suspension argument that the claim rests on.
+(B) CORRECT — para 5 grounds the suspension in there being exactly two vantages, both disqualified; a third, independent measure removes the ground.
+(C) half_truth — the author already assumes reckoning is widespread and unhidden (para 4); this confirms rather than threatens him.
+(D) level_confusion — evidence about how deeply the training takes, which is a claim about conduct; the open question is precisely the one conduct cannot answer.
+[BLUEPRINT NOTE] Structure: a practice whose central prohibition turns out to be a publicly known rule rather than a concealment — and whose satisfaction is then inaccessible to every available vantage | Posture: refusal_suspended (suspension argued from the disqualification of both vantages, not performed) | Thesis visible: para 4 | Traps: terminological_twin (para 2, "rule" read as "lie"), nec_suff_swap (para 4, rule-compliance read as sufficient for genuineness)

@@ -1,4 +1,4 @@
-RC ID: RC-ELITE-260707-0015 | Tier: elite | Score: 8.6 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.784 | Generated: 2026-07-07T04:06:25.117186+00:00
+RC ID: RC-ELITE-260707-0015 | Tier: elite | Score: 8.6 | Status: approved | Compliance F1: 1.0 | Novelty: 0.784 | Generated: 2026-07-07T04:06:25.117186+00:00
 ======================================================================
 
 [PASSAGE]
@@ -15,7 +15,7 @@ So I grant it: translation is authorship, and the porter was always a fiction. B
 
 Q1. Which of the following best captures the central thesis of the passage?
 (A) Translation is fundamentally a craft of skilled compromise, in which the technician judges toward a fixed target and gets as close as the two languages will permit.
-(B) Translation is not the disciplined narrowing of loss toward a fixed original but a form of authorship, and acknowledging this forces a reckoning with how translators are named and credited.
+(B) Translation is not disciplined narrowing of loss toward a fixed original but a form of authorship, forcing a reckoning with how translators are named and credited
 (C) The complaint that meaning is lost in translation is a lazy alibi, since a competent translator can always deliver the original's meaning intact across languages.
 (D) Because certain translations outgrew their originals in influence, translation should be judged mainly by its independent literary success rather than its accuracy.
 
@@ -28,7 +28,7 @@ Q2. The move from the King James Psalms and Fitzgerald's Rubáiyát to the claim
 Q3. What is the primary structural function of the final paragraph's turn to 'the name on the spine'?
 (A) It introduces the reader's psychology as a fresh counterexample that reopens the debate between fidelity and authorship.
 (B) It qualifies the authorship claim by conceding that readers of Tolstoy in English do, after all, encounter Tolstoy unmediated.
-(C) It converts a point the author had filed as trivial into the essay's real payload: the concrete, costly consequence the authorship thesis actually demands.
+(C) It converts a point the author filed as trivial into the essay's real payload—the concrete cost the authorship thesis demands
 (D) It restates the authorship thesis more forcefully, driving home the earlier claim that the translator is not narrowing loss but inventing.
 
 Q4. The claim that the translator's name 'must carry an author's freight' rests on which unstated assumption spanning the argument?
@@ -46,7 +46,7 @@ Q5. In context, the phrase 'the second author whose invisibility was the whole c
 Q6. Which best describes the author's intellectual posture across the passage?
 (A) He champions translation as authorship from the outset, using the porter analogy only to ridicule those who deny it.
 (B) He maintains throughout that untranslatability is an alibi for laziness, defending mechanical fidelity against sentimental complaints about loss.
-(C) He begins skeptical of a cliché, is argued by evidence into a stronger position than he intended, and follows that position to its uncomfortable cost.
+(C) He begins skeptical of a cliché, argued into a stronger position than intended, following it to its uncomfortable cost
 (D) He remains an undecided arbiter, weighing the craft view against the authorship view without committing to either as more correct.
 
 [ANSWER KEY & ELIMINATION LOGIC]

@@ -171,3 +171,8 @@ class RCResult:
     cost_usd: float = 0.0
     cost_lines: list[CostLine] = field(default_factory=list)
     notes: list[str] = field(default_factory=list)
+    # On rejected_novelty from a movement collision, the batch recompose loop
+    # accumulates these so the next generate_one cannot re-sample the same
+    # family skeleton (seed rotation alone does not change movement).
+    ban_families: list[str] = field(default_factory=list)
+    ban_movements: list[str] = field(default_factory=list)

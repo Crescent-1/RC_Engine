@@ -1,4 +1,4 @@
-RC ID: RC-ELITE-260706-0010 | Tier: elite | Score: 8.6 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.749 | Generated: 2026-07-06T14:17:18.093629+00:00
+RC ID: RC-ELITE-260706-0010 | Tier: elite | Score: 8.6 | Status: approved | Compliance F1: 1.0 | Novelty: 0.749 | Generated: 2026-07-06T14:17:18.093629+00:00
 ======================================================================
 
 [PASSAGE]
@@ -16,18 +16,18 @@ Push the loop one turn further and the ground gives way entirely. A token that r
 Q1. Which of the following best captures the central idea of the passage?
 (A) Because accounting marks demonstrably predate legal texts, the true sequence is reversed: marking came first, and rules arrived to inhabit a technology built for debt.
 (B) Writing was invented to hold law steady across seasons and successors, once obligation outgrew what any elder's memory or recited oath could carry.
-(C) No first term can be isolated: any mark that binds already presupposes a rule, and any rule presupposes a prior sign, so the origin dissolves into a loop with no entrance that is also a beginning.
+(C) No first term can be isolated: a binding mark presupposes a rule, a rule a prior sign, dissolving the origin into an entranceless loop
 (D) Marking and rule sustain each other through mutual causation, so the debate over sequence is best settled by treating them as simultaneous twin inventions.
 
 Q2. Which claim does the author advance in his own voice, rather than report as a position to be complicated?
 (A) Notched bones read as reckonings are the securest proof that accounting anywhere long precedes law.
 (B) The recited oath and the elder's memory were adequate custodians of rule until settlement made surfaces necessary.
-(C) The neat one-directional story of writing arising to serve law is contradicted by the clay, which shows counting predating anything a jurist would recognize.
+(C) The neat story of writing arising to serve law is contradicted by clay showing counting predates anything a jurist would recognize
 (D) The evidence establishes the reversed sequence as the passage's real thesis: marking came first and rules later arrived to inhabit it.
 
 Q3. Regarding the relation between marking and rule in paragraph 3, which statement most accurately reflects the author's handling of the evidence?
 (A) Marking and rule are symmetrical equal partners, each backed by evidence of the same kind and weight, so neither can claim priority.
-(B) Marking and rule press on each other, but the passage documents the debt-record-to-rule direction far more concretely than the reverse, leaving the interdependence asserted rather than evenly evidenced.
+(B) Marking and rule press on each other, but the passage documents the debt-to-rule direction far more concretely, leaving the interdependence merely asserted
 (C) Because the contest over a loan pressed the scratch toward precision, rule is shown to precede marking after all.
 (D) The oracle-bone scholars' observation proves that transactions always caused disputes, which always sharpened notation.
 
@@ -44,7 +44,7 @@ Q5. What is the primary function of the sentence beginning 'Push the loop one tu
 (D) It concedes that the reversal of paragraph 2 was mistaken and restores the original account of law preceding writing.
 
 Q6. Which best describes the author's intellectual posture across the passage?
-(A) He dismantles the assumption that an origin can be ordered at all, shifting the burden onto anyone who would defend a first term rather than nominating one himself.
+(A) He dismantles the idea that any origin can be ordered, shifting the burden onto whoever defends a first term
 (B) He weighs both sequences and finally endorses the reversed one, since the accounting evidence is older than any legal text.
 (C) He treats the two views as balanced rivals and suspends judgment, holding that the evidence is simply insufficient to decide.
 (D) He argues that marking and rule co-emerged simultaneously, resolving the priority dispute through their evident interdependence.

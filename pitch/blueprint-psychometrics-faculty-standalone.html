@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f3eb" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#14110e" media="(prefers-color-scheme: dark)">
+  <meta name="description" content="Blueprint Psychometrics — CAT-level VARC mock content that serious students cannot pattern-match. Nine-channel novelty audit, faculty review, teaching notes. Free structural audit of your series.">
+  <meta name="author" content="Blueprint Psychometrics">
+  <meta property="og:title" content="Blueprint Psychometrics — Mock content toppers cannot pattern-match">
+  <meta property="og:description" content="Structurally audited RC inventory for institutes. Honest mock data. Trap-map teaching notes. Blind audition available.">
+  <meta property="og:type" content="website">
+  <title>Blueprint Psychometrics — For VARC teams</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%2314110e'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Georgia,serif' font-size='12' fill='%23c45c26'%3EBP%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Literata:ital,opsz,wght@0,7..72,400;0,7..72,500;0,7..72,600;1,7..72,400;1,7..72,500&family=Source+Sans+3:wght@400;500;600;700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+/* =============================================================================
+   Blueprint Psychometrics — faculty pitch
+   Editorial / institute feel · warm paper · Literata + Source Sans
+   ============================================================================= */
+
+:root {
+  --bg: #f7f3eb;
+  --bg-soft: #efe8db;
+  --bg-card: #fffcf6;
+  --ink: #1a1612;
+  --ink-soft: #3d342c;
+  --muted: #6b5f52;
+  --line: rgba(26, 22, 18, 0.1);
+  --line-strong: rgba(26, 22, 18, 0.16);
+  --accent: #c45c26;
+  --accent-soft: rgba(196, 92, 38, 0.1);
+  --accent-2: #2f6b55;
+  --warn: #9c3b2a;
+  --warn-soft: rgba(156, 59, 42, 0.1);
+  --header: rgba(247, 243, 235, 0.9);
+  --shadow: 0 18px 50px rgba(40, 28, 12, 0.08);
+  --fn-frame: #c45c26;
+  --fn-concede: #8b7355;
+  --fn-rival: #2f6b55;
+  --fn-hinge: #9c3b2a;
+  --fn-close: #4a5568;
+
+  --serif: "Literata", Georgia, "Times New Roman", serif;
+  --sans: "Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: "Source Code Pro", ui-monospace, Consolas, monospace;
+
+  --text-xs: 0.8rem;
+  --text-sm: 0.95rem;
+  --text-base: 1.05rem;
+  --text-md: clamp(1.1rem, 1rem + 0.4vw, 1.25rem);
+  --text-lg: clamp(1.45rem, 1.2rem + 1vw, 1.85rem);
+  --text-xl: clamp(1.9rem, 1.5rem + 2vw, 2.75rem);
+  --text-2xl: clamp(2.4rem, 1.8rem + 3vw, 3.6rem);
+
+  --wrap: min(1040px, calc(100% - 2.75rem));
+  --wrap-narrow: min(680px, calc(100% - 2.75rem));
+  --header-h: 4rem;
+  --radius: 10px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html[data-theme="dark"] {
+  --bg: #14110e;
+  --bg-soft: #1c1814;
+  --bg-card: #221e19;
+  --ink: #f3ebe0;
+  --ink-soft: #d4c8b8;
+  --muted: #a09080;
+  --line: rgba(243, 235, 224, 0.1);
+  --line-strong: rgba(243, 235, 224, 0.16);
+  --accent: #e07a45;
+  --accent-soft: rgba(224, 122, 69, 0.12);
+  --accent-2: #5cb89a;
+  --warn: #e08a78;
+  --warn-soft: rgba(224, 138, 120, 0.12);
+  --header: rgba(20, 17, 14, 0.9);
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
+}
+html[data-theme="dark"] { color-scheme: dark; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--sans);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection { background: var(--accent-soft); color: var(--ink); }
+a { color: var(--accent); text-underline-offset: 0.15em; }
+a:hover { text-decoration: none; }
+button { font: inherit; color: inherit; }
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.skip-link {
+  position: absolute; top: -100px; left: 1rem; z-index: 1000;
+  padding: 0.6rem 1rem; background: var(--accent); color: #fff;
+  font-weight: 600; border-radius: 6px; text-decoration: none;
+}
+.skip-link:focus { top: 1rem; }
+
+.wrap { width: var(--wrap); margin-inline: auto; }
+.wrap--narrow { width: var(--wrap-narrow); }
+
+/* Progress */
+.progress {
+  position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 100;
+}
+.progress__bar {
+  height: 100%; width: 0%;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+/* Header */
+.site-header {
+  position: sticky; top: 0; z-index: 50; height: var(--header-h);
+  background: var(--header);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header__inner {
+  height: 100%;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.brand {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  text-decoration: none; color: var(--ink);
+}
+.brand__mark {
+  font-family: var(--mono); font-size: 0.65rem; font-weight: 500;
+  letter-spacing: 0.08em; color: var(--accent);
+  border: 1px solid var(--accent); padding: 0.25rem 0.4rem; border-radius: 4px;
+}
+.brand__name {
+  font-family: var(--serif); font-size: 1rem; font-weight: 500;
+}
+.nav { display: flex; gap: 1.25rem; }
+.nav a {
+  color: var(--muted); text-decoration: none; font-size: var(--text-sm); font-weight: 500;
+}
+.nav a:hover, .nav a[aria-current="true"] { color: var(--ink); }
+.site-header__actions { display: flex; align-items: center; gap: 0.5rem; }
+
+.theme-btn {
+  width: 36px; height: 36px; display: grid; place-items: center;
+  border: 1px solid var(--line); border-radius: 8px; background: transparent;
+  color: var(--muted); cursor: pointer;
+}
+.theme-btn:hover { color: var(--ink); border-color: var(--line-strong); }
+html[data-theme="light"] .icon-moon { display: none; }
+html[data-theme="dark"] .icon-sun { display: none; }
+
+/* Buttons */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 0.7rem 1.2rem; border-radius: 8px;
+  border: 1px solid var(--line-strong); background: var(--bg-card);
+  color: var(--ink); font-size: var(--text-sm); font-weight: 600;
+  text-decoration: none; cursor: pointer;
+  transition: border-color 0.2s, transform 0.2s var(--ease), box-shadow 0.2s;
+}
+.btn:hover { border-color: var(--accent); text-decoration: none; }
+.btn--sm { padding: 0.45rem 0.85rem; font-size: 0.82rem; }
+.btn--lg { padding: 0.9rem 1.4rem; font-size: 1rem; }
+.btn--block { width: 100%; margin-top: auto; }
+.btn--primary {
+  background: var(--accent); border-color: var(--accent); color: #fff;
+}
+.btn--primary:hover { filter: brightness(1.05); box-shadow: 0 8px 24px var(--accent-soft); }
+.btn--ghost { background: transparent; }
+
+/* Reveal */
+[data-reveal] {
+  opacity: 0; transform: translateY(20px);
+  transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+}
+[data-reveal].is-in { opacity: 1; transform: none; }
+
+/* Sections */
+.section {
+  padding: 5.5rem 0;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: calc(var(--header-h) + 12px);
+}
+.section--soft { background: var(--bg-soft); }
+.sec-num {
+  font-family: var(--mono); font-size: 0.75rem; letter-spacing: 0.12em;
+  color: var(--accent); margin: 0 0 0.75rem;
+}
+.sec-title {
+  font-family: var(--serif); font-weight: 500;
+  font-size: var(--text-xl); line-height: 1.2; letter-spacing: -0.02em;
+  margin: 0 0 1rem; text-wrap: balance;
+}
+.sec-lede {
+  font-size: var(--text-md); color: var(--muted); max-width: 38rem;
+  margin: 0; line-height: 1.55;
+}
+.sec-head { margin-bottom: 2.5rem; max-width: 40rem; }
+
+/* Hero */
+.hero {
+  padding: 5rem 0 4rem;
+  min-height: calc(90vh - var(--header-h));
+  display: flex; align-items: center;
+}
+.hero__inner { max-width: 46rem; }
+.kicker {
+  font-family: var(--mono); font-size: 0.78rem; letter-spacing: 0.06em;
+  color: var(--muted); margin: 0 0 1.25rem; text-transform: uppercase;
+}
+.hero__title {
+  font-family: var(--serif); font-weight: 500;
+  font-size: var(--text-2xl); line-height: 1.08; letter-spacing: -0.03em;
+  margin: 0 0 1.25rem;
+}
+.hero__title em {
+  font-style: italic; color: var(--accent);
+}
+.hero__lede {
+  font-size: var(--text-md); color: var(--muted); margin: 0 0 1.75rem; line-height: 1.55;
+}
+.hero__lede strong { color: var(--ink-soft); font-weight: 600; }
+.hero__cta {
+  display: flex; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1.75rem;
+}
+.hero__points {
+  list-style: none; margin: 0; padding: 0;
+  display: flex; flex-direction: column; gap: 0.4rem;
+  font-size: var(--text-sm); color: var(--muted);
+}
+.hero__points li::before {
+  content: "→ "; color: var(--accent); font-weight: 600;
+}
+.hero__points em { font-style: normal; color: var(--ink-soft); }
+
+/* Skeleton demo */
+.skeleton {
+  margin: 0 0 2rem; padding: 1.5rem;
+  background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+.skeleton__cards {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+}
+.sk__topic {
+  font-size: 0.82rem; color: var(--muted); margin: 0 0 0.75rem; line-height: 1.35;
+}
+.sk__topic strong { display: block; color: var(--ink); font-size: 0.95rem; margin-top: 0.15rem; }
+.sk__bars {
+  display: flex; flex-direction: column; gap: 0.35rem;
+}
+.sk__bar {
+  display: block; height: 10px; border-radius: 3px; width: 100%;
+}
+.sk__bar--short { width: 42%; }
+.sk__bar[data-fn="frame"] { background: var(--fn-frame); opacity: 0.75; }
+.sk__bar[data-fn="concede"] { background: var(--fn-concede); opacity: 0.7; }
+.sk__bar[data-fn="rival"] { background: var(--fn-rival); opacity: 0.7; }
+.sk__bar[data-fn="hinge"] { background: var(--fn-hinge); opacity: 0.85; }
+.sk__bar[data-fn="close"] { background: var(--fn-close); opacity: 0.55; }
+.skeleton__cap {
+  display: flex; flex-wrap: wrap; gap: 0.65rem 1.1rem; align-items: center;
+  margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--line);
+  font-size: 0.8rem; color: var(--muted);
+}
+.skeleton__cap strong {
+  flex: 1 1 100%; color: var(--ink); font-family: var(--serif);
+  font-size: 1.05rem; font-weight: 500; margin-top: 0.35rem;
+}
+.dot {
+  display: inline-block; width: 8px; height: 8px; border-radius: 50%;
+  margin-right: 0.3rem; vertical-align: middle;
+}
+.dot--frame { background: var(--fn-frame); }
+.dot--concede { background: var(--fn-concede); }
+.dot--rival { background: var(--fn-rival); }
+.dot--hinge { background: var(--fn-hinge); }
+.dot--close { background: var(--fn-close); }
+
+/* Notes */
+.note {
+  padding: 1.25rem 1.4rem; border-radius: var(--radius);
+  border: 1px solid var(--line); background: var(--bg-card);
+  font-size: var(--text-sm); color: var(--ink-soft); line-height: 1.55; max-width: 48rem;
+}
+.note strong { color: var(--ink); }
+.note em { font-style: italic; color: var(--ink); }
+.note--warn {
+  border-left: 3px solid var(--warn);
+  background: linear-gradient(90deg, var(--warn-soft), var(--bg-card));
+}
+.note--accent {
+  border-left: 3px solid var(--accent);
+  background: linear-gradient(90deg, var(--accent-soft), var(--bg-card));
+  max-width: none;
+}
+
+/* Deliverables */
+.deliver-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+}
+.d-card {
+  background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.35rem 1.4rem;
+}
+.d-card h3 {
+  font-family: var(--serif); font-weight: 500; font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+.d-card p { margin: 0; font-size: var(--text-sm); color: var(--muted); }
+
+/* Plain steps */
+.steps-plain {
+  list-style: none; margin: 0 0 1.5rem; padding: 0;
+  border: 1px solid var(--line); border-radius: var(--radius);
+  overflow: hidden; background: var(--bg-card);
+}
+.steps-plain > li {
+  display: grid; grid-template-columns: 3.5rem 1fr;
+  border-bottom: 1px solid var(--line);
+}
+.steps-plain > li:last-child { border-bottom: none; }
+.steps-plain__n {
+  font-family: var(--mono); color: var(--accent); font-size: 0.95rem;
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 1.2rem 0; border-right: 1px solid var(--line);
+}
+.steps-plain h3 {
+  margin: 0; padding: 1.15rem 1.2rem 0.25rem; font-size: 1.05rem; font-weight: 600;
+}
+.steps-plain p {
+  margin: 0; padding: 0 1.2rem 1.15rem; font-size: var(--text-sm); color: var(--muted);
+}
+.fine-note {
+  font-size: var(--text-xs); color: var(--muted); font-style: italic; margin: 0;
+}
+
+/* Channels */
+.channels {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
+  margin-bottom: 1.75rem;
+}
+.ch {
+  background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.2rem 1.25rem;
+}
+.ch h3 {
+  font-family: var(--serif); font-weight: 500; font-size: 1.05rem;
+  margin: 0 0 0.5rem;
+}
+.ch h3 span {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--accent); margin-right: 0.35rem;
+}
+.ch__q {
+  font-family: var(--serif); font-style: italic; font-size: 0.95rem;
+  color: var(--warn); margin: 0 0 0.55rem; line-height: 1.35;
+}
+.ch p:last-child {
+  margin: 0; font-size: 0.88rem; color: var(--muted); line-height: 1.5;
+}
+
+/* Faculty */
+.faculty-grid {
+  display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 1.5rem; align-items: start;
+}
+.label {
+  font-family: var(--mono); font-size: 0.72rem; letter-spacing: 0.1em;
+  text-transform: uppercase; color: var(--accent); margin: 0 0 0.85rem;
+}
+.trap-block {
+  background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.4rem;
+}
+.trap-map {
+  padding: 1rem; background: var(--bg-soft); border-radius: 8px; margin-bottom: 1.1rem;
+  border: 1px solid var(--line);
+}
+.trap-map__tag {
+  font-family: var(--mono); font-size: 0.72rem; color: var(--accent); margin: 0 0 0.4rem;
+}
+.trap-map p:last-child { margin: 0; font-size: var(--text-sm); color: var(--ink-soft); }
+
+.q-demo__stem {
+  font-weight: 600; margin: 0 0 0.75rem; font-size: var(--text-sm);
+}
+.q-opt {
+  display: flex; align-items: flex-start; gap: 0.65rem; width: 100%;
+  text-align: left; padding: 0.7rem 0.8rem; margin-bottom: 0.4rem;
+  border: 1px solid var(--line); border-radius: 8px; background: var(--bg);
+  cursor: pointer; font-size: 0.9rem; color: var(--ink-soft); transition: border-color 0.2s, background 0.2s;
+}
+.q-opt:hover { border-color: var(--line-strong); }
+.q-opt.is-on { border-color: var(--accent); background: var(--accent-soft); }
+.q-opt.is-on.q-opt--key { border-color: var(--accent-2); background: rgba(47, 107, 85, 0.1); }
+.q-opt__l {
+  font-family: var(--mono); font-size: 0.8rem; color: var(--accent); font-weight: 500; flex-shrink: 0;
+}
+.q-demo__hint {
+  margin: 0.75rem 0 0; font-size: 0.85rem; color: var(--muted); min-height: 2.6em;
+}
+
+.hygiene {
+  background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.4rem;
+}
+.hygiene__list {
+  list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem;
+}
+.hygiene__list li strong {
+  display: block; font-family: var(--serif); font-weight: 500; font-size: 1.02rem;
+  margin-bottom: 0.25rem;
+}
+.hygiene__list li span {
+  font-size: var(--text-sm); color: var(--muted);
+}
+
+/* Tiers */
+.tiers {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; align-items: stretch;
+}
+.tier {
+  display: flex; flex-direction: column;
+  background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.5rem 1.35rem; position: relative;
+}
+.tier--flag {
+  border: 2px solid var(--accent);
+  box-shadow: var(--shadow);
+}
+.tier__badge {
+  position: absolute; top: -0.65rem; left: 1.1rem;
+  font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  background: var(--accent); color: #fff; padding: 0.2rem 0.6rem; border-radius: 999px;
+}
+.tier h3 {
+  font-family: var(--serif); font-weight: 500; font-size: 1.3rem; margin: 0 0 0.2rem;
+}
+.tier__for { font-size: 0.85rem; color: var(--muted); margin: 0 0 1rem; }
+.tier__price {
+  font-family: var(--serif); font-size: 1.85rem; font-weight: 500; margin: 0 0 1rem; line-height: 1.1;
+}
+.tier__price span {
+  display: block; font-family: var(--sans); font-size: 0.8rem; color: var(--muted); font-weight: 400; margin-top: 0.25rem;
+}
+.tier ul {
+  list-style: none; margin: 0 0 1.25rem; padding: 0; display: grid; gap: 0.5rem; flex: 1;
+}
+.tier li {
+  font-size: var(--text-sm); color: var(--muted); padding-left: 1rem; position: relative;
+}
+.tier li::before {
+  content: ""; position: absolute; left: 0; top: 0.55em;
+  width: 5px; height: 5px; border-radius: 50%; background: var(--accent);
+}
+.tier li strong { color: var(--ink); }
+.billing {
+  margin: 1.5rem 0 0; font-size: var(--text-sm); color: var(--muted); max-width: 48rem;
+}
+
+/* Audition */
+.audition-steps {
+  list-style: none; margin: 0 0 1.75rem; padding: 0;
+  border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden;
+  background: var(--bg-card);
+}
+.audition-steps > li {
+  display: grid; grid-template-columns: 3.25rem 1fr; border-bottom: 1px solid var(--line);
+}
+.audition-steps > li:last-child { border-bottom: none; }
+.audition-steps > li > span {
+  font-family: var(--mono); color: var(--accent);
+  display: flex; align-items: flex-start; justify-content: center;
+  padding: 1.15rem 0; border-right: 1px solid var(--line);
+}
+.audition-steps h3 {
+  margin: 0; padding: 1.1rem 1.15rem 0.25rem; font-size: 1.02rem; font-weight: 600;
+}
+.audition-steps p {
+  margin: 0; padding: 0 1.15rem 1.1rem; font-size: var(--text-sm); color: var(--muted);
+}
+.audition-cta {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 1rem 1.5rem;
+}
+.audition-cta p { margin: 0; font-size: var(--text-sm); color: var(--muted); }
+
+/* FAQ */
+.faq { border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary {
+  cursor: pointer; list-style: none; display: flex; justify-content: space-between; gap: 1rem;
+  padding: 1.15rem 0.15rem; font-family: var(--serif); font-size: 1.1rem; font-weight: 500;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+"; font-family: var(--mono); color: var(--accent); flex-shrink: 0;
+}
+.faq details[open] summary::after { content: "–"; }
+.faq__a {
+  padding: 0 0.15rem 1.15rem; color: var(--muted); font-size: var(--text-sm); max-width: 58ch;
+}
+.faq__a p { margin: 0 0 0.65rem; }
+.faq__a p:last-child { margin-bottom: 0; }
+
+/* Contact */
+.contact { padding-bottom: 6.5rem; }
+.contact__grid {
+  display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 2.5rem; align-items: start;
+}
+.contact__cta {
+  display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.5rem;
+}
+.contact-card {
+  background: var(--bg-card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 1.5rem; box-shadow: var(--shadow);
+}
+.contact-card p { margin: 0 0 1rem; font-size: var(--text-sm); color: var(--ink-soft); }
+.contact-card__meta { color: var(--muted) !important; }
+.contact-card__meta a { color: var(--accent); }
+.contact-card__meta span { display: block; margin-top: 0.35rem; font-size: 0.85rem; }
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--line); padding: 1.5rem 0 2rem;
+}
+.site-footer__inner {
+  display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.75rem;
+  font-family: var(--mono); font-size: 0.72rem; color: var(--muted); letter-spacing: 0.04em;
+}
+
+/* Sticky bar */
+.sticky-bar {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 60;
+  background: var(--header); backdrop-filter: blur(12px);
+  border-top: 1px solid var(--line); padding: 0.75rem 0;
+  transform: translateY(100%); transition: transform 0.35s var(--ease);
+}
+.sticky-bar.is-shown { transform: translateY(0); }
+.sticky-bar[hidden] { display: none; }
+.sticky-bar.is-shown[hidden] { display: block; }
+.sticky-bar__inner {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.sticky-bar p {
+  margin: 0; font-size: var(--text-sm); color: var(--ink-soft); font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .nav { display: none; }
+  .skeleton__cards,
+  .deliver-grid,
+  .channels,
+  .tiers { grid-template-columns: 1fr 1fr; }
+  .faculty-grid,
+  .contact__grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  :root {
+    --wrap: min(100%, calc(100% - 1.5rem));
+    --wrap-narrow: min(100%, calc(100% - 1.5rem));
+  }
+  .section { padding: 3.5rem 0; }
+  .hero { padding: 3rem 0 2.5rem; min-height: auto; }
+  .skeleton__cards,
+  .deliver-grid,
+  .channels,
+  .tiers { grid-template-columns: 1fr; }
+  .site-header__actions .btn--sm { display: none; }
+  .sticky-bar p { font-size: 0.82rem; }
+}
+
+</style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Blueprint Psychometrics",
+    "description": "Structurally audited VARC mock content for CAT-level test preparation",
+    "email": "coolcresent1@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Mumbai", "addressCountry": "IN" }
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="progress" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-label="Reading progress">
+    <div class="progress__bar"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="wrap site-header__inner">
+      <a class="brand" href="#top">
+        <span class="brand__mark">BP</span>
+        <span class="brand__name">Blueprint Psychometrics</span>
+      </a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#problem">Problem</a>
+        <a href="#deliver">What you get</a>
+        <a href="#audit">Audit</a>
+        <a href="#faculty">For faculty</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#audition">Audition</a>
+      </nav>
+      <div class="site-header__actions">
+        <button type="button" class="theme-btn" id="theme-toggle" aria-label="Toggle colour theme" title="Theme">
+          <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+          <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M21 14.5A8.5 8.5 0 0 1 9.5 3 7 7 0 1 0 21 14.5z"/></svg>
+        </button>
+        <a class="btn btn--primary btn--sm" href="mailto:coolcresent1@gmail.com?subject=Structural%20audit%20request">Free audit</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="wrap hero__inner">
+        <p class="kicker" data-reveal>For VARC teams · CAT-level mock inventory · Mumbai</p>
+        <h1 class="hero__title" data-reveal>
+          Mock content your toppers<br>
+          <em>cannot pattern-match.</em>
+        </h1>
+        <p class="hero__lede" data-reveal>
+          Serious aspirants don’t just learn concepts—they learn <strong>your series’ habits</strong>:
+          where the turn lands, how the author hedges, which option “feels” right.
+          We deliver reading-comprehension sets where argument structure stays fresh,
+          every set is checked nine ways against your history, and senior faculty sign off—
+          so your mock scores stay honest.
+        </p>
+        <div class="hero__cta" data-reveal>
+          <a class="btn btn--primary btn--lg" href="mailto:coolcresent1@gmail.com?subject=Structural%20audit%20request">
+            Request a free structural audit
+          </a>
+          <a class="btn btn--ghost btn--lg" href="#audition">Run the blind audition</a>
+        </div>
+        <ul class="hero__points" data-reveal>
+          <li>Audit of <em>your</em> current series in 48 hours</li>
+          <li>Trap-map teaching notes on every set</li>
+          <li>Structural exclusivity—not shared skeletons across clients</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="section" id="problem">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="sec-num">01</p>
+          <h2 class="sec-title">By mock three, they’re not reading.<br>They’re recognising.</h2>
+          <p class="sec-lede">
+            One writer—or one fixed way of generating text—produces one argumentative rhythm.
+            Your best repeaters absorb it long before anyone notices. Topics change. The skeleton doesn’t.
+          </p>
+        </header>
+
+        <figure class="skeleton" data-reveal aria-label="Three different topics sharing the same argument structure">
+          <div class="skeleton__cards">
+            <article class="sk">
+              <p class="sk__topic">Mock 4 · RC 2<br><strong>Coral reef restoration</strong></p>
+              <div class="sk__bars" aria-hidden="true">
+                <span class="sk__bar" data-fn="frame"></span>
+                <span class="sk__bar" data-fn="concede"></span>
+                <span class="sk__bar" data-fn="rival"></span>
+                <span class="sk__bar sk__bar--short" data-fn="hinge"></span>
+                <span class="sk__bar" data-fn="close"></span>
+              </div>
+            </article>
+            <article class="sk">
+              <p class="sk__topic">Mock 6 · RC 1<br><strong>Copyright &amp; folk music</strong></p>
+              <div class="sk__bars" aria-hidden="true">
+                <span class="sk__bar" data-fn="frame"></span>
+                <span class="sk__bar" data-fn="concede"></span>
+                <span class="sk__bar" data-fn="rival"></span>
+                <span class="sk__bar sk__bar--short" data-fn="hinge"></span>
+                <span class="sk__bar" data-fn="close"></span>
+              </div>
+            </article>
+            <article class="sk">
+              <p class="sk__topic">Mock 9 · RC 3<br><strong>Medieval guild economics</strong></p>
+              <div class="sk__bars" aria-hidden="true">
+                <span class="sk__bar" data-fn="frame"></span>
+                <span class="sk__bar" data-fn="concede"></span>
+                <span class="sk__bar" data-fn="rival"></span>
+                <span class="sk__bar sk__bar--short" data-fn="hinge"></span>
+                <span class="sk__bar" data-fn="close"></span>
+              </div>
+            </article>
+          </div>
+          <figcaption class="skeleton__cap">
+            <span><i class="dot dot--frame"></i> framing</span>
+            <span><i class="dot dot--concede"></i> concession</span>
+            <span><i class="dot dot--rival"></i> rival view</span>
+            <span><i class="dot dot--hinge"></i> the turn</span>
+            <span><i class="dot dot--close"></i> ending</span>
+            <strong>Three topics. One skeleton. That skeleton is what students learn.</strong>
+          </figcaption>
+        </figure>
+
+        <div class="note note--warn" data-reveal>
+          <strong>The damage is invisible until exam day.</strong>
+          Pattern-matched mocks quietly inflate scores. Percentile forecasts drift.
+          On the real paper the house style is gone—the inflated expectation is not.
+        </div>
+      </div>
+    </section>
+
+    <!-- DELIVERABLES -->
+    <section class="section section--soft" id="deliver">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="sec-num">02</p>
+          <h2 class="sec-title">What lands on your desk</h2>
+          <p class="sec-lede">
+            Not a black-box generator dump. Exam-ready inventory your faculty can teach from—
+            and a paper trail that your series is not developing a tell.
+          </p>
+        </header>
+        <div class="deliver-grid">
+          <article class="d-card" data-reveal>
+            <h3>RC sets on your calendar</h3>
+            <p>Weekly batches sized to practice banks or a full mock series—difficulty mixed or curved per mock as you specify.</p>
+          </article>
+          <article class="d-card" data-reveal>
+            <h3>Trap-map teaching notes</h3>
+            <p>Every wrong option names the misreading it was built to catch. Debrief material for class—not just an answer key.</p>
+          </article>
+          <article class="d-card" data-reveal>
+            <h3>Novelty on the record</h3>
+            <p>Each set is checked against what you have already received. Per-mock certificates available on flagship retainers.</p>
+          </article>
+          <article class="d-card" data-reveal>
+            <h3>Your structural territory</h3>
+            <p>No other client receives sets built on the same argumentative skeleton as yours. Enforced in production—not only promised in a deck.</p>
+          </article>
+          <article class="d-card" data-reveal>
+            <h3>Faculty final authority</h3>
+            <p>Senior VARC review on every delivery. Disputes rebuild the item under a 72-hour correction SLA on Mock Vault.</p>
+          </article>
+          <article class="d-card" data-reveal>
+            <h3>Honest mock data</h3>
+            <p>When structure cannot be gamed, mock performance tracks reading skill again—and your percentile story stays credible.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- METHOD (plain) -->
+    <section class="section" id="method">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="sec-num">03</p>
+          <h2 class="sec-title">Structure first. Prose second. Faculty last.</h2>
+          <p class="sec-lede">
+            We do not “prompt for a good RC” and hope it differs from last week.
+            The argument’s shape is fixed before sentences exist—then written to that plan, checked, and signed off.
+          </p>
+        </header>
+        <ol class="steps-plain" data-reveal>
+          <li>
+            <span class="steps-plain__n">1</span>
+            <div>
+              <h3>Lock the architecture</h3>
+              <p>Argument type, voice, pacing, when the thesis appears, and which misreadings the passage will invite—chosen so recent shapes cannot simply repeat.</p>
+            </div>
+          </li>
+          <li>
+            <span class="steps-plain__n">2</span>
+            <div>
+              <h3>Write to the plan</h3>
+              <p>The passage is composed to satisfy that contract. Questions are built from the same plan—including wrong options that harvest the designed traps.</p>
+            </div>
+          </li>
+          <li>
+            <span class="steps-plain__n">3</span>
+            <div>
+              <h3>Audit nine ways</h3>
+              <p>We ask, for each habit students learn: could someone who has seen your last hundred sets anticipate this one? If yes, it does not ship.</p>
+            </div>
+          </li>
+          <li>
+            <span class="steps-plain__n">4</span>
+            <div>
+              <h3>Blind-check the key</h3>
+              <p>An independent solve must reach the answers without seeing them. Genuine disagreements go to a human—not an automatic rewrite that papers over the issue.</p>
+            </div>
+          </li>
+          <li>
+            <span class="steps-plain__n">5</span>
+            <div>
+              <h3>Faculty sign-off</h3>
+              <p>Senior VARC faculty hold final editorial authority. Only then does the set enter your delivery batch.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="fine-note" data-reveal>A technical deep-dive of the production system is available on request—this page stays focused on what matters in the classroom and the mock calendar.</p>
+      </div>
+    </section>
+
+    <!-- NINE CHANNELS -->
+    <section class="section section--soft" id="audit">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="sec-num">04</p>
+          <h2 class="sec-title">Nine ways we stop pattern-matching</h2>
+          <p class="sec-lede">
+            Aspirants learn your content’s habits. Each channel below tracks one habit.
+            If any channel says a pattern is forming against your history, the set never ships.
+          </p>
+        </header>
+
+        <div class="channels" data-reveal>
+          <div class="ch">
+            <h3><span>01</span> Argument skeleton</h3>
+            <p class="ch__q">“These passages always argue the same way.”</p>
+            <p>Every passage is built on one of 32 distinct argumentative skeletons; no two recent sets share one, and your corpus stays balanced across them.</p>
+          </div>
+          <div class="ch">
+            <h3><span>02</span> Paragraph choreography</h3>
+            <p class="ch__q">“Para 2 raises the objection; para 4 resolves it.”</p>
+            <p>The sequence of argumentative moves is tracked like a chess line—repeated move-orders are detected and rejected.</p>
+          </div>
+          <div class="ch">
+            <h3><span>03</span> Conviction arc</h3>
+            <p class="ch__q">“The author commits late—answers live in the late paragraphs.”</p>
+            <p>How strongly the author appears committed to the thesis, paragraph by paragraph, is forced to vary. This rhythm is what students most often learn unconsciously.</p>
+          </div>
+          <div class="ch">
+            <h3><span>04</span> Pacing profile</h3>
+            <p class="ch__q">“The short paragraph is always the pivot.”</p>
+            <p>Paragraph lengths, sentence cadence, and pivot placement are fingerprinted; repeated pacing shapes are blocked.</p>
+          </div>
+          <div class="ch">
+            <h3><span>05</span> Question mix</h3>
+            <p class="ch__q">“Q1 is main idea; the last one is tone.”</p>
+            <p>Question types, order, and difficulty curves are deliberately varied—there is no fixed question formula to learn.</p>
+          </div>
+          <div class="ch">
+            <h3><span>06</span> Wrong-answer logic</h3>
+            <p class="ch__q">“Eliminate the extreme option and the too-broad option—done.”</p>
+            <p>The <em>way</em> wrong options are wrong keeps changing. Elimination heuristics that work on one set fail on the next.</p>
+          </div>
+          <div class="ch">
+            <h3><span>07</span> Voice separation</h3>
+            <p class="ch__q">“All these passages read like the same writer.”</p>
+            <p>Passages use distinct authorial voices, verified as statistically different writers using authorship-forensics methods.</p>
+          </div>
+          <div class="ch">
+            <h3><span>08</span> Answer-key hygiene</h3>
+            <p class="ch__q">“When in doubt, pick the longest option. Or C.”</p>
+            <p>Letters, option lengths, and hedging of correct answers are tested for exploitable patterns across your whole series—not only within one set.</p>
+          </div>
+          <div class="ch">
+            <h3><span>09</span> Topic distance</h3>
+            <p class="ch__q">“We’ve basically seen this passage before.”</p>
+            <p>Content-level similarity is checked against every set in your history—the oldest check, still enforced.</p>
+          </div>
+        </div>
+
+        <div class="note note--accent" data-reveal>
+          <strong>The crackability check.</strong>
+          Periodically we ask a strong analysis system: given the last ten passages in your series,
+          can you predict the structure of the next one? If prediction improves, exposed patterns
+          rotate out before students can hunt them.
+          <em>We simulate the pattern-hunting topper so yours finds nothing to hunt.</em>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOR FACULTY -->
+    <section class="section" id="faculty">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="sec-num">05</p>
+          <h2 class="sec-title">Built for the classroom, not only the score report</h2>
+          <p class="sec-lede">
+            Difficulty is designed into the architecture—wrong answers that a strong reader could genuinely choose—
+            and the key explains the trap so you can teach it.
+          </p>
+        </header>
+
+        <div class="faculty-grid">
+          <div class="trap-block" data-reveal>
+            <p class="label">Example · designed misreading</p>
+            <div class="trap-map">
+              <p class="trap-map__tag">Planted in ¶3</p>
+              <p>Paragraph three steelmans a rival view so generously that a fast reader hears endorsement where there is only a fair report of the other side.</p>
+            </div>
+            <div class="q-demo" id="q-demo">
+              <p class="q-demo__stem">The primary function of the third paragraph is to:</p>
+              <button type="button" class="q-opt" data-note="Trap: mistaking a steelmanned rival view for the author’s own position.">
+                <span class="q-opt__l">A</span>
+                <span>endorse the psychometric case as the author’s settled view</span>
+              </button>
+              <button type="button" class="q-opt q-opt--key" data-note="Correct: the paragraph presents the strongest version of a view the passage will undermine.">
+                <span class="q-opt__l">B</span>
+                <span>present the strongest version of a position the passage will go on to undermine</span>
+              </button>
+              <button type="button" class="q-opt" data-note="Trap: resolving a tension the passage deliberately leaves open.">
+                <span class="q-opt__l">C</span>
+                <span>concede that the central question cannot be settled</span>
+              </button>
+              <button type="button" class="q-opt" data-note="Trap: a true-sounding claim about the wrong thing—the answer to a question that wasn’t asked.">
+                <span class="q-opt__l">D</span>
+                <span>introduce a method the rest of the passage abandons</span>
+              </button>
+              <p class="q-demo__hint" id="q-hint">Select an option to see the teaching note.</p>
+            </div>
+          </div>
+
+          <div class="hygiene" data-reveal>
+            <p class="label">Topper shortcuts we remove by design</p>
+            <ul class="hygiene__list">
+              <li>
+                <strong>“Pick C when unsure.”</strong>
+                <span>Answer letters are planned across the set so keys cannot cluster into a learnable pattern.</span>
+              </li>
+              <li>
+                <strong>“The longest option is right.”</strong>
+                <span>Length of the correct option is controlled within the set and watched across your series.</span>
+              </li>
+              <li>
+                <strong>“The most hedged option is right.”</strong>
+                <span>Qualification style varies with voice; over-hedged options are sometimes deliberately wrong.</span>
+              </li>
+              <li>
+                <strong>“Extreme words mean wrong.”</strong>
+                <span>Traps come from the passage’s logic—a misreading a strong reader could make—not from always/never flags.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="section section--soft" id="pricing">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="sec-num">06</p>
+          <h2 class="sec-title">Engagements around your mock calendar</h2>
+          <p class="sec-lede">Every tier includes the nine-channel check on every set. You are buying inventory that keeps percentile data honest—not a commodity rate per passage.</p>
+        </header>
+
+        <div class="tiers">
+          <article class="tier" data-reveal>
+            <h3>Practice Bench</h3>
+            <p class="tier__for">Focused coachings &amp; independent VARC mentors</p>
+            <p class="tier__price">₹15,000 <span>per month, from</span></p>
+            <ul>
+              <li><strong>24 sets monthly</strong> — graded difficulty mix</li>
+              <li>Weekly delivery batches</li>
+              <li>Monthly novelty summary</li>
+              <li>Full answer rationales</li>
+            </ul>
+            <a class="btn btn--ghost btn--block" href="mailto:coolcresent1@gmail.com?subject=Practice%20Bench%20enquiry">Enquire</a>
+          </article>
+          <article class="tier tier--flag" data-reveal>
+            <span class="tier__badge">Flagship</span>
+            <h3>Mock Vault</h3>
+            <p class="tier__for">Institutes running their own mock series</p>
+            <p class="tier__price">₹40,000 <span>per month, from</span></p>
+            <ul>
+              <li><strong>One complete 10-mock VARC series monthly</strong> (40 sets)</li>
+              <li>Difficulty curves designed per mock</li>
+              <li><strong>Structural exclusivity</strong></li>
+              <li>Per-mock novelty certificate</li>
+              <li>Trap-map teaching notes for debriefs</li>
+              <li>72-hour correction SLA</li>
+            </ul>
+            <a class="btn btn--primary btn--block" href="mailto:coolcresent1@gmail.com?subject=Mock%20Vault%20enquiry">Enquire</a>
+          </article>
+          <article class="tier" data-reveal>
+            <h3>Platform Feed</h3>
+            <p class="tier__for">Test platforms &amp; adaptive learning products</p>
+            <p class="tier__price">₹75,000 <span>per month, from</span></p>
+            <ul>
+              <li><strong>100+ sets monthly</strong> — structured delivery</li>
+              <li><strong>Per-student novelty guarantee</strong></li>
+              <li>Difficulty metadata per question</li>
+              <li>Co-branded audit trail</li>
+            </ul>
+            <a class="btn btn--ghost btn--block" href="mailto:coolcresent1@gmail.com?subject=Platform%20Feed%20enquiry">Enquire</a>
+          </article>
+        </div>
+        <p class="billing" data-reveal>
+          Billing is quarterly in advance. Annual contracts flex with the season—mock-heavy before the exam, bank-building after.
+          Category exclusivity within a city is available as an add-on. One-time Legacy Corpus Audit of your existing bank: ₹20–25k.
+        </p>
+      </div>
+    </section>
+
+    <!-- AUDITION -->
+    <section class="section" id="audition">
+      <div class="wrap">
+        <header class="sec-head" data-reveal>
+          <p class="sec-num">07</p>
+          <h2 class="sec-title">The blind audition</h2>
+          <p class="sec-lede">Every vendor claims quality. We would rather your VARC head measure it—on your content and ours, with the labels removed.</p>
+        </header>
+        <ol class="audition-steps" data-reveal>
+          <li>
+            <span>1</span>
+            <div>
+              <h3>Send 6–10 sets from your current series</h3>
+              <p>Within 48 hours: a structural repetition report—which argument shapes repeat, how correlated the conviction arcs are, what patterns the keys have drifted into. Free, and yours either way.</p>
+            </div>
+          </li>
+          <li>
+            <span>2</span>
+            <div>
+              <h3>We send five passages</h3>
+              <p>Three are ours. One is by a professional writer. One is from a general-purpose AI tool. No labels.</p>
+            </div>
+          </li>
+          <li>
+            <span>3</span>
+            <div>
+              <h3>Your VARC head scores them blind</h3>
+              <p>Quality ranking, authorship guesses, and any pair that “feels like the same author.”</p>
+            </div>
+          </li>
+          <li>
+            <span>4</span>
+            <div>
+              <h3>The stake</h3>
+              <p>If faculty identify our three at better than chance, we walk—and you keep all five sets. In writing before we start.</p>
+            </div>
+          </li>
+          <li>
+            <span>5</span>
+            <div>
+              <h3>The pilot</h3>
+              <p>If not: one paid pilot—a complete mock VARC section, difficulty-curved—credited in full against your first retainer month.</p>
+            </div>
+          </li>
+        </ol>
+        <div class="audition-cta" data-reveal>
+          <a class="btn btn--primary btn--lg" href="mailto:coolcresent1@gmail.com?subject=Blind%20audition%20request">Start the blind audition</a>
+          <p>Limited institutes per category and city—exclusivity depends on it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section section--soft" id="faq">
+      <div class="wrap wrap--narrow">
+        <header class="sec-head" data-reveal>
+          <p class="sec-num">08</p>
+          <h2 class="sec-title">Questions faculties ask</h2>
+        </header>
+        <div class="faq" data-reveal>
+          <details>
+            <summary>Is this AI-generated content?</summary>
+            <div class="faq__a">
+              <p>Passages are produced with a generation system we built—and that is why they can be audited for structural sameness in a way a single human writer cannot prove across a full series.</p>
+              <p>What no set ever is: raw, unreviewed output. Every set passes an independent blind-check of the key, an editorial review against its intended structure, and senior VARC faculty sign-off. The blind audition exists because we stand behind the result.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What if we dispute an answer key?</summary>
+            <div class="faq__a">
+              <p>Rationales name the misreading each wrong option targets—most disputes resolve on reading the note. Where a reading is genuinely defensible, we rebuild the question within the SLA rather than argue. Disputed sets are replaced, not defended.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Who owns the content?</summary>
+            <div class="faq__a">
+              <p>You receive an exclusive licence for delivered sets—no other client receives them, nor sets on the same argumentative skeleton. We retain the structural method that makes that guarantee enforceable.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Which exams?</summary>
+            <div class="faq__a">
+              <p>Calibrated for CAT-level VARC today. CLAT, OMET, and GRE-style variants are available on request.</p>
+            </div>
+          </details>
+          <details>
+            <summary>How fast can a mock series land?</summary>
+            <div class="faq__a">
+              <p>Weekly batches against your calendar. A full 10-mock VARC series within one month of calibration—we lock lengths, difficulty curves, and format to your paper pattern in the first week.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What if other institutes use this too?</summary>
+            <div class="faq__a">
+              <p>No two clients share an argumentative skeleton in delivery. Category and city exclusivity is available as a retainer add-on when you need the market locked further.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section contact" id="contact">
+      <div class="wrap contact__grid">
+        <div data-reveal>
+          <p class="sec-num">09</p>
+          <h2 class="sec-title">Start with the audit—five minutes from you.</h2>
+          <p class="sec-lede">
+            Send 6–10 RC sets from your current series. Within 48 hours you receive a structural repetition report
+            showing what your repeat-takers may already be exploiting. No commitment. The report is yours either way.
+          </p>
+          <div class="contact__cta">
+            <a class="btn btn--primary btn--lg" href="mailto:coolcresent1@gmail.com?subject=Structural%20audit%20request">Request the free audit</a>
+            <a class="btn btn--ghost btn--lg" href="mailto:coolcresent1@gmail.com?subject=Blind%20audition%20request">Book the audition</a>
+          </div>
+        </div>
+        <aside class="contact-card" data-reveal>
+          <p class="label">Who runs this</p>
+          <p><strong>Blueprint Psychometrics</strong> is built and operated with senior VARC faculty holding final editorial authority on every delivered set.</p>
+          <p class="contact-card__meta">
+            Mumbai, India<br>
+            <a href="mailto:coolcresent1@gmail.com">coolcresent1@gmail.com</a><br>
+            <span>Replies within one working day</span>
+          </p>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap site-footer__inner">
+      <span>Blueprint Psychometrics · Structural content for VARC</span>
+      <span>Mumbai · Est. 2026</span>
+    </div>
+  </footer>
+
+  <div class="sticky-bar" id="sticky-bar" hidden>
+    <div class="wrap sticky-bar__inner">
+      <p>Free structural audit of your mock series — results in 48 hours.</p>
+      <a class="btn btn--primary btn--sm" href="mailto:coolcresent1@gmail.com?subject=Structural%20audit%20request">Request audit</a>
+    </div>
+  </div>
+
+  <script>
+/**
+ * Blueprint Psychometrics — faculty pitch interactions
+ * Theme · progress · reveal · sticky CTA · Q demo
+ */
+(() => {
+  "use strict";
+
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const $ = (s, r = document) => r.querySelector(s);
+  const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+  const root = document.documentElement;
+  const KEY = "bp-pitch-theme";
+
+  function systemTheme() {
+    return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  }
+
+  function applyTheme(t) {
+    root.setAttribute("data-theme", t);
+    try { localStorage.setItem(KEY, t); } catch (_) {}
+  }
+
+  function initTheme() {
+    let stored = null;
+    try { stored = localStorage.getItem(KEY); } catch (_) {}
+    applyTheme(stored === "light" || stored === "dark" ? stored : systemTheme());
+  }
+
+  function toggleTheme() {
+    applyTheme(root.getAttribute("data-theme") === "light" ? "dark" : "light");
+  }
+
+  function initScroll() {
+    const bar = $(".progress__bar");
+    const progress = $(".progress");
+    const sticky = $("#sticky-bar");
+    const hero = $(".hero");
+    const navLinks = $$(".nav a");
+    const sections = $$("main section[id]");
+
+    function onScroll() {
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      const pct = max > 0 ? (window.scrollY / max) * 100 : 0;
+      if (bar) bar.style.width = `${pct}%`;
+      if (progress) progress.setAttribute("aria-valuenow", String(Math.round(pct)));
+
+      if (sticky && hero) {
+        const past = window.scrollY > hero.offsetHeight * 0.5;
+        const nearEnd = window.scrollY + window.innerHeight > document.body.scrollHeight - 320;
+        if (past && !nearEnd) {
+          sticky.hidden = false;
+          requestAnimationFrame(() => sticky.classList.add("is-shown"));
+        } else {
+          sticky.classList.remove("is-shown");
+          if (!past) sticky.hidden = true;
+        }
+      }
+
+      let current = "";
+      const y = window.scrollY + 120;
+      for (const sec of sections) {
+        if (sec.offsetTop <= y) current = sec.id;
+      }
+      navLinks.forEach((a) => {
+        const id = (a.getAttribute("href") || "").slice(1);
+        if (id && id === current) a.setAttribute("aria-current", "true");
+        else a.removeAttribute("aria-current");
+      });
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  function initReveal() {
+    const nodes = $$("[data-reveal]");
+    if (reduced) {
+      nodes.forEach((n) => n.classList.add("is-in"));
+      return;
+    }
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("is-in");
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
+    );
+    nodes.forEach((n) => io.observe(n));
+  }
+
+  function initAnchors() {
+    document.addEventListener("click", (e) => {
+      const a = e.target.closest('a[href^="#"]');
+      if (!a) return;
+      const href = a.getAttribute("href");
+      if (!href || href === "#") return;
+      const target = document.getElementById(href.slice(1));
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "start" });
+      history.pushState(null, "", href);
+    });
+  }
+
+  function initQDemo() {
+    const hint = $("#q-hint");
+    const opts = $$(".q-opt");
+    if (!hint || !opts.length) return;
+    opts.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        opts.forEach((o) => o.classList.remove("is-on"));
+        btn.classList.add("is-on");
+        hint.textContent = btn.dataset.note || "";
+      });
+    });
+  }
+
+  function initKeys() {
+    document.addEventListener("keydown", (e) => {
+      const tag = e.target?.tagName || "";
+      if (/INPUT|TEXTAREA|SELECT/.test(tag) || e.target?.isContentEditable) return;
+      if (e.key.toLowerCase() === "t" && !e.metaKey && !e.ctrlKey) {
+        e.preventDefault();
+        toggleTheme();
+      }
+    });
+  }
+
+  function boot() {
+    initTheme();
+    initScroll();
+    initReveal();
+    initAnchors();
+    initQDemo();
+    initKeys();
+    $("#theme-toggle")?.addEventListener("click", toggleTheme);
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+})();
+
+</script>
+</body>
+</html>

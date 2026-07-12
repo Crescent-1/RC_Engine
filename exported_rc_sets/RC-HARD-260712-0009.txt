@@ -1,0 +1,94 @@
+RC ID: RC-HARD-260712-0009 | Tier: hard | Score: 8.8 | Status: approved | Compliance F1: 0.9 | Novelty: 0.655 | Generated: 2026-07-12T07:40:16.220083+00:00
+======================================================================
+
+[PASSAGE]
+
+Open a biostatistics textbook printed after 1990. Somewhere in the first chapter you will find Ronald Fisher's potato plots at Rothamsted, the 1920s field trials where he scattered treatments across parcels of English soil by the throw of dice. Open a manual of clinical epidemiology instead. There you meet the 1948 streptomycin trial for tuberculosis, the British study that assigned patients to treatment by sealed envelope and is routinely called the first modern randomized controlled trial. Two disciplines. Two founding scenes. One method.
+
+The dispute is not a footnote. It is live, and it has institutional weight. Prize citations phrase it one way; departmental histories phrase it another. Statisticians say medicine borrowed the tool and forgot the lender. Epidemiologists say the tool was inert until they picked it up. Each field teaches its own version to its own students, and each version quietly casts the other discipline as a latecomer. The question sounds settleable. It is not, though the reader could be forgiven for expecting a scoreboard.
+
+The statisticians hold the stronger analytic hand, and it is worth stating without discount. Fisher did not merely happen to randomize; he demonstrated, with full mathematical rigor, that randomization is the only device that licenses a valid estimate of error in the presence of confounders one cannot name or measure. The logic was complete by the early 1930s. It was airtight. Nothing medicine later did improved the proof one line.
+
+Grant all of that, and the epidemiologists still have a reply. A proof that solves an inference problem on paper is not the same accomplishment as a procedure that changes how a profession decides whether a drug may enter a sick body. Fisher's argument was true before anyone acted on it; the trial became an idea only when it began to carry consequences.
+
+Which is where the contest turns strange. Both camps argue as though ideas have birthplaces — single rooms, datable mornings, rightful owners. Neither examines the premise. Yet the statistician locates origin in the formal proof, the epidemiologist in the consequential act, and neither can win because they are answering different questions while pretending to answer one. The dispute survives because each field's origin myth depends on it; concede the shared assumption and both lose an ancestor.
+
+So far the archives record a quarrel over parentage. What they less often record is that the method had no single moment of becoming — that it accreted, like sediment, across two decades and two problems that only later looked like one. The useful question was never which discipline owns the randomized trial. It is what we should mean by the origin of a method at all, given that a method, unlike a discovery, does not exist until it is done and done again, so that its birthday, if it has one, falls somewhere no ledger thought to mark.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central thesis of the passage?
+(A) Because the method accreted over two decades, it belongs jointly to both disciplines rather than to either one alone.
+(B) The essay weighs the competing claims and ultimately adjudicates which field truly deserves credit for developing the randomized trial.
+(C) Fisher's early proof was mathematically complete, so statisticians hold the legitimate and decisive claim to inventing the method.
+(D) The ownership dispute is unwinnable because both sides share an unexamined assumption that methods have single, ownable origins.
+
+Q2. According to the passage, what does Fisher's contribution establish?
+(A) Fisher's airtight mathematical proof settles the priority contest decisively in favour of the statisticians and closes the debate.
+(B) Randomization is the only device licensing a valid error estimate amid confounders one cannot name or measure.
+(C) Fisher proved randomization improves a drug's chances of safe entry into a sick body in clinical practice.
+(D) Randomization is one of several devices that can estimate error when confounders remain unmeasured in a trial.
+
+Q3. What is the function of the epidemiologists' reply in paragraph 4?
+(A) It refutes the statisticians' proof and establishes the epidemiologists' consequential act as the essay's settled final thesis.
+(B) It concedes that Fisher's argument was false until physicians acted on it in the clinic and rewrote the proof.
+(C) It grants the statisticians' proof yet reframes origin around consequential action, deepening rather than deciding the contest.
+(D) It introduces a neutral compromise inviting the two disciplines to share credit equally for inventing the method.
+
+Q4. What does the claim that 'the trial became an idea only when it began to carry consequences' mean in context?
+(A) An inference solved on paper counts as an idea only once acting on it changes real decisions.
+(B) Fisher's proof was logically incomplete until clinical practice supplied the missing mathematical steps of the argument.
+(C) A method has no genuine truth-value until repeated trials confirm its statistical reliability across populations.
+(D) Ideas acquire value only when a prize citation formally recognizes their institutional weight in departmental histories.
+
+Q5. The passage claims 'neither can win because they are answering different questions.' This rests on which unstated assumption?
+(A) Every disagreement about priority can be resolved once both sides consult the same historical archive of founding trials.
+(B) Formal proofs are always more authoritative than the practical procedures later derived from them in the clinic.
+(C) A single dispute cannot be adjudicated when its parties are silently measuring origin by incompatible criteria.
+(D) Disciplines inevitably distort history whenever they teach competing origin stories to their own students.
+
+Q6. Two software communities each claim to have 'invented' version control: one dates it to a 1970s formal file-diffing algorithm, the other to a 1990s distributed workflow that programmers actually adopted. Which passage mechanism best explains why their dispute persists?
+(A) Both communities should simply split the credit equally to end the pointless quarrel over who invented the tool.
+(B) Each side locates origin by a different criterion, so their shared question only appears to be one.
+(C) The method has one datable morning of invention that better archival research will eventually pinpoint with certainty.
+(D) The 1970s algorithm was logically airtight, so its community holds the decisive and rightful claim to invention.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — Integrates the paragraph-5 turn and paragraph-6 close: the contest dissolves rather than resolves once the shared premise about a method's birthplace collapses.
+  (A) adjacent_answer — The passage rejects the ownership frame entirely; joint parentage still assumes the birthplace premise the essay dismantles.
+  (B) moderate_extremism — Reverses the fate signalled in paragraph 2 ('It is not' settleable) and paragraph 6, where the question is dissolved, not scored.
+  (C) half_truth — Elevates one conceded point from paragraph 3 into the thesis, ignoring the epidemiologists' reply and the paragraph-5 dissolution.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — Restates paragraph 3's precise claim about what Fisher demonstrated with full rigor by the early 1930s.
+  (A) overqualification — Paragraph 4 grants the proof yet insists it does not settle the matter; unqualified priority overstates the concession.
+  (C) category_slip — The 'sick body' and drug-entry framing belongs to the epidemiologists in paragraph 4, not Fisher's paper proof.
+  (D) moderate_extremism — Paragraph 3 says randomization is the 'only' such device, not merely one among several.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — The reply is a counter-move that keeps both sides in play, preparing the paragraph-5 revelation that they answer different questions.
+  (A) moderate_extremism — The reply concedes the proof ('Grant all of that') and is later dissolved in paragraph 5, so it never becomes the settled thesis.
+  (B) half_truth — Paragraph 4 says Fisher's argument was 'true before anyone acted'; the reply distinguishes truth from becoming an idea, not truth from falsity.
+  (D) false_symmetry — The reply advances one side's counterclaim, not a compromise; the passage never proposes equal shared credit.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Reads the phrase through paragraph 4's contrast between a proof true in advance and a procedure that alters how a profession decides.
+  (B) causal_inversion — Paragraph 3 calls the proof complete and airtight; the phrase concerns becoming consequential, not filling a logical gap.
+  (C) level_confusion — Confuses truth-value with practical consequence; the passage explicitly separates the proof's prior truth from its later becoming.
+  (D) framework_import — Imports the paragraph-2 prize-citation motif; the phrase is about consequence in practice, not formal recognition.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — Paragraph 5's diagnosis requires that competing, unexamined definitions of 'origin' make the shared scoreboard illusory.
+  (A) premature_closure — The passage denies settlement is available; paragraph 6 notes no ledger marks the birthday at all.
+  (B) moderate_extremism — The passage refuses to rank proof above procedure; it treats the two as answers to different questions, not a hierarchy.
+  (D) scope_inflation — Inflates paragraph 2's teaching observation into a universal law of distortion, which the argument does not assume.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — Mirrors paragraph 5's diagnosis: formal-proof origin versus consequential-act origin make the contest unwinnable while looking singular.
+  (A) false_symmetry — The passage dissolves the ownership frame rather than proposing an even split of credit.
+  (C) premature_closure — Contradicts paragraph 6, where a method accretes and has no single moment of becoming to pinpoint.
+  (D) half_truth — Repeats the statisticians' concession-not-victory error; the passage denies formal priority settles ownership.
+
+[Inspired by: "Same art, different name: would you see or hear it the same way?", https://psyche.co/ideas/same-art-different-name-would-you-see-or-hear-it-the-same-way]

@@ -25,7 +25,8 @@ from .compliance import ComplianceAuditor
 from .composer import (BlueprintComposer, CompositionExhausted,
                        blueprint_categorical_similarity)
 from .constraints import CompatibilityRules
-from .fingerprints import embed_text, extract_fingerprint
+from .fingerprints import (embed_text, extract_fingerprint, movement_similarity,
+                           topology_similarity)
 from .history import HistoryStore
 from .llm import APIExhausted, BudgetExceeded, CostLedger
 from .models import Blueprint, RCResult, RealizedStructure, SeedEssay
@@ -75,109 +76,177 @@ class RCPipeline:
 
     # ------------------------------------------------------------------ main
 
-    def generate_one(self, tier: str, seed: SeedEssay | None = None) -> RCResult:
+    def generate_one(self, tier: str, seed: SeedEssay | None = None,
+                     ban_families: set[str] | None = None,
+                     ban_movements: set[str] | None = None) -> RCResult:
         seed = seed or SeedEssay()
         ledger = CostLedger(budget_usd=config.TIER_BUDGET_USD[tier])
         notes: list[str] = []
+        ban_f: set[str] = set(ban_families or ())
+        ban_m: set[str] = set(ban_movements or ())
 
-        # ---- Stage 1: blueprint --------------------------------------------
-        try:
-            bp = self.composer.compose(tier, seed, ledger)
-        except CompositionExhausted as e:
-            return RCResult(None, "", tier, "failed_composition", notes=[str(e)])
-        except BudgetExceeded as e:
-            return RCResult(None, "", tier, "budget_abort", notes=[str(e)])
-        self.history.record_blueprint(bp, "composed")
-        print(f"  [BP {bp.blueprint_id}] {bp.family_id}/{bp.persona_id}/{bp.ending_id}/"
-              f"{bp.rhythm_id}/{bp.revelation_id}/{bp.distractor_profile_id}/"
-              f"{bp.topology_id} instability={bp.instability}")
+        # ---- Stage 1 + free structural prechecks (topology / topic / movement) --
+        # Movement collisions are family-level skeletons: recompose with bans
+        # BEFORE render so we never pay Opus for a movement string Gate B would
+        # hard-reject. Topology re-picks are free; topic collisions re-refine.
+        max_mov = max(1, getattr(config, "MOVEMENT_PRECHECK_MAX_RECOMPOSES", 3)
+                      if getattr(config, "MOVEMENT_PRECHECK_ENABLED", True) else 1)
+        bp = None
+        for mov_attempt in range(1, max_mov + 1):
+            try:
+                bp = self.composer.compose(
+                    tier, seed, ledger,
+                    ban_families=ban_f, ban_movements=ban_m)
+            except CompositionExhausted as e:
+                return RCResult(None, "", tier, "failed_composition", notes=[str(e)],
+                                ban_families=sorted(ban_f), ban_movements=sorted(ban_m))
+            except BudgetExceeded as e:
+                return RCResult(None, "", tier, "budget_abort", notes=[str(e)],
+                                ban_families=sorted(ban_f), ban_movements=sorted(ban_m))
+            self.history.record_blueprint(bp, "composed")
+            print(f"  [BP {bp.blueprint_id}] {bp.family_id}/{bp.persona_id}/{bp.ending_id}/"
+                  f"{bp.rhythm_id}/{bp.revelation_id}/{bp.distractor_profile_id}/"
+                  f"{bp.topology_id} instability={bp.instability}")
 
-        # ---- Gate A½: pre-render topic-collision precheck (local, $0) -------
-        # catches embedding-channel duplicates BEFORE the expensive render call;
-        # on collision a re-refine (~$0.01-0.03) replaces the topic instead of
-        # burning render + compliance (~$0.07) on a passage Gate B would reject
-        collisions = self._topic_precheck(bp)
-        if collisions and config.TOPIC_PRECHECK_ENFORCE:
-            for i in range(1, config.TOPIC_PRECHECK_MAX_REREFINES + 1):
-                worst_s, worst_l, _t = collisions[0]
-                notes.append(f"topic precheck: collision with {worst_l} @ {worst_s:.2f} "
-                             f"— re-refine {i}/{config.TOPIC_PRECHECK_MAX_REREFINES}")
-                print(f"  [precheck] topic collides with {worst_l} @ {worst_s:.2f} "
-                      f"— re-refining ({i}/{config.TOPIC_PRECHECK_MAX_REREFINES})")
-                avoid = [t or l for _s, l, t in collisions[:5]]
-                try:
-                    bp = self.composer.refine_only(bp, seed, ledger, avoid_topics=avoid)
-                except BudgetExceeded as e:
-                    return self._abort(bp, ledger, f"budget during re-refine: {e}", notes)
-                self.history.record_blueprint(bp, "composed")
-                collisions = self._topic_precheck(bp)
-                if not collisions:
-                    break
-            if collisions:
-                # still colliding after bounded re-refines: reject cheaply so
-                # run_batch recomposes with a rotated seed (render never ran)
+            # Gate A¼: free topology clearance
+            bp, topo_notes, topo_ok = self._resolve_topology(bp)
+            notes.extend(topo_notes)
+            if not topo_ok:
                 self.history.set_blueprint_status(bp.blueprint_id, "rejected_novelty")
                 return RCResult(None, bp.blueprint_id, tier, "rejected_novelty",
                                 cost_usd=ledger.spent_usd, cost_lines=ledger.lines,
-                                notes=notes + [f"topic precheck: still colliding with "
-                                               f"{collisions[0][1]} @ {collisions[0][0]:.2f}"])
-        elif collisions:
-            notes.append(f"topic precheck (log-only): would collide with "
-                         f"{collisions[0][1]} @ {collisions[0][0]:.2f}")
-            print(f"  [precheck] LOG-ONLY: topic near {collisions[0][1]} "
-                  f"@ {collisions[0][0]:.2f} (not blocking)")
+                                notes=notes + ["topology precheck failed pre-render"],
+                                ban_families=sorted(ban_f), ban_movements=sorted(ban_m))
+
+            # Gate A½: pre-render topic-collision precheck
+            collisions = self._topic_precheck(bp)
+            if collisions and config.TOPIC_PRECHECK_ENFORCE:
+                for i in range(1, config.TOPIC_PRECHECK_MAX_REREFINES + 1):
+                    worst_s, worst_l, _t = collisions[0]
+                    notes.append(f"topic precheck: collision with {worst_l} @ {worst_s:.2f} "
+                                 f"— re-refine {i}/{config.TOPIC_PRECHECK_MAX_REREFINES}")
+                    print(f"  [precheck] topic collides with {worst_l} @ {worst_s:.2f} "
+                          f"— re-refining ({i}/{config.TOPIC_PRECHECK_MAX_REREFINES})")
+                    avoid = [t or l for _s, l, t in collisions[:5]]
+                    try:
+                        bp = self.composer.refine_only(bp, seed, ledger, avoid_topics=avoid)
+                    except BudgetExceeded as e:
+                        return self._abort(bp, ledger, f"budget during re-refine: {e}", notes)
+                    self.history.record_blueprint(bp, "composed")
+                    collisions = self._topic_precheck(bp)
+                    if not collisions:
+                        break
+                if collisions:
+                    self.history.set_blueprint_status(bp.blueprint_id, "rejected_novelty")
+                    return RCResult(None, bp.blueprint_id, tier, "rejected_novelty",
+                                    cost_usd=ledger.spent_usd, cost_lines=ledger.lines,
+                                    notes=notes + [f"topic precheck: still colliding with "
+                                                   f"{collisions[0][1]} @ {collisions[0][0]:.2f}"],
+                                    ban_families=sorted(ban_f), ban_movements=sorted(ban_m))
+            elif collisions:
+                notes.append(f"topic precheck (log-only): would collide with "
+                             f"{collisions[0][1]} @ {collisions[0][0]:.2f}")
+                print(f"  [precheck] LOG-ONLY: topic near {collisions[0][1]} "
+                      f"@ {collisions[0][0]:.2f} (not blocking)")
+
+            # Gate A¾: planned-movement clearance (same caps as Gate B; $0)
+            hits = self._movement_collisions(bp.movement_string())
+            if not hits:
+                break
+            lev, jac, near = hits[0]
+            ms = bp.movement_string()
+            ban_f.add(bp.family_id)
+            ban_m.add(ms)
+            msg = (f"movement precheck: near {near} lev={lev:.2f} jac={jac:.2f} "
+                   f"— ban {bp.family_id}, recompose {mov_attempt}/{max_mov}")
+            notes.append(msg)
+            print(f"  [movement] {msg}")
+            self.history.set_blueprint_status(bp.blueprint_id, "rejected_novelty")
+            self.history.record_novelty_audit(
+                bp.blueprint_id, None,
+                {"movement_levenshtein": round(lev, 3),
+                 "movement_bigram_jaccard": round(jac, 3), "nearest": near},
+                round(1.0 - max(lev, jac), 3),
+                "movement_precheck:collide",
+                f"lev={lev:.2f} jac={jac:.2f} vs {near}")
+            bp = None
+        if bp is None:
+            return RCResult(None, "", tier, "rejected_novelty",
+                            cost_usd=ledger.spent_usd, cost_lines=ledger.lines,
+                            notes=notes + ["movement precheck exhausted recomposes"],
+                            ban_families=sorted(ban_f), ban_movements=sorted(ban_m))
 
         # blueprint similarity vs shipped RCs (needed for composite scoring)
         bp_sims = self._blueprint_sims(bp)
 
-        # ---- Stage 2: render + compliance loop -----------------------------
-        passage, realized = None, None
-        directives: list[str] = []
-        for attempt in range(1, config.MAX_RENDER_ATTEMPTS + 1):
-            try:
-                candidate = self.renderer.render(bp, ledger, directives)
-                audit = self.auditor.audit(candidate, bp, ledger)
-            except TruncatedRender:
-                directives = ["previous attempt was cut off — tighten paragraph lengths"]
-                continue
-            except BudgetExceeded as e:
-                return self._abort(bp, ledger, f"budget during render/compliance: {e}", notes)
-            except ValueError as e:      # compliance JSON unparseable
-                notes.append(f"compliance parse failure attempt {attempt}: {e}")
-                continue
-            if audit.f1 >= config.COMPLIANCE_F1_THRESHOLD:
-                passage, realized = candidate, audit
-                break
-            directives = audit.directives[:6]
-            notes.append(f"compliance F1={audit.f1} attempt {attempt}; retrying with directives")
-            passage, realized = candidate, audit   # keep best-so-far
-        if passage is None or realized is None:
-            self.history.set_blueprint_status(bp.blueprint_id, "rejected_render")
-            return RCResult(None, bp.blueprint_id, tier, "failed_render",
-                            cost_usd=ledger.spent_usd, cost_lines=ledger.lines, notes=notes)
-        if realized.f1 < config.COMPLIANCE_F1_THRESHOLD:
-            notes.append(f"shipping best compliance F1={realized.f1} (below threshold) -> needs_review")
-
-        for w in passage_word_check(passage, bp):
-            notes.append(f"prevalidate: {w}")
-
-        # ---- Gate B: passage-level novelty (free; before the expensive call)
+        # ---- Stage 2 + Gate B: render + compliance, then passage novelty ----
+        # The render contract is seeded with free corpus-aware divergence steering.
+        # A Gate-B rejection on render-movable channels gets ONE breach-directed
+        # re-render before falling back to a full recompose (which would also pay
+        # to re-clear the topic/topology prechecks this blueprint already passed).
+        directives = self._divergence_directives(bp, bp_sims)
         rc_id = self.history.generate_rc_id(tier)
+        max_gate_b = 1 + getattr(config, "GATE_B_RENDER_RETRY", 0)
+        passage = realized = pre_report = None
+        for gate_b_attempt in range(1, max_gate_b + 1):
+            passage, realized = None, None
+            for attempt in range(1, config.MAX_RENDER_ATTEMPTS + 1):
+                try:
+                    candidate = self.renderer.render(bp, ledger, directives)
+                    audit = self.auditor.audit(candidate, bp, ledger)
+                except TruncatedRender:
+                    directives = ["previous attempt was cut off — tighten paragraph lengths"]
+                    continue
+                except BudgetExceeded as e:
+                    return self._abort(bp, ledger, f"budget during render/compliance: {e}", notes)
+                except ValueError as e:      # compliance JSON unparseable
+                    notes.append(f"compliance parse failure attempt {attempt}: {e}")
+                    continue
+                if audit.f1 >= config.COMPLIANCE_F1_THRESHOLD:
+                    passage, realized = candidate, audit
+                    break
+                directives = audit.directives[:6]
+                notes.append(f"compliance F1={audit.f1} attempt {attempt}; retrying with directives")
+                passage, realized = candidate, audit   # keep best-so-far
+            if passage is None or realized is None:
+                self.history.set_blueprint_status(bp.blueprint_id, "rejected_render")
+                return RCResult(None, bp.blueprint_id, tier, "failed_render",
+                                cost_usd=ledger.spent_usd, cost_lines=ledger.lines, notes=notes)
+            if realized.f1 < config.COMPLIANCE_F1_THRESHOLD:
+                notes.append(f"shipping best compliance F1={realized.f1} (below threshold) -> needs_review")
 
-        pre_fp = extract_fingerprint(rc_id, bp, passage, realized,
-                                     {"questions": [], "letters": [], "trap_usage": {}},
-                                     embed=self.embed)
-        self._inject_posture(pre_fp, bp, realized)
-        pre_report = self.novelty.score(pre_fp, bp_sims, include_question_channels=False)
-        self.history.record_novelty_audit(bp.blueprint_id, None, pre_report.channel_scores,
-                                          pre_report.composite, f"passage:{pre_report.verdict}",
-                                          "; ".join(pre_report.breached))
-        if pre_report.verdict != "pass":
-            self.history.set_blueprint_status(bp.blueprint_id, "rejected_novelty")
-            return RCResult(None, bp.blueprint_id, tier, "rejected_novelty",
-                            novelty_composite=pre_report.composite,
-                            cost_usd=ledger.spent_usd, cost_lines=ledger.lines,
-                            notes=notes + [f"passage novelty: {pre_report.breached or pre_report.composite}"])
+            for w in passage_word_check(passage, bp):
+                notes.append(f"prevalidate: {w}")
+
+            pre_fp = extract_fingerprint(rc_id, bp, passage, realized,
+                                         {"questions": [], "letters": [], "trap_usage": {}},
+                                         embed=self.embed)
+            self._inject_posture(pre_fp, bp, realized)
+            pre_report = self.novelty.score(pre_fp, bp_sims, include_question_channels=False)
+            self.history.record_novelty_audit(bp.blueprint_id, None, pre_report.channel_scores,
+                                              pre_report.composite, f"passage:{pre_report.verdict}",
+                                              "; ".join(pre_report.breached))
+            if pre_report.verdict == "pass":
+                break
+            # Gate B failed. If every breach is render-movable and we have a retry
+            # left, re-render with breach-specific directives; else reject cheaply.
+            retry_dirs = (self._breach_directives(pre_report)
+                          if gate_b_attempt < max_gate_b else [])
+            if not retry_dirs:
+                # Blueprint-derived (movement_*) or no retry left: ban the skeleton
+                # so the batch recompose cannot re-sample the same family movement.
+                bf, bm = self._movement_bans_from_breaches(bp, pre_report.breached)
+                ban_f |= bf
+                ban_m |= bm
+                self.history.set_blueprint_status(bp.blueprint_id, "rejected_novelty")
+                return RCResult(None, bp.blueprint_id, tier, "rejected_novelty",
+                                novelty_composite=pre_report.composite,
+                                cost_usd=ledger.spent_usd, cost_lines=ledger.lines,
+                                notes=notes + [f"passage novelty: {pre_report.breached or pre_report.composite}"],
+                                ban_families=sorted(ban_f), ban_movements=sorted(ban_m))
+            notes.append(f"gate B breach {pre_report.breached} — one breach-directed re-render")
+            print(f"  [gate-b] {pre_report.breached} — re-rendering with directives")
+            directives = retry_dirs
 
         # persist the novelty-clean passage: a question failure can now resume
         # from here instead of re-paying compose/render/compliance
@@ -257,20 +326,33 @@ class RCPipeline:
             qdata = self.qengine.build(bp, passage, ledger,
                                        extra_guidance=extra_guidance)
         except BudgetExceeded as e:
-            # under the per-RC cap this passage can never afford questions
-            self.history.set_passage_status(bp.blueprint_id, "abandoned",
-                                            f"budget during questions: {e}")
-            self.history.set_blueprint_status(bp.blueprint_id, "rejected_budget")
+            # The passage is already paid for and novelty-clean; do NOT destroy it.
+            # Leave it resumable ('awaiting_questions') so a later run can finish
+            # the questions on it instead of re-paying compose/render. The
+            # blueprint is parked in a non-terminal 'deferred_budget' state.
+            self.history.set_passage_status(bp.blueprint_id, "awaiting_questions",
+                                            f"budget deferred during questions: {e}")
+            self.history.set_blueprint_status(bp.blueprint_id, "deferred_budget")
             return RCResult(None, bp.blueprint_id, tier, "budget_abort",
                             cost_usd=_spent(), cost_lines=ledger.lines,
-                            notes=notes + [f"budget during questions: {e}"])
+                            notes=notes + [f"budget deferred during questions "
+                                           f"(passage kept resumable): {e}"])
         except QuestionEngineError as e:
             self.history.set_blueprint_status(bp.blueprint_id, "rejected_questions")
             self.history.set_passage_status(bp.blueprint_id, "questions_failed", str(e))
             return RCResult(None, bp.blueprint_id, tier, "failed_questions",
                             cost_usd=_spent(), cost_lines=ledger.lines,
                             notes=notes + [str(e)])
+        # Free, strict length-bias audit (no paid rewrite). First-pass questions
+        # must satisfy the rule in the question prompt; if they don't, the set
+        # routes to needs_review below — never auto-approved, never a second
+        # Sonnet questions call.
         length_bias = length_bias_report(qdata)
+        if length_bias.get("biased"):
+            print(f"  [length-bias] correct-longest "
+                  f"{length_bias['correct_longest_count']}/6 "
+                  f"thesis_longest={length_bias['thesis_correct_longest']} "
+                  f"— will not auto-approve")
         for w in length_bias["warnings"]:
             notes.append(f"option audit: {w}")
 
@@ -382,6 +464,142 @@ class RCPipeline:
                         cost_usd=ledger.spent_usd, cost_lines=ledger.lines,
                         notes=notes + [why])
 
+    def _planned_topology_signature(self, topology_id: str) -> list[dict]:
+        topo = self.registry.get("topology", topology_id)
+        return [
+            {"type": s["type"], "target": s.get("target", ""),
+             "difficulty": float(s.get("difficulty", 0.0))}
+            for s in topo.get("slots", [])
+        ]
+
+    def _topology_collisions(self, topology_id: str) -> list[tuple[float, str]]:
+        """Blueprint-derived topology signature vs the corpus, worst first.
+        Free (local): the signature comes from the registry, not the render."""
+        cap = config.NOVELTY_CAPS["topology_similarity"]
+        mine = self._planned_topology_signature(topology_id)
+        if not mine:
+            return []
+        hits = []
+        for other in self.history.fingerprint_window(config.FINGERPRINT_WINDOW):
+            if not other.topology_signature:
+                continue
+            sim = topology_similarity(mine, other.topology_signature)
+            if sim > cap:
+                hits.append((sim, other.rc_id))
+        hits.sort(reverse=True)
+        return hits
+
+    def _pick_clear_topology(self, bp: Blueprint) -> str | None:
+        ids = list(self.registry.ids("topology"))
+        allowed = config.TIER_PARAMS[bp.tier].get("allowed_topologies")
+        if allowed:
+            ids = [i for i in ids if i in allowed]
+        ids = [i for i in ids if i != bp.topology_id]
+        rng = getattr(self.composer, "rng", None) or random.Random()
+        rng.shuffle(ids)
+        for tid in ids:
+            if not self._topology_collisions(tid):
+                return tid
+        return None
+
+    def _resolve_topology(self, bp: Blueprint) -> tuple[Blueprint, list[str], bool]:
+        """Free pre-render topology clearance: re-pick a colliding topology from
+        the registry ($0) before any paid render. A Gate-C topology breach is
+        100% blueprint-derived, so catching it here saves the whole question
+        call. Returns (bp, notes, ok).
+
+        If every allowed topology collides (common on medium's small pool once
+        a few sets ship), fall back to the *least* colliding option and proceed
+        rather than burning the slot as rejected_novelty with no paid work.
+        Gate C still scores topology; this only unblocks generation."""
+        notes: list[str] = []
+        if not getattr(config, "TOPOLOGY_PRECHECK_ENABLED", True):
+            return bp, notes, True
+        hits = self._topology_collisions(bp.topology_id)
+        if not hits:
+            return bp, notes, True
+        sim0, near0 = hits[0]
+        for i in range(1, config.TOPOLOGY_PRECHECK_MAX_REPICKS + 1):
+            alt = self._pick_clear_topology(bp)
+            if alt is None:
+                break
+            notes.append(f"topology precheck: {bp.topology_id} near {near0} "
+                         f"@ {sim0:.2f} — re-pick {alt}")
+            print(f"  [topo] {bp.topology_id} near {near0} @ {sim0:.2f} -> {alt}")
+            bp.topology_id = alt
+            self.history.record_blueprint(bp, "composed")
+            hits = self._topology_collisions(bp.topology_id)
+            if not hits:
+                return bp, notes, True
+            sim0, near0 = hits[0]
+        # No fully clear topology: pick the least-colliding allowed alternative.
+        best_tid, best_sim, best_near = bp.topology_id, sim0, near0
+        allowed = config.TIER_PARAMS[bp.tier].get("allowed_topologies")
+        candidates = (allowed if allowed
+                      else list(self.registry.ids("topology")))
+        for tid in candidates:
+            th = self._topology_collisions(tid)
+            if not th:
+                best_tid, best_sim, best_near = tid, 0.0, ""
+                break
+            s, n = th[0]
+            if s < best_sim:
+                best_tid, best_sim, best_near = tid, s, n
+        if best_tid != bp.topology_id:
+            notes.append(
+                f"topology precheck: no clear option — least-colliding "
+                f"{bp.topology_id}->{best_tid} @ {best_sim:.2f} vs {best_near}")
+            print(f"  [topo] no clear option — using least-colliding "
+                  f"{bp.topology_id}->{best_tid} @ {best_sim:.2f}")
+            bp.topology_id = best_tid
+            self.history.record_blueprint(bp, "composed")
+        else:
+            notes.append(
+                f"topology precheck: proceeding with {bp.topology_id} "
+                f"@ {best_sim:.2f} vs {best_near} (no clearer alternative)")
+            print(f"  [topo] proceeding with {bp.topology_id} "
+                  f"@ {best_sim:.2f} (no clearer alternative)")
+        return bp, notes, True
+
+    def _movement_collisions(self, movement_string: str
+                             ) -> list[tuple[float, float, str]]:
+        """Planned (or realized) movement vs fingerprint window using the same
+        NOVELTY_CAPS as Gate B. Returns [(lev_sim, jac, rc_id), ...] worst first.
+        Empty = clear. Free / local."""
+        if not movement_string or not getattr(config, "MOVEMENT_PRECHECK_ENABLED", True):
+            return []
+        from .fingerprints import UNKNOWN_MOVEMENT
+        if movement_string in UNKNOWN_MOVEMENT:
+            return []
+        caps = config.NOVELTY_CAPS
+        hits: list[tuple[float, float, str]] = []
+        for fp in self.history.fingerprint_window(config.FINGERPRINT_WINDOW):
+            if not fp.movement_string or fp.movement_string in UNKNOWN_MOVEMENT:
+                continue
+            lev, jac = movement_similarity(movement_string, fp.movement_string)
+            if (lev > caps["movement_levenshtein"]
+                    or jac > caps["movement_bigram_jaccard"]):
+                hits.append((lev, jac, fp.rc_id))
+        hits.sort(key=lambda t: max(t[0], t[1]), reverse=True)
+        return hits
+
+    @staticmethod
+    def _movement_bans_from_breaches(bp: Blueprint,
+                                     breached: list[str]) -> tuple[set[str], set[str]]:
+        """If any Gate-B breach is movement-derived, ban this family + planned
+        movement string for subsequent recomposes."""
+        ban_f: set[str] = set()
+        ban_m: set[str] = set()
+        for b in breached or []:
+            head = b.split()[0].rstrip(":")
+            if head.startswith("movement"):
+                ban_f.add(bp.family_id)
+                ms = bp.movement_string()
+                if ms:
+                    ban_m.add(ms)
+                break
+        return ban_f, ban_m
+
     def _topic_precheck(self, bp: Blueprint) -> list[tuple[float, str, str]]:
         """Compare the refined blueprint's topic document against (a) topic
         docs of prior blueprints and (b) stored passage embeddings, using the
@@ -461,6 +679,74 @@ class RCPipeline:
             out[r[0]] = blueprint_categorical_similarity(mine, other)
         return out
 
+    def _divergence_directives(self, bp: Blueprint,
+                               bp_sims: dict[str, float]) -> list[str]:
+        """Free prose-level steering seeded into the render contract. Pushes the
+        passage's sentence rhythm and opening altitude away from the nearest
+        corpus neighbours so the soft stylometry/rhythm channels diversify at the
+        source. Only touches prose texture — never the blueprint-fixed thesis
+        schedule or closing posture (that would fight compliance)."""
+        if not getattr(config, "DIVERGENCE_DIRECTIVES_ENABLED", True):
+            return []
+        window = {fp.rc_id: fp
+                  for fp in self.history.fingerprint_window(config.FINGERPRINT_WINDOW)}
+        if not window:
+            return []
+        n = getattr(config, "DIVERGENCE_MAX_NEIGHBORS", 2)
+        ranked = [rc for rc, _ in sorted(bp_sims.items(), key=lambda kv: kv[1],
+                                         reverse=True) if rc in window]
+        neighbors = [window[rc] for rc in ranked[:n]]
+        if not neighbors:   # no shipped-blueprint overlap yet — use recent prose
+            neighbors = list(window.values())[:n]
+        means = [fp.stylometry.get("_mean_sent_len") for fp in neighbors
+                 if fp.stylometry.get("_mean_sent_len")]
+        dirs: list[str] = []
+        if means:
+            avg = sum(means) / len(means)
+            dirs.append(
+                f"The nearest recent passages in this corpus average about "
+                f"{avg:.0f}-word sentences; deliberately differ from that profile — "
+                f"mix conspicuously shorter and longer sentences so the rhythm does "
+                f"not echo them.")
+        dirs.append(
+            "Choose a different opening altitude from the corpus norm: if the natural "
+            "move is to begin on an abstract claim, open instead on a concrete "
+            "particular (a case, an image), or vice versa.")
+        return dirs[:3]
+
+    # Gate-B channels a re-render can actually move (prose-level, not blueprint).
+    _RENDER_MOVABLE_BREACHES = ("rhythm_cosine", "curve_pearson",
+                                "embedding_cosine", "persona_leak")
+
+    def _breach_directives(self, report) -> list[str]:
+        """Map render-movable Gate-B breaches to concrete re-render directives.
+        Returns [] if ANY breach is blueprint-derived (movement_*), signalling
+        that only a recompose — not a re-render — can help."""
+        dirs: list[str] = []
+        for b in report.breached:
+            head = b.split()[0].rstrip(":")
+            if head.startswith("movement"):
+                return []
+            if head == "rhythm_cosine":
+                dirs.append("Vary the sentence-length rhythm sharply: break any regular "
+                            "alternation and include at least one very short sentence early.")
+            elif head == "curve_pearson":
+                dirs.append("Change how the argument's commitment builds — make its "
+                            "intensity rise more gradually, or in a different cadence — "
+                            "without changing which paragraph first reveals the thesis.")
+            elif head == "embedding_cosine":
+                dirs.append("Reframe the angle and examples away from the nearest passage's "
+                            "territory: choose different illustrative cases and vocabulary.")
+            elif head.startswith("persona_leak"):
+                dirs.append("Push the prose texture away from the house voice: alter hedging "
+                            "frequency and clause structure while staying in the persona.")
+        seen, out = set(), []
+        for d in dirs:
+            if d not in seen:
+                seen.add(d)
+                out.append(d)
+        return out[:4]
+
 
 def _seed_collision(pipeline: RCPipeline, seed: SeedEssay | None) -> str | None:
     """Seed pre-screen (local embeddings, $0): returns a description of the
@@ -534,11 +820,19 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
                         if new_seed.doc_id:
                             tried_doc_ids.add(new_seed.doc_id)
                 print(f"\n=== [{tier}] {i + 1}/{count} ===")
-                # retry loop for novelty rejections: resample a fresh blueprint
+                # retry loop for novelty rejections: resample a fresh blueprint.
+                # Movement collisions accumulate family/movement bans so a
+                # recompose cannot re-hit the same skeleton (seed rotation alone
+                # does not change paragraph-function order).
                 res = None
+                ban_families: set[str] = set()
+                ban_movements: set[str] = set()
                 for attempt in range(3):
                     try:
-                        res = pipeline.generate_one(tier, seed)
+                        res = pipeline.generate_one(
+                            tier, seed,
+                            ban_families=ban_families,
+                            ban_movements=ban_movements)
                     except APIExhausted:
                         raise                         # stop the batch cleanly
                     except Exception as e:            # never let one RC kill the batch
@@ -546,12 +840,15 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
                         traceback.print_exc()
                         res = RCResult(None, "", tier, "failed_error", notes=[repr(e)])
                     results.append(res)
+                    ban_families.update(res.ban_families or [])
+                    ban_movements.update(res.ban_movements or [])
                     if res.status not in ("rejected_novelty", "failed_composition"):
                         break
                     if spent() >= max_usd:
                         print(f"[batch] spending cap reached mid-retry — stopping cleanly.")
                         return results
-                    print(f"  [retry] {res.status} — recomposing ({attempt + 1}/3)")
+                    print(f"  [retry] {res.status} — recomposing ({attempt + 1}/3)"
+                          + (f" bans={sorted(ban_families)}" if ban_families else ""))
                     # rotate the seed too: a fresh blueprint keeps the same
                     # topic anchor, so an embedding-channel collision would
                     # just repeat. The untried previous seed stays unused
@@ -569,8 +866,13 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
                         and spent() < max_usd:
                     bp_id = res.blueprint_id
                     print("  [retry] questions failed — regenerating questions on the same passage")
+                    reason = "; ".join(res.notes)[:600]
+                    guidance = (
+                        f"A previous attempt on this exact passage failed validation: "
+                        f"{reason}. Correct that specific defect; keep everything else "
+                        f"to spec.") if reason else None
                     try:
-                        res = pipeline.resume_questions(bp_id)
+                        res = pipeline.resume_questions(bp_id, extra_guidance=guidance)
                     except APIExhausted:
                         raise
                     except Exception as e:
@@ -585,7 +887,8 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
               f"completed work is committed. Re-run later to continue.")
     total = sum(r.cost_usd for r in results)
     shipped_statuses = {"approved", "needs_review", "solver_dispute"}
-    print(f"\n--- Batch summary: {len([r for r in results if r.rc_id and r.status in shipped_statuses])} shipped, "
+    shipped = [r for r in results if r.rc_id and r.status in shipped_statuses]
+    print(f"\n--- Batch summary: {len(shipped)} shipped, "
           f"{len(results)} attempts, total ${total:.4f} ---")
     for r in results:
         reason = ""
@@ -597,4 +900,34 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
               f"f1={r.compliance_f1} novelty={r.novelty_composite} "
               f"score={r.average_score} ${r.cost_usd:.4f}"
               f"{' | ' + reason if reason else ''}")
+
+    # ---- cost telemetry: where the money went, and yield -------------------
+    # A "precheck save" is a rejection that spent almost nothing (caught at a free
+    # gate before any paid render); real waste is a rejection that already paid.
+    PRECHECK_SAVE_CENTS = 0.02
+    shipped_spend = sum(r.cost_usd for r in shipped)
+    wasted = [r for r in results if r not in shipped]
+    wasted_spend = sum(r.cost_usd for r in wasted)
+    precheck_saves = [r for r in wasted if r.cost_usd < PRECHECK_SAVE_CENTS]
+    paid_wastes = [r for r in wasted if r.cost_usd >= PRECHECK_SAVE_CENTS]
+    paid_waste_spend = sum(r.cost_usd for r in paid_wastes)
+    per_shipped = (shipped_spend / len(shipped)) if shipped else 0.0
+    all_in_per_shipped = (total / len(shipped)) if shipped else 0.0
+    status_counts: dict[str, int] = {}
+    for r in results:
+        status_counts[r.status] = status_counts.get(r.status, 0) + 1
+    resumable = [r for r in results if r.status == "budget_abort"]
+    print(f"--- Cost telemetry ---")
+    print(f"  shipped spend        ${shipped_spend:.4f} over {len(shipped)} sets")
+    print(f"  wasted spend         ${wasted_spend:.4f} "
+          f"({(wasted_spend / total * 100 if total else 0):.0f}% of total) "
+          f"— paid ${paid_waste_spend:.4f} in {len(paid_wastes)} attempts, "
+          f"{len(precheck_saves)} free precheck saves")
+    print(f"  $/shipped set        ${per_shipped:.4f} (shipped-only) | "
+          f"${all_in_per_shipped:.4f} (all-in incl. waste)")
+    print(f"  status counts        " + ", ".join(f"{k}={v}" for k, v in
+                                                  sorted(status_counts.items())))
+    if resumable:
+        print(f"  resumable passages   {len(resumable)} paid but deferred "
+              f"(budget): {', '.join(r.blueprint_id for r in resumable if r.blueprint_id)}")
     return results

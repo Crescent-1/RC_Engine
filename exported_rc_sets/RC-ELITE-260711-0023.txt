@@ -1,0 +1,90 @@
+RC ID: RC-ELITE-260711-0023 | Tier: elite | Score: 0.0 | Status: rejected_novelty | Compliance F1: 1.0 | Novelty: 0.688 | Generated: 2026-07-11T18:48:28.333971+00:00
+======================================================================
+
+[PASSAGE]
+
+I have spent enough years distrusting fashionable ideas to be wary of my own admiration, and so I want to name it plainly before I complicate it: Elinor Ostrom did something rare. She took an orthodoxy that every economist could recite in his sleep — the tragedy of the commons, the pasture ruined because no herdsman owns it — and she dismantled it not with a rival model but with fieldwork. Swiss alpine meadows, Spanish irrigation channels, Japanese village forests, Filipino fisheries: shared resources governed for centuries without either the fence of private property or the hand of the state. That she did this inside a discipline suspicious of case studies, and that the suspicious discipline gave her its highest honor, is not nothing. I do not think it was wrong.
+
+What she offered was, on its face, modest. Out of hundreds of documented cases she drew a typology of eight design principles that long-enduring commons tended to share: clearly bounded resources and clearly bounded membership; rules fitted to local conditions rather than imported wholesale; those affected by the rules having a hand in writing them; monitoring carried out by the users themselves; sanctions that escalate by degrees rather than by decree; cheap and accessible conflict resolution; a recognized right to organize; and, for larger systems, governance arranged in nested layers, each tier accountable to the ones above and below. Laid out as a list, the eight have the tidy completeness of a finished tool — a thing you could pick up and apply to any shared resource, at any size, anywhere.
+
+But look at the eighth principle, nested enterprises, and watch how much weight it is asked to bear the moment someone extends this framework to the atmosphere, to carbon, to the ocean's chemistry. That principle is the hinge on which the whole scaling argument turns — and it is precisely the one her evidence supports least, because her evidence came almost entirely from small communities where everyone could watch everyone else. The seven robust principles are robust because they describe faces: neighbors who see the cheater draw water at night. Nesting is the bridge to the faceless, and the case studies never tested that bridge. The fault, I should be clear, is not hers. She was careful. The fault lies with those who cite her to license a planetary governance she never claimed to have validated.
+
+So the admiration was right and aimed slightly wrong. What Ostrom proved was that the local case could be made empirically at all — that self-governance without owner or sovereign was a documented fact and not a romance — and this is a harder, better achievement than the one her enthusiasts wanted from her. Her work is defended best, I think, by refusing the ambition grafted onto it: it establishes that commons can govern themselves where the governing can be seen, and says almost nothing, honestly, about whether such arrangements compose upward into something that could hold an atmosphere. The price of keeping her achievement intact is surrendering the thing we most wanted it to promise, which leaves the largest commons of all still without a method we can say she ever showed us.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central thesis of the passage?
+(A) Ostrom claimed her eight design principles could govern the atmosphere and other planetary commons, and her evidence supports this.
+(B) The tragedy of the commons remains the correct orthodoxy because Ostrom's eighth principle fails to bridge to faceless systems.
+(C) Ostrom's real achievement was proving self-governing commons exist locally, not showing they scale to global problems.
+(D) Ostrom's fieldwork was too reliant on small communities to establish anything reliable about how commons actually govern themselves.
+
+Q2. When the author writes that nesting is 'the bridge to the faceless, and the case studies never tested that bridge,' he most nearly means that:
+(A) Ostrom's scholarship was careless in relying on communities too small to yield any generalizable design principles.
+(B) large systems can never sustain a commons because anonymity always destroys cooperation among users.
+(C) the evidence came from settings where members could watch each other, so it cannot vouch for large anonymous systems.
+(D) the eighth principle is logically incoherent and therefore weakens the other seven principles she identified.
+
+Q3. What is the primary function of the sentence 'The fault, I should be clear, is not hers'?
+(A) It signals the author abandoning his earlier admiration once the scaling weakness appears.
+(B) It separates Ostrom's careful work from the overreach of those extending it, redirecting the criticism away from her.
+(C) It concedes that Ostrom's eight principles contain a genuine flaw the author cannot excuse.
+(D) It introduces the tragedy of the commons as the real target of the author's critique.
+
+Q4. According to the passage, which feature does the author identify as the weakest-supported among Ostrom's design principles?
+(A) monitoring carried out by the users themselves rather than by outside authorities.
+(B) rules fitted to local conditions rather than imported from elsewhere wholesale.
+(C) sanctions that escalate by degrees rather than being imposed by decree.
+(D) nested enterprises, the layered governance principle meant for larger systems.
+
+Q5. The author's argument that Ostrom's evidence cannot license planetary governance rests on which unstated assumption?
+(A) Private property and state control are the only mechanisms proven to govern large commons reliably.
+(B) The eight principles already form a general theory applicable to any shared resource at any size.
+(C) Empirical case studies are inherently unable to support any claim about future or larger arrangements.
+(D) Governance that works where members can observe each other may fail once participants become anonymous and unseen.
+
+Q6. Which best describes the author's intellectual posture toward Ostrom's work?
+(A) Neutral, presenting both the local proof and the scaling claim as equally supported by her evidence.
+(B) Admiring of the proven local achievement while insisting its scope stops short of the atmosphere.
+(C) Skeptical of her fieldwork and unwilling to grant that it settled anything about self-governance.
+(D) Enthusiastic that her framework finally offers a validated method for governing the largest global commons.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates paragraphs 3–4: the empirical local proof is the genuine, defensible accomplishment, distinct from the scaling ambition the passage detaches from her work.
+  (A) stage_misattribution — Attributes the scaling ambition to Ostrom herself, though paragraph 3 assigns it to those who cite her, not to her claims.
+  (B) causal_inversion — The author explicitly says Ostrom dismantled that orthodoxy and was not wrong; the eighth-principle limit concerns scaling, not vindicating the old model.
+  (D) straw_version — The passage insists the local case is a harder, better, documented achievement, not an unreliable one, contradicting paragraph 4.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — Paragraph 3 ties the seven robust principles to visible neighbors and marks nesting as the untested leap to systems where users cannot observe one another.
+  (A) stage_misattribution — The passage explicitly clears Ostrom of fault; the limit is evidentiary reach, not sloppy scholarship, per 'She was careful.'
+  (B) moderate_extremism — The author says the case studies are silent on scaling, not that scaling is impossible—an absence of evidence, not a proof against.
+  (D) half_truth — The seven are called robust; only nesting's evidentiary support is thin, and no claim of logical incoherence is made.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The sentence pivots the objection so it lands on the citing enthusiasts, preserving the passage's admiration while indicting the interpretive leap.
+  (A) stance_misread — Admiration is retained throughout; paragraph 4 reaffirms it, so the sentence protects rather than withdraws praise.
+  (C) stance_misread — The sentence denies fault on her part; it does not concede a flaw in her principles but relocates the fault elsewhere.
+  (D) adjacent_answer — The tragedy of the commons was addressed in paragraph 1; this sentence concerns misuse of Ostrom, not that orthodoxy.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 names the eighth principle, nested enterprises, as the one her evidence supports least.
+  (A) adjacent_answer — Monitoring is among the seven robust, face-based principles, not the weak eighth one.
+  (B) adjacent_answer — Locally fitted rules are part of the robust list of face-to-face principles, not the untested bridge.
+  (C) adjacent_answer — Graduated sanctions belong to the robust seven; the passage does not single them out as weakly supported.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 grounds the robust principles in visible faces; the argument needs the premise that visibility is what those principles depend on and anonymity removes it.
+  (A) framework_import — The passage rejects that binary in paragraph 1; the argument does not assume those two are the only reliable options.
+  (B) level_confusion — This is the tidy-list impression paragraph 2 raises then undercuts; the author's argument assumes the opposite about scale.
+  (C) scope_inflation — The author praises the empirical local case; he limits generalization to the faceless, not case-study evidence in general.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — Paragraph 4 states the admiration was right but aimed slightly wrong, defending her by refusing the grafted-on scaling ambition.
+  (A) false_symmetry — The author distinguishes robust local evidence from an untested scaling bridge; he does not treat them as equally supported.
+  (C) stance_misread — The author calls the local case a documented fact and a harder, better achievement, the reverse of skepticism about the fieldwork.
+  (D) stage_misattribution — He explicitly says her work says almost nothing about the largest commons and never validated planetary governance.
+
+[Inspired by: "Therapy for billionaires", https://aeon.co/essays/what-would-a-therapy-camp-for-billionaires-look-like]

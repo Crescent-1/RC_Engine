@@ -225,19 +225,22 @@ def _make_seed_provider():
     db = get_db()
 
     def provider(tier: str | None = None, exclude_ids=None):
-        # Tier-gated sourcing: elite/hard prefer serious long-form genres.
-        # Fallback chain so a batch never starves: preferred pool -> any unused
-        # -> seedless. exclude_ids: essays already tried in this batch slot
-        # (novelty-retry seed rotation — a topic-level embedding collision
-        # cannot be escaped by recomposing the blueprint alone).
+        # Hard/elite: random draw inside CAT_SEED_GENRES only (strict by default).
+        # Medium: any unused genre at random. exclude_ids = batch-slot rotations.
         preferred = config.TIER_SEED_GENRES.get(tier) if tier else None
-        essay = get_unused_essay(db, genre=preferred, exclude_ids=exclude_ids)
-        if essay is None and preferred is not None:
-            essay = get_unused_essay(db, genre=None, exclude_ids=exclude_ids)
+        essay = get_unused_essay(db, genre=preferred, exclude_ids=exclude_ids,
+                                 randomize=True)
+        strict = getattr(config, "TIER_SEED_STRICT", True)
+        if essay is None and preferred is not None and not strict:
+            essay = get_unused_essay(db, genre=None, exclude_ids=exclude_ids,
+                                     randomize=True)
             if essay is not None:
-                print(f"[seeds] no unused {preferred} essays for '{tier}' — "
-                      f"falling back to any genre")
+                print(f"[seeds] preferred pool empty for '{tier}' — "
+                      f"fallback any genre (TIER_SEED_STRICT=False)")
         if essay is None:
+            if preferred is not None and strict:
+                print(f"[seeds] no unused CAT-quality essays for '{tier}' "
+                      f"(strict pool) — seedless this slot")
             return None, None
 
         genre = essay["metadata"].get("genre")

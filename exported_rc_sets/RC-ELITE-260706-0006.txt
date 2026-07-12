@@ -1,4 +1,4 @@
-RC ID: RC-ELITE-260706-0006 | Tier: elite | Score: 8.8 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.745 | Generated: 2026-07-06T14:00:11.829265+00:00
+RC ID: RC-ELITE-260706-0006 | Tier: elite | Score: 8.8 | Status: approved | Compliance F1: 1.0 | Novelty: 0.745 | Generated: 2026-07-06T14:00:11.829265+00:00
 ======================================================================
 
 [PASSAGE]
@@ -16,7 +16,7 @@ So sharpen once more, and surrender the comfort. The individual claim is true. T
 [QUESTIONS]
 
 Q1. Which of the following best captures the central thesis of the passage?
-(A) A benefit that is genuine for each patient can be false for patients taken together, and the two truths need not converge.
+(A) A benefit genuine for each patient can be false for patients in aggregate; the two truths need not converge
 (B) Catching a tumor early is obviously better medicine, since the small lesion comes out and the patient walks home safely.
 (C) Overdiagnosis shows that screening healthy populations mostly harms them, so fewer tests and fewer biopsies are the responsible course.
 (D) Better tests and sharper thresholds will eventually make the individual good and the aggregate good coincide as they should.
@@ -24,7 +24,7 @@ Q1. Which of the following best captures the central thesis of the passage?
 Q2. If paragraph 2 (the paragraph introducing overdiagnosis and stating the author's plain claim) were deleted, how would the argument most change?
 (A) The passage would lose the concession that some scale gaps are fixable by refining the diagnostic tools.
 (B) The passage would lose its endorsement of the overdiagnosis position, leaving the case for fewer biopsies unsupported thereafter.
-(C) The passage would lose the moment where the author distinguishes his own claim from the epidemiologists' framing, blurring whose position is being argued.
+(C) The passage would lose where the author distinguishes his claim from the epidemiologists' framing, blurring whose position is argued
 (D) The passage would lose the bedside scene of a frightened patient on the examining table that grounds the humane view.
 
 Q3. What is the primary structural function of the final paragraph beginning 'So sharpen once more'?
@@ -43,7 +43,7 @@ Q5. In context, the phrase 'the arithmetic simply changes hands' most nearly mea
 (A) improving the arithmetic with better tools will restore agreement between the two scales.
 (B) the numbers are unreliable because different parties count the same cases differently.
 (C) the calculation is passed from clinicians to epidemiologists, who compute it more rigorously.
-(D) the same reasoning, applied across a population rather than one person, can yield the opposite conclusion.
+(D) the same reasoning, across a population not one person, yields the opposite conclusion
 
 Q6. Which best describes the author's intellectual posture across the passage?
 (A) He grants each rival view real force, denies they can be reconciled, and insists the reader must choose a scale to act on.

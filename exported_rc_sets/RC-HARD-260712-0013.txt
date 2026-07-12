@@ -1,0 +1,90 @@
+RC ID: RC-HARD-260712-0013 | Tier: hard | Score: 8.8 | Status: approved | Compliance F1: 1.0 | Novelty: 0.701 | Generated: 2026-07-12T08:23:46.343468+00:00
+======================================================================
+
+[PASSAGE]
+
+I confess I came to the triage-scoring literature prepared to distrust it, and I was disarmed. The elegance is real. A severity index converts the shivering chaos of an emergency department into an ordering: assign weights to vitals, to age, to the mechanism of injury, and a queue resolves itself where before there was only the loudest voice or the most sympathetic face. Queuing-theory bed-allocation models go further, treating the ward as a system with arrival rates and service times, and they promise something genuinely worth wanting — that the child who arrives silent will not be outranked by the adult who arrives shouting, that a tired clinician's hunch will not quietly become a prejudice. The instrument does not get bored at 4 a.m.; it does not resent the patient it saw yesterday. Everything I am nostalgic about — the seasoned eye, the bedside instinct — is also everything that produces the inconsistency these systems were built to abolish. I should be honest that my suspicion of the calculation is partly a suspicion of my own displacement. The model solves a problem I would rather pretend does not exist.
+
+And then the nurses override it. Constantly. A score says level three; the nurse moves the patient up. Why? A breathing pattern the index does not sample. A grey cast to the skin. A mother who has gone very quiet. The nurse cannot always name the variable. She says the patient is about to turn. Often she is right, and the chart later confirms it. It would be easy to stop here and declare the craft vindicated, the calculation exposed. Easy, and I want to. But the override is not a verdict against the model. It is a fact the model has to explain, or fail to.
+
+Because the override is not always right, and unaided judgment has catastrophic failure modes of its own — the missed sepsis, the anchoring on a familiar face. Nor is the fix simply to fold the nurse's cues into the next version as new inputs, as if her breathing-pattern hunch were a variable awaiting discovery. The model asks: given these patients, who is sickest? The nurse, in the override, is asking something the model never poses — what counts as sick enough to reorder a whole ward right now. Those are not two answers to one question. They are two questions wearing the same word.
+
+Which leaves me doubting the tools I have been using to adjudicate. "Accuracy," "override," "failure" — each presumes a fixed object being triaged, and it is precisely that object that goes unstable at the moment of the override. The smooth-running system hides what it is sorting; the friction is where the thing being sorted briefly shows its face, and I no longer trust my instruments to say whose face it is.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central concern of the passage?
+(A) The clash between scoring models and nurses' overrides reveals that the two are answering different questions, unsettling the very terms used to judge triage.
+(B) Triage scoring and bedside instinct pursue one shared goal, and the passage seeks the best method of combining them into a single reliable procedure.
+(C) The author argues that severity indices, though initially disarming, ultimately fail because they cannot sample the subtle cues that experienced nurses reliably detect.
+(D) The essay builds toward an indictment of algorithmic medicine as cold and dehumanizing, with human judgment waiting in the wings as its humane corrective.
+
+Q2. Which best describes the author's intellectual posture by the end of the passage?
+(A) He remains committed to the models, viewing overrides as noise the next algorithmic version should absorb as additional inputs.
+(B) He has come to side with the nurses, treating practitioner intuition as the vindicated source of triage accuracy against a discredited formalism.
+(C) He concludes that both sides err equally and that a balanced middle course between calculation and instinct is the only defensible resolution.
+(D) He suspends judgment on both approaches, distrusting even his own vocabulary for weighing them.
+
+Q3. What does the author mean by calling model and nurse 'two questions wearing the same word'?
+(A) The disagreement is merely verbal, and once the two parties clarify their shared definition of sickness the conflict dissolves.
+(B) The move sets up a synthesis the author will then deliver, combining the algorithm's ranking with the nurse's cues into one instrument.
+(C) Each uses 'sick' to ask something distinct: ranking given patients versus deciding what warrants reordering the ward now.
+(D) The two approaches simply answer the same question with differing degrees of accuracy, one measurable and the other intuitive.
+
+Q4. Which claim does the author present as his own considered view rather than as a position he reports or steelmans?
+(A) The queuing model reliably ensures the silent child will never be outranked by the shouting adult on the ward.
+(B) The override is a fact the model must explain or fail to, not a verdict settling the contest.
+(C) The nurse's breathing-pattern hunch is a genuine variable awaiting discovery and incorporation into a better model.
+(D) The seasoned eye and bedside instinct are precisely what produce the inconsistency the scoring systems were built to abolish.
+
+Q5. According to the passage, why does the author confess his suspicion of the calculation is compromised?
+(A) Because the models have already proven more accurate than nurses across every documented failure mode he examined.
+(B) Because the calculation solves a genuine problem that he would prefer to pretend does not exist at all.
+(C) Because he admits nostalgia for the bedside instinct has made him dismiss the scoring systems out of hand.
+(D) Because his suspicion is partly a suspicion of his own displacement by the model.
+
+Q6. Suppose a hospital, citing this essay, deployed a hybrid dashboard that logs every nurse override as training data to refine future scores. How would the author most likely respond?
+(A) He would object that this treats the override as a missing input, ignoring that it poses a different question entirely.
+(B) He would welcome it as the practical synthesis his argument was quietly building toward all along.
+(C) He would endorse it, since it finally lets nurses' superior intuition correct the model's documented blind spots.
+(D) He would reject it because scoring models should be abandoned in favor of trusting the seasoned clinician's eye.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Tracks the full arc: elegance conceded (P1), override reframed as a fact to explain (P2-3), and instruments destabilized (P4).
+  (B) straw_version — Contradicts P3's claim that model and nurse pose 'two questions wearing the same word,' not one shared goal.
+  (C) premature_closure — Stops where P2 tempts the reader; P3 insists the override 'is not a verdict against the model.'
+  (D) straw_version — Distorts P1-P3, where the author explicitly refuses to let the override count as a verdict against the model.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — Matches P4: 'accuracy,' 'override,' 'failure' all presume a fixed object, and he 'no longer trusts' his instruments—an aperture that widens rather than resolves.
+  (A) stance_misread — P3 explicitly rejects folding the nurse's cues in 'as if her hunch were a variable awaiting discovery.'
+  (B) stance_misread — P3 states the override is 'not always right' and that unaided judgment has 'catastrophic failure modes,' blocking any vindication.
+  (C) false_symmetry — The passage denies they answer one question, so a 'middle course' misreads the two-questions insight of P3-P4.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — Directly unpacks P3's contrast between 'who is sickest?' and 'what counts as sick enough to reorder a whole ward right now.'
+  (A) half_truth — Inverts the point: the shared word hides genuinely different questions, not a resolvable definitional slip.
+  (B) straw_version — P4 delivers no synthesis; it widens into doubt about the adjudicating terms themselves.
+  (D) level_confusion — Contradicts P3's insistence that these are 'not two answers to one question.'
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — P2-P3 give this as the author's own reframing, correcting the 'easy' verdict he admits wanting to draw.
+  (A) scope_inflation — P1 reports this as the model's 'promise,' a hope the author admires, not a settled truth he asserts.
+  (C) straw_version — P3 raises this only to reject it ('Nor is the fix simply to fold the nurse's cues in').
+  (D) adjacent_answer — This is the pro-model case the author reports while conceding its elegance in P1, not his final position.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — P1 states plainly: 'my suspicion of the calculation is partly a suspicion of my own displacement.'
+  (A) scope_inflation — P3 says the override 'is not always right' and the model 'has to explain' it—no across-the-board accuracy is claimed.
+  (B) adjacent_answer — That sentence explains the model's threat, not why his suspicion is compromised; the confession is about displacement.
+  (C) half_truth — He voices nostalgia but says he 'was disarmed' by the models' elegance, not that he dismissed them.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — P3 rejects folding cues in 'as if her hunch were a variable awaiting discovery'—the hybrid commits exactly this error.
+  (B) straw_version — The essay offers no synthesis and P4 widens into doubt rather than a design recommendation.
+  (C) stance_misread — He never grants intuition superiority; P3 notes judgment's 'catastrophic failure modes.'
+  (D) stance_misread — He concedes the models' real elegance in P1 and never calls for abandoning them.
+
+[Inspired by: "The thinking style that makes people vulnerable to extremism", https://psyche.co/ideas/the-thinking-style-that-makes-people-vulnerable-to-extremism]

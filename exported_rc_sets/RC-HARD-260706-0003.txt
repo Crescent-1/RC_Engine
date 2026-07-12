@@ -1,4 +1,4 @@
-RC ID: RC-HARD-260706-0003 | Tier: hard | Score: 8.8 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.793 | Generated: 2026-07-06T13:48:42.842343+00:00
+RC ID: RC-HARD-260706-0003 | Tier: hard | Score: 8.8 | Status: approved | Compliance F1: 1.0 | Novelty: 0.793 | Generated: 2026-07-06T13:48:42.842343+00:00
 ======================================================================
 
 [PASSAGE]
@@ -28,7 +28,7 @@ Q2. What is the primary function of the sentence noting that the degraded term '
 (D) It concedes that measurement was never possible even in ecology.
 
 Q3. In context, the closing remark that historians of scientific language are 'the better-instrumented witnesses' most nearly implies that:
-(A) the question of whether consoling usage earns its credit requires tools beyond concept-drift epistemics.
+(A) whether consoling usage earns its credit requires tools beyond concept-drift epistemics
 (B) scientific concepts should never be permitted to leave their disciplines.
 (C) the historians will confirm that the folk version merely borrows unearned credibility.
 (D) epistemics of concept-drift has been decisively discredited as a method.
@@ -36,7 +36,7 @@ Q3. In context, the closing remark that historians of scientific language are 't
 Q4. The word 'sustainability,' born as a forestry rule about harvesting no more timber than regrows, now appears in marketing to signal vague ecological virtue with no yield or renewal rate specified. Which mechanism from the passage best explains this shift?
 (A) The forestry meaning was corrupted, proving the marketing version does no real work.
 (B) The term simply narrowed to fit one specialized commercial audience.
-(C) A precise relation shed its specified baseline and became a free-floating aura conferring approval.
+(C) A precise relation shed its baseline, becoming a free-floating aura of approval
 (D) Marketers deliberately preserved the renewal rate to borrow forestry's credibility.
 
 Q5. The claim that a degraded term can still 'do work' by consoling rather than calibrating relies on which unstated assumption?
@@ -49,7 +49,7 @@ Q6. Which best describes the author's posture toward the concept's degradation?
 (A) Remaining wholly neutral, treating both versions as equally valid measures.
 (B) Lamenting the corruption as a clear loss that later usages should reverse.
 (C) Celebrating the folk version as a richer improvement on sterile measurement.
-(D) Documenting the decay while withholding contempt, suspecting the drifted term may serve a legitimate need.
+(D) Documenting decay without contempt, suspecting the term serves a legitimate need
 
 [ANSWER KEY & ELIMINATION LOGIC]
 

@@ -1,0 +1,90 @@
+RC ID: RC-ELITE-260711-0025 | Tier: elite | Score: 8.6 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.663 | Generated: 2026-07-11T19:13:40.739365+00:00
+======================================================================
+
+[PASSAGE]
+
+Consider the seed that no one meant to plant. A wheat harvest passes over a field; a fraction of grain escapes the combine, settles into the soil, and waits. The following season the field is dressed for something else entirely — soy, perhaps, or fallow — and up comes the wheat regardless, uninvited, punctual, correct in every botanical particular. Agronomists call this plant a volunteer, though they cannot agree on much beyond the name. It is not a weed in the ordinary sense, being genetically identical to a variety men have spent decades perfecting. It is not the crop, either, for no one asked it to appear. It arrives, one might say, without an invitation and yet in full evening dress.
+
+The obvious courtesy is to admit it to the category of crop. The volunteer is, after all, the very species the breeder prized, often indistinguishable in the row from its sanctioned neighbors, and there is a tidy managerial logic in simply folding it into the harvest ledger as a wayward member of the family. The logic is tidy and it is wrong. A crop is not merely a plant of the right pedigree; it is a plant that received a schedule — a chosen spacing, a sowing date, a calibrated regimen of water and input, all the small ceremonies of husbandry the volunteer conspicuously did without. To honor it as crop is to overlook that it competes with the sanctioned planting for light and nitrogen, and that it contaminates the purity on which the crop's market value depends. It has the bloodline and none of the appointment.
+
+The opposite courtesy is to enter it in the register of weeds, and here the case is stronger, for the volunteer is genuinely unwanted, must genuinely be controlled, and, where it descends from a herbicide-tolerant planting of a prior year, carries that tolerance forward into a field where it is now a hazard rather than a convenience — an unwelcome plant by every practical measure, which is precisely what a weed is. Yet the twinning of the two terms conceals their incompatibility: a weed is presumed foreign to the field's intended lineage, an intruder from some other stock, whereas the volunteer is nothing other than the field's own former self, its last crop returning a season late, so that to file it under weeds is to declare a field's past a trespasser upon its present — and the difficulty, one begins to suspect, lies not in the plant's divided nature but in a system that insists on treating one field, one season, one harvest as the unit within which everything must be sorted.
+
+Agricultural classification was assembled around a single line: the deliberate act of sowing, which separated what a farmer meant from what merely happened. The line served admirably in a world where nearly everything green in a field could be traced to somebody's decision, and it smuggled in, unremarked, the premise that seasons come discretely and intentions expire cleanly with the harvest that expressed them. The volunteer withdraws that premise. Where land is worked continuously and viable seed accumulates underground for years, the field carries a memory longer than any single planting, and last spring's will is still germinating under this spring's. The temptation now is to legislate a third category, a formal seat for the returning grain between crop and weed — a courtesy that would fail on schedule, because the flaw was never the shortage of categories but the discrete field-season into which they were poured. The volunteer is not a hard case for the crop-and-weed distinction; it is the discovery that the distinction never described a plant at all, only the intention of the last person to touch the ground. What wants classifying, then, is not the seed but the interval — the years the soil holds an instruction after the hand that gave it has forgotten, a span in which the field remembers what its owner has ceased to mean.
+
+[QUESTIONS]
+
+Q1. What is the primary structural function of the two-paragraph sequence weighing the volunteer as 'crop' and then as 'weed'?
+(A) It stages two plausible classifications, each strong enough to seem right, so that their mutual failure can point past the plant to the sorting system itself.
+(B) It contrasts two farming philosophies to show that agronomists disagree because they lack shared botanical training and standards.
+(C) It concedes the weed classification is correct while dismissing the crop classification as sentimental family loyalty.
+(D) It builds a practical argument that volunteers should be reclassified as a wayward subtype of crop for cleaner farm-management ledgers.
+
+Q2. Which statement best captures the passage's central claim?
+(A) The volunteer exposes that the crop-weed distinction never sorted plants at all, only the intentions of the last person to work a field within one season.
+(B) Since the volunteer is an unwanted plant that must be controlled, it belongs with weeds despite sharing the crop's prized genetic lineage.
+(C) Agricultural science needs a formal third category between crop and weed to accommodate returning grain and resolve the volunteer's divided nature.
+(D) The volunteer proves that continuously worked land holds viable seed for years, making harvest ledgers unreliable records of a field's true contents.
+
+Q3. Why does the passage introduce, in the final paragraph, the 'temptation to legislate a third category'?
+(A) To propose a refined three-way scheme that finally seats the returning grain correctly between crop and weed.
+(B) To name a natural next move only in order to reject it, showing the trouble is not too few categories but the discrete field-season the categories assume.
+(C) To concede that classification is ultimately arbitrary and that no scheme can ever describe living plants.
+(D) To illustrate how agronomists historically expanded taxonomies whenever a difficult specimen resisted existing categories.
+
+Q4. What work does the detail about herbicide-tolerant volunteers 'carrying that tolerance forward into a field where it is now a hazard' do in the argument?
+(A) It demonstrates that herbicide tolerance is what makes the volunteer neither crop nor weed but a genuinely wild plant.
+(B) It shows that the crop classification collapses because prized varieties can turn hazardous across seasons.
+(C) It proves that volunteers are more dangerous than ordinary weeds and therefore demand their own regulatory category.
+(D) It strengthens the case for filing the volunteer under weeds by showing it is genuinely harmful, before that very case is turned back against itself.
+
+Q5. Across the whole essay, what function is served by the shift from describing the plant to describing 'the interval — the years the soil holds an instruction'?
+(A) It concludes that the field, not the farmer, holds the real intention behind each returning planting.
+(B) It relocates what needs classifying from object to timespan, widening the question so that the field's memory, not the seed, becomes the unsorted thing.
+(C) It resolves the crop-versus-weed tension by identifying the interval as the true third category the plant belonged in.
+(D) It narrows the essay to a practical recommendation that farmers track seed persistence when scheduling their rotations.
+
+Q6. Which best describes the author's intellectual posture toward the classification problem?
+(A) Sympathetic to the weed classification, the author reluctantly accepts it as the least imperfect of several flawed but workable options.
+(B) Playfully agnostic, the author enjoys the paradox but declines to draw any conclusion about how fields should be understood.
+(C) Reformist and constructive, the author aims to supply agronomists a sounder taxonomy adequate to continuously worked land.
+(D) Skeptical of both available verdicts, the author treats the volunteer less as a puzzle to solve than as evidence that the framework itself misdescribes its objects.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — The paired candidate-verdicts (paras 2–3) are set up to both fail, which the thesis in para 3 uses to indict the field-season unit rather than the plant.
+  (B) scope_inflation — Para 1's note that agronomists 'cannot agree' is inflated into a claim about training, not the classificatory point being made.
+  (C) half_truth — Para 3 says the weed case is 'stronger' yet also incompatible, so it too is undermined, not endorsed as correct.
+  (D) phrase_misuse — It adopts the 'tidy managerial logic' the passage explicitly calls wrong in para 2, mistaking a rejected option for the essay's aim.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — This integrates para 4's revelation that the distinction tracked intention, and that the discrete field-season, not the plant, is the flawed unit.
+  (B) terminological_twin — It treats 'weed' and 'volunteer' as near-equivalents on shared unwantedness, the exact conflation para 3 dismantles as incompatible logics.
+  (C) premature_closure — Para 4 predicts this third-category fix would 'fail on schedule,' so the passage rejects rather than proposes it.
+  (D) example_promotion — Seed persistence is supporting evidence in para 4, promoted here into the main claim about classification and intention.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — Para 4 raises the third-category 'courtesy' expressly to say it 'would fail,' redirecting the problem onto the unit rather than the count of categories.
+  (A) phrase_misuse — It reads the raised temptation as the passage's recommendation, ignoring that para 4 says such a courtesy 'would fail on schedule.'
+  (C) moderate_extremism — The passage faults the field-season unit specifically, not classification as such; the claim overreaches past para 4's diagnosis.
+  (D) framework_import — No historical taxonomic practice is described; para 4's move is diagnostic, not an account of how scientists have behaved.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — Para 3 offers the tolerance detail to make the weed classification 'stronger,' setting up the incompatibility the paragraph then exposes.
+  (A) category_slip — The passage never routes the volunteer toward 'wild'; tolerance is cited only to bolster the weed verdict.
+  (B) adjacent_answer — The hazard point appears in the weed argument (para 3), not as a refutation of the crop reading handled in para 2.
+  (C) scope_inflation — The detail supports the weed reading, not a comparative danger ranking or the third category the essay later rejects.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The closing move displaces the problem from plant to interval, matching the aperture that widens the inquiry beyond the specimen.
+  (A) causal_inversion — The field 'remembers' an owner's lapsed intention; it does not originate intention, inverting para 4's actual relation.
+  (C) adjacent_answer — The interval replaces the sorting unit, not the missing category the essay has already rejected in para 4.
+  (D) premature_closure — The passage opens the question toward the interval rather than closing it into farm scheduling advice.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — The author rejects crop, weed, and third-category answers alike, using the case to indict the framework rather than settle the plant, per paras 3–4.
+  (A) stance_misread — The author calls the weed case stronger yet still incompatible; no verdict is accepted, contra para 3's turn.
+  (B) half_truth — The tone is wry, but para 4 draws a firm conclusion about intention and the field-season, not mere paradox-savoring.
+  (C) framework_import — The essay dismantles the taxonomic impulse rather than supplying a better scheme, rejecting the third category in para 4.
+
+[Inspired by: "Therapy for billionaires", https://aeon.co/essays/what-would-a-therapy-camp-for-billionaires-look-like]

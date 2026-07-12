@@ -41,17 +41,16 @@ DEFAULT_MIN_WORDS = 1000
 #               publishes complete, self-contained scholarly essays at ~800
 #               words, so it uses a lower bar than magazine feeds.
 FEEDS = {
-    # Core long-form idea/essay sources.
+    # --- CAT gold: multi-move idea essays (hard/elite preferred pool) --------
     "https://aeon.co/feed.rss":
         {"genre": "Aeon", "js": True, "paths": ["/essays/"]},
+    # Ideas only — /guides/ is self-help how-to (weak CAT seed).
     "https://psyche.co/feed.rss":
-        {"genre": "Psyche", "js": True, "paths": ["/ideas/", "/guides/"]},
+        {"genre": "Psyche", "js": True, "paths": ["/ideas/"]},
     "https://nautil.us/feed/":
         {"genre": "Nautilus", "js": False, "paths": None},
     "https://daily.jstor.org/feed/":
         {"genre": "JSTOR", "js": False, "paths": None, "min_words": 800},
-
-    # Argument-rich magazines/reviews: best pool for hard/elite RC seeds.
     "https://www.publicbooks.org/feed/":
         {"genre": "Public Books", "js": False, "paths": None, "min_words": 900},
     "https://thepointmag.com/feed/":
@@ -74,41 +73,38 @@ FEEDS = {
         {"genre": "NYRB", "js": False, "paths": None, "min_words": 1200},
     "https://harpers.org/feed/":
         {"genre": "Harper's", "js": False, "paths": None, "min_words": 1000},
+    "https://www.noemamag.com/feed/":
+        {"genre": "Noema", "js": False, "paths": None, "min_words": 900},
+    "https://www.quantamagazine.org/feed/":
+        {"genre": "Quanta", "js": False, "paths": None, "min_words": 900},
+    "https://undark.org/feed/":
+        {"genre": "Undark", "js": False, "paths": None, "min_words": 900},
+
+    # --- Medium-ok / uneven: keep ingesting, NOT in hard/elite preferred -----
+    # Political magazines: often news/op-ed rather than multi-layer argument.
     "https://www.dissentmagazine.org/feed/":
         {"genre": "Dissent", "js": False, "paths": None, "min_words": 900},
     "https://jacobin.com/feed/":
         {"genre": "Jacobin", "js": False, "paths": None, "min_words": 1000},
-    "https://www.noemamag.com/feed/":
-        {"genre": "Noema", "js": False, "paths": None, "min_words": 900},
     "https://www.tabletmag.com/feed":
         {"genre": "Tablet", "js": False, "paths": None, "min_words": 1000},
     "https://newrepublic.com/rss.xml":
         {"genre": "New Republic", "js": False, "paths": None, "min_words": 900},
     "https://www.thenation.com/feed/?post_type=article":
         {"genre": "The Nation", "js": False, "paths": None, "min_words": 1000},
-
-    # Reliable science/technology explainers. These broaden medium/hard topics
-    # without making the elite pool too newsy.
-    "https://www.quantamagazine.org/feed/":
-        {"genre": "Quanta", "js": False, "paths": None, "min_words": 900},
+    # Single-take science explainers / light features — domain variety for medium.
     "https://knowablemagazine.org/rss":
         {"genre": "Knowable", "js": False, "paths": None, "min_words": 800},
-    "https://undark.org/feed/":
-        {"genre": "Undark", "js": False, "paths": None, "min_words": 900},
     "https://www.scientificamerican.com/feed/":
         {"genre": "Scientific American", "js": False, "paths": None, "min_words": 800},
-    "https://arstechnica.com/feed/":
-        {"genre": "Ars Technica", "js": False, "paths": None, "min_words": 900},
-
-    # Lighter but dependable domain variety.
     "https://www.smithsonianmag.com/rss/history/":
-        {"genre": "history", "js": False, "paths": None, "min_words": 700},
+        {"genre": "history", "js": False, "paths": None, "min_words": 900},
     "https://www.smithsonianmag.com/rss/science-nature/":
-        {"genre": "science", "js": False, "paths": None, "min_words": 700},
-    "https://www.smithsonianmag.com/rss/arts-culture/":
-        {"genre": "arts-culture", "js": False, "paths": None},
-    "https://www.smithsonianmag.com/rss/innovation/":
-        {"genre": "innovation", "js": False, "paths": None},
+        {"genre": "science", "js": False, "paths": None, "min_words": 900},
+
+    # Dropped (weak CAT seeds — do not re-add without a strong reason):
+    #   Ars Technica (tech news), Smithsonian arts-culture / innovation
+    #   (soft features), Psyche /guides/ (self-help; path filter above).
 }
 
 # Module-level cache so importing modules (e.g. rc_pipeline.py) can call
@@ -168,15 +164,21 @@ def get_db():
     return _db_instance
 
 
-def get_unused_essay(db=None, genre=None, exclude_ids=None):
+def get_unused_essay(db=None, genre=None, exclude_ids=None, randomize=True):
     """Returns ONE not-yet-used essay from the vector store, or None if there
     isn't one. `genre` restricts the source pool and may be:
       - None            -> any genre
       - a single label  -> "Aeon"
       - a list of labels -> ["Aeon", "Psyche", "Nautilus", "JSTOR"]
 
+    By default picks uniformly at random among matches (so hard/elite are not
+    stuck on the first Chroma hit / Aeon-heavy ordering). Set randomize=False
+    for deterministic first-match behaviour.
+
     Return shape: {"id": chroma_doc_id, "text": page_content, "metadata": {...}}
     """
+    import random as _random
+
     db = db or get_db()
 
     if genre:
@@ -190,19 +192,24 @@ def get_unused_essay(db=None, genre=None, exclude_ids=None):
         where = {"used": False}
 
     exclude = set(exclude_ids or ())
-    results = db.get(where=where, limit=1 + len(exclude))
+    results = db.get(where=where)
     if not results or not results.get("ids"):
         return None
 
+    candidates = []
     for i, doc_id in enumerate(results["ids"]):
         if doc_id in exclude:
             continue   # already tried this batch slot (novelty-retry rotation)
-        return {
+        candidates.append({
             "id": doc_id,
             "text": results["documents"][i],
             "metadata": results["metadatas"][i],
-        }
-    return None
+        })
+    if not candidates:
+        return None
+    if randomize and len(candidates) > 1:
+        return _random.choice(candidates)
+    return candidates[0]
 
 
 def mark_essay_used(db, doc_id: str, rc_id: str):

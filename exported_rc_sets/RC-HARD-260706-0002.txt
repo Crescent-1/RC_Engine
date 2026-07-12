@@ -1,4 +1,4 @@
-RC ID: RC-HARD-260706-0002 | Tier: hard | Score: 8.8 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.809 | Generated: 2026-07-06T13:46:10.208375+00:00
+RC ID: RC-HARD-260706-0002 | Tier: hard | Score: 8.8 | Status: approved | Compliance F1: 1.0 | Novelty: 0.809 | Generated: 2026-07-06T13:46:10.208375+00:00
 ======================================================================
 
 [PASSAGE]
@@ -28,7 +28,7 @@ Q2. In context, the "bolder reading" that "the whole quarrel dissolves into gram
 Q3. Which best captures the central claim of the passage as a whole?
 (A) Because the inspection was flawed, the author now cautiously leans toward free will surviving after all
 (B) The free-will debate was always a dispute about vocabulary rather than about metaphysics
-(C) The consensus on free will records who tired of arguing, so the underlying question stays genuinely open
+(C) The free-will consensus records who tired of arguing, so the question stays genuinely open
 (D) Determinism prevailed through slow attrition, which shows the field's admirable patience and rigor
 
 Q4. The author's move from "the verdict was reached by exhaustion" to "the verdict is uncertified" depends on which unstated assumption?
