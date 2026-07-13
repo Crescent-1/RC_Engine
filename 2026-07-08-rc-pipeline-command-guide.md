@@ -14,11 +14,14 @@ Two engines share the same database (`rc_pipeline.db`):
 ## 0. One-time setup
 
 ```bash
-# API key must be set before any REAL generation (put it in .env — already gitignored)
-# .env contains:  ANTHROPIC_API_KEY=sk-...
+# API keys must be set before any REAL generation (put them in .env — already
+# gitignored; the engine and GUI load .env automatically). One line per provider:
+#   ANTHROPIC_API_KEY=sk-...        (claude — default)
+#   OPENAI_API_KEY=sk-...           (openai)
+#   GOOGLE_API_KEY=...              (gemini; GEMINI_API_KEY also works)
 
-# install deps
-pip install anthropic python-docx openpyxl --break-system-packages
+# install deps (see requirements.txt for the full pinned list)
+pip install -r requirements.txt
 ```
 
 Before your first real batch, run these once, in order:
@@ -67,6 +70,15 @@ python -m rc_engine.cli generate --medium N --hard N --elite N [flags]
 | Skip the embedding novelty channel (faster) | `python -m rc_engine.cli generate --elite 4 --no-embed` |
 | Generate but don't auto-export | `python -m rc_engine.cli generate --elite 4 --no-export` |
 | Write to a non-default database | `python -m rc_engine.cli generate --elite 4 --db my_test.db` |
+| Run on OpenAI instead of Claude | `python -m rc_engine.cli generate --hard 4 --provider openai` |
+| Run on Gemini instead of Claude | `python -m rc_engine.cli generate --hard 4 --provider gemini` |
+| Price a batch for a provider before running | `python -m rc_engine.cli estimate --provider gemini` |
+
+**Providers:** one per run (`--provider claude|openai|gemini`, default claude);
+`retry-questions` takes the same flag. Model IDs and rates are the EDITABLE
+`PROVIDER_MODELS` / `MODEL_RATES` dicts in `rc_engine/config.py` — after editing,
+run `estimate --provider X` and `selftest`. The per-tier hard caps apply to every
+provider identically.
 
 **Cost safety is built in:** every call is checked against a per-RC hard cap (medium $0.12 / hard $0.22 / elite $0.30) before it runs, and the batch stops once cumulative spend hits `--max-usd` (default = 1.25× the sum of requested tier budgets). If the API rate-limits or runs out of credit mid-batch, the run stops cleanly — finished work is already saved. **Just re-run the same command to continue**; used essays are skipped automatically.
 
@@ -160,7 +172,24 @@ python -m http.server 8734 --directory website
 
 ---
 
-## 9. After editing config or component libraries
+## 9. The GUI (everything above, in a browser)
+
+```bash
+python -m gui          # or double-click run_gui.bat
+```
+
+Opens **http://127.0.0.1:8730** — a local web console with: dashboard (counts,
+spend, recent RCs, health), generate (tier steppers, provider dropdown, dry-run,
+live log console with a Stop button), resume queue, RC library with full-text
+viewer and export, manual-RC vetting + AVOID line, corpus-health trends, seed
+inventory by genre and source with one-click feed sync, tracker rebuild, and a
+read-only settings view (API keys shown only as present/missing). It reads the
+DB read-only and runs every action through the CLI, so all cost caps and resume
+mechanics apply unchanged. Localhost only.
+
+---
+
+## 10. After editing config or component libraries
 
 Any time you change `rc_engine/config.py` (budgets, models, token limits) or add/edit a
 `rc_engine/components/*.json` file (families, personas, endings, etc.), run the pre-flight check:

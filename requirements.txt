@@ -1,0 +1,28 @@
+# RC Gen Project — core dependencies
+# Install: pip install -r requirements.txt
+
+# --- LLM providers (rc_engine) ---
+anthropic>=0.40
+openai>=1.60
+google-genai>=1.0
+
+# --- engine extras ---
+openpyxl>=3.1              # build_tracker.py (RC_Tracker.xlsx)
+sentence-transformers      # novelty embedding channel (BAAI/bge-small-en-v1.5)
+
+# --- GUI (python -m gui) ---
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-multipart           # file upload on /api/vet
+
+# --- optional: RAG seed sync (RAG.py) ---
+# Heavy; the engine runs seedless without them. Uncomment to enable, then run:
+#   playwright install chromium
+# feedparser
+# requests
+# trafilatura
+# playwright
+# langchain-core
+# langchain-community
+# langchain-huggingface
+# chromadb

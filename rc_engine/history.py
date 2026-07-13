@@ -71,6 +71,7 @@ class HistoryStore:
             ("domain", "TEXT"), ("passage_embedding", "TEXT"),
             ("blueprint_id", "TEXT"), ("compliance_f1", "REAL"),
             ("novelty_composite", "REAL"), ("engine_version", "TEXT"),
+            ("provider", "TEXT"),
         ]:
             self._ensure_column("rc_sets", col, decl)
 
@@ -403,13 +404,14 @@ class HistoryStore:
                 judge_input_tokens, judge_output_tokens, gen_cost_usd, judge_cost_usd,
                 total_cost_usd, attempts, created_at, solver_json, domain,
                 passage_embedding, blueprint_id, compliance_f1, novelty_composite,
-                engine_version)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0, 0, 0, 0, 0, 0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                engine_version, provider)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, 0, 0, 0, 0, 0, 0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (rc_id, tier, rc_text, json.dumps(judge, ensure_ascii=False), avg, status,
              essay_doc_id, essay_url, total_cost, attempts, _now(),
              json.dumps(solver, ensure_ascii=False) if solver else None, domain,
              json.dumps(embedding) if embedding else None,
-             blueprint_id, compliance_f1, novelty_composite, config.ENGINE_VERSION))
+             blueprint_id, compliance_f1, novelty_composite, config.ENGINE_VERSION,
+             config.ACTIVE_PROVIDER))
         self.conn.commit()
 
     def letter_sequences_trailing(self, limit: int = 20) -> list[str]:

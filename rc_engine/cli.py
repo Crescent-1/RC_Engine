@@ -44,6 +44,11 @@ def _stage_cost(stage: str, tier: str, worst: bool) -> float:
 
 
 def cmd_estimate(_args) -> int:
+    provider = getattr(_args, "provider", None) or "claude"
+    config.set_provider(provider)
+    if provider != "claude":
+        m = config.PROVIDER_MODELS[provider]
+        print(f"[provider] {provider}: big={m['big']} mid={m['mid']} small={m['small']}")
     ok = True
     print(f"{'tier':8s} {'stage':12s} {'model':28s} {'typical':>9s} {'worst':>9s}")
     for tier in ("medium", "hard", "elite"):
@@ -114,6 +119,20 @@ def cmd_selftest(_args) -> int:
     print("[2/5] Cost model sanity (happy path within budget for every tier)...")
     if cmd_estimate(None) != 0:
         failures.append("estimate")
+
+    print("[2b] Provider resolution (all providers resolve with rates, $0)...")
+    try:
+        for prov in config.PROVIDERS:
+            config.set_provider(prov)
+            for stage, tiers in config.STAGE_CONFIG.items():
+                for tier, (model, _mt) in tiers.items():
+                    if model not in config.MODEL_RATES:
+                        failures.append(f"{prov}: {stage}/{tier} model "
+                                        f"{model!r} missing from MODEL_RATES")
+        if not any("MODEL_RATES" in f for f in failures):
+            print(f"      OK: {', '.join(config.PROVIDERS)}")
+    finally:
+        config.set_provider(config.DEFAULT_PROVIDER)
 
     print("[3/5] Budget guard unit check...")
     ledger = CostLedger(budget_usd=0.01)
@@ -256,6 +275,26 @@ def _make_seed_provider():
     return provider
 
 
+def _setup_provider(args) -> tuple[object | None, int]:
+    """Resolve the run's provider and build its client.
+
+    Returns (client, exit_code); client is None when the provider's API key
+    is missing (exit_code carries the CLI failure). Dry-run always gets the
+    $0 mock regardless of provider."""
+    provider = getattr(args, "provider", "claude")
+    config.set_provider(provider)
+    if getattr(args, "dry_run", False):
+        return MockLLMClient(), 0
+    from .providers import make_client, provider_key_present
+    if not provider_key_present(provider):
+        keys = " or ".join(config.PROVIDER_ENV_KEYS[provider])
+        print(f"{keys} not set (environment or .env).")
+        return None, 1
+    m = config.PROVIDER_MODELS[provider]
+    print(f"[provider] {provider}: big={m['big']} mid={m['mid']} small={m['small']}")
+    return make_client(provider), 0
+
+
 def cmd_generate(args) -> int:
     tier_counts = {t: getattr(args, t) for t in ("medium", "hard", "elite")
                    if getattr(args, t) > 0}
@@ -263,16 +302,13 @@ def cmd_generate(args) -> int:
         print("Nothing to generate. Use --medium/--hard/--elite N.")
         return 1
 
+    llm, err = _setup_provider(args)
+    if llm is None:
+        return err
     if args.dry_run:
-        llm = MockLLMClient()
         if args.db == config.DB_PATH:
             args.db = "rc_engine_dryrun.db"   # never pollute the production DB with mock RCs
         print(f"[dry-run] Using MockLLMClient — $0, no API calls. DB: {args.db}")
-    else:
-        if not os.environ.get("ANTHROPIC_API_KEY"):
-            print("ANTHROPIC_API_KEY not set.")
-            return 1
-        llm = LLMClient()
 
     history = HistoryStore(args.db)
     # dry-run passages are canned filler text — the embedding channel would
@@ -296,17 +332,16 @@ def cmd_generate(args) -> int:
 # ---------------------------------------------------------------------------
 
 def cmd_retry_questions(args) -> int:
-    if args.dry_run:
-        llm = MockLLMClient()
-        if args.db == config.DB_PATH:
-            args.db = "rc_engine_dryrun.db"
-        print(f"[dry-run] Using MockLLMClient — $0, no API calls. DB: {args.db}")
-    elif args.blueprint or args.all:
-        if not os.environ.get("ANTHROPIC_API_KEY"):
-            print("ANTHROPIC_API_KEY not set.")
-            return 1
-        llm = LLMClient()
+    if args.dry_run or args.blueprint or args.all:
+        llm, err = _setup_provider(args)
+        if llm is None:
+            return err
+        if args.dry_run:
+            if args.db == config.DB_PATH:
+                args.db = "rc_engine_dryrun.db"
+            print(f"[dry-run] Using MockLLMClient — $0, no API calls. DB: {args.db}")
     else:
+        config.set_provider(getattr(args, "provider", "claude"))
         llm = None                      # list mode is free — no client needed
 
     history = HistoryStore(args.db)
@@ -790,10 +825,14 @@ def main(argv=None) -> int:
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
 
-    sub.add_parser("estimate", help="print per-tier cost table ($0)")
+    est = sub.add_parser("estimate", help="print per-tier cost table ($0)")
+    est.add_argument("--provider", choices=list(config.PROVIDERS), default="claude",
+                     help="price the cost table for this provider's models")
     sub.add_parser("selftest", help="mock end-to-end run ($0)")
 
     g = sub.add_parser("generate", help="generate RCs")
+    g.add_argument("--provider", choices=list(config.PROVIDERS), default="claude",
+                   help="LLM provider for the whole run (default: claude)")
     g.add_argument("--medium", type=int, default=0)
     g.add_argument("--hard", type=int, default=0)
     g.add_argument("--elite", type=int, default=0)
@@ -808,6 +847,8 @@ def main(argv=None) -> int:
     r = sub.add_parser("retry-questions",
                        help="regenerate questions on a persisted passage whose "
                             "questions failed (questions-stage cost only)")
+    r.add_argument("--provider", choices=list(config.PROVIDERS), default="claude",
+                   help="LLM provider for the retry (default: claude)")
     r.add_argument("--blueprint", default=None,
                    help="blueprint id (BP_...) to resume; omit to list resumable passages")
     r.add_argument("--all", action="store_true",
