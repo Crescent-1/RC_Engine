@@ -21,10 +21,11 @@ python -m rc_engine.cli generate --dry-run --elite 2
 #      Reads rc_sets rows AND exported .txt folders. Run once (idempotent).
 python -m rc_engine.cli backfill
 
-# REAL generation (needs ANTHROPIC_API_KEY). Seeds pull from RAG.py if available,
-# else runs seedless.
+# REAL generation (needs the selected provider's API key). Seeds pull from
+# RAG.py if available, else runs seedless.
 python -m rc_engine.cli generate --elite 8 --hard 8
 python -m rc_engine.cli generate --elite 8 --max-usd 2.00   # explicit batch cap
+python -m rc_engine.cli generate --hard 4 --provider openai # non-Claude run
 
 # $0 — corpus health: family/topology drift, answer-letter chi-square
 python -m rc_engine.cli health
@@ -40,6 +41,34 @@ python -m rc_engine.cli avoid --n 4
 #      corpus stays in sync and manual sets stay filterable
 python -m rc_engine.cli vet manual_rc_sets/RC-MANUAL-260707-1.txt --tier elite --ingest
 ```
+
+## Providers (one per run)
+
+The engine runs against **Claude (default), OpenAI, or Gemini** — pick one per
+run with `--provider {claude,openai,gemini}` on `generate`, `retry-questions`,
+and `estimate` (or the provider dropdown in the GUI). Each provider maps three
+model roles (big / mid / small) onto the same stage plan; the per-tier budget
+caps and the pre-call cost guard apply identically.
+
+- **API keys** (environment or the project `.env` file, which is now loaded
+  automatically): `ANTHROPIC_API_KEY`, `OPENAI_API_KEY`,
+  `GOOGLE_API_KEY`/`GEMINI_API_KEY`.
+- **Models and $/Mtok rates** live in the EDITABLE `PROVIDER_MODELS` and
+  `MODEL_RATES` dicts in `rc_engine/config.py`. After any change, run
+  `estimate --provider X` (happy path must fit every tier budget) and `selftest`.
+- Each shipped RC records its provider in the `rc_sets.provider` column.
+- Provider clients live in `rc_engine/providers.py`; `--dry-run` uses the $0
+  mock regardless of provider.
+
+## GUI
+
+`python -m gui` (or double-click `run_gui.bat`) starts a local web console at
+**http://127.0.0.1:8730** covering the full surface: dashboard, generate with
+live log streaming, resume queue, RC library, manual-RC vetting, corpus
+health, seed inventory (by genre and source), tracker rebuild, and settings.
+The GUI reads the DB strictly read-only and runs all actions through the CLI
+in subprocesses, so every cost guarantee below applies unchanged. API keys are
+shown as present/missing only — edit `.env` by hand and restart to change them.
 
 ## Cost guarantees (what "no surprises" means concretely)
 

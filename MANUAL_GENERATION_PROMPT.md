@@ -147,18 +147,29 @@ Distractor quality bar: every question must have at least one trap a STRONG read
 genuinely choose. Lexical extremity ("always", "never") is a wasted distractor — build
 traps from the passage's own logic, especially the two misreadings planted in Stage 1.
 
+Do not let the correct option be systematically the most hedged or most qualified: in at
+least 2 of the 6 questions, phrase the correct option more flatly than its strongest
+distractor, so "most cautious = right" never becomes a tell.
+
 ## STAGE 4 — Self-audit (fix violations before output; do not mention the audit)
 
 1. Paragraph count and word range match the tier; thesis first visible where planned.
 2. Closing posture realized as committed; final sentence obeys its register.
 3. The correct option is the strictly LONGEST option in at most 2 of 6 questions —
    rewrite option lengths until this holds.
-3b. Within each question, keep the four options in a tight length band: word
-   spread (longest minus shortest) at most 8 words AND longest/shortest word
-   ratio at most 1.35. The vet gate blocks ingestion on violations — rewrite
-   option lengths until every question passes.
+3b. Within each question, AIM for a tight length band: word spread (longest minus
+   shortest) at most 8 words AND longest/shortest word ratio at most 1.25. (The vet
+   gate warns — and then blocks ingestion without --force — once spread exceeds 8 or
+   the ratio exceeds 1.35, so aiming at 1.25 leaves buffer for ordinary phrasing.)
+   Rewrite option lengths until every question is inside the band.
 3c. The THESIS/main-idea question's correct option must NOT be the strictly
    longest of its four options (this tell is also budgeted corpus-wide at 1-in-3).
+3d. COMPREHENSIBILITY LOCK when balancing option lengths: never trim an option into a
+   fragment or telegraphic stub. After any cut each option must still be a full
+   grammatical proposition a test-taker can parse in one read — subject, predicate, and
+   the content that makes it right or wrong stay explicit. Do not delete qualifiers that
+   carry scope, stance, or causality. Prefer padding a wrong option with one precise
+   clause over gutting the correct answer.
 4. Answer letters roughly balanced (no letter more than 3 times; not the same letter on
    consecutive questions more than once).
 5. No forbidden phrases; no option refutable by "not mentioned" or "too extreme" alone.

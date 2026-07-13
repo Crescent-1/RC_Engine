@@ -12,6 +12,12 @@
       "runtimeExecutable": "python",
       "runtimeArgs": ["-m", "http.server", "8735", "--directory", "website"],
       "port": 8735
+    },
+    {
+      "name": "rc-gui",
+      "runtimeExecutable": "C:\\Users\\anshu\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
+      "runtimeArgs": ["-m", "gui"],
+      "port": 8730
     }
   ]
 }

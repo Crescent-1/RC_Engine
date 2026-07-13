@@ -88,10 +88,6 @@ FEEDS = {
         {"genre": "Jacobin", "js": False, "paths": None, "min_words": 1000},
     "https://www.tabletmag.com/feed":
         {"genre": "Tablet", "js": False, "paths": None, "min_words": 1000},
-    "https://newrepublic.com/rss.xml":
-        {"genre": "New Republic", "js": False, "paths": None, "min_words": 900},
-    "https://www.thenation.com/feed/?post_type=article":
-        {"genre": "The Nation", "js": False, "paths": None, "min_words": 1000},
     # Single-take science explainers / light features — domain variety for medium.
     "https://knowablemagazine.org/rss":
         {"genre": "Knowable", "js": False, "paths": None, "min_words": 800},

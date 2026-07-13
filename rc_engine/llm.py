@@ -78,6 +78,23 @@ class CostLedger:
         return cost
 
 
+def resolve_effort(stage: str, context: dict | None) -> str | None:
+    """Look up STAGE_EFFORT[stage][tier] when configured. Shared by every
+    provider client; each interprets the value in its own API's terms."""
+    table = getattr(config, "STAGE_EFFORT", None) or {}
+    by_tier = table.get(stage) or {}
+    if not by_tier:
+        return None
+    ctx = context or {}
+    tier = ctx.get("tier")
+    if not tier:
+        bp = ctx.get("blueprint")
+        tier = getattr(bp, "tier", None) if bp is not None else None
+    if not tier:
+        return None
+    return by_tier.get(tier)
+
+
 def extract_json(text: str) -> dict:
     """Tolerant JSON extraction: strips fences and trailing prose."""
     cleaned = text.strip()
@@ -136,19 +153,7 @@ class LLMClient:
 
     @staticmethod
     def _resolve_effort(stage: str, context: dict | None) -> str | None:
-        """Look up STAGE_EFFORT[stage][tier] when configured."""
-        table = getattr(config, "STAGE_EFFORT", None) or {}
-        by_tier = table.get(stage) or {}
-        if not by_tier:
-            return None
-        ctx = context or {}
-        tier = ctx.get("tier")
-        if not tier:
-            bp = ctx.get("blueprint")
-            tier = getattr(bp, "tier", None) if bp is not None else None
-        if not tier:
-            return None
-        return by_tier.get(tier)
+        return resolve_effort(stage, context)
 
 
 # ---------------------------------------------------------------------------

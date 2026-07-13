@@ -14,6 +14,27 @@ RC cleanly with status 'budget_abort'.
 
 import os
 
+
+def _load_dotenv(path: str | None = None) -> None:
+    """Minimal .env loader: KEY=VALUE lines, '#' comments. Never overrides
+    variables already set in the process environment, so exported vars win."""
+    p = path or os.path.join(os.path.dirname(os.path.dirname(__file__)), ".env")
+    try:
+        with open(p, encoding="utf-8-sig") as f:  # utf-8-sig tolerates a BOM
+            for line in f:
+                line = line.strip()
+                if not line or line.startswith("#") or "=" not in line:
+                    continue
+                k, _, v = line.partition("=")
+                k, v = k.strip(), v.strip().strip("'\"")
+                if k and k not in os.environ:
+                    os.environ[k] = v
+    except OSError:
+        pass
+
+
+_load_dotenv()
+
 DB_PATH = os.environ.get("RC_ENGINE_DB", "rc_pipeline.db")
 # The production DB lives inside a OneDrive-synced folder (sync + SQLite is a
 # known corruption risk), so write paths back it up to a local non-synced dir.
@@ -24,17 +45,49 @@ ENGINE_VERSION = "rc-engine-v2.0"
 BLUEPRINT_SCHEMA_VERSION = "2.0"
 
 # ---------------------------------------------------------------------------
-# Models & pricing ($ per million tokens: input, output)
+# Providers, models & pricing ($ per million tokens: input, output)
 # ---------------------------------------------------------------------------
+# One provider per run (CLI --provider / GUI dropdown). Each provider maps
+# three roles — big / mid / small — and the stage plan below is written in
+# roles, resolved into STAGE_CONFIG by set_provider().
+
+DEFAULT_PROVIDER = "claude"
+PROVIDERS = ("claude", "openai", "gemini")
 
 OPUS = "claude-opus-4-8"
 SONNET = "claude-sonnet-5"
 HAIKU = "claude-haiku-4-5-20251001"
 
+# EDITABLE: model IDs current as of 2026-07. Update here when providers ship
+# new models; every ID used here must also have a MODEL_RATES entry.
+PROVIDER_MODELS = {
+    "claude": {"big": OPUS, "mid": SONNET, "small": HAIKU},
+    "openai": {"big": "gpt-5.1", "mid": "gpt-5-mini", "small": "gpt-5-nano"},
+    "gemini": {"big": "gemini-3-pro-preview", "mid": "gemini-2.5-flash",
+               "small": "gemini-2.5-flash-lite"},
+}
+
+# EDITABLE: flat across providers — model IDs are globally unique, so the
+# CostLedger / budget guard / `estimate` work unchanged. VERIFY these against
+# the providers' current pricing pages before the first paid run; a wrong rate
+# only skews the ledger, the hard per-tier budget cap still binds.
 MODEL_RATES = {
     OPUS: (5.0, 25.0),
     SONNET: (2.0, 10.0),
     HAIKU: (1.0, 5.0),
+    "gpt-5.1": (1.25, 10.0),
+    "gpt-5-mini": (0.25, 2.0),
+    "gpt-5-nano": (0.05, 0.40),
+    "gemini-3-pro-preview": (2.0, 12.0),
+    "gemini-2.5-flash": (0.30, 2.50),
+    "gemini-2.5-flash-lite": (0.10, 0.40),
+}
+
+# Env var(s) that must hold the API key for each provider; first found wins.
+PROVIDER_ENV_KEYS = {
+    "claude": ("ANTHROPIC_API_KEY",),
+    "openai": ("OPENAI_API_KEY",),
+    "gemini": ("GOOGLE_API_KEY", "GEMINI_API_KEY"),
 }
 
 # Conservative input-token estimate: chars // 3 overestimates English text
@@ -57,43 +110,69 @@ TIER_BUDGET_USD = {
 # ---------------------------------------------------------------------------
 # Stage model assignment + output ceilings
 # ---------------------------------------------------------------------------
+# Written in provider-independent roles; set_provider() resolves the plan
+# into STAGE_CONFIG for the active provider. On the claude roles:
+# Medium uses big (Opus) on the two quality-critical stages (render,
+# questions) — was Sonnet, the passage-quality / MCQ length-bias bottleneck.
+# Refine stays small (structure already fixed); solver stays mid (cheap
+# optional gate). Hard/elite unchanged.
 
-STAGE_CONFIG = {
-    # stage: {tier: (model, max_tokens)}
-    # Medium: Opus on the two quality-critical stages (render, questions).
-    # Refine stays Haiku (structure already fixed); solver stays Sonnet (cheap
-    # optional gate). Hard/elite unchanged.
+_STAGE_PLAN = {
+    # stage: {tier: (role, max_tokens)}
     "refine": {
-        "medium": (HAIKU, 1600),
-        "hard": (SONNET, 2400),
-        "elite": (SONNET, 2400),
+        "medium": ("small", 1600),
+        "hard": ("mid", 2400),
+        "elite": ("mid", 2400),
     },
     "render": {
-        "medium": (OPUS, 1500),   # was Sonnet — passage quality bottleneck
-        "hard": (OPUS, 1600),
-        "elite": (OPUS, 1600),
+        "medium": ("big", 1500),
+        "hard": ("big", 1600),
+        "elite": ("big", 1600),
     },
     "compliance": {
-        "medium": (HAIKU, 1400),
-        "hard": (HAIKU, 1600),
-        "elite": (HAIKU, 1600),
+        "medium": ("small", 1400),
+        "hard": ("small", 1600),
+        "elite": ("small", 1600),
     },
     "questions": {
-        "medium": (OPUS, 3200),   # was Sonnet — MCQ / length-bias bottleneck
-        "hard": (OPUS, 3200),
-        "elite": (OPUS, 3200),
+        "medium": ("big", 3200),
+        "hard": ("big", 3200),
+        "elite": ("big", 3200),
     },
     "solver": {
-        "medium": (SONNET, 1000),
-        "hard": (SONNET, 1200),
-        "elite": (SONNET, 1200),
+        "medium": ("mid", 1000),
+        "hard": ("mid", 1200),
+        "elite": ("mid", 1200),
     },
     "judge": {
-        "medium": (HAIKU, 1200),
-        "hard": (HAIKU, 1600),
-        "elite": (HAIKU, 1600),
+        "medium": ("small", 1200),
+        "hard": ("small", 1600),
+        "elite": ("small", 1600),
     },
 }
+
+ACTIVE_PROVIDER = DEFAULT_PROVIDER
+STAGE_CONFIG: dict = {}
+
+
+def set_provider(provider: str) -> None:
+    """Resolve _STAGE_PLAN into STAGE_CONFIG for one provider. Idempotent.
+    Rebinding the module global is safe: every call site reads via
+    config.STAGE_CONFIG attribute lookup, never a stale reference."""
+    global ACTIVE_PROVIDER, STAGE_CONFIG
+    if provider not in PROVIDER_MODELS:
+        raise ValueError(
+            f"unknown provider {provider!r}; expected one of {PROVIDERS}")
+    models = PROVIDER_MODELS[provider]
+    STAGE_CONFIG = {
+        stage: {tier: (models[role], max_tok)
+                for tier, (role, max_tok) in tiers.items()}
+        for stage, tiers in _STAGE_PLAN.items()
+    }
+    ACTIVE_PROVIDER = provider
+
+
+set_provider(DEFAULT_PROVIDER)
 
 # Anthropic output_config.effort per stage/tier (None = API default "high").
 # Medium uses Opus at "low" for render+questions: same model family as hard,

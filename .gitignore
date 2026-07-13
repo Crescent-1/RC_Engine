@@ -14,6 +14,10 @@ essay_rc_db/
 # dry-run export folder (mock output only)
 exported_rc_sets_dryrun/
 
+# GUI runtime artifacts (job log history, vet temp files)
+gui/jobs_history.jsonl
+gui/_vet_tmp/
+
 # Office lock files
 ~$*
 
