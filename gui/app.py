@@ -149,10 +149,13 @@ def api_manual_prompt(n: int = 4, tier: str = "elite"):
     except OSError as e:
         raise HTTPException(500, f"cannot read MANUAL_GENERATION_PROMPT.md: {e}")
     lo, hi = "=== PROMPT START ===", "=== PROMPT END ==="
-    i, j = text.find(lo), text.find(hi)
+    start_marker = f"\n{lo}\n"
+    end_marker = f"\n{hi}\n"
+    i = text.find(start_marker)
+    j = text.find(end_marker, i + len(start_marker))
     if i == -1 or j == -1:
         raise HTTPException(500, "prompt markers not found in the file")
-    block = text[i + len(lo):j].strip()
+    block = text[i + len(start_marker):j].strip()
 
     avoid_line, avoid_note = _avoid_line(n)
     first_message = f"TIER: {tier}"
