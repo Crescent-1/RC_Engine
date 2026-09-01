@@ -1014,18 +1014,33 @@ def _seed_ancestry_collision(pipeline: RCPipeline, seed: SeedEssay,
 # ---------------------------------------------------------------------------
 
 def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
-              seed_provider=None, max_usd: float | None = None) -> list[RCResult]:
+              seed_provider=None, max_usd: float | None = None,
+              only_posture: str | None = None) -> list[RCResult]:
     """seed_provider: callable -> (SeedEssay, on_success(rc_id) callback) or
     (None, None) when no seeds remain. None = seedless generation.
 
     max_usd: batch spending cap. No new generation attempt STARTS once
     cumulative spend reaches it, so total batch spend can overshoot it by at
-    most one per-RC budget. Default: 1.25 x sum of requested tier budgets."""
+    most one per-RC budget. Default: 1.25 x sum of requested tier budgets.
+
+    only_posture: restrict every attempt to families with this closing posture,
+    by seeding the existing family-ban set with all the others. For verifying a
+    lever on the tier where it bites -- a change to refusal_suspended behaviour
+    is otherwise invisible until chance happens to draw one. Uses the normal ban
+    path, so composition, prechecks and fallbacks behave exactly as usual."""
     if max_usd is None:
         max_usd = 1.25 * sum(config.TIER_BUDGET_USD[t] * n for t, n in tier_counts.items())
     print(f"[batch] spending cap: ${max_usd:.2f} "
           f"(per-RC caps: {config.TIER_BUDGET_USD})")
     results: list[RCResult] = []
+    forced_bans: set[str] = set()
+    if only_posture:
+        reg = pipeline.composer.registry
+        forced_bans = {f for f in reg.ids("family")
+                       if reg.posture_of(f) != only_posture}
+        keep = len(reg.ids("family")) - len(forced_bans)
+        print(f"[batch] restricted to closing posture '{only_posture}' "
+              f"({keep} families)")
 
     def spent() -> float:
         return sum(r.cost_usd for r in results)
@@ -1065,7 +1080,7 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
                 # recompose cannot re-hit the same skeleton (seed rotation alone
                 # does not change paragraph-function order).
                 res = None
-                ban_families: set[str] = set()
+                ban_families: set[str] = set(forced_bans)
                 ban_movements: set[str] = set()
                 for attempt in range(3):
                     try:

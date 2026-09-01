@@ -11,7 +11,8 @@
   "resolution_costed": "END by affirming the position AND naming its concrete price in the same movement. The verdict stands; the ending is the bill, not a retreat from the verdict.",
   "reframe_displace": "END by relocating the real question: the closing commits to the claim that a different question or object matters more, stated as a positive finding - not as a refusal to answer.",
   "refusal_suspended": "The ending may leave the central tension unresolved, but the suspension must be argued as the correct verdict on the evidence - not performed as elegance or a knowing shrug.",
-  "refusal_dissolved": "END by showing the question dissolves rather than resolves - and state plainly what the dissolution costs or licenses, so the ending is a finding, not an evasion."
+  "refusal_dissolved": "END by showing the question dissolves rather than resolves - and state plainly what the dissolution costs or licenses, so the ending is a finding, not an evasion.",
+  "affirmation_endorsed": "END by endorsing something that works: the final movement backs a remedy, an account, or a practice WITHOUT hedging it back into doubt. The passage may have been critical throughout; the ending is where it says plainly what holds up. Do NOT close by qualifying the endorsement away, naming its price, or reopening the question."
  },
  "items": [
   {
@@ -180,7 +181,16 @@
     "R01"
    ],
    "arc_shape": "staged_turn_settled",
-   "withholds_thesis": false
+   "withholds_thesis": false,
+   "movement_variants": [
+    [
+     "OBJECT_PRESENTED_STABLE",
+     "CRITERION_FAILS",
+     "HINGE_REDESCRIPTION",
+     "CRITERION_FAILS",
+     "DISSOLUTION"
+    ]
+   ]
   },
   {
    "id": "F08",
@@ -837,7 +847,16 @@
     "R08",
     "R14"
    ],
-   "withholds_thesis": false
+   "withholds_thesis": false,
+   "movement_variants": [
+    [
+     "THESIS_STATED_PLAIN",
+     "OBJECTION_DEFLECTED",
+     "OBJECTION_ANSWERED",
+     "OBJECTION_SURVIVES",
+     "POSITION_HELD_AT_COST"
+    ]
+   ]
   },
   {
    "id": "F36",
@@ -863,7 +882,16 @@
    "incompatible_revelations": [
     "R08"
    ],
-   "withholds_thesis": false
+   "withholds_thesis": false,
+   "movement_variants": [
+    [
+     "POSITION_ASSERTED",
+     "OPPOSITION_DISPOSED",
+     "GROUND_ONE_ARGUED",
+     "GROUND_TWO_ARGUED",
+     "POSITION_RESTATED_HARDER"
+    ]
+   ]
   },
   {
    "id": "F37",
@@ -890,7 +918,16 @@
     "R01"
    ],
    "withholds_thesis": true,
-   "withholds_thesis_reason": "two accounts developed in parallel and never reconciled"
+   "withholds_thesis_reason": "two accounts developed in parallel and never reconciled",
+   "movement_variants": [
+    [
+     "ACCOUNT_A_OPENED",
+     "ACCOUNT_A_DEEPENED",
+     "ACCOUNT_B_OPENED",
+     "ACCOUNT_B_DEEPENED",
+     "BOTH_LEFT_STANDING"
+    ]
+   ]
   },
   {
    "id": "F38",
@@ -1146,7 +1183,16 @@
     "structural_function"
    ],
    "incompatible_endings": [],
-   "incompatible_revelations": []
+   "incompatible_revelations": [],
+   "movement_variants": [
+    [
+     "CLAIM_STATED_PLAIN",
+     "CAUSE_NAMED",
+     "MECHANISM_WORKED",
+     "STAKES_RAISED",
+     "ARGUMENT_STILL_RUNNING"
+    ]
+   ]
   },
   {
    "id": "F48",
@@ -1171,7 +1217,16 @@
     "evidence_function"
    ],
    "incompatible_endings": [],
-   "incompatible_revelations": []
+   "incompatible_revelations": [],
+   "movement_variants": [
+    [
+     "ACCOUNT_GIVEN",
+     "AUTHORITY_CITED",
+     "INSTANCE_SURVEY",
+     "CONCESSION_MADE",
+     "ARGUMENT_STILL_RUNNING"
+    ]
+   ]
   },
   {
    "id": "F49",
@@ -1220,7 +1275,16 @@
     "contextual_inference"
    ],
    "incompatible_endings": [],
-   "incompatible_revelations": []
+   "incompatible_revelations": [],
+   "movement_variants": [
+    [
+     "ORIGIN_DATED",
+     "DRIVER_IDENTIFIED",
+     "DEVELOPMENT_TRACED",
+     "PRESENT_STAKES",
+     "ARGUMENT_STILL_RUNNING"
+    ]
+   ]
   },
   {
    "id": "F51",
@@ -1245,7 +1309,16 @@
     "evidence_function"
    ],
    "incompatible_endings": [],
-   "incompatible_revelations": []
+   "incompatible_revelations": [],
+   "movement_variants": [
+    [
+     "PROBLEM_POSED",
+     "EXPLANATION_WORKED",
+     "EVIDENCE_WEIGHED",
+     "EXPLANATION_WORKED",
+     "ARGUMENT_STILL_RUNNING"
+    ]
+   ]
   },
   {
    "id": "F52",
@@ -1268,6 +1341,249 @@
     "structural_function",
     "contextual_inference",
     "stance"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "movement_variants": [
+    [
+     "PARALLEL_ASSUMED",
+     "ASYMMETRY_LOCATED",
+     "BOTH_WORKED_THROUGH",
+     "CONSEQUENCE_DRAWN",
+     "ARGUMENT_STILL_RUNNING"
+    ]
+   ]
+  },
+  {
+   "id": "F53",
+   "name": "The Reviewed Study",
+   "tier_floor": "medium",
+   "tier_max": "hard",
+   "arc_shape": "reviewed_study",
+   "closing_posture": "resolution_qualified",
+   "withholds_thesis": false,
+   "core": "A specific named work is assessed: its thesis stated, its evidence credited in detail, then one particular overreach located and named precisely.",
+   "difficulty_source": "the passage's own view and the reviewed author's view run in the same prose for most of its length, and the questions turn on which sentences belong to whom",
+   "source_note": "RC125 passage 7 (Glatthaar, Forged in Battle): merits granted at length, then 'seems to exaggerate', and the error named as generational chauvinism.",
+   "movement": [
+    "WORK_INTRODUCED",
+    "MERITS_CREDITED",
+    "OVEREXTENSION_LOCATED",
+    "ERROR_NAMED"
+   ],
+   "movement_variants": [
+    [
+     "WORK_INTRODUCED",
+     "OVEREXTENSION_LOCATED",
+     "MERITS_CREDITED",
+     "ERROR_NAMED"
+    ],
+    [
+     "MERITS_CREDITED",
+     "WORK_INTRODUCED",
+     "OVEREXTENSION_LOCATED",
+     "ERROR_NAMED"
+    ]
+   ],
+   "question_affinities": [
+    "author_vs_reported",
+    "stance",
+    "evidence_function"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": []
+  },
+  {
+   "id": "F54",
+   "name": "The Superseded Explanation",
+   "tier_floor": "medium",
+   "tier_max": "hard",
+   "arc_shape": "superseded_explanation",
+   "closing_posture": "resolution_qualified",
+   "withholds_thesis": false,
+   "core": "A contrast is posed, the long-accepted explanation for it given fairly, retired early on one stated ground, and a replacement worked through in patient paired detail.",
+   "difficulty_source": "the retired explanation is stated so fully that it reads as the passage's own position for two paragraphs, and the ground of its retirement is given once, without emphasis",
+   "source_note": "RC125 passage 32 (US vs Brazil slavery): the institutional account given at length, then 'seems, on reexamination, untenable', then demography worked through in pairs.",
+   "movement": [
+    "CONTRAST_POSED",
+    "OLD_EXPLANATION_GIVEN",
+    "OLD_EXPLANATION_RETIRED",
+    "NEW_EXPLANATION_WORKED"
+   ],
+   "movement_variants": [
+    [
+     "OLD_EXPLANATION_GIVEN",
+     "CONTRAST_POSED",
+     "OLD_EXPLANATION_RETIRED",
+     "NEW_EXPLANATION_WORKED"
+    ],
+    [
+     "CONTRAST_POSED",
+     "OLD_EXPLANATION_RETIRED",
+     "OLD_EXPLANATION_GIVEN",
+     "NEW_EXPLANATION_WORKED"
+    ]
+   ],
+   "question_affinities": [
+    "evidence_function",
+    "detail_check",
+    "structural_function"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": []
+  },
+  {
+   "id": "F55",
+   "name": "The Tested Thesis",
+   "tier_floor": "medium",
+   "tier_max": "hard",
+   "arc_shape": "tested_thesis",
+   "closing_posture": "resolution_qualified",
+   "withholds_thesis": false,
+   "core": "A long-standing belief is stated with everything it is held to explain, a doubt raised, one new study's METHOD described at length, its findings reported, and the verdict left conditional on further work.",
+   "difficulty_source": "the method occupies more space than the finding, and the closing verdict is explicitly conditional - options that state it flatly are wrong on a hedge the passage places in its last clause",
+   "source_note": "RC125 passage 36 (the open-elite thesis; the Stones' country-house study): 'But is the thesis true?', the method described at length, then 'If further studies attest... may, indeed, prove true.'",
+   "movement": [
+    "BELIEF_STATED",
+    "DOUBT_RAISED",
+    "NEW_METHOD_DESCRIBED",
+    "CONDITIONAL_VERDICT"
+   ],
+   "movement_variants": [
+    [
+     "BELIEF_STATED",
+     "NEW_METHOD_DESCRIBED",
+     "DOUBT_RAISED",
+     "CONDITIONAL_VERDICT"
+    ],
+    [
+     "DOUBT_RAISED",
+     "BELIEF_STATED",
+     "NEW_METHOD_DESCRIBED",
+     "CONDITIONAL_VERDICT"
+    ]
+   ],
+   "question_affinities": [
+    "strengthen",
+    "weaken",
+    "stance"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": []
+  },
+  {
+   "id": "F56",
+   "name": "The Anomaly Explained",
+   "tier_floor": "medium",
+   "tier_max": "hard",
+   "arc_shape": "anomaly_explained",
+   "closing_posture": "resolution_qualified",
+   "withholds_thesis": false,
+   "core": "The normal case is stated, an anomaly to it noted, the question asked outright, the evidence that established the anomaly traced through one researcher's procedure, and the mechanism finally given.",
+   "difficulty_source": "the procedure that PROVED the anomaly exists is not the mechanism that EXPLAINS it, and the questions separate the two; the passage asks its question twice and only the second asking is answered",
+   "source_note": "RC125 passage 13 (deep-focus earthquakes): 'How can there be earthquakes at such depths?', Wadati's P-S interval method, then the descending-plate mechanism.",
+   "movement": [
+    "NORM_STATED",
+    "ANOMALY_NOTED",
+    "EVIDENCE_METHOD_TRACED",
+    "MECHANISM_ANSWERED"
+   ],
+   "movement_variants": [
+    [
+     "ANOMALY_NOTED",
+     "NORM_STATED",
+     "EVIDENCE_METHOD_TRACED",
+     "MECHANISM_ANSWERED"
+    ],
+    [
+     "NORM_STATED",
+     "EVIDENCE_METHOD_TRACED",
+     "ANOMALY_NOTED",
+     "MECHANISM_ANSWERED"
+    ]
+   ],
+   "question_affinities": [
+    "detail_check",
+    "evidence_function",
+    "application"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": []
+  },
+  {
+   "id": "F57",
+   "name": "The Narrowing Survey",
+   "tier_floor": "medium",
+   "tier_max": "hard",
+   "arc_shape": "narrowing_survey",
+   "closing_posture": "resolution_qualified",
+   "withholds_thesis": false,
+   "core": "A wide tension is named, its oscillations traced across decades, the present state summarised - and then the passage descends into a single institution and stays inside it to the end.",
+   "difficulty_source": "the passage narrows instead of widening, so the thesis sits in the broad opening while all the concrete evidence sits in the narrow close; readers trained to expect the reverse key the wrong paragraph",
+   "source_note": "RC125 passage 24 (the Japanese character): an 1860s-to-present sweep that descends into oyabun-kobun and ends inside it.",
+   "movement": [
+    "TENSION_NAMED",
+    "OSCILLATION_TRACED",
+    "SINGLE_INSTITUTION_ANATOMIZED",
+    "CONSEQUENCE_DRAWN"
+   ],
+   "movement_variants": [
+    [
+     "TENSION_NAMED",
+     "SINGLE_INSTITUTION_ANATOMIZED",
+     "OSCILLATION_TRACED",
+     "CONSEQUENCE_DRAWN"
+    ],
+    [
+     "OSCILLATION_TRACED",
+     "TENSION_NAMED",
+     "SINGLE_INSTITUTION_ANATOMIZED",
+     "CONSEQUENCE_DRAWN"
+    ]
+   ],
+   "question_affinities": [
+    "structural_function",
+    "detail_check",
+    "contextual_inference"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": []
+  },
+  {
+   "id": "F58",
+   "name": "The Enumerated Remedies",
+   "tier_floor": "medium",
+   "tier_max": "hard",
+   "arc_shape": "enumerated_remedies",
+   "closing_posture": "affirmation_endorsed",
+   "withholds_thesis": false,
+   "core": "A problem and its causes are listed, each available remedy weighed with its real drawback, the motive behind the bad remedy corrected - and the passage closes on a remedy that actually works, endorsed.",
+   "difficulty_source": "the drawbacks are given more vividly than the working remedy, so the passage READS critical while its conclusion is affirmative; tone and stance questions split hard on this",
+   "source_note": "RC125 passage 9 (excess inventory): liquidation and dumping weighed, managers cleared of deliberate waste, then the 1976 IRS deduction endorsed - 'sanctions, indeed encourages'.",
+   "movement": [
+    "PROBLEM_CAUSES_LISTED",
+    "REMEDY_WEIGHED",
+    "MOTIVE_CORRECTED",
+    "WORKING_REMEDY_ENDORSED"
+   ],
+   "movement_variants": [
+    [
+     "PROBLEM_CAUSES_LISTED",
+     "MOTIVE_CORRECTED",
+     "REMEDY_WEIGHED",
+     "WORKING_REMEDY_ENDORSED"
+    ],
+    [
+     "REMEDY_WEIGHED",
+     "PROBLEM_CAUSES_LISTED",
+     "MOTIVE_CORRECTED",
+     "WORKING_REMEDY_ENDORSED"
+    ]
+   ],
+   "question_affinities": [
+    "stance",
+    "primary_purpose",
+    "application"
    ],
    "incompatible_endings": [],
    "incompatible_revelations": []

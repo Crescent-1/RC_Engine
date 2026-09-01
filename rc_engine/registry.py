@@ -189,6 +189,20 @@ class ComponentRegistry:
         for cid, fam in self.libraries["family"].items():
             if not 3 <= len(fam["movement"]) <= 6:
                 errors.append(f"family:{cid} movement must have 3-6 functions")
+            # Variants must be real alternatives the builder can run, and must
+            # obey the same length rule — a variant is a movement string like
+            # any other and gets banned/enumerated as one.
+            for k, v in enumerate(fam.get("movement_variants") or []):
+                if not isinstance(v, list) or not 3 <= len(v) <= 6:
+                    errors.append(f"family:{cid} movement_variants[{k}] must "
+                                  f"be a list of 3-6 functions")
+                elif list(v) == list(fam["movement"]):
+                    errors.append(f"family:{cid} movement_variants[{k}] "
+                                  f"duplicates the canonical movement")
+                elif sorted(v) != sorted(fam["movement"]):
+                    errors.append(f"family:{cid} movement_variants[{k}] must "
+                                  f"reorder the same functions, not introduce "
+                                  f"new ones")
             if fam.get("closing_posture") not in postures:
                 errors.append(f"family:{cid} unknown closing_posture "
                               f"{fam.get('closing_posture')!r}")

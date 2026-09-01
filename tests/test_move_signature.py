@@ -1122,11 +1122,14 @@ def test_concrete_particular_is_barred_from_sentence_one():
     of 6 of 9 consecutive passages, none of which planned one."""
     from rc_engine.registry import ComponentRegistry
     from rc_engine.renderer import PassageRenderer, RENDER_SYSTEM
-    assert "NOT be the opening sentence" in RENDER_SYSTEM
+    assert "not the opening sentence, not the closing one" in RENDER_SYSTEM
     bp = _mock_blueprint()
     bp.move_plan = ["ABSTRACT_CLAIM_OPEN", "MECHANISM_EXPLAINED", "BOUND_CONTINUATION"]
     contract = PassageRenderer(ComponentRegistry(), None)._contract(bp, [])
-    assert "Do not open on a concrete scene" in contract
+    assert "Do NOT open on a concrete scene" in contract
+    # the closing needs its own prohibition, not just its own line: barring the
+    # particular from sentence one relocated it to the last sentence
+    assert "Do NOT land the last sentence on a named physical object" in contract
 
 
 # ---------------------------------------------------------------------------
@@ -1324,3 +1327,159 @@ def test_seed_ancestry_never_raises_out_of_a_batch(monkeypatch):
 
     monkeypatch.setitem(sys.modules, "RAG", _Boom)
     assert P._seed_ancestry_collision(_Pipe(), SeedEssay(doc_id="d"), [1.0]) is None
+
+
+def test_new_families_have_real_movement_variety():
+    """A 5-function family is never shorter than any rhythm shape, so it yields
+    exactly ONE movement string across all 20 rhythms. Fourteen families were
+    in that state and movement was the second-largest drag on novelty. Every
+    family added from RC125 must beat that."""
+    from rc_engine.composer import BlueprintComposer
+    from rc_engine.constraints import CompatibilityRules
+    from rc_engine.history import HistoryStore
+    from rc_engine.llm import MockLLMClient
+    from rc_engine.registry import ComponentRegistry
+    reg = ComponentRegistry()
+    hist = HistoryStore(config.DB_PATH)
+    try:
+        comp = BlueprintComposer(reg, hist, CompatibilityRules(reg), MockLLMClient())
+        for fid in ("F53", "F54", "F55", "F56", "F57", "F58"):
+            opts, can_pad = comp.family_movement_options(fid)
+            assert can_pad or len(opts) >= 3, (
+                f"{fid}: only {len(opts)} movement string(s), pad={can_pad}")
+    finally:
+        hist.close()
+
+
+def test_every_family_variant_is_a_reordering_not_a_new_argument():
+    from rc_engine.registry import ComponentRegistry
+    reg = ComponentRegistry()
+    for fid in reg.ids("family"):
+        fam = reg.get("family", fid)
+        for v in fam.get("movement_variants") or []:
+            assert sorted(v) == sorted(fam["movement"]), fid
+            assert list(v) != list(fam["movement"]), fid
+
+
+def test_corpus_can_close_affirmatively():
+    """Until 2026-08-29 all five closing postures were varieties of 'not
+    straightforwardly yes' — the deepest layer of the house voice, and
+    unfixable because no family could close any other way."""
+    from rc_engine.registry import ComponentRegistry, posture_class
+    reg = ComponentRegistry()
+    classes = {posture_class(p) for p in reg.closing_postures}
+    assert "affirmation" in classes, classes
+    users = [f for f in reg.ids("family")
+             if posture_class(reg.posture_of(f)) == "affirmation"]
+    assert users, "a posture no family uses is not a stance the engine can take"
+
+
+def test_no_family_declares_an_unsatisfiable_question_affinity():
+    """F58 shipped with affinity 'tone', which no topology defines as a slot
+    type. question_affinities is currently read by nothing, so an unsatisfiable
+    value fails silently — the library check is the only thing standing between
+    a typo and dead metadata."""
+    from rc_engine.registry import ComponentRegistry
+    reg = ComponentRegistry()
+    slots = set()
+    for t in reg.ids("topology"):
+        for s in reg.get("topology", t)["slots"]:
+            slots.add(s["type"] if isinstance(s, dict) else s)
+    bad = [(f, a) for f in reg.ids("family")
+           for a in reg.get("family", f)["question_affinities"] if a not in slots]
+    assert not bad, bad
+
+
+# ---------------------------------------------------------------------------
+# Commitment curve (2026-09-01).
+#
+# The curve was PURELY EMERGENT: compliance measured it, novelty weighted it at
+# 0.14 -- the largest single channel -- and no stage ever targeted it. Two
+# defects, found by measuring rather than reading:
+#   1. cli.py writes [0.0, 0.0, 0.0] for legacy backfill and manual ingest.
+#      39 of 113 active fingerprints carried one; they matched each other at
+#      exactly 1.000 and accounted for every exact match in the corpus (741 of
+#      6328 pairs). "Unknown" was being scored as "measured as neutral".
+#   2. The posture moved the realised endpoint by a spread of only 0.20, and
+#      refusal_suspended -- which must end unresolved -- had a MEDIAN endpoint
+#      of 0.93.
+# ---------------------------------------------------------------------------
+
+def test_placeholder_curve_is_not_scored_as_data():
+    from rc_engine.novelty import _is_placeholder_curve
+    assert _is_placeholder_curve([0.0, 0.0, 0.0])
+    assert _is_placeholder_curve([0.0, 0.0, 0.0, 0.0])
+    assert not _is_placeholder_curve([0.0, 0.5, 1.0])
+    assert not _is_placeholder_curve([-0.2, 0.0, 0.9])
+    assert not _is_placeholder_curve([])
+
+
+def test_two_placeholder_curves_do_not_read_as_a_collision():
+    """Before the fix these scored 1.000 against each other — the single
+    largest source of false similarity in the baseline."""
+    from rc_engine.fingerprints import curve_similarity
+    from rc_engine.novelty import _is_placeholder_curve
+    a = b = [0.0, 0.0, 0.0]
+    assert curve_similarity(a, b) >= 0.999, "premise: the raw metric matches them"
+    assert _is_placeholder_curve(a) and _is_placeholder_curve(b), (
+        "so the channel must refuse to score the pair at all")
+
+
+def test_composite_renormalises_when_a_channel_is_unmeasurable():
+    """A skipped channel must not be scored 0.0, which reads as 'maximally
+    novel' on missing data and would inflate the composite."""
+    from rc_engine.novelty import NoveltyScorer
+    s = {"movement_levenshtein": 0.5, "movement_bigram_jaccard": 0.5,
+         "move_signature_sim": 0.5, "curve_similarity": 0.5,
+         "rhythm_cosine": 0.5, "stylometry_sim": 0.5, "embedding_cosine": 0.5}
+    scorer = NoveltyScorer.__new__(NoveltyScorer)
+    with_curve = scorer._composite(dict(s), 0.5, False)
+    s["curve_similarity"] = None
+    without = scorer._composite(dict(s), 0.5, False)
+    assert abs(with_curve - without) < 1e-9, (
+        "dropping a channel whose value equals every other must not move the "
+        f"composite ({with_curve} vs {without})")
+
+
+def test_every_posture_has_a_commitment_band_and_they_actually_differ():
+    from rc_engine.registry import ComponentRegistry
+    reg = ComponentRegistry()
+    bands = config.POSTURE_END_COMMITMENT
+    for p in reg.closing_postures:
+        assert p in bands, f"{p} has no commitment band"
+    # a refusal must not be allowed to end where a resolution ends, or the band
+    # is decorative — that is exactly the state this replaced
+    assert bands["refusal_suspended"][1] < bands["resolution_qualified"][0], (
+        "refusal and resolution bands overlap; the lever does nothing")
+
+
+def test_render_contract_states_the_commitment_band():
+    from rc_engine.registry import ComponentRegistry
+    from rc_engine.renderer import PassageRenderer
+    reg = ComponentRegistry()
+    r = PassageRenderer(reg, None)
+    bp = _mock_blueprint()
+    suspended = next(f for f in reg.ids("family")
+                     if reg.posture_of(f) == "refusal_suspended")
+    bp.family_id = suspended
+    c = r._contract(bp, [])
+    assert "COMMITMENT AT THE CLOSE" in c
+    assert "must NOT arrive at a settled answer" in c
+
+
+def test_out_of_band_ending_is_caught_and_directed():
+    """A refusal_suspended passage that ends fully committed is the exact
+    corpus failure: median endpoint 0.93 against a band topping out at 0.40."""
+    from rc_engine.compliance import ComplianceAuditor
+    from rc_engine.llm import CostLedger, MockLLMClient
+    from rc_engine.registry import ComponentRegistry
+    reg = ComponentRegistry()
+    auditor = ComplianceAuditor(MockLLMClient(), reg)
+    bp = _mock_blueprint()
+    bp.family_id = next(f for f in reg.ids("family")
+                        if reg.posture_of(f) == "refusal_suspended")
+    passage = "\n\n".join("Paragraph %d body." % i for i in range(1, 4))
+    r = auditor.audit(passage, bp, CostLedger(budget_usd=1.0), [])
+    if r.commitment_curve and r.commitment_curve[-1] > 0.55:
+        assert r.commitment_in_band is False
+        assert any("commitment" in d for d in r.directives), r.directives

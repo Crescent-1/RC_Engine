@@ -133,6 +133,9 @@ class RealizedStructure:
     # where the house voice lived (see ComplianceAuditor.audit).
     opening_beat_ok: bool = True
     closing_beat_ok: bool = True
+    # Did the passage end inside the commitment band its closing posture
+    # implies? The curve was measured and weighted but never targeted.
+    commitment_in_band: bool = True
 
     def movement_string(self) -> str:
         return "|".join(self.paragraph_functions)
