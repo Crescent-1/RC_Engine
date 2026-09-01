@@ -370,8 +370,20 @@ def cmd_generate(args) -> int:
     embed = not (args.no_embed or args.dry_run)
     pipe = RCPipeline(history, llm, embed=embed)
     provider = None if (args.no_seed or args.dry_run) else _make_seed_provider()
-    results = run_batch(pipe, tier_counts, provider, max_usd=args.max_usd,
-                        only_posture=getattr(args, "only_posture", None))
+    workers = max(1, min(int(getattr(args, "workers", 1) or 1), config.BATCH_WORKERS_MAX))
+    if workers > 1:
+        # The parent's client is only used for the key check above; workers
+        # build their own. The parent's history records attempts and owns the
+        # seed store (mark-used callbacks run here, never in a worker).
+        from .workers import run_parallel
+        results = run_parallel(history, tier_counts, workers,
+                               db=args.db, provider=args.provider,
+                               dry_run=bool(args.dry_run), embed=embed,
+                               seed_provider=provider, max_usd=args.max_usd,
+                               only_posture=getattr(args, "only_posture", None))
+    else:
+        results = run_batch(pipe, tier_counts, provider, max_usd=args.max_usd,
+                            only_posture=getattr(args, "only_posture", None))
 
     # The similarity screen runs after generation and before export, so a set
     # that reads like the last ten lands in a different folder rather than
@@ -1389,6 +1401,9 @@ def main(argv=None) -> int:
     g.add_argument("--only-posture", default=None,
                    help="restrict every attempt to families with this closing "
                         "posture (verification lever; uses the normal family-ban path)")
+    g.add_argument("--workers", type=int, default=config.BATCH_WORKERS_DEFAULT,
+                   help=f"parallel worker processes, 1-{config.BATCH_WORKERS_MAX} "
+                        f"(default {config.BATCH_WORKERS_DEFAULT}); see rc_engine/workers.py")
 
     r = sub.add_parser("retry-questions",
                        help="regenerate questions on a persisted passage whose "

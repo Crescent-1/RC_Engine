@@ -4,9 +4,13 @@ existing export tooling keeps working on the same database file."""
 
 from __future__ import annotations
 
+import hashlib
 import json
 import os
 import sqlite3
+import tempfile
+import time
+from contextlib import contextmanager
 from datetime import datetime, timezone
 
 from . import config
@@ -17,8 +21,15 @@ def _now() -> str:
     return datetime.now(timezone.utc).isoformat()
 
 
+def _movement_of(bp) -> str:
+    """Blueprint.movement_string is a method; test doubles use an attribute."""
+    mv = getattr(bp, "movement_string", "")
+    return (mv() if callable(mv) else mv) or ""
+
+
 class HistoryStore:
     def __init__(self, db_path: str = config.DB_PATH):
+        self._db_path = db_path
         self.conn = sqlite3.connect(db_path)
         # Wait on a locked DB instead of failing at once: the GUI opens it
         # read-only, backups use the online-backup API, and a second generate
@@ -166,6 +177,18 @@ class HistoryStore:
                 cost_usd REAL NOT NULL,
                 novelty_composite REAL, compliance_f1 REAL,
                 reason TEXT,
+                created_at TEXT NOT NULL
+            )""")
+
+        # What each parallel worker is rendering RIGHT NOW, so siblings can
+        # ban its skeleton before they compose. One row per worker, replaced
+        # on every compose, released when the slot ends. Rows older than
+        # INFLIGHT_STALE_MIN are a crashed worker's and are ignored.
+        c.execute("""
+            CREATE TABLE IF NOT EXISTS inflight (
+                worker_id TEXT PRIMARY KEY,
+                family_id TEXT, movement_string TEXT,
+                seed_doc_id TEXT, topic TEXT,
                 created_at TEXT NOT NULL
             )""")
 
@@ -423,6 +446,98 @@ class HistoryStore:
                VALUES (?, ?, ?, ?, ?, ?, ?)""",
             (rc_id, blueprint_id, json.dumps(channel_scores), composite, verdict, details, _now()))
         self.conn.commit()
+
+    # ------------------------------------------------------ parallel workers
+
+    def reserve_inflight(self, worker_id: str, bp, seed=None) -> None:
+        self.conn.execute(
+            """INSERT OR REPLACE INTO inflight
+               (worker_id, family_id, movement_string, seed_doc_id, topic, created_at)
+               VALUES (?, ?, ?, ?, ?, ?)""",
+            (worker_id, bp.family_id, _movement_of(bp),
+             getattr(seed, "doc_id", None), bp.topic or "", _now()))
+        self.conn.commit()
+
+    def release_inflight(self, worker_id: str) -> None:
+        self.conn.execute("DELETE FROM inflight WHERE worker_id = ?", (worker_id,))
+        self.conn.commit()
+
+    def clear_inflight(self) -> None:
+        self.conn.execute("DELETE FROM inflight")
+        self.conn.commit()
+
+    def inflight_bans(self, exclude_worker: str = "") -> dict:
+        """Families, movement strings and seeds other live workers hold."""
+        cutoff = time.time() - 60 * config.INFLIGHT_STALE_MIN
+        out = {"families": set(), "movements": set(), "seeds": set()}
+        for wid, fam, mov, seed, created in self.conn.execute(
+                "SELECT worker_id, family_id, movement_string, seed_doc_id, "
+                "created_at FROM inflight"):
+            if wid == exclude_worker:
+                continue
+            try:
+                from datetime import datetime
+                age_ok = datetime.fromisoformat(created).timestamp() >= cutoff
+            except (ValueError, TypeError):
+                age_ok = True
+            if not age_ok:
+                continue
+            if fam:
+                out["families"].add(fam)
+            if mov:
+                out["movements"].add(mov)
+            if seed:
+                out["seeds"].add(seed)
+        return out
+
+    def _ship_lock_path(self) -> str:
+        key = hashlib.sha1(os.path.abspath(self._db_path).encode()).hexdigest()[:12]
+        # local temp dir, never the synced project folder
+        return os.path.join(tempfile.gettempdir(), f"rc_engine-{key}.ship.lock")
+
+    @contextmanager
+    def ship_lock(self, enabled: bool = True):
+        """Exclusive section for 'final novelty recheck + insert'. A lock file
+        created with O_EXCL is atomic on Windows and POSIX alike. A stale
+        file (dead worker) is broken after SHIP_LOCK_STALE_S; after
+        SHIP_LOCK_WAIT_S the caller ships unlocked with a warning rather than
+        hang a paid batch on a lock nobody will release."""
+        if not enabled:
+            yield
+            return
+        path = self._ship_lock_path()
+        deadline = time.time() + config.SHIP_LOCK_WAIT_S
+        held = False
+        while True:
+            try:
+                fd = os.open(path, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+                os.write(fd, str(os.getpid()).encode())
+                os.close(fd)
+                held = True
+                break
+            except FileExistsError:
+                try:
+                    age = time.time() - os.path.getmtime(path)
+                except OSError:
+                    continue            # vanished between the two calls
+                if age > config.SHIP_LOCK_STALE_S:
+                    try:
+                        os.remove(path)
+                    except OSError:
+                        pass
+                    continue
+                if time.time() > deadline:
+                    print("  [ship-lock] !! held for too long - shipping unlocked")
+                    break
+                time.sleep(0.2)
+        try:
+            yield
+        finally:
+            if held:
+                try:
+                    os.remove(path)
+                except OSError:
+                    pass
 
     def window_composition(self, limit: int) -> dict:
         """What the novelty gates are actually scoring against: rc_sets status

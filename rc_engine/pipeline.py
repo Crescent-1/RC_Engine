@@ -61,11 +61,16 @@ def _topic_doc(topic: str, tension_system: dict, gists: list[str]) -> str:
 
 class RCPipeline:
     def __init__(self, history: HistoryStore, llm, embed: bool = True,
-                 rng: random.Random | None = None):
+                 rng: random.Random | None = None, parallel: bool = False,
+                 worker_id: str = ""):
         self.registry = ComponentRegistry()
         self.history = history
         self.llm = llm
         self.embed = embed
+        # Set by workers.py. Turns on in-flight reservations at compose and
+        # the locked late-sibling recheck at ship; a no-op when sequential.
+        self.parallel = parallel
+        self.worker_id = worker_id
         rules = CompatibilityRules(self.registry)
         self.composer = BlueprintComposer(self.registry, history, rules, llm, rng)
         self.renderer = PassageRenderer(self.registry, llm)
@@ -84,6 +89,15 @@ class RCPipeline:
         notes: list[str] = []
         ban_f: set[str] = set(ban_families or ())
         ban_m: set[str] = set(ban_movements or ())
+        if self.parallel:
+            # Siblings' skeletons are not in the window yet; ban them now so the
+            # collision is avoided for free instead of caught after a render.
+            held = self.history.inflight_bans(exclude_worker=self.worker_id)
+            if held["families"] or held["movements"]:
+                print(f"  [inflight] banning {len(held['families'])} family, "
+                      f"{len(held['movements'])} movement held by other workers")
+            ban_f |= held["families"]
+            ban_m |= held["movements"]
 
         # ---- Stage 1 + free structural prechecks (topology / topic / movement) --
         # Movement collisions are family-level skeletons: recompose with bans
@@ -132,6 +146,8 @@ class RCPipeline:
                 return RCResult(None, "", tier, "budget_abort", notes=[str(e)],
                                 ban_families=sorted(ban_f), ban_movements=sorted(ban_m))
             self.history.record_blueprint(bp, "composed")
+            if self.parallel:
+                self.history.reserve_inflight(self.worker_id, bp, seed)
             print(f"  [BP {bp.blueprint_id}] {bp.family_id}/{bp.persona_id}/{bp.ending_id}/"
                   f"{bp.rhythm_id}/{bp.revelation_id}/{bp.distractor_profile_id}/"
                   f"{bp.topology_id} instability={bp.instability}")
@@ -441,25 +457,8 @@ class RCPipeline:
                                           report.composite, f"full:{report.verdict}",
                                           "; ".join(report.breached))
         if report.verdict != "pass":
-            rc_text = assemble_rc_text(bp, passage, qdata)
-            self.history.insert_rc_set(
-                rc_id=rc_id, tier=tier, rc_text=rc_text, status="rejected_novelty",
-                judge={"scores": {}, "average": 0.0, "verdict": "not_run_novelty"},
-                solver=None, avg=0.0, blueprint_id=bp.blueprint_id,
-                compliance_f1=realized.f1, novelty_composite=report.composite,
-                total_cost=ledger.spent_usd, essay_doc_id=seed.doc_id, essay_url=seed.url,
-                domain=bp.topic, embedding=fp.embedding, attempts=1)
-            self.history.record_fingerprint(fp)
-            self.history.set_blueprint_status(bp.blueprint_id, "rejected_novelty", rc_id)
-            # question regen can't fix a Gate-C breach (topology/distractor
-            # channels derive from the blueprint) — the passage is spent
-            self.history.set_passage_status(bp.blueprint_id, "consumed")
-            return RCResult(rc_id, bp.blueprint_id, tier, "rejected_novelty",
-                            rc_text=rc_text,
-                            novelty_composite=report.composite,
-                            compliance_f1=realized.f1,
-                            cost_usd=_spent(), cost_lines=ledger.lines,
-                            notes=notes + [f"full novelty: {report.breached or report.composite}"])
+            return self._reject_full(bp, rc_id, passage, qdata, realized, fp, report,
+                                     ledger, seed, notes, _spent, "full novelty")
         notes.extend(f"corpus flag: {f}" for f in report.corpus_flags)
 
         # ---- Stage 5: solver + judge (optional under budget) ----------------
@@ -546,19 +545,35 @@ class RCPipeline:
             status = "needs_review"
 
         # ---- persist ---------------------------------------------------------
-        self.history.insert_rc_set(
-            rc_id=rc_id, tier=tier, rc_text=rc_text, status=status, judge=judge,
-            solver=solver, avg=avg, blueprint_id=bp.blueprint_id,
-            compliance_f1=realized.f1, novelty_composite=report.composite,
-            total_cost=ledger.spent_usd, essay_doc_id=seed.doc_id, essay_url=seed.url,
-            domain=bp.topic, embedding=fp.embedding, attempts=1)
-        self.history.conn.execute(
-            "UPDATE rc_sets SET seed_genre = ?, topic_shape = ? WHERE rc_id = ?",
-            (bp.seed_genre or "", bp.topic_shape_id or "", rc_id))
-        self.history.conn.commit()
-        self.history.record_fingerprint(fp)
-        self.history.mark_shipped(bp, rc_id)
-        self.history.set_passage_status(bp.blueprint_id, "consumed")
+        # Parallel only: a sibling may have shipped while this worker was in
+        # questions/solver/judge. Re-run the full gate under the ship lock so
+        # the window this set is checked against includes every earlier ship,
+        # exactly as it would have sequentially. Free; a breach costs the
+        # render it already paid for, which is the price of overlap.
+        with self.history.ship_lock(enabled=self.parallel):
+            if self.parallel:
+                late = self.novelty.score(fp, bp_sims, include_question_channels=True)
+                if late.verdict != "pass":
+                    self.history.record_novelty_audit(
+                        bp.blueprint_id, rc_id, late.channel_scores, late.composite,
+                        f"full:{late.verdict}", "late sibling: " + "; ".join(late.breached))
+                    print(f"  [ship-lock] sibling shipped first: {late.breached}")
+                    return self._reject_full(bp, rc_id, passage, qdata, realized, fp,
+                                             late, ledger, seed, notes, _spent,
+                                             "late sibling novelty")
+            self.history.insert_rc_set(
+                rc_id=rc_id, tier=tier, rc_text=rc_text, status=status, judge=judge,
+                solver=solver, avg=avg, blueprint_id=bp.blueprint_id,
+                compliance_f1=realized.f1, novelty_composite=report.composite,
+                total_cost=ledger.spent_usd, essay_doc_id=seed.doc_id, essay_url=seed.url,
+                domain=bp.topic, embedding=fp.embedding, attempts=1)
+            self.history.conn.execute(
+                "UPDATE rc_sets SET seed_genre = ?, topic_shape = ? WHERE rc_id = ?",
+                (bp.seed_genre or "", bp.topic_shape_id or "", rc_id))
+            self.history.conn.commit()
+            self.history.record_fingerprint(fp)
+            self.history.mark_shipped(bp, rc_id)
+            self.history.set_passage_status(bp.blueprint_id, "consumed")
 
         print(f"  [{rc_id}] status={status} f1={realized.f1} novelty={report.composite} "
               f"avg={avg} words={word_report['words']} "
@@ -569,6 +584,31 @@ class RCPipeline:
                         cost_lines=ledger.lines, notes=notes)
 
     # -------------------------------------------------------------- helpers
+
+    def _reject_full(self, bp: Blueprint, rc_id: str, passage: str, qdata: dict,
+                     realized, fp, report, ledger: CostLedger, seed: SeedEssay,
+                     notes: list[str], spent_fn, label: str) -> RCResult:
+        """Persist a Gate-C (full novelty) rejection. The passage is spent:
+        question regen cannot fix topology/distractor channels, and a late
+        sibling collision is a property of the corpus, not of the questions."""
+        tier = bp.tier
+        rc_text = assemble_rc_text(bp, passage, qdata)
+        self.history.insert_rc_set(
+            rc_id=rc_id, tier=tier, rc_text=rc_text, status="rejected_novelty",
+            judge={"scores": {}, "average": 0.0, "verdict": "not_run_novelty"},
+            solver=None, avg=0.0, blueprint_id=bp.blueprint_id,
+            compliance_f1=realized.f1, novelty_composite=report.composite,
+            total_cost=ledger.spent_usd, essay_doc_id=seed.doc_id, essay_url=seed.url,
+            domain=bp.topic, embedding=fp.embedding, attempts=1)
+        self.history.record_fingerprint(fp)
+        self.history.set_blueprint_status(bp.blueprint_id, "rejected_novelty", rc_id)
+        self.history.set_passage_status(bp.blueprint_id, "consumed")
+        return RCResult(rc_id, bp.blueprint_id, tier, "rejected_novelty",
+                        rc_text=rc_text,
+                        novelty_composite=report.composite,
+                        compliance_f1=realized.f1,
+                        cost_usd=spent_fn(), cost_lines=ledger.lines,
+                        notes=notes + [f"{label}: {report.breached or report.composite}"])
 
     def _inject_posture(self, f, bp: Blueprint, realized):
         # zero-migration carriage on the stylometry dict (see
@@ -1020,6 +1060,120 @@ def _seed_ancestry_collision(pipeline: RCPipeline, seed: SeedEssay,
 # Batch driver
 # ---------------------------------------------------------------------------
 
+def run_slot(pipeline: RCPipeline, tier: str, slot_no: int, count: int,
+             seed_provider, forced_bans: set[str], *, spent, max_usd: float,
+             keep) -> bool:
+    """One batch slot: seed pre-screen, up to three generate_one attempts with
+    accumulating family/movement bans and seed rotation on novelty rejects,
+    then a questions-only retry on a paid, novelty-clean passage. Shared by
+    the sequential run_batch and by each parallel worker (workers.py).
+
+    keep(res, tier, slot_no, attempt_no) receives every RCResult in order.
+    Returns True when the spending cap stopped the slot early. APIExhausted
+    propagates to the caller, which decides how to stop the batch."""
+    seed, on_success = (None, None)
+    tried_doc_ids: set[str] = set()
+    if seed_provider:
+        seed, on_success = seed_provider(tier)
+        if seed is None:
+            print(f"[seeds] exhausted - continuing seedless for {tier}")
+        elif seed.doc_id:
+            tried_doc_ids.add(seed.doc_id)
+        # pre-screen: rotate seeds whose territory the corpus has
+        # already covered, BEFORE paying for a render ($0 check)
+        for _ in range(config.SEED_PRESCREEN_MAX_ROTATIONS):
+            hit = _seed_collision(pipeline, seed)
+            if hit is None:
+                break
+            print(f"[seeds] pre-screen: {seed.title!r} too close to "
+                  f"{hit} — rotating")
+            new_seed, new_cb = seed_provider(tier, exclude_ids=tried_doc_ids)
+            if new_seed is None:
+                break     # keep the current seed rather than starve
+            seed, on_success = new_seed, new_cb
+            if new_seed.doc_id:
+                tried_doc_ids.add(new_seed.doc_id)
+    print(f"\n=== [{tier}] {slot_no}/{count} ===")
+    # retry loop for novelty rejections: resample a fresh blueprint.
+    # Movement collisions accumulate family/movement bans so a
+    # recompose cannot re-hit the same skeleton (seed rotation alone
+    # does not change paragraph-function order).
+    res = None
+    ban_families: set[str] = set(forced_bans)
+    ban_movements: set[str] = set()
+    attempt = 0
+    for attempt in range(3):
+        try:
+            res = pipeline.generate_one(
+                tier, seed,
+                ban_families=ban_families,
+                ban_movements=ban_movements)
+        except APIExhausted:
+            raise                         # stop the batch cleanly
+        except Exception as e:            # never let one RC kill the batch
+            import traceback
+            traceback.print_exc()
+            res = RCResult(None, "", tier, "failed_error", notes=[repr(e)])
+        keep(res, tier, slot_no, attempt + 1)
+        ban_families.update(res.ban_families or [])
+        ban_movements.update(res.ban_movements or [])
+        if res.status not in ("rejected_novelty", "failed_composition",
+                              "rejected_seed_genre"):
+            break
+        if spent() >= max_usd:
+            print(f"[batch] spending cap reached mid-retry - stopping cleanly.")
+            return True
+        print(f"  [retry] {res.status} - recomposing ({attempt + 1}/3)"
+              + (f" bans={sorted(ban_families)}" if ban_families else ""))
+        # rotate the seed too: a fresh blueprint keeps the same
+        # topic anchor, so an embedding-channel collision would
+        # just repeat. The untried previous seed stays unused
+        # (only success marks it consumed).
+        if seed_provider and seed is not None:
+            # Steer the rotation away from the kinds that produce a
+            # saturated genre. A uniform redraw could not clear it:
+            # see config.GENRE_SOURCE_KINDS.
+            avoid = config.GENRE_SOURCE_KINDS.get(
+                res.saturated_genre or "", None)
+            if avoid:
+                print(f"  [retry] avoiding source kinds {avoid} "
+                      f"(genre '{res.saturated_genre}' saturated)")
+            try:
+                new_seed, new_cb = seed_provider(
+                    tier, exclude_ids=tried_doc_ids, avoid_kinds=avoid)
+            except TypeError:     # provider predates avoid_kinds
+                new_seed, new_cb = seed_provider(
+                    tier, exclude_ids=tried_doc_ids)
+            if new_seed is not None:
+                seed, on_success = new_seed, new_cb
+                if new_seed.doc_id:
+                    tried_doc_ids.add(new_seed.doc_id)
+                print(f"  [retry] seed rotated -> {new_seed.title!r}")
+    # questions failed but the passage is paid for and novelty-clean:
+    # one questions-only retry is strictly cheaper than recomposing
+    if res and res.status == "failed_questions" and res.blueprint_id \
+            and spent() < max_usd:
+        bp_id = res.blueprint_id
+        print("  [retry] questions failed - regenerating questions on the same passage")
+        reason = "; ".join(res.notes)[:600]
+        guidance = (
+            f"A previous attempt on this exact passage failed validation: "
+            f"{reason}. Correct that specific defect; keep everything else "
+            f"to spec.") if reason else None
+        try:
+            res = pipeline.resume_questions(bp_id, extra_guidance=guidance)
+        except APIExhausted:
+            raise
+        except Exception as e:
+            import traceback
+            traceback.print_exc()
+            res = RCResult(None, bp_id, tier, "failed_error", notes=[repr(e)])
+        keep(res, tier, slot_no, attempt + 1)
+    if res and res.rc_id and on_success:
+        on_success(res.rc_id)
+    return False
+
+
 def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
               seed_provider=None, max_usd: float | None = None,
               only_posture: str | None = None) -> list[RCResult]:
@@ -1030,11 +1184,15 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
     cumulative spend reaches it, so total batch spend can overshoot it by at
     most one per-RC budget. Default: 1.25 x sum of requested tier budgets.
 
-    only_posture: restrict every attempt to families with this closing posture,
-    by seeding the existing family-ban set with all the others. For verifying a
-    lever on the tier where it bites -- a change to refusal_suspended behaviour
-    is otherwise invisible until chance happens to draw one. Uses the normal ban
-    path, so composition, prechecks and fallbacks behave exactly as usual."""
+    only_posture: restrict every attempt to families with this closing
+    posture, by seeding the existing family-ban set with all the others. For
+    verifying a lever on the tier where it bites -- a change to
+    refusal_suspended behaviour is otherwise invisible until chance happens
+    to draw one. Uses the normal ban path, so composition, prechecks and
+    fallbacks behave exactly as usual.
+
+    For N > 1 processes see workers.run_parallel, which runs the same
+    run_slot per slot."""
     if max_usd is None:
         max_usd = 1.25 * sum(config.TIER_BUDGET_USD[t] * n for t, n in tier_counts.items())
     print(f"[batch] spending cap: ${max_usd:.2f} "
@@ -1043,6 +1201,16 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
     forced_bans: set[str] = set()
     from datetime import datetime, timezone
     batch_id = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
+    if only_posture:
+        reg = pipeline.composer.registry
+        forced_bans = {f for f in reg.ids("family")
+                       if reg.posture_of(f) != only_posture}
+        keep_n = len(reg.ids("family")) - len(forced_bans)
+        print(f"[batch] restricted to closing posture '{only_posture}' "
+              f"({keep_n} families)")
+
+    def spent() -> float:
+        return sum(r.cost_usd for r in results)
 
     def _keep(res: RCResult, tier: str, slot: int, attempt_no: int) -> None:
         """Every outcome goes to the attempts table, shipped or not, so the
@@ -1052,16 +1220,6 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
             pipeline.history.record_attempt(batch_id, tier, slot, attempt_no, res)
         except Exception as e:                       # noqa: BLE001
             print(f"  [attempts] not recorded (non-fatal): {e}")
-    if only_posture:
-        reg = pipeline.composer.registry
-        forced_bans = {f for f in reg.ids("family")
-                       if reg.posture_of(f) != only_posture}
-        keep = len(reg.ids("family")) - len(forced_bans)
-        print(f"[batch] restricted to closing posture '{only_posture}' "
-              f"({keep} families)")
-
-    def spent() -> float:
-        return sum(r.cost_usd for r in results)
 
     try:
         for tier, count in tier_counts.items():
@@ -1069,109 +1227,24 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
                 if spent() >= max_usd:
                     print(f"[batch] spending cap ${max_usd:.2f} reached "
                           f"(spent ${spent():.4f}) — stopping cleanly.")
+                    summarize_batch(results, batch_id)
                     return results
-                seed, on_success = (None, None)
-                tried_doc_ids: set[str] = set()
-                if seed_provider:
-                    seed, on_success = seed_provider(tier)
-                    if seed is None:
-                        print(f"[seeds] exhausted - continuing seedless for {tier}")
-                    elif seed.doc_id:
-                        tried_doc_ids.add(seed.doc_id)
-                    # pre-screen: rotate seeds whose territory the corpus has
-                    # already covered, BEFORE paying for a render ($0 check)
-                    for _ in range(config.SEED_PRESCREEN_MAX_ROTATIONS):
-                        hit = _seed_collision(pipeline, seed)
-                        if hit is None:
-                            break
-                        print(f"[seeds] pre-screen: {seed.title!r} too close to "
-                              f"{hit} — rotating")
-                        new_seed, new_cb = seed_provider(tier, exclude_ids=tried_doc_ids)
-                        if new_seed is None:
-                            break     # keep the current seed rather than starve
-                        seed, on_success = new_seed, new_cb
-                        if new_seed.doc_id:
-                            tried_doc_ids.add(new_seed.doc_id)
-                print(f"\n=== [{tier}] {i + 1}/{count} ===")
-                # retry loop for novelty rejections: resample a fresh blueprint.
-                # Movement collisions accumulate family/movement bans so a
-                # recompose cannot re-hit the same skeleton (seed rotation alone
-                # does not change paragraph-function order).
-                res = None
-                ban_families: set[str] = set(forced_bans)
-                ban_movements: set[str] = set()
-                for attempt in range(3):
-                    try:
-                        res = pipeline.generate_one(
-                            tier, seed,
-                            ban_families=ban_families,
-                            ban_movements=ban_movements)
-                    except APIExhausted:
-                        raise                         # stop the batch cleanly
-                    except Exception as e:            # never let one RC kill the batch
-                        import traceback
-                        traceback.print_exc()
-                        res = RCResult(None, "", tier, "failed_error", notes=[repr(e)])
-                    _keep(res, tier, i + 1, attempt + 1)
-                    ban_families.update(res.ban_families or [])
-                    ban_movements.update(res.ban_movements or [])
-                    if res.status not in ("rejected_novelty", "failed_composition",
-                                          "rejected_seed_genre"):
-                        break
-                    if spent() >= max_usd:
-                        print(f"[batch] spending cap reached mid-retry - stopping cleanly.")
-                        return results
-                    print(f"  [retry] {res.status} - recomposing ({attempt + 1}/3)"
-                          + (f" bans={sorted(ban_families)}" if ban_families else ""))
-                    # rotate the seed too: a fresh blueprint keeps the same
-                    # topic anchor, so an embedding-channel collision would
-                    # just repeat. The untried previous seed stays unused
-                    # (only success marks it consumed).
-                    if seed_provider and seed is not None:
-                        # Steer the rotation away from the kinds that produce a
-                        # saturated genre. A uniform redraw could not clear it:
-                        # see config.GENRE_SOURCE_KINDS.
-                        avoid = config.GENRE_SOURCE_KINDS.get(
-                            res.saturated_genre or "", None)
-                        if avoid:
-                            print(f"  [retry] avoiding source kinds {avoid} "
-                                  f"(genre '{res.saturated_genre}' saturated)")
-                        try:
-                            new_seed, new_cb = seed_provider(
-                                tier, exclude_ids=tried_doc_ids, avoid_kinds=avoid)
-                        except TypeError:     # provider predates avoid_kinds
-                            new_seed, new_cb = seed_provider(
-                                tier, exclude_ids=tried_doc_ids)
-                        if new_seed is not None:
-                            seed, on_success = new_seed, new_cb
-                            if new_seed.doc_id:
-                                tried_doc_ids.add(new_seed.doc_id)
-                            print(f"  [retry] seed rotated -> {new_seed.title!r}")
-                # questions failed but the passage is paid for and novelty-clean:
-                # one questions-only retry is strictly cheaper than recomposing
-                if res and res.status == "failed_questions" and res.blueprint_id \
-                        and spent() < max_usd:
-                    bp_id = res.blueprint_id
-                    print("  [retry] questions failed - regenerating questions on the same passage")
-                    reason = "; ".join(res.notes)[:600]
-                    guidance = (
-                        f"A previous attempt on this exact passage failed validation: "
-                        f"{reason}. Correct that specific defect; keep everything else "
-                        f"to spec.") if reason else None
-                    try:
-                        res = pipeline.resume_questions(bp_id, extra_guidance=guidance)
-                    except APIExhausted:
-                        raise
-                    except Exception as e:
-                        import traceback
-                        traceback.print_exc()
-                        res = RCResult(None, bp_id, tier, "failed_error", notes=[repr(e)])
-                    _keep(res, tier, i + 1, attempt + 1)
-                if res and res.rc_id and on_success:
-                    on_success(res.rc_id)
+                stopped = run_slot(pipeline, tier, i + 1, count, seed_provider,
+                                   forced_bans, spent=spent, max_usd=max_usd,
+                                   keep=_keep)
+                if stopped:
+                    summarize_batch(results, batch_id)
+                    return results
     except APIExhausted as e:
         print(f"\n[STOP] API exhausted ({e}) - batch stopped cleanly; "
               f"completed work is committed. Re-run later to continue.")
+    summarize_batch(results, batch_id)
+    return results
+
+
+def summarize_batch(results: list[RCResult], batch_id: str) -> None:
+    """The batch summary and cost telemetry, shared by the sequential and
+    parallel runners."""
     total = sum(r.cost_usd for r in results)
     shipped_statuses = {"approved", "needs_review", "solver_dispute"}
     shipped = [r for r in results if r.rc_id and r.status in shipped_statuses]
@@ -1217,4 +1290,3 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
     if resumable:
         print(f"  resumable passages   {len(resumable)} paid but deferred "
               f"(budget): {', '.join(r.blueprint_id for r in resumable if r.blueprint_id)}")
-    return results

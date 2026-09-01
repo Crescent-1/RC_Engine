@@ -29,6 +29,7 @@ else in the root is docs, exports, the GUI, or legacy. Full operations guide:
 python -m pytest tests -q                          # ~70 s, no API calls
 python -m rc_engine.cli selftest                   # $0 config + libraries check
 python -m rc_engine.cli generate --dry-run --hard 2 # $0 end-to-end on the mock
+python -m rc_engine.cli generate --dry-run --hard 4 --workers 2   # parallel, still $0
 python -m rc_engine.cli health                     # corpus drift, window mix, batch yield
 python -m rc_engine.cli estimate                   # per-tier cost table
 python -m rc_engine.cli export --status approved
@@ -43,7 +44,8 @@ or a component library. Add a test for every behaviour change; the suite in
 
 | Path | What |
 |---|---|
-| `rc_engine/pipeline.py` | `generate_one` (stages + gates) and `run_batch` (retry loop, cost cap, attempts table) |
+| `rc_engine/pipeline.py` | `generate_one` (stages + gates), `run_slot` (per-slot retry loop), `run_batch` (sequential) |
+| `rc_engine/workers.py` | `--workers N`: process pool, in-flight reservations, ship lock + late-sibling recheck |
 | `rc_engine/config.py` | every lever: models, budgets, novelty caps, windows, backoff |
 | `rc_engine/novelty.py`, `fingerprints.py` | pairwise novelty channels and the corpus window |
 | `rc_engine/history.py` | SQLite store: `rc_sets`, `blueprints`, `fingerprints`, `novelty_audits`, `attempts` |

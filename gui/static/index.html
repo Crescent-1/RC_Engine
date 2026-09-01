@@ -81,6 +81,10 @@
         <label>Batch cap (USD)</label>
         <input type="number" id="gen-maxusd" step="0.05" min="0" placeholder="auto (1.25× tier budgets)">
       </div>
+      <div class="form-row">
+        <label>Workers</label>
+        <input type="number" id="gen-workers" min="1" max="4" step="1" value="1" title="parallel worker processes (1 = sequential)">
+      </div>
       <div class="form-row checks">
         <label class="chk"><input type="checkbox" id="gen-dryrun"> Dry run <span class="pill zero">$0</span></label>
         <label class="chk"><input type="checkbox" id="gen-noseed"> No seed essays</label>
