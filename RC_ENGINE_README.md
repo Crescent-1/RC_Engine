@@ -26,6 +26,7 @@ python -m rc_engine.cli backfill
 python -m rc_engine.cli generate --elite 8 --hard 8
 python -m rc_engine.cli generate --elite 8 --max-usd 2.00   # explicit batch cap
 python -m rc_engine.cli generate --hard 4 --provider openai # non-Claude run
+python -m rc_engine.cli generate --hard 6 --elite 6 --workers 3 # parallel (2-3 is the useful range)
 
 # $0 — corpus health: family/topology drift, answer-letter chi-square
 python -m rc_engine.cli health

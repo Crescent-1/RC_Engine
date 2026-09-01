@@ -204,6 +204,7 @@ class GenerateBody(BaseModel):
     max_usd: float | None = None
     no_seed: bool = False
     no_embed: bool = False
+    workers: int = 1
 
 
 @app.post("/api/jobs/generate")
@@ -225,6 +226,8 @@ def api_generate(body: GenerateBody):
         argv.append("--no-seed")
     if body.no_embed:
         argv.append("--no-embed")
+    if body.workers and body.workers > 1:
+        argv += ["--workers", str(min(int(body.workers), config.BATCH_WORKERS_MAX))]
     return _start_job("generate", argv)
 
 

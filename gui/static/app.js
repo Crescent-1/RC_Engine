@@ -250,6 +250,8 @@ function runGenerate() {
   };
   const maxUsd = parseFloat($("#gen-maxusd").value);
   if (!isNaN(maxUsd) && maxUsd > 0) body.max_usd = maxUsd;
+  const workers = parseInt($("#gen-workers").value, 10);
+  if (!isNaN(workers) && workers > 1) body.workers = workers;
   startJob("generate", "/api/jobs/generate", body);
 }
 

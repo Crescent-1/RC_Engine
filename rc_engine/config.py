@@ -670,6 +670,18 @@ MAX_RENDER_ATTEMPTS = 2      # render + compliance loop
 API_BACKOFF_MAX_RETRIES = 5
 API_BACKOFF_BASE_S = 2.0        # 2, 4, 8, 16, 32 s (+ up to 25% jitter)
 API_BACKOFF_MAX_S = 60.0
+
+# Parallel batches (2026-09-02): `generate --workers N`. Sequential (1) is the
+# default and unchanged. See rc_engine/workers.py for what keeps concurrent
+# renders from shipping near-duplicates of each other. 4 is a ceiling, not a
+# recommendation: rate limits, and the fact that every worker re-scores the
+# same window, make 2-3 the useful range until measured otherwise.
+BATCH_WORKERS_DEFAULT = 1
+BATCH_WORKERS_MAX = 4
+PARALLEL_SEEDS_PER_SLOT = 3     # primary seed + spares for pre-screen/novelty rotation
+INFLIGHT_STALE_MIN = 30         # a reservation older than this is a dead worker's
+SHIP_LOCK_STALE_S = 600         # a lock file older than this is a dead worker's
+SHIP_LOCK_WAIT_S = 120          # after this, ship unlocked rather than hang
 MAX_QUESTION_ATTEMPTS = 2
 MAX_JUDGE_ATTEMPTS = 2
 
