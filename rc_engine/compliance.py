@@ -18,8 +18,14 @@ given; judge realization, not quality).
 Also:
 - identify the paragraph where the passage's thesis/final position FIRST becomes
   visible to a careful reader,
-- rate the author's apparent commitment to their final position in each paragraph,
-  from -1.0 (actively pointing away from it) to 1.0 (fully committed),
+- rate, for each paragraph, how far the author has committed to a SUBSTANTIVE
+  ANSWER to the question the passage opens, from -1.0 (actively pointing away
+  from one) to 1.0 (fully committed to one).
+  Measure against the OPENING QUESTION, not against wherever the passage ends.
+  A passage that closes by refusing to settle, suspending judgment, or showing
+  the question dissolves is NOT at 1.0 — it is LOW at the end, however
+  confidently that refusal is argued. Confidence in a refusal is not commitment
+  to an answer. Only a paragraph that actually lands on a position scores high.
 - check each planned reader-trap: does the paragraph genuinely invite that misreading?
 - list any forbidden phrases that appear,
 - classify the passage's CLOSING POSTURE: the stance a careful reader takes away from
@@ -377,9 +383,35 @@ class ComplianceAuditor:
                 f"{config.RHETORICAL_MOVES.get(want, '')}. "
                 f"The passage closed on {realized_moves[-1]} instead")
 
+        # ---- commitment at the close (2026-09-01) ---------------------------
+        # The curve was measured, weighted at 0.14 in the novelty composite --
+        # the largest single channel -- and never targeted by any stage. The
+        # posture moved the realised endpoint by a spread of only 0.20 across
+        # 74 curves; refusal_suspended, which must end unresolved, ended at a
+        # median of 0.93. Audited the same way the beats and the register are:
+        # a directive that rides an existing retry, never a forced re-render.
+        commitment_ok = True
+        band = config.POSTURE_END_COMMITMENT.get(planned_posture or "")
+        if band and curve:
+            lo, hi = band
+            tol = config.POSTURE_END_TOLERANCE
+            end = curve[-1]
+            if not (lo - tol) <= end <= (hi + tol):
+                commitment_ok = False
+                directives.append(
+                    f"the passage ended at commitment {end:+.2f}; the "
+                    f"{planned_posture} posture requires it to close between "
+                    f"{lo:+.2f} and {hi:+.2f} on a scale where +1 is fully "
+                    f"committed to a substantive answer to the question the "
+                    f"passage opened. "
+                    + ("Do not let the final paragraph settle the original "
+                       "question." if hi <= 0.5 else
+                       "The final paragraph must actually land on a position."))
+
         f1 = round(f1 - (0.0 if (register_ok and posture_ok) else 0.05)
                    - (0.0 if opening_ok else 0.04)
-                   - (0.0 if closing_ok else 0.04), 3)
+                   - (0.0 if closing_ok else 0.04)
+                   - (0.0 if commitment_ok else 0.04), 3)
 
         return RealizedStructure(
             paragraph_functions=functions, matches=matches,
@@ -391,4 +423,5 @@ class ComplianceAuditor:
             closing_posture_guess=posture_guess,
             final_line_is_aphorism=aph,
             rhetorical_moves=realized_moves,
-            opening_beat_ok=opening_ok, closing_beat_ok=closing_ok)
+            opening_beat_ok=opening_ok, closing_beat_ok=closing_ok,
+            commitment_in_band=commitment_ok)

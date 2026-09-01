@@ -370,7 +370,8 @@ def cmd_generate(args) -> int:
     embed = not (args.no_embed or args.dry_run)
     pipe = RCPipeline(history, llm, embed=embed)
     provider = None if (args.no_seed or args.dry_run) else _make_seed_provider()
-    results = run_batch(pipe, tier_counts, provider, max_usd=args.max_usd)
+    results = run_batch(pipe, tier_counts, provider, max_usd=args.max_usd,
+                        only_posture=getattr(args, "only_posture", None))
 
     # The similarity screen runs after generation and before export, so a set
     # that reads like the last ten lands in a different folder rather than
@@ -1358,6 +1359,9 @@ def main(argv=None) -> int:
                    help="skip the pre-export similarity screen")
     g.add_argument("--max-usd", type=float, default=None,
                    help="batch spending cap (default: 1.25 x sum of requested tier budgets)")
+    g.add_argument("--only-posture", default=None,
+                   help="restrict every attempt to families with this closing "
+                        "posture (verification lever; uses the normal family-ban path)")
 
     r = sub.add_parser("retry-questions",
                        help="regenerate questions on a persisted passage whose "

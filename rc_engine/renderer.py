@@ -62,11 +62,14 @@ HARD RULES:
    - Plant one concrete, slightly stubborn particular that is not immediately cashed
      out as a system-metaphor (a room, job title, tool, dated practice, named place,
      small physical action). It must earn its place in the argument.
-     It must NOT be the opening sentence unless the first beat prescribes one.
+     It belongs in the BODY: not the opening sentence, not the closing one.
      Measured 2026-08-29: this instruction alone put a concrete particular in
-     sentence 1 of six of nine consecutive passages, none of which planned it —
-     the single most recognisable tell in the corpus. Place it where the
-     argument needs it, which is almost never the first thing a reader sees.
+     sentence 1 of six of nine consecutive passages, none of which planned it.
+     Barring it from the opening moved it to the close instead — all five of
+     the next batch ended on a named physical object, a higher rate than the
+     fifteen before. A tell that relocates has not been fixed. Place the
+     particular where the ARGUMENT needs it, which is neither of the two
+     positions a reader uses to recognise a writer.
    - Allow one sentence that is plainer / more workmanlike than its neighbors — not
      every sentence equally epigrammatic. One midstream re-steer is fine, if it
      arises from the argument rather than from a formula. Do NOT use a fixed
@@ -103,6 +106,34 @@ class PassageRenderer:
         if not text or not text.strip():
             raise TruncatedRender("render returned an empty response")
         return text.strip()
+
+    def _commitment_instruction(self, posture: str) -> str:
+        """Say where the passage should END on the commitment scale.
+
+        The scale was measured and weighted but never targeted: across 74 real
+        curves the planned posture moved the realised endpoint by a spread of
+        just 0.20, and refusal_suspended ended at a median of 0.93. Naming the
+        band is the cheap half of the fix; ComplianceAuditor audits it.
+        """
+        band = config.POSTURE_END_COMMITMENT.get(posture)
+        if not band:
+            return ""
+        lo, hi = band
+        if hi <= 0.5:
+            where = ("The passage must NOT arrive at a settled answer to the "
+                     "question it opened. Argue the refusal as the correct "
+                     "verdict, but do not let the closing paragraph read as a "
+                     "position on the original question")
+        elif hi <= 0.9:
+            where = ("Commit firmly, but to the RELOCATED question — the "
+                     "original one should still read as unsettled at the end")
+        else:
+            where = ("The closing paragraph must actually land on a position "
+                     "and stay there")
+        return (f"COMMITMENT AT THE CLOSE ({lo:+.2f} to {hi:+.2f} on a scale "
+                f"where +1 is fully committed to a substantive answer to the "
+                f"question the passage opened, and -1 points away from one): "
+                f"{where}.")
 
     @staticmethod
     def _register_instruction(bp: Blueprint) -> str:
@@ -162,14 +193,30 @@ class PassageRenderer:
             # renderer obeyed the planned opening 2/9 and the planned closing
             # 1/9 while satisfying every beat somewhere in the middle — so the
             # list alone reads as an unordered menu however it is labelled.
+            # The FINAL sentence gets the same weight as the first, and its
+            # own prohibition. Measured 2026-08-29 across the batch that
+            # followed the opening fix: openings went 2/9 -> 5/5, closings only
+            # 1/9 -> 2/5, and all three misses collapsed to the SAME beat
+            # (CONCRETE_RETURN). Reading the five, every one ended on a named
+            # physical object — a higher rate than the 15 before the fix. The
+            # particular did not disappear when it was barred from sentence
+            # one; it relocated to the last sentence, which is the other
+            # position a reader hears as voice.
             beat_plan_block = (
                 f"FIRST SENTENCE — {first}: "
                 f"{config.RHETORICAL_MOVES.get(first, '')}.{NL}"
+                f"  Do NOT open on a concrete scene, object, or document "
+                f"unless that beat literally says so.{NL}"
                 f"FINAL SENTENCE — {last}: "
                 f"{config.RHETORICAL_MOVES.get(last, '')}.{NL}"
-                f"These two are positional and not negotiable. Do not open on a "
-                f"concrete scene, object, or document unless the first beat "
-                f"above literally says so.{NL}{NL}"
+                f"  The passage ENDS on this move. Do NOT land the last "
+                f"sentence on a named physical object, a return to the opening "
+                f"image, or a detachable quotable line, unless that beat "
+                f"literally calls for one. Ending on a concrete particular is "
+                f"this engine's most repeated tell; if you feel the pull "
+                f"toward one, the beat above is what the ending owes "
+                f"instead.{NL}"
+                f"These two positions are not negotiable.{NL}{NL}"
                 f"RHETORICAL BEAT PLAN (hard requirement — this is the "
                 f"passage's argumentative shape, in order. Each beat may span "
                 f"or share paragraphs. Together they account for the whole "
@@ -226,6 +273,7 @@ READER TRAPS (build these into the prose):
 
 ENDING DIRECTIVE: {ending['name']} — {ending['gesture']}. Aperture: {ending['aperture']}.
 CLOSING POSTURE (hard requirement): {self.registry.closing_postures[family['closing_posture']]}
+{self._commitment_instruction(family['closing_posture'])}
 FINAL SENTENCE: {self._register_instruction(bp)}
 
 FORBIDDEN WORDS/PHRASES (never use any of these): {', '.join(forbidden)}

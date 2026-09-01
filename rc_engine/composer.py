@@ -214,15 +214,20 @@ class BlueprintComposer:
         family has an open-ended supply and can never be exhausted.
         """
         fam = self.registry.get("family", family_id)
-        n_functions = len(fam["movement"])
         fixed: set[str] = set()
         can_randomize = False
-        for rid in self.registry.ids("rhythm"):
-            if n_functions < len(self.registry.get("rhythm", rid)["shape"]):
-                can_randomize = True          # fillers are sampled, not fixed
-                continue
-            fixed.add("|".join(p.function for p in self._build_movement(
-                fam, self.registry.get("rhythm", rid))))
+        for seq in self._movement_sequences(fam):
+            n_functions = len(seq)
+            for rid in self.registry.ids("rhythm"):
+                shape = self.registry.get("rhythm", rid)["shape"]
+                if n_functions < len(shape):
+                    can_randomize = True      # fillers are sampled, not fixed
+                    continue
+                # deterministic case: the sequence IS the movement string, no
+                # padding and no reordering, so read it off directly rather
+                # than calling _build_movement (which now picks a variant at
+                # random and would make this enumeration non-deterministic).
+                fixed.add("|".join(seq))
         return fixed, can_randomize
 
     # NOTE (2026-08-25): an attempt to let long families dodge a movement ban
@@ -581,8 +586,32 @@ class BlueprintComposer:
 
     # ------------------------------------------------------ structure build
 
+    def _movement_sequences(self, family: dict) -> list[list[str]]:
+        """Every function sequence this family may legitimately run.
+
+        `movement` is the canonical order; `movement_variants` holds genuine
+        alternative orderings written by hand. Added 2026-08-29: a family with
+        5+ functions is never shorter than any rhythm shape (13 of 20 shapes
+        are 4 slots, 4 are 5, 3 are 3), so _build_movement never pads it and it
+        produces exactly ONE movement string across all 20 rhythms. Fourteen
+        families were in that state, and movement similarity was the second
+        largest drag on the novelty composite, with lev=1.00 exact collisions
+        recurring in every batch.
+
+        Filler padding was the only source of variety before this, and a
+        generic filler is a weaker thing than a real reordering — the variants
+        are authored so the alternative is an argument the family could
+        actually make, not a spacer.
+        """
+        seqs = [list(family["movement"])]
+        for v in family.get("movement_variants") or []:
+            v = list(v)
+            if v and v not in seqs:
+                seqs.append(v)
+        return seqs
+
     def _build_movement(self, family: dict, rhythm: dict) -> list[ParagraphPlan]:
-        functions = list(family["movement"])
+        functions = list(self.rng.choice(self._movement_sequences(family)))
         shape = list(rhythm["shape"])
         fillers = list(self.registry.generic_fillers)
         # align paragraph count: pad functions with generic fillers at interior

@@ -1367,6 +1367,39 @@ MOVE_SATURATION_MAX_BANS = 4   # never hand the renderer more than this many at 
 # handed the plan and asked to echo the planned token back), so between them
 # they were spending 0.38 of the composite on one plan-shaped signal while the
 # prose's own argumentative shape carried none.
+# Where each closing posture should leave the commitment curve (2026-09-01).
+#
+# The curve was PURELY EMERGENT: compliance measured it, novelty weighted it at
+# 0.14 -- the largest single channel -- and no stage ever targeted it. Measured
+# across 74 real curves, the planned posture moved the realised endpoint by a
+# spread of only 0.20, and refusal_suspended (which is supposed to end
+# unresolved) had a MEDIAN endpoint of 0.93. Third instance of the same bug:
+# a lever assigned, instructed, and audited only on its LABEL.
+#
+# Bands are read off each posture's own definition in families.json, not
+# invented: the postures that "END by committing" sit high, the ones that
+# suspend or dissolve sit low. They are bands, not targets -- the point is to
+# stop every passage terminating in the same place, not to pin them all to a
+# new one.
+#
+# NOTE: these are only meaningful alongside the 2026-09-01 change to the
+# commitment definition in compliance.py (measure against the OPENING QUESTION,
+# not against wherever the passage ends). Curves recorded before that date were
+# scored under the older, ambiguous wording and read systematically higher at
+# the endpoint; comparisons across the boundary overstate novelty rather than
+# understate it, so they let sets through rather than blocking them.
+POSTURE_END_COMMITMENT = {
+    "resolution_qualified":  (0.70, 1.00),
+    "resolution_costed":     (0.70, 1.00),
+    "affirmation_endorsed":  (0.75, 1.00),
+    "reframe_displace":      (0.50, 0.90),
+    "refusal_dissolved":     (-0.20, 0.45),
+    "refusal_suspended":     (-0.30, 0.40),
+}
+# How far outside its band a realised endpoint may sit before it counts as a
+# compliance miss. Generous: the classifier reads prose, not a dial.
+POSTURE_END_TOLERANCE = 0.15
+
 COMPOSITE_WEIGHTS = {
     "blueprint": 0.14,
     "movement": 0.10,

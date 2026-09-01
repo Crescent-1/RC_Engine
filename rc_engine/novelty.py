@@ -21,6 +21,14 @@ from .models import Fingerprint, NoveltyReport
 from .registry import posture_class
 
 
+def _is_placeholder_curve(c) -> bool:
+    """True for the [0.0, 0.0, 0.0] stand-in cli.py writes for legacy backfill
+    and manual ingest, where no classifier ever read the prose. Distinguishing
+    'unknown' from 'measured as neutral' is the whole point: they were being
+    compared as real data and matching each other perfectly."""
+    return bool(c) and all(abs(float(x)) < 1e-9 for x in c)
+
+
 class NoveltyScorer:
     def __init__(self, history):
         self.history = history
@@ -62,12 +70,24 @@ class NoveltyScorer:
         else:
             scores["move_signature_sim"] = 0.0
 
-        scores["curve_similarity"] = curve_similarity(
-            fp.commitment_curve, other.commitment_curve)
-        r = pearson(fp.commitment_curve, other.commitment_curve)
-        same_sign_ends = (fp.commitment_curve and other.commitment_curve and
-                          fp.commitment_curve[-1] * other.commitment_curve[-1] > 0)
-        scores["curve_pearson"] = r if same_sign_ends else min(r, 0.0)
+        # An all-zero curve is a PLACEHOLDER, not a measurement: cli.py writes
+        # [0.0, 0.0, 0.0] for legacy backfill and manually ingested sets, whose
+        # prose was never scored by the compliance classifier. 39 of the 113
+        # active fingerprints carry one, and they matched each other at exactly
+        # 1.000 — 741 of 6328 pairs in the baseline, every single exact match in
+        # the corpus. Scoring "unknown" as "flat neutral" manufactured collisions
+        # out of missing data. Skip the channel instead; _composite renormalises
+        # over the weights it actually has.
+        if _is_placeholder_curve(fp.commitment_curve) or                 _is_placeholder_curve(other.commitment_curve):
+            scores["curve_similarity"] = None
+            scores["curve_pearson"] = None
+        else:
+            scores["curve_similarity"] = curve_similarity(
+                fp.commitment_curve, other.commitment_curve)
+            r = pearson(fp.commitment_curve, other.commitment_curve)
+            same_sign_ends = (fp.commitment_curve and other.commitment_curve and
+                              fp.commitment_curve[-1] * other.commitment_curve[-1] > 0)
+            scores["curve_pearson"] = r if same_sign_ends else min(r, 0.0)
 
         if rhythm_stats:
             means, stds = rhythm_stats
@@ -107,7 +127,8 @@ class NoveltyScorer:
             ("blueprint", blueprint_sim),
             ("movement", movement),
             ("move_signature", move_sig),
-            ("curve", max(0.0, s["curve_similarity"])),
+            ("curve", None if s["curve_similarity"] is None
+                      else max(0.0, s["curve_similarity"])),
             ("rhythm", max(0.0, s["rhythm_cosine"])),
             ("stylometry", s["stylometry_sim"]),
             ("embedding", s["embedding_cosine"]),
@@ -116,8 +137,12 @@ class NoveltyScorer:
             parts.append(("topology", s["topology_similarity"]))
             # LOW distractor JSD = repetitive; invert into similarity
             parts.append(("distractor_jsd", max(0.0, 1.0 - s["distractor_jsd"] * 4)))
+        # A None channel is unmeasurable for this pair (see the placeholder-curve
+        # note in _pairwise). Drop it and renormalise rather than scoring it 0,
+        # which would read as "maximally novel" on missing data.
+        parts = [(k, v) for k, v in parts if v is not None]
         total_w = sum(w[k] for k, _ in parts)
-        return sum(w[k] * v for k, v in parts) / total_w
+        return sum(w[k] * v for k, v in parts) / total_w if total_w else 0.0
 
     # ----------------------------------------------------------------- gates
 
@@ -191,7 +216,7 @@ class NoveltyScorer:
             if movement_recent and s["movement_bigram_jaccard"] > caps["movement_bigram_jaccard"]:
                 breached.append(f"movement_bigram_jaccard {s['movement_bigram_jaccard']:.2f} vs {other.rc_id}")
             coarse_supported = self._coarse_channel_supported(s, bp_sim)
-            if curve_cap_active and s["curve_similarity"] > caps["curve_similarity"]:
+            if curve_cap_active and s["curve_similarity"] is not None                     and s["curve_similarity"] > caps["curve_similarity"]:
                 if (coarse_supported
                         or s["curve_similarity"] >= config.NOVELTY_SUPPORT_CAPS["curve_similarity_extreme"]):
                     breached.append(f"curve_similarity {s['curve_similarity']:.2f} vs {other.rc_id}")
