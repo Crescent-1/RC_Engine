@@ -963,6 +963,33 @@ def cmd_health(args) -> int:
                 print("    (exam-derived groups still under n=10 — not yet "
                       "decisive)")
 
+    # ---- what the novelty gates are scoring against ------------------------
+    # The window is the baseline every render is judged for novelty against.
+    # If it fills with sets that will never ship, the gates defend ghosts.
+    comp = history.window_composition(window)
+    mix = ", ".join(f"{k} {v}" for k, v in
+                    sorted(comp["mix"].items(), key=lambda kv: -kv[1]))
+    print(f"  novelty window                 {comp['live']} live | {mix}")
+    print(f"    hidden: {comp['hidden_by_status']} by status "
+          f"{list(config.NOVELTY_WINDOW_EXCLUDE_STATUSES)}, "
+          f"{comp['quarantined']} quarantined")
+
+    # ---- batch yield: paid waste per batch ----------------------------------
+    # A paid reject is a render that was already bought before a gate refused
+    # it. This is the number a threshold or steering change has to move.
+    batches = history.attempt_summary(5)
+    if batches:
+        print("  recent batches (attempts table):")
+        for b in batches:
+            yield_pct = (b["shipped"] / b["attempts"] * 100) if b["attempts"] else 0
+            print(f"    {b['batch_id']}  {b['shipped']}/{b['attempts']} shipped "
+                  f"({yield_pct:.0f}%) | paid rejects {b['paid_rejects']} "
+                  f"(${b['paid_waste']:.2f}) | free {b['free_rejects']} | "
+                  f"spend ${b['spend']:.2f}")
+    else:
+        print("  recent batches                 none recorded yet "
+              "(attempts table fills from the next generate run)")
+
     history.record_health(window, fam_kl, topo_kl, [], chi2)
     history.close()
     return 0

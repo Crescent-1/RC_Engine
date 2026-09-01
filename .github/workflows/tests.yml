@@ -1,0 +1,33 @@
+name: tests
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+
+      # sentence-transformers drags in torch (~2 GB) and no test needs it: the
+      # embedding channel is loaded lazily and the suite runs with it absent.
+      # RAG.py's optional deps are commented out in requirements.txt already;
+      # the one test that imports RAG skips itself when they are missing.
+      - name: Install dependencies (without the embedding model)
+        run: |
+          grep -v '^sentence-transformers' requirements.txt > /tmp/req.txt
+          python -m pip install --upgrade pip
+          pip install -r /tmp/req.txt pytest
+
+      - name: Run the suite
+        run: python -m pytest tests -q --no-header -p no:cacheprovider
+
+      - name: Config self-test (no API calls)
+        run: python -m rc_engine.cli selftest

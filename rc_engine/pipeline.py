@@ -1041,6 +1041,17 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
           f"(per-RC caps: {config.TIER_BUDGET_USD})")
     results: list[RCResult] = []
     forced_bans: set[str] = set()
+    from datetime import datetime, timezone
+    batch_id = datetime.now(timezone.utc).strftime("%Y%m%d-%H%M%S")
+
+    def _keep(res: RCResult, tier: str, slot: int, attempt_no: int) -> None:
+        """Every outcome goes to the attempts table, shipped or not, so the
+        cost of a rejected render outlives this process. Never fatal."""
+        results.append(res)
+        try:
+            pipeline.history.record_attempt(batch_id, tier, slot, attempt_no, res)
+        except Exception as e:                       # noqa: BLE001
+            print(f"  [attempts] not recorded (non-fatal): {e}")
     if only_posture:
         reg = pipeline.composer.registry
         forced_bans = {f for f in reg.ids("family")
@@ -1101,7 +1112,7 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
                         import traceback
                         traceback.print_exc()
                         res = RCResult(None, "", tier, "failed_error", notes=[repr(e)])
-                    results.append(res)
+                    _keep(res, tier, i + 1, attempt + 1)
                     ban_families.update(res.ban_families or [])
                     ban_movements.update(res.ban_movements or [])
                     if res.status not in ("rejected_novelty", "failed_composition",
@@ -1155,7 +1166,7 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
                         import traceback
                         traceback.print_exc()
                         res = RCResult(None, bp_id, tier, "failed_error", notes=[repr(e)])
-                    results.append(res)
+                    _keep(res, tier, i + 1, attempt + 1)
                 if res and res.rc_id and on_success:
                     on_success(res.rc_id)
     except APIExhausted as e:
@@ -1164,7 +1175,7 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
     total = sum(r.cost_usd for r in results)
     shipped_statuses = {"approved", "needs_review", "solver_dispute"}
     shipped = [r for r in results if r.rc_id and r.status in shipped_statuses]
-    print(f"\n--- Batch summary: {len(shipped)} shipped, "
+    print(f"\n--- Batch {batch_id} summary: {len(shipped)} shipped, "
           f"{len(results)} attempts, total ${total:.4f} ---")
     for r in results:
         reason = ""

@@ -20,6 +20,10 @@ def _now() -> str:
 class HistoryStore:
     def __init__(self, db_path: str = config.DB_PATH):
         self.conn = sqlite3.connect(db_path)
+        # Wait on a locked DB instead of failing at once: the GUI opens it
+        # read-only, backups use the online-backup API, and a second generate
+        # process must queue behind the writer rather than die mid-ship.
+        self.conn.execute("PRAGMA busy_timeout = 5000")
         self._init_tables()
 
     def close(self):
@@ -145,6 +149,25 @@ class HistoryStore:
         self._ensure_column("fingerprints", "move_signature", "TEXT DEFAULT ''")
         # Excluded from the novelty baseline, never deleted. See fingerprint_window.
         self._ensure_column("fingerprints", "quarantined", "INTEGER DEFAULT 0")
+
+        # Every generate_one outcome inside run_batch, shipped or not, with what
+        # it cost. rc_sets only ever held the shipped ones, so the price of a
+        # rejected render lived in the process's memory and vanished with it —
+        # there was no way to tell whether a gate change had cut paid waste.
+        c.execute("""
+            CREATE TABLE IF NOT EXISTS attempts (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                batch_id TEXT NOT NULL,
+                tier TEXT NOT NULL,
+                slot INTEGER NOT NULL,
+                attempt_no INTEGER NOT NULL,
+                rc_id TEXT, blueprint_id TEXT,
+                status TEXT NOT NULL,
+                cost_usd REAL NOT NULL,
+                novelty_composite REAL, compliance_f1 REAL,
+                reason TEXT,
+                created_at TEXT NOT NULL
+            )""")
 
         c.execute("""
             CREATE TABLE IF NOT EXISTS novelty_audits (
@@ -358,13 +381,24 @@ class HistoryStore:
         same thing. Quarantine keeps one representative and hides the rest from
         this window ONLY; the rows, the rc_sets and the exported files are
         untouched. Pass include_quarantined=True for audits and reporting."""
-        where = "" if include_quarantined else " WHERE quarantined = 0"
+        excluded = tuple(config.NOVELTY_WINDOW_EXCLUDE_STATUSES)
+        if include_quarantined:
+            where, params = "", (limit,)
+        elif excluded:
+            # Also hide sets that are not going to ship (solver_dispute) or
+            # were themselves rejected as duplicates — see the config note.
+            marks = ",".join("?" * len(excluded))
+            where = (" WHERE quarantined = 0 AND rc_id NOT IN "
+                     f"(SELECT rc_id FROM rc_sets WHERE status IN ({marks}))")
+            params = (*excluded, limit)
+        else:
+            where, params = " WHERE quarantined = 0", (limit,)
         rows = self.conn.execute(
             """SELECT rc_id, blueprint_id, persona_id, movement_string, commitment_curve,
                       rhythm_vector, topology_signature, trap_histogram, letter_sequence,
                       stylometry, embedding, source, move_signature
                FROM fingerprints""" + where +
-            """ ORDER BY created_at DESC LIMIT ?""", (limit,)).fetchall()
+            """ ORDER BY created_at DESC LIMIT ?""", params).fetchall()
         out = []
         for r in rows:
             out.append(Fingerprint(
@@ -389,6 +423,72 @@ class HistoryStore:
                VALUES (?, ?, ?, ?, ?, ?, ?)""",
             (rc_id, blueprint_id, json.dumps(channel_scores), composite, verdict, details, _now()))
         self.conn.commit()
+
+    def window_composition(self, limit: int) -> dict:
+        """What the novelty gates are actually scoring against: rc_sets status
+        of every row in the live window, plus how many rows the status rule
+        and quarantine are hiding. Rows with no rc_sets row are legacy/manual
+        backfill that shipped before the engine kept a row for them."""
+        live = [fp.rc_id for fp in self.fingerprint_window(limit)]
+        status = dict(self.conn.execute(
+            "SELECT rc_id, status FROM rc_sets").fetchall())
+        mix: dict[str, int] = {}
+        for rc_id in live:
+            k = status.get(rc_id, "no_rc_row")
+            mix[k] = mix.get(k, 0) + 1
+        excluded = tuple(config.NOVELTY_WINDOW_EXCLUDE_STATUSES)
+        hidden_by_status = 0
+        if excluded:
+            marks = ",".join("?" * len(excluded))
+            hidden_by_status = self.conn.execute(
+                f"""SELECT COUNT(*) FROM fingerprints
+                    WHERE quarantined = 0 AND rc_id IN
+                          (SELECT rc_id FROM rc_sets WHERE status IN ({marks}))""",
+                excluded).fetchone()[0]
+        quarantined = self.conn.execute(
+            "SELECT COUNT(*) FROM fingerprints WHERE quarantined = 1").fetchone()[0]
+        return {"live": len(live), "mix": mix,
+                "hidden_by_status": hidden_by_status, "quarantined": quarantined}
+
+    def record_attempt(self, batch_id: str, tier: str, slot: int,
+                       attempt_no: int, res) -> None:
+        reason = "; ".join(res.notes or [])[:400]
+        self.conn.execute(
+            """INSERT INTO attempts
+               (batch_id, tier, slot, attempt_no, rc_id, blueprint_id, status,
+                cost_usd, novelty_composite, compliance_f1, reason, created_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+            (batch_id, tier, slot, attempt_no, res.rc_id, res.blueprint_id or None,
+             res.status, float(res.cost_usd or 0.0), res.novelty_composite,
+             res.compliance_f1, reason, _now()))
+        self.conn.commit()
+
+    def attempt_summary(self, last_batches: int = 5,
+                        paid_floor_usd: float = 0.02) -> list[dict]:
+        """Per-batch yield, newest first: attempts, shipped, rejections that
+        had already paid for a render (cost >= paid_floor_usd) versus free
+        precheck saves, and the dollars behind each. This is the number to
+        watch when a gate or threshold changes."""
+        shipped = ("approved", "needs_review", "solver_dispute")
+        batches = [r[0] for r in self.conn.execute(
+            """SELECT batch_id FROM attempts GROUP BY batch_id
+               ORDER BY MIN(created_at) DESC LIMIT ?""", (last_batches,))]
+        out = []
+        for b in batches:
+            rows = self.conn.execute(
+                """SELECT status, cost_usd, rc_id, created_at FROM attempts
+                   WHERE batch_id = ?""", (b,)).fetchall()
+            n_ship = sum(1 for s, _, rc, _ in rows if rc and s in shipped)
+            wasted = [(s, c) for s, c, rc, _ in rows if not (rc and s in shipped)]
+            paid = [(s, c) for s, c in wasted if c >= paid_floor_usd]
+            out.append({
+                "batch_id": b, "started": min(r[3] for r in rows)[:16],
+                "attempts": len(rows), "shipped": n_ship,
+                "paid_rejects": len(paid), "free_rejects": len(wasted) - len(paid),
+                "spend": round(sum(c for _, c, _, _ in rows), 4),
+                "paid_waste": round(sum(c for _, c in paid), 4),
+            })
+        return out
 
     def generate_rc_id(self, tier: str) -> str:
         """Atomic, collision-free: claims the next sequence number for this

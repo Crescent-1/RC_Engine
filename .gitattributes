@@ -7,3 +7,8 @@
 # Workflow and config files parsed by Linux tooling.
 *.yml text eol=lf
 *.yaml text eol=lf
+
+# Python and Markdown are edited on Windows and read by Linux CI; pin them
+# so every touched file does not show up as an end-of-line change.
+*.py text eol=lf
+*.md text eol=lf

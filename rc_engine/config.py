@@ -660,6 +660,16 @@ ESTIMATED_INPUT_TOKENS = {
 MAX_COMPOSE_ATTEMPTS = 40
 MAX_REFINE_ATTEMPTS = 3      # transient empty/truncated refine responses
 MAX_RENDER_ATTEMPTS = 2      # render + compliance loop
+
+# Transient API failures — 429 rate limit, 5xx overload, dropped connections —
+# are retried with exponential backoff and jitter before the batch is stopped
+# (2026-09-02). Until now a single 429 raised APIExhausted and ended the whole
+# run, which is precisely the first thing a larger or parallel batch hits.
+# Quota / credit-balance errors are NOT retried: waiting cannot fix them, and
+# they still stop the batch cleanly as before.
+API_BACKOFF_MAX_RETRIES = 5
+API_BACKOFF_BASE_S = 2.0        # 2, 4, 8, 16, 32 s (+ up to 25% jitter)
+API_BACKOFF_MAX_S = 60.0
 MAX_QUESTION_ATTEMPTS = 2
 MAX_JUDGE_ATTEMPTS = 2
 
@@ -929,6 +939,16 @@ BLUEPRINT_HAMMING_WEIGHTS = {
 # ---------------------------------------------------------------------------
 
 FINGERPRINT_WINDOW = 100
+
+# Fingerprints whose rc_sets row carries one of these statuses are hidden from
+# the novelty window (2026-09-02). A solver_dispute set may never ship and a
+# rejected_novelty row is a duplicate by definition, yet both sat in the
+# baseline as magnets: of the five RCs new renders collided with most between
+# 2026-08-20 and 09-01, two were solver_dispute sets, one of them blamed
+# sixteen times. Rows with no rc_sets row (legacy/manual backfill) stay in —
+# they shipped. Audit/reporting paths pass include_quarantined=True and see
+# everything, exactly as they do for quarantined rows.
+NOVELTY_WINDOW_EXCLUDE_STATUSES = ("solver_dispute", "rejected_novelty")
 
 # Below this corpus size the curve breach check is kept composite-only:
 # commitment curves are 4-6 coarse values and late-thesis tiers all share a
