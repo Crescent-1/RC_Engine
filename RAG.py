@@ -159,9 +159,35 @@ FEEDS = {
          "min_words": 800, "kind": "criticism"},
 
     # Medicine and law — case-driven, and domains the corpus barely touches
-    "https://www.statnews.com/feed/":
-        {"genre": "STAT", "js": False, "paths": None,
+    #
+    # STAT retired 2026-09-01. It was the only pure daily-news wire in the list:
+    # short items pegged to the week's health-policy cycle, which is the worst
+    # kind of seed material — little concrete particular to hold a passage to,
+    # and a topic pool that converges on whatever is in the news. Replaced by
+    # the three long-form feeds below rather than simply dropped, so `reportage`
+    # does not lose its only source.
+    # "https://www.statnews.com/feed/":
+    #     {"genre": "STAT", "js": False, "paths": None,
+    #      "min_words": 900, "kind": "reportage"},
+    #
+    # Added 2026-09-01. Chosen for CONCRETE, SPECIFIC, NON-CURRENT material —
+    # each piece is anchored to a particular place, episode or object rather
+    # than to this week's discourse, which is what makes a seed usable. All
+    # four were checked live: feed returns items AND trafilatura extracts full
+    # article text (MIT Press Reader was rejected — its feed works but article
+    # fetches 403).
+    "https://www.damninteresting.com/feed/":
+        {"genre": "Damn Interesting", "js": False, "paths": None,
+         "min_words": 900, "kind": "narrative_history"},
+    "https://hakaimagazine.com/feed/":
+        {"genre": "Hakai", "js": False, "paths": None,
          "min_words": 900, "kind": "reportage"},
+    "https://restofworld.org/feed/latest/":
+        {"genre": "Rest of World", "js": False, "paths": None,
+         "min_words": 900, "kind": "reportage"},
+    "https://www.atlasobscura.com/feeds/latest":
+        {"genre": "Atlas Obscura", "js": False, "paths": None,
+         "min_words": 900, "kind": "narrative_history"},
     "https://verfassungsblog.de/feed/":
         {"genre": "Verfassungsblog", "js": False, "paths": None,
          "min_words": 900, "kind": "legal_analysis"},

@@ -412,6 +412,10 @@ class RCPipeline:
                   f"{length_bias['correct_longest_count']}/{config.QUESTIONS_PER_SET} "
                   f"thesis_longest={length_bias['thesis_correct_longest']} "
                   f"— will not auto-approve")
+        if length_bias.get("self_check_ok") is False:
+            print(f"  [length-bias] self-check MISREPORTED: model claimed "
+                  f"{length_bias['claimed_correct_longest']}, actual "
+                  f"{length_bias['correct_longest_count']}")
         for w in length_bias["warnings"]:
             notes.append(f"option audit: {w}")
 
@@ -506,7 +510,8 @@ class RCPipeline:
 
         try:
             if not solver_dispute:
-                judge = judge_rc(self.llm, ledger, bp, rc_text, self.registry)
+                judge = judge_rc(self.llm, ledger, bp, rc_text, self.registry,
+                                 length_facts=length_bias)
         except BudgetExceeded:
             notes.append("judge skipped: budget")
             judge = {"scores": {}, "average": 0.0, "verdict": "skipped_budget"}
@@ -577,6 +582,8 @@ class RCPipeline:
         # way _aphorism_ending made the register drift visible.
         f.stylometry["_opening_beat_ok"] = 1 if realized.opening_beat_ok else 0
         f.stylometry["_closing_beat_ok"] = 1 if realized.closing_beat_ok else 0
+        f.stylometry["_middle_retention"] = realized.middle_retention
+        f.stylometry["_gratuitous_moves"] = len(realized.gratuitous_moves)
 
     def _pool_is_single_kind(self, tier: str) -> bool:
         """Can this tier's seed pool offer any alternative content kind?

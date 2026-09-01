@@ -1483,3 +1483,218 @@ def test_out_of_band_ending_is_caught_and_directed():
     if r.commitment_curve and r.commitment_curve[-1] > 0.55:
         assert r.commitment_in_band is False
         assert any("commitment" in d for d in r.directives), r.directives
+
+
+# ---------------------------------------------------------------------------
+# Length-bias self-check and the dead judge dimension (2026-09-01).
+#
+# Measured over 94 sets: the per-set correct-longest count has a mean of exactly
+# 1.98/8 = 25% (chance) but is 1.74x OVERDISPERSED — chi-square 53.7 on 8 df,
+# with 17 sets at 0/8 (expected 9.4), a hole at 3/8 (8 vs 19.5), and 9 sets at
+# 5-6/8 (expected 2.6). Errors cluster within a set, which is what a skipped
+# check looks like, not an unlucky one. Watching the mean would never show it.
+# ---------------------------------------------------------------------------
+
+def _qdata(correct_letters, texts):
+    """texts: list of 4-tuples of option strings, correct letter per question."""
+    qs = []
+    for i, (letter, opts) in enumerate(zip(correct_letters, texts), start=1):
+        qs.append({"q": i, "slot_type": "detail_check", "correct": letter,
+                   "options": {l: {"text": t} for l, t in zip("ABCD", opts)}})
+    return {"questions": qs}
+
+
+def test_length_audit_mismatch_is_reported_as_a_skipped_check():
+    from rc_engine.question_engine import length_bias_report
+    long_correct = ("one two three four five six seven eight nine ten",
+                    "short opt", "short opt", "short opt")
+    d = _qdata(["A"] * 4, [long_correct] * 4)
+    d["length_audit"] = {"correct_longest_count": 0}      # model claims clean
+    r = length_bias_report(d)
+    assert r["correct_longest_count"] == 4, r["correct_longest_count"]
+    assert r["self_check_ok"] is False
+    assert any("self-check not performed" in w for w in r["warnings"]), r["warnings"]
+
+
+def test_length_audit_agreement_is_not_flagged():
+    from rc_engine.question_engine import length_bias_report
+    long_correct = ("one two three four five six seven eight nine ten",
+                    "short opt", "short opt", "short opt")
+    d = _qdata(["A"] * 4, [long_correct] * 4)
+    d["length_audit"] = {"correct_longest_count": 4}      # model owns up
+    r = length_bias_report(d)
+    assert r["self_check_ok"] is True
+    assert not any("self-check not performed" in w for w in r["warnings"])
+
+
+def test_missing_length_audit_does_not_crash_or_accuse():
+    """Legacy question payloads have no length_audit field."""
+    from rc_engine.question_engine import length_bias_report
+    d = _qdata(["A"] * 3, [("a b c", "d e f", "g h i", "j k l")] * 3)
+    r = length_bias_report(d)
+    assert r["self_check_ok"] is None
+    assert r["claimed_correct_longest"] is None
+
+
+def test_question_prompt_asks_for_the_count_not_a_silent_tally():
+    """The prompt used to say 'do the recheck silently, do not show your
+    counts' — asking for unverifiable arithmetic over 8 questions."""
+    from rc_engine import question_engine as qe
+    src = qe.QUESTION_SYSTEM if hasattr(qe, "QUESTION_SYSTEM") else ""
+    if not src:
+        import inspect
+        src = inspect.getsource(qe)
+    assert "length_audit" in src
+    assert "Do the length-bias recheck silently" not in src
+
+
+def test_distractor_efficiency_rubric_can_actually_fail_a_set():
+    """Across 76 judged sets this dimension was 8 in 84% of them and never
+    below 7 — a fifth of the judge average that could not express a failure."""
+    from rc_engine.quality import build_judge_dimensions
+    from rc_engine.registry import ComponentRegistry
+    reg = ComponentRegistry()
+    bp = _mock_blueprint()
+    text = build_judge_dimensions(bp, reg)["distractor_efficiency"]
+    assert "AT MOST 4" in text, "must have a hard ceiling, not just a nudge"
+    assert "correct-longest" in text, "must key off the defect the corpus has"
+    # It must NOT ask the judge to compute the count itself. The first version
+    # did, and on its first batch reported 7/8 and 3 where the deterministic
+    # checker measured 2 and 2 — both errors downgrading the set.
+    assert "MEASURED" in text or "measured" in text
+    assert "in how many is the correct option" not in text.lower()
+
+
+def test_judge_is_handed_the_measured_length_count():
+    """The judge must score against the deterministic figure, not its own
+    estimate. Measured on the first batch after the rubric was given teeth:
+    claimed 7/8 and 3 where the checker measured 2 and 2, both downgrades."""
+    import inspect
+    from rc_engine.quality import judge_rc
+    assert "length_facts" in inspect.signature(judge_rc).parameters
+    src = inspect.getsource(judge_rc)
+    assert "MEASURED FACT" in src
+    assert "do not recount" in src
+
+
+def test_pipeline_passes_the_length_report_to_the_judge():
+    import inspect
+    from rc_engine import pipeline
+    src = inspect.getsource(pipeline)
+    assert "length_facts=length_bias" in src, (
+        "the judge would otherwise estimate a number the pipeline already knows")
+
+
+# ---------------------------------------------------------------------------
+# Middle-beat discipline (2026-09-01).
+#
+# The two endpoints were enforced on 08-29 and it worked (openings 2/9 -> 5/5,
+# concrete endings 5/5 -> 0/3). The middle was never checked, and that is where
+# the voice lives: across 13 sets, planned middle beats were retained 43% of the
+# time and the same substitutes recurred regardless of family —
+# EASY_READING_DEMOLISHED unplanned in 10 of 13, CONCESSION_GRANTED in 8.
+#
+# beat_score could not catch this: computed over the WHOLE plan, the two
+# reliably-landing endpoints prop it up while the middle rots.
+# ---------------------------------------------------------------------------
+
+def test_middle_beats_dropped_is_caught_even_when_both_ends_land():
+    planned = ["QUESTION_POSED", "GENEALOGY_TRACED", "SYMMETRY_BROKEN",
+               "TWO_CAMP_SPLIT", "COUNTEREXAMPLE_PRESSED", "BOUND_CONTINUATION"]
+    realised = ["QUESTION_POSED", "GENEALOGY_TRACED", "BOUND_CONTINUATION"]
+    r = _audit_with_moves(planned, realised)
+    assert r.opening_beat_ok and r.closing_beat_ok, "premise: both ends land"
+    assert r.middle_retention < 0.6, r.middle_retention
+    assert r.middle_beats_ok is False
+    assert any("planned middle beats" in d for d in r.directives), r.directives
+
+
+def test_habitual_substitutes_are_named_as_gratuitous():
+    planned = ["QUESTION_POSED", "GENEALOGY_TRACED", "SYMMETRY_BROKEN",
+               "BOUND_CONTINUATION"]
+    realised = ["QUESTION_POSED", "GENEALOGY_TRACED", "SYMMETRY_BROKEN",
+                "EASY_READING_DEMOLISHED", "CONCESSION_GRANTED",
+                "BOUND_CONTINUATION"]
+    r = _audit_with_moves(planned, realised)
+    assert "EASY_READING_DEMOLISHED" in r.gratuitous_moves
+    assert "CONCESSION_GRANTED" in r.gratuitous_moves
+    assert any("did not ask for" in d for d in r.directives), r.directives
+
+
+def test_ordinary_connective_moves_are_not_punished():
+    """An unplanned MECHANISM_EXPLAINED is what 91% of real exam passages do.
+    Flagging it would push the corpus AWAY from the exam, not toward it."""
+    planned = ["QUESTION_POSED", "GENEALOGY_TRACED", "SYMMETRY_BROKEN",
+               "BOUND_CONTINUATION"]
+    realised = ["QUESTION_POSED", "GENEALOGY_TRACED", "SYMMETRY_BROKEN",
+                "MECHANISM_EXPLAINED", "UNDERLYING_CAUSE_NAMED",
+                "BOUND_CONTINUATION"]
+    r = _audit_with_moves(planned, realised)
+    assert r.gratuitous_moves == [], r.gratuitous_moves
+
+
+def test_middle_order_is_not_checked():
+    """Order inside the body is the writer's business — only retention and
+    restraint are enforced."""
+    planned = ["QUESTION_POSED", "GENEALOGY_TRACED", "SYMMETRY_BROKEN",
+               "TWO_CAMP_SPLIT", "BOUND_CONTINUATION"]
+    realised = ["QUESTION_POSED", "TWO_CAMP_SPLIT", "SYMMETRY_BROKEN",
+                "GENEALOGY_TRACED", "BOUND_CONTINUATION"]
+    r = _audit_with_moves(planned, realised)
+    assert r.middle_retention == 1.0
+    assert r.middle_beats_ok is True
+
+
+def test_exam_move_shares_separate_ordinary_from_distinctive():
+    floor = config.UNPLANNED_MOVE_EXAM_FLOOR
+    shares = config.EXAM_MOVE_SHARES
+    # the two the measurement implicated must fall below the floor
+    assert shares["EASY_READING_DEMOLISHED"] < floor
+    assert shares["CONCESSION_GRANTED"] < floor
+    # the two that are exam-normal must sit above it
+    assert shares["MECHANISM_EXPLAINED"] >= floor
+    assert shares["UNDERLYING_CAUSE_NAMED"] >= floor
+
+
+def test_render_contract_binds_the_body_beats():
+    from rc_engine.registry import ComponentRegistry
+    from rc_engine.renderer import PassageRenderer
+    bp = _mock_blueprint()
+    bp.move_plan = ["QUESTION_POSED", "GENEALOGY_TRACED", "BOUND_CONTINUATION"]
+    c = PassageRenderer(ComponentRegistry(), None)._contract(bp, [])
+    assert "THE BODY BEATS ARE NOT OPTIONAL" in c
+    assert "whatever order the argument wants" in c, "order must stay free"
+
+
+def test_hard_seed_pool_is_not_a_single_content_kind():
+    """Hard's 168 unused documents were 100% idea_essay, which deadlocked the
+    seed-genre saturation gate: conceptual_essay sat at 62% of the trailing
+    window with no legal alternative to rotate to."""
+    import RAG
+    from urllib.parse import urlparse
+
+    def host(u):
+        h = urlparse(u or "").netloc.lower()
+        return h[4:] if h.startswith("www.") else h
+
+    by_genre = {c.get("genre"): c.get("kind", "idea_essay")
+                for c in RAG.FEEDS.values()}
+    kinds = {by_genre.get(g) for g in config.TIER_SEED_GENRES["hard"]
+             if g in by_genre}
+    assert len(kinds) >= 2, (
+        f"hard draws from one content kind only: {kinds}")
+
+
+def test_retired_news_wire_is_commented_not_deleted():
+    """Standing preference in this project: retire, don't delete — the entry
+    stays readable so a future reader knows it was considered and why."""
+    import io
+    src = io.open("RAG.py", encoding="utf-8").read()
+    assert "statnews.com" in src, "the retired entry should still be on record"
+    live = [ln for ln in src.splitlines()
+            if "statnews.com" in ln and not ln.lstrip().startswith("#")]
+    assert not live, f"still a live feed entry: {live}"
+    import RAG
+    assert not any("statnews" in u for u in RAG.FEEDS), "still loaded"
+    for u in ("damninteresting.com", "hakaimagazine.com", "restofworld.org"):
+        assert u in src

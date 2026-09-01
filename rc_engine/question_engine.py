@@ -107,13 +107,24 @@ as you wrote them — ignore letters; count the option strings only).
      makes it right or wrong must remain explicit.
    - Do not delete qualifiers that change meaning (scope, stance, causality).
    - Prefer adding substance to a distractor over gutting the correct answer.
-5. Only after this recheck passes, emit the JSON.
+5. Report the result of step 2 in the "length_audit" field of the JSON — the
+   count itself, plus the question numbers where the correct option is strictly
+   longest. Writing the count down is the point: a silent tally over {_N_Q}
+   questions is not verifiable by you or by us, and the corpus shows it is not
+   reliably performed. Measured over 94 sets, the per-set correct-longest count
+   is 1.74x MORE dispersed than chance (chi-square 53.7 on 8 df): the mean is
+   exactly the 25% you would get by luck, but 10% of sets land at 5-8 of {_N_Q},
+   where "pick the longest option" becomes a working heuristic. The errors
+   cluster WITHIN a set, which is what a skipped check looks like.
+6. Only after this recheck passes, emit the JSON.
 
 OUTPUT DISCIPLINE (this model writes extra visible reasoning when thinking is
 off, and that reasoning competes with the JSON for the output budget):
 - Emit the JSON object and NOTHING else. No preamble, no "Here is...", no
   commentary before or after, no markdown fences, no notes on your process.
-- Do the length-bias recheck silently. Do not narrate it or show your counts.
+- Do not narrate the length-bias recheck in prose. Report it ONLY as the
+  structured "length_audit" field below — that is data, not commentary, and it
+  does not compete with the questions for the output budget.
 - The first character of your response must be '{' and the last must be '}'.
 
 Respond ONLY with valid JSON, no markdown fences:
@@ -131,7 +142,8 @@ Respond ONLY with valid JSON, no markdown fences:
       ]
     }},
     ...exactly {_N_Q}...
-  ]
+  ],
+  "length_audit": {{"correct_longest_count": 0, "correct_longest_questions": []}}
 }}"""
 
 
@@ -535,8 +547,25 @@ def length_bias_report(qdata: dict) -> dict:
             f"(max clean: {CORRECT_LONGEST_MAX})")
     if thesis_correct_longest:
         warnings.append("thesis question's correct option is the strictly longest")
+    # Did the model actually run the self-check it was told to run? It now
+    # reports its own count in `length_audit`; comparing that against the
+    # measured count separates "tried and missed" from "never counted".
+    # The distinction matters: the corpus is 1.74x overdispersed on this number
+    # (chi-square 53.7, 8 df) with the errors clustered within sets, which is
+    # what a skipped check looks like rather than an unlucky one.
+    claimed = (qdata.get("length_audit") or {}).get("correct_longest_count")
+    self_check_ok = None
+    if isinstance(claimed, (int, float)):
+        self_check_ok = int(claimed) == correct_longest_count
+        if not self_check_ok:
+            warnings.append(
+                f"length self-check not performed: model reported "
+                f"{int(claimed)} correct-longest, actual {correct_longest_count}")
     return {
         "warnings": warnings,
+        "claimed_correct_longest": (int(claimed)
+                                    if isinstance(claimed, (int, float)) else None),
+        "self_check_ok": self_check_ok,
         "correct_longest_count": correct_longest_count,
         "thesis_correct_longest": thesis_correct_longest,
         "has_thesis_question": any(q.get("slot_type") == "thesis"
