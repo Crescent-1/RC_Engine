@@ -24,7 +24,8 @@ from __future__ import annotations
 import os
 
 from . import config
-from .llm import APIExhausted, CostLedger, LLMClient, resolve_effort
+from .llm import (APIExhausted, CostLedger, LLMClient, call_with_backoff,
+                  resolve_effort)
 
 
 def make_client(provider: str):
@@ -179,23 +180,24 @@ class OpenAIClient:
 
         ceiling = max_tokens
         for attempt in (1, 2):
-            try:
-                resp = self._client.chat.completions.create(
+            def _create(_ceiling=ceiling):
+                return self._client.chat.completions.create(
                     model=model,
                     # NOT max_tokens — rejected on gpt-5.x reasoning models
-                    max_completion_tokens=ceiling,
+                    max_completion_tokens=_ceiling,
                     reasoning_effort=effort,
                     messages=[{"role": "system", "content": system},
                               {"role": "user", "content": user}],
                 )
-            except (openai.RateLimitError, openai.APIConnectionError) as e:
-                # insufficient_quota arrives as RateLimitError on this SDK
-                raise APIExhausted(str(e)) from e
-            except openai.APIStatusError as e:
-                status = getattr(e, "status_code", None)
-                if status in (402, 429, 503, 529) or "quota" in str(e).lower():
-                    raise APIExhausted(str(e)) from e
-                raise
+
+            # insufficient_quota arrives as RateLimitError on this SDK; the
+            # backoff helper spots the quota wording and stops without retrying.
+            resp = call_with_backoff(
+                _create,
+                transient=(openai.RateLimitError, openai.APIConnectionError),
+                status_of=lambda e: (getattr(e, "status_code", None)
+                                     if isinstance(e, openai.APIStatusError) else None),
+                label="openai")
             choice = resp.choices[0]
             ledger.record(stage, model, resp.usage.prompt_tokens,
                           resp.usage.completion_tokens)
@@ -259,16 +261,19 @@ class GeminiClient:
             max_output_tokens=max_tokens,
             thinking_config=thinking,
         )
-        try:
-            resp = self._client.models.generate_content(
-                model=model, contents=user, config=cfg)
-        except errors.APIError as e:
+        def _status(e):
+            if not isinstance(e, errors.APIError):
+                return None
             code = getattr(e, "code", None)
-            msg = str(e)
-            if code in (402, 429, 503, 529) or "RESOURCE_EXHAUSTED" in msg \
-                    or "quota" in msg.lower():
-                raise APIExhausted(msg) from e
-            raise
+            # RESOURCE_EXHAUSTED without a numeric code is a 429 in disguise
+            if code is None and "RESOURCE_EXHAUSTED" in str(e):
+                return 429
+            return code
+
+        resp = call_with_backoff(
+            lambda: self._client.models.generate_content(
+                model=model, contents=user, config=cfg),
+            status_of=_status, label="gemini")
         cand = (resp.candidates or [None])[0]
         finish = getattr(cand, "finish_reason", None)
         um = resp.usage_metadata

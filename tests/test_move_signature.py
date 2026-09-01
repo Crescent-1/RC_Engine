@@ -12,6 +12,8 @@ fixtures so the metric can never silently regress to one that cannot see them.
 
 import sys
 
+import pytest
+
 from rc_engine import config
 from rc_engine.fingerprints import move_signature_similarity, movement_similarity
 
@@ -745,7 +747,9 @@ def test_genre_saturation_needs_corpus_mass():
 
 
 def test_rag_feeds_span_more_than_one_kind():
-    import RAG
+    # RAG.py pulls chromadb/langchain, which requirements.txt lists as
+    # optional: a clean install must skip this, not fail the whole suite.
+    RAG = pytest.importorskip("RAG")
     kinds = {v.get("kind", "idea_essay") for v in RAG.FEEDS.values()}
     assert len(kinds) >= 5, f"seed pool still narrow: {sorted(kinds)}"
 

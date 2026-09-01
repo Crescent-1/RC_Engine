@@ -27,6 +27,7 @@ from __future__ import annotations
 import json
 import random
 import re
+import time
 from dataclasses import dataclass, field
 
 from . import config
@@ -43,6 +44,59 @@ class BudgetExceeded(RuntimeError):
 
 class APIExhausted(RuntimeError):
     """Rate limit / credits / overload — stop the batch cleanly."""
+
+
+# HTTP statuses worth waiting on. 402 (payment) is deliberately absent.
+_RETRY_STATUSES = (429, 500, 502, 503, 504, 529)
+
+
+def _is_quota_error(msg: str) -> bool:
+    """Credits/quota exhaustion: no amount of waiting fixes it, so it must
+    stop the batch at once rather than burn five retries first."""
+    m = msg.lower()
+    return ("credit balance" in m or "quota" in m
+            or "insufficient_quota" in m or "billing" in m)
+
+
+def call_with_backoff(fn, *, transient: tuple = (), status_of=None,
+                      label: str = "api", sleep=time.sleep,
+                      retries: int | None = None):
+    """Run fn() and retry transient failures with exponential backoff.
+
+    `transient`: exception classes retryable by nature (rate limit, connection
+    drop). `status_of(exc)`: an HTTP status for other provider errors, or
+    None; statuses in _RETRY_STATUSES are retried. Anything else propagates
+    untouched. Quota/credit errors raise APIExhausted immediately; a transient
+    error that outlives the retries raises APIExhausted too, so the batch
+    still stops cleanly with its finished work committed."""
+    max_retries = config.API_BACKOFF_MAX_RETRIES if retries is None else retries
+    attempt = 0
+    while True:
+        try:
+            return fn()
+        except Exception as e:                       # noqa: BLE001 — filtered below
+            msg = str(e)
+            status = status_of(e) if status_of else None
+            is_provider_error = isinstance(e, transient) or status is not None
+            if not is_provider_error:
+                raise
+            # Payment/quota first: a 402 is not retryable and a quota-worded
+            # 429 must not burn five retries before stopping the batch.
+            if status == 402 or _is_quota_error(msg):
+                raise APIExhausted(msg) from e
+            if not (isinstance(e, transient) or status in _RETRY_STATUSES):
+                raise
+            if attempt >= max_retries:
+                raise APIExhausted(
+                    f"{label}: still failing after {attempt} retries: {msg}") from e
+            delay = min(config.API_BACKOFF_MAX_S,
+                        config.API_BACKOFF_BASE_S * (2 ** attempt))
+            delay += random.uniform(0.0, delay * 0.25)
+            attempt += 1
+            print(f"  [{label}] transient error "
+                  f"({status if status is not None else type(e).__name__}) "
+                  f"- retry {attempt}/{max_retries} in {delay:.0f}s")
+            sleep(delay)
 
 
 @dataclass
@@ -158,20 +212,18 @@ class LLMClient:
         effort = self._resolve_effort(stage, context)
         if effort:
             extra["output_config"] = {"effort": effort}
-        try:
-            resp = self._client.messages.create(
+        def _create():
+            return self._client.messages.create(
                 model=model, max_tokens=max_tokens, system=system,
                 messages=[{"role": "user", "content": user}],
                 **extra,
             )
-        except (RateLimitError, APIConnectionError) as e:
-            raise APIExhausted(str(e)) from e
-        except APIStatusError as e:
-            status = getattr(e, "status_code", None)
-            msg = str(e).lower()
-            if status in (429, 402, 529) or "credit balance" in msg or "quota" in msg:
-                raise APIExhausted(str(e)) from e
-            raise
+
+        resp = call_with_backoff(
+            _create, transient=(RateLimitError, APIConnectionError),
+            status_of=lambda e: (getattr(e, "status_code", None)
+                                 if isinstance(e, APIStatusError) else None),
+            label="claude")
         text = "".join(b.text for b in resp.content if b.type == "text")
         ledger.record(stage, model, resp.usage.input_tokens, resp.usage.output_tokens)
         return text, resp.stop_reason == "max_tokens"
