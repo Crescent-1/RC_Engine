@@ -2,6 +2,19 @@ import os
 from datetime import datetime, timezone
 
 import feedparser
+
+# Windows consoles default to cp1252, which raises UnicodeEncodeError the moment
+# a source title contains a macron, a curly quote, or an em dash — and it kills
+# the whole ingest mid-run. It cost the 2026-08-22 widening run every feed after
+# the first: the crash landed on entry 24 of 34 feeds, before anything was
+# committed. Force UTF-8 and never let a printable character stop a fetch.
+import sys as _sys
+for _stream in (_sys.stdout, _sys.stderr):
+    try:
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 import requests
 import trafilatura
 from playwright.sync_api import sync_playwright
@@ -40,6 +53,11 @@ DEFAULT_MIN_WORDS = 1000
 #   min_words : optional per-feed override of DEFAULT_MIN_WORDS. JSTOR Daily
 #               publishes complete, self-contained scholarly essays at ~800
 #               words, so it uses a lower bar than magazine feeds.
+# Feed rot is real and silent: on 2026-08-25 NINE of 34 feeds were failing, most
+# of them long-standing rather than recent additions, and the only symptom was a
+# thin ingest. Five had simply moved; three had no working feed at any known
+# path and are commented out below. Re-check with:
+#     grep -oE 'https://[^"]+' RAG.py | xargs -n1 curl -s -o /dev/null -w '%{http_code} %{url_effective}\n'
 FEEDS = {
     # --- CAT gold: multi-move idea essays (hard/elite preferred pool) --------
     "https://aeon.co/feed.rss":
@@ -55,17 +73,18 @@ FEEDS = {
         {"genre": "Public Books", "js": False, "paths": None, "min_words": 900},
     "https://thepointmag.com/feed/":
         {"genre": "The Point", "js": False, "paths": None, "min_words": 1000},
-    "https://hedgehogreview.com/feed":
+    "https://hedgehogreview.com/web-features/feed":
         {"genre": "Hedgehog Review", "js": False, "paths": None, "min_words": 900},
     "https://www.thenewatlantis.com/feed":
         {"genre": "New Atlantis", "js": False, "paths": None, "min_words": 1000},
     "https://www.bostonreview.net/feed/":
         {"genre": "Boston Review", "js": False, "paths": None, "min_words": 900},
-    "https://lareviewofbooks.org/feed/":
-        {"genre": "LARB", "js": False, "paths": None, "min_words": 900},
+    # DEAD 2026-08-25 (404 on /feed/ and /rss) — re-enable if a feed reappears:
+    # "https://lareviewofbooks.org/feed/":
+    # {"genre": "LARB", "js": False, "paths": None, "min_words": 900},
     "https://www.commonwealmagazine.org/rss.xml":
         {"genre": "Commonweal", "js": False, "paths": None, "min_words": 900},
-    "https://www.laphamsquarterly.org/feed":
+    "https://www.laphamsquarterly.org/rss.xml":
         {"genre": "Lapham's Quarterly", "js": False, "paths": None, "min_words": 900},
     "https://www.lrb.co.uk/feeds/rss":
         {"genre": "LRB", "js": False, "paths": None, "min_words": 1200},
@@ -86,21 +105,78 @@ FEEDS = {
         {"genre": "Dissent", "js": False, "paths": None, "min_words": 900},
     "https://jacobin.com/feed/":
         {"genre": "Jacobin", "js": False, "paths": None, "min_words": 1000},
-    "https://www.tabletmag.com/feed":
-        {"genre": "Tablet", "js": False, "paths": None, "min_words": 1000},
+    # DEAD 2026-08-25 (404 on /feed, /rss, /feeds/all.rss) — re-enable if a feed reappears:
+    # "https://www.tabletmag.com/feed":
+    # {"genre": "Tablet", "js": False, "paths": None, "min_words": 1000},
     # Single-take science explainers / light features — domain variety for medium.
-    "https://knowablemagazine.org/rss":
-        {"genre": "Knowable", "js": False, "paths": None, "min_words": 800},
-    "https://www.scientificamerican.com/feed/":
+    # DEAD 2026-08-25 (403 on every known path) — re-enable if a feed reappears:
+    # "https://knowablemagazine.org/rss":
+    # {"genre": "Knowable", "js": False, "paths": None, "min_words": 800},
+    "https://www.scientificamerican.com/platform/syndication/rss/":
         {"genre": "Scientific American", "js": False, "paths": None, "min_words": 800},
     "https://www.smithsonianmag.com/rss/history/":
         {"genre": "history", "js": False, "paths": None, "min_words": 900},
     "https://www.smithsonianmag.com/rss/science-nature/":
         {"genre": "science", "js": False, "paths": None, "min_words": 900},
 
+    # --- Genre widening (2026-08-22) ---------------------------------------
+    # Every feed above is the same KIND of writing — the idea-essay — and it
+    # showed: of ~60 stored topics, 14 opened "Whether..." and 11 "Why...",
+    # essentially all of them two-sided conceptual disputes about a social
+    # practice. A passage's voice is substantially what it is about, so no
+    # amount of arc variety fixes a seed pool with one genre in it.
+    #
+    # These are chosen to keep the register CAT needs while changing the KIND:
+    # narrative history, technical writing that stays technical, craft and
+    # practice accounts, criticism of a single work, medicine, law, economics.
+    # "kind" is the genre the seed classifier should usually find; it is a hint
+    # for diversity accounting, not a promise.
+
+    # Narrative history and archives — events reconstructed, not theses argued
+    "https://publicdomainreview.org/rss.xml":
+        {"genre": "Public Domain Review", "js": False, "paths": None,
+         "min_words": 900, "kind": "narrative_history"},
+    "https://www.historytoday.com/feed/rss.xml":
+        {"genre": "History Today", "js": False, "paths": None,
+         "min_words": 900, "kind": "narrative_history"},
+
+    # Technical writing that stays technical
+    "https://physicsworld.com/feed/":
+        {"genre": "Physics World", "js": False, "paths": None,
+         "min_words": 800, "kind": "technical_explainer"},
+
+    # Craft, practice and how things actually get built
+    "https://worksinprogress.co/rss.xml":
+        {"genre": "Works in Progress", "js": False, "paths": None,
+         "min_words": 1000, "kind": "practice_account"},
+    "https://solar.lowtechmagazine.com/feeds/all.rss.xml":
+        {"genre": "Low-tech Magazine", "js": False, "paths": None,
+         "min_words": 900, "kind": "practice_account"},
+
+    # Criticism anchored to one work rather than a general position
+    "https://www.theparisreview.org/blog/feed/":
+        {"genre": "Paris Review", "js": False, "paths": None,
+         "min_words": 800, "kind": "criticism"},
+
+    # Medicine and law — case-driven, and domains the corpus barely touches
+    "https://www.statnews.com/feed/":
+        {"genre": "STAT", "js": False, "paths": None,
+         "min_words": 900, "kind": "reportage"},
+    "https://verfassungsblog.de/feed/":
+        {"genre": "Verfassungsblog", "js": False, "paths": None,
+         "min_words": 900, "kind": "legal_analysis"},
+
+    # Quantitative social science / economics
+    "https://asteriskmag.com/feed":
+        {"genre": "Asterisk", "js": False, "paths": None,
+         "min_words": 1000, "kind": "analysis"},
+
     # Dropped (weak CAT seeds — do not re-add without a strong reason):
     #   Ars Technica (tech news), Smithsonian arts-culture / innovation
     #   (soft features), Psyche /guides/ (self-help; path filter above).
+    #   Reportage-first outlets (ProPublica, Reveal, Longreads, Atavist) were
+    #   considered on 2026-08-22 and NOT added: strong narrative, but they
+    #   usually lack the argumentative spine an RC passage has to carry.
 }
 
 # Module-level cache so importing modules (e.g. rc_pipeline.py) can call
@@ -114,10 +190,10 @@ def fetch_feed(url, timeout=15):
         resp = session.get(url, timeout=timeout)
         resp.raise_for_status()
         feed = feedparser.parse(resp.content)
-        print(f"    ↳ status={resp.status_code} bozo={feed.bozo} entries={len(feed.entries)}")
+        print(f"    -> status={resp.status_code} bozo={feed.bozo} entries={len(feed.entries)}")
         return feed
     except requests.RequestException as e:
-        print(f"    ❌ HTTP fetch failed for {url}: {e}")
+        print(f"    [error] HTTP fetch failed for {url}: {e}")
         return feedparser.parse("")
 
 
@@ -129,7 +205,7 @@ def fetch_html_requests(url, timeout=15):
         resp.raise_for_status()
         return resp.text
     except requests.RequestException as e:
-        print(f"    ❌ Fetch failed for {url}: {e}")
+        print(f"    [error] Fetch failed for {url}: {e}")
         return None
 
 
@@ -141,7 +217,7 @@ def fetch_html_playwright(page, url, timeout_ms=20000):
         page.wait_for_timeout(1500)  # let the challenge/redirect settle
         return page.content()
     except Exception as e:
-        print(f"    ❌ Playwright fetch failed for {url}: {e}")
+        print(f"    [error] Playwright fetch failed for {url}: {e}")
         return None
 
 
@@ -151,7 +227,7 @@ def get_db():
     without triggering a feed sync."""
     global _db_instance
     if _db_instance is None:
-        print("✨ Loading local embedding model (BAAI/bge-small-en-v1.5)...")
+        print("Loading local embedding model (BAAI/bge-small-en-v1.5)...")
         embedding_function = HuggingFaceEmbeddings(
             model_name="BAAI/bge-small-en-v1.5",
             encode_kwargs={"normalize_embeddings": True},
@@ -160,12 +236,17 @@ def get_db():
     return _db_instance
 
 
-def get_unused_essay(db=None, genre=None, exclude_ids=None, randomize=True):
+def get_unused_essay(db=None, genre=None, exclude_ids=None, randomize=True,
+                     avoid_kinds=None):
     """Returns ONE not-yet-used essay from the vector store, or None if there
     isn't one. `genre` restricts the source pool and may be:
       - None            -> any genre
       - a single label  -> "Aeon"
       - a list of labels -> ["Aeon", "Psyche", "Nautilus", "JSTOR"]
+
+    `avoid_kinds` steers away from content kinds (the `kind` metadata field,
+    e.g. "idea_essay", "practice_account") rather than publications. Used when
+    a seed GENRE is saturated and the rotation has to change something.
 
     By default picks uniformly at random among matches (so hard/elite are not
     stuck on the first Chroma hit / Aeon-heavy ordering). Set randomize=False
@@ -203,9 +284,44 @@ def get_unused_essay(db=None, genre=None, exclude_ids=None, randomize=True):
         })
     if not candidates:
         return None
+    # A seed-genre rotation used to be a uniform redraw, which is why three
+    # rotations off a saturated conceptual_essay share kept landing back on
+    # conceptual essays: 41.5% of the unused pool is idea_essay. Steering by
+    # content kind makes the rotation actually change something. Falls back to
+    # the full candidate list rather than dead-ending the slot.
+    if avoid_kinds:
+        avoid = set(avoid_kinds)
+        steered = [c for c in candidates
+                   if (c["metadata"] or {}).get("kind") not in avoid]
+        if steered:
+            candidates = steered
     if randomize and len(candidates) > 1:
         return _random.choice(candidates)
     return candidates[0]
+
+
+def unused_pool_kinds(db=None, genre=None) -> dict:
+    """Kind mix of the unused pool a tier can actually draw from.
+
+    Used to tell a genre-saturation gate whether it has anywhere to rotate TO.
+    Hard and elite draw from an 18-magazine whitelist whose entire unused pool
+    is one kind, so a saturation gate there is a deadlock rather than a
+    diversity lever — see config.SEED_GENRE_SATURATION."""
+    db = db or get_db()
+    if genre:
+        clause = {"genre": {"$in": list(genre)}} if isinstance(genre, (list, tuple, set))             else {"genre": genre}
+        where = {"$and": [clause, {"used": False}]}
+    else:
+        where = {"used": False}
+    try:
+        got = db.get(where=where, include=["metadatas"])
+    except Exception:
+        return {}
+    out: dict[str, int] = {}
+    for m in (got.get("metadatas") or []):
+        k = (m or {}).get("kind") or "unknown"
+        out[k] = out.get(k, 0) + 1
+    return out
 
 
 def mark_essay_used(db, doc_id: str, rc_id: str):
@@ -216,7 +332,7 @@ def mark_essay_used(db, doc_id: str, rc_id: str):
     db = db or get_db()
     existing = db.get(ids=[doc_id])
     if not existing or not existing.get("metadatas"):
-        print(f"  ⚠️  Could not find doc_id={doc_id} to mark as used.")
+        print(f"  [warn]  Could not find doc_id={doc_id} to mark as used.")
         return False
 
     metadata = dict(existing["metadatas"][0])
@@ -245,7 +361,7 @@ def sync_feeds(db=None):
 
     processed_documents = []
 
-    print(f"\n🔄 Syncing feeds... (Database currently holds {len(existing_urls)} unique essays)")
+    print(f"\n[sync] Syncing feeds... (Database currently holds {len(existing_urls)} unique essays)")
 
     # Iterative Scraping and Parsing Loop.
     # One Playwright browser instance is reused across every Aeon article,
@@ -289,7 +405,7 @@ def sync_feeds(db=None):
 
                         min_words = cfg.get("min_words", DEFAULT_MIN_WORDS)
                         if word_count < min_words:
-                            print(f"  ⏭️  Skipping '{title}' — only {word_count} words (below {min_words} threshold)")
+                            print(f"  [skip]  Skipping '{title}' - only {word_count} words (below {min_words} threshold)")
                             continue
 
                         doc = Document(
@@ -298,6 +414,17 @@ def sync_feeds(db=None):
                                 "title": title,
                                 "url": link,
                                 "genre": genre,
+                                # CONTENT kind, distinct from `genre` (which is
+                                # the publication name). The FEEDS table has
+                                # carried `kind` since 2026-08-25, when ten
+                                # genre-widening feeds were added — but it was
+                                # never written here, so all 935 stored docs
+                                # were untagged and seed rotation was blind to
+                                # content type. That is why a saturated
+                                # conceptual_essay share could not be rotated
+                                # away from: the redraw was uniform over a pool
+                                # whose kinds were invisible.
+                                "kind": cfg.get("kind", "idea_essay"),
                                 "word_count": word_count,
                                 # Usage-tracking fields — every new essay starts unused.
                                 "used": False,
@@ -309,21 +436,21 @@ def sync_feeds(db=None):
                         print(f"  -> Added to buffer: [{genre.upper()}] {title} ({word_count} words)")
 
                 except Exception as e:
-                    print(f"  ❌ Skipping entry evaluation for '{title}' due to extraction exception: {e}")
+                    print(f"  [error] Skipping entry evaluation for '{title}' due to extraction exception: {e}")
 
         browser.close()
 
     # Write to Local Chroma Instance
     if processed_documents:
         total_docs = len(processed_documents)
-        print(f"\n📦 Embedding and committing {total_docs} new documents locally...")
+        print(f"\n[embed] Embedding and committing {total_docs} new documents locally...")
         try:
             db.add_documents(processed_documents)
-            print("✅ RAG Database synchronization complete! Local vector files successfully updated.")
+            print("[ok] RAG Database synchronization complete! Local vector files successfully updated.")
         except Exception as e:
-            print(f"❌ Error while embedding/storing documents: {e}")
+            print(f"[error] Error while embedding/storing documents: {e}")
     else:
-        print("\n☕ Verification complete. Your local database is completely up to date with all live endpoints.")
+        print("\n[done] Verification complete. Your local database is completely up to date with all live endpoints.")
 
     return len(processed_documents)
 

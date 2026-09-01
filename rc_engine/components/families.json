@@ -1,302 +1,1276 @@
 {
-  "library": "families",
-  "version": "1.0",
-  "generic_fillers": ["EVIDENCE_LAYER", "CONCESSION_TRAP", "RECURSIVE_REREAD"],
-  "closing_postures": {
-    "resolution_qualified": "END by actually committing to a position: the final paragraph delivers the verdict, hedged only as much as honesty requires. Do NOT end by suspending judgment, opening a new question, or retreating into irresolution.",
-    "resolution_costed": "END by affirming the position AND naming its concrete price in the same movement. The verdict stands; the ending is the bill, not a retreat from the verdict.",
-    "reframe_displace": "END by relocating the real question: the closing commits to the claim that a different question or object matters more, stated as a positive finding - not as a refusal to answer.",
-    "refusal_suspended": "The ending may leave the central tension unresolved, but the suspension must be argued as the correct verdict on the evidence - not performed as elegance or a knowing shrug.",
-    "refusal_dissolved": "END by showing the question dissolves rather than resolves - and state plainly what the dissolution costs or licenses, so the ending is a finding, not an evasion."
+ "library": "families",
+ "version": "1.0",
+ "generic_fillers": [
+  "EVIDENCE_LAYER",
+  "CONCESSION_TRAP",
+  "RECURSIVE_REREAD"
+ ],
+ "closing_postures": {
+  "resolution_qualified": "END by actually committing to a position: the final paragraph delivers the verdict, hedged only as much as honesty requires. Do NOT end by suspending judgment, opening a new question, or retreating into irresolution.",
+  "resolution_costed": "END by affirming the position AND naming its concrete price in the same movement. The verdict stands; the ending is the bill, not a retreat from the verdict.",
+  "reframe_displace": "END by relocating the real question: the closing commits to the claim that a different question or object matters more, stated as a positive finding - not as a refusal to answer.",
+  "refusal_suspended": "The ending may leave the central tension unresolved, but the suspension must be argued as the correct verdict on the evidence - not performed as elegance or a knowing shrug.",
+  "refusal_dissolved": "END by showing the question dissolves rather than resolves - and state plainly what the dissolution costs or licenses, so the ending is a finding, not an evasion."
+ },
+ "items": [
+  {
+   "id": "F01",
+   "name": "The Autopsy",
+   "tier_floor": "hard",
+   "closing_posture": "reframe_displace",
+   "core": "A debate everyone treats as settled is exhumed; the passage dissects HOW consensus formed rather than who was right; the verdict is on the process, not the question.",
+   "difficulty_source": "separating the author's view of the debate from their view of the debate-about-the-debate",
+   "movement": [
+    "SETTLED_VERDICT_PLANT",
+    "CONSENSUS_GENEALOGY",
+    "PROCESS_FLAW_EXPOSED",
+    "VERDICT_DISPLACED"
+   ],
+   "question_affinities": [
+    "author_vs_reported",
+    "structural_function"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R01"
+   ],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
   },
-  "items": [
-    {
-      "id": "F01", "name": "The Autopsy", "tier_floor": "hard",
-      "closing_posture": "reframe_displace",
-      "core": "A debate everyone treats as settled is exhumed; the passage dissects HOW consensus formed rather than who was right; the verdict is on the process, not the question.",
-      "difficulty_source": "separating the author's view of the debate from their view of the debate-about-the-debate",
-      "movement": ["SETTLED_VERDICT_PLANT", "CONSENSUS_GENEALOGY", "PROCESS_FLAW_EXPOSED", "VERDICT_DISPLACED"],
-      "question_affinities": ["author_vs_reported", "structural_function"],
-      "incompatible_endings": [], "incompatible_revelations": ["R01"]
-    },
-    {
-      "id": "F02", "name": "The Borrowed Lens", "tier_floor": "medium",
-      "closing_posture": "resolution_costed",
-      "core": "A framework imported from an alien discipline is applied, yields striking results, then the lens is shown to distort more than it reveals; ends on the price of borrowed vision.",
-      "difficulty_source": "tracking when the author is USING the lens versus EXAMINING it",
-      "movement": ["LENS_IMPORT", "LENS_APPLIED_YIELDS", "LENS_DISTORTION_EXPOSED", "COST_TALLY"],
-      "question_affinities": ["structural_function", "stance"],
-      "incompatible_endings": [], "incompatible_revelations": []
-    },
-    {
-      "id": "F03", "name": "The Scale Shift", "tier_floor": "medium",
-      "closing_posture": "refusal_suspended",
-      "core": "A claim holds at one scale (individual, local); the author zooms out and the claim inverts at the larger scale; the two scales are never reconciled.",
-      "difficulty_source": "scope discipline — every option that ignores scale is wrong, and most readers ignore scale",
-      "movement": ["LOCAL_CLAIM_ESTABLISHED", "EVIDENCE_LAYER", "SCALE_JUMP", "INVERSION_AT_SCALE"],
-      "question_affinities": ["thesis", "implicit_assumption"],
-      "incompatible_endings": [], "incompatible_revelations": []
-    },
-    {
-      "id": "F04", "name": "The Definitional Undertow", "tier_floor": "hard",
-      "closing_posture": "reframe_displace",
-      "core": "Surface argument about a phenomenon; the real argument is about the definition of the key term, revealed when two camps are shown to be talking past each other.",
-      "difficulty_source": "recognizing the argument is semantic without concluding it is MERELY semantic",
-      "movement": ["SURFACE_DISPUTE_STAGED", "CAMPS_TALK_PAST", "DEFINITION_EXPOSED", "REFRAME_QUESTION"],
-      "question_affinities": ["contextual_inference", "thesis"],
-      "incompatible_endings": [], "incompatible_revelations": ["R01"]
-    },
-    {
-      "id": "F05", "name": "The Reluctant Conversion", "tier_floor": "medium",
-      "closing_posture": "resolution_costed",
-      "core": "The author begins openly resistant to a position and argues themselves, step by contested step, into a version of it — while pricing what conversion cost.",
-      "difficulty_source": "distinguishing the adopted version from the version originally resisted",
-      "movement": ["HOSTILE_OPEN", "RESISTED_CONCESSION", "RESISTED_CONCESSION", "CONVERSION_PRICED"],
-      "question_affinities": ["stance", "thesis"],
-      "incompatible_endings": [], "incompatible_revelations": ["R03"]
-    },
-    {
-      "id": "F06", "name": "The Third Thing", "tier_floor": "hard",
-      "closing_posture": "reframe_displace",
-      "core": "Two rival explanations are rehearsed and BOTH rejected for sharing a hidden premise; the passage's contribution is naming the premise, not offering a third theory.",
-      "difficulty_source": "resisting the expectation that a third theory arrives; it never does",
-      "movement": ["RIVAL_FRAME_INTRODUCED", "RIVAL_FRAME_INTRODUCED", "RIVAL_FRAMES_UNDERMINED", "SHARED_PREMISE_EXPOSED"],
-      "question_affinities": ["implicit_assumption", "thesis"],
-      "incompatible_endings": [], "incompatible_revelations": ["R01", "R02"]
-    },
-    {
-      "id": "F07", "name": "The Vanishing Object", "tier_floor": "hard",
-      "closing_posture": "refusal_dissolved",
-      "core": "Inquiry into X progressively reveals X may not be a coherent kind at all; the question is dissolved, not answered.",
-      "difficulty_source": "the thesis is a redescription, not a position on the original question",
-      "movement": ["OBJECT_PRESENTED_STABLE", "CRITERION_FAILS", "CRITERION_FAILS", "HINGE_REDESCRIPTION", "DISSOLUTION"],
-      "question_affinities": ["thesis", "closure_reading"],
-      "incompatible_endings": ["E07"], "incompatible_revelations": ["R01"]
-    },
-    {
-      "id": "F08", "name": "The Costed Victory", "tier_floor": "medium",
-      "closing_posture": "resolution_costed",
-      "core": "A thesis is defended successfully; the final movement tallies what the defense had to concede; the thesis stands, diminished.",
-      "difficulty_source": "the tone problem — triumph and loss are simultaneously true",
-      "movement": ["THESIS_DEFENDED", "OBJECTION_LANDED", "DEFENSE_HOLDS", "COST_TALLY"],
-      "question_affinities": ["stance", "structural_function"],
-      "incompatible_endings": [], "incompatible_revelations": []
-    },
-    {
-      "id": "F09", "name": "The Time-Lag Argument", "tier_floor": "medium",
-      "closing_posture": "refusal_suspended",
-      "core": "A concept is shown to be judged by criteria inherited from an era whose conditions no longer hold; the historical excavation IS the argument.",
-      "difficulty_source": "what follows for the present is implied, never stated",
-      "movement": ["CONCEPT_PRESENT_USE", "HISTORY_EXCAVATION", "CRITERIA_ERA_MISMATCH", "IMPLICATION_LEFT_UNSTATED"],
-      "question_affinities": ["contextual_inference", "application"],
-      "incompatible_endings": ["E07"], "incompatible_revelations": []
-    },
-    {
-      "id": "F10", "name": "The Practitioner's Rebuke", "tier_floor": "medium",
-      "closing_posture": "refusal_suspended",
-      "core": "An elegant theoretical account collides with practitioner detail that breaks it; the author sides with neither and locates the value in the friction itself.",
-      "difficulty_source": "refusing both 'theory wins' and 'practice wins' readings",
-      "movement": ["THEORY_ELEGANCE_SHOWN", "PRACTICE_COLLISION", "NEITHER_SIDE_TAKEN", "FRICTION_VALUED"],
-      "question_affinities": ["stance", "evidence_function"],
-      "incompatible_endings": ["E07"], "incompatible_revelations": []
-    },
-    {
-      "id": "F11", "name": "The Asymmetry Hunt", "tier_floor": "medium",
-      "closing_posture": "resolution_qualified",
-      "core": "Two things habitually treated as symmetric (memory/anticipation, praise/blame) are shown deeply asymmetric; consequences cascade.",
-      "difficulty_source": "every distractor that restores symmetry is tempting and wrong",
-      "movement": ["SYMMETRY_ASSUMED", "ASYMMETRY_EXPOSED", "CONSEQUENCE_CASCADE", "WIDEN_OUT"],
-      "question_affinities": ["application", "detail_check"],
-      "incompatible_endings": [], "incompatible_revelations": []
-    },
-    {
-      "id": "F12", "name": "The Successful Failure", "tier_floor": "medium",
-      "closing_posture": "reframe_displace",
-      "core": "Case study of something that failed its stated goal but succeeded at an unstated one; becomes an argument about what goals are FOR.",
-      "difficulty_source": "identifying which success the author actually credits",
-      "movement": ["FAILURE_NARRATED", "HIDDEN_SUCCESS_REVEALED", "GOAL_INVERSION", "REFRAME_QUESTION"],
-      "question_affinities": ["thesis", "evidence_function"],
-      "incompatible_endings": [], "incompatible_revelations": []
-    },
-    {
-      "id": "F13", "name": "The Category Refugee", "tier_floor": "hard",
-      "closing_posture": "reframe_displace",
-      "core": "A phenomenon fits no existing category; each candidate category is tried and shown to mutilate it; ends on what taxonomies do to their misfits.",
-      "difficulty_source": "the passage's positive claim is about categorization, not the phenomenon",
-      "movement": ["MISFIT_PRESENTED", "CATEGORY_TRIAL", "CATEGORY_TRIAL", "TAXONOMY_TURN"],
-      "question_affinities": ["thesis", "structural_function"],
-      "incompatible_endings": [], "incompatible_revelations": ["R01"]
-    },
-    {
-      "id": "F14", "name": "The Inheritance Dispute", "tier_floor": "medium",
-      "closing_posture": "reframe_displace",
-      "core": "Two traditions claim the same idea or figure as ancestor; the contest over lineage reveals more than the idea itself does.",
-      "difficulty_source": "the author's stance is on the CONTEST, not on either claimant",
-      "movement": ["LINEAGE_CONTEST", "CLAIMANT_CASE", "CLAIMANT_CASE", "CONTEST_ANATOMIZED"],
-      "question_affinities": ["author_vs_reported", "stance"],
-      "incompatible_endings": [], "incompatible_revelations": []
-    },
-    {
-      "id": "F15", "name": "The Diagnostic Reversal", "tier_floor": "medium",
-      "closing_posture": "resolution_qualified",
-      "core": "What is widely lamented as the disease is re-read as an adaptive response — or the celebrated cure as the pathology.",
-      "difficulty_source": "causal-direction traps write themselves",
-      "movement": ["LAMENT_REHEARSED", "REVERSAL_PROPOSED", "EVIDENCE_LAYER", "QUALIFIED_RESTATEMENT"],
-      "question_affinities": ["thesis", "strengthen"],
-      "incompatible_endings": [], "incompatible_revelations": []
-    },
-    {
-      "id": "F16", "name": "The Silent Partner", "tier_floor": "hard",
-      "closing_posture": "refusal_suspended",
-      "core": "An argument everyone makes is shown to depend on an invisible enabling condition; the passage makes it visible and asks what happens as it erodes.",
-      "difficulty_source": "the assumption question has a real, passage-internal answer",
-      "movement": ["COMMON_ARGUMENT_STAGED", "ENABLING_CONDITION_EXPOSED", "EROSION_TRACED", "IMPLICATION_LEFT_UNSTATED"],
-      "question_affinities": ["implicit_assumption", "application"],
-      "incompatible_endings": ["E07"], "incompatible_revelations": []
-    },
-    {
-      "id": "F17", "name": "The Half-Life", "tier_floor": "medium",
-      "closing_posture": "resolution_qualified",
-      "core": "Traces how a concept decays as it migrates from technical origin to public discourse; asks whether the degraded version still does real work.",
-      "difficulty_source": "the author's ambivalence — decay documented without contempt",
-      "movement": ["TECHNICAL_ORIGIN", "MIGRATION_TRACED", "DEGRADED_USE_EXAMINED", "WORK_ASSESSED"],
-      "question_affinities": ["stance", "contextual_inference"],
-      "incompatible_endings": [], "incompatible_revelations": []
-    },
-    {
-      "id": "F18", "name": "The Double Bind", "tier_floor": "hard",
-      "closing_posture": "refusal_suspended",
-      "core": "An institution faces two legitimate but incompatible demands; the passage refuses to dissolve the bind and instead maps who pays for it.",
-      "difficulty_source": "no side is endorsed; distractors that pick a side all fail",
-      "movement": ["DEMAND_ONE_STAGED", "DEMAND_TWO_STAGED", "BIND_REFUSED_DISSOLUTION", "COST_TALLY"],
-      "question_affinities": ["stance", "application"],
-      "incompatible_endings": ["E07"], "incompatible_revelations": []
-    },
-    {
-      "id": "F19", "name": "The Wrong Question", "tier_floor": "hard",
-      "closing_posture": "refusal_suspended",
-      "core": "The question as posed is patiently answered; the answer is shown unsatisfying; the question is reframed — and the new question is left unanswered.",
-      "difficulty_source": "two-stage structure — readers freeze at the first answer",
-      "movement": ["QUESTION_ANSWERED_STRAIGHT", "ANSWER_UNSATISFYING", "REFRAME_QUESTION", "NEW_QUESTION_OPEN"],
-      "question_affinities": ["thesis", "closure_reading"],
-      "incompatible_endings": ["E07", "E17"], "incompatible_revelations": ["R01"]
-    },
-    {
-      "id": "F20", "name": "The Minority Report", "tier_floor": "medium",
-      "closing_posture": "resolution_costed",
-      "core": "A discredited or unfashionable view is steelmanned — not to endorse it, but to show what the mainstream lost by winning.",
-      "difficulty_source": "endorsement traps — steelmanning read as advocacy",
-      "movement": ["DISCREDITED_VIEW_INTRODUCED", "STEELMAN_BUILD", "MAINSTREAM_LOSS_NAMED", "ENDORSEMENT_WITHHELD"],
-      "question_affinities": ["author_vs_reported", "stance"],
-      "incompatible_endings": [], "incompatible_revelations": []
-    },
-    {
-      "id": "F21", "name": "The Instrument Effect", "tier_floor": "hard",
-      "closing_posture": "reframe_displace",
-      "core": "The method of studying X is shown to partly produce the X it finds; findings about the world become findings about our instruments.",
-      "difficulty_source": "keeping object-level and method-level claims separate",
-      "movement": ["FINDINGS_PRESENTED", "INSTRUMENT_TURN", "METHOD_OBJECT_ENTANGLED", "RESIDUE_STATEMENT"],
-      "question_affinities": ["implicit_assumption", "contextual_inference"],
-      "incompatible_endings": [], "incompatible_revelations": []
-    },
-    {
-      "id": "F22", "name": "The Threshold Argument", "tier_floor": "medium",
-      "closing_posture": "refusal_suspended",
-      "core": "A difference of degree becomes a difference of kind past some threshold; the entire argument is about locating — or denying the locatability of — the threshold.",
-      "difficulty_source": "quantitative-sounding claims with qualitative stakes",
-      "movement": ["DEGREE_CONTINUUM_SHOWN", "KIND_SHIFT_CLAIMED", "THRESHOLD_PROBE", "LOCATABILITY_QUESTIONED"],
-      "question_affinities": ["application", "weaken"],
-      "incompatible_endings": [], "incompatible_revelations": []
-    },
-    {
-      "id": "F23", "name": "The Proxy War", "tier_floor": "hard",
-      "closing_posture": "resolution_qualified",
-      "core": "A minor technical dispute is anatomized as a proxy for a deep, unarguable commitment; the passage explains why proxies form where direct argument fails.",
-      "difficulty_source": "the surface dispute is never adjudicated; readers expect adjudication",
-      "movement": ["SMALL_DISPUTE_STAGED", "STAKES_ESCALATION_NOTED", "PROXY_ANATOMY", "DIRECT_ARGUMENT_IMPOSSIBILITY"],
-      "question_affinities": ["thesis", "structural_function"],
-      "incompatible_endings": ["E07"], "incompatible_revelations": []
-    },
-    {
-      "id": "F24", "name": "The Hospitable Critic", "tier_floor": "medium",
-      "closing_posture": "resolution_costed",
-      "core": "A body of work is reviewed with genuine admiration; a single load-bearing objection then retroactively reframes the admiration.",
-      "difficulty_source": "tone — the admiration is sincere AND the objection is fatal",
-      "movement": ["ADMIRATION_ESTABLISHED", "WORK_SURVEYED", "OBJECTION_LANDED", "ADMIRATION_REFRAMED"],
-      "question_affinities": ["stance", "structural_function"],
-      "incompatible_endings": [], "incompatible_revelations": ["R01"]
-    },
-    {
-      "id": "F25", "name": "The Ecology", "tier_floor": "hard",
-      "closing_posture": "refusal_suspended",
-      "core": "Agent-level explanation is refused; the phenomenon is redescribed as a system-level equilibrium; ends noting what agency-talk loses and what systems-talk cannot see.",
-      "difficulty_source": "level-of-explanation confusions power every distractor",
-      "movement": ["AGENT_EXPLANATION_REFUSED", "EQUILIBRIUM_REDESCRIPTION", "EVIDENCE_LAYER", "DUAL_LOSS_NOTED"],
-      "question_affinities": ["application", "implicit_assumption"],
-      "incompatible_endings": [], "incompatible_revelations": []
-    },
-    {
-      "id": "F26", "name": "The Untranslatable", "tier_floor": "hard",
-      "closing_posture": "resolution_qualified",
-      "core": "Organized around a concept from another language or tradition that resists translation; the resistance itself is the evidence for the thesis.",
-      "difficulty_source": "the concept is never fully defined; options that define it are traps",
-      "movement": ["FOREIGN_CONCEPT_INTRODUCED", "TRANSLATION_ATTEMPT", "TRANSLATION_ATTEMPT", "RESISTANCE_AS_EVIDENCE"],
-      "question_affinities": ["contextual_inference", "phrase_in_context"],
-      "incompatible_endings": [], "incompatible_revelations": ["R11"]
-    },
-    {
-      "id": "F27", "name": "The Simultaneity Problem", "tier_floor": "hard",
-      "closing_posture": "refusal_suspended",
-      "core": "Two developments always narrated in causal sequence are argued to be simultaneous and mutually causing; the standard story's arrow breaks.",
-      "difficulty_source": "temporal-order distractors — the passage denies the order every reader assumes",
-      "movement": ["STANDARD_SEQUENCE_TOLD", "TIMELINE_BREAK", "MUTUAL_CAUSATION_ARGUED", "ARROW_SUSPENDED"],
-      "question_affinities": ["thesis", "weaken"],
-      "incompatible_endings": [], "incompatible_revelations": []
-    },
-    {
-      "id": "F28", "name": "The Boring Truth", "tier_floor": "medium",
-      "closing_posture": "resolution_costed",
-      "core": "Spectacular explanations are rehearsed and deflated in favor of a mundane one; the sting — the mundane truth is far harder to act on.",
-      "difficulty_source": "anticlimax as structure; readers over-read drama into the ending",
-      "movement": ["SPECTACULAR_EXPLANATIONS_STAGED", "DEFLATION", "MUNDANE_ACCOUNT_DEFENDED", "ACTIONABILITY_STING"],
-      "question_affinities": ["thesis", "closure_reading"],
-      "incompatible_endings": [], "incompatible_revelations": ["R02"]
-    },
-    {
-      "id": "F29", "name": "The Moving Target", "tier_floor": "hard",
-      "closing_posture": "resolution_qualified",
-      "core": "A critique succeeded so thoroughly that its object changed shape; is the critique now obsolete, or more necessary than ever? An argument about critique's lifecycle.",
-      "difficulty_source": "three time-slices of the same idea must be kept apart",
-      "movement": ["CRITIQUE_TRIUMPH_TOLD", "OBJECT_MUTATION_SHOWN", "OBSOLESCENCE_DEBATED", "LIFECYCLE_CLAIM"],
-      "question_affinities": ["contextual_inference", "author_vs_reported"],
-      "incompatible_endings": [], "incompatible_revelations": []
-    },
-    {
-      "id": "F30", "name": "The Self-Application", "tier_floor": "elite",
-      "closing_posture": "refusal_suspended",
-      "core": "A theory is applied to itself (expertise-skepticism voiced by an expert); the recursion is managed in the open and the passage ends inside the loop.",
-      "difficulty_source": "the author's position is structurally unstatable; stance options must reflect that",
-      "movement": ["THEORY_STATED", "SELF_APPLICATION_TURN", "RECURSION_MANAGED", "LOOP_INHABITED"],
-      "question_affinities": ["stance", "implicit_assumption"],
-      "incompatible_endings": ["E07"], "incompatible_revelations": ["R01"]
-    },
-    {
-      "id": "F31", "name": "The Load-Bearing Anecdote", "tier_floor": "medium",
-      "closing_posture": "resolution_qualified",
-      "core": "Opens on a small concrete incident; each return to the anecdote extracts a different layer; the final return reverses the initial reading.",
-      "difficulty_source": "the anecdote's function changes three times; function questions abound",
-      "movement": ["ANECDOTE_OPEN", "ANECDOTE_RETURN", "ANECDOTE_RETURN", "ANECDOTE_REVERSAL"],
-      "question_affinities": ["evidence_function", "structural_function"],
-      "incompatible_endings": [], "incompatible_revelations": ["R01"]
-    },
-    {
-      "id": "F32", "name": "The Coalition of Errors", "tier_floor": "hard",
-      "closing_posture": "refusal_suspended",
-      "core": "A true conclusion is widely believed for bad reasons; the passage separates the conclusion from its popular arguments and asks whether bad reasons corrupt good beliefs.",
-      "difficulty_source": "agreeing with the conclusion while demolishing its usual defenses",
-      "movement": ["POPULAR_BELIEF_STAGED", "BAD_REASONS_SEPARATED", "CONCLUSION_PRESERVED", "CORRUPTION_QUESTION"],
-      "question_affinities": ["author_vs_reported", "strengthen"],
-      "incompatible_endings": [], "incompatible_revelations": []
-    }
-  ]
+  {
+   "id": "F02",
+   "name": "The Borrowed Lens",
+   "tier_floor": "medium",
+   "closing_posture": "resolution_costed",
+   "core": "A framework imported from an alien discipline is applied, yields striking results, then the lens is shown to distort more than it reveals; ends on the price of borrowed vision.",
+   "difficulty_source": "tracking when the author is USING the lens versus EXAMINING it",
+   "movement": [
+    "LENS_IMPORT",
+    "LENS_APPLIED_YIELDS",
+    "LENS_DISTORTION_EXPOSED",
+    "COST_TALLY"
+   ],
+   "question_affinities": [
+    "structural_function",
+    "stance"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F03",
+   "name": "The Scale Shift",
+   "tier_floor": "medium",
+   "closing_posture": "refusal_suspended",
+   "core": "A claim holds at one scale (individual, local); the author zooms out and the claim inverts at the larger scale; the two scales are never reconciled.",
+   "difficulty_source": "scope discipline — every option that ignores scale is wrong, and most readers ignore scale",
+   "movement": [
+    "LOCAL_CLAIM_ESTABLISHED",
+    "EVIDENCE_LAYER",
+    "SCALE_JUMP",
+    "INVERSION_AT_SCALE"
+   ],
+   "question_affinities": [
+    "thesis",
+    "except_scan"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F04",
+   "name": "The Definitional Undertow",
+   "tier_floor": "hard",
+   "closing_posture": "reframe_displace",
+   "core": "Surface argument about a phenomenon; the real argument is about the definition of the key term, revealed when two camps are shown to be talking past each other.",
+   "difficulty_source": "recognizing the argument is semantic without concluding it is MERELY semantic",
+   "movement": [
+    "SURFACE_DISPUTE_STAGED",
+    "CAMPS_TALK_PAST",
+    "DEFINITION_EXPOSED",
+    "REFRAME_QUESTION"
+   ],
+   "question_affinities": [
+    "contextual_inference",
+    "thesis"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R01"
+   ],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F05",
+   "name": "The Reluctant Conversion",
+   "tier_floor": "medium",
+   "closing_posture": "resolution_costed",
+   "core": "The author begins openly resistant to a position and argues themselves, step by contested step, into a version of it — while pricing what conversion cost.",
+   "difficulty_source": "distinguishing the adopted version from the version originally resisted",
+   "movement": [
+    "HOSTILE_OPEN",
+    "RESISTED_CONCESSION",
+    "RESISTED_CONCESSION",
+    "CONVERSION_PRICED"
+   ],
+   "question_affinities": [
+    "stance",
+    "thesis"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R03"
+   ],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F06",
+   "name": "The Third Thing",
+   "tier_floor": "hard",
+   "closing_posture": "reframe_displace",
+   "core": "Two rival explanations are rehearsed and BOTH rejected for sharing a hidden premise; the passage's contribution is naming the premise, not offering a third theory.",
+   "difficulty_source": "resisting the expectation that a third theory arrives; it never does",
+   "movement": [
+    "RIVAL_FRAME_INTRODUCED",
+    "RIVAL_FRAME_INTRODUCED",
+    "RIVAL_FRAMES_UNDERMINED",
+    "SHARED_PREMISE_EXPOSED"
+   ],
+   "question_affinities": [
+    "undermine_thesis",
+    "thesis"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R01",
+    "R02"
+   ],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F07",
+   "name": "The Vanishing Object",
+   "tier_floor": "hard",
+   "closing_posture": "refusal_dissolved",
+   "core": "Inquiry into X progressively reveals X may not be a coherent kind at all; the question is dissolved, not answered.",
+   "difficulty_source": "the thesis is a redescription, not a position on the original question",
+   "movement": [
+    "OBJECT_PRESENTED_STABLE",
+    "CRITERION_FAILS",
+    "CRITERION_FAILS",
+    "HINGE_REDESCRIPTION",
+    "DISSOLUTION"
+   ],
+   "question_affinities": [
+    "thesis",
+    "closure_reading"
+   ],
+   "incompatible_endings": [
+    "E07"
+   ],
+   "incompatible_revelations": [
+    "R01"
+   ],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F08",
+   "name": "The Costed Victory",
+   "tier_floor": "medium",
+   "closing_posture": "resolution_costed",
+   "core": "A thesis is defended successfully; the final movement tallies what the defense had to concede; the thesis stands, diminished.",
+   "difficulty_source": "the tone problem — triumph and loss are simultaneously true",
+   "movement": [
+    "THESIS_DEFENDED",
+    "OBJECTION_LANDED",
+    "DEFENSE_HOLDS",
+    "COST_TALLY"
+   ],
+   "question_affinities": [
+    "stance",
+    "structural_function"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F09",
+   "name": "The Time-Lag Argument",
+   "tier_floor": "medium",
+   "closing_posture": "refusal_suspended",
+   "core": "A concept is shown to be judged by criteria inherited from an era whose conditions no longer hold; the historical excavation IS the argument.",
+   "difficulty_source": "what follows for the present is implied, never stated",
+   "movement": [
+    "CONCEPT_PRESENT_USE",
+    "HISTORY_EXCAVATION",
+    "CRITERIA_ERA_MISMATCH",
+    "IMPLICATION_LEFT_UNSTATED"
+   ],
+   "question_affinities": [
+    "contextual_inference",
+    "application"
+   ],
+   "incompatible_endings": [
+    "E07"
+   ],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F10",
+   "name": "The Practitioner's Rebuke",
+   "tier_floor": "medium",
+   "closing_posture": "refusal_suspended",
+   "core": "An elegant theoretical account collides with practitioner detail that breaks it; the author sides with neither and locates the value in the friction itself.",
+   "difficulty_source": "refusing both 'theory wins' and 'practice wins' readings",
+   "movement": [
+    "THEORY_ELEGANCE_SHOWN",
+    "PRACTICE_COLLISION",
+    "NEITHER_SIDE_TAKEN",
+    "FRICTION_VALUED"
+   ],
+   "question_affinities": [
+    "stance",
+    "evidence_function"
+   ],
+   "incompatible_endings": [
+    "E07"
+   ],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F11",
+   "name": "The Asymmetry Hunt",
+   "tier_floor": "medium",
+   "closing_posture": "resolution_qualified",
+   "core": "Two things habitually treated as symmetric (memory/anticipation, praise/blame) are shown deeply asymmetric; consequences cascade.",
+   "difficulty_source": "every distractor that restores symmetry is tempting and wrong",
+   "movement": [
+    "SYMMETRY_ASSUMED",
+    "ASYMMETRY_EXPOSED",
+    "CONSEQUENCE_CASCADE",
+    "WIDEN_OUT"
+   ],
+   "question_affinities": [
+    "application",
+    "detail_check"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F12",
+   "name": "The Successful Failure",
+   "tier_floor": "medium",
+   "closing_posture": "reframe_displace",
+   "core": "Case study of something that failed its stated goal but succeeded at an unstated one; becomes an argument about what goals are FOR.",
+   "difficulty_source": "identifying which success the author actually credits",
+   "movement": [
+    "FAILURE_NARRATED",
+    "HIDDEN_SUCCESS_REVEALED",
+    "GOAL_INVERSION",
+    "REFRAME_QUESTION"
+   ],
+   "question_affinities": [
+    "thesis",
+    "evidence_function"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F13",
+   "name": "The Category Refugee",
+   "tier_floor": "hard",
+   "closing_posture": "reframe_displace",
+   "core": "A phenomenon fits no existing category; each candidate category is tried and shown to mutilate it; ends on what taxonomies do to their misfits.",
+   "difficulty_source": "the passage's positive claim is about categorization, not the phenomenon",
+   "movement": [
+    "MISFIT_PRESENTED",
+    "CATEGORY_TRIAL",
+    "CATEGORY_TRIAL",
+    "TAXONOMY_TURN"
+   ],
+   "question_affinities": [
+    "thesis",
+    "structural_function"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R01"
+   ],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F14",
+   "name": "The Inheritance Dispute",
+   "tier_floor": "medium",
+   "closing_posture": "reframe_displace",
+   "core": "Two traditions claim the same idea or figure as ancestor; the contest over lineage reveals more than the idea itself does.",
+   "difficulty_source": "the author's stance is on the CONTEST, not on either claimant",
+   "movement": [
+    "LINEAGE_CONTEST",
+    "CLAIMANT_CASE",
+    "CLAIMANT_CASE",
+    "CONTEST_ANATOMIZED"
+   ],
+   "question_affinities": [
+    "author_vs_reported",
+    "stance"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F15",
+   "name": "The Diagnostic Reversal",
+   "tier_floor": "medium",
+   "closing_posture": "resolution_qualified",
+   "core": "What is widely lamented as the disease is re-read as an adaptive response — or the celebrated cure as the pathology.",
+   "difficulty_source": "causal-direction traps write themselves",
+   "movement": [
+    "LAMENT_REHEARSED",
+    "REVERSAL_PROPOSED",
+    "EVIDENCE_LAYER",
+    "QUALIFIED_RESTATEMENT"
+   ],
+   "question_affinities": [
+    "thesis",
+    "strengthen"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F16",
+   "name": "The Silent Partner",
+   "tier_floor": "hard",
+   "closing_posture": "refusal_suspended",
+   "core": "An argument everyone makes is shown to depend on an invisible enabling condition; the passage makes it visible and asks what happens as it erodes.",
+   "difficulty_source": "the enabling condition is stated outright, but only once, and early",
+   "movement": [
+    "COMMON_ARGUMENT_STAGED",
+    "ENABLING_CONDITION_EXPOSED",
+    "EROSION_TRACED",
+    "IMPLICATION_LEFT_UNSTATED"
+   ],
+   "question_affinities": [
+    "contextual_inference",
+    "application"
+   ],
+   "incompatible_endings": [
+    "E07"
+   ],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F17",
+   "name": "The Half-Life",
+   "tier_floor": "medium",
+   "closing_posture": "resolution_qualified",
+   "core": "Traces how a concept decays as it migrates from technical origin to public discourse; asks whether the degraded version still does real work.",
+   "difficulty_source": "the author's ambivalence — decay documented without contempt",
+   "movement": [
+    "TECHNICAL_ORIGIN",
+    "MIGRATION_TRACED",
+    "DEGRADED_USE_EXAMINED",
+    "WORK_ASSESSED"
+   ],
+   "question_affinities": [
+    "stance",
+    "contextual_inference"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F18",
+   "name": "The Double Bind",
+   "tier_floor": "hard",
+   "closing_posture": "refusal_suspended",
+   "core": "An institution faces two legitimate but incompatible demands; the passage refuses to dissolve the bind and instead maps who pays for it.",
+   "difficulty_source": "no side is endorsed; distractors that pick a side all fail",
+   "movement": [
+    "DEMAND_ONE_STAGED",
+    "DEMAND_TWO_STAGED",
+    "BIND_REFUSED_DISSOLUTION",
+    "COST_TALLY"
+   ],
+   "question_affinities": [
+    "stance",
+    "application"
+   ],
+   "incompatible_endings": [
+    "E07"
+   ],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F19",
+   "name": "The Wrong Question",
+   "tier_floor": "hard",
+   "closing_posture": "refusal_suspended",
+   "core": "The question as posed is patiently answered; the answer is shown unsatisfying; the question is reframed — and the new question is left unanswered.",
+   "difficulty_source": "two-stage structure — readers freeze at the first answer",
+   "movement": [
+    "QUESTION_ANSWERED_STRAIGHT",
+    "ANSWER_UNSATISFYING",
+    "REFRAME_QUESTION",
+    "NEW_QUESTION_OPEN"
+   ],
+   "question_affinities": [
+    "thesis",
+    "closure_reading"
+   ],
+   "incompatible_endings": [
+    "E07",
+    "E17"
+   ],
+   "incompatible_revelations": [
+    "R01"
+   ],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F20",
+   "name": "The Minority Report",
+   "tier_floor": "medium",
+   "closing_posture": "resolution_costed",
+   "core": "A discredited or unfashionable view is steelmanned — not to endorse it, but to show what the mainstream lost by winning.",
+   "difficulty_source": "endorsement traps — steelmanning read as advocacy",
+   "movement": [
+    "DISCREDITED_VIEW_INTRODUCED",
+    "STEELMAN_BUILD",
+    "MAINSTREAM_LOSS_NAMED",
+    "ENDORSEMENT_WITHHELD"
+   ],
+   "question_affinities": [
+    "author_vs_reported",
+    "stance"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F21",
+   "name": "The Instrument Effect",
+   "tier_floor": "hard",
+   "closing_posture": "reframe_displace",
+   "core": "The method of studying X is shown to partly produce the X it finds; findings about the world become findings about our instruments.",
+   "difficulty_source": "keeping object-level and method-level claims separate",
+   "movement": [
+    "FINDINGS_PRESENTED",
+    "INSTRUMENT_TURN",
+    "METHOD_OBJECT_ENTANGLED",
+    "RESIDUE_STATEMENT"
+   ],
+   "question_affinities": [
+    "primary_purpose",
+    "contextual_inference"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F22",
+   "name": "The Threshold Argument",
+   "tier_floor": "medium",
+   "closing_posture": "refusal_suspended",
+   "core": "A difference of degree becomes a difference of kind past some threshold; the entire argument is about locating — or denying the locatability of — the threshold.",
+   "difficulty_source": "quantitative-sounding claims with qualitative stakes",
+   "movement": [
+    "DEGREE_CONTINUUM_SHOWN",
+    "KIND_SHIFT_CLAIMED",
+    "THRESHOLD_PROBE",
+    "LOCATABILITY_QUESTIONED"
+   ],
+   "question_affinities": [
+    "application",
+    "weaken"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F23",
+   "name": "The Proxy War",
+   "tier_floor": "hard",
+   "closing_posture": "resolution_qualified",
+   "core": "A minor technical dispute is anatomized as a proxy for a deep, unarguable commitment; the passage explains why proxies form where direct argument fails.",
+   "difficulty_source": "the surface dispute is never adjudicated; readers expect adjudication",
+   "movement": [
+    "SMALL_DISPUTE_STAGED",
+    "STAKES_ESCALATION_NOTED",
+    "PROXY_ANATOMY",
+    "DIRECT_ARGUMENT_IMPOSSIBILITY"
+   ],
+   "question_affinities": [
+    "thesis",
+    "structural_function"
+   ],
+   "incompatible_endings": [
+    "E07"
+   ],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F24",
+   "name": "The Hospitable Critic",
+   "tier_floor": "medium",
+   "closing_posture": "resolution_costed",
+   "core": "A body of work is reviewed with genuine admiration; a single load-bearing objection then retroactively reframes the admiration.",
+   "difficulty_source": "tone — the admiration is sincere AND the objection is fatal",
+   "movement": [
+    "ADMIRATION_ESTABLISHED",
+    "WORK_SURVEYED",
+    "OBJECTION_LANDED",
+    "ADMIRATION_REFRAMED"
+   ],
+   "question_affinities": [
+    "stance",
+    "structural_function"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R01"
+   ],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F25",
+   "name": "The Ecology",
+   "tier_floor": "hard",
+   "closing_posture": "refusal_suspended",
+   "core": "Agent-level explanation is refused; the phenomenon is redescribed as a system-level equilibrium; ends noting what agency-talk loses and what systems-talk cannot see.",
+   "difficulty_source": "level-of-explanation confusions power every distractor",
+   "movement": [
+    "AGENT_EXPLANATION_REFUSED",
+    "EQUILIBRIUM_REDESCRIPTION",
+    "EVIDENCE_LAYER",
+    "DUAL_LOSS_NOTED"
+   ],
+   "question_affinities": [
+    "application",
+    "except_scan"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F26",
+   "name": "The Untranslatable",
+   "tier_floor": "hard",
+   "closing_posture": "resolution_qualified",
+   "core": "Organized around a concept from another language or tradition that resists translation; the resistance itself is the evidence for the thesis.",
+   "difficulty_source": "the concept is never fully defined; options that define it are traps",
+   "movement": [
+    "FOREIGN_CONCEPT_INTRODUCED",
+    "TRANSLATION_ATTEMPT",
+    "TRANSLATION_ATTEMPT",
+    "RESISTANCE_AS_EVIDENCE"
+   ],
+   "question_affinities": [
+    "contextual_inference",
+    "phrase_in_context"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R11"
+   ],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F27",
+   "name": "The Simultaneity Problem",
+   "tier_floor": "hard",
+   "closing_posture": "refusal_suspended",
+   "core": "Two developments always narrated in causal sequence are argued to be simultaneous and mutually causing; the standard story's arrow breaks.",
+   "difficulty_source": "temporal-order distractors — the passage denies the order every reader assumes",
+   "movement": [
+    "STANDARD_SEQUENCE_TOLD",
+    "TIMELINE_BREAK",
+    "MUTUAL_CAUSATION_ARGUED",
+    "ARROW_SUSPENDED"
+   ],
+   "question_affinities": [
+    "thesis",
+    "weaken"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F28",
+   "name": "The Boring Truth",
+   "tier_floor": "medium",
+   "closing_posture": "resolution_costed",
+   "core": "Spectacular explanations are rehearsed and deflated in favor of a mundane one; the sting — the mundane truth is far harder to act on.",
+   "difficulty_source": "anticlimax as structure; readers over-read drama into the ending",
+   "movement": [
+    "SPECTACULAR_EXPLANATIONS_STAGED",
+    "DEFLATION",
+    "MUNDANE_ACCOUNT_DEFENDED",
+    "ACTIONABILITY_STING"
+   ],
+   "question_affinities": [
+    "thesis",
+    "closure_reading"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R02"
+   ],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F29",
+   "name": "The Moving Target",
+   "tier_floor": "hard",
+   "closing_posture": "resolution_qualified",
+   "core": "A critique succeeded so thoroughly that its object changed shape; is the critique now obsolete, or more necessary than ever? An argument about critique's lifecycle.",
+   "difficulty_source": "three time-slices of the same idea must be kept apart",
+   "movement": [
+    "CRITIQUE_TRIUMPH_TOLD",
+    "OBJECT_MUTATION_SHOWN",
+    "OBSOLESCENCE_DEBATED",
+    "LIFECYCLE_CLAIM"
+   ],
+   "question_affinities": [
+    "contextual_inference",
+    "author_vs_reported"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F30",
+   "name": "The Self-Application",
+   "tier_floor": "elite",
+   "closing_posture": "refusal_suspended",
+   "core": "A theory is applied to itself (expertise-skepticism voiced by an expert); the recursion is managed in the open and the passage ends inside the loop.",
+   "difficulty_source": "the author's position is structurally unstatable; stance options must reflect that",
+   "movement": [
+    "THEORY_STATED",
+    "SELF_APPLICATION_TURN",
+    "RECURSION_MANAGED",
+    "LOOP_INHABITED"
+   ],
+   "question_affinities": [
+    "stance",
+    "undermine_thesis"
+   ],
+   "incompatible_endings": [
+    "E07"
+   ],
+   "incompatible_revelations": [
+    "R01"
+   ],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F31",
+   "name": "The Load-Bearing Anecdote",
+   "tier_floor": "medium",
+   "closing_posture": "resolution_qualified",
+   "core": "Opens on a small concrete incident; each return to the anecdote extracts a different layer; the final return reverses the initial reading.",
+   "difficulty_source": "the anecdote's function changes three times; function questions abound",
+   "movement": [
+    "ANECDOTE_OPEN",
+    "ANECDOTE_RETURN",
+    "ANECDOTE_RETURN",
+    "ANECDOTE_REVERSAL"
+   ],
+   "question_affinities": [
+    "evidence_function",
+    "structural_function"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R01"
+   ],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F32",
+   "name": "The Coalition of Errors",
+   "tier_floor": "hard",
+   "closing_posture": "refusal_suspended",
+   "core": "A true conclusion is widely believed for bad reasons; the passage separates the conclusion from its popular arguments and asks whether bad reasons corrupt good beliefs.",
+   "difficulty_source": "agreeing with the conclusion while demolishing its usual defenses",
+   "movement": [
+    "POPULAR_BELIEF_STAGED",
+    "BAD_REASONS_SEPARATED",
+    "CONCLUSION_PRESERVED",
+    "CORRUPTION_QUESTION"
+   ],
+   "question_affinities": [
+    "author_vs_reported",
+    "strengthen"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "arc_shape": "staged_turn_settled",
+   "withholds_thesis": false
+  },
+  {
+   "id": "F33",
+   "name": "The Deepening Case",
+   "tier_floor": "medium",
+   "arc_shape": "accretive_no_turn",
+   "closing_posture": "resolution_qualified",
+   "core": "One case is examined at four increasing depths; each pass finds more than the last, and nothing the earlier passes said is withdrawn.",
+   "difficulty_source": "no reversal to key on: the reader must track what each pass ADDS, and the thesis is the accumulated weight rather than a stated turn",
+   "movement": [
+    "CASE_OPENED",
+    "FIRST_PASS_DEPTH",
+    "SECOND_PASS_DEPTH",
+    "THIRD_PASS_DEPTH",
+    "ACCUMULATED_WEIGHT"
+   ],
+   "question_affinities": [
+    "detail_check",
+    "evidence_function",
+    "primary_purpose"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R01"
+   ],
+   "withholds_thesis": false
+  },
+  {
+   "id": "F34",
+   "name": "The Patient Inventory",
+   "tier_floor": "hard",
+   "arc_shape": "enumerative_flat",
+   "closing_posture": "resolution_qualified",
+   "core": "Several independent observations about one subject, set down without ranking, climax, or synthesis; their relation is left for the reader to construct.",
+   "difficulty_source": "no hierarchy among the observations, so every which-is-most-important instinct the reader brings is unsupported by the text",
+   "movement": [
+    "SUBJECT_FRAMED",
+    "OBSERVATION_INDEPENDENT",
+    "OBSERVATION_INDEPENDENT",
+    "OBSERVATION_INDEPENDENT",
+    "RELATION_LEFT_OPEN"
+   ],
+   "question_affinities": [
+    "except_scan",
+    "detail_check",
+    "structural_function"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "withholds_thesis": true,
+   "withholds_thesis_reason": "observations set down without ranking or synthesis"
+  },
+  {
+   "id": "F35",
+   "name": "The Front-Loaded Thesis",
+   "tier_floor": "medium",
+   "arc_shape": "thesis_first_defended",
+   "closing_posture": "resolution_costed",
+   "core": "The position is stated plainly in the first paragraph, then defended against three escalating objections, the last of which lands.",
+   "difficulty_source": "the thesis is visible immediately, so difficulty lives in tracking which objection is answered, which is deflected, and which survives",
+   "movement": [
+    "THESIS_STATED_PLAIN",
+    "OBJECTION_ANSWERED",
+    "OBJECTION_DEFLECTED",
+    "OBJECTION_SURVIVES",
+    "POSITION_HELD_AT_COST"
+   ],
+   "question_affinities": [
+    "stance",
+    "author_vs_reported",
+    "weaken"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R08",
+    "R14"
+   ],
+   "withholds_thesis": false
+  },
+  {
+   "id": "F36",
+   "name": "The Unyielding Position",
+   "tier_floor": "hard",
+   "arc_shape": "sustained_no_concession",
+   "closing_posture": "resolution_costed",
+   "core": "A single position argued straight through with no steelman and no concession; the opposing view is characterised only through what the argument must dispose of.",
+   "difficulty_source": "the absence of a concession beat removes the usual foothold: a reader looking for where the author gives ground finds nothing and must key on argument structure instead",
+   "movement": [
+    "POSITION_ASSERTED",
+    "GROUND_ONE_ARGUED",
+    "GROUND_TWO_ARGUED",
+    "OPPOSITION_DISPOSED",
+    "POSITION_RESTATED_HARDER"
+   ],
+   "question_affinities": [
+    "stance",
+    "strengthen",
+    "evidence_function"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R08"
+   ],
+   "withholds_thesis": false
+  },
+  {
+   "id": "F37",
+   "name": "The Two Accounts",
+   "tier_floor": "elite",
+   "arc_shape": "parallel_unresolved",
+   "closing_posture": "refusal_suspended",
+   "core": "Two accounts of the same matter are developed side by side in alternating paragraphs and never reconciled; neither is refuted.",
+   "difficulty_source": "there is no synthesis paragraph, so the reader instinct to find the author preferred account is a trap because the text supports neither",
+   "movement": [
+    "ACCOUNT_A_OPENED",
+    "ACCOUNT_B_OPENED",
+    "ACCOUNT_A_DEEPENED",
+    "ACCOUNT_B_DEEPENED",
+    "BOTH_LEFT_STANDING"
+   ],
+   "question_affinities": [
+    "author_vs_reported",
+    "stance",
+    "except_scan"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R01"
+   ],
+   "withholds_thesis": true,
+   "withholds_thesis_reason": "two accounts developed in parallel and never reconciled"
+  },
+  {
+   "id": "F38",
+   "name": "The Narrowing",
+   "tier_floor": "medium",
+   "arc_shape": "descending_scale",
+   "closing_posture": "reframe_displace",
+   "core": "Begins at the widest generality and narrows by stages to a single instance, ending inside that instance own detail; the general claim is never returned to.",
+   "difficulty_source": "the thesis is located at the narrow end, so a reader who weights the opening generality, the usual habit, keys the wrong paragraph",
+   "movement": [
+    "WIDEST_FRAME",
+    "NARROWED_DOMAIN",
+    "SINGLE_CASE",
+    "CASE_INTERIOR"
+   ],
+   "question_affinities": [
+    "thesis",
+    "structural_function",
+    "contextual_inference"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R01"
+   ],
+   "withholds_thesis": false
+  },
+  {
+   "id": "F39",
+   "name": "The Widening",
+   "tier_floor": "medium",
+   "arc_shape": "ascending_scale",
+   "closing_posture": "resolution_qualified",
+   "core": "Starts inside one small particular and widens by stages; each widening is earned by the previous, and the final claim is the largest the particular can carry.",
+   "difficulty_source": "each step warrant comes only from the step below it, so the reader must judge where the widening outruns its evidence",
+   "movement": [
+    "PARTICULAR_INTERIOR",
+    "FIRST_WIDENING",
+    "SECOND_WIDENING",
+    "LARGEST_CLAIM_EARNED"
+   ],
+   "question_affinities": [
+    "evidence_function",
+    "strengthen",
+    "application"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "withholds_thesis": false
+  },
+  {
+   "id": "F40",
+   "name": "The Sequence Without Verdict",
+   "tier_floor": "hard",
+   "arc_shape": "chronological_no_verdict",
+   "closing_posture": "refusal_suspended",
+   "core": "A sequence of events told in order, with no evaluative paragraph anywhere; whatever thesis exists is carried entirely by selection and emphasis.",
+   "difficulty_source": "no paragraph states a position, so the reader must infer stance from what is included, dwelt on, and passed over quickly",
+   "movement": [
+    "SEQUENCE_BEGINS",
+    "SEQUENCE_CONTINUES",
+    "SEQUENCE_CONTINUES",
+    "SEQUENCE_ENDS_UNJUDGED"
+   ],
+   "question_affinities": [
+    "stance",
+    "author_vs_reported",
+    "detail_check"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R01",
+    "R08"
+   ],
+   "withholds_thesis": true,
+   "withholds_thesis_reason": "a sequence told with no evaluative paragraph anywhere",
+   "tier_max": "hard",
+   "tier_max_reason": "Scored 6.0 at elite, the lowest of any set. The judge gave family_realization 2/10: 'The passage repeatedly states evaluations' — this family's whole definition is that no paragraph states one, and the renderer would not comply. Capped at hard until the withheld-verdict instruction is enforced by the compliance auditor the way the closing register now is."
+  },
+  {
+   "id": "F41",
+   "name": "The Return",
+   "tier_floor": "elite",
+   "arc_shape": "circular_return",
+   "closing_posture": "reframe_displace",
+   "core": "Ends on the same object it opened with, saying something that would have been unintelligible in paragraph one; nothing about the object changed, only what has been shown.",
+   "difficulty_source": "the change is in the reader position rather than the argument, so questions about what shifted have no propositional answer in the text",
+   "movement": [
+    "OBJECT_SHOWN_PLAIN",
+    "DEPARTURE",
+    "MATERIAL_GATHERED",
+    "OBJECT_SHOWN_AGAIN"
+   ],
+   "question_affinities": [
+    "closure_reading",
+    "structural_function",
+    "phrase_in_context"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R01"
+   ],
+   "withholds_thesis": false
+  },
+  {
+   "id": "F42",
+   "name": "The Six Witnesses",
+   "tier_floor": "elite",
+   "arc_shape": "enumerative_flat",
+   "closing_posture": "refusal_suspended",
+   "core": "Six short paragraphs, each a different party account of one event, with no narrator adjudicating between them.",
+   "difficulty_source": "six flat accounts and no arbitration: the reader must hold six positions at once and resist collapsing them into a majority view",
+   "movement": [
+    "EVENT_NAMED",
+    "WITNESS_ACCOUNT",
+    "WITNESS_ACCOUNT",
+    "WITNESS_ACCOUNT",
+    "WITNESS_ACCOUNT",
+    "NO_ARBITRATION"
+   ],
+   "question_affinities": [
+    "author_vs_reported",
+    "except_scan",
+    "detail_check"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R01"
+   ],
+   "withholds_thesis": true,
+   "withholds_thesis_reason": "six witness accounts with no narrator adjudicating"
+  },
+  {
+   "id": "F43",
+   "name": "The Long Definition",
+   "tier_floor": "hard",
+   "arc_shape": "analytic_definitional",
+   "closing_posture": "resolution_costed",
+   "core": "Works out what a term must mean if it is to do the job asked of it, testing candidate definitions in sequence and keeping what survives.",
+   "difficulty_source": "the argument is analytic rather than evidential, so nothing is proved by cases and a reader hunting for evidence paragraphs misreads the structure",
+   "movement": [
+    "JOB_SPECIFIED",
+    "CANDIDATE_TESTED",
+    "CANDIDATE_TESTED",
+    "CANDIDATE_TESTED",
+    "SURVIVOR_KEPT_AT_COST"
+   ],
+   "question_affinities": [
+    "phrase_in_context",
+    "structural_function",
+    "application"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [],
+   "withholds_thesis": false
+  },
+  {
+   "id": "F44",
+   "name": "The Short Proof",
+   "tier_floor": "medium",
+   "arc_shape": "compressed_three",
+   "closing_posture": "resolution_qualified",
+   "core": "Three paragraphs only: a claim, the one thing that would have to be true for it, and whether it is.",
+   "difficulty_source": "compression, since with no development paragraph every sentence is load-bearing and the usual skim-for-the-turn strategy has nothing to find",
+   "movement": [
+    "CLAIM_MADE",
+    "CONDITION_ISOLATED",
+    "CONDITION_TESTED"
+   ],
+   "question_affinities": [
+    "evidence_function",
+    "strengthen",
+    "thesis"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R08"
+   ],
+   "withholds_thesis": false,
+   "tier_max": "hard",
+   "tier_max_reason": "Scored 6.8 at elite. It is the only 3-paragraph family, which at the 500-550 word band means ~180 words per paragraph against a typical ~110, and the per-paragraph cadence, word targets and trap anchoring are all tuned for 4-6. Note it also produced the only GREEN screen verdict of the session — it is the most distinctive form in the library, and it stays available at medium and hard where the paragraph budget fits."
+  },
+  {
+   "id": "F45",
+   "name": "The Question Kept Open",
+   "tier_floor": "medium",
+   "arc_shape": "interrogative_serial",
+   "closing_posture": "refusal_suspended",
+   "core": "Each paragraph answers the previous paragraph question and raises a harder one; the last question is left standing.",
+   "difficulty_source": "the thesis is the trajectory of the questions rather than any answer given, and every answer offered is provisional by design",
+   "movement": [
+    "FIRST_QUESTION",
+    "ANSWERED_RAISES_HARDER",
+    "ANSWERED_RAISES_HARDER",
+    "LAST_QUESTION_STANDS"
+   ],
+   "question_affinities": [
+    "closure_reading",
+    "primary_purpose",
+    "contextual_inference"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R01"
+   ],
+   "withholds_thesis": false
+  },
+  {
+   "id": "F46",
+   "name": "The Instructions",
+   "tier_floor": "hard",
+   "arc_shape": "procedural_consequence",
+   "closing_posture": "resolution_costed",
+   "core": "Sets out how something is done, step by step and without evaluation, until the procedure own logic makes its cost unmistakable.",
+   "difficulty_source": "the evaluative claim is never stated but forced by the procedure, so questions about the author position rest on inference from neutral description",
+   "movement": [
+    "PROCEDURE_OPENED",
+    "STEP_DESCRIBED",
+    "STEP_DESCRIBED",
+    "STEP_DESCRIBED",
+    "COST_FORCED_BY_PROCEDURE"
+   ],
+   "question_affinities": [
+    "stance",
+    "application",
+    "evidence_function"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": [
+    "R08"
+   ],
+   "withholds_thesis": false
+  },
+  {
+   "id": "F47",
+   "name": "The Explained Phenomenon",
+   "tier_floor": "medium",
+   "tier_max": "hard",
+   "arc_shape": "expository_bound",
+   "closing_posture": "resolution_qualified",
+   "withholds_thesis": false,
+   "core": "A phenomenon is stated plainly, its mechanism worked through, the cause behind it named, and the stakes raised — ending inside the argument rather than on a verdict.",
+   "difficulty_source": "the mechanism has several stages and the questions turn on which stage the evidence actually reaches; a reader who takes the opening statement as the thesis keys the wrong paragraph",
+   "movement": [
+    "CLAIM_STATED_PLAIN",
+    "MECHANISM_WORKED",
+    "CAUSE_NAMED",
+    "STAKES_RAISED",
+    "ARGUMENT_STILL_RUNNING"
+   ],
+   "question_affinities": [
+    "evidence_function",
+    "detail_check",
+    "structural_function"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": []
+  },
+  {
+   "id": "F48",
+   "name": "The Surveyed Account",
+   "tier_floor": "medium",
+   "tier_max": "hard",
+   "arc_shape": "surveyed_account",
+   "closing_posture": "resolution_qualified",
+   "withholds_thesis": false,
+   "core": "An account is given, illustrated across several instances, one concession is made to a rival reading, an authority is cited, and the argument closes still in motion.",
+   "difficulty_source": "the instances differ in what they actually establish, and the single concession is easy to mistake for the author's own position",
+   "movement": [
+    "ACCOUNT_GIVEN",
+    "INSTANCE_SURVEY",
+    "CONCESSION_MADE",
+    "AUTHORITY_CITED",
+    "ARGUMENT_STILL_RUNNING"
+   ],
+   "question_affinities": [
+    "author_vs_reported",
+    "except_scan",
+    "evidence_function"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": []
+  },
+  {
+   "id": "F49",
+   "name": "The Defined Process",
+   "tier_floor": "medium",
+   "tier_max": "hard",
+   "arc_shape": "definitional_process",
+   "closing_posture": "resolution_qualified",
+   "withholds_thesis": false,
+   "core": "A term is fixed precisely, the process it names is worked through, instances test the definition, and the passage ends mid-argument without restating the definition.",
+   "difficulty_source": "the definition given early does real work late, and options that use the term loosely are wrong for reasons the passage never spells out",
+   "movement": [
+    "TERM_FIXED",
+    "PROCESS_WORKED",
+    "INSTANCES_TESTED",
+    "ARGUMENT_STILL_RUNNING"
+   ],
+   "question_affinities": [
+    "phrase_in_context",
+    "application",
+    "detail_check"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": []
+  },
+  {
+   "id": "F50",
+   "name": "The Traced Development",
+   "tier_floor": "medium",
+   "tier_max": "hard",
+   "arc_shape": "traced_development",
+   "closing_posture": "resolution_qualified",
+   "withholds_thesis": false,
+   "core": "Something is dated to its origin and followed forward through how it changed, what drove each change, and why it now matters — ending inside the sequence.",
+   "difficulty_source": "causes and consequences are adjacent in the text but not identical, and the questions separate what drove a change from what merely accompanied it",
+   "movement": [
+    "ORIGIN_DATED",
+    "DEVELOPMENT_TRACED",
+    "DRIVER_IDENTIFIED",
+    "PRESENT_STAKES",
+    "ARGUMENT_STILL_RUNNING"
+   ],
+   "question_affinities": [
+    "detail_check",
+    "structural_function",
+    "contextual_inference"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": []
+  },
+  {
+   "id": "F51",
+   "name": "The Posed Problem",
+   "tier_floor": "medium",
+   "tier_max": "hard",
+   "arc_shape": "posed_problem",
+   "closing_posture": "resolution_qualified",
+   "withholds_thesis": false,
+   "core": "A problem is posed early, candidate explanations are worked through on their merits, and the passage settles on the one the evidence supports without ceremony.",
+   "difficulty_source": "the rejected explanations are given real evidence too, so the reader must weigh which evidence bears on the question rather than which sounds strongest",
+   "movement": [
+    "PROBLEM_POSED",
+    "EXPLANATION_WORKED",
+    "EXPLANATION_WORKED",
+    "EVIDENCE_WEIGHED",
+    "ARGUMENT_STILL_RUNNING"
+   ],
+   "question_affinities": [
+    "strengthen",
+    "weaken",
+    "evidence_function"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": []
+  },
+  {
+   "id": "F52",
+   "name": "The Asymmetry Noted",
+   "tier_floor": "hard",
+   "tier_max": "hard",
+   "arc_shape": "asymmetry_noted",
+   "closing_posture": "resolution_qualified",
+   "withholds_thesis": false,
+   "core": "Two things treated as parallel are worked through until the parallel fails; the failure is described precisely and the passage continues from it rather than concluding.",
+   "difficulty_source": "the asymmetry is stated once, in the middle, without emphasis — a reader tracking the surface comparison misses the sentence the whole passage turns on",
+   "movement": [
+    "PARALLEL_ASSUMED",
+    "BOTH_WORKED_THROUGH",
+    "ASYMMETRY_LOCATED",
+    "CONSEQUENCE_DRAWN",
+    "ARGUMENT_STILL_RUNNING"
+   ],
+   "question_affinities": [
+    "structural_function",
+    "contextual_inference",
+    "stance"
+   ],
+   "incompatible_endings": [],
+   "incompatible_revelations": []
+  }
+ ]
 }

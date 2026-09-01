@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RC Engine — how a reading-comprehension set is built, audited and rejected</title>
+<meta name="description" content="A read-only walkthrough of a production RC generation engine: the structural blueprint, the nine-channel novelty audit, the rejection cascade, and one full set with its engineered distractors exposed.">
+<meta name="robots" content="index, follow">
+<meta property="og:title" content="RC Engine — a generation pipeline that rejects most of what it makes">
+<meta property="og:description" content="Real corpus data from a production reading-comprehension engine: 233 novelty audits, a nine-channel structural audit, and one full set with every distractor's trap type exposed.">
+<meta property="og:type" content="website">
+<link rel="stylesheet" href="css/demo.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>&#9635;</text></svg>">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="shell topbar__in">
+    <div class="brand">RC&#160;ENGINE <span>/ demo</span></div>
+    <nav class="navlinks">
+      <a href="#overview">Corpus</a>
+      <a href="#funnel">Rejection cascade</a>
+      <a href="#explorer">Set explorer</a>
+      <a href="#architecture">How it runs</a>
+    </nav>
+    <button class="themebtn" id="themebtn" type="button" aria-label="Toggle colour theme">Light</button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============================================================ hero -->
+  <section class="hero">
+    <div class="shell">
+      <p class="eyebrow">Read-only snapshot &#183; no API calls, no live generation</p>
+      <h1>Most of what this engine writes never ships.</h1>
+      <p class="hero__lede">
+        This is a production pipeline that produces CAT-style reading-comprehension
+        sets under a weekly delivery contract. It does not write a passage and hand it
+        over. It samples a structural blueprint, renders against it, then tries to kill
+        its own output at seven separate gates &mdash; fingerprinting every candidate and
+        scoring it against the whole corpus. What follows is the real audit trail.
+      </p>
+      <p class="hero__note"><span class="dot"></span> <span id="snapshot-line">Static snapshot &#183; loading&#8230;</span></p>
+
+      <div class="stats" id="stats"></div>
+    </div>
+  </section>
+
+  <!-- ======================================================== overview -->
+  <section class="section section--alt" id="overview">
+    <div class="shell">
+      <p class="eyebrow">The corpus</p>
+      <h2 class="sec-title">Quality is measured, not asserted.</h2>
+      <p class="sec-lede">
+        Every set carries three independent numbers: a rubric score from a judge model,
+        a compliance F1 measuring how faithfully the finished passage realised the
+        structural brief it was given, and a novelty composite scoring it against its
+        nearest neighbour in the corpus. None of them is self-reported by the model
+        that wrote the passage.
+      </p>
+      <div class="tablewrap"><table id="tier-table">
+        <thead><tr>
+          <th>Tier</th><th class="num">Approved</th><th class="num">Avg rubric</th>
+          <th class="num">Avg compliance</th><th class="num">Avg novelty</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table></div>
+
+      <div class="tablewrap"><table id="usage-table">
+        <thead><tr>
+          <th>Structural slot</th><th class="num">Distinct values drawn</th><th class="num">Total draws</th>
+        </tr></thead>
+        <tbody></tbody>
+      </table></div>
+      <p class="sec-lede" style="font-size:14px">
+        Each set is assembled from seven independently sampled slots. Repetition in any
+        one slot is tolerable; repetition of a <em>combination</em> is what the audit hunts for.
+      </p>
+    </div>
+  </section>
+
+  <!-- ========================================================== funnel -->
+  <section class="section" id="funnel">
+    <div class="shell">
+      <p class="eyebrow">The rejection cascade</p>
+      <h2 class="sec-title">Seven gates, cheapest first.</h2>
+      <p class="sec-lede">
+        Gates are ordered by cost. A topic collision is caught before a single word is
+        written; a full nine-channel audit only runs on candidates that already survived
+        everything upstream. That ordering is the whole economics of the pipeline &mdash;
+        expensive rendering is never spent on a candidate that was always going to collide.
+      </p>
+      <div class="funnel" id="funnel-list"></div>
+      <div class="legend">
+        <span><i style="background:var(--pass)"></i>Advanced to the next gate</span>
+        <span><i style="background:var(--reject)"></i>Rejected &mdash; work discarded</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================== explorer -->
+  <section class="section section--alt" id="explorer">
+    <div class="shell">
+      <p class="eyebrow">Set explorer</p>
+      <h2 class="sec-title">Open any set and look at its machinery.</h2>
+      <p class="sec-lede">
+        Pick a set to see the blueprint it was sampled from, the nine channels it was
+        scored on, and the two independent verification passes it had to survive.
+      </p>
+
+      <div class="picker">
+        <label for="setpick">Set</label>
+        <select id="setpick" aria-label="Choose a reading-comprehension set"></select>
+      </div>
+
+      <div class="setmeta" id="setmeta"></div>
+
+      <div class="tabs" role="tablist" aria-label="Set detail views">
+        <button class="tab" role="tab" id="tab-read"      aria-controls="panel-read"      aria-selected="true">Read the set</button>
+        <button class="tab" role="tab" id="tab-audit"     aria-controls="panel-audit"     aria-selected="false">Novelty audit</button>
+        <button class="tab" role="tab" id="tab-blueprint" aria-controls="panel-blueprint" aria-selected="false">Blueprint</button>
+        <button class="tab" role="tab" id="tab-verify"    aria-controls="panel-verify"    aria-selected="false">Verification</button>
+      </div>
+
+      <div class="tabpanel" role="tabpanel" id="panel-read"      aria-labelledby="tab-read"></div>
+      <div class="tabpanel" role="tabpanel" id="panel-audit"     aria-labelledby="tab-audit" hidden></div>
+      <div class="tabpanel" role="tabpanel" id="panel-blueprint" aria-labelledby="tab-blueprint" hidden></div>
+      <div class="tabpanel" role="tabpanel" id="panel-verify"    aria-labelledby="tab-verify" hidden></div>
+    </div>
+  </section>
+
+  <!-- ==================================================== architecture -->
+  <section class="section" id="architecture">
+    <div class="shell">
+      <p class="eyebrow">How it runs</p>
+      <h2 class="sec-title">A pipeline, not a prompt.</h2>
+      <p class="sec-lede">
+        Generation is one stage out of eight. The rest is sampling, measurement and
+        refusal &mdash; the parts that make output repeatable at a weekly cadence instead
+        of good once.
+      </p>
+      <div class="steps">
+        <div class="step"><div class="step__n">01</div><div>
+          <div class="step__t">Blueprint sampling</div>
+          <p class="step__d">Seven structural slots &mdash; argument family, authorial persona, ending
+          behaviour, sentence rhythm, revelation pattern, distractor profile, question topology &mdash;
+          are drawn under constraints that penalise combinations the corpus has already used.
+          The result is a specification, not a topic.</p>
+        </div></div>
+        <div class="step"><div class="step__n">02</div><div>
+          <div class="step__t">Pre-checks</div>
+          <p class="step__d">Topic, movement skeleton and question topology are compared against the
+          corpus before any rendering happens. A collision here costs nothing to discard.</p>
+        </div></div>
+        <div class="step"><div class="step__n">03</div><div>
+          <div class="step__t">Seeded composition</div>
+          <p class="step__d">A retrieval layer supplies a real essay as conceptual seed material.
+          The passage is composed to satisfy the blueprint's paragraph-function plan and word budget,
+          not to summarise the seed &mdash; source attribution stays attached to every set.</p>
+        </div></div>
+        <div class="step"><div class="step__n">04</div><div>
+          <div class="step__t">Compliance scoring</div>
+          <p class="step__d">The finished passage is parsed back into its realised structure and
+          scored against the brief it was given. An F1 below threshold sends it back rather than forward.</p>
+        </div></div>
+        <div class="step"><div class="step__n">05</div><div>
+          <div class="step__t">Question engineering</div>
+          <p class="step__d">Questions are built to the sampled topology, and every wrong option is
+          assigned a named trap type &mdash; scope inflation, straw version, half truth, category slip,
+          stance misread. A distractor with no mechanism is a defect, not a filler.</p>
+        </div></div>
+        <div class="step"><div class="step__n">06</div><div>
+          <div class="step__t">Independent solve</div>
+          <p class="step__d">A separate model attempts the set without seeing the answer key, reporting
+          per-question confidence and raising disputes. Disagreement between the key and the solver
+          routes the set to review.</p>
+        </div></div>
+        <div class="step"><div class="step__n">07</div><div>
+          <div class="step__t">Multi-channel novelty audit</div>
+          <p class="step__d">The finished set is fingerprinted &mdash; movement string, commitment curve,
+          rhythm vector, topology signature, trap histogram, answer-letter sequence, stylometry, dense
+          embedding &mdash; and compared against every set in the trailing window. Eight channels carry a
+          weighted similarity composite; novelty is one minus that score, taken against the
+          <em>closest</em> neighbour rather than the average one.</p>
+        </div></div>
+        <div class="step"><div class="step__n">08</div><div>
+          <div class="step__t">Corpus hygiene</div>
+          <p class="step__d">Beyond the individual set, the corpus itself is monitored: slot distribution
+          drift, answer-letter runs, and a budget on how often the correct option may be the longest one &mdash;
+          the single most exploitable tell in a coached test-taker's toolkit.</p>
+        </div></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="shell">
+    <p><strong>What this page is.</strong> A static snapshot built from the engine's own
+    SQLite database at deploy time. There is no backend and no model call behind it &mdash;
+    every number, score and audit verdict here was recorded during real production runs.</p>
+    <p><strong>What is withheld.</strong> Per-set cost, token counts, model vendor names
+    and gate thresholds are stripped by the snapshot builder and never reach this page.
+    Passages are published only where explicitly cleared for release.</p>
+    <p id="footer-stamp"></p>
+  </div>
+</footer>
+
+<noscript>
+  <div class="shell">
+    <div class="locked"><b>This walkthrough needs JavaScript.</b>
+    The page reads a static JSON snapshot in the browser &mdash; there is no server to render it for you.</div>
+  </div>
+</noscript>
+
+<script src="js/demo.js"></script>
+</body>
+</html>

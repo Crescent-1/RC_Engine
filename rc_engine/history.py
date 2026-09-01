@@ -138,6 +138,13 @@ class HistoryStore:
             )""")
         # provenance tag: engine | legacy (backfilled) | manual (vet --ingest)
         self._ensure_column("fingerprints", "source", "TEXT DEFAULT 'engine'")
+        self._ensure_column("rc_sets", "seed_genre", "TEXT DEFAULT ''")
+        self._ensure_column("rc_sets", "topic_shape", "TEXT DEFAULT ''")
+        self._ensure_column("rc_sets", "similarity_verdict", "TEXT DEFAULT ''")
+        self._ensure_column("rc_sets", "similarity_note", "TEXT DEFAULT ''")
+        self._ensure_column("fingerprints", "move_signature", "TEXT DEFAULT ''")
+        # Excluded from the novelty baseline, never deleted. See fingerprint_window.
+        self._ensure_column("fingerprints", "quarantined", "INTEGER DEFAULT 0")
 
         c.execute("""
             CREATE TABLE IF NOT EXISTS novelty_audits (
@@ -333,21 +340,31 @@ class HistoryStore:
             """INSERT OR REPLACE INTO fingerprints
                (rc_id, blueprint_id, persona_id, movement_string, commitment_curve,
                 rhythm_vector, topology_signature, trap_histogram, letter_sequence,
-                stylometry, embedding, source, created_at)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                stylometry, embedding, source, move_signature, created_at)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (fp.rc_id, fp.blueprint_id, fp.persona_id, fp.movement_string,
              json.dumps(fp.commitment_curve), json.dumps(fp.rhythm_vector),
              json.dumps(fp.topology_signature), json.dumps(fp.trap_histogram),
              fp.letter_sequence, json.dumps(fp.stylometry),
-             json.dumps(fp.embedding) if fp.embedding else None, fp.source, _now()))
+             json.dumps(fp.embedding) if fp.embedding else None, fp.source,
+             fp.move_signature, _now()))
         self.conn.commit()
 
-    def fingerprint_window(self, limit: int) -> list[Fingerprint]:
+    def fingerprint_window(self, limit: int,
+                           include_quarantined: bool = False) -> list[Fingerprint]:
+        """Novelty baseline. Quarantined rows are excluded by default: a corpus
+        that holds many sets sharing one rhetorical grammar makes the gates
+        defend a monoculture — new renders get scored against duplicates of the
+        same thing. Quarantine keeps one representative and hides the rest from
+        this window ONLY; the rows, the rc_sets and the exported files are
+        untouched. Pass include_quarantined=True for audits and reporting."""
+        where = "" if include_quarantined else " WHERE quarantined = 0"
         rows = self.conn.execute(
             """SELECT rc_id, blueprint_id, persona_id, movement_string, commitment_curve,
                       rhythm_vector, topology_signature, trap_histogram, letter_sequence,
-                      stylometry, embedding, source
-               FROM fingerprints ORDER BY created_at DESC LIMIT ?""", (limit,)).fetchall()
+                      stylometry, embedding, source, move_signature
+               FROM fingerprints""" + where +
+            """ ORDER BY created_at DESC LIMIT ?""", (limit,)).fetchall()
         out = []
         for r in rows:
             out.append(Fingerprint(
@@ -357,7 +374,8 @@ class HistoryStore:
                 trap_histogram=json.loads(r[7]), letter_sequence=r[8],
                 stylometry=json.loads(r[9]),
                 embedding=json.loads(r[10]) if r[10] else None,
-                source=r[11] or "engine"))
+                source=r[11] or "engine",
+                move_signature=r[12] or ""))
         return out
 
     # -------------------------------------------------------------- rc & audit

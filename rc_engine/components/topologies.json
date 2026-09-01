@@ -1,188 +1,1271 @@
 {
-  "library": "topologies",
-  "version": "1.0",
-  "slot_types": {
-    "thesis": "central thesis / main idea — requires integrating the full movement of the passage",
-    "structural_function": "why a particular move (analogy, concession, example, tonal shift) was introduced; the answer is a structural role, not local meaning",
-    "contextual_inference": "interpret a dense phrase or compressed claim from its local argumentative context",
-    "application": "a NEW real-world scenario (not a paraphrase); identify which mechanism from the passage best explains it",
-    "implicit_assumption": "an unstated premise necessary for a major argumentative move",
-    "stance": "the author's intellectual posture, avoiding simplistic binaries",
-    "decoy_escape": "directly tests whether the reader escaped the passage's planted early misreading",
-    "evidence_function": "what work an example or piece of evidence does (illustrate, prove, complicate, license)",
-    "counterfactual_structure": "how the argument would change if a specified paragraph were removed or replaced",
-    "strengthen": "which new fact would most strengthen a specified claim from the passage",
-    "weaken": "which new fact would most weaken a specified claim from the passage",
-    "author_vs_reported": "distinguish the author's own view from views the author reports or steelmans",
-    "closure_reading": "what the ending does — why the passage stops where it does and what is implied next",
-    "phrase_in_context": "the meaning of a specific phrase as used in the passage, not in general usage",
-    "detail_check": "a precise factual/claim-level detail from the passage"
-  },
-  "items": [
-    {"id": "QT01", "name": "Classic Gauntlet", "curve": "rising",
-     "slots": [
-       {"type": "thesis", "target": "global", "difficulty": 0.6},
-       {"type": "detail_check", "target": "local", "difficulty": 0.4},
-       {"type": "structural_function", "target": "local", "difficulty": 0.6},
-       {"type": "contextual_inference", "target": "local", "difficulty": 0.7},
-       {"type": "implicit_assumption", "target": "span", "difficulty": 0.8},
-       {"type": "application", "target": "global", "difficulty": 0.9}]},
-    {"id": "QT02", "name": "Inverted", "curve": "rising",
-     "slots": [
-       {"type": "phrase_in_context", "target": "local", "difficulty": 0.5},
-       {"type": "detail_check", "target": "local", "difficulty": 0.5},
-       {"type": "structural_function", "target": "local", "difficulty": 0.6},
-       {"type": "stance", "target": "global", "difficulty": 0.7},
-       {"type": "implicit_assumption", "target": "span", "difficulty": 0.8},
-       {"type": "thesis", "target": "global", "difficulty": 0.9}]},
-    {"id": "QT03", "name": "Structural Emphasis", "curve": "flat_high",
-     "slots": [
-       {"type": "structural_function", "target": "local", "difficulty": 0.6},
-       {"type": "thesis", "target": "global", "difficulty": 0.7},
-       {"type": "structural_function", "target": "local", "difficulty": 0.7},
-       {"type": "evidence_function", "target": "local", "difficulty": 0.7},
-       {"type": "structural_function", "target": "span", "difficulty": 0.8},
-       {"type": "stance", "target": "global", "difficulty": 0.7}]},
-    {"id": "QT04", "name": "Application Heavy", "curve": "twin_peak",
-     "slots": [
-       {"type": "thesis", "target": "global", "difficulty": 0.6},
-       {"type": "application", "target": "global", "difficulty": 0.6},
-       {"type": "contextual_inference", "target": "local", "difficulty": 0.7},
-       {"type": "implicit_assumption", "target": "span", "difficulty": 0.7},
-       {"type": "application", "target": "global", "difficulty": 0.9},
-       {"type": "stance", "target": "global", "difficulty": 0.7}]},
-    {"id": "QT05", "name": "Local-Global Ladder", "curve": "alternating",
-     "slots": [
-       {"type": "detail_check", "target": "local", "difficulty": 0.4},
-       {"type": "thesis", "target": "global", "difficulty": 0.6},
-       {"type": "phrase_in_context", "target": "local", "difficulty": 0.6},
-       {"type": "stance", "target": "global", "difficulty": 0.7},
-       {"type": "contextual_inference", "target": "local", "difficulty": 0.7},
-       {"type": "application", "target": "global", "difficulty": 0.8}]},
-    {"id": "QT06", "name": "The Ambush", "curve": "cliff",
-     "slots": [
-       {"type": "detail_check", "target": "local", "difficulty": 0.4},
-       {"type": "phrase_in_context", "target": "local", "difficulty": 0.5},
-       {"type": "structural_function", "target": "local", "difficulty": 0.5},
-       {"type": "evidence_function", "target": "local", "difficulty": 0.5},
-       {"type": "thesis", "target": "global", "difficulty": 0.9},
-       {"type": "implicit_assumption", "target": "span", "difficulty": 0.9}]},
-    {"id": "QT07", "name": "Assumption Cluster", "curve": "flat_high",
-     "slots": [
-       {"type": "thesis", "target": "global", "difficulty": 0.7},
-       {"type": "implicit_assumption", "target": "local", "difficulty": 0.7},
-       {"type": "structural_function", "target": "local", "difficulty": 0.6},
-       {"type": "implicit_assumption", "target": "span", "difficulty": 0.8},
-       {"type": "contextual_inference", "target": "local", "difficulty": 0.7},
-       {"type": "stance", "target": "global", "difficulty": 0.7}]},
-    {"id": "QT08", "name": "Tone Split", "curve": "flat_mid",
-     "slots": [
-       {"type": "thesis", "target": "global", "difficulty": 0.6},
-       {"type": "stance", "target": "global", "difficulty": 0.7},
-       {"type": "contextual_inference", "target": "local", "difficulty": 0.7},
-       {"type": "author_vs_reported", "target": "span", "difficulty": 0.8},
-       {"type": "detail_check", "target": "local", "difficulty": 0.5},
-       {"type": "stance", "target": "span", "difficulty": 0.8}]},
-    {"id": "QT09", "name": "Cross-Paragraph Weave", "curve": "flat_high",
-     "slots": [
-       {"type": "thesis", "target": "global", "difficulty": 0.7},
-       {"type": "structural_function", "target": "span", "difficulty": 0.7},
-       {"type": "contextual_inference", "target": "span", "difficulty": 0.8},
-       {"type": "implicit_assumption", "target": "span", "difficulty": 0.8},
-       {"type": "author_vs_reported", "target": "span", "difficulty": 0.8},
-       {"type": "closure_reading", "target": "span", "difficulty": 0.7}]},
-    {"id": "QT10", "name": "The Decoy Mirror", "curve": "front_loaded",
-     "slots": [
-       {"type": "decoy_escape", "target": "span", "difficulty": 0.8},
-       {"type": "structural_function", "target": "local", "difficulty": 0.6},
-       {"type": "contextual_inference", "target": "local", "difficulty": 0.7},
-       {"type": "application", "target": "global", "difficulty": 0.9},
-       {"type": "implicit_assumption", "target": "span", "difficulty": 0.8},
-       {"type": "stance", "target": "global", "difficulty": 0.7}]},
-    {"id": "QT11", "name": "Evidence Audit", "curve": "flat_mid",
-     "slots": [
-       {"type": "thesis", "target": "global", "difficulty": 0.6},
-       {"type": "evidence_function", "target": "local", "difficulty": 0.6},
-       {"type": "evidence_function", "target": "local", "difficulty": 0.7},
-       {"type": "evidence_function", "target": "span", "difficulty": 0.7},
-       {"type": "implicit_assumption", "target": "span", "difficulty": 0.8},
-       {"type": "stance", "target": "global", "difficulty": 0.7}]},
-    {"id": "QT12", "name": "Counterfactual Set", "curve": "rising",
-     "slots": [
-       {"type": "thesis", "target": "global", "difficulty": 0.6},
-       {"type": "counterfactual_structure", "target": "local", "difficulty": 0.7},
-       {"type": "structural_function", "target": "local", "difficulty": 0.6},
-       {"type": "counterfactual_structure", "target": "span", "difficulty": 0.8},
-       {"type": "contextual_inference", "target": "local", "difficulty": 0.7},
-       {"type": "stance", "target": "global", "difficulty": 0.7}]},
-    {"id": "QT13", "name": "The Compression Test", "curve": "flat_high",
-     "slots": [
-       {"type": "thesis", "target": "global", "difficulty": 0.7},
-       {"type": "contextual_inference", "target": "local", "difficulty": 0.7},
-       {"type": "implicit_assumption", "target": "span", "difficulty": 0.8},
-       {"type": "application", "target": "global", "difficulty": 0.8},
-       {"type": "structural_function", "target": "local", "difficulty": 0.7},
-       {"type": "stance", "target": "global", "difficulty": 0.7}],
-     "style_note": "long analytical stems, terse options; discrimination lives in the stem"},
-    {"id": "QT14", "name": "The Expansion Test", "curve": "flat_high",
-     "slots": [
-       {"type": "thesis", "target": "global", "difficulty": 0.7},
-       {"type": "detail_check", "target": "local", "difficulty": 0.6},
-       {"type": "contextual_inference", "target": "local", "difficulty": 0.8},
-       {"type": "implicit_assumption", "target": "span", "difficulty": 0.8},
-       {"type": "author_vs_reported", "target": "span", "difficulty": 0.8},
-       {"type": "stance", "target": "global", "difficulty": 0.7}],
-     "style_note": "terse stems, options carrying fine distinctions; discrimination lives in the options"},
-    {"id": "QT15", "name": "Sequential Dependency", "curve": "rising",
-     "slots": [
-       {"type": "structural_function", "target": "local", "difficulty": 0.6},
-       {"type": "contextual_inference", "target": "local", "difficulty": 0.7},
-       {"type": "thesis", "target": "global", "difficulty": 0.7},
-       {"type": "implicit_assumption", "target": "span", "difficulty": 0.8},
-       {"type": "application", "target": "global", "difficulty": 0.9},
-       {"type": "closure_reading", "target": "span", "difficulty": 0.8}],
-     "style_note": "later questions reward insight built answering earlier ones"},
-    {"id": "QT16", "name": "Deep Drill", "curve": "twin_peak",
-     "slots": [
-       {"type": "thesis", "target": "global", "difficulty": 0.6},
-       {"type": "contextual_inference", "target": "local", "difficulty": 0.8},
-       {"type": "structural_function", "target": "local", "difficulty": 0.8},
-       {"type": "detail_check", "target": "local", "difficulty": 0.5},
-       {"type": "implicit_assumption", "target": "span", "difficulty": 0.8},
-       {"type": "stance", "target": "global", "difficulty": 0.7}],
-     "style_note": "questions 2 and 3 both target the single densest paragraph, from different angles"},
-    {"id": "QT17", "name": "Author vs Reported", "curve": "flat_high",
-     "slots": [
-       {"type": "thesis", "target": "global", "difficulty": 0.7},
-       {"type": "author_vs_reported", "target": "local", "difficulty": 0.7},
-       {"type": "author_vs_reported", "target": "span", "difficulty": 0.8},
-       {"type": "contextual_inference", "target": "local", "difficulty": 0.7},
-       {"type": "structural_function", "target": "local", "difficulty": 0.6},
-       {"type": "stance", "target": "global", "difficulty": 0.8}]},
-    {"id": "QT18", "name": "Strengthen/Weaken Pair", "curve": "twin_peak",
-     "slots": [
-       {"type": "thesis", "target": "global", "difficulty": 0.6},
-       {"type": "strengthen", "target": "span", "difficulty": 0.7},
-       {"type": "contextual_inference", "target": "local", "difficulty": 0.7},
-       {"type": "weaken", "target": "span", "difficulty": 0.8},
-       {"type": "structural_function", "target": "local", "difficulty": 0.6},
-       {"type": "stance", "target": "global", "difficulty": 0.7}]},
-    {"id": "QT19", "name": "The Ending Interrogation", "curve": "back_loaded",
-     "slots": [
-       {"type": "thesis", "target": "global", "difficulty": 0.6},
-       {"type": "detail_check", "target": "local", "difficulty": 0.5},
-       {"type": "structural_function", "target": "local", "difficulty": 0.6},
-       {"type": "contextual_inference", "target": "local", "difficulty": 0.7},
-       {"type": "closure_reading", "target": "span", "difficulty": 0.8},
-       {"type": "closure_reading", "target": "global", "difficulty": 0.9}]},
-    {"id": "QT20", "name": "The Uniform Field", "curve": "flat_mid",
-     "slots": [
-       {"type": "thesis", "target": "global", "difficulty": 0.65},
-       {"type": "structural_function", "target": "local", "difficulty": 0.65},
-       {"type": "contextual_inference", "target": "local", "difficulty": 0.65},
-       {"type": "detail_check", "target": "local", "difficulty": 0.65},
-       {"type": "implicit_assumption", "target": "span", "difficulty": 0.65},
-       {"type": "stance", "target": "global", "difficulty": 0.65}],
-     "style_note": "six questions of identical moderate difficulty — no rhythm cue about where the danger is"}
+ "library": "topologies",
+ "version": "3.0",
+ "slot_types": {
+  "thesis": "central thesis / main idea — requires integrating the full movement of the passage",
+  "primary_purpose": "why a discussion, example or paragraph is in the passage at all — authorial purpose, not the structural role it plays",
+  "undermine_thesis": "which new fact, if true, would most damage the passage's central argument",
+  "structural_function": "why a particular move (analogy, concession, example, tonal shift) was introduced; the answer is a structural role, not local meaning",
+  "contextual_inference": "interpret a dense phrase or compressed claim from its local argumentative context",
+  "application": "a NEW real-world scenario (not a paraphrase); identify which mechanism from the passage best explains it",
+  "stance": "the author's intellectual posture, avoiding simplistic binaries",
+  "except_scan": "three options are directly supported by the passage and one is not; the UNSUPPORTED option is the correct answer",
+  "decoy_escape": "directly tests whether the reader escaped the passage's planted early misreading",
+  "evidence_function": "what work an example or piece of evidence does (illustrate, prove, complicate, license)",
+  "counterfactual_structure": "how the argument would change if a specified paragraph were removed or replaced",
+  "strengthen": "which new fact would most strengthen a specified claim from the passage",
+  "weaken": "which new fact would most weaken a specified claim from the passage",
+  "author_vs_reported": "distinguish the author's own view from views the author reports or steelmans",
+  "closure_reading": "what the ending does — why the passage stops where it does and what is implied next",
+  "phrase_in_context": "the meaning of a specific phrase as used in the passage, not in general usage",
+  "detail_check": "a precise factual/claim-level detail from the passage"
+ },
+ "stem_forms": {
+  "thesis": [
+   "Which one of the following best captures the central idea of the passage?",
+   "Which one of the following statements provides a gist of this passage?",
+   "The passage is primarily concerned with:",
+   "Which one of the following best summarises the author's main argument?"
+  ],
+  "primary_purpose": [
+   "Which one of the following best explains the primary purpose of the discussion of {X}?",
+   "The primary purpose of the passage is to:",
+   "Why does the author include the discussion of {X}?",
+   "The passage as a whole is best understood as an attempt to:"
+  ],
+  "undermine_thesis": [
+   "The central idea of the passage would be undermined if:",
+   "Which one of the following statements, if true, would best invalidate the main argument of the passage?",
+   "Which one of the following, if established, would most damage the author's central claim?"
+  ],
+  "structural_function": [
+   "What is the structural function of {the specified sentence} within the argument?",
+   "The author refers to {X} in order to:",
+   "Which one of the following best describes the role played by {the specified paragraph}?",
+   "The {analogy} is introduced primarily to:"
+  ],
+  "contextual_inference": [
+   "We can infer from the passage that {X} refers to:",
+   "In context, the claim that {quoted phrase} most nearly means that:",
+   "Based on the passage, we can infer that {X} would most likely:",
+   "Which one of the following is suggested by the sentence {quoted sentence}?"
+  ],
+  "application": [
+   "Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?",
+   "Which one of the following situations is most analogous to the mechanism described in the passage?",
+   "Which reading of the following scenario best follows the passage's reasoning?"
+  ],
+  "stance": [
+   "The author's attitude towards {X} can best be described as:",
+   "Which one of the following best describes the author's posture towards {X}?",
+   "'{quoted sentence}' We can infer from this statement that the author is being:",
+   "The author's position on {X} is best characterised as:"
+  ],
+  "except_scan": [
+   "All of the following are true of {X}, EXCEPT:",
+   "The author faults {X} for all of the following reasons, EXCEPT:",
+   "Which one of the following options does NOT represent {the characteristics described in the passage}?",
+   "Based on information provided in the passage, all of the following are true, EXCEPT:",
+   "{X} is a result of the emergence of all of the following EXCEPT:"
+  ],
+  "decoy_escape": [
+   "A reader who concluded {the planted misreading} would have misread the passage because:",
+   "Which one of the following best explains why the impression created early in the passage does not survive the argument?",
+   "The passage most directly corrects which one of the following impressions?"
+  ],
+  "evidence_function": [
+   "What is the purpose of the example used in the passage?",
+   "The author cites {X} primarily in order to:",
+   "The {study} mentioned in the passage functions to:"
+  ],
+  "counterfactual_structure": [
+   "If {the specified paragraph} were removed, the argument would:",
+   "Which one of the following, if replaced, would most change the passage's argument?",
+   "Had the author omitted {X}, the passage's central claim would:"
+  ],
+  "strengthen": [
+   "Which one of the following research findings would most strengthen the author's conclusion?",
+   "Which one of the following, if true, would most support the claim made in {the specified paragraph}?",
+   "Which one of the following would best license the inference the author draws from {X}?"
+  ],
+  "weaken": [
+   "Which one of the following research findings would weaken the author's conclusion in {the specified paragraph}?",
+   "Which one of the following, if true, would most call into question the claim that {X}?",
+   "Which one of the following findings would most complicate the author's account of {X}?"
+  ],
+  "author_vs_reported": [
+   "Which view does the author report or steelman rather than hold?",
+   "The author of the passage is likely to disagree with which one of the following statements?",
+   "Which one of the following positions is described in the passage but not endorsed by the author?"
+  ],
+  "closure_reading": [
+   "What does the passage's final sentence accomplish?",
+   "The passage stops where it does in order to:",
+   "Which one of the following is most strongly implied by the way the passage ends?"
+  ],
+  "phrase_in_context": [
+   "'{quoted phrase}' most nearly means:",
+   "In the context of the passage, {quoted phrase} is best understood as:",
+   "The author uses the word '{X}' to mean:"
+  ],
+  "detail_check": [
+   "According to the passage, why does {X} happen?",
+   "According to the text, {X} is described as:",
+   "Regarding {X} described in the passage, the author asserts that:"
   ]
+ },
+ "items": [
+  {
+   "id": "QT01",
+   "name": "The Purpose Frame",
+   "curve": "alternating",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.65
+    },
+    {
+     "type": "undermine_thesis",
+     "target": "global",
+     "difficulty": 0.77
+    },
+    {
+     "type": "weaken",
+     "target": "span",
+     "difficulty": 0.51
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.72
+    },
+    {
+     "type": "primary_purpose",
+     "target": "global",
+     "difficulty": 0.49
+    },
+    {
+     "type": "except_scan",
+     "target": "local",
+     "difficulty": 0.75
+    },
+    {
+     "type": "closure_reading",
+     "target": "span",
+     "difficulty": 0.55
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.72
+    }
+   ],
+   "style_note": "difficulty alternates question to question; the purpose question sits mid-set, not at either edge"
+  },
+  {
+   "id": "QT02",
+   "name": "Classic Gauntlet",
+   "curve": "rising",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.6
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.53
+    },
+    {
+     "type": "author_vs_reported",
+     "target": "local",
+     "difficulty": 0.55
+    },
+    {
+     "type": "primary_purpose",
+     "target": "global",
+     "difficulty": 0.68
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.7
+    },
+    {
+     "type": "except_scan",
+     "target": "span",
+     "difficulty": 0.75
+    },
+    {
+     "type": "weaken",
+     "target": "span",
+     "difficulty": 0.82
+    },
+    {
+     "type": "undermine_thesis",
+     "target": "global",
+     "difficulty": 0.94
+    }
+   ],
+   "style_note": "difficulty climbs steadily from the opening thesis to the hardest inference at the close"
+  },
+  {
+   "id": "QT03",
+   "name": "Cross-Paragraph Weave",
+   "curve": "flat_high",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.69
+    },
+    {
+     "type": "undermine_thesis",
+     "target": "global",
+     "difficulty": 0.78
+    },
+    {
+     "type": "evidence_function",
+     "target": "local",
+     "difficulty": 0.77
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.79
+    },
+    {
+     "type": "counterfactual_structure",
+     "target": "span",
+     "difficulty": 0.73
+    },
+    {
+     "type": "author_vs_reported",
+     "target": "span",
+     "difficulty": 0.76
+    },
+    {
+     "type": "except_scan",
+     "target": "span",
+     "difficulty": 0.79
+    },
+    {
+     "type": "decoy_escape",
+     "target": "span",
+     "difficulty": 0.73
+    }
+   ],
+   "style_note": "seven of the eight questions reach across paragraphs — the widest span in the library; only the detail check stays local"
+  },
+  {
+   "id": "QT04",
+   "name": "Inverted",
+   "curve": "rising",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.55
+    },
+    {
+     "type": "closure_reading",
+     "target": "span",
+     "difficulty": 0.51
+    },
+    {
+     "type": "phrase_in_context",
+     "target": "local",
+     "difficulty": 0.6
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.61
+    },
+    {
+     "type": "author_vs_reported",
+     "target": "span",
+     "difficulty": 0.69
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.75
+    },
+    {
+     "type": "structural_function",
+     "target": "local",
+     "difficulty": 0.83
+    },
+    {
+     "type": "strengthen",
+     "target": "span",
+     "difficulty": 0.9
+    }
+   ],
+   "style_note": "inverted: the whole-passage question opens the set and the parts are interrogated afterwards, against the reader's already-committed reading"
+  },
+  {
+   "id": "QT05",
+   "name": "The Ending Interrogation",
+   "curve": "back_loaded",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.59
+    },
+    {
+     "type": "closure_reading",
+     "target": "span",
+     "difficulty": 0.45
+    },
+    {
+     "type": "author_vs_reported",
+     "target": "span",
+     "difficulty": 0.49
+    },
+    {
+     "type": "stance",
+     "target": "global",
+     "difficulty": 0.54
+    },
+    {
+     "type": "undermine_thesis",
+     "target": "global",
+     "difficulty": 0.54
+    },
+    {
+     "type": "structural_function",
+     "target": "local",
+     "difficulty": 0.83
+    },
+    {
+     "type": "strengthen",
+     "target": "span",
+     "difficulty": 0.91
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.92
+    }
+   ],
+   "style_note": "the closure question comes early and easy; the real weight is back-loaded into the final three"
+  },
+  {
+   "id": "QT06",
+   "name": "The Compression Test",
+   "curve": "flat_high",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.7
+    },
+    {
+     "type": "closure_reading",
+     "target": "span",
+     "difficulty": 0.75
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.76
+    },
+    {
+     "type": "undermine_thesis",
+     "target": "global",
+     "difficulty": 0.72
+    },
+    {
+     "type": "stance",
+     "target": "global",
+     "difficulty": 0.74
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.76
+    },
+    {
+     "type": "primary_purpose",
+     "target": "global",
+     "difficulty": 0.72
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.74
+    }
+   ],
+   "style_note": "long analytical stems, terse options; discrimination lives in the stem"
+  },
+  {
+   "id": "QT07",
+   "name": "Tone Split",
+   "curve": "flat_mid",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.62
+    },
+    {
+     "type": "structural_function",
+     "target": "local",
+     "difficulty": 0.58
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.64
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.57
+    },
+    {
+     "type": "weaken",
+     "target": "span",
+     "difficulty": 0.64
+    },
+    {
+     "type": "strengthen",
+     "target": "span",
+     "difficulty": 0.63
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.63
+    },
+    {
+     "type": "stance",
+     "target": "global",
+     "difficulty": 0.61
+    }
+   ],
+   "style_note": "the stance question anchors a set of otherwise even, moderate demands"
+  },
+  {
+   "id": "QT08",
+   "name": "The Verification Sweep",
+   "curve": "flat_mid",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.61
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.56
+    },
+    {
+     "type": "undermine_thesis",
+     "target": "global",
+     "difficulty": 0.56
+    },
+    {
+     "type": "closure_reading",
+     "target": "span",
+     "difficulty": 0.57
+    },
+    {
+     "type": "except_scan",
+     "target": "span",
+     "difficulty": 0.59
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.63
+    },
+    {
+     "type": "primary_purpose",
+     "target": "global",
+     "difficulty": 0.64
+    },
+    {
+     "type": "strengthen",
+     "target": "span",
+     "difficulty": 0.57
+    }
+   ],
+   "style_note": "rewards the reader who verifies against the text rather than recognises"
+  },
+  {
+   "id": "QT09",
+   "name": "The Decoy Mirror",
+   "curve": "front_loaded",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.68
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.8
+    },
+    {
+     "type": "phrase_in_context",
+     "target": "local",
+     "difficulty": 0.73
+    },
+    {
+     "type": "strengthen",
+     "target": "span",
+     "difficulty": 0.67
+    },
+    {
+     "type": "decoy_escape",
+     "target": "span",
+     "difficulty": 0.62
+    },
+    {
+     "type": "primary_purpose",
+     "target": "global",
+     "difficulty": 0.57
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.55
+    },
+    {
+     "type": "counterfactual_structure",
+     "target": "span",
+     "difficulty": 0.51
+    }
+   ],
+   "style_note": "the planted misreading is not sprung until late — the reader has to have committed to it first"
+  },
+  {
+   "id": "QT10",
+   "name": "The Silent Partner",
+   "curve": "rising",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.57
+    },
+    {
+     "type": "structural_function",
+     "target": "local",
+     "difficulty": 0.5
+    },
+    {
+     "type": "closure_reading",
+     "target": "span",
+     "difficulty": 0.59
+    },
+    {
+     "type": "undermine_thesis",
+     "target": "global",
+     "difficulty": 0.65
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.69
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.8
+    },
+    {
+     "type": "stance",
+     "target": "global",
+     "difficulty": 0.84
+    },
+    {
+     "type": "author_vs_reported",
+     "target": "local",
+     "difficulty": 0.92
+    }
+   ],
+   "style_note": "the author's unstated commitments surface only as the questions climb"
+  },
+  {
+   "id": "QT11",
+   "name": "Local-Global Ladder",
+   "curve": "alternating",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.63
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.72
+    },
+    {
+     "type": "author_vs_reported",
+     "target": "span",
+     "difficulty": 0.5
+    },
+    {
+     "type": "strengthen",
+     "target": "span",
+     "difficulty": 0.75
+    },
+    {
+     "type": "undermine_thesis",
+     "target": "global",
+     "difficulty": 0.53
+    },
+    {
+     "type": "structural_function",
+     "target": "local",
+     "difficulty": 0.76
+    },
+    {
+     "type": "phrase_in_context",
+     "target": "local",
+     "difficulty": 0.54
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.78
+    }
+   ],
+   "style_note": "alternates local reading and cross-passage reach, rung by rung"
+  },
+  {
+   "id": "QT12",
+   "name": "Structural Emphasis",
+   "curve": "flat_high",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.7
+    },
+    {
+     "type": "phrase_in_context",
+     "target": "local",
+     "difficulty": 0.76
+    },
+    {
+     "type": "author_vs_reported",
+     "target": "span",
+     "difficulty": 0.75
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.74
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.74
+    },
+    {
+     "type": "closure_reading",
+     "target": "span",
+     "difficulty": 0.75
+    },
+    {
+     "type": "structural_function",
+     "target": "local",
+     "difficulty": 0.79
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.76
+    }
+   ],
+   "style_note": "why each move was made matters more than what it says; uniformly high demand"
+  },
+  {
+   "id": "QT13",
+   "name": "Evidence Audit",
+   "curve": "flat_mid",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.63
+    },
+    {
+     "type": "evidence_function",
+     "target": "local",
+     "difficulty": 0.61
+    },
+    {
+     "type": "decoy_escape",
+     "target": "local",
+     "difficulty": 0.61
+    },
+    {
+     "type": "phrase_in_context",
+     "target": "local",
+     "difficulty": 0.62
+    },
+    {
+     "type": "weaken",
+     "target": "span",
+     "difficulty": 0.63
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.58
+    },
+    {
+     "type": "strengthen",
+     "target": "span",
+     "difficulty": 0.58
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.59
+    }
+   ],
+   "style_note": "the set audits what work each piece of evidence is doing; even, moderate difficulty throughout"
+  },
+  {
+   "id": "QT14",
+   "name": "The Reported Frame",
+   "curve": "flat_high",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.72
+    },
+    {
+     "type": "closure_reading",
+     "target": "span",
+     "difficulty": 0.76
+    },
+    {
+     "type": "evidence_function",
+     "target": "local",
+     "difficulty": 0.72
+    },
+    {
+     "type": "undermine_thesis",
+     "target": "global",
+     "difficulty": 0.8
+    },
+    {
+     "type": "except_scan",
+     "target": "span",
+     "difficulty": 0.73
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.78
+    },
+    {
+     "type": "author_vs_reported",
+     "target": "span",
+     "difficulty": 0.73
+    },
+    {
+     "type": "decoy_escape",
+     "target": "span",
+     "difficulty": 0.73
+    }
+   ],
+   "style_note": "the author's own view has to be separated from the views being staged"
+  },
+  {
+   "id": "QT15",
+   "name": "The Ambush",
+   "curve": "cliff",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.56
+    },
+    {
+     "type": "author_vs_reported",
+     "target": "local",
+     "difficulty": 0.54
+    },
+    {
+     "type": "except_scan",
+     "target": "span",
+     "difficulty": 0.53
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.54
+    },
+    {
+     "type": "weaken",
+     "target": "span",
+     "difficulty": 0.49
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.88
+    },
+    {
+     "type": "closure_reading",
+     "target": "span",
+     "difficulty": 0.86
+    },
+    {
+     "type": "evidence_function",
+     "target": "local",
+     "difficulty": 0.89
+    }
+   ],
+   "style_note": "five gentle questions, then the last three turn sharply — nothing in the rhythm warns of it"
+  },
+  {
+   "id": "QT16",
+   "name": "The Load-Bearing Claim",
+   "curve": "twin_peak",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.63
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.52
+    },
+    {
+     "type": "evidence_function",
+     "target": "local",
+     "difficulty": 0.83
+    },
+    {
+     "type": "undermine_thesis",
+     "target": "global",
+     "difficulty": 0.85
+    },
+    {
+     "type": "weaken",
+     "target": "span",
+     "difficulty": 0.56
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.81
+    },
+    {
+     "type": "phrase_in_context",
+     "target": "local",
+     "difficulty": 0.85
+    },
+    {
+     "type": "strengthen",
+     "target": "span",
+     "difficulty": 0.55
+    }
+   ],
+   "style_note": "isolates the one claim the argument cannot lose, then attacks it from several sides"
+  },
+  {
+   "id": "QT17",
+   "name": "Application Heavy",
+   "curve": "twin_peak",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.65
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.53
+    },
+    {
+     "type": "phrase_in_context",
+     "target": "local",
+     "difficulty": 0.87
+    },
+    {
+     "type": "evidence_function",
+     "target": "local",
+     "difficulty": 0.86
+    },
+    {
+     "type": "weaken",
+     "target": "span",
+     "difficulty": 0.55
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.81
+    },
+    {
+     "type": "strengthen",
+     "target": "span",
+     "difficulty": 0.86
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.53
+    }
+   ],
+   "style_note": "new scenarios and staged voices dominate; two difficulty peaks rather than a climb"
+  },
+  {
+   "id": "QT18",
+   "name": "Sequential Dependency",
+   "curve": "rising",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.6
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.52
+    },
+    {
+     "type": "counterfactual_structure",
+     "target": "span",
+     "difficulty": 0.61
+    },
+    {
+     "type": "undermine_thesis",
+     "target": "global",
+     "difficulty": 0.66
+    },
+    {
+     "type": "primary_purpose",
+     "target": "global",
+     "difficulty": 0.69
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.77
+    },
+    {
+     "type": "phrase_in_context",
+     "target": "local",
+     "difficulty": 0.8
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.89
+    }
+   ],
+   "style_note": "later questions reward insight built answering earlier ones"
+  },
+  {
+   "id": "QT19",
+   "name": "Purpose First",
+   "curve": "front_loaded",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.69
+    },
+    {
+     "type": "closure_reading",
+     "target": "span",
+     "difficulty": 0.77
+    },
+    {
+     "type": "weaken",
+     "target": "span",
+     "difficulty": 0.74
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.67
+    },
+    {
+     "type": "undermine_thesis",
+     "target": "global",
+     "difficulty": 0.62
+    },
+    {
+     "type": "primary_purpose",
+     "target": "global",
+     "difficulty": 0.6
+    },
+    {
+     "type": "author_vs_reported",
+     "target": "local",
+     "difficulty": 0.55
+    },
+    {
+     "type": "phrase_in_context",
+     "target": "local",
+     "difficulty": 0.49
+    }
+   ],
+   "style_note": "the hardest work is front-loaded; the set relaxes as it goes"
+  },
+  {
+   "id": "QT20",
+   "name": "The Half-Turn",
+   "curve": "alternating",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.64
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.75
+    },
+    {
+     "type": "except_scan",
+     "target": "local",
+     "difficulty": 0.54
+    },
+    {
+     "type": "evidence_function",
+     "target": "local",
+     "difficulty": 0.75
+    },
+    {
+     "type": "weaken",
+     "target": "span",
+     "difficulty": 0.48
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.71
+    },
+    {
+     "type": "author_vs_reported",
+     "target": "local",
+     "difficulty": 0.52
+    },
+    {
+     "type": "strengthen",
+     "target": "span",
+     "difficulty": 0.73
+    }
+   ],
+   "style_note": "the argument is turned half-way and held there; difficulty zigzags across the set"
+  },
+  {
+   "id": "QT21",
+   "name": "Deep Drill",
+   "curve": "twin_peak",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.67
+    },
+    {
+     "type": "weaken",
+     "target": "span",
+     "difficulty": 0.54
+    },
+    {
+     "type": "evidence_function",
+     "target": "local",
+     "difficulty": 0.81
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.82
+    },
+    {
+     "type": "undermine_thesis",
+     "target": "global",
+     "difficulty": 0.57
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.84
+    },
+    {
+     "type": "author_vs_reported",
+     "target": "local",
+     "difficulty": 0.84
+    },
+    {
+     "type": "stance",
+     "target": "global",
+     "difficulty": 0.56
+    }
+   ],
+   "style_note": "two questions drill the same dense material from different angles"
+  },
+  {
+   "id": "QT22",
+   "name": "The Migrating Concept",
+   "curve": "rising",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.56
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.51
+    },
+    {
+     "type": "phrase_in_context",
+     "target": "local",
+     "difficulty": 0.61
+    },
+    {
+     "type": "weaken",
+     "target": "span",
+     "difficulty": 0.65
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.69
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.78
+    },
+    {
+     "type": "structural_function",
+     "target": "local",
+     "difficulty": 0.86
+    },
+    {
+     "type": "closure_reading",
+     "target": "span",
+     "difficulty": 0.9
+    }
+   ],
+   "style_note": "one concept is tracked as its sense migrates across the passage; difficulty rises with the drift"
+  },
+  {
+   "id": "QT23",
+   "name": "Counterfactual Set",
+   "curve": "rising",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.59
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.49
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.54
+    },
+    {
+     "type": "strengthen",
+     "target": "span",
+     "difficulty": 0.66
+    },
+    {
+     "type": "counterfactual_structure",
+     "target": "span",
+     "difficulty": 0.74
+    },
+    {
+     "type": "phrase_in_context",
+     "target": "local",
+     "difficulty": 0.8
+    },
+    {
+     "type": "primary_purpose",
+     "target": "global",
+     "difficulty": 0.81
+    },
+    {
+     "type": "closure_reading",
+     "target": "span",
+     "difficulty": 0.89
+    }
+   ],
+   "style_note": "what the argument would lose if a part were removed; the demand climbs to the close"
+  },
+  {
+   "id": "QT24",
+   "name": "The Uniform Field",
+   "curve": "flat_mid",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.62
+    },
+    {
+     "type": "strengthen",
+     "target": "span",
+     "difficulty": 0.57
+    },
+    {
+     "type": "weaken",
+     "target": "span",
+     "difficulty": 0.57
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.62
+    },
+    {
+     "type": "phrase_in_context",
+     "target": "local",
+     "difficulty": 0.59
+    },
+    {
+     "type": "structural_function",
+     "target": "local",
+     "difficulty": 0.64
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.58
+    },
+    {
+     "type": "author_vs_reported",
+     "target": "span",
+     "difficulty": 0.56
+    }
+   ],
+   "style_note": "eight questions of identical moderate difficulty — no rhythm cue about where the danger is"
+  }
+ ]
 }

@@ -19,6 +19,7 @@ import re
 import sys
 
 from . import config
+from .fingerprints import move_signature_similarity
 from .history import HistoryStore
 from .llm import BudgetExceeded, CostLedger, LLMClient, MockLLMClient
 from .models import SeedEssay
@@ -26,17 +27,40 @@ from .novelty import kl_divergence
 from .pipeline import RCPipeline, run_batch
 from .registry import ComponentRegistry
 
+NL = chr(10)
+
 
 # ---------------------------------------------------------------------------
 # estimate
 # ---------------------------------------------------------------------------
 
-STAGES = ["refine", "render", "compliance", "questions", "solver", "judge"]
+# Every stage that runs on the HAPPY path, in pipeline order. solver_tiebreak
+# is deliberately absent: it fires only when the solver disputes the key, so
+# counting it here would overstate the normal cost of a set. It is priced
+# separately in the conditional line below.
+STAGES = ["seed_classify", "refine", "render", "compliance", "move_signature",
+          "questions", "answerability", "solver", "judge"]
+CONDITIONAL_STAGES = ["solver_tiebreak"]
 TYPICAL_OUTPUT_FRACTION = 0.6
 
 
-def _stage_cost(stage: str, tier: str, worst: bool) -> float:
+def _effective_model(stage: str, tier: str) -> tuple[str, int]:
+    """The model a stage will ACTUALLY use, honouring STAGE_MODEL_PINS and the
+    same availability fallback the router applies at run time. An estimate that
+    priced the unpinned model would understate a pinned run and overstate an
+    unavailable one — and this table is what the budget headroom is read from."""
     model, max_tok = config.STAGE_CONFIG[stage][tier]
+    pin = config.resolve_stage_pin(stage, tier)
+    if pin:
+        from .providers import provider_key_present
+        provider, pinned_model = pin
+        if provider_key_present(provider) and pinned_model in config.MODEL_RATES:
+            return pinned_model, max_tok
+    return model, max_tok
+
+
+def _stage_cost(stage: str, tier: str, worst: bool) -> float:
+    model, max_tok = _effective_model(stage, tier)
     rin, rout = config.MODEL_RATES[model]
     est_in = config.ESTIMATED_INPUT_TOKENS[stage]
     out_tok = max_tok if worst else int(max_tok * TYPICAL_OUTPUT_FRACTION)
@@ -55,7 +79,7 @@ def cmd_estimate(_args) -> int:
         happy = 0.0
         worst_uncapped = 0.0
         for stage in STAGES:
-            model, _ = config.STAGE_CONFIG[stage][tier]
+            model, _ = _effective_model(stage, tier)
             t = _stage_cost(stage, tier, worst=False)
             w = _stage_cost(stage, tier, worst=True)
             attempts = {"render": config.MAX_RENDER_ATTEMPTS,
@@ -65,13 +89,18 @@ def cmd_estimate(_args) -> int:
             happy += t
             worst_uncapped += w * attempts
             print(f"{tier:8s} {stage:12s} {model:28s} {t:>9.4f} {w:>9.4f} (x{attempts} worst)")
+        for stage in CONDITIONAL_STAGES:
+            model, _ = _effective_model(stage, tier)
+            t = _stage_cost(stage, tier, worst=False)
+            print(f"{tier:8s} {stage:12s} {model:28s} {t:>9.4f} "
+                  f"{'':>9s} (only on a solver dispute)")
         budget = config.TIER_BUDGET_USD[tier]
         capped = min(worst_uncapped, budget)
         print(f"{tier:8s} {'TOTAL':12s} {'happy path':28s} {happy:>9.4f}")
         print(f"{tier:8s} {'TOTAL':12s} {'worst uncapped / enforced cap':28s} "
               f"{worst_uncapped:>9.4f} / {budget:.2f}")
         if happy > budget:
-            print(f"  !! happy path ${happy:.4f} exceeds budget ${budget:.2f} — "
+            print(f"  !! happy path ${happy:.4f} exceeds budget ${budget:.2f} - "
                   f"RCs would abort mid-generation. Fix config.")
             ok = False
         else:
@@ -226,7 +255,7 @@ def cmd_selftest(_args) -> int:
         for f in failures:
             print(f"  - {f}")
         return 1
-    print("SELFTEST PASSED — pipeline is runnable end-to-end; cost guard active; "
+    print("SELFTEST PASSED - pipeline is runnable end-to-end; cost guard active; "
           "libraries valid.")
     return 0
 
@@ -239,22 +268,22 @@ def _make_seed_provider():
     try:
         from RAG import get_db, get_unused_essay, mark_essay_used  # noqa: legacy module
     except Exception as e:
-        print(f"[seeds] RAG unavailable ({e}) — running seedless")
+        print(f"[seeds] RAG unavailable ({e}) - running seedless")
         return None
     db = get_db()
 
-    def provider(tier: str | None = None, exclude_ids=None):
+    def provider(tier: str | None = None, exclude_ids=None, avoid_kinds=None):
         # Hard/elite: random draw inside CAT_SEED_GENRES only (strict by default).
         # Medium: any unused genre at random. exclude_ids = batch-slot rotations.
         preferred = config.TIER_SEED_GENRES.get(tier) if tier else None
         essay = get_unused_essay(db, genre=preferred, exclude_ids=exclude_ids,
-                                 randomize=True)
+                                 randomize=True, avoid_kinds=avoid_kinds)
         strict = getattr(config, "TIER_SEED_STRICT", True)
         if essay is None and preferred is not None and not strict:
             essay = get_unused_essay(db, genre=None, exclude_ids=exclude_ids,
-                                     randomize=True)
+                                     randomize=True, avoid_kinds=avoid_kinds)
             if essay is not None:
-                print(f"[seeds] preferred pool empty for '{tier}' — "
+                print(f"[seeds] preferred pool empty for '{tier}' - "
                       f"fallback any genre (TIER_SEED_STRICT=False)")
         if essay is None:
             if preferred is not None and strict:
@@ -285,14 +314,39 @@ def _setup_provider(args) -> tuple[object | None, int]:
     config.set_provider(provider)
     if getattr(args, "dry_run", False):
         return MockLLMClient(), 0
-    from .providers import make_client, provider_key_present
-    if not provider_key_present(provider):
+    from .providers import (make_client, provider_key_present,
+                            provider_key_source, verify_key)
+    var = provider_key_present(provider)
+    if not var:
         keys = " or ".join(config.PROVIDER_ENV_KEYS[provider])
         print(f"{keys} not set (environment or .env).")
         return None, 1
     m = config.PROVIDER_MODELS[provider]
     print(f"[provider] {provider}: big={m['big']} mid={m['mid']} small={m['small']}")
-    return make_client(provider), 0
+    print(f"[provider] key from {var} <- {provider_key_source(provider)}")
+
+    # Say it loudly: a shadowed .env value means the run is about to spend
+    # money on a credential the operator probably did not intend to use.
+    for name in config.shadowing_conflicts():
+        print(f"[provider] !! WARNING: {name} in your environment is DIFFERENT "
+              f"from the value in .env, and the environment wins. .env is being "
+              f"ignored for {name}.")
+
+    # Free pre-flight: fail before the first paid call, not partway through.
+    ok, detail = verify_key(provider)
+    if not ok:
+        print(f"[provider] !! ABORT: key check failed - {detail}")
+        if config.shadowing_conflicts():
+            print("[provider]    Most likely cause: the shadowing warning above. "
+                  "Clear the stale variable so .env is used, or set it to the "
+                  "correct key, then restart this process.")
+        return None, 1
+    print(f"[provider] key check: {detail}")
+    # Wrap so cheap CHECKING stages can run on their own pinned model while
+    # refine/render/questions stay on the batch's provider. Falls back to the
+    # wrapped client whenever a pin is unusable — see providers.RoutedClient.
+    from .providers import RoutedClient
+    return RoutedClient(make_client(provider)), 0
 
 
 def cmd_generate(args) -> int:
@@ -308,7 +362,7 @@ def cmd_generate(args) -> int:
     if args.dry_run:
         if args.db == config.DB_PATH:
             args.db = "rc_engine_dryrun.db"   # never pollute the production DB with mock RCs
-        print(f"[dry-run] Using MockLLMClient — $0, no API calls. DB: {args.db}")
+        print(f"[dry-run] Using MockLLMClient - $0, no API calls. DB: {args.db}")
 
     history = HistoryStore(args.db)
     # dry-run passages are canned filler text — the embedding channel would
@@ -317,6 +371,14 @@ def cmd_generate(args) -> int:
     pipe = RCPipeline(history, llm, embed=embed)
     provider = None if (args.no_seed or args.dry_run) else _make_seed_provider()
     results = run_batch(pipe, tier_counts, provider, max_usd=args.max_usd)
+
+    # The similarity screen runs after generation and before export, so a set
+    # that reads like the last ten lands in a different folder rather than
+    # quietly joining the batch. See rc_engine/similarity_screen.py.
+    shipped_ids = [r.rc_id for r in results if r.rc_id]
+    if shipped_ids and not args.dry_run and not args.no_screen:
+        from .similarity_screen import screen_batch
+        screen_batch(history, shipped_ids)
 
     if not args.no_export:
         out_dir = "exported_rc_sets_dryrun" if args.dry_run else "exported_rc_sets"
@@ -339,7 +401,7 @@ def cmd_retry_questions(args) -> int:
         if args.dry_run:
             if args.db == config.DB_PATH:
                 args.db = "rc_engine_dryrun.db"
-            print(f"[dry-run] Using MockLLMClient — $0, no API calls. DB: {args.db}")
+            print(f"[dry-run] Using MockLLMClient - $0, no API calls. DB: {args.db}")
     else:
         config.set_provider(getattr(args, "provider", "claude"))
         llm = None                      # list mode is free — no client needed
@@ -351,7 +413,7 @@ def cmd_retry_questions(args) -> int:
         if not rows:
             print("No resumable passages (status='questions_failed').")
         else:
-            print(f"{len(rows)} resumable passage(s) — re-run with "
+            print(f"{len(rows)} resumable passage(s) - re-run with "
                   f"--blueprint BP_ID or --all:")
             for r in rows:
                 try:
@@ -373,6 +435,7 @@ def cmd_retry_questions(args) -> int:
         return 0
     pipe = RCPipeline(history, llm, embed=not (args.no_embed or args.dry_run))
     shipped = 0
+    shipped_ids: list[str] = []
     for bp_id in targets:
         print(f"\n=== retry-questions {bp_id} ===")
         res = pipe.resume_questions(bp_id, extra_guidance=args.note)
@@ -382,7 +445,11 @@ def cmd_retry_questions(args) -> int:
             print(f"     {n}")
         if res.rc_id:
             shipped += 1
-    if shipped:
+            shipped_ids.append(res.rc_id)
+    if shipped_ids:
+        if not args.dry_run and not getattr(args, "no_screen", False):
+            from .similarity_screen import screen_batch
+            screen_batch(history, shipped_ids)
         out_dir = "exported_rc_sets_dryrun" if args.dry_run else "exported_rc_sets"
         cmd_export(argparse.Namespace(db=args.db, status=None, out=out_dir))
     history.close()
@@ -415,6 +482,159 @@ def _legacy_fingerprint(rc_id: str, rc_text: str, emb_json: str | None,
         stylometry=stylometry_profile(passage),
         embedding=embedding,
         source=source)
+
+
+def _passage_sources(history, dirs: list[str]) -> dict:
+    """rc_id -> passage text, from the DB first then the exported .txt corpora.
+    Only ~half the fingerprint rows have rc_text in rc_sets (the legacy/manual
+    ones were themselves backfilled from txt), so both sources are needed to
+    cover the corpus."""
+    out: dict[str, str] = {}
+    for rc_id, rc_text in history.conn.execute(
+            """SELECT rc_id, rc_text FROM rc_sets
+               WHERE rc_id IS NOT NULL AND rc_text IS NOT NULL"""):
+        out[rc_id] = _parse_rc_txt(rc_text)["passage"]
+    for d in dirs:
+        if not os.path.isdir(d):
+            continue
+        for fname in sorted(os.listdir(d)):
+            if not fname.lower().endswith(".txt"):
+                continue
+            with open(os.path.join(d, fname), encoding="utf-8",
+                      errors="replace") as f:
+                text = f.read()
+            m = re.search(r"RC ID:\s*(\S+)", text)
+            rc_id = m.group(1) if m else os.path.splitext(fname)[0]
+            passage = _parse_rc_txt(text)["passage"]
+            # DB text wins only if it actually parsed to something usable
+            if passage and len(passage.split()) > 150 and not out.get(rc_id):
+                out[rc_id] = passage
+    return out
+
+
+def cmd_move_audit(args) -> int:
+    """Extract the blind rhetorical-move signature for every fingerprint that
+    lacks one, then report how much of the corpus shares a grammar. $0 for rows
+    already extracted; sub-cent per new row."""
+    from .compliance import ComplianceAuditor
+    from .llm import CostLedger, LLMClient, MockLLMClient
+    from .registry import ComponentRegistry
+
+    config.set_provider(getattr(args, "provider", None) or "claude")
+    history = HistoryStore(args.db)
+    rows = history.conn.execute(
+        """SELECT rc_id, move_signature FROM fingerprints
+           ORDER BY created_at ASC""").fetchall()
+    if getattr(args, "reextract", False):
+        # The move vocabulary is versioned by meaning, not by name: narrowing a
+        # label (LEVEL_RELOCATION, 2026-08-22) makes every stored signature a
+        # mix of old and new definitions, and saturation figures computed across
+        # that mix are not comparable. Clear and re-read rather than top up.
+        history.conn.execute("UPDATE fingerprints SET move_signature = ''")
+        history.conn.commit()
+        rows = [(r[0], "") for r in rows]
+        print("[move-audit] --reextract: cleared stored signatures")
+    todo = [r[0] for r in rows if not (r[1] or "").strip()]
+    print(f"[move-audit] {len(rows)} fingerprints, {len(todo)} without a signature")
+
+    if todo and not args.report_only:
+        passages = _passage_sources(history, args.from_txt or [])
+        llm = MockLLMClient() if args.dry_run else LLMClient()
+        auditor = ComplianceAuditor(llm, ComponentRegistry())
+        ledger = CostLedger(budget_usd=args.max_usd)
+        done = missing = 0
+        for rc_id in todo:
+            passage = passages.get(rc_id)
+            if not passage or len(passage.split()) < 150:
+                missing += 1
+                continue
+            try:
+                moves = auditor.move_signature(passage, ledger, "hard")
+            except Exception as e:
+                print(f"  [{rc_id}] extraction failed: {e}")
+                break
+            if not moves:
+                continue
+            history.conn.execute(
+                "UPDATE fingerprints SET move_signature=? WHERE rc_id=?",
+                ("|".join(moves), rc_id))
+            done += 1
+        history.conn.commit()
+        print(f"[move-audit] extracted {done}, no passage found for {missing}, "
+              f"spend ${ledger.spent_usd:.4f}")
+
+    # ---- report -----------------------------------------------------------
+    sigs = {r[0]: (r[1] or "").split("|")
+            for r in history.conn.execute(
+                """SELECT rc_id, move_signature FROM fingerprints
+                   WHERE move_signature IS NOT NULL AND move_signature != ''""")}
+    if not sigs:
+        print("[move-audit] no signatures on record yet")
+        history.close()
+        return 1
+
+    print(f"{NL}--- move frequency across {len(sigs)} sets ---")
+    freq: dict[str, int] = {}
+    for moves in sigs.values():
+        for m in set(moves):
+            freq[m] = freq.get(m, 0) + 1
+    for m, n in sorted(freq.items(), key=lambda kv: -kv[1]):
+        share = n / len(sigs)
+        bar = "#" * int(share * 40)
+        print(f"  {m:26s} {n:3d}/{len(sigs)} {share:5.0%} {bar}")
+
+    unused = [m for m in config.RHETORICAL_MOVES if m not in freq]
+    if unused:
+        print(f"{NL}  never used: {', '.join(unused)}")
+
+    print(f"{NL}--- nearest pairs (rarity-weighted overlap) ---")
+    pairs = []
+    ids = sorted(sigs)
+    for i in range(len(ids)):
+        for j in range(i + 1, len(ids)):
+            sim = move_signature_similarity(sigs[ids[i]], sigs[ids[j]], freq, len(sigs))
+            pairs.append((sim, ids[i], ids[j]))
+    pairs.sort(reverse=True)
+    for sim, a, b in pairs[:args.top]:
+        print(f"  {sim:.2f}  {a}  ~  {b}")
+    vals = [p[0] for p in pairs]
+    vals.sort()
+    def pct(q):
+        return vals[min(len(vals) - 1, int(len(vals) * q))]
+    print(f"{NL}  distribution: p50={pct(0.50):.2f} p90={pct(0.90):.2f} "
+          f"p95={pct(0.95):.2f} p99={pct(0.99):.2f} max={vals[-1]:.2f}")
+    print(f"  current cap: {config.MOVE_SIGNATURE_CAPS['move_signature_sim']:.2f} "
+          f"-> would reject {sum(1 for v in vals if v > config.MOVE_SIGNATURE_CAPS['move_signature_sim'])}"
+          f"/{len(vals)} pairs")
+
+    if args.quarantine:
+        n = _quarantine_redundant(history, sigs, freq,
+                                  config.MOVE_SIGNATURE_CAPS["move_signature_sim"])
+        print(f"{NL}[move-audit] quarantined {n} set(s) from the novelty baseline "
+              f"(rows kept, exports untouched)")
+    history.close()
+    return 0
+
+
+def _quarantine_redundant(history, sigs: dict, freq: dict, cap: float) -> int:
+    """Keep the EARLIEST member of each over-similar cluster in the novelty
+    window and hide the rest. Nothing is deleted; `quarantined` only filters
+    HistoryStore.fingerprint_window."""
+    order = [r[0] for r in history.conn.execute(
+        "SELECT rc_id FROM fingerprints ORDER BY created_at ASC") if r[0] in sigs]
+    kept: list[str] = []
+    drop: list[str] = []
+    for rc_id in order:
+        if any(move_signature_similarity(sigs[rc_id], sigs[k], freq, len(sigs)) > cap
+               for k in kept):
+            drop.append(rc_id)
+        else:
+            kept.append(rc_id)
+    for rc_id in drop:
+        history.conn.execute(
+            "UPDATE fingerprints SET quarantined=1 WHERE rc_id=?", (rc_id,))
+    history.conn.commit()
+    return len(drop)
 
 
 def cmd_backfill(args) -> int:
@@ -491,6 +711,66 @@ def cmd_backfill(args) -> int:
 
 
 # ---------------------------------------------------------------------------
+# topo-report
+# ---------------------------------------------------------------------------
+
+def cmd_topo_report(args) -> int:
+    """Read-only audit of the question blueprint library: which plans a tier may
+    draw, how hard they are once the tier's scaling is applied, and whether any
+    slot type has recaptured a position. No DB, no API."""
+    import collections
+
+    from .composer import BlueprintComposer
+    from .question_engine import QuestionEngine
+
+    reg = ComponentRegistry()
+    composer = BlueprintComposer.__new__(BlueprintComposer)
+    composer.registry = reg
+    tiers = [args.tier] if args.tier else ["medium", "hard", "elite"]
+    all_ids = list(reg.ids("topology"))
+
+    n_slots = config.QUESTIONS_PER_SET
+    print(f"library: {len(all_ids)} topologies x {n_slots} slots, "
+          f"{len(reg.slot_type_definitions)} slot types")
+    for i in range(n_slots):
+        c = collections.Counter(reg.get("topology", t)["slots"][i]["type"]
+                                for t in all_ids)
+        top, n = c.most_common(1)[0]
+        pin = "  <- pinned" if i == 0 else ""
+        print(f"  Q{i+1} most common: {top} ({n}/{len(all_ids)}){pin}")
+
+    # Corpus-level type mix, which is what the CAT weightings are tuned against.
+    total = collections.Counter(s["type"] for t in all_ids
+                                for s in reg.get("topology", t)["slots"])
+    denom = sum(total.values())
+    print(f"\n  type mix across the library ({denom} slots):")
+    for stype, n in total.most_common():
+        print(f"    {stype:26} {n:3}  {n / denom * 100:5.1f}%  "
+              f"({sum(1 for t in all_ids if any(s['type'] == stype for s in reg.get('topology', t)['slots']))}/{len(all_ids)} topologies)")
+
+    window = config.EXCLUSION_WINDOWS["topology"]
+    for tier in tiers:
+        pool = [t for t in all_ids if composer._topology_allowed(t, tier)]
+        barred = [t for t in all_ids if t not in pool]
+        scaled = [QuestionEngine._scale_slots(reg.get("topology", t)["slots"], tier)
+                  for t in pool]
+        mean = sum(s["difficulty"] for p in scaled for s in p) / (n_slots * len(scaled))
+        raw = sum(s["difficulty"] for t in pool
+                  for s in reg.get("topology", t)["slots"]) / (n_slots * len(pool))
+        spans = sum(1 for p in scaled for s in p if s["target"] == "span")
+        print(f"\n[{tier}] pool {len(pool)}/{len(all_ids)} "
+              f"(exclusion window {window} -> {len(pool) - window} always available)")
+        print(f"  barred: {', '.join(barred) or 'none'}")
+        print(f"  mean slot difficulty: {raw:.3f} raw -> {mean:.3f} after tier scaling")
+        print(f"  cross-paragraph slots: {spans} of {n_slots * len(pool)}")
+        for i in (0, n_slots - 1):
+            c = collections.Counter(reg.get("topology", t)["slots"][i]["type"]
+                                    for t in pool)
+            print(f"  Q{i+1}: {c.most_common(4)}")
+    return 0
+
+
+# ---------------------------------------------------------------------------
 # health
 # ---------------------------------------------------------------------------
 
@@ -501,6 +781,17 @@ def cmd_health(args) -> int:
     fam_counts = history.usage_counts_trailing("family", window)
     topo_counts = history.usage_counts_trailing("topology", window)
     fam_kl = kl_divergence(fam_counts, reg.ids("family"))
+    # Shape KL is the honest version of family KL. Family KL sat at ~0.13 for
+    # months while every shipped passage ran the same four-beat arc, because it
+    # measures how evenly 46 IDs rotate — and 32 of those IDs name one shape.
+    shape_counts: dict[str, int] = {}
+    for fid, cnt in fam_counts.items():
+        try:
+            shape = reg.shape_of(fid)
+        except Exception:
+            continue
+        shape_counts[shape] = shape_counts.get(shape, 0) + cnt
+    shape_kl = kl_divergence(shape_counts, sorted(reg.shapes()))
     topo_kl = kl_divergence(topo_counts, reg.ids("topology"))
 
     seqs = history.letter_sequences_trailing(20)
@@ -538,14 +829,30 @@ def cmd_health(args) -> int:
             th_keyed += 1
             th_true += 1 if t else 0
     lb_mean = sum(lb_vals) / len(lb_vals) if lb_vals else None
-    lb_rate = (lb_mean / 6) if lb_mean is not None else None
+    # Denominator is the current set size. Sets shipped before the 6 -> 8 move
+    # carry 6 questions, so while the trailing window still mixes both the rate
+    # reads slightly low for those; it self-corrects as the window rolls over.
+    lb_rate = (lb_mean / config.QUESTIONS_PER_SET) if lb_mean is not None else None
 
     print(f"Corpus health (trailing {window} shipped):")
     print(f"  family KL vs design uniform:   {fam_kl:.3f}  (alarm > 0.15 once corpus > 100)")
     print(f"  topology KL vs design uniform: {topo_kl:.3f}")
+    print(f"  ARC-SHAPE KL vs design uniform: {shape_kl:.3f}  "
+          f"(the family-level number that actually tracks how a passage reads)")
+    if shape_counts:
+        total_shapes = sum(shape_counts.values())
+        for shape, n in sorted(shape_counts.items(), key=lambda kv: -kv[1]):
+            share = n / total_shapes
+            fams = len(reg.shapes().get(shape, []))
+            mark = "  <-- the legacy arc" if shape == "staged_turn_settled" else ""
+            print(f"    {shape:26s} {n:3d} sets {share:5.0%}  "
+                  f"({fams} famil{'y' if fams == 1 else 'ies'}){mark}")
+        unused = [sh for sh in reg.shapes() if sh not in shape_counts]
+        if unused:
+            print(f"    never shipped: {', '.join(sorted(unused))}")
     print(f"  answer-letter chi2 (df=3):     {chi2:.2f}  (alarm > 11.34)")
     if lb_mean is not None:
-        print(f"  correct-is-longest:            {lb_mean:.2f}/6 per set "
+        print(f"  correct-is-longest:            {lb_mean:.2f}/{config.QUESTIONS_PER_SET} per set "
               f"({lb_rate:.0%} of questions)  (chance ~25%; alarm > 45%, "
               f"n={len(lb_vals)})")
     else:
@@ -562,12 +869,99 @@ def cmd_health(args) -> int:
     print(f"  fingerprints by source:        {src_counts}")
     n_fp_total = sum(src_counts.values())
     if n_fp_total < config.CURVE_CAP_MIN_CORPUS:
-        print(f"  curve cap (novelty):           dormant — activates at "
+        print(f"  curve cap (novelty):           dormant - activates at "
               f"{config.CURVE_CAP_MIN_CORPUS} fingerprints "
               f"({n_fp_total}/{config.CURVE_CAP_MIN_CORPUS})")
     if aph_keyed:
         print(f"  aphorism endings:              {aph_true}/{aph_keyed} keyed sets "
               f"(register-rotation baseline ~12.5%)")
+    # ---- move saturation: the corpus-level house-voice metric ---------------
+    # A move in nearly every passage is the house voice by definition, and it is
+    # invisible to every pairwise channel. See config.MOVE_SATURATION_BAN.
+    msigs = [w.move_signature.split("|")
+             for w in history.fingerprint_window(window) if w.move_signature]
+    if len(msigs) >= 8:
+        mfreq: dict[str, int] = {}
+        for moves in msigs:
+            for m in set(moves):
+                mfreq[m] = mfreq.get(m, 0) + 1
+        hot = [(m, n / len(msigs)) for m, n in mfreq.items()
+               if n / len(msigs) > config.MOVE_SATURATION_WARN]
+        hot.sort(key=lambda kv: -kv[1])
+        print(f"  move saturation ({len(msigs)} keyed sets, ban > "
+              f"{config.MOVE_SATURATION_BAN:.0%}, warn > {config.MOVE_SATURATION_WARN:.0%}):")
+        if hot:
+            for m, share in hot:
+                mark = "BAN " if share > config.MOVE_SATURATION_BAN else "warn"
+                print(f"    [{mark}] {m:26s} {share:5.0%}")
+        else:
+            print("    none above the warn line")
+        cold = [m for m in config.RHETORICAL_MOVES if mfreq.get(m, 0) / len(msigs) < 0.10]
+        if cold:
+            print(f"    under-used (<10%): {', '.join(cold)}")
+
+    # ---- seed genre + topic shape ------------------------------------------
+    # The last layer the house voice was hiding in: every feed was one genre and
+    # the refine schema made every topic bipolar, so 14 of ~60 stored topics
+    # opened "Whether..." and 11 "Why...". These two lines are how you see
+    # whether the widened feeds and the topic-shape library are actually landing.
+    for label, col in (("seed genres", "seed_genre"), ("topic shapes", "topic_shape")):
+        rows = history.conn.execute(
+            f"""SELECT {col}, COUNT(*) FROM rc_sets
+                WHERE {col} IS NOT NULL AND {col} != ''
+                GROUP BY 1 ORDER BY 2 DESC""").fetchall()
+        if rows:
+            total = sum(n for _, n in rows)
+            top = ", ".join(f"{k} {n}" for k, n in rows[:6])
+            print(f"  {label:30s} {total} keyed | {top}")
+        else:
+            print(f"  {label:30s} none recorded yet")
+
+    # ---- difficulty by arc shape -------------------------------------------
+    # The guardrail on the exam-derived families (2026-08-25). They were capped
+    # at 50%/35%/0% by tier on the concern that expository forms might read
+    # easier than the literary ones. That concern is testable rather than
+    # arguable: if exam-form sets score materially below literary-form sets at
+    # the same tier, the cap was right and should tighten. If they score the
+    # same, the difficulty lives in the levers that are independent of arc
+    # shape — late thesis, trap map, instability, question scaling — as
+    # designed, and the cap can loosen.
+    #
+    # Needs roughly 10 sets per group before the means mean anything.
+    rows = history.conn.execute(
+        """SELECT r.tier, b.blueprint_json, r.average_score
+           FROM rc_sets r JOIN blueprints b ON b.blueprint_id = r.blueprint_id
+           WHERE r.average_score > 0""").fetchall()
+    if rows:
+        import json as _json
+        buckets: dict = {}
+        for tier, bpj, score in rows:
+            try:
+                fid = _json.loads(bpj).get("family_id")
+                shape = reg.shape_of(fid)
+            except Exception:
+                continue
+            group = ("exam-derived" if shape in config.EXAM_DERIVED_SHAPES
+                     else "legacy arc" if shape == "staged_turn_settled"
+                     else "arc-shape")
+            buckets.setdefault((tier, group), []).append(float(score))
+        if buckets:
+            print("  judge score by arc-shape group (guardrail on the "
+                  "exam-derived families):")
+            for tier in ("medium", "hard", "elite"):
+                parts = []
+                for group in ("legacy arc", "arc-shape", "exam-derived"):
+                    v = buckets.get((tier, group))
+                    if v:
+                        parts.append(f"{group} {sum(v)/len(v):.1f} (n={len(v)})")
+                if parts:
+                    print(f"    {tier:7s} " + " | ".join(parts))
+            thin = [k for k, v in buckets.items()
+                    if k[1] == "exam-derived" and len(v) < 10]
+            if thin or not any(k[1] == "exam-derived" for k in buckets):
+                print("    (exam-derived groups still under n=10 — not yet "
+                      "decisive)")
+
     history.record_health(window, fam_kl, topo_kl, [], chi2)
     history.close()
     return 0
@@ -580,20 +974,34 @@ def cmd_health(args) -> int:
 def cmd_export(args) -> int:
     history = HistoryStore(args.db)
     q = ("SELECT rc_id, tier, rc_text, average_score, status, created_at, "
-         "compliance_f1, novelty_composite FROM rc_sets WHERE rc_text IS NOT NULL")
+         "compliance_f1, novelty_composite, "
+         "COALESCE(similarity_verdict, '') FROM rc_sets WHERE rc_text IS NOT NULL")
     params: list = []
     if args.status:
         q += " AND status = ?"
         params.append(args.status)
     rows = history.conn.execute(q, params).fetchall()
     os.makedirs(args.out, exist_ok=True)
-    for rc_id, tier, rc_text, avg, status, created, f1, nov in rows:
+    flagged_dir = getattr(args, "flagged_out", None) or config.FLAGGED_EXPORT_DIR
+    n_ok = n_red = 0
+    for rc_id, tier, rc_text, avg, status, created, f1, nov, verdict in rows:
+        # A red verdict routes the file; it never changes the set's status or
+        # withholds it. The reviewer decides what a flagged set is worth.
+        red = (verdict == "red")
+        dest = flagged_dir if red else args.out
+        os.makedirs(dest, exist_ok=True)
+        screen_line = f" | Screen: {verdict}" if verdict else ""
         header = (f"RC ID: {rc_id} | Tier: {tier} | Score: {avg} | Status: {status} | "
-                  f"Compliance F1: {f1} | Novelty: {nov} | Generated: {created}\n"
-                  + "=" * 70 + "\n\n")
-        with open(os.path.join(args.out, f"{rc_id}.txt"), "w", encoding="utf-8") as f:
+                  f"Compliance F1: {f1} | Novelty: {nov}{screen_line} | "
+                  f"Generated: {created}\n" + "=" * 70 + "\n\n")
+        with open(os.path.join(dest, f"{rc_id}.txt"), "w", encoding="utf-8") as f:
             f.write(header + rc_text)
-    print(f"Exported {len(rows)} set(s) to '{args.out}/'")
+        n_red += red
+        n_ok += (not red)
+    print(f"Exported {n_ok} set(s) to '{args.out}/'")
+    if n_red:
+        print(f"Exported {n_red} similarity-flagged set(s) to '{flagged_dir}/' "
+              f"- these read like recent sets and want a human look")
     history.close()
     return 0
 
@@ -613,50 +1021,130 @@ _THESIS_STEM = re.compile(
     r"|passage'?s\s+thesis|overall\s+argument|principal\s+claim")
 
 
+# Formatting noise stripped before structural parsing: chat/markdown uploads
+# wrap stems and key lines in ** and separate sections with horizontal rules.
+_HR_LINE = re.compile(r"(?m)^[ \t]*(?:-{3,}|_{3,}|\*{3,})[ \t]*$")
+
+# Question stem: "Q1." / "Q1)" / "Q1:" / "Question 1." (group 1), or a bare
+# numbered line "1." / "1)" (group 2 — only trusted when options follow).
+_QSTEM = re.compile(
+    r"(?m)^[ \t]*(?:Q(?:uestion)?[ \t]*\.?[ \t]*(\d{1,2})[ \t]*[.):—–-]"
+    r"|(\d{1,2})[ \t]*[.)])[ \t]*")
+
+# Option line: "(A)", "A)", "A.", "[A]", "A:" — either case.
+_OPT_SPLIT = re.compile(r"(?m)^[ \t]*[\(\[]?([A-Da-d])[\)\].:][ \t]+")
+
+# Leading chat-export chrome before the passage: "# CAT-Style RC", "Domain: …".
+_TITLE_LINE = re.compile(r"^(?:#[^\n]*|(?:Domain|Tier|Topic)[ \t]*:[^\n]*)\n+")
+
+
+def _normalize_rc_text(text: str) -> str:
+    text = text.lstrip("\ufeff")
+    text = text.replace("\r\n", "\n").replace("\r", "\n")
+    text = text.replace("\u00a0", " ").replace("\u200b", "")
+    text = _HR_LINE.sub("", text)
+    return text.replace("**", "")
+
+
+def _section_heading(body: str, word: str) -> re.Match | None:
+    """A section heading in any of the shapes uploads arrive in:
+    "[QUESTIONS]" (engine format), "## Questions" (markdown), "Questions:"."""
+    return re.search(
+        rf"(?im)^[ \t]*(?:\[[ \t]*{word}[^\]\n]*\]?"
+        rf"|#{{1,6}}[ \t]*{word}\b[^\n]*"
+        rf"|{word}[ \t]*:)[ \t]*$", body)
+
+
+def _scan_questions(qtext: str, validate: bool) -> tuple[list[dict], int | None]:
+    """Question blocks in qtext; (questions, offset of the first stem).
+    With validate=True a stem only counts when >=3 option lines follow it,
+    so numbered lines in prose are not mistaken for questions."""
+    stems = list(_QSTEM.finditer(qtext))
+    out: list[dict] = []
+    first: int | None = None
+    for i, sm in enumerate(stems):
+        end = stems[i + 1].start() if i + 1 < len(stems) else len(qtext)
+        parts = _OPT_SPLIT.split(qtext[sm.end():end])
+        if validate and (len(parts) - 1) // 2 < 3:
+            continue
+        if first is None:
+            first = sm.start()
+        options = {parts[j].upper(): {"text": " ".join(parts[j + 1].split())}
+                   for j in range(1, len(parts) - 1, 2)}
+        out.append({"q": int(sm.group(1) or sm.group(2)),
+                    "stem": parts[0].strip(), "options": options})
+    return out, first
+
+
 def _parse_rc_txt(text: str) -> dict:
-    """Parse MANUAL_GENERATION_PROMPT.md's OUTPUT FORMAT (which the engine's
-    own exports also follow). Tolerant of missing sections."""
+    """Parse an RC set in MANUAL_GENERATION_PROMPT.md's OUTPUT FORMAT (which
+    the engine's own exports also follow) OR the markdown shape chat uploads
+    arrive in (## headings, bold stems, A)/A. options). Tolerant of missing
+    sections; 'notes' reports how the file was read."""
+    text = _normalize_rc_text(text)
     body = re.sub(r"^RC ID:.*?={10,}\s*", "", text, flags=re.DOTALL)
+    notes: list[str] = []
 
-    def _section(start: str, end: str) -> str | None:
-        s = body.find(start)
-        if s == -1:
-            return None
-        s += len(start)
-        e = body.find(end, s)
-        return body[s:e if e != -1 else len(body)].strip()
+    heads = {name: _section_heading(body, word)
+             for name, word in (("passage", "passage"),
+                                ("questions", r"questions?"),
+                                ("key", r"answer[ \t]*keys?"))}
+    key_start = heads["key"].start() if heads["key"] else len(body)
 
-    passage = _section("[PASSAGE]", "[QUESTIONS]")
-    qblock = _section("[QUESTIONS]", "[ANSWER KEY")
-    keyblock = body[body.find("[ANSWER KEY"):] if "[ANSWER KEY" in body else ""
-    if passage is None:   # no markers: passage = everything before Q1
-        m = re.search(r"\nQ\s*1[.)]", body)
-        passage = body[:m.start()].strip() if m else body.strip()
+    questions: list[dict] = []
+    first_stem: int | None = None
+    if heads["questions"]:
+        questions, off = _scan_questions(
+            body[heads["questions"].end():key_start], validate=False)
+        if heads["questions"].group(0).lstrip().startswith("#"):
+            notes.append("markdown-style section headings")
+    if not questions:
+        # no usable Questions section — scan everything before the answer key
+        questions, first_stem = _scan_questions(body[:key_start], validate=True)
+        if questions:
+            notes.append(f"{len(questions)} question(s) found by fallback scan"
+                         + ("" if heads["questions"] else
+                            " (no Questions heading present)"))
 
-    questions = []
-    if qblock:
-        for qm in re.finditer(r"(?ms)^Q(\d)[.)]\s*(.*?)(?=^Q\d[.)]|\Z)", qblock):
-            parts = re.split(r"(?m)^\(([A-D])\)\s*", qm.group(2))
-            options = {parts[i]: {"text": " ".join(parts[i + 1].split())}
-                       for i in range(1, len(parts) - 1, 2)}
-            questions.append({"q": int(qm.group(1)),
-                              "stem": parts[0].strip(), "options": options})
+    if heads["questions"]:
+        p_end = heads["questions"].start()
+    elif first_stem is not None:
+        p_end = first_stem
+    elif heads["key"]:
+        p_end = key_start
+    else:
+        p_end = len(body)
+    p_start = heads["passage"].end() if heads["passage"] else 0
+    passage = body[p_start:min(p_end, len(body))].strip() if p_start < p_end \
+        else body[p_start:].strip()
+    if not heads["passage"]:
+        while (tm := _TITLE_LINE.match(passage)):
+            passage = passage[tm.end():].lstrip()
+
+    keyblock = body[key_start:] if heads["key"] else ""
 
     from .fingerprints import parse_answer_letters
+    from .question_engine import EXCEPT_MECHANISM
     mechanisms: dict[str, int] = {}
     for _letter, mech in _MECH_LINE.findall(keyblock):
+        # passage_supported marks the true statements in an EXCEPT question, not
+        # a distractor mechanism — counting it would make manual and engine sets
+        # produce incomparable trap histograms.
+        if mech == EXCEPT_MECHANISM:
+            continue
         mechanisms[mech] = mechanisms.get(mech, 0) + 1
     pm = re.search(r"Posture:\s*([a-z_]+)", keyblock)
     return {"passage": passage, "questions": questions,
             "letters": parse_answer_letters(text),
-            "mechanisms": mechanisms, "posture": pm.group(1) if pm else None}
+            "mechanisms": mechanisms, "posture": pm.group(1) if pm else None,
+            "notes": notes}
 
 
 def cmd_vet(args) -> int:
     from .fingerprints import rhythm_vector, stylometry_profile, _embed
     from .models import Fingerprint
     from .novelty import NoveltyScorer
-    from .question_engine import length_bias_report
+    from .question_engine import length_bias_report, passage_word_report
 
     if not os.path.isfile(args.file):
         print(f"File not found: {args.file}")
@@ -672,20 +1160,27 @@ def cmd_vet(args) -> int:
     words = len(passage.split())
     print(f"[vet] {rc_id}: {words}-word passage, {len(questions)} question(s), "
           f"key '{letters or '?'}', {sum(parsed['mechanisms'].values())} named mechanism(s)")
+    for note in parsed["notes"]:
+        print(f"[vet] parse: {note}")
 
     # -- structural + letter audits (the manual prompt's Stage-4 rules) ------
     warnings: list[str] = []
-    if len(questions) != 6:
-        warnings.append(f"expected 6 questions, parsed {len(questions)}")
+    if len(questions) != config.QUESTIONS_PER_SET:
+        warnings.append(f"expected {config.QUESTIONS_PER_SET} questions, "
+                        f"parsed {len(questions)}")
+        if not questions:
+            warnings.append("no question stems recognized — stems must start "
+                            "a line as 'Q1.'/'Q1)'/'1.' with options on their "
+                            "own lines as '(A)'/'A)'/'A.'")
     for q in questions:
         if len(q["options"]) != 4:
             warnings.append(f"Q{q['q']}: parsed {len(q['options'])}/4 options")
     if letters and len(letters) != len(questions):
         warnings.append(f"answer key covers {len(letters)}/{len(questions)} questions")
-    if args.tier:
-        lo, hi = config.TIER_PARAMS[args.tier]["passage_words"]
-        if not lo - 40 <= words <= hi + 40:
-            warnings.append(f"passage {words} words vs {args.tier} band {lo}-{hi}")
+    # Passage length is one house standard, not a tier parameter — checked on
+    # every vetted set, --tier or not, using the same band the engine enforces
+    # (these used to disagree: engine +/-60 vs vet +/-40).
+    warnings += passage_word_report(passage)["warnings"]
     if letters:
         for c in "ABCD":
             if letters.count(c) > 3:
@@ -753,7 +1248,7 @@ def cmd_vet(args) -> int:
               f"source='manual' — future generations now audit against it.")
         history.backup_to()
     elif ok:
-        print("\nPASS — re-run with --ingest to add it to the corpus.")
+        print("\nPASS - re-run with --ingest to add it to the corpus.")
     else:
         print("\nReview the flags above before shipping this set.")
     history.close()
@@ -772,7 +1267,7 @@ def cmd_avoid(args) -> int:
            WHERE status = 'shipped' ORDER BY created_at DESC LIMIT ?""",
         (args.n,)).fetchall()
     if not rows:
-        print("No shipped engine sets in this DB yet — build the AVOID line "
+        print("No shipped engine sets in this DB yet - build the AVOID line "
               "from RC_Tracker.xlsx instead.")
         history.close()
         return 0
@@ -820,7 +1315,25 @@ def cmd_avoid(args) -> int:
 
 # ---------------------------------------------------------------------------
 
+def _make_stdout_unicode_safe() -> None:
+    """Never let a print() kill a paid batch.
+
+    Seed titles come from live RSS and routinely carry curly quotes, en dashes
+    and combining accents. On Windows the console defaults to cp1252, which
+    cannot encode them, so `print(title)` raises UnicodeEncodeError — and on
+    2026-08-10 that aborted a whole `generate --hard 1` run from inside the seed
+    provider, before any RC existed. Degrading one character to '?' is always
+    preferable to losing the batch.
+    """
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except (AttributeError, ValueError, OSError):
+            pass  # already wrapped, or not reconfigurable — printing still works
+
+
 def main(argv=None) -> int:
+    _make_stdout_unicode_safe()
     p = argparse.ArgumentParser(prog="rc_engine", description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -841,6 +1354,8 @@ def main(argv=None) -> int:
     g.add_argument("--no-seed", action="store_true", help="skip RAG seed essays")
     g.add_argument("--no-embed", action="store_true", help="disable embedding channel")
     g.add_argument("--no-export", action="store_true")
+    g.add_argument("--no-screen", action="store_true",
+                   help="skip the pre-export similarity screen")
     g.add_argument("--max-usd", type=float, default=None,
                    help="batch spending cap (default: 1.25 x sum of requested tier budgets)")
 
@@ -858,6 +1373,31 @@ def main(argv=None) -> int:
     r.add_argument("--db", default=config.DB_PATH)
     r.add_argument("--dry-run", action="store_true", help="mock client, $0")
     r.add_argument("--no-embed", action="store_true", help="disable embedding channel")
+    r.add_argument("--no-screen", action="store_true",
+                   help="skip the pre-export similarity screen")
+
+    ma = sub.add_parser("move-audit",
+                        help="extract blind rhetorical-move signatures and report "
+                             "how much of the corpus shares a grammar")
+    ma.add_argument("--db", default=config.DB_PATH)
+    ma.add_argument("--provider", choices=list(config.PROVIDERS), default="claude")
+    ma.add_argument("--from-txt", nargs="*",
+                    default=["exported_rc_sets", "approved_rc_sets - Copy",
+                             "manual_rc_sets"],
+                    help="dirs to source passages from for rows with no rc_text")
+    ma.add_argument("--reextract", action="store_true",
+                    help="clear every stored signature and read them all again "
+                         "(needed after the move vocabulary changes meaning)")
+    ma.add_argument("--report-only", action="store_true",
+                    help="skip extraction, report on signatures already stored ($0)")
+    ma.add_argument("--dry-run", action="store_true", help="mock client, $0")
+    ma.add_argument("--max-usd", type=float, default=1.00,
+                    help="spend cap for the extraction pass")
+    ma.add_argument("--top", type=int, default=15,
+                    help="how many nearest pairs to print")
+    ma.add_argument("--quarantine", action="store_true",
+                    help="exclude redundant sets from the novelty baseline "
+                         "(keeps one per cluster; deletes nothing)")
 
     b = sub.add_parser("backfill", help="fingerprint legacy rc_sets rows and/or exported txt ($0)")
     b.add_argument("--db", default=config.DB_PATH)
@@ -867,10 +1407,18 @@ def main(argv=None) -> int:
     h = sub.add_parser("health", help="corpus health snapshot ($0)")
     h.add_argument("--db", default=config.DB_PATH)
 
+    tr = sub.add_parser("topo-report",
+                        help="question blueprint library audit: tier pools, "
+                             "scaled difficulty, positional balance ($0)")
+    tr.add_argument("--tier", default=None, choices=["medium", "hard", "elite"])
+
     e = sub.add_parser("export", help="export rc_sets to txt")
     e.add_argument("--db", default=config.DB_PATH)
     e.add_argument("--status", default=None)
     e.add_argument("--out", default="exported_rc_sets")
+    e.add_argument("--flagged-out", default=None,
+                   help=f"where similarity-flagged sets go "
+                        f"(default {config.FLAGGED_EXPORT_DIR})")
 
     a = sub.add_parser("avoid", help="AVOID line for the manual prompt ($0)")
     a.add_argument("--db", default=config.DB_PATH)
@@ -883,7 +1431,10 @@ def main(argv=None) -> int:
     v.add_argument("--id", default=None,
                    help="rc_id override (default: 'RC ID:' line, else filename)")
     v.add_argument("--tier", choices=["medium", "hard", "elite"], default=None,
-                   help="also check the passage word count against this tier's band")
+                   help="accepted but no longer used: passage length is one "
+                        "500-word standard across all tiers and is now checked "
+                        "on every vetted set (kept so existing commands and the "
+                        "GUI keep working)")
     v.add_argument("--ingest", action="store_true",
                    help="on pass, store the fingerprint with source='manual'")
     v.add_argument("--force", action="store_true",
@@ -895,8 +1446,9 @@ def main(argv=None) -> int:
     return {"estimate": cmd_estimate, "selftest": cmd_selftest,
             "generate": cmd_generate, "backfill": cmd_backfill,
             "health": cmd_health, "export": cmd_export,
-            "avoid": cmd_avoid, "vet": cmd_vet,
-            "retry-questions": cmd_retry_questions}[args.cmd](args)
+            "avoid": cmd_avoid, "vet": cmd_vet, "topo-report": cmd_topo_report,
+            "retry-questions": cmd_retry_questions,
+            "move-audit": cmd_move_audit}[args.cmd](args)
 
 
 if __name__ == "__main__":

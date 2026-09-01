@@ -1,0 +1,77 @@
+{
+  "library": "render_stance",
+  "version": "1.0",
+  "note": "A render stance changes the SHAPE of the writing instruction, not a slot inside it. Personas alter register and hedging; they leave the argumentative choreography untouched, which is why 85 shipped sets converged on one spine (LEVEL_RELOCATION in 96% of them, EASY_READING_DEMOLISHED in 86%). A stance constrains what the paragraph sequence can BE, so it moves the layer personas cannot reach. forbidden_beats are labels from config.RHETORICAL_MOVES that this stance must not perform.",
+  "items": [
+    {
+      "id": "RS01",
+      "name": "The Sustained Case",
+      "frame": "Conduct the entire argument through ONE case, carried from the first paragraph to the last. Every claim must be made by advancing that case further, never by leaving it for a general statement and returning. The reader should finish knowing one thing in unusual detail rather than a thesis illustrated by examples.",
+      "arc_constraint": "no survey of instances; no second example introduced after paragraph 2",
+      "forbidden_beats": ["INSTANCE_SURVEY", "TWO_CAMP_SPLIT"]
+    },
+    {
+      "id": "RS02",
+      "name": "The Word's History",
+      "frame": "Follow a single term, practice, or category as it moves through time and across domains. The argument IS the history: what the word carried at each stage, what it shed, who changed it and under what pressure. Do not step outside the chronology to announce what it all means.",
+      "arc_constraint": "strictly chronological; the thesis emerges from the sequence, never from commentary on it",
+      "forbidden_beats": ["LEVEL_RELOCATION", "TWO_CAMP_SPLIT"]
+    },
+    {
+      "id": "RS03",
+      "name": "The Reply",
+      "frame": "Write as a direct reply to one named, specific objection that a reasonable person has actually made. Quote or paraphrase it early and precisely, then answer it. The objection must be given its full force — a reader who agreed with it should feel it has been stated better than they would have stated it.",
+      "arc_constraint": "one interlocutor throughout; no third position introduced",
+      "forbidden_beats": ["BOTHSIDES_REFUSED", "EASY_READING_DEMOLISHED"]
+    },
+    {
+      "id": "RS04",
+      "name": "The Abandoned Position",
+      "frame": "Write from inside a position the author once held and no longer does. Reconstruct why it was persuasive — not as a straw figure but as something that genuinely worked — then show what broke it. The break must be located in something specific: a case that would not fit, a consequence that could not be paid.",
+      "arc_constraint": "first-person intellectual history; the turn happens once and is dated",
+      "forbidden_beats": ["TWO_CAMP_SPLIT", "BOTHSIDES_REFUSED"]
+    },
+    {
+      "id": "RS05",
+      "name": "The Mechanism",
+      "frame": "Explain how something actually works, step by step, in enough detail that a reader could describe the process afterwards. The argument arrives through the explanation: what the mechanism cannot do, or does at a cost, is the point. Resist stepping back to say what it signifies.",
+      "arc_constraint": "procedural order; the evaluative claim appears only in the final third",
+      "forbidden_beats": ["SCENE_PARTICULAR", "LEVEL_RELOCATION"]
+    },
+    {
+      "id": "RS06",
+      "name": "The Taxonomy That Fails",
+      "frame": "Lay out a classification carefully and in good faith, then let the cases break it. The failure must be genuine and specific — particular things that will not sit in any category, or sit in two. Do not announce in advance that the taxonomy will fail.",
+      "arc_constraint": "the scheme is built before it is tested; no early hedging",
+      "forbidden_beats": ["EASY_READING_DEMOLISHED", "DISCLAIM_RESTATE"]
+    },
+    {
+      "id": "RS07",
+      "name": "The Close Reading",
+      "frame": "Take a single document, passage, image, or artefact and read it closely. The argument is made by attending to particulars — what is chosen, what is omitted, what the arrangement assumes. Stay with the object; generalise only where the object forces it.",
+      "arc_constraint": "the object is present in every paragraph",
+      "forbidden_beats": ["INSTANCE_SURVEY", "STAKES_RAISED"]
+    },
+    {
+      "id": "RS08",
+      "name": "The Two Measurements",
+      "frame": "Set out two attempts to measure, count, or record the same thing that produced different answers. Take both methods seriously and show why each yields what it yields. The disagreement is the subject; do not resolve it by declaring one method deeper than the other.",
+      "arc_constraint": "both procedures are described concretely before either is judged",
+      "forbidden_beats": ["LEVEL_RELOCATION", "BOTHSIDES_REFUSED"]
+    },
+    {
+      "id": "RS09",
+      "name": "The Consequence Traced",
+      "frame": "Begin from a decision, rule, or change that was already made, and follow what it did — to whom, in what order, with what delays. The argument is carried by the causal chain. Do not open by evaluating the decision.",
+      "arc_constraint": "forward causal order; the author's verdict is withheld until the chain is complete",
+      "forbidden_beats": ["ABSTRACT_CLAIM_OPEN", "TWO_CAMP_SPLIT"]
+    },
+    {
+      "id": "RS10",
+      "name": "The Analogy Pressed",
+      "frame": "Build one analogy deliberately, extend it further than is comfortable, and then find where it fails. The failure point must be informative — it should teach something about the original subject that the analogy's success did not.",
+      "arc_constraint": "one analogy only, sustained; it must break before the final paragraph",
+      "forbidden_beats": ["INSTANCE_SURVEY", "MECHANISM_EXPLAINED"]
+    }
+  ]
+}

@@ -17,7 +17,10 @@ from .constraints import CompatibilityRules
 from .history import HistoryStore
 from .llm import BudgetExceeded, CostLedger, extract_json
 from .models import Blueprint, ParagraphPlan, SeedEssay
+from .fingerprints import move_signature_similarity
 from .registry import ComponentRegistry, posture_class
+
+NL = chr(10)
 
 TIER_ORDER = {"medium": 0, "hard": 1, "elite": 2}
 
@@ -43,6 +46,17 @@ revelation pattern, ending type) plus an optional inspiration essay excerpt.
 Your job: invent CONTENT that fits the given structure exactly. You must NOT change
 the structure — paragraph count, functions, and order are fixed.
 
+The TOPIC SHAPE in the input governs what KIND of question the passage is about.
+Obey it. Not every passage is a dispute between two positions: when the shape does
+not call for one, do NOT manufacture one, and do NOT phrase the topic as
+"whether X or Y" or "why X, and what it reveals about Y". Those two forms
+accounted for nearly half of this engine's back catalogue and are the single most
+recognisable thing about it.
+
+Ground the topic in the SOURCE GENRE and the concrete particulars given. A
+technical piece should stay technical; a reconstructed episode should stay an
+episode. Converting the source into a conceptual essay is the failure mode.
+
 Respond ONLY with valid JSON, no markdown fences:
 {
   "topic": "one-line topic, intellectually serious, suitable for Aeon/LRB-style prose",
@@ -51,6 +65,7 @@ Respond ONLY with valid JSON, no markdown fences:
     "secondary": {"axis": "...", "poles": ["...", "..."], "fate": "..."},
     "interaction": "one line on how the secondary tension interacts with the primary"
   },
+  "content_frame": "<give this INSTEAD of tension_system when the topic shape does not require two poles: 2-3 lines fixing the specific material — the event, the object, the procedure, the measurement — the passage is built from. Emit tension_system as null in that case. When the shape DOES require two poles, give tension_system and omit this.>",
   "paragraph_briefs": [{"para": 1, "gist": "1-2 line content brief realizing that paragraph's structural function"}, ...one per paragraph...],
   "trap_map": [
     {"trap_id": "TR1", "anchor_para": 1, "invited_misreading": "the specific wrong reading this paragraph should invite", "mechanism": "..."},
@@ -74,6 +89,15 @@ class BlueprintComposer:
 
     # ------------------------------------------------------------- sampling
 
+    @staticmethod
+    def _steer_share(pool: list[str], allow: bool, in_cohort) -> list[str]:
+        """Restrict `pool` to the cohort when this skeleton won the share flip,
+        and away from it when it did not. Never empties the pool — an absent
+        cohort (banned, exhausted, or barred by tier) leaves the pool as-is
+        rather than dead-ending the slot."""
+        want = [i for i in pool if in_cohort(i) == allow]
+        return want or pool
+
     def _eligible(self, ctype: str, tier: str,
                   ban_families: set[str] | None = None) -> list[str]:
         ids = self.registry.ids(ctype)
@@ -81,6 +105,41 @@ class BlueprintComposer:
             floor = TIER_ORDER[tier]
             ids = [i for i in ids
                    if TIER_ORDER[self.registry.get("family", i)["tier_floor"]] <= floor]
+            # Drop families whose ONLY movement string is already inside the
+            # precheck window, BEFORE anything is spent on them.
+            #
+            # The precheck previously discovered these after compose — which
+            # includes the paid refine — and then banned the family. On
+            # 2026-08-28 that cost three hard attempts and $0.18 for nothing,
+            # and killed the tier: 7 of the 11 single-string hard families were
+            # blocked at once, because they are the newest families and had all
+            # been used inside the window. Excluding them here changes no
+            # outcome; it just stops paying to rediscover it.
+            try:
+                recent_ms = {w.movement_string for w
+                             in self.history.fingerprint_window(
+                                 config.MOVEMENT_RECENCY_WINDOW)
+                             if w.movement_string}
+            except Exception:
+                recent_ms = set()
+            if recent_ms:
+                usable = []
+                for i in ids:
+                    opts, can_pad = self.family_movement_options(i)
+                    if can_pad or not opts or (set(opts) - recent_ms):
+                        usable.append(i)
+                if usable:            # never empty the pool
+                    ids = usable
+
+            # tier_max is a CEILING, the mirror of tier_floor: a family carrying
+            # it is unavailable ABOVE that tier. Added 2026-08-25 for the
+            # exam-derived expository families — they widen medium and hard,
+            # but elite keeps only the literary forms that produce the hardest
+            # passages. Absent tier_max means "no ceiling", so every existing
+            # family is unaffected.
+            ids = [i for i in ids
+                   if TIER_ORDER[self.registry.get("family", i)
+                                 .get("tier_max", "elite")] >= floor]
             ids = self._posture_filter(ids)
             if ban_families:
                 filtered = [i for i in ids if i not in ban_families]
@@ -88,14 +147,124 @@ class BlueprintComposer:
                 if filtered:
                     ids = filtered
         if ctype == "topology":
-            allowed = config.TIER_PARAMS[tier]["allowed_topologies"]
+            allowed = [i for i in ids if self._topology_allowed(i, tier)]
+            # never empty the pool: the same fallback discipline as the posture ban
             if allowed:
-                ids = [i for i in ids if i in allowed]
-        # hard exclusion window
+                ids = allowed
+            else:
+                print(f"  [composer] topology bar for '{tier}' skipped: "
+                      f"would empty the pool")
+        # Exclusion window — recency, not a correctness constraint. It gets the
+        # SAME "never empty the pool" fallback as the posture ban and the
+        # topology tier bar above, and for the same reason: a window wider than
+        # the tier's eligible pool starves it deterministically.
+        #
+        # Concretely (2026-08-10): EXCLUSION_WINDOWS["family"] is 25, but only 16
+        # of 32 families clear medium's tier_floor. With 14 of those inside the
+        # window, medium had exactly 2 families left; the movement precheck
+        # banned both and every medium in the batch died at failed_composition
+        # having spent $0 and produced nothing. Widening recency is never worth
+        # dead-ending a tier — degrade to the least-recently-used candidates and
+        # say so, rather than returning an empty pool.
         window = config.EXCLUSION_WINDOWS[ctype]
         positions = self.history.component_positions(ctype)
-        ids = [i for i in ids if positions.get(i, 10**9) >= window]
+        fresh = [i for i in ids if positions.get(i, 10**9) >= window]
+        if fresh:
+            if ctype == "family":
+                # A family recency window must never delete an entire ARC SHAPE
+                # from the pool.
+                #
+                # Measured 2026-08-24: 32 of 46 families carry the legacy
+                # four-beat arc and had not been used in 25 sets, while all 14
+                # new-shape families had been used that day. The window
+                # therefore excluded every new shape and left medium with 7
+                # candidates, all legacy — the mechanism meant to prevent
+                # repetition was enforcing the exact arc we were trying to move
+                # away from, and two of three sets in that batch came back
+                # flagged as repeats.
+                #
+                # Recency still applies WITHIN a shape; it just cannot erase the
+                # shape. Each missing shape gets back its least-recently-used
+                # family only.
+                have = {self.registry.shape_of(i) for i in fresh}
+                for shape in {self.registry.shape_of(i) for i in ids} - have:
+                    members = [i for i in ids
+                               if self.registry.shape_of(i) == shape]
+                    fresh.append(max(members,
+                                     key=lambda i: positions.get(i, 10**9)))
+            return fresh
+        if not ids:
+            return []
+        # Oldest-first, so the fallback still maximises distance from recent use.
+        ids = sorted(ids, key=lambda i: -positions.get(i, 10**9))
+        print(f"  [composer] {ctype} exclusion window ({window}) would empty the "
+              f"'{tier}' pool — falling back to the {len(ids)} least-recently-used")
         return ids
+
+    def family_movement_options(self, family_id: str) -> tuple[set[str], bool]:
+        """(deterministic movement strings, can_randomize) for this family.
+
+        _build_movement pads a family's function sequence with RANDOM generic
+        fillers, at a random interior position, whenever the family has fewer
+        functions than the rhythm's shape has slots. So a family splits into two
+        cases per rhythm:
+          - shape fits (no padding) -> exactly one movement string, deterministic
+          - shape is longer         -> filler-padded, a fresh string per roll
+        Only the first kind can be enumerated; if any rhythm triggers padding the
+        family has an open-ended supply and can never be exhausted.
+        """
+        fam = self.registry.get("family", family_id)
+        n_functions = len(fam["movement"])
+        fixed: set[str] = set()
+        can_randomize = False
+        for rid in self.registry.ids("rhythm"):
+            if n_functions < len(self.registry.get("rhythm", rid)["shape"]):
+                can_randomize = True          # fillers are sampled, not fixed
+                continue
+            fixed.add("|".join(p.function for p in self._build_movement(
+                fam, self.registry.get("rhythm", rid))))
+        return fixed, can_randomize
+
+    # NOTE (2026-08-25): an attempt to let long families dodge a movement ban
+    # by "inserting a filler" was reverted the same day. _build_movement only
+    # pads functions when the family is SHORTER than the rhythm, which never
+    # happens for a 5-6 beat family — F47 produces exactly one movement string
+    # across all 20 rhythms. Declaring escape routes the builder cannot
+    # generate would have left the composer re-sampling the same banned string.
+    # A single-string family that collides genuinely is exhausted; the fix for
+    # F43/F33/F35/F36 being banned in one batch is that they were drawn too
+    # often while new, which the usage decay resolves on its own.
+
+    def family_movement_exhausted(self, family_id: str, ban_m: set[str]) -> bool:
+        """True only when the family genuinely cannot produce an unbanned
+        movement string — the sole case where a collision justifies barring it.
+
+        Conservative by construction: a family that can pad with random fillers
+        is never declared exhausted, because re-rolling reaches new strings.
+        Being wrong in this direction costs one extra recompose; being wrong the
+        other way discards a usable family, which is the bug this replaced.
+        """
+        fixed, can_randomize = self.family_movement_options(family_id)
+        if can_randomize:
+            return False
+        return not (fixed - set(ban_m or ()))
+
+    def _topology_allowed(self, topology_id: str, tier: str) -> bool:
+        """Structural bar only — see config.TIER_TOPOLOGY_BAR. Medium's actual
+        difficulty comes from TIER_SLOT_SCALING at question time, not from
+        shrinking this pool: a pool near EXCLUSION_WINDOWS['topology'] in size
+        both repeats itself and can empty."""
+        bar = config.TIER_TOPOLOGY_BAR.get(tier) or {}
+        if not bar:
+            return True
+        slots = self.registry.get("topology", topology_id)["slots"]
+        if set(bar.get("forbid_types", ())) & {s["type"] for s in slots}:
+            return False
+        max_span = bar.get("max_span")
+        if max_span is not None:
+            if sum(1 for s in slots if s["target"] == "span") > max_span:
+                return False
+        return True
 
     def _posture_filter(self, ids: list[str]) -> list[str]:
         """Hard rule: if the last POSTURE_RUN_MAX shipped RCs share one coarse
@@ -118,12 +287,61 @@ class BlueprintComposer:
             print(f"  [composer] posture ban on '{banned}' skipped: "
                   f"would empty the family pool")
             return ids
-        return filtered
+        # The ban must not erase an ARC SHAPE. Same rule as the family exclusion
+        # window, and for the same reason it was added there on 2026-08-26.
+        #
+        # Measured 2026-08-29: all six exam-derived families (F47-F52) close on
+        # resolution_qualified, so a two-set resolution run — POSTURE_RUN_MAX is
+        # 2, and resolution is 27 of 52 families, so this happens roughly a
+        # quarter of the time — removed the whole cohort at once. Realised
+        # exam-form share was 0.0% against ceilings of 50% (medium) and 35%
+        # (hard). A ban on a posture is a ban on a cadence; it was silently
+        # acting as a ban on an entire arc-shape family group.
+        kept = set(filtered)
+        for shape in {self.registry.shape_of(i) for i in ids}:
+            if any(self.registry.shape_of(i) == shape for i in filtered):
+                continue
+            survivor = next(i for i in ids if self.registry.shape_of(i) == shape)
+            kept.add(survivor)
+        return [i for i in ids if i in kept]
 
-    def _weighted_pick(self, ctype: str, ids: list[str]) -> str:
+    def _weighted_pick(self, ctype: str, ids: list[str],
+                       tier: str | None = None) -> str:
         counts = self.history.usage_counts_trailing(ctype, 100)
         weights = [config.DECAY_LAMBDA ** counts.get(i, 0) for i in ids]
         if ctype == "family":
+            # Shape pressure (2026-08-22). Without this the 32 legacy families
+            # outvote the 14 new shapes 32:14 on every draw, and since all 32
+            # carry the same arc the corpus keeps producing it no matter how
+            # evenly the IDs rotate. Weighting by the SHAPE's trailing usage
+            # makes an over-used arc cost every family that carries it.
+            shape_counts: dict[str, int] = {}
+            for fid, cnt in self.history.usage_counts_trailing(
+                    "family", config.SHAPE_DECAY_WINDOW).items():
+                try:
+                    shape_counts[self.registry.shape_of(fid)] = (
+                        shape_counts.get(self.registry.shape_of(fid), 0) + cnt)
+                except Exception:
+                    continue
+            # Normalise by how many families carry each shape BEFORE applying
+            # the recency penalty.
+            #
+            # Without this the two decays fight each other and the legacy arc
+            # wins: 32 of 46 families share staged_turn_settled, so its trailing
+            # uses spread thin and every individual legacy family looks unused,
+            # carrying no per-ID penalty — while each of the 14 new families
+            # carries its own. Measured 2026-08-24, the composer was drawing the
+            # legacy arc 78% of the time, worse than before the shapes existed.
+            # Dividing by the family count gives every SHAPE equal total weight,
+            # and the recency term then does what it was meant to do.
+            per_shape: dict[str, int] = {}
+            for fid in ids:
+                sh = self.registry.shape_of(fid)
+                per_shape[sh] = per_shape.get(sh, 0) + 1
+            weights = [w / max(1, per_shape.get(self.registry.shape_of(i), 1))
+                       * config.SHAPE_DECAY_LAMBDA
+                       ** shape_counts.get(self.registry.shape_of(i), 0)
+                       for w, i in zip(weights, ids)]
             # soft pressure on the FINE posture (the hard ban uses the coarse
             # class): postures aggregate many families, so a gentler lambda.
             fam_counts = self.history.usage_counts_trailing(
@@ -138,7 +356,121 @@ class BlueprintComposer:
             weights = [w * config.POSTURE_DECAY_LAMBDA
                        ** pcounts.get(self.registry.posture_of(i), 0)
                        for w, i in zip(weights, ids)]
+            # Exact cap on the exam-derived forms, applied last so it cannot be
+            # undone by the decay terms above. Solve for the scale factor f that
+            # puts their aggregate share exactly at the ceiling:
+            #     f*We / (f*We + Wo) = cap   ->   f = cap*Wo / ((1-cap)*We)
+            # Only ever scales DOWN: if they are already under the cap the
+            # decay weighting is left alone.
+            # NOTE: the primary control is the up-front coin flip in
+            # sample_skeleton. This rescale only smooths the mix WITHIN a draw
+            # that is already allowed to use an exam form.
+            cap = None
+            if cap is not None:
+                exam = [k for k, i in enumerate(ids)
+                        if self.registry.shape_of(i) in config.EXAM_DERIVED_SHAPES]
+                if exam:
+                    we = sum(weights[k] for k in exam)
+                    wo = sum(weights) - we
+                    if cap <= 0:
+                        for k in exam:
+                            weights[k] = 0.0
+                    elif wo > 0 and we > 0 and we / (we + wo) > cap:
+                        f = cap * wo / ((1 - cap) * we)
+                        for k in exam:
+                            weights[k] *= f
         return self.rng.choices(ids, weights=weights, k=1)[0]
+
+    def _move_frequencies(self) -> tuple[dict[str, float], int]:
+        """Trailing share of each rhetorical move across the novelty window."""
+        window = self.history.fingerprint_window(config.MOVE_SATURATION_WINDOW)
+        sigs = [w.move_signature.split("|") for w in window if w.move_signature]
+        if not sigs:
+            return {}, 0
+        counts: dict[str, int] = {}
+        for moves in sigs:
+            for m in set(moves):
+                counts[m] = counts.get(m, 0) + 1
+        return {m: n / len(sigs) for m, n in counts.items()}, len(sigs)
+
+    def _plan_collides(self, plan: list[str]) -> tuple[float, str] | None:
+        """Worst corpus similarity of a PLANNED move signature, if over cap.
+
+        Free: reuses the stored signatures and the same similarity function
+        Gate B scores the rendered passage with. Catching the collision here
+        costs a recompose; catching it at Gate B costs the render."""
+        if not plan:
+            return None
+        window = self.history.fingerprint_window(config.FINGERPRINT_WINDOW)
+        sigs = [(w.rc_id, w.move_signature.split("|"))
+                for w in window if w.move_signature]
+        if len(sigs) < 8:
+            return None
+        freq: dict[str, int] = {}
+        for _, moves in sigs:
+            for m in set(moves):
+                freq[m] = freq.get(m, 0) + 1
+        worst, worst_id = 0.0, ""
+        for rc_id, moves in sigs:
+            sim = move_signature_similarity(plan, moves, freq, len(sigs))
+            if sim > worst:
+                worst, worst_id = sim, rc_id
+        if worst > config.MOVE_PLAN_PRECHECK_CAP:
+            return worst, worst_id
+        return None
+
+    def _sample_move_plan_checked(self, stance: dict | None) -> list[str]:
+        """Draw a move plan that does not already collide with the corpus."""
+        plan = self._sample_move_plan(stance)
+        for attempt in range(1, config.MOVE_PLAN_PRECHECK_TRIES):
+            hit = self._plan_collides(plan)
+            if hit is None:
+                return plan
+            worst, rc_id = hit
+            print(f"  [move-plan] planned grammar near {rc_id} @ {worst:.2f} "
+                  f"- resampling {attempt}/{config.MOVE_PLAN_PRECHECK_TRIES - 1} ($0)")
+            plan = self._sample_move_plan(stance)
+        return plan
+
+    def _sample_move_plan(self, stance: dict | None) -> list[str]:
+        """Prescribe the passage's rhetorical beats, rarest-first.
+
+        Replaces the ban list that shipped on 2026-08-21 and did not work. The
+        render contract already carried 'do not perform LEVEL_RELOCATION' from
+        two directions, and RC-ELITE-260821-0050 performed it anyway, along with
+        both other banned moves and a forbidden aphorism ending. The engine's
+        POSITIVE instructions — the paragraph movement plan — are obeyed
+        reliably in the same prompt, so the grammar is prescribed here instead
+        of forbidden there.
+
+        Weighting is (1 - trailing_share) ** MOVE_PLAN_RARITY_POWER, so the
+        moves that made the corpus monotone (LEVEL_RELOCATION at 96%,
+        EASY_READING_DEMOLISHED at 86%) become rare draws rather than banned
+        ones — they can still appear when a passage genuinely wants them.
+        """
+        shares, n = self._move_frequencies()
+        banned = set((stance or {}).get("forbidden_beats", []))
+
+        def pick(pool: list[str], k: int, taken: set[str]) -> list[str]:
+            out: list[str] = []
+            for _ in range(k):
+                cands = [m for m in pool if m not in taken and m not in banned]
+                if not cands:
+                    cands = [m for m in pool if m not in taken] or list(pool)
+                weights = [max(0.01, (1.0 - shares.get(m, 0.0))
+                               ** config.MOVE_PLAN_RARITY_POWER) for m in cands]
+                choice = self.rng.choices(cands, weights=weights, k=1)[0]
+                out.append(choice)
+                taken.add(choice)
+            return out
+
+        lo, hi = config.MOVE_PLAN_LEN
+        total = self.rng.randint(lo, hi)
+        taken: set[str] = set()
+        opening = pick(config.MOVE_GROUPS["opening"], 1, taken)
+        closing = pick(config.MOVE_GROUPS["closing"], 1, taken)
+        middles = pick(config.MOVE_GROUPS["middle"], max(1, total - 2), taken)
+        return opening + middles + closing
 
     def sample_skeleton(self, tier: str,
                         ban_families: set[str] | None = None,
@@ -152,8 +484,25 @@ class BlueprintComposer:
         """
         ban_f = set(ban_families or ())
         ban_m = set(ban_movements or ())
+
+        # Decide up front whether THIS blueprint may take an exam-derived form,
+        # then hold that decision across every retry.
+        #
+        # Capping inside the per-draw weighting was not enough: sample_skeleton
+        # resamples on combo-hash, pair-hash, distance and movement-ban
+        # rejections, and exam-form candidates survive those at a different
+        # rate, so the realised share drifted above the ceiling (hard measured
+        # 40.8% against a 35% cap). One coin flip per skeleton makes the share
+        # exact regardless of how many retries follow.
+        cap = config.EXAM_FORM_MAX_SHARE.get(tier, 0.0)
+        allow_exam_form = self.rng.random() < cap
+        # Same up-front coin flip, same reason (see the note above): decided once
+        # per skeleton so the realised share matches the ceiling exactly instead
+        # of drifting with the retry pattern.
+        allow_first_person = self.rng.random() < getattr(
+            config, "FIRST_PERSON_MAX_SHARE", 1.0)
         order = ["family", "topology", "revelation", "persona", "ending",
-                 "rhythm", "distractor_profile"]
+                 "rhythm", "distractor_profile", "render_stance"]
         recent = self.history.recent_shipped_blueprints(config.BLUEPRINT_DISTANCE_WINDOW)
         shipped_hashes = self.history.shipped_combo_hashes()
         recent_pairs: set[str] = set()
@@ -165,12 +514,30 @@ class BlueprintComposer:
             ok = True
             for ctype in order:
                 pool = self._eligible(ctype, tier, ban_families=ban_f)
+                # A share ceiling has to steer BOTH ways. Permitting a cohort
+                # on the winning flip and then letting it compete against the
+                # whole pool multiplies the two probabilities: measured
+                # 2026-08-29, a 20% first-person ceiling realised 4-5%, because
+                # the flip passed 20% of the time and the sampler then drew a
+                # first-person persona 30% of the time (0.20 x 0.30 = 6%). So
+                # the winning flip restricts TO the cohort and the losing flip
+                # restricts AWAY from it, which makes realised == cap.
+                if ctype == "family":
+                    pool = self._steer_share(
+                        pool, allow_exam_form,
+                        lambda i: (self.registry.shape_of(i)
+                                   in config.EXAM_DERIVED_SHAPES))
+                if ctype == "persona":
+                    pool = self._steer_share(
+                        pool, allow_first_person,
+                        lambda i: (self.registry.get("persona", i).get(
+                            "pronoun_person") == "first_singular"))
                 # drop candidates that violate constraints against already-picked ids
                 pool = [c for c in pool if self.rules.is_valid({**ids, ctype: c})]
                 if not pool:
                     ok = False
                     break
-                ids[ctype] = self._weighted_pick(ctype, pool)
+                ids[ctype] = self._weighted_pick(ctype, pool, tier)
             if not ok:
                 continue
 
@@ -181,7 +548,8 @@ class BlueprintComposer:
                 ending_id=ids["ending"], rhythm_id=ids["rhythm"],
                 revelation_id=ids["revelation"],
                 distractor_profile_id=ids["distractor_profile"],
-                topology_id=ids["topology"], instability=0.0, aperture="")
+                topology_id=ids["topology"], instability=0.0, aperture="",
+                render_stance_id=ids.get("render_stance", ""))
             if probe.combo_hash in shipped_hashes:
                 continue
             if recent_pairs & set(probe.pair_hashes.values()):
@@ -196,8 +564,14 @@ class BlueprintComposer:
                 rh = self.registry.get("rhythm", ids["rhythm"])
                 ms = "|".join(p.function for p in self._build_movement(fam, rh))
                 if ms in ban_m:
-                    # force the next attempt off this family
-                    ban_f.add(ids["family"])
+                    # Re-sample rather than banning the family. A family produces
+                    # 3-5 distinct movement strings across the rhythm library, so
+                    # one banned string leaves several usable; escalating to a
+                    # family ban here threw those away and burned through the
+                    # pool a family at a time. Only bar the family once EVERY
+                    # movement string it can produce is banned.
+                    if self.family_movement_exhausted(ids["family"], ban_m):
+                        ban_f.add(ids["family"])
                     continue
             return ids
         raise CompositionExhausted(
@@ -228,22 +602,52 @@ class BlueprintComposer:
         return plans
 
     def _scale_lengths(self, plans: list[ParagraphPlan], tier: str) -> list[ParagraphPlan]:
-        """Scale paragraph word bands so the passage total lands in the tier's range."""
+        """Scale the rhythm's paragraph bands into a plan whose per-paragraph
+        word targets sum to EXACTLY the tier target.
+
+        Each paragraph ends up with a single target (stored as a degenerate
+        (n, n) band so nothing downstream has to change shape). Two reasons:
+        the renderer hits a stated integer far more reliably than a range, and
+        the old `int()` on both bounds truncated every paragraph downward, so
+        the plan the model saw never added up to the total the same prompt
+        asked for."""
         lo_t, hi_t = config.TIER_PARAMS[tier]["passage_words"]
-        target = (lo_t + hi_t) / 2
+        target = int(round((lo_t + hi_t) / 2))
         current = sum((p.len_words[0] + p.len_words[1]) / 2 for p in plans)
         f = target / current if current else 1.0
-        for p in plans:
-            p.len_words = (int(p.len_words[0] * f), int(p.len_words[1] * f))
+
+        raw = [((p.len_words[0] + p.len_words[1]) / 2) * f for p in plans]
+        sized = [max(1, round(x)) for x in raw]
+        # Rounding leaves a few words of drift; hand them to the paragraphs that
+        # lost the most in rounding (or take them from the ones that gained).
+        drift = target - sum(sized)
+        if drift and sized:
+            step = 1 if drift > 0 else -1
+            order = sorted(range(len(sized)), key=lambda i: raw[i] - sized[i],
+                           reverse=drift > 0)
+            for k in range(abs(drift)):
+                i = order[k % len(order)]
+                sized[i] = max(1, sized[i] + step)
+        for p, n in zip(plans, sized):
+            p.len_words = (n, n)
         return plans
 
     def _letter_plan(self) -> list[str]:
-        """Sampled per set: no letter more than twice, no 3-in-a-row."""
+        """Sampled per set: no letter over-represented, no 3-in-a-row.
+
+        The cap is N//4 + 1, not a literal 2. At 6 questions those are the same
+        thing, but at 8 a cap of 2 would force EXACTLY two of each letter in
+        every set — itself a usable tell, and a strictly worse one than the
+        imbalance it was meant to prevent. N//4 + 1 keeps the cap one above
+        perfectly even, so 3/2/2/1 and 2/2/2/2 are both reachable.
+        """
+        n = config.QUESTIONS_PER_SET
+        cap = n // 4 + 1
         while True:
-            plan = [self.rng.choice("ABCD") for _ in range(6)]
-            if max(plan.count(c) for c in "ABCD") > 2:
+            plan = [self.rng.choice("ABCD") for _ in range(n)]
+            if max(plan.count(c) for c in "ABCD") > cap:
                 continue
-            if any(plan[i] == plan[i + 1] == plan[i + 2] for i in range(4)):
+            if any(plan[i] == plan[i + 1] == plan[i + 2] for i in range(n - 2)):
                 continue
             return plan
 
@@ -262,9 +666,35 @@ class BlueprintComposer:
 
     # --------------------------------------------------------------- compose
 
+    def classify_and_pick_shape(self, seed: SeedEssay, ledger: CostLedger,
+                                tier: str) -> tuple[dict, str]:
+        """Read the seed, then choose a topic shape it can actually carry.
+
+        Runs before any expensive stage, so a seed whose genre the corpus is
+        already saturated with can be rotated for a tenth of a cent instead of
+        being discovered after a $0.02 refine. Returns (info, topic_shape_id).
+        """
+        from .seed_classify import (classify_seed, eligible_topic_shapes,
+                                    genre_is_saturated)
+
+        info = classify_seed(seed, self.llm, ledger, tier)
+        info["saturated"] = genre_is_saturated(self.history, info["genre"])
+
+        eligible = eligible_topic_shapes(self.registry, info)
+        # Same inverse-frequency logic the move plan and arc shapes use: a
+        # shape the recent corpus leans on becomes a rare draw rather than a
+        # banned one.
+        counts = self.history.usage_counts_trailing("topic_shape", 30) \
+            if hasattr(self.history, "usage_counts_trailing") else {}
+        weights = [config.DECAY_LAMBDA ** counts.get(i, 0) for i in eligible]
+        shape_id = self.rng.choices(eligible, weights=weights, k=1)[0]
+        return info, shape_id
+
     def compose(self, tier: str, seed: SeedEssay, ledger: CostLedger,
                 ban_families: set[str] | None = None,
-                ban_movements: set[str] | None = None) -> Blueprint:
+                ban_movements: set[str] | None = None,
+                seed_info: dict | None = None,
+                topic_shape_id: str = "") -> Blueprint:
         ids = self.sample_skeleton(tier, ban_families=ban_families,
                                    ban_movements=ban_movements)
         family = self.registry.get("family", ids["family"])
@@ -285,6 +715,12 @@ class BlueprintComposer:
             family_id=ids["family"], persona_id=ids["persona"], ending_id=ids["ending"],
             rhythm_id=ids["rhythm"], revelation_id=ids["revelation"],
             distractor_profile_id=ids["distractor_profile"], topology_id=ids["topology"],
+            render_stance_id=ids.get("render_stance", ""),
+            topic_shape_id=topic_shape_id,
+            seed_genre=(seed_info or {}).get("genre", ""),
+            move_plan=self._sample_move_plan_checked(
+                self.registry.get("render_stance", ids["render_stance"])
+                if ids.get("render_stance") else None),
             instability=round(self.rng.uniform(lo, hi), 2),
             aperture=ending["aperture"], movement=movement,
             letter_plan=self._letter_plan(),
@@ -328,7 +764,12 @@ class BlueprintComposer:
     def _apply_refined(self, bp: Blueprint, refined: dict,
                        mechanisms: list[str]) -> Blueprint:
         bp.topic = refined.get("topic", "") or bp.topic
-        bp.tension_system = refined.get("tension_system", {})
+        bp.tension_system = refined.get("tension_system") or {}
+        if not bp.tension_system and refined.get("content_frame"):
+            # Shapes that do not run on two poles still need their material
+            # fixed somewhere the renderer will read. tension_system is
+            # consumed with `or {}` downstream, so an absent one is safe.
+            bp.tension_system = {"content_frame": str(refined["content_frame"])}
         bp.trap_map = self._sanitize_traps(refined.get("trap_map", []), mechanisms,
                                            len(bp.movement))
         gists = {b.get("para"): b.get("gist", "") for b in refined.get("paragraph_briefs", [])}
@@ -368,9 +809,21 @@ class BlueprintComposer:
                 last_err = f"unparseable: {e}"
                 user = base_user + "\n\nYour previous reply was not valid JSON. Emit ONLY the JSON object."
                 continue
-            if refined.get("topic") and refined.get("tension_system"):
+            # A valid payload needs a topic plus ITS OWN kind of content:
+            # tension_system for the two-pole shapes, content_frame for the
+            # rest. Requiring tension_system unconditionally is what broke the
+            # first topic-shape batch (2026-08-22) — every refine fell through
+            # to the deterministic fallback, which produces generic topics, and
+            # three elite attempts then died on topic collisions.
+            if refined.get("topic") and (refined.get("tension_system")
+                                         or refined.get("content_frame")):
                 return refined
-            last_err = "missing required keys"
+            missing = []
+            if not refined.get("topic"):
+                missing.append("topic")
+            if not (refined.get("tension_system") or refined.get("content_frame")):
+                missing.append("tension_system or content_frame")
+            last_err = f"missing required keys: {', '.join(missing)}"
         print(f"  [refine] all {config.MAX_REFINE_ATTEMPTS} attempts failed "
               f"({last_err}) — using deterministic fallback plan.")
         return self._fallback_refine(bp, mechanisms)
@@ -423,6 +876,24 @@ class BlueprintComposer:
 
     def _refine_user_prompt(self, bp: Blueprint, family: dict, revelation: dict,
                             ending: dict, profile: dict, seed: SeedEssay) -> str:
+        shape_part = ""
+        if bp.topic_shape_id:
+            sh = self.registry.get("topic_shape", bp.topic_shape_id)
+            shape_part = (f"{NL}TOPIC SHAPE (hard requirement): {sh['name']}"
+                          f"{NL}  {sh['topic_form']}{NL}")
+            if sh.get("requires_tension"):
+                shape_part += ("  This shape DOES run on two poles: give a "
+                               "tension_system and omit content_frame." + NL)
+            else:
+                shape_part += ("  This shape does NOT run on two poles: emit "
+                               '"tension_system": null and give content_frame '
+                               "instead — " + sh.get("content_frame", "") + NL)
+        genre_part = ""
+        if getattr(bp, "seed_genre", "") and bp.seed_genre != "unknown":
+            genre_part = (f"{NL}SOURCE GENRE: {bp.seed_genre} — the topic should stay "
+                          f"in this kind of material rather than being converted "
+                          f"into a conceptual essay about it.{NL}")
+
         seed_part = ""
         if seed.text:
             words = seed.text.split()
@@ -432,8 +903,9 @@ class BlueprintComposer:
         else:
             domain = seed.domain_hint or self.rng.choice(config.DOMAIN_POOL)
             seed_part = f"\nNo seed essay. Invent a topic within this domain: {domain}\n"
+        seed_part = shape_part + genre_part + seed_part
         movement_lines = "\n".join(
-            f"  para {p.para}: {p.function} ({p.len_words[0]}-{p.len_words[1]} words)"
+            f"  para {p.para}: {p.function} ({p.words_label} words)"
             for p in bp.movement)
         # topical divergence up front (~150 input tokens on the cheap refine
         # model) so passages stop colliding on the embedding channel AFTER the

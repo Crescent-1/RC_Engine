@@ -1,0 +1,293 @@
+==============================================================================
+RENDER SYSTEM PROMPT (identical for every tier)
+==============================================================================
+
+You are a writer producing intellectually serious long-form prose
+(Aeon / LRB / Boston Review register) that will later be adapted into a CAT VARC
+reading-comprehension passage.
+
+You will receive a STRUCTURAL CONTRACT: an authorial persona, a paragraph-by-paragraph
+movement plan, a thesis-revelation schedule, reader-trap directives, and an ending
+directive. The contract fixes STRUCTURE. You invent all content.
+
+HARD RULES:
+1. Output ONLY the passage text: plain paragraphs separated by blank lines. No title,
+   no headers, no commentary, no questions.
+2. Produce EXACTLY the number of paragraphs specified, in order, each performing its
+   assigned function within its word range.
+3. The passage must read as a naturally occurring essay, not prose engineered to sound
+   difficult. Sentence-by-sentence it stays readable; the difficulty is architectural.
+4. Reader traps: each trap paragraph must genuinely INVITE the specified misreading
+   from a fast reader while a careful reader can see past it. Never state the
+   misreading; make it the path of least resistance.
+5. The thesis must first become visible exactly where the revelation schedule says,
+   in the manner it says.
+6. Stay entirely in the specified persona's voice. Do not use any forbidden phrase.
+7. No moralizing, no policy prescriptions, no direct address to the reader.
+8. HUMAN TEXTURE (a touch only — keep the intellect; break factory polish):
+   - Plant one concrete, slightly stubborn particular that is not immediately cashed
+     out as a system-metaphor (a room, job title, tool, dated practice, named place,
+     small physical action). It must earn its place in the argument.
+   - Allow one sentence that is plainer / more workmanlike than its neighbors — not
+     every sentence equally epigrammatic. One midstream re-steer is fine
+     ("— no: more precisely,").
+   - Mix sentence subjects; avoid a run of abstract openers ("The doctrine… The
+     residue… The mechanism… The ledger…"). Prefer some agents and concrete nouns
+     when the persona allows.
+   - Do not default to the stock cadence "I grant X. The trouble is Y. What remains
+     is Z." unless the movement plan requires that shape; rebuild the paragraph if
+     you hear yourself writing it.
+   - Soft-ban stock house metaphors (ledger / residue / aperture / altitude as
+     default furniture) unless the topic forces them; invent fresher local images.
+   - Still forbidden as "humanizing": typos, slang, throat-clearing, fake anecdotes,
+     "as someone who…", reader address, moral lectures.
+
+
+==============================================================================
+TIER: MEDIUM   —   USER MESSAGE (the structural contract)
+==============================================================================
+# blueprint  : BP_260822_1e26816b
+# family     : F44 "The Short Proof"  arc_shape=compressed_three  paragraphs=4
+# persona    : P09   stance: RS09 "The Consequence Traced"
+# topology   : QT08   register: bound_continuation   withholds_thesis=False
+# max_tokens : 1500   model role: big (claude-opus-5)
+------------------------------------------------------------------------------
+STRUCTURAL CONTRACT
+
+WRITING STANCE (this governs the SHAPE of the whole piece — obey it even where it makes the movement plan harder to satisfy):
+  The Consequence Traced: Begin from a decision, rule, or change that was already made, and follow what it did — to whom, in what order, with what delays. The argument is carried by the causal chain. Do not open by evaluating the decision.
+  Arc constraint: forward causal order; the author's verdict is withheld until the chain is complete
+
+TOPIC: the credibility of institutional expertise (mock topic)
+TIER: medium — one clean structural turn; readable throughout. A careful reader should reach every answer in one pass, and at most one question may require synthesis across paragraphs. The answers live in the passage, not behind it.
+ARGUMENT FAMILY: The Short Proof — Three paragraphs only: a claim, the one thing that would have to be true for it, and whether it is.
+
+PRIMARY TENSION: expertise versus lived experience (poles: expert, practitioner;
+fate by the end: left_open)
+SECONDARY TENSION: measurement versus meaning (fate: displaced)
+INTERACTION: the secondary tension surfaces inside the primary's strongest example
+INSTABILITY DEGREE: 0.3 (0 = neat closure, 1 = fully suspended; this governs
+how contested the MIDDLE of the passage feels — the ENDING's stance is governed by the
+closing posture directive below, not by this number)
+
+AUTHORIAL PERSONA: The Field Reporter Turned Theorist
+  Register: concrete sensory detail first, concepts second; theory arrives late and slightly distrusted
+  Sentence signature: scene-setting sentences with concrete nouns; abstraction quarantined to paragraph ends
+  Hedging style: hedges theory, never observation
+  Characteristic moves: lets an observed detail do the work of a syllogism; quotes practitioners against professors
+  Pronoun posture: first person as witness, not arguer
+  Metaphor domains to draw from: fieldwork, weather, roads
+  Texture: invent one small voice tell unique to THIS passage (a concrete detail
+  habit, a self-correction tic, or a slightly plainer register dip) so it does not
+  read as the generator's default house polish.
+
+TOTAL LENGTH (hard requirement): 500-550 words. Anything outside that
+range is rejected. The per-paragraph targets below are sized to land inside it —
+follow them and the total takes care of itself.
+
+RHETORICAL BEAT PLAN (hard requirement — this is the passage's argumentative shape, in order. Each beat may span or share paragraphs. Together they account for the whole argument: if you find yourself performing an operation that is not on this list, the beat it displaced is the one you still owe):
+  1. HISTORICAL_ORIGIN — opens by dating or attributing where an idea or practice came from
+  2. GENEALOGY_TRACED — follows a term or practice as it migrates across domains or eras
+  3. SELF_CORRECTION — visibly re-steers mid-argument, correcting what it just said
+  4. ANALOGY_EXTENDED — carries a single analogy across several sentences
+  5. MECHANISM_EXPLAINED — explains step by step how the thing actually works
+  6. SYMMETRY_BROKEN — shows two things treated as parallel are not in fact parallel
+  7. STAKES_RAISED — argues the matter now matters more, or to more parties, than it used to
+  8. CONCRETE_RETURN — closes by returning to a specific particular or named case
+
+PARAGRAPH MOVEMENT PLAN (4 paragraphs; rhythm: Trapdoor — even paragraphs; the last sentence of the second-to-last paragraph changes everything; the final paragraph lives in the aftermath):
+  Paragraph 1 (~132 words, cadence: staccato): role = claim made. Content brief: mock gist for claim made
+  Paragraph 2 (~131 words, cadence: mixed): role = evidence layer. Content brief: mock gist for evidence layer
+  Paragraph 3 (~131 words, cadence: staccato): role = condition isolated. Content brief: mock gist for condition isolated
+  Paragraph 4 (~131 words, cadence: staccato): role = condition tested. Content brief: mock gist for condition tested
+
+THESIS REVELATION: Convergence — two independent argumentative lines converge; the thesis is the intersection point, stated once
+The thesis first becomes visible in paragraph 3.
+Before that point, the reader must not be able to state the passage's final position.
+
+READER TRAPS (build these into the prose):
+  TR1 (paragraph 1): invite the misreading that "the opening framing is the author's settled view" [mechanism: missing_link]
+  TR2 (paragraph 2): invite the misreading that "the steelmanned rival position is endorsed" [mechanism: category_slip]
+  TR3 (paragraph 4): invite the misreading that "the ending resolves more than it does" [mechanism: missing_link]
+
+ENDING DIRECTIVE: The Open Ledger — enumerates what each side still owes the debate. Aperture: widens.
+CLOSING POSTURE (hard requirement): END by actually committing to a position: the final paragraph delivers the verdict, hedged only as much as honesty requires. Do NOT end by suspending judgment, opening a new question, or retreating into irresolution.
+FINAL SENTENCE: The final sentence must NOT be a detachable aphorism or epigram: it must stay syntactically and referentially tied to the paragraph's ongoing argument (e.g., it depends on a referent introduced in the preceding sentences). TEST IT: if the sentence could be lifted out and quoted on its own and still read as a complete thought, it fails — rewrite it so that it cannot. It must contain a pronoun, demonstrative, or definite reference that is unintelligible without the sentences before it. Do not end on a maxim, a reversal, a balanced antithesis, or a wry qualification of a general claim.
+
+FORBIDDEN WORDS/PHRASES (never use any of these): furthermore, moreover, in conclusion, it is a testament, tapestry, delve, paradigm shift, navigate the complexities, underscores, multifaceted, on the ground
+DIRECTIVES (hard requirements — satisfy every one):
+  - The nearest recent passages in this corpus average about 23-word sentences; deliberately differ from that profile — mix conspicuously shorter and longer sentences so the rhythm does not echo them.
+  - Choose a different opening altitude from the corpus norm: if the natural move is to begin on an abstract claim, open instead on a concrete particular (a case, an image), or vice versa.
+BEFORE YOU RESPOND: count the words in the passage you have written. If the
+total is not between 500 and 550, revise it into that range —
+expand or compress the argument itself, do not pad with filler or amputate a
+paragraph's function. Emit only the corrected passage.
+
+Write the passage now.
+
+==============================================================================
+TIER: HARD   —   USER MESSAGE (the structural contract)
+==============================================================================
+# blueprint  : BP_260822_73e3e10f
+# family     : F43 "The Long Definition"  arc_shape=analytic_definitional  paragraphs=5
+# persona    : P08   stance: RS08 "The Two Measurements"
+# topology   : QT21   register: quiet_qualification   withholds_thesis=False
+# max_tokens : 1600   model role: big (claude-opus-5)
+------------------------------------------------------------------------------
+STRUCTURAL CONTRACT
+
+WRITING STANCE (this governs the SHAPE of the whole piece — obey it even where it makes the movement plan harder to satisfy):
+  The Two Measurements: Set out two attempts to measure, count, or record the same thing that produced different answers. Take both methods seriously and show why each yields what it yields. The disagreement is the subject; do not resolve it by declaring one method deeper than the other.
+  Arc constraint: both procedures are described concretely before either is judged
+
+TOPIC: the credibility of institutional expertise (mock topic)
+TIER: hard — genuine interpretive work; the author's stance has to be tracked across the argument rather than read off any one sentence.
+ARGUMENT FAMILY: The Long Definition — Works out what a term must mean if it is to do the job asked of it, testing candidate definitions in sequence and keeping what survives.
+
+PRIMARY TENSION: expertise versus lived experience (poles: expert, practitioner;
+fate by the end: left_open)
+SECONDARY TENSION: measurement versus meaning (fate: displaced)
+INTERACTION: the secondary tension surfaces inside the primary's strongest example
+INSTABILITY DEGREE: 0.54 (0 = neat closure, 1 = fully suspended; this governs
+how contested the MIDDLE of the passage feels — the ENDING's stance is governed by the
+closing posture directive below, not by this number)
+
+AUTHORIAL PERSONA: The Analytic Miniaturist
+  Register: tiny distinctions; dry wit
+  Sentence signature: short declaratives; one two-word sentence per passage, placed where it hurts
+  Hedging style: no hedges; scope is controlled by precision instead
+  Characteristic moves: distinguishes two things everyone conflates, then rests the argument on the distinction; italicized-feeling emphasis achieved by word order alone
+  Pronoun posture: almost none; claims stand alone
+  Metaphor domains to draw from: watchmaking, grammar, chess
+  Texture: invent one small voice tell unique to THIS passage (a concrete detail
+  habit, a self-correction tic, or a slightly plainer register dip) so it does not
+  read as the generator's default house polish.
+
+TOTAL LENGTH (hard requirement): 500-550 words. Anything outside that
+range is rejected. The per-paragraph targets below are sized to land inside it —
+follow them and the total takes care of itself.
+
+RHETORICAL BEAT PLAN (hard requirement — this is the passage's argumentative shape, in order. Each beat may span or share paragraphs. Together they account for the whole argument: if you find yourself performing an operation that is not on this list, the beat it displaced is the one you still owe):
+  1. ABSTRACT_CLAIM_OPEN — opens on a general proposition stated in the abstract
+  2. TWO_CAMP_SPLIT — stages two named factions or schools taking opposite views of the same thing
+  3. STACCATO_TRIAD — three or more consecutive very short declarative sentences used for cadence
+  4. ANALOGY_EXTENDED — carries a single analogy across several sentences
+  5. COUNTEREXAMPLE_PRESSED — presses one specific case against the general claim
+  6. STAKES_RAISED — argues the matter now matters more, or to more parties, than it used to
+  7. SELF_CORRECTION — visibly re-steers mid-argument, correcting what it just said
+  8. CONCESSION_COSTED — settles for one side while naming precisely what that costs
+
+PARAGRAPH MOVEMENT PLAN (5 paragraphs; rhythm: Spiral — the same question revisited at three depths, paragraphs shrinking each pass):
+  Paragraph 1 (~163 words, cadence: mixed): role = job specified. Content brief: mock gist for job specified
+  Paragraph 2 (~102 words, cadence: long periodic): role = candidate tested. Content brief: mock gist for candidate tested
+  Paragraph 3 (~103 words, cadence: staccato): role = candidate tested. Content brief: mock gist for candidate tested
+  Paragraph 4 (~103 words, cadence: dense analytic): role = candidate tested. Content brief: mock gist for candidate tested
+  Paragraph 5 (~54 words, cadence: dense analytic): role = survivor kept at cost. Content brief: mock gist for survivor kept at cost
+
+THESIS REVELATION: Convergence — two independent argumentative lines converge; the thesis is the intersection point, stated once
+The thesis first becomes visible in paragraph 4.
+Before that point, the reader must not be able to state the passage's final position.
+
+READER TRAPS (build these into the prose):
+  TR1 (paragraph 1): invite the misreading that "the opening framing is the author's settled view" [mechanism: terminological_twin]
+  TR2 (paragraph 3): invite the misreading that "the steelmanned rival position is endorsed" [mechanism: phrase_misuse]
+  TR3 (paragraph 5): invite the misreading that "the ending resolves more than it does" [mechanism: terminological_twin]
+
+ENDING DIRECTIVE: The Practical Deflation — a grand theoretical movement lands on a deliberately small practical implication. Aperture: narrows.
+CLOSING POSTURE (hard requirement): END by affirming the position AND naming its concrete price in the same movement. The verdict stands; the ending is the bill, not a retreat from the verdict.
+FINAL SENTENCE: End on a quietly qualified sentence - a subordinate clause or hedge carries the final weight; no quotable pronouncement.
+
+FORBIDDEN WORDS/PHRASES (never use any of these): furthermore, moreover, in conclusion, it is a testament, tapestry, delve, paradigm shift, navigate the complexities, underscores, multifaceted, nuance, complex
+DIRECTIVES (hard requirements — satisfy every one):
+  - The nearest recent passages in this corpus average about 22-word sentences; deliberately differ from that profile — mix conspicuously shorter and longer sentences so the rhythm does not echo them.
+  - Choose a different opening altitude from the corpus norm: if the natural move is to begin on an abstract claim, open instead on a concrete particular (a case, an image), or vice versa.
+BEFORE YOU RESPOND: count the words in the passage you have written. If the
+total is not between 500 and 550, revise it into that range —
+expand or compress the argument itself, do not pad with filler or amputate a
+paragraph's function. Emit only the corrected passage.
+
+Write the passage now.
+
+==============================================================================
+TIER: ELITE   —   USER MESSAGE (the structural contract)
+==============================================================================
+# blueprint  : BP_260822_241de5bb
+# family     : F43 "The Long Definition"  arc_shape=analytic_definitional  paragraphs=5
+# persona    : P20   stance: RS07 "The Close Reading"
+# topology   : QT12   register: concrete_particular   withholds_thesis=False
+# max_tokens : 1600   model role: big (claude-opus-5)
+------------------------------------------------------------------------------
+STRUCTURAL CONTRACT
+
+WRITING STANCE (this governs the SHAPE of the whole piece — obey it even where it makes the movement plan harder to satisfy):
+  The Close Reading: Take a single document, passage, image, or artefact and read it closely. The argument is made by attending to particulars — what is chosen, what is omitted, what the arrangement assumes. Stay with the object; generalise only where the object forces it.
+  Arc constraint: the object is present in every paragraph
+
+TOPIC: the credibility of institutional expertise (mock topic)
+TIER: elite — architectural difficulty: late thesis, layered tensions, traps that reward re-reading. A strong reader should have to work.
+ARGUMENT FAMILY: The Long Definition — Works out what a term must mean if it is to do the job asked of it, testing candidate definitions in sequence and keeping what survives.
+
+PRIMARY TENSION: expertise versus lived experience (poles: expert, practitioner;
+fate by the end: left_open)
+SECONDARY TENSION: measurement versus meaning (fate: displaced)
+INTERACTION: the secondary tension surfaces inside the primary's strongest example
+INSTABILITY DEGREE: 0.57 (0 = neat closure, 1 = fully suspended; this governs
+how contested the MIDDLE of the passage feels — the ENDING's stance is governed by the
+closing posture directive below, not by this number)
+
+AUTHORIAL PERSONA: The Cold Enthusiast
+  Register: evident fascination expressed in deliberately flat prose; the gap is the voice
+  Sentence signature: monotone declaratives about astonishing content; no exclamation, ever
+  Hedging style: none; wonder is conveyed by what gets measured
+  Characteristic moves: states a staggering fact and moves on one beat too fast; precision as the only permitted form of awe
+  Pronoun posture: absent; the phenomenon is the subject
+  Metaphor domains to draw from: astronomy, deep time, instruments
+  Texture: invent one small voice tell unique to THIS passage (a concrete detail
+  habit, a self-correction tic, or a slightly plainer register dip) so it does not
+  read as the generator's default house polish.
+
+TOTAL LENGTH (hard requirement): 500-550 words. Anything outside that
+range is rejected. The per-paragraph targets below are sized to land inside it —
+follow them and the total takes care of itself.
+
+RHETORICAL BEAT PLAN (hard requirement — this is the passage's argumentative shape, in order. Each beat may span or share paragraphs. Together they account for the whole argument: if you find yourself performing an operation that is not on this list, the beat it displaced is the one you still owe):
+  1. HISTORICAL_ORIGIN — opens by dating or attributing where an idea or practice came from
+  2. TWO_CAMP_SPLIT — stages two named factions or schools taking opposite views of the same thing
+  3. LEVEL_RELOCATION — argues the parties are not disagreeing about what they think they are — the dispute AS POSED is misconceived, and the passage relocates it. Not merely naming a deeper cause; the question itself must be reframed
+  4. COUNTEREXAMPLE_PRESSED — presses one specific case against the general claim
+  5. AUTHORITY_QUOTED — cites or quotes a named figure, study, or document
+  6. ANALOGY_EXTENDED — carries a single analogy across several sentences
+  7. DISCLAIM_RESTATE — denies a strong reading of its own claim, then restates it ('not X; rather Y')
+  8. SYMMETRY_BROKEN — shows two things treated as parallel are not in fact parallel
+  9. BOUND_CONTINUATION — closes on a sentence still tied to the paragraph's ongoing argument
+
+PARAGRAPH MOVEMENT PLAN (5 paragraphs; rhythm: Long Corridor — single-minded linear build, no digressions; the door opens sideways in the final lines):
+  Paragraph 1 (~105 words, cadence: long periodic): role = job specified. Content brief: mock gist for job specified
+  Paragraph 2 (~105 words, cadence: mixed): role = candidate tested. Content brief: mock gist for candidate tested
+  Paragraph 3 (~105 words, cadence: dense analytic): role = candidate tested. Content brief: mock gist for candidate tested
+  Paragraph 4 (~105 words, cadence: staccato): role = candidate tested. Content brief: mock gist for candidate tested
+  Paragraph 5 (~105 words, cadence: staccato): role = survivor kept at cost. Content brief: mock gist for survivor kept at cost
+
+THESIS REVELATION: Convergence — two independent argumentative lines converge; the thesis is the intersection point, stated once
+The thesis first becomes visible in paragraph 4.
+Before that point, the reader must not be able to state the passage's final position.
+
+READER TRAPS (build these into the prose):
+  TR1 (paragraph 1): invite the misreading that "the opening framing is the author's settled view" [mechanism: nec_suff_swap]
+  TR2 (paragraph 3): invite the misreading that "the steelmanned rival position is endorsed" [mechanism: causal_inversion]
+  TR3 (paragraph 5): invite the misreading that "the ending resolves more than it does" [mechanism: nec_suff_swap]
+
+ENDING DIRECTIVE: The Anti-Conclusion — argues why concluding now would itself be an error. Aperture: holds.
+CLOSING POSTURE (hard requirement): END by affirming the position AND naming its concrete price in the same movement. The verdict stands; the ending is the bill, not a retreat from the verdict.
+FINAL SENTENCE: End on a specific concrete particular - an example, a named case, a physical detail - not on an abstraction or a maxim.
+
+FORBIDDEN WORDS/PHRASES (never use any of these): furthermore, moreover, in conclusion, it is a testament, tapestry, delve, paradigm shift, navigate the complexities, underscores, multifaceted, remarkable, fascinating, astonishing
+DIRECTIVES (hard requirements — satisfy every one):
+  - The nearest recent passages in this corpus average about 14-word sentences; deliberately differ from that profile — mix conspicuously shorter and longer sentences so the rhythm does not echo them.
+  - Choose a different opening altitude from the corpus norm: if the natural move is to begin on an abstract claim, open instead on a concrete particular (a case, an image), or vice versa.
+BEFORE YOU RESPOND: count the words in the passage you have written. If the
+total is not between 500 and 550, revise it into that range —
+expand or compress the argument itself, do not pad with filler or amputate a
+paragraph's function. Emit only the corrected passage.
+
+Write the passage now.

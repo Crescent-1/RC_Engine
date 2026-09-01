@@ -121,6 +121,33 @@ python -m rc_engine.cli vet manual_rc_sets/RC-MANUAL-260708-1.txt --ingest --for
 
 ---
 
+## 4b. The similarity screen (pre-export)
+
+After generation and before export, a cheap model reads each new passage beside
+the last 10 shipped ones and asks whether a person would notice the repetition.
+It judges **shape** — how the argument opens, where it turns, how it closes —
+and explicitly ignores topic overlap, because two passages on unrelated subjects
+can still be the same essay.
+
+- **green** -> exports normally to `exported_rc_sets/`
+- **red** -> exports to `exported_rc_sets/flagged_similar/` for a human look
+- **unchecked** -> the screen could not run; the set exports normally and says so
+
+It routes; it never blocks, deletes, or changes a set's status.
+
+```bash
+# runs automatically with every generate; to skip it:
+python -m rc_engine.cli generate --elite 2 --no-screen
+```
+
+Pinned to its own provider and model (`gpt-5.6-luna`) independent of
+`--provider`, on purpose: asking the model that wrote the passage whether the
+passage is repetitive asks the judgement that produced the sameness to notice
+it. **Needs `OPENAI_API_KEY` in `.env` and `pip install openai`** — without
+them every set comes back `unchecked` and exports normally.
+
+---
+
 ## 5. Export sets to files
 
 ```bash
@@ -144,6 +171,37 @@ python -m rc_engine.cli health
 # $0 — per-tier cost table: typical cost, worst case, enforced cap
 python -m rc_engine.cli estimate
 ```
+
+`health` also reports **move saturation** — how often each rhetorical move shows
+up in the trailing corpus. Any move above 55% is automatically banned in new
+render contracts; anything above 40% is flagged. This is the house-voice metric:
+when the first audit ran (2026-08-21) `LEVEL_RELOCATION` was in 96% of 85
+shipped sets and `EASY_READING_DEMOLISHED` in 86%.
+
+### Rhetorical-move audit
+
+Every passage gets a blind rhetorical-move signature — a sequence like
+`SCENE_PARTICULAR > TWO_CAMP_SPLIT > LEVEL_RELOCATION > HEDGED_APHORISM` read
+off the prose by a cheap model that is never shown the blueprint. It is the only
+channel that measures the passage's *argumentative choreography* rather than its
+plan, its topic, or its sentence statistics.
+
+```bash
+# extract signatures for any set that lacks one, then report ($0 for sets already done)
+python -m rc_engine.cli move-audit
+
+# report on what is already stored, no API calls
+python -m rc_engine.cli move-audit --report-only
+
+# also drop near-duplicate sets from the NOVELTY BASELINE (nothing is deleted;
+# rows, statuses and exported files are untouched — it only hides them from the
+# window new renders are scored against, keeping one set per cluster)
+python -m rc_engine.cli move-audit --quarantine
+```
+
+> Read the cluster report before running `--quarantine`. Note that the pair which
+> prompted this whole channel scored at the corpus *median* — a pairwise gate is
+> a backstop here, not the cure. The cure is the saturation bans above.
 
 ---
 

@@ -9,6 +9,8 @@ from .llm import CostLedger
 from .models import Blueprint
 from .registry import ComponentRegistry
 
+NL = chr(10)
+
 RENDER_SYSTEM = """You are a writer producing intellectually serious long-form prose
 (Aeon / LRB / Boston Review register) that will later be adapted into a CAT VARC
 reading-comprehension passage.
@@ -31,13 +33,47 @@ HARD RULES:
    in the manner it says.
 6. Stay entirely in the specified persona's voice. Do not use any forbidden phrase.
 7. No moralizing, no policy prescriptions, no direct address to the reader.
+8. ARCHITECTURE INVISIBILITY. The contract's structure is scaffolding for you, not
+   content for the reader. Never use wording whose main job is to announce the
+   passage's own argumentative shape — "the deeper issue", "the real point", "this
+   raises the question", "the first objection", "what remains is", "it is worth
+   pausing", "which brings us to", "the question then becomes" — or any equivalent
+   signpost. A movement plan beat is performed, never named. The reader should be
+   able to feel the turn without being told a turn is happening. The single
+   exception is a genre that genuinely signposts (a formal review, a legal brief),
+   and only where the persona already establishes that genre.
+9. NO FABRICATED SCHOLARSHIP. Do not invent empirical studies, statistics,
+   quotations, named scholars, institutions, dated experiments, or historical
+   events and present them as real. This is the most common way generated prose
+   fakes authority, and it makes the passage unusable as a test item: a
+   well-read candidate who knows the field is penalised for knowing it.
+   - Real, checkable references are fine when you are confident they are accurate
+     (Shannon at Bell Labs in 1948; Boas on Kwakwaka'wakw texts).
+   - Where the argument needs a case the world does not supply, keep it INTERNAL
+     and verifiable inside the passage: an unnamed practitioner, a described
+     document, a situation set out in enough detail that the reader can reason
+     about it from the text alone. "A county assistance office with four
+     caseworkers for a workload sized to nine" is legitimate; "a 2019 Michigan
+     State study found that 62% of claimants..." is not.
+   - When a beat plan asks you to quote an authority, satisfy it with a real
+     source, a described-but-unnamed one, or a document the passage itself
+     characterises — never with a plausible-sounding invention.
 8. HUMAN TEXTURE (a touch only — keep the intellect; break factory polish):
    - Plant one concrete, slightly stubborn particular that is not immediately cashed
      out as a system-metaphor (a room, job title, tool, dated practice, named place,
      small physical action). It must earn its place in the argument.
+     It must NOT be the opening sentence unless the first beat prescribes one.
+     Measured 2026-08-29: this instruction alone put a concrete particular in
+     sentence 1 of six of nine consecutive passages, none of which planned it —
+     the single most recognisable tell in the corpus. Place it where the
+     argument needs it, which is almost never the first thing a reader sees.
    - Allow one sentence that is plainer / more workmanlike than its neighbors — not
-     every sentence equally epigrammatic. One midstream re-steer is fine
-     ("— no: more precisely,").
+     every sentence equally epigrammatic. One midstream re-steer is fine, if it
+     arises from the argument rather than from a formula. Do NOT use a fixed
+     correction phrase: "no: more precisely" was given here as an illustration
+     until 2026-08-22 and was copied verbatim into four separate passages,
+     where the similarity screen then flagged it as a shared tell. Re-steer in
+     whatever words that sentence needs.
    - Mix sentence subjects; avoid a run of abstract openers ("The doctrine… The
      residue… The mechanism… The ledger…"). Prefer some agents and concrete nouns
      when the persona allows.
@@ -82,12 +118,14 @@ class PassageRenderer:
         ending = self.registry.get("ending", bp.ending_id)
         rhythm = self.registry.get("rhythm", bp.rhythm_id)
         revelation = self.registry.get("revelation", bp.revelation_id)
+        stance = (self.registry.get("render_stance", bp.render_stance_id)
+                  if bp.render_stance_id else None)
 
         movement_lines = []
         for p in bp.movement:
             fn_human = p.function.replace("_", " ").lower()
             movement_lines.append(
-                f"  Paragraph {p.para} ({p.len_words[0]}-{p.len_words[1]} words, "
+                f"  Paragraph {p.para} (~{p.words_label} words, "
                 f"cadence: {p.cadence.replace('_', ' ')}): role = {fn_human}."
                 + (f" Content brief: {p.gist}" if p.gist else ""))
 
@@ -100,11 +138,57 @@ class PassageRenderer:
         ts = bp.tension_system or {}
         primary = ts.get("primary", {})
         secondary = ts.get("secondary", {})
-        total_lo, total_hi = config.TIER_PARAMS[bp.tier]["passage_words"]
+        # Ask undershooting providers for a higher number than the band that
+        # validates — see config.PROVIDER_WORD_TARGET_OFFSET.
+        _off = config.PROVIDER_WORD_TARGET_OFFSET.get(config.ACTIVE_PROVIDER, 0)
+        band_lo = config.PASSAGE_WORD_MIN + _off
+        band_hi = config.PASSAGE_WORD_MAX + _off
+
+        # A PLAN, not a ban list. The 2026-08-21 build put the rhetorical
+        # grammar here as prohibitions — stance forbidden_beats plus up to four
+        # saturation bans — and the renderer ignored all of them
+        # (RC-ELITE-260821-0050 performed every banned move and closed on a
+        # forbidden aphorism, twice). The paragraph movement plan below is
+        # obeyed reliably in the same prompt, so the grammar is prescribed in
+        # the same shape as that plan and audited the same way.
+        beat_plan_block = ""
+        if bp.move_plan:
+            lines = NL.join(
+                f"  {i}. {m} — {config.RHETORICAL_MOVES.get(m, '')}"
+                for i, m in enumerate(bp.move_plan, start=1))
+            first, last = bp.move_plan[0], bp.move_plan[-1]
+            # The first and last beat are stated again, on their own, ABOVE the
+            # list. Measured 2026-08-29 over the nine sets of 08-24..08-28, the
+            # renderer obeyed the planned opening 2/9 and the planned closing
+            # 1/9 while satisfying every beat somewhere in the middle — so the
+            # list alone reads as an unordered menu however it is labelled.
+            beat_plan_block = (
+                f"FIRST SENTENCE — {first}: "
+                f"{config.RHETORICAL_MOVES.get(first, '')}.{NL}"
+                f"FINAL SENTENCE — {last}: "
+                f"{config.RHETORICAL_MOVES.get(last, '')}.{NL}"
+                f"These two are positional and not negotiable. Do not open on a "
+                f"concrete scene, object, or document unless the first beat "
+                f"above literally says so.{NL}{NL}"
+                f"RHETORICAL BEAT PLAN (hard requirement — this is the "
+                f"passage's argumentative shape, in order. Each beat may span "
+                f"or share paragraphs. Together they account for the whole "
+                f"argument: if you find yourself performing an operation that "
+                f"is not on this list, the beat it displaced is the one you "
+                f"still owe):{NL}{lines}{NL}{NL}")
+
+        stance_block = ""
+        if stance:
+            stance_block = (
+                f"WRITING STANCE (this governs the SHAPE of the whole piece — obey it "
+                f"even where it makes the movement plan harder to satisfy):{NL}"
+                f"  {stance['name']}: {stance['frame']}{NL}"
+                f"  Arc constraint: {stance['arc_constraint']}{NL}{NL}")
 
         return f"""STRUCTURAL CONTRACT
 
-TOPIC: {bp.topic}
+{stance_block}TOPIC: {bp.topic}
+TIER: {bp.tier} — {config.TIER_DIFFICULTY_CHARACTER.get(bp.tier, '')}
 ARGUMENT FAMILY: {family['name']} — {family['core']}
 
 PRIMARY TENSION: {primary.get('axis', 'n/a')} (poles: {', '.join(primary.get('poles', []))};
@@ -126,10 +210,11 @@ AUTHORIAL PERSONA: {persona['name']}
   habit, a self-correction tic, or a slightly plainer register dip) so it does not
   read as the generator's default house polish.
 
-TOTAL LENGTH: {total_lo}-{total_hi} words across all paragraphs (the per-paragraph
-ranges below sum into this band — stay inside it).
+TOTAL LENGTH (hard requirement): {band_lo}-{band_hi} words. Anything outside that
+range is rejected. The per-paragraph targets below are sized to land inside it —
+follow them and the total takes care of itself.
 
-PARAGRAPH MOVEMENT PLAN ({len(bp.movement)} paragraphs; rhythm: {rhythm['name']} — {rhythm['cadence_note']}):
+{beat_plan_block}PARAGRAPH MOVEMENT PLAN ({len(bp.movement)} paragraphs; rhythm: {rhythm['name']} — {rhythm['cadence_note']}):
 {chr(10).join(movement_lines)}
 
 THESIS REVELATION: {revelation['name']} — {revelation['mechanism']}
@@ -144,7 +229,12 @@ CLOSING POSTURE (hard requirement): {self.registry.closing_postures[family['clos
 FINAL SENTENCE: {self._register_instruction(bp)}
 
 FORBIDDEN WORDS/PHRASES (never use any of these): {', '.join(forbidden)}
-{("REVISION DIRECTIVES from the previous attempt (fix these precisely):" + chr(10) + chr(10).join('  - ' + d for d in directives)) if directives else ''}
+{("DIRECTIVES (hard requirements — satisfy every one):" + chr(10) + chr(10).join('  - ' + d for d in directives)) if directives else ''}
+BEFORE YOU RESPOND: count the words in the passage you have written. If the
+total is not between {band_lo} and {band_hi}, revise it into that range —
+expand or compress the argument itself, do not pad with filler or amputate a
+paragraph's function. Emit only the corrected passage.
+
 Write the passage now."""
 
 

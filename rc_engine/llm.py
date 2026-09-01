@@ -123,11 +123,36 @@ class LLMClient:
 
         ledger.guard(stage, len(system) + len(user), model, max_tokens)
         # Sonnet 5 runs adaptive thinking by default when `thinking` is omitted;
-        # thinking tokens count against max_tokens, so every small-ceiling call
-        # stops at max_tokens ("truncated"). The budget model assumes no thinking.
+        # Opus 4.8 (the pinned OPUS) does not, but Opus 5 does — so this stays
+        # explicit rather than relying on the omission default, and survives
+        # repinning OPUS either way. Thinking tokens count against max_tokens,
+        # so every
+        # small-ceiling call would stop at max_tokens ("truncated") and bill
+        # the thinking at output rates. The whole budget model — the stage
+        # ceilings, TIER_BUDGET_USD, and the worst-case guard above — assumes
+        # no thinking, so turn it off explicitly rather than by omission.
+        #
+        # `disabled` is only accepted at effort <= high; STAGE_EFFORT uses
+        # "low" or the API default (high), so this stays valid. Turning
+        # thinking ON is a deliberate quality/cost decision: it needs bigger
+        # max_tokens and bigger tier budgets, not just this flag.
         extra: dict = {}
-        if model == config.SONNET:
-            extra["thinking"] = {"type": "disabled"}
+        if model in (config.SONNET, config.OPUS):
+            if (model == config.OPUS
+                    and getattr(config, "OPUS_THINKING", False)
+                    and stage in getattr(config, "THINKING_STAGES", ())):
+                # Experiment path only (RC_ENGINE_OPUS_THINKING). "adaptive" is
+                # the sole on-mode on Opus 4.8/5 — budget_tokens is removed and
+                # returns 400.
+                #
+                # Gated on STAGE, not just model. Both render and questions run
+                # on OPUS, so keying this on the model alone turned thinking on
+                # for render too — while only questions got the raised ceiling —
+                # and render truncated. Every stage named here has a matching
+                # ceiling in config._THINKING_CEILINGS.
+                extra["thinking"] = {"type": "adaptive"}
+            else:
+                extra["thinking"] = {"type": "disabled"}
         # Optional effort (output_config) — e.g. medium-tier Opus at "low".
         # Resolved from context["tier"] when present, else from blueprint.tier.
         effort = self._resolve_effort(stage, context)
@@ -255,19 +280,61 @@ class MockLLMClient:
             "notes": "mock compliance pass",
         })
 
+    def _seed_classify(self, ctx) -> str:
+        # Vary the genre across mock seeds so a dry run exercises the topic
+        # shape filter rather than always taking the same branch.
+        from . import config
+        genres = sorted(g for g in config.SEED_GENRES if g != "unknown")
+        rng = random.Random(str(ctx.get("seed", ""))[:200])
+        g = rng.choice(genres)
+        return json.dumps({
+            "genre": g, "domain": rng.choice(["science", "history", "social"]),
+            "concrete_particulars": ["a mock particular"],
+            "bipolar_dispute_available": rng.random() < 0.5,
+            "one_line": "mock seed classification"})
+
+    def _move_signature(self, ctx) -> str:
+        # Deterministic per passage, but genuinely varied across passages —
+        # a mock that returned one fixed signature would make every selftest
+        # set breach the move_signature gate against its siblings.
+        from . import config
+        vocab = list(config.RHETORICAL_MOVES)
+        rng = random.Random(ctx.get("passage", "")[:400])
+        k = rng.randint(5, 8)
+        return json.dumps({"moves": rng.sample(vocab, k)})
+
+    def _answerability(self, ctx) -> str:
+        # The mock's questions are canned filler, so there is nothing real to
+        # judge: report clean rather than inventing warnings that would make
+        # every selftest set look defective.
+        n = len(ctx.get("questions") or []) or 8
+        return json.dumps({"questions": [
+            {"q": i, "answerable": True, "unique": True,
+             "contenders": [], "note": "mock"} for i in range(1, n + 1)]})
+
+    def _solver_tiebreak(self, ctx) -> str:
+        return json.dumps({"supported": "ambiguous", "evidence": "",
+                           "reason": "mock tiebreak"})
+
     def _questions(self, ctx) -> str:
         bp = ctx["blueprint"]
         mechs = ctx["mechanisms"]
         rng = random.Random(bp.blueprint_id + "q")
         questions = []
         for i, slot in enumerate(ctx["slots"], start=1):
+            # EXCEPT slots invert the contract: the wrong options are the
+            # statements the passage supports (see question_engine._validate).
+            is_except = slot["type"] == "except_scan"
             wrong = []
             for j in range(3):
+                mech = "passage_supported" if is_except else mechs[j % 2]
                 wrong.append({
                     "text": f"A plausible but flawed reading of the passage's position on point {i}.{j + 1}, "
                             f"phrased at matching register and length.",
-                    "mechanism": mechs[j % 2],
-                    "why_wrong": f"{mechs[j % 2]} — distorts the passage's actual bridge at that point.",
+                    "mechanism": mech,
+                    "why_wrong": (f"{mech} — the passage states this directly at that point."
+                                  if is_except else
+                                  f"{mech} — distorts the passage's actual bridge at that point."),
                 })
             questions.append({
                 "q": i, "slot_type": slot["type"],
@@ -289,7 +356,7 @@ class MockLLMClient:
             "domain": "sociology_institutions_modernity",
             "answers": [
                 {"q": i + 1, "answer": key[i], "confidence": "certain", "reasoning": "mock agreement"}
-                for i in range(6)
+                for i in range(config.QUESTIONS_PER_SET)
             ],
         })
 

@@ -38,7 +38,7 @@ What vet can and cannot check without the API: it runs the rhythm, stylometry
 (voice), embedding (meaning), distractor-mechanism, and letter/length audits.
 It cannot see paragraph-function structure or the commitment curve (those need
 the compliance model), so keep AVOIDing recent argument *structures* yourself.
-- Works on Opus 4.8, Sonnet, and Haiku on the website; Opus gives the closest match to
+- Works on Opus 5, Sonnet, and Haiku on the website; Opus gives the closest match to
   your elite tier. On Haiku, expect to reject/regenerate more often.
 
 === PROMPT START ===
@@ -92,12 +92,20 @@ Choose and commit internally to:
 
 ## STAGE 2 — Passage
 
+LENGTH (all tiers): **500-550 words**. Outside that range the set is rejected.
+Count before you output. Length does not vary by tier — only difficulty does.
+
 Tier parameters:
 | Tier | Words | Paragraphs | Difficulty character |
 |---|---|---|---|
-| medium | 400-450 | 4 | one clean structural turn; readable throughout |
-| hard | 450-500 | 4-5 | genuine interpretive work; author's stance requires tracking |
+| medium | 500-550 | 4-5 | one clean structural turn; readable throughout |
+| hard | 500-550 | 4-5 | genuine interpretive work; author's stance requires tracking |
 | elite | 500-550 | 4-5 | architectural difficulty: late thesis, layered tensions, traps |
+
+On a MEDIUM set the questions carry the tier too, not just the passage: a careful reader
+should reach every answer in one pass, at most one question may require synthesis across
+paragraphs, and the answers live in the passage rather than behind it. No what-if-deleted
+and no decoy questions at medium.
 
 Hard rules:
 - Reads as a naturally occurring essay (Aeon / LRB / Boston Review register), not prose
@@ -127,14 +135,55 @@ Hard rules:
   - Still forbidden as "humanizing": typos, slang, emojis, throat-clearing, fake childhood
     anecdotes, "as someone who…", direct reader address, moral lectures.
 
-## STAGE 3 — Questions (exactly 6)
+## STAGE 3 — Questions (exactly 8)
 
-Slot the 6 questions across distinct types — use at least 5 different types per set:
-central thesis; author's overall stance/posture; function of a specific
-paragraph/sentence/analogy in the argument's structure; author's view vs. a reported view;
-implicit assumption; meaning of a phrase in context; application/extension to a new case;
-what-if-deleted (how the argument changes without paragraph X); strengthen/weaken;
-detail check.
+**Q1 is ALWAYS the central-thesis / main-idea question.** It opens every set. It must be
+answerable only by integrating the whole passage — never by matching one sentence.
+
+Slot the remaining 7 across distinct types — use at least 6 different types per set.
+Weight them the way recent CAT papers do (2023-2025 averages, per ~16 RC questions):
+inference dominates at ~53%, then purpose/application/weaken/tone ~16%, detail ~14%,
+main idea ~7%, vocabulary-in-context ~6%, EXCEPT ~4%. In an 8-question set that works out
+to roughly 4 inference-family questions, 1 detail, 1 purpose/function, and 1 rotating
+slot (phrase-in-context, or occasionally EXCEPT or tone).
+The list below is the CAT repertoire; the example stem after each is the form the real
+exam uses, so write stems that look like these rather than inventing house phrasings:
+
+- central thesis — "Which one of the following best captures the central idea of the passage?"
+- EXCEPT / NOT — "All of the following are true of X, EXCEPT:" / "Which one of the
+  following does NOT represent ...?"
+- primary purpose — "Which one of the following best explains the primary purpose of the
+  discussion of X?" / "What is the purpose of this example?"
+- undermine the central idea — "The central idea of the passage would be undermined if:" /
+  "Which one of the following, if true, would best invalidate the main argument?"
+- author's stance/posture — "The author's attitude towards X can best be described as:"
+- structural function — "What is the structural function of this sentence in the argument?"
+- author's view vs. a reported view — "Which view does the author report or steelman
+  rather than hold?"
+- inference in context — "In context, the claim that '...' most nearly means that:"
+- meaning of a phrase in context — "'...' most nearly means:"
+- application/extension to a new case
+- what-if-deleted (how the argument changes without paragraph X)
+- strengthen/weaken a specified claim
+- detail check — "According to the passage, why does X happen?"
+
+DO NOT write assumption questions. Anything of the form "which unstated premise must
+hold", "the argument depends on which assumption", or "the move from X to Y assumes" is
+out — that is a GMAT/LSAT critical-reasoning form, not a CAT RC form, and it does not
+appear in recent papers. If the passage turns on an enabling condition, ask about it as
+an inference or a structural-function question instead.
+
+INCLUDE AT LEAST ONE EXCEPT/NOT QUESTION per set. Its option contract is inverted: the
+three WRONG options are each statements the passage directly supports, and the CORRECT
+option is the one it does not. Mark the three wrong options with the mechanism
+`passage_supported` and cite the supporting sentence in each explanation. The correct
+option must fail for a nameable reason (scope, stance, causality, level) — never because
+it is merely unmentioned, and never because it is lexically extreme.
+
+VARY THE ORDER. Do not open with the thesis question and close with the stance question;
+that pairing is what made earlier sets read as the same six questions every time. Put the
+whole-passage question (thesis, primary purpose or undermine) wherever the passage's
+architecture makes it land hardest — every set needs exactly one, not necessarily first.
 
 Each question: 4 options (A-D), exactly one correct.
 
@@ -148,19 +197,23 @@ genuinely choose. Lexical extremity ("always", "never") is a wasted distractor �
 traps from the passage's own logic, especially the two misreadings planted in Stage 1.
 
 Do not let the correct option be systematically the most hedged or most qualified: in at
-least 2 of the 6 questions, phrase the correct option more flatly than its strongest
+least 2 of the 8 questions, phrase the correct option more flatly than its strongest
 distractor, so "most cautious = right" never becomes a tell.
 
 ## STAGE 4 — Self-audit (fix violations before output; do not mention the audit)
 
-1. Paragraph count and word range match the tier; thesis first visible where planned.
+1. Paragraph count matches the tier and the passage is 500-550 words (count it —
+   this is a hard gate, not a guideline); thesis first visible where planned.
 2. Closing posture realized as committed; final sentence obeys its register.
-3. The correct option is the strictly LONGEST option in at most 2 of 6 questions —
+3. The correct option is the strictly LONGEST option in at most 2 of 8 questions —
    rewrite option lengths until this holds.
-3b. Within each question, AIM for a tight length band: word spread (longest minus
-   shortest) at most 8 words AND longest/shortest word ratio at most 1.25. (The vet
-   gate warns — and then blocks ingestion without --force — once spread exceeds 8 or
-   the ratio exceeds 1.35, so aiming at 1.25 leaves buffer for ordinary phrasing.)
+3b. Within each question, all four options must be within **3 words of each other**
+   (longest minus shortest ≤ 3). You choose how long the options are for a given
+   question — they simply have to match each other. Count the words; don't eyeball it.
+   If one option needs a qualifier the others don't, give the others their own
+   substance rather than letting that one run longer. (The vet gate is looser — it
+   warns, and blocks ingestion without --force, once spread exceeds 8 or the
+   longest/shortest ratio exceeds 1.35 — so aiming at 3 leaves real buffer.)
    Rewrite option lengths until every question is inside the band.
 3c. The THESIS/main-idea question's correct option must NOT be the strictly
    longest of its four options (this tell is also budgeted corpus-wide at 1-in-3).
@@ -178,6 +231,16 @@ distractor, so "most cautious = right" never becomes a tell.
 7. Human texture present: at least one stubborn concrete particular, at least one plainer
    sentence, and no unbroken abstract-noun parade or stock "grant / trouble / remains"
    cadence unless the blueprint required it.
+8. No assumption question anywhere in the set (see Stage 3) — re-read all eight stems and
+   confirm none asks for an unstated premise.
+8b. Q1 is the central-thesis / main-idea question, and its correct option is not the
+   longest of its four (see 3c).
+9. EXCEPT/NOT is OPTIONAL and should be rare — it appeared in CAT 2021 and 2023 but not
+   in 2024 or 2025, roughly 4% of RC questions. Include one in about one set in four,
+   not in every set. Where one IS included, each of its three wrong options must be
+   traceable to a specific sentence of the passage. If you cannot point at the sentence,
+   the option is not passage-supported and the question is broken.
+10. The set does not open on the thesis question AND close on the stance question.
 
 ## OUTPUT FORMAT (produce exactly this, nothing else)
 
@@ -193,7 +256,7 @@ Q1. <question>
 (C) ...
 (D) ...
 
-<Q2-Q6 in the same shape>
+<Q2-Q8 in the same shape>
 
 [ANSWER KEY & ELIMINATION LOGIC]
 
@@ -202,7 +265,7 @@ Q1 — Correct answer: (X)
   (Y) <mechanism> — <why a strong reader might pick it and why it fails>
   <all four options covered>
 
-<Q2-Q6 in the same shape>
+<Q2-Q8 in the same shape>
 
 [BLUEPRINT NOTE]
 Structure: <one line> | Posture: <value> | Thesis visible: para <n> | Traps: <mechanisms>

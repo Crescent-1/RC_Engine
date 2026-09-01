@@ -24,8 +24,18 @@ Also:
 - list any forbidden phrases that appear,
 - classify the passage's CLOSING POSTURE: the stance a careful reader takes away from
   the final paragraph, as exactly one of the labels defined in the input,
-- judge whether the FINAL sentence is a detachable aphorism: terse, quotable,
-  standalone — it would survive out of context as an epigram.
+- judge the FINAL sentence against BOTH parts of the aphorism test. It is an
+  aphorism only if BOTH are true:
+    (a) GENERALIZES — it states something about how things are in general, not
+        about this passage's particular case, people, place, or object.
+    (b) SELF-CONTAINED — every referring expression in it is intelligible to
+        someone who has not read the passage. If it contains a proper noun, a
+        pronoun, a demonstrative ("that", "this", "such"), or a definite noun
+        phrase that only the passage introduces, it is NOT self-contained.
+  Report the specific expression that ties it to the passage, if any.
+  Terse and quotable are NOT sufficient: "Start with the countersignature line
+  on Form PA 1663, still blank, still required." is short and forceful but
+  names a passage-specific object, so it fails (b) and is not an aphorism.
 
 Respond ONLY with valid JSON, no markdown fences:
 {
@@ -36,8 +46,34 @@ Respond ONLY with valid JSON, no markdown fences:
   "forbidden_tics_found": [],
   "closing_posture_guess": "<one label from CLOSING POSTURE LABELS>",
   "final_line_is_aphorism": false,
+  "aphorism_test": {"generalizes": false, "self_contained": false, "back_reference": null},
   "notes": "max 30 words"
 }"""
+
+
+MOVE_SIGNATURE_SYSTEM = """You read a finished essay passage and report the sequence of
+RHETORICAL MOVES it performs, in the order they occur.
+
+A rhetorical move is an OPERATION the prose performs on its argument — how it opens,
+how it turns, how it closes. It is not the topic, and it is not the paragraph count.
+
+Rules:
+- Use ONLY labels from the vocabulary given. Never invent one.
+- Report moves in the order they appear. A passage typically performs 5-9 of them.
+- One move per distinct operation, not one per paragraph. A paragraph may perform two;
+  two paragraphs may jointly perform one.
+- Do not report a move you cannot point to specific sentences for.
+- Some labels are deliberately narrow and have a milder neighbour. Do not reach
+  for the strong label when the mild one fits: LEVEL_RELOCATION requires that
+  the dispute AS POSED is wrong and gets reframed, not merely that a deeper
+  cause is named — that is UNDERLYING_CAUSE_NAMED. When a passage says "X is
+  the symptom, Y is the real cause", that is UNDERLYING_CAUSE_NAMED. Reserve
+  LEVEL_RELOCATION for "these people are not actually arguing about X at all".
+- Judge only what is on the page. You are not being shown any plan, and there is no
+  intended answer to recover — report what the prose does.
+
+Respond ONLY with valid JSON, no markdown fences:
+{"moves": ["LABEL", "LABEL", ...]}"""
 
 
 class ComplianceAuditor:
@@ -45,10 +81,11 @@ class ComplianceAuditor:
         self.llm = llm
         self.registry = registry
 
-    def audit(self, passage: str, bp: Blueprint, ledger: CostLedger) -> RealizedStructure:
+    def audit(self, passage: str, bp: Blueprint, ledger: CostLedger,
+              realized_moves: list[str] | None = None) -> RealizedStructure:
         model, max_tokens = config.STAGE_CONFIG["compliance"][bp.tier]
         plan_lines = "\n".join(
-            f"  para {p.para}: function={p.function}, words {p.len_words[0]}-{p.len_words[1]}"
+            f"  para {p.para}: function={p.function}, words {p.words_label}"
             for p in bp.movement)
         trap_lines = "\n".join(
             f"  {t['trap_id']} @ para {t['anchor_para']}: {t['invited_misreading']}"
@@ -68,9 +105,104 @@ class ComplianceAuditor:
                                 context={"blueprint": bp, "passage": passage,
                                          "planned_posture": self.registry.posture_of(bp.family_id)})
         data = extract_json(text)
-        return self._score(data, passage, bp)
+        return self._score(data, passage, bp, realized_moves or [])
 
-    def _score(self, data: dict, passage: str, bp: Blueprint) -> RealizedStructure:
+    @staticmethod
+    def _final_line_is_bound(passage: str) -> str | None:
+        """Cheap structural check for a back-reference in the final sentence.
+
+        Runs regardless of what the classifier said: a final line that reuses a
+        capitalised name or a distinctive content word first introduced earlier
+        in the passage cannot be read out of context, whatever it sounds like.
+        Returns the tying expression, or None."""
+        import re as _re
+        nl = chr(10)
+        paras = [x for x in passage.split(nl + nl) if x.strip()]
+        if not paras:
+            return None
+        sentences = _re.split(r"(?<=[.!?])" + chr(32), paras[-1].strip())
+        final = sentences[-1] if sentences else ""
+        earlier = " ".join(paras[:-1]) + " " + " ".join(sentences[:-1])
+        if not final or not earlier.strip():
+            return None
+        earlier_l = earlier.lower()
+
+        # (a) demonstrative pointing outside the sentence: "that building",
+        #     "this refusal", "such cases". These resolve only in the passage.
+        #     Only counts after a preposition or a comma: "in that building"
+        #     points outward, but the "that" in "acknowledged that institutions
+        #     outlive their reasons" is a complementizer and that sentence is
+        #     perfectly self-contained. A demonstrative in subject position
+        #     ("Such confidence is rarely earned twice") generalizes rather than
+        #     refers, so it is not evidence of binding either.
+        dem = _re.search(
+            r"(?:[,;]\s+|\b(?:in|on|at|of|for|with|from|by|about|under|behind|"
+            r"inside|against|across)\s+)(that|this|these|those|such)\s+"
+            r"([a-z][a-z-]{2,})\b", final.lower())
+        if dem and dem.group(2) not in ("is", "was", "are", "were", "much", "far"):
+            return dem.group(1) + " " + dem.group(2)
+
+        # (b) a pronoun subject with nothing in the sentence to resolve it.
+        #     Cataphoric "It is a truth universally acknowledged that ..." is
+        #     fine — the that-clause supplies the referent inside the sentence —
+        #     so only flag when no such clause follows.
+        pro = _re.match(r"\s*(It|This|That|They|These|Those|He|She)\b", final)
+        if pro and not _re.search(r"\b(that|which|who|to|when|if)\b", final[len(pro.group(0)):]):
+            return pro.group(1)
+
+        # proper nouns / numbered forms mid-sentence
+        for tok in _re.findall(r"\b[A-Z][A-Za-z0-9'-]{2,}\b", final[1:]):
+            if tok.lower() in earlier_l:
+                return tok
+        # a rare-ish content word carried over verbatim
+        for tok in _re.findall(r"\b[a-z]{7,}\b", final.lower()):
+            if earlier_l.count(tok) >= 2:
+                return tok
+        return None
+
+    @staticmethod
+    def _register_instruction(register_id: str) -> str:
+        for reg_id, _w, instruction in config.CLOSING_REGISTERS:
+            if reg_id == register_id:
+                return instruction
+        return config.CLOSING_REGISTERS[0][2]
+
+    def move_signature(self, passage: str, ledger: CostLedger,
+                       tier: str = "hard") -> list[str]:
+        """Blind rhetorical-move read of the passage. Sees the prose and nothing
+        else — no blueprint, no persona, no plan. That blindness is the whole
+        point: `movement_string` became a near-duplicate of blueprint similarity
+        precisely because its auditor was handed the plan first.
+
+        Returns [] on any failure; a missing signature is treated downstream as
+        'unknown structure', never as 'similar structure'."""
+        model, max_tokens = config.STAGE_CONFIG["move_signature"][tier]
+        nl = chr(10)
+        vocab = nl.join(f"  {k}: {v}" for k, v in config.RHETORICAL_MOVES.items())
+        user = f"VOCABULARY:{nl}{vocab}{nl}{nl}PASSAGE:{nl}{passage}"
+        try:
+            text, _ = self.llm.call(ledger, "move_signature", model, max_tokens,
+                                    MOVE_SIGNATURE_SYSTEM, user,
+                                    context={"passage": passage})
+            data = extract_json(text)
+        except Exception as e:
+            # Never abort an RC over a sub-cent stage — but never fail quietly
+            # either. An empty signature disables the channel that does most of
+            # the novelty work now, and a silent one looks exactly like a
+            # passage that simply scored well.
+            print(f"  [move-signature] extraction failed ({type(e).__name__}: {e}) "
+                  f"- this passage will not be scored on rhetorical grammar")
+            return []
+        moves = data.get("moves", [])
+        if not isinstance(moves, list):
+            return []
+        # drop anything outside the closed vocabulary — an invented label would
+        # never match another passage's and would silently inflate novelty
+        return [m for m in (str(x).strip().upper() for x in moves)
+                if m in config.RHETORICAL_MOVES]
+
+    def _score(self, data: dict, passage: str, bp: Blueprint,
+               realized_moves: list[str] | None = None) -> RealizedStructure:
         n = len(bp.movement)
         paras_report = data.get("paragraphs", [])[:n]
         real_paras = [p for p in passage.split("\n\n") if p.strip()]
@@ -93,14 +225,48 @@ class ComplianceAuditor:
                          if t in {x["trap_id"] for x in bp.trap_map}]
         tics = data.get("forbidden_tics_found", [])
 
+        # ---- beat-plan compliance (2026-08-22) -----------------------------
+        # Scored from the BLIND extraction, so this measures the prose and not a
+        # restatement of the plan. Missing beats become directives exactly the
+        # way missing paragraph functions do — the loop the renderer responds to.
+        realized_moves = list(realized_moves or [])
+        beat_score = 1.0
+        missing_beats: list[str] = []
+        if bp.move_plan and realized_moves:
+            got = set(realized_moves)
+            missing_beats = [m for m in bp.move_plan if m not in got]
+            beat_score = 1.0 - len(missing_beats) / len(bp.move_plan)
+
+        # ---- POSITION of the first and last beat (2026-08-29) --------------
+        # Membership alone was the whole check until now, and membership is not
+        # what a reader hears. Measured over the nine sets shipped 08-24..08-28:
+        # the composer planned SCENE_PARTICULAR as the opening beat 0 times and
+        # the prose opened on it 6 times; CONCRETE_RETURN was planned to close
+        # once and closed five. Every one of those scored a PERFECT beat_score,
+        # because the displaced beat still appeared somewhere in the middle.
+        # Openings obeyed 2/9, closings 1/9 — against a contract that already
+        # calls the plan a "hard requirement".
+        #
+        # Only the first and last beat are position-checked. Interior order is
+        # genuinely the writer's business, but the opening gambit and the final
+        # cadence are exactly the two beats a reader recognises as house voice.
+        opening_ok = closing_ok = True
+        if bp.move_plan and realized_moves:
+            opening_ok = realized_moves[0] == bp.move_plan[0]
+            closing_ok = realized_moves[-1] == bp.move_plan[-1]
+
         # weighted structural score
         fn_score = sum(matches) / n if n else 0.0
         thesis_ok = (isinstance(realized_thesis, int)
                      and abs(realized_thesis - planned_thesis) <= 1)
         trap_score = len(traps_present) / max(1, len(bp.trap_map))
         para_count_ok = len(real_paras) == n
-        f1 = 0.55 * fn_score + 0.15 * (1.0 if thesis_ok else 0.0) + \
-             0.20 * trap_score + 0.10 * (1.0 if para_count_ok else 0.0)
+        # beat_score takes its weight from paragraph functions and traps: the
+        # rhetorical grammar is the axis the corpus actually collapsed on, so it
+        # earns a share comparable to the trap map.
+        f1 = 0.45 * fn_score + 0.12 * (1.0 if thesis_ok else 0.0) + \
+             0.18 * trap_score + 0.10 * (1.0 if para_count_ok else 0.0) + \
+             0.15 * beat_score
         if tics:
             f1 = min(f1, 0.5)
 
@@ -126,12 +292,94 @@ class ComplianceAuditor:
                 f"{t['invited_misreading']}")
         if tics:
             directives.append(f"remove forbidden phrases: {', '.join(map(str, tics))}")
+        if missing_beats and beat_score < config.MOVE_PLAN_MIN_REALIZED:
+            named = "; ".join(
+                f"{m} ({config.RHETORICAL_MOVES.get(m, '')})" for m in missing_beats)
+            directives.append(
+                f"the passage must perform these planned rhetorical moves, which "
+                f"a blind reading of it could not find: {named}")
 
         posture_guess = str(data.get("closing_posture_guess", "")).strip()
         if posture_guess not in self.registry.closing_postures:
             posture_guess = ""   # junk -> unusable; downstream checks skip
+        # An aphorism needs BOTH legs of the test. Before 2026-08-22 this was a
+        # single "is it terse and quotable" judgement, and it over-fired badly:
+        # on the 2026-08-22 batch it called all three finals aphorisms when each
+        # had in fact obeyed its assigned register — including
+        # "Start with the countersignature line on Form PA 1663, still blank,
+        # still required.", which names an object introduced earlier in the
+        # passage. Every aphorism-rate figure produced before that date is
+        # inflated by an unknown amount.
         aph = data.get("final_line_is_aphorism")
         aph = aph if isinstance(aph, bool) else None
+        test = data.get("aphorism_test")
+        if isinstance(test, dict):
+            generalizes = test.get("generalizes")
+            contained = test.get("self_contained")
+            if isinstance(generalizes, bool) and isinstance(contained, bool):
+                aph = generalizes and contained
+            # an explicit back-reference settles it regardless of the verdict
+            if str(test.get("back_reference") or "").strip():
+                aph = False
+
+        bound_by = self._final_line_is_bound(passage)
+        if aph and bound_by:
+            aph = False   # structurally tied to the passage; cannot stand alone
+
+        # ---- closing-register / posture obedience (2026-08-21) --------------
+        # Both fields were already being classified and then ignored: the
+        # register was assigned by the composer, instructed by the renderer,
+        # and never checked against what the renderer actually produced. The
+        # corpus result was 24/34 aphorism endings against a 12.5% design
+        # weight — the single most recognisable beat of the house voice. These
+        # are compliance failures, not novelty failures, so they ride the
+        # existing directive/retry loop and only cost a render when they fire.
+        register_ok = True
+        if aph and bp.closing_register and bp.closing_register != "aphoristic":
+            register_ok = False
+            directives.append(
+                "the final sentence broke its assigned closing register — "
+                + self._register_instruction(bp.closing_register))
+        planned_posture = self.registry.posture_of(bp.family_id)
+        posture_ok = True
+        if posture_guess and planned_posture and posture_guess != planned_posture:
+            posture_ok = False
+            directives.append(
+                f"the closing posture must be {planned_posture} "
+                f"({self.registry.closing_postures.get(planned_posture, '')}), "
+                f"not {posture_guess}")
+        # NOT capped below the threshold, deliberately — reverted 2026-08-22.
+        # Capping forced a dedicated re-render whenever the register was broken,
+        # which on Opus 5 is most passages. Measured over three batches the
+        # retry cost ~$0.05-0.08 each (render + compliance + move_signature) and
+        # produced another aphorism anyway: RC-ELITE-260821-0048 and
+        # RC-ELITE-260821-0050 both shipped with _aphorism_ending=1 AFTER a
+        # forced retry. Paying for a retry that does not change the outcome is
+        # strictly worse than shipping the flag.
+        #
+        # The directives above still ride any re-render triggered for another
+        # reason, and the violation still surfaces on the set. The durable fix
+        # is to PRESCRIBE the ending positively rather than forbid the aphorism
+        # — negative constraints are what the renderer is ignoring.
+        # Positively PRESCRIBED, not forbidden. The 2026-08-22 note below records
+        # why: negative constraints are what the renderer ignores. So name the
+        # beat it owes and what that beat is, rather than banning what it wrote.
+        if not opening_ok:
+            want = bp.move_plan[0]
+            directives.append(
+                f"the FIRST SENTENCE must perform {want} — "
+                f"{config.RHETORICAL_MOVES.get(want, '')}. "
+                f"The passage opened on {realized_moves[0]} instead")
+        if not closing_ok:
+            want = bp.move_plan[-1]
+            directives.append(
+                f"the FINAL SENTENCE must perform {want} — "
+                f"{config.RHETORICAL_MOVES.get(want, '')}. "
+                f"The passage closed on {realized_moves[-1]} instead")
+
+        f1 = round(f1 - (0.0 if (register_ok and posture_ok) else 0.05)
+                   - (0.0 if opening_ok else 0.04)
+                   - (0.0 if closing_ok else 0.04), 3)
 
         return RealizedStructure(
             paragraph_functions=functions, matches=matches,
@@ -141,4 +389,6 @@ class ComplianceAuditor:
             word_counts=[len(p.split()) for p in real_paras],
             f1=round(f1, 3), directives=directives,
             closing_posture_guess=posture_guess,
-            final_line_is_aphorism=aph)
+            final_line_is_aphorism=aph,
+            rhetorical_moves=realized_moves,
+            opening_beat_ok=opening_ok, closing_beat_ok=closing_ok)
