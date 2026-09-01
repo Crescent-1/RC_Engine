@@ -4,31 +4,55 @@
     {
       "name": "portfolio",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8734", "--directory", "portfolio"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8734",
+        "--directory",
+        "portfolio"
+      ],
       "port": 8734
     },
     {
       "name": "website",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8735", "--directory", "website"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8735",
+        "--directory",
+        "website"
+      ],
       "port": 8735
     },
     {
       "name": "demo",
       "runtimeExecutable": "python",
-      "runtimeArgs": ["-m", "http.server", "8736", "--directory", "demo"],
+      "runtimeArgs": [
+        "-m",
+        "http.server",
+        "8736",
+        "--directory",
+        "demo"
+      ],
       "port": 8736
     },
     {
       "name": "rc-gui",
       "runtimeExecutable": "C:\\Users\\anshu\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
-      "runtimeArgs": ["-m", "gui"],
+      "runtimeArgs": [
+        "-m",
+        "gui"
+      ],
       "port": 8730
     },
     {
       "name": "rc-gui-remote",
       "runtimeExecutable": "cmd",
-      "runtimeArgs": ["/c", "C:\\Users\\anshu\\OneDrive - eLitmus\\RC Gen Project\\run_gui_remote.bat"],
+      "runtimeArgs": [
+        "/c",
+        "C:\\rc\\run_gui_remote.bat"
+      ],
       "port": 8730
     }
   ]
