@@ -1,0 +1,92 @@
+RC ID: RC-MEDIUM-260810-0024 | Tier: medium | Score: 8.6 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.653 | Generated: 2026-08-10T14:17:51.879231+00:00
+======================================================================
+
+[PASSAGE]
+
+The word *pain* arrives in English through Old French *peine*, and beneath that lies Latin *poena*: penalty, the price paid to a court or a god. Only later, by the fourteenth century, does the word drift toward mere bodily sensation, shedding its juridical layer the way a coin loses its inscription in circulation. That older stratum matters, because the way medicine now speaks of chronic pain has restored something of the earlier sense while pretending not to: a levy exacted on populations across the developed world, rising through the 1990s and 2000s in every registry that bothered to count, described in the literature as an epidemic of nervous systems turning on their owners, a betrayal from within the tissue, an emergency answerable — so the framing went — chiefly by chemistry.
+
+The counts are not in dispute. Roughly a fifth of adults in wealthy countries report persistent pain; prescription volumes for opioids rose severalfold before the retrenchment; disability claims citing back and neck pain outpaced nearly every other category. Something has genuinely increased. That much is settled ground.
+
+What is not settled is what increased. Consider the possibility that fewer bodies broke and more bodies learned to say so — and, further, that saying so was correct. A nervous system is a threat-appraisal instrument, and appraisal is trained. Shift schedules, the fragmentation of attention into ninety-second intervals, the demand that a worker be continuously improvable: these do not merely stress tissue, they instruct the interpreting apparatus in what counts as danger. Pain then becomes less a malfunction than an accurate reading of unsustainable conditions. This is not an argument that pain is good, or that suffering ennobles; a fire alarm is not a virtue. It is an argument that the alarm may be well-calibrated, and that silencing a well-calibrated alarm is a peculiar sort of medicine.
+
+The distribution supports it. Chronic pain concentrates among warehouse pickers, agency nurses, migrant labourers on rolling contracts — populations whose imaging findings are frequently unremarkable and whose degenerative markers are no worse than the comfortable. Pain tracks contractual uncertainty more tightly than it tracks cartilage. Which does not make the cartilage, or the nociceptors, irrelevant.
+
+So both halves stand, and joining them is the work. Pain is real, physiologically instantiated, mediated by receptors and central sensitisation that deserve every hour of laboratory attention they receive; and pain is a statement, in the older *poena* register, about what is being exacted. Medicine's error was never that it took pain seriously. It was the assumption that a sensation with a somatic address must have a somatic cause, which allowed the question of sustainability to be answered by prescription. The verdict, then, reverses the lament: the proliferation of diagnoses is not the pathology. The refusal to hear what the diagnoses are reporting is. Each side still owes something — the neurobiologists a mechanism that explains why identical tissue hurts differently under different contracts; the social epidemiologists a reason why some people under identical contracts do not hurt at all; and the institutions that commission both a plainer account of what they are asking bodies to absorb, though I suspect that last debt will go on being deferred, as such debts generally are.
+
+[QUESTIONS]
+
+Q1. The fire-alarm analogy is introduced primarily to:
+(A) establish that the prevalence figures show chronic pain is an epidemiological problem with a biological cause medicine rightly seeks to eliminate
+(B) separate the claim that pain reports real conditions from any claim that pain is desirable
+(C) illustrate that nervous systems, like domestic alarms, frequently misfire and require recalibration by clinicians
+(D) suggest that warehouse pickers and agency nurses experience pain as a warning signal about their contracts
+
+Q2. Which one of the following research findings would most strengthen the author's conclusion?
+(A) Degenerative spinal changes are detected at similar rates in manual labourers and in office professionals
+(B) Patients who forgo analgesia entirely report greater moral resilience and a stronger sense of purpose over time
+(C) Workers moved from rolling contracts to secure ones report less pain despite unchanged imaging findings
+(D) Opioid prescription volumes fell sharply after regulatory retrenchment across several wealthy countries
+
+Q3. The author's position on the biomedical study of pain is best characterised as:
+(A) neutral toward it, treating physiological and social accounts as equally unsupported by the available registry evidence
+(B) impatient with it, chiefly because institutions commissioning such research defer their debts indefinitely
+(C) dismissive of it, since pain clusters with contractual instability, making mechanistic research into nociception a misdirected use of effort
+(D) supportive of it, while denying that a somatic sensation must have a somatic cause
+
+Q4. Why does the author include the discussion of the Latin word poena?
+(A) To supply a vocabulary in which pain can be read as an exaction rather than a defect
+(B) To trace how a juridical term for penalty gradually narrowed into a word for bodily sensation by the fourteenth century
+(C) To open the essay with a historical frame that the closing paragraph will later echo and complete
+(D) To demonstrate that medical language has degraded over centuries and should recover its older precision
+
+Q5. Based on the passage, we can infer that a warehouse picker with unremarkable imaging and severe persistent pain would most likely:
+(A) be reporting accurately on working conditions the body is being asked to absorb
+(B) be best served by chemistry, since central sensitisation deserves the laboratory attention it receives
+(C) be exhibiting a nervous system that has turned against its owner and betrayed the surrounding tissue
+(D) be found on closer examination to have degenerative markers worse than those of comfortable patients
+
+Q6. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) Athletes trained to ignore discomfort report fewer symptoms and consequently sustain more sustainable careers
+(B) Call-centre staff monitored second by second develop widespread joint pain that eases when monitoring stops
+(C) Long-haul drivers show heavy lumbar wear on scans and report pain proportional to the extent of that measurable wear
+(D) Migrant labourers on rolling contracts obtain relief once opioid prescribing volumes in their region rise
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — The analogy sits immediately after the disclaimer about ennobling suffering, guarding the calibration claim from a moral misreading.
+  (A) scope_inflation — The counts are conceded in paragraph two but the passage denies that a somatic address implies a somatic cause.
+  (C) causal_inversion — The analogy insists the alarm may be well-calibrated, reversing the malfunction reading.
+  (D) example_promotion — The occupational examples arrive in the following paragraph and are not what the analogy is doing.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — It isolates contractual conditions as the variable that shifts pain while tissue stays constant, which is precisely the load-bearing claim.
+  (A) half_truth — Already stated in paragraph four, so it repeats rather than strengthens the calibration argument.
+  (B) scope_inflation — The passage explicitly denies that suffering ennobles or that treatment should cease.
+  (D) adjacent_answer — Prescription trends are background scene-setting and bear on neither calibration nor distribution.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The final paragraph grants receptors and central sensitisation every laboratory hour while locating medicine's error in the inference from address to cause.
+  (A) false_symmetry — The author says both halves stand, not that both are unsupported.
+  (B) stance_misread — The deferral remark targets commissioning institutions, not the biological research programme itself.
+  (C) scope_inflation — The passage says the cartilage and nociceptors are not irrelevant and owes neurobiologists a mechanism.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — The etymology is imported so that the later verdict — pain as a statement about what is being levied — has a ready conceptual register.
+  (B) level_confusion — This is an accurate summary of the etymology, not the reason the author placed it in the argument.
+  (C) level_confusion — This names the structural role of the passage's bookending rather than the authorial purpose.
+  (D) straw_version — No claim of linguistic degradation is made; the drift is described neutrally, as a coin losing its inscription.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — Paragraph four's distributional evidence plus the calibration claim make such reports accurate readings rather than findings of tissue damage.
+  (B) nec_suff_swap — Granting sensitisation research does not license answering sustainability questions by prescription.
+  (C) phrase_misuse — That betrayal language is the framing the author quotes in order to reject it.
+  (D) causal_inversion — The passage states such markers are no worse than in comfortable populations.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — It matches the mechanism exactly: fragmented, continuously appraised work instructs the threat-appraisal apparatus, and pain moves with the conditions rather than the tissue.
+  (A) scope_inflation — Silencing a calibrated alarm is called peculiar medicine, not a model of sustainability.
+  (C) causal_inversion — Pain tracking cartilage rather than contract is the pattern the passage argues against.
+  (D) example_promotion — The examples are borrowed but the resolution by chemistry is exactly what the passage rejects.
+
+[Inspired by: "SCOTUS’s Anti-Constitutional Crusade to Create Second-Class Citizens", https://newrepublic.com/post/212686/supreme-court-constitution-14th-amendment]

@@ -1,4 +1,4 @@
-RC ID: RC-ELITE-260711-0023 | Tier: elite | Score: 0.0 | Status: rejected_novelty | Compliance F1: 1.0 | Novelty: 0.688 | Generated: 2026-07-11T18:48:28.333971+00:00
+RC ID: RC-ELITE-260711-0023 | Tier: elite | Score: 0.0 | Status: approved | Compliance F1: 1.0 | Novelty: 0.688 | Generated: 2026-07-11T18:48:28.333971+00:00
 ======================================================================
 
 [PASSAGE]

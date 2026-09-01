@@ -1,0 +1,114 @@
+RC ID: RC-HARD-260821-0052 | Tier: hard | Score: 8.6 | Status: approved | Compliance F1: 1.0 | Novelty: 0.585 | Generated: 2026-08-21T18:07:38.415284+00:00
+======================================================================
+
+[PASSAGE]
+
+A job advertisement from a Boston analytics firm, posted in 2023, sought a "Prompt Engineer / Content Strategist." The slash is the whole story. Whoever wrote it could not decide which floor of the building the hire belonged on. The role: coax useful output from a language model by writing careful instructions. Engineering claims it because the work is iterative and testable. Marketing claims it because the work is words. Neither claims it at review time. The title itself keeps sliding — engineer one quarter, specialist the next, then simply "AI lead," which names a direction rather than a craft. Job titles usually lag the work by a year or two. This one is not lagging. It is oscillating, and oscillation of that kind is a symptom worth taking seriously before it is explained away.
+
+Programming is the obvious first candidate, and it holds up further than skeptics allow: the prompter writes an input, observes an output, adjusts, versions the result, keeps a file of what worked and what broke, and speaks fluently of edge cases, regressions, and test suites — the vocabulary transfers almost without friction. Call it soft code, then, and the taxonomy is nearly settled. But look at what a compiler does. It rejects. It refuses the malformed line and tells you where. There is no such gate here; every prompt is accepted, and the failures arrive as plausible prose rather than as errors. Syntax is not fixed; determinism is not promised; the same instruction on Tuesday and Thursday can differ. What decides the outcome resembles persuasion more than specification.
+
+So try writing. The prompter addresses something. Sets a tone, establishes constraints, anticipates misreadings. This is rhetoric — audience, occasion, decorum — and one could imagine a canon of technique assembling itself around the practice, the way manuals of style once did. Translation fits too: intent in one idiom, instruction in another. But rhetoric assumes an audience with habits. This audience has none it keeps. It is retrained in April and reads differently in May. A translator between French and Japanese works a pair that stays put for a lifetime; here one side of the pair is replaced quarterly, without notice. Skill accumulated against version four is not skill against version five. It is sediment. Whatever a canon needs, it needs a reader who holds still.
+
+Each trial failed the same way. Programming required a compiler; rhetoric required an audience; translation required a stable pair of languages. Notice what those three exemplars have in common: none is a skill. Each is a fixed thing the skill was measured against. The compiler does not vary; French does not; the classical audience was a fiction precisely because it held still. Our categories for craft are not descriptions of what practitioners do. They are descriptions of what practitioners do it *to*. Inventing a fifth name for prompting would repeat the error, since the new name would need its own fixed correlate and there is none to supply. The useful question is not what to call the prompter. It is which of the objects our older crafts were built around are still sitting where we left them — and how the crafts anchored to them are faring now that some are not.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) Prompting is best understood as a loose, non-deterministic species of ordinary programming practice.
+(B) Prompting resists classification because our craft categories name fixed objects, and this one lacks any.
+(C) The instability of job titles in AI firms shows that hiring language always lags emerging technical work.
+(D) A fifth name should be invented for prompting once its distinctive technique stabilises into a canon.
+
+Q2. Based on the passage, we can infer that a manual of prompting technique written today would most likely:
+(A) become sediment rather than doctrine, since the model it addresses is replaced without notice.
+(B) found the canon of a new rhetorical art, with decorum and occasion as its organising terms.
+(C) survive intact provided its authors restricted themselves to translation principles rather than style advice.
+(D) function like a compiler manual, documenting the exact syntax the system will accept or reject.
+
+Q3. Regarding the proposal to coin a new name for the prompter, the author asserts that:
+(A) it is the necessary next step, since prompting has proven irreducible to programming, rhetoric, or translation.
+(B) it would reproduce the same mistake, because the new name would want a fixed correlate that is unavailable.
+(C) it should wait until industry job titles settle, at which point the accurate label will become obvious.
+(D) it is harmless as shorthand, provided practitioners remember that all craft names are ultimately conventional.
+
+Q4. Which one of the following would best license the inference the author draws from the three failed trials?
+(A) Language models are retrained more frequently now than they were during the early years of the technology.
+(B) Programming, rhetoric, and translation each developed vocabularies for describing failure long before they were formalised.
+(C) Every long-established craft name can be shown to designate the fixed object that practitioners work upon.
+(D) Prompt engineers report that their techniques transfer poorly between competing commercial language model vendors.
+
+Q5. If the third paragraph, on rhetoric and translation, were removed, the argument would:
+(A) retain its target but lose the pattern, leaving one failure where three are needed to expose the shared correlate.
+(B) collapse entirely, since rhetoric supplies the only positive account of prompting the essay is willing to endorse.
+(C) shift its subject from craft taxonomy toward the labour-market instability introduced by the opening advertisement.
+(D) gain force, since the compiler objection already settles the matter and the later trials merely restate it in other words.
+
+Q6. 'It is sediment' most nearly means:
+(A) the accumulated expertise settles into deposit without becoming a body of usable craft knowledge.
+(B) the practitioner's knowledge is tacit and therefore resists being written down for others.
+(C) the accumulated technique forms the slow base layer on which a future canon will rest.
+(D) the expertise degrades into error as the underlying model is retrained on newer material.
+
+Q7. Why does the author include the discussion of the compiler in the second paragraph?
+(A) To show that a compiler rejects malformed input and reports its location, whereas prompts are all accepted.
+(B) To supply the counter-move that overturns the programming analogy after the analogy has been generously stated.
+(C) To locate the precise feature whose absence will later be generalised into the essay's claim about categories.
+(D) To concede that programming remains the closest available label, given how smoothly its vocabulary transfers over.
+
+Q8. Which one of the following is most strongly implied by the way the passage ends?
+(A) The instability of language models will eventually force programming, rhetoric, and translation to merge into one discipline.
+(B) The naming problem will resolve once practitioners agree on which fixed object prompting should be measured against.
+(C) Crafts whose objects have vanished should be retired from professional vocabulary until suitable replacements appear.
+(D) Prompting is a diagnostic case, and the same erosion may be unsettling crafts we still consider secure.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — It integrates the three failed trials with paragraph 4's revelation that categories name the stable correlate, not the activity, which is why prompting cannot be filed.
+  (A) terminological_twin — Paragraph 2 revokes the programming analogy at the compiler, calling only the vocabulary transferable, not the activity.
+  (C) example_promotion — Paragraph 1 explicitly denies lag, calling the title oscillating; the advertisement is an entry point, not the claim.
+  (D) premature_closure — Paragraph 4 rejects a fifth name outright, since any new name would need a fixed correlate that does not exist.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Paragraph 3 says skill against version four is not skill against version five and calls it sediment, so accumulated technique cannot harden into transmissible doctrine.
+  (B) phrase_misuse — Paragraph 3 raises the imagined canon only to withdraw it, because a canon needs a reader who holds still.
+  (C) adjacent_answer — Paragraph 3 fails translation too, since one side of the language pair is replaced quarterly.
+  (D) terminological_twin — Paragraph 2 states there is no gate: every prompt is accepted and syntax is not fixed, so no acceptance rules exist.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — Paragraph 4 states directly that inventing a fifth name repeats the error, since the name would need its own fixed correlate and none can be supplied.
+  (A) phrase_misuse — The three failures set up the rejection of a fifth name, not a demand for one; paragraph 4 refuses that move.
+  (C) premature_closure — Paragraph 1 treats the oscillating title as a symptom to interpret, not a delay that resolves itself into clarity.
+  (D) half_truth — The author's objection is structural, about missing correlates, not a general claim that craft names are arbitrary conventions.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — The paragraph-4 leap requires that naming-by-fixed-object is general to craft categories, not a coincidence of the three cases chosen.
+  (A) scope_inflation — Faster retraining sharpens the instability example but does nothing to license the general claim about how craft names work.
+  (B) adjacent_answer — Shared failure vocabulary is not the shared feature the argument needs, which is a fixed object of measurement.
+  (D) example_promotion — This confirms instability the passage already asserts, without supporting the inference that categories name fixed correlates.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — Paragraph 4 turns on what programming, rhetoric and translation have in common; with only the compiler case surviving, the generalisation about fixed objects loses its inductive base.
+  (B) stance_misread — Paragraph 3 withdraws rhetoric rather than endorsing it, noting that this audience keeps no habits.
+  (C) stage_misattribution — The advertisement is framing in paragraph 1; removing paragraph 3 does not relocate the essay's subject there.
+  (D) false_symmetry — The trials fail differently — audience and language pair are distinct correlates — so they are not restatements of the compiler point.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The phrase caps the claim that skill against version four is not skill against version five: experience piles up but transmits nothing forward, unlike a canon.
+  (B) category_slip — The obstacle is the shifting model, not the tacit character of the knowledge itself.
+  (C) phrase_misuse — This restores the canon paragraph 3 denies, since a canon requires a reader who holds still.
+  (D) terminological_twin — Sediment marks inertness, not corruption; the passage says such skill fails to carry over, not that it becomes wrong.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — The compiler is introduced so that paragraph 4 can name it as the first of three fixed correlates, making it the seed of the thesis rather than a mere objection.
+  (A) stage_misattribution — This accurately summarises the sentences but reports content rather than the author's reason for placing them there.
+  (B) level_confusion — This describes the structural function of the passage correctly while missing why the author needed that function at all.
+  (D) stance_misread — Paragraph 2 grants only vocabulary transfer and then withdraws the label, calling the outcome closer to persuasion.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — The closing sentence redirects from naming the prompter to auditing which fixed objects remain in place and how their crafts fare, extending the diagnosis outward.
+  (A) false_symmetry — Nothing in the close predicts convergence; the three cases are diagnostic exemplars, not disciplines slated for fusion.
+  (B) premature_closure — The ending abandons the naming question rather than deferring it, and paragraph 4 denies any correlate is available.
+  (C) scope_inflation — The close proposes an inquiry into how such crafts are faring, not a policy of retiring their names.
+
+[Inspired by: "The Future Belongs to Those Who Resist It", https://www.thenewatlantis.com/publications/the-future-belongs-to-those-who-resist-it]

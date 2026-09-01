@@ -1,0 +1,114 @@
+RC ID: RC-MEDIUM-260822-0039 | Tier: medium | Score: 8.2 | Status: needs_review | Compliance F1: 0.95 | Novelty: 0.561 | Screen: red | Generated: 2026-08-22T06:48:30.942131+00:00
+======================================================================
+
+[PASSAGE]
+
+In 1953, Keep America Beautiful began assembling cheerful civic instruction from advertisements, school materials, cleanup days and the familiar figure of the careless motorist. Roadsides still acquired cups, cartons, cigarette packs and bottles at a rate no poster could approach. I once took this as a simple failure of public education: an exhortation met a durable habit and lost. The campaigns remained visible long after their promises had thinned. Plastic did not. The highway shoulder, with its flattened coffee lids, seemed to offer a blunt verdict on persuasion.
+
+The verdict was incomplete. Keep America Beautiful was not an accidental association of tidying-minded citizens; packaging, beverage and food interests supported an organisation operating while bottle-deposit proposals and restrictions on disposable containers gained force. Granted, the campaigns did not make America litter-free, but they made the consumer appear to be the decisive agent in a problem whose materials had been designed, manufactured and distributed elsewhere. “Litter” had once named matter out of place: straw in a stable, scraps on a floor, debris after use. It became a civic offense, then a personal blemish. Producer and passer-by could now seem to occupy symmetrical positions beside the same paper cup. They did not. One selected its material, volume and route to market; the other encountered it after use. Clean up. Be neat. Care. The small commands transferred attention from the commodity’s career to the hand that failed to dispose of it properly.
+
+I abandoned my earlier reading in 2014, while looking at a roadside-cleanup photograph in which a volunteer held a black sack open with one shoe against its rim. The lesson had not been ignored. — No: more precisely, it had been absorbed at the scale where it was easiest to perform. Picking up a wrapper became a daily instrument for measuring character. It could also stand in for inquiry into why the wrapper had been made to travel briefly from shop to car to ditch. The campaign’s visible defeat therefore concealed a success of classification: waste was experienced as conduct before it was considered as an output.
+
+Its minor character, the conscientious passer-by who retrieves another person’s discarded object, clarifies the arrangement because the figure appears at the point where a public landscape has been made into a field of intimate repair. There is genuine care in the gesture; a roadside is cleaner when the sack is filled. Yet the action resembles an observatory’s technician adjusting a lens while the instrument’s makers continue to send more light into it: the correction is necessary, exact and local, while the conditions requiring it remain outside the technician’s reach. This figure matters less as proof that citizenship has succeeded than as evidence that citizenship has been assigned the aftercare of disposable production. In that roadside scene, responsibility has been relocated to the person bending over the cup, and the more consequential inquiry concerns the arrangements that made that bending seem sufficient.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) how roadside cleanup made communities cleaner despite growing volumes of disposable packaging
+(B) how anti-litter campaigns relocated responsibility from disposable production to individual conduct
+(C) why corporate sponsors used civic messaging solely to conceal their commercial interests
+(D) why public-awareness campaigns failed because persistent habits outlasted their cheerful anti-litter advertisements
+
+Q2. Which one of the following is suggested by the sentence, “The campaign’s visible defeat therefore concealed a success of classification”?
+(A) Corporate sponsorship proves the campaign was cynical advertising without meaningful social consequences.
+(B) Campaigns succeeded mainly by eliminating litter through more diligent consumer behavior.
+(C) Apparent litter persistence could coexist with deeper success defining waste as personal conduct.
+(D) The author treats cleanup volunteers as evidence that disposal systems function efficiently.
+
+Q3. The author of the passage is likely to disagree with which one of the following statements?
+(A) Roadside cleanup expresses genuine care and leaves a cleaner shared public landscape afterward.
+(B) Corporate support accompanied public debates over bottle deposits and disposable-container restrictions nationwide.
+(C) The conscientious litter-picker is a sentimental emblem of successful citizenship and individual responsibility.
+(D) Producers and consumers occupy distinctly different positions within the broader disposable packaging system.
+
+Q4. Why does the author include the discussion of the conscientious passer-by who retrieves another person's discarded object?
+(A) to establish that litter collection reliably reduces the amount of roadside waste immediately
+(B) to transition from campaign history toward the final analogy about localized technical correction
+(C) to describe a volunteer collecting roadside waste with a black sack during a cleanup
+(D) to show why admirable cleanup can obscure the production system requiring continual aftercare
+
+Q5. According to the passage, why does picking up a wrapper become a daily instrument for measuring character?
+(A) Because campaign lessons were absorbed through visible, easily performed acts of disposal.
+(B) Because producers required volunteers to certify each package after consumption at designated collection sites.
+(C) Because cleanup campaigns eliminated public questions about manufacturing, distribution, and material design.
+(D) Because roadside photographs made personal behavior more profitable for packaging corporations over time.
+
+Q6. The consumer's apparent decisiveness in the litter problem is a result of all of the following EXCEPT:
+(A) Producer and passer-by appearing to occupy symmetrical positions beside the same cup.
+(B) Deposit proposals replacing voluntary cleanup as the principal civic response to litter.
+(C) Waste being experienced as conduct before being considered as industrial output.
+(D) Small civic commands shifting attention from commodities toward improper consumer disposal.
+
+Q7. Which one of the following findings would most complicate the author's account of cleanup as a substitute for inquiry into disposable production?
+(A) Roadside campaigns attracted volunteers from communities with severe litter problems.
+(B) Cleanup participants reported stronger personal satisfaction after filling roadside sacks.
+(C) Cleanup participants subsequently supported deposit laws and limits on disposable containers.
+(D) Corporate sponsors continued funding posters while cleanup events remained highly visible.
+
+Q8. Which one of the following statements, if true, would best invalidate the main argument of the passage?
+(A) Campaign materials consistently blamed producers and endorsed deposit laws limiting disposable packaging.
+(B) Corporate sponsors received favorable publicity from the campaigns' widespread civic visibility.
+(C) Volunteer cleanup removed substantial litter from heavily traveled roadside areas each year.
+(D) Some consumers interpreted neatness messages as calls for more responsible behavior.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — The passage moves from apparent campaign failure to its deeper classificatory success: making waste seem like personal conduct rather than industrial output.
+  (A) half_truth — Cleanup does make roadsides cleaner, but the passage uses that fact to examine displaced responsibility rather than civic improvement alone.
+  (C) causal_inversion — Corporate backing provides context for the displacement of responsibility, not proof that civic messaging had no social effects.
+  (D) category_slip — This mistakes visible litter persistence in paragraph 1 for the passage's final account of the campaigns' political success.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The sentence distinguishes failed eradication of litter from success in classifying waste as evidence of individual character.
+  (A) missing_link — The passage identifies corporate support but does not infer that the campaigns lacked meaningful social consequences.
+  (B) stage_misattribution — The author calls the campaigns visibly defeated in reducing litter, while locating success at the level of classification.
+  (D) stance_misread — The volunteer instead illustrates local repair under a system that continues generating disposable waste.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — Although the author grants the gesture's genuine care, the final paragraphs reject treating it as proof that citizenship has succeeded.
+  (A) half_truth — The author explicitly concedes both the genuine care involved and the cleaner roadside produced by the action.
+  (B) passage_supported — Paragraph 2 states that packaging interests supported the organisation while deposit proposals and restrictions gained force.
+  (D) false_symmetry — The passage directly contrasts producers' choices about materials and distribution with consumers' post-use encounter with waste.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — The figure lets the author acknowledge cleanup's value while showing how public responsibility is narrowed into local aftercare.
+  (A) half_truth — The passage grants that a roadside is cleaner, but that practical result is not the purpose of the discussion.
+  (B) level_confusion — This identifies a structural movement, not the author's reason for using the passer-by as material.
+  (C) adjacent_answer — This summarizes a related image, but it does not explain why the passer-by is introduced into the argument.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — The author says the lesson was absorbed at the scale where it was easiest to perform, converting disposal into a test of conduct.
+  (B) framework_import — The passage describes no producer-run certification system; it emphasizes consumer conduct after use.
+  (C) moderate_extremism — The campaigns could stand in for such inquiry, but the author does not say they eliminated those questions altogether.
+  (D) missing_link — The photograph prompts the author's revision, but the passage does not claim it increased corporate profits.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — The passage says deposit proposals gained force alongside the campaigns, not that they replaced cleanup as the principal response.
+  (A) passage_supported — Paragraph 2 says producer and passer-by could seem symmetrical beside the same paper cup, though they were not.
+  (C) passage_supported — Paragraph 3 explicitly describes waste as experienced as conduct before it was considered as an output.
+  (D) passage_supported — The commands “Clean up. Be neat. Care.” are said to transfer attention to the hand that failed to dispose properly.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — This finding would show that performing cleanup need not displace inquiry into, or action against, the systems producing disposable waste.
+  (A) adjacent_answer — Volunteer recruitment in high-litter areas does not show whether cleanup displaced attention from production.
+  (B) half_truth — Personal satisfaction is compatible with the author's account of cleanup as a character-forming civic performance.
+  (D) passage_supported — Continued sponsorship and visibility fit the author's account rather than complicating its central claim.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — The main argument depends on campaigns directing attention away from production and toward consumer conduct; this fact would reverse that load-bearing move.
+  (B) missing_link — Favorable publicity may suggest self-interest, but it does not determine whether responsibility was actually relocated to consumers.
+  (C) half_truth — The author already grants cleanup's local effectiveness while disputing its adequacy as a response to disposable production.
+  (D) passage_supported — This directly accords with the passage's claim that the campaigns made disposal a matter of personal conduct.
+
+[Inspired by: "Transcript: Danish Journo’s Viral Trump Moment Amid Epic NATO Meltdown", https://newrepublic.com/article/212867/transcript-danish-journo-viral-trump-moment-amid-epic-nato-meltdown]

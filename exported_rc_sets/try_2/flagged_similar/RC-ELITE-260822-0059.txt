@@ -1,0 +1,116 @@
+RC ID: RC-ELITE-260822-0059 | Tier: elite | Score: 6.0 | Status: needs_review | Compliance F1: 0.981 | Novelty: 0.622 | Screen: red | Generated: 2026-08-22T06:13:28.011240+00:00
+======================================================================
+
+[PASSAGE]
+
+Public provision resembles a road: what matters first is whether needed goods arrive. Its surface may be rough and its milestones officious, yet a child fed at journey’s end is not an abstraction. G. F. McCleary’s defence of infants’ milk depots amounts to a precise objection: attention to paperwork mistakes the apparatus for its purpose, since safe milk, not administrative innocence, was what sick infants required. In the twentieth century’s first decade, after recurring summer reports of infant diarrhoea, a municipal health office opened small depots in crowded districts. Measured milk waited in boiled, stoppered bottles. Numbered tickets governed collection; fixed morning hours governed families. A nurse slid an iron weight along the scale and explained feeding. Mothers brought address cards and returned empties. The road had rules because bottles spoiled, stocks ran short, and doses differed by age. The department called the milk “free.”
+
+Queues formed early. Names became familiar. Absence acquired detail. Depot keepers knew who missed a collection, changed lodgings, or sent an older child. “Free,” incidentally, meant that no coins changed hands, not no time, documents, or explanation; feeding an infant also clarified a household to the office. Reminder slips travelled through schoolteachers.
+
+Annual reports listed rising distributions and falling deaths in wards nearest the depots. McCleary was right: these were not clerical trifles. Milk arrived. Infants drank. Some survived the summer. Mothers petitioned for longer hours and more stations, so the service mattered beyond each queue: households planned around it, and the municipality had to describe whom it served. It repeatedly called the provision “public.” The word passed unnoticed. Yet it meant municipally maintained, not equally accessible. Unmarried mothers were routed to a separate desk; recent arrivals had to establish residence; families beyond the catchment were redirected or turned away. The city had enlarged care—or, no: more precisely, it had enlarged one managed channel of care. This was not inspection disguised as feeding; rather, it was material assistance whose eligibility rules determined which forms of care could be received without a family entering an official record.
+
+During wartime shortage, neighbours exchanged bottles, ration cards were borrowed, and nurses began recording condensed milk, barley water, and other substitutes for cow’s milk. The logs grew fuller at the same moment that the actual paths from depot shelf to children’s mouths became harder to follow.
+
+As commercial pasteurisation spread and child-welfare clinics expanded their weighing, advice, and distribution, the depots closed one by one. Their ledgers went to an archive, retaining quantities issued, weights taken, and named absences; headings for “attendance” stood beside distribution totals, fixing the programme’s reach in orderly columns. McCleary’s defence holds where bottles can be followed: paperwork helped keep food safe and regular. Yet the files contain few accounts of refused applicants, tickets exchanged between neighbours, or unrecorded meals. We might console ourselves that such omissions merely fringe a successful service, or that the surviving names prove its administrative appetite. Neither comfort is recorded. Set beside those missing routes, the preserved figures establish provision without establishing its reach, and inspection without establishing its chief effect. Given those mismatched remains, the surviving record cannot decide whether the depots chiefly nourished families or made them administratively legible.
+
+[QUESTIONS]
+
+Q1. Why does the author include the discussion of the municipal milk depots?
+(A) To examine how material assistance and administrative recording became intertwined while showing why surviving evidence cannot rank their chief effects.
+(B) To recount how municipal milk depots distributed regulated infant food, monitored households, imposed eligibility rules, and eventually entered archival collections.
+(C) To move from a concrete account of depot routines toward a final contrast between measurable provision and uncertain social reach.
+(D) To explain how dispensing milk without charge made municipal assistance universally available while removing practical burdens from poor families.
+
+Q2. In the context of the passage, the description of the provision as “public” is best understood as meaning:
+(A) That every city resident could use the service on equal terms because municipal provision was publicly accessible.
+(B) That charitable feeding became an entitlement once the city replaced private care with municipal administration.
+(C) That the municipality maintained the service, though residence, catchment, and family status still limited access.
+(D) That depot procedures became publicly accountable once annual reports connected distributions with falling infant deaths.
+
+Q3. The author of the passage is likely to disagree with which one of the following statements?
+(A) Eligibility rules shaped access to assistance without turning the depots into inspection merely disguised as infant feeding.
+(B) Because feeding was materially effective, its paperwork can be treated as incidental to the programme’s historical significance.
+(C) Safe distribution required records, even though archived records cannot reveal every route taken by milk and families.
+(D) A reader could mistake attendance headings and distribution totals for evidence that all needy children were reached.
+
+Q4. Which one of the following situations is most analogous to the mechanism described in the passage?
+(A) A food bank counts parcels and recipients, allowing auditors to conclude accurately that all local hunger has been relieved.
+(B) A vaccination clinic records recipients carefully and therefore prevents cold-storage failures while extending its opening hours across underserved districts.
+(C) A school meal programme improves attendance, while researchers use detailed menus and test scores to attribute subsequent academic gains entirely to nutrition.
+(D) An emergency voucher scheme houses many families, requires residency files, and misses informal transfers, leaving later researchers unsure about its wider reach.
+
+Q5. Based on the passage, we can infer that a historian relying only on the preserved depot files would most likely:
+(A) Conclude that administrative inspection outweighed feeding because the files preserve household details more fully than unrecorded meals.
+(B) Recover bottle exchanges and refused applications by comparing attendance headings with the quantities issued each morning.
+(C) Treat named absences and distribution totals as sufficient evidence that eligible families received milk on equal terms.
+(D) Confirm regular municipal distribution and recorded attendance, but remain unable to determine the programme’s broader reach or chief effect.
+
+Q6. The passage stops where it does in order to:
+(A) Shift attention from depot operations to archival methodology, proposing additional sources that would settle the programme’s disputed reach.
+(B) Preserve the unresolved tension between nourishment and legibility by showing that the archive cannot rank the depots’ chief effects.
+(C) Return from archival uncertainty to McCleary’s defence, establishing safe milk delivery as the programme’s decisive historical achievement.
+(D) Qualify an otherwise celebratory history by suggesting that excluded families probably experienced the depots chiefly as instruments of inspection.
+
+Q7. The road analogy at the beginning of the passage is introduced primarily to:
+(A) Foreshadow the archive’s missing routes by making physical movement, rather than administrative classification, the passage’s final concern.
+(B) Suggest that fixed hours and numbered tickets were unavoidable obstacles on an otherwise universally accessible route.
+(C) Frame an initial defence of administrative apparatus that later qualifications complicate without simply reversing its force.
+(D) Equate municipal feeding with transport infrastructure so that efficiency becomes the principal standard for evaluating public care.
+
+Q8. Regarding the wartime records described in the passage, the author asserts that:
+(A) The fuller logs enabled officials to reconstruct how borrowed ration cards connected depot shelves with children’s meals.
+(B) Neighbourly exchanges made actual routes harder to follow, so nurses reduced the range of foods entered.
+(C) Recording expanded to include substitutes precisely when informal exchanges made actual consumption paths less traceable.
+(D) Recording continued to privilege cow’s milk even as neighbours circulated substitutes beyond nurses’ official attention.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — The passage moves from effective provision through regulated access to archival limits, using that movement to hold nourishment and legibility in unresolved tension.
+  (B) half_truth — This accurately summarizes successive paragraphs but misses why the author juxtaposes effective care with the archive’s inability to determine its chief effect.
+  (C) half_truth — This identifies the passage’s structural progression, not the authorial purpose served by constructing that progression.
+  (D) phrase_misuse — Paragraph two explicitly limits “free” to monetary cost, while later eligibility restrictions disprove universal or effortless access.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The author explicitly separates municipal maintenance from equal accessibility, then illustrates the distinction through residence, catchment, and status restrictions.
+  (A) terminological_twin — This substitutes universal accessibility for municipal maintenance, precisely the distinction corrected in the third paragraph.
+  (B) premature_closure — Municipal administration enlarged a managed channel of care; the eligibility exclusions prevent its treatment as an entitlement.
+  (D) phrase_misuse — The reports documented outcomes, but “public” refers to municipal provision rather than accountability created by published statistics.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The author accepts that milk arrived but shows that paperwork regulated access and produced legibility, making administration integral rather than incidental.
+  (A) half_truth — The third paragraph explicitly endorses both parts: assistance was material, yet eligibility determined access through official records.
+  (C) half_truth — The final paragraph affirms paperwork’s logistical value while emphasizing its failure to preserve refused, exchanged, and unrecorded routes.
+  (D) phrase_misuse — The ending itself warns that preserved attendance and distribution figures establish provision without establishing reach.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — Like the depots, the scheme provides a real good through documentary conditions while leaving informal circulation absent from records that cannot establish overall reach.
+  (A) premature_closure — The passage denies that distribution totals can establish comprehensive reach, whereas this scenario simply grants that inference accuracy.
+  (B) half_truth — Recordkeeping supports delivery here, but the scenario lacks eligibility-produced legibility and archival uncertainty about actual reach.
+  (C) premature_closure — This concerns overconfident causal attribution, not assistance whose administrative records both regulate access and incompletely capture circulation.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The preserved columns establish provision and inspection, while missing refusals, exchanges, and meals prevent conclusions about reach or whether nourishment chiefly outweighed legibility.
+  (A) premature_closure — Uneven preservation demonstrates archival imbalance but cannot determine which effect, nourishment or legibility, chiefly defined the programme.
+  (B) phrase_misuse — The final paragraph identifies exchanges and refusals precisely as routes the preserved headings and totals largely omit.
+  (C) terminological_twin — Named records show managed attendance, not equal accessibility; the third paragraph details status, residence, and catchment exclusions.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — The ending narrows the issue to an evidentiary mismatch: the records confirm both provision and inspection but cannot adjudicate between their larger effects.
+  (A) half_truth — The ending foregrounds archival limits but neither proposes new sources nor promises that the disputed reach can be settled.
+  (C) premature_closure — McCleary’s defence remains valid only where bottles can be followed; the final sentences deliberately withhold a decisive ranking.
+  (D) premature_closure — The ending refuses to assign primacy to inspection, just as it refuses to make successful nourishment the dominant conclusion.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — The analogy initially privileges delivered goods over procedural roughness, creating a defensible position that later exclusions and archival gaps complicate rather than cancel.
+  (A) half_truth — Route imagery recurs, but the ending holds physical provision and administrative classification together instead of privileging movement alone.
+  (B) phrase_misuse — The road’s rules are initially justified logistically, but later residence, catchment, and status restrictions contradict universal accessibility.
+  (D) half_truth — The analogy foregrounds delivery, but the passage later evaluates access, legibility, and evidentiary limits rather than efficiency alone.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — The logs added condensed milk, barley water, and substitutes while bottle exchanges and borrowed ration cards made shelf-to-mouth routes harder to reconstruct.
+  (A) premature_closure — The passage states the reverse: fuller logs coincided with actual paths becoming harder to follow.
+  (B) half_truth — The routes became harder to follow, but the logs grew fuller and included a wider range of substitutes.
+  (D) half_truth — Neighbours did circulate bottles, but nurses explicitly began recording condensed milk, barley water, and other substitutes.
+
+[Inspired by: "Where Did All the Public Bathrooms Go?", https://daily.jstor.org/where-did-all-the-public-bathrooms-go/]

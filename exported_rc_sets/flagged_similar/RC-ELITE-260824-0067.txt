@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260824-0067 | Tier: elite | Score: 8.6 | Status: approved | Compliance F1: 0.944 | Novelty: 0.516 | Screen: red | Generated: 2026-08-24T19:25:06.782665+00:00
+======================================================================
+
+[PASSAGE]
+
+A couple has spent eleven months and most of a savings account renovating a kitchen. The contractor's estimate for finishing has doubled. Selling now, half-done, would cost them less than completing it. They complete it. Asked why, they mention the eleven months.
+
+A decision scientist I heard address a room of hospital administrators was crisp about this: the sunk cost fallacy is a wiring error, nothing more exotic, and the correction is a rule you can teach in an afternoon — past expenditures are past, so ignore them and price the future. She was right that the rule is teachable. Her own audience could recite it within the hour. What she did not mention, and what the follow-up work in her field keeps turning up, is that the teaching does not hold where it would count. People who state the rule cleanly about a stranger's kitchen abandon it about their own marriage, their own dissertation, their own department.
+
+Call it a bias, then, and the prediction follows: it should erode under feedback, the way a systematic error in a clock is filed away once the watchmaker sees it gaining. It mostly doesn't. Call it a heuristic and the prediction is better — refusing to walk away from expenditure is a legible signal to others that you cannot be bled by strategic delay, which is a real advantage in a real bargaining world, and there are cases where the reluctance pays exactly this way. But the paradigm case is not one of them. Nobody is watching the couple's kitchen. Call it a norm, finally — a moral inheritance about not squandering what has been spent — and the cultural variation is genuine; how much waste offends a person plainly depends on how a person was raised. The variation is around a constant. The pull is present in populations whose stated thrift ethics diverge sharply, and it is present in individuals who explicitly disavow the ethic.
+
+Return to the kitchen. Nothing about the couple has changed; three vocabularies have been tried on them and each has left the same sediment behind. The scientist's confident claim survives in modified form. She said the persistence was the error. The persistence is instead the finding: this behavior does not sit inside one level of explanation, and its refusal to sit is the most reliable thing about it. Notice that the three categories were never parallel to begin with — bias names a malfunction, heuristic names a function, norm names an obligation, and a discipline that offers all three as a menu is offering three different kinds of answer to a question it has not fixed. So the live matter is not which box the couple belongs in. It is why decision science requires a box at all, and what loosens if the requirement is dropped: economics stops needing an irrational agent as a residual category, therapy stops treating the reluctance as a symptom to be argued away, the whole picture of the deviant chooser goes slack. The classification will keep failing to hold until the disciplines stop demanding that their objects sit at exactly one altitude of explanation. Meanwhile the countertop goes in, quartz, the pattern they picked in March.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) Decision science should abandon its research on sunk costs, because the disciplines that use its findings have grown incoherent.
+(B) The sunk cost fallacy is a wiring error whose correction is a simple rule teachable to any attentive audience in an afternoon.
+(C) The sunk-cost pull resists every single-level explanation, and that resistance is itself the significant finding about it.
+(D) Of the three available vocabularies, the norm account best explains the behaviour, since cultural variation in thrift ethics is genuine.
+
+Q2. Which one of the following statements, if true, would best invalidate the main argument of the passage?
+(A) Bargaining experiments show that visible refusal to walk away yields measurable gains against opponents who use strategic delay.
+(B) The couple in the opening example were also influenced by a rising local property market when they chose to finish.
+(C) A brief training in ignoring past expenditure durably eliminates the pull in participants' own high-stakes personal decisions.
+(D) Cultures with strict thrift teachings show noticeably stronger sunk-cost pull than cultures whose teachings emphasise flexible spending.
+
+Q3. Which one of the following findings would most complicate the author's account of the heuristic explanation?
+(A) Individuals who explicitly disavow thrift ethics still finish half-done projects at rates similar to committed savers.
+(B) Hospital administrators who learned the rule applied it correctly to colleagues' projects but rarely to their own budgets.
+(C) Professional negotiators trained in signalling report deliberately refusing to abandon investments during observed and high-stakes talks.
+(D) Private, unobserved sunk-cost persistence turns out to be a reliable rehearsal that improves later public bargaining performance.
+
+Q4. Which one of the following situations is most analogous to the mechanism described in the passage?
+(A) An economist finds that consumers persistently overpay for warranties, and designs a short disclosure that reduces the behaviour in later purchases.
+(B) A biologist finds that a bird's odd call defies acoustic, ecological and evolutionary framings, and treats that defiance as her result.
+(C) An anthropologist shows that attitudes toward wasted food vary widely across regions, and traces each attitude to distinct religious teachings.
+(D) A historian argues that a long war continued because commanders feared that withdrawal would signal weakness to watching rival states.
+
+Q5. The primary purpose of the passage is to:
+(A) press a discipline to abandon its demand that a behaviour be assigned to one explanatory level
+(B) open with an illustration, test three candidate framings against it, and then return to the illustration
+(C) explain the mechanism by which the sunk cost fallacy causes people to keep funding failing projects
+(D) summarise how bias, heuristic and norm accounts each describe the reluctance to abandon past expenditure
+
+Q6. The author faults the three-category menu offered by decision science for all of the following reasons, EXCEPT:
+(A) offering three kinds of answer means the underlying question that they answer has not been fixed
+(B) the three categories were originally developed by researchers working in mutually hostile theoretical traditions
+(C) insisting on a single box sustains an image of the deviant chooser across economics and therapy
+(D) the categories are not parallel, since one names a malfunction, another a function, another an obligation
+
+Q7. The passage stops where it does in order to:
+(A) leave the couple's ordinary choice intact and unresolved after the theoretical dispute has been reframed
+(B) indicate that norm-based explanations, grounded in domestic taste and habit, ultimately account for the behaviour
+(C) imply that decision science has already begun to abandon its insistence on single-altitude explanations
+(D) suggest that the couple finally recognised their error and salvaged what value remained from the renovation
+
+Q8. According to the text, the cultural variation associated with the norm account is described as:
+(A) real, and sufficient to show that upbringing determines how strongly the reluctance operates
+(B) real, yet arranged around a pull found even in people who reject the thrift ethic
+(C) modest, and largely confined to individuals who explicitly disavow inherited moral teachings about waste
+(D) doubtful, since populations with divergent thrift ethics show statistically indistinguishable levels of reluctance
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates the three failed vocabularies of paragraph 3 with paragraph 4's reframing: 'the persistence is instead the finding' and the behaviour's refusal to sit at one altitude.
+  (A) scope_inflation — The author asks the disciplines to drop the single-altitude requirement, not to abandon inquiry into the behaviour itself.
+  (B) stage_misattribution — This is the quoted scientist's opening position, which paragraph 2 immediately qualifies and paragraph 4 revises rather than endorses.
+  (D) level_confusion — Paragraph 3 concedes variation but insists it is 'around a constant', so the norm reading is shown incomplete, not selected.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The argument's load-bearing move is that the pull persists after correction and so cannot be filed as a teachable error; durable elimination restores the bias account.
+  (A) level_confusion — The passage already grants this heuristic payoff and merely notes the kitchen case lacks an audience, so the concession changes nothing.
+  (B) example_promotion — Complicating one illustrative case leaves the general claim about three explanatory levels wholly untouched.
+  (D) half_truth — Paragraph 3 already accepts genuine cultural variation; stronger variation still leaves the acknowledged constant that the argument rests on.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The author dismisses the heuristic reading for the kitchen by saying nobody is watching; a signalling benefit that accrues without observers repairs exactly that gap.
+  (A) level_confusion — This supports the author's treatment of the norm level and says nothing about the signalling logic under scrutiny.
+  (B) stage_misattribution — This restates paragraph 2's point about teaching failing where it counts, bearing on the bias claim rather than the heuristic one.
+  (C) adjacent_answer — The passage already concedes that the reluctance pays in observed bargaining; this confirms rather than complicates its heuristic discussion.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — It reproduces the passage's move exactly: several non-parallel explanatory levels each fail, and the failure to settle at one is treated as the finding rather than a defect.
+  (A) stage_misattribution — This is the correctable-error model the passage attributes to the scientist and then declines to accept.
+  (C) half_truth — It stops at the cultural variation the passage grants while ignoring the constant that variation surrounds.
+  (D) level_confusion — This isolates the signalling level the passage explicitly says does not cover the unobserved paradigm case.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — Paragraph 4 states the live matter: not which box the couple belongs in, but why decision science requires a box, and what loosens once the requirement is dropped.
+  (B) category_slip — This describes the passage's structural design rather than the authorial purpose the design serves.
+  (C) level_confusion — Treats the opening kitchen case as a textbook illustration to be unpacked, whereas the passage uses it to test rival vocabularies.
+  (D) adjacent_answer — This is an accurate summary of paragraph 3's content but misses why the author assembled the three accounts.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — The passage faults the categories for being non-parallel kinds of answer, not for their disciplinary provenance; no claim about their origins or their authors' rivalries appears anywhere.
+  (A) passage_supported — Paragraph 4 says a discipline offering all three is answering a question it has not fixed.
+  (C) passage_supported — Paragraph 4 lists what loosens once the requirement is dropped, including the residual irrational agent and the symptom framing.
+  (D) passage_supported — Paragraph 4 states that bias names a malfunction, heuristic a function, and norm an obligation.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — The quartz countertop returns to the opening scene deliberately unexplained, holding the behaviour in place while the argument's demand for classification has been withdrawn.
+  (B) level_confusion — The ending declines to award the case to any level, and paragraph 3 already found the norm account insufficient.
+  (C) premature_closure — The passage says the classification will keep failing until disciplines change, offering no sign that change has started.
+  (D) stance_misread — The closing detail is neutral reportage of the finished countertop, not a verdict on the couple's judgement.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — Paragraph 3 concedes the variation is genuine, then adds that it is 'around a constant' present in divergent populations and in explicit disavowers.
+  (A) nec_suff_swap — The passage grants that offence at waste depends on upbringing but denies that this settles the underlying pull.
+  (C) phrase_misuse — Disavowers are cited to show the pull survives disavowal, not to locate where variation is concentrated.
+  (D) moderate_extremism — The passage affirms the variation as genuine; it never questions whether the differences exist.
+
+[Inspired by: "How to offset your brain", https://aeon.co/essays/can-mindfulness-help-you-overcome-your-cognitive-biases]

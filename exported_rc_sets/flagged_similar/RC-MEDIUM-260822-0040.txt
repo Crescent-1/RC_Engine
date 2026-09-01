@@ -1,0 +1,114 @@
+RC ID: RC-MEDIUM-260822-0040 | Tier: medium | Score: 8.0 | Status: needs_review | Compliance F1: 0.845 | Novelty: 0.593 | Screen: red | Generated: 2026-08-22T07:41:28.395238+00:00
+======================================================================
+
+[PASSAGE]
+
+What, in Francis Bacon’s New Atlantis, is being measured when Salomon’s House measures its achievements? Imagine two surveyors standing before the same excavated wall. One counts every exposed stone, noting its size, source and relation to its neighbours; the other paces the length of wall still standing and asks whether it can bear a roof. The House offers both procedures. Its “merchants of light” travel abroad for books and experiments; its “depredators” gather material from authors; its “compilers” arrange the findings. In a side room one can almost see the narrow labels tied to jars and instruments, each carrying a place, a trial, a result. Knowledge, on this account, is what has been recovered and made comparable. Yet other officers are assigned to draw new experiments from old ones, to seek “light” from practice, and to turn discoveries toward works. Here the unit is not the report but the alteration: a changed fruit, a quieter disease, a manufactured effect.
+
+The archive school and the workshop school have therefore read the same institution in opposite ways. For the former, its vast intake is the achievement; for the latter, intake is merely raw ore. Not a contrast between passive record and active invention, rather a contrast between two forms of disciplined attention, each requiring the other’s materials. Still, the workshop reading has an obvious force: an untested report can remain only a well-filed rumour.
+
+By the 1970s, “information” had already come to suggest transferable content, as though a fact retained its force while passing from hand to hand. Bacon’s vocabulary is less settled. “Light” names both finding and making. “Works” names outcomes. “Experiments” names occasions arranged to yield further occasions. The House’s sequence is plain: collect reports, sort them, alter conditions, compare effects, then return the result to the store of reports.
+
+Its celebrated motto, “the knowledge of Causes, and secret motions of things; and the enlarging of the bounds of Human Empire,” is often made to settle the matter in favour of mastery. It does not. The phrase joins an account of causes to an enlargement of power, but it never supplies a common scale on which a classified observation and a successful operation can be weighed. The more consequential division lies instead in who may decide that one has become the other, since in that decision the House converts its crowded rooms of evidence into the authority claimed by its works.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) Bacon's House links collection to intervention while leaving authority over their conversion unsettled.
+(B) Salomon's House resolves archival and workshop aims through a single stable scale of scientific mastery and practical power.
+(C) The passage contrasts two institutional readings before endorsing the workshop as the superior model of knowledge.
+(D) The House chiefly measures achievement by the quantity and comparability of reports assembled from many sources.
+
+Q2. The author of the passage is likely to disagree with which one of the following statements?
+(A) Untested reports may remain well-filed rumours despite their orderly archival classification.
+(B) The workshop reading treats collected intake as raw material rather than achievement itself.
+(C) The House moves from collected reports toward altered conditions and compared effects.
+(D) The motto decisively establishes mastery as the House's sole measure of achievement.
+
+Q3. The House's sequence is said to involve all of the following EXCEPT:
+(A) collecting reports before they are sorted into a usable store.
+(B) systematically altering conditions after reports have been collected and arranged.
+(C) comparing effects before results return to the accumulated reports.
+(D) establishing a common scale between observations and successful operations.
+
+Q4. Which one of the following situations is most analogous to the mechanism described in the passage?
+(A) A public-health board decides when varied clinic records warrant a treatment policy, converting evidence into authorized action.
+(B) An engineer repeats a proven test while excluding all earlier reports from the design process.
+(C) A laboratory uses a fixed metric to settle whether every observation counts as practical success across departments.
+(D) A museum catalogues artifacts by origin and material without using them to guide restoration decisions.
+
+Q5. Which one of the following findings would most complicate the author's account of why decision-making authority converts evidence into works?
+(A) Workshop officers sometimes revise their procedures after a manufactured effect disappoints them.
+(B) Some reports are filed before officers decide which experiments should follow from them.
+(C) Officers regularly debate whether particular experiments have yielded reliable results before acting.
+(D) A published protocol independently determines when observations count as successful operations across all House departments.
+
+Q6. Regarding “light” as described in the passage, the author asserts that:
+(A) It names both the act of finding and the act of making.
+(B) It names transferable content that retains force across all exchanges.
+(C) It names reports gathered abroad by the merchants of light.
+(D) It names only outcomes produced after experiments are successfully completed.
+
+Q7. The passage stops where it does in order to:
+(A) show that classified observations automatically become authoritative practical operations within the House.
+(B) shift attention to who authorizes conversion, while leaving the measurement problem unresolved.
+(C) confirm that successful works provide the common scale previously missing for all evidence.
+(D) reconcile archival and workshop readings within a final hierarchy of institutional value.
+
+Q8. The discussion of Salomon's House's celebrated motto functions to:
+(A) illustrate how experiments are arranged to generate further experimental occasions.
+(B) prove that workshop officers possess greater intellectual authority than archival officers.
+(C) complicate a mastery reading by showing that the phrase lacks a common measure.
+(D) establish that reports retain their force while passing between institutional hands.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — It follows the passage from its two measures of achievement through the procedural sequence to the final question of who authorizes conversion.
+  (B) premature_closure — The final paragraph explicitly says that no common scale for weighing observation and operation is supplied.
+  (C) stance_misread — The workshop reading has force, but the passage says both forms of attention require each other's materials.
+  (D) phrase_misuse — This treats the opening archive-oriented framing as the settled conclusion, ignoring the later workshop and authority problem.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — The author directly rejects the inference that the motto settles the matter in favour of mastery.
+  (A) passage_supported — The passage explicitly states that an untested report can remain a well-filed rumour.
+  (B) terminological_twin — This is the reported workshop position, which the author partially credits by noting its obvious force.
+  (C) passage_supported — This accurately restates the sequence described in the third paragraph.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The passage specifically denies that the motto supplies such a scale; the sequence produces reports and works without resolving their commensurability.
+  (A) passage_supported — The third paragraph says to collect reports and sort them before later stages.
+  (B) passage_supported — The stated sequence places alteration of conditions after collection and sorting.
+  (C) passage_supported — The passage says effects are compared and the result then returns to the store of reports.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Like Salomon's House, the board's crucial power lies in deciding when accumulated evidence becomes an operative intervention.
+  (B) false_symmetry — The passage treats prior reports as necessary material for further experiments rather than as dispensable.
+  (C) phrase_misuse — This assumes the common metric that the passage says is absent, thereby resolving the tension too readily.
+  (D) half_truth — It resembles archival collection but omits the passage's decisive transition from evidence to authorized works.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — This would provide the missing common criterion, weakening the claim that institutional decision alone governs conversion.
+  (A) adjacent_answer — Revision concerns experimental practice, not the authority to classify evidence as an authorized work.
+  (B) passage_supported — This restates the collection-to-experiment sequence and does not supply a common scale between stages.
+  (C) half_truth — Debate over reliability is compatible with the author's claim that officers exercise authority over conversion.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The third paragraph explicitly assigns “light” both a receptive and a productive sense.
+  (B) terminological_twin — That description belongs to the later meaning of “information,” not to Bacon's less settled vocabulary.
+  (C) stage_misattribution — Merchants gather books and experiments, but the passage gives “light” a broader dual meaning.
+  (D) category_slip — Those outcomes are called “works”; “light” also concerns finding.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — The ending displaces the archive-workshop dispute onto institutional authority rather than offering a final metric.
+  (A) missing_link — The final sentence identifies conversion as a decision, not as an automatic consequence of classification.
+  (C) premature_closure — The author says the motto never supplies a common scale for observations and operations.
+  (D) false_symmetry — The ending does not rank the readings; it introduces the unresolved question of authorization.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — The motto initially invites a mastery interpretation, but its analysis exposes the missing bridge between knowledge and power.
+  (A) adjacent_answer — That function belongs to the earlier discussion of Bacon's vocabulary for experiments.
+  (B) scope_inflation — The motto discussion concerns commensurability and decision, not a comparative ranking of officer groups.
+  (D) framework_import — This imports the passage's account of 1970s information into the motto's different conceptual problem.
+
+[Inspired by: "How Finitude Makes Us Happy — My Final Post", https://www.thenewatlantis.com/practicing-medicine/how-finitude-makes-us-happy]

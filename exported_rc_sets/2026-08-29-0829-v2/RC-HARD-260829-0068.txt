@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260829-0068 | Tier: hard | Score: 7.4 | Status: needs_review | Compliance F1: 0.9 | Novelty: 0.54 | Screen: green | Generated: 2026-08-29T15:17:50.048067+00:00
+======================================================================
+
+[PASSAGE]
+
+Scribes in the second millennium BCE began compiling the birth-anomaly omens that later scholars gathered under the incipit Šumma izbu — "if a malformed newborn." The excerpt in front of me is in the flat conditional format the series uses throughout. If the anomaly is thus, then such-and-such follows. The entries are ruled off from one another, one per line, like a tally. The format will look familiar to anyone who has read a Babylonian medical text, where a physician's tablet runs the same way: if the patient's temple throbs and his hand shakes, then he suffers the hand of a particular god. Same grammar. Same clean two-part hinge.
+
+Work both readings out and they seem to run along one track. The physician, having palpated the abdomen, moves from the visible particular in front of him inward, to the hidden condition that produced it, using a correspondence he learned by heart and did not himself devise; the omen-scribe, having inspected the malformed lamb, moves from that visible particular outward to a verdict about something entirely elsewhere — the king's campaign, the harvest — using a correspondence he also learned by heart and also did not devise. Both begin in the seen. Both end in the unseen. Both trust the list.
+
+The swelling and the fever are two faces of one process. Whatever is wrong inside the patient produces the sign, so the sign carries information about the cause because it descends from the cause: read the symptom backward and you arrive where it came from. The lamb's extra limb has no such descent. It does not cause the enemy's defeat and is not caused by it; nothing links the ewe's uterus and the battlefield in the way the disease links throat to pulse. The parallel format hides a difference in kind. Two clauses joined by a conditional look the same whether or not anything travels between them.
+
+An objection: the scribes plainly believed the gods wrote the verdict into the flesh, so a causal chain does exist, merely with an invisible middle term, and the parallel survives. But the tablet never requires that chain, never displays it, never argues from it. Its format is arranged so that the sign, once matched to its entry, is sufficient to certify the verdict — full stop, no further showing. A diagnostic symptom can never claim that. Fever certifies nothing on its own; the physician must hold that this fever belongs to this disease and not another, which is a claim about necessity, and which is why medical entries multiply qualifications while omen entries do not. Sufficiency has quietly taken necessity's seat.
+
+That swap explains the shape of the series itself. It grows. It does not consolidate. A medical tradition, pressed hard enough, compiles its cases into a nosology, because symptoms that share a cause can be grouped under it — but no omen explains another omen, so each anomaly must be certified separately, line by ruled line, forever. Calling the two practices variants of one inferential habit splits a difference that is not there to split; they are not close cousins, nor wholly alien procedures, and the temptation to say something balanced about them mostly survives because the tablets, ruled and rowed alike, look as though they belong on the same shelf.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) arguing that omen-reading is diagnostic reasoning transferred from human patients to livestock
+(B) defending a balanced verdict that treats the two practices as neither identical nor entirely unrelated
+(C) showing that a shared conditional format conceals two inferences of fundamentally different kinds
+(D) tracing how Babylonian scribes eventually derived their omen formats from earlier medical tablets
+
+Q2. Which reading of the following scenario best follows the passage's reasoning? A modern auditor uses two rules: 'if the account's totals fail to reconcile, then an entry has been misposted' and 'if the firm's logo has been redesigned this year, then its quarterly earnings will rise.'
+(A) The second rule is sound provided some unseen market mechanism links branding to the firm's earnings.
+(B) The first rule is weaker because a single symptom cannot establish which fault produced it.
+(C) Both rules move from a visible sign to a hidden truth, so both are inferences of one kind.
+(D) The first rule reads a trace back to what produced it; the second merely certifies a verdict.
+
+Q3. Which one of the following statements, if true, would best invalidate the main argument of the passage?
+(A) Omen tablets routinely group many anomalies under one shared verdict-producing principle and require it before certification.
+(B) The scribes themselves held that the gods inscribed each verdict directly into the malformed animal's flesh.
+(C) Some Babylonian medical tablets were copied by the very scribes who also copied the birth-anomaly series.
+(D) Malformed newborn animals were in fact often produced by the same droughts that later ruined harvests.
+
+Q4. Which one of the following is most strongly implied by the way the passage ends?
+(A) Scholars have misread the series because they underestimated the sophistication of Babylonian medicine.
+(B) The urge to call the practices close cousins survives mainly on the tablets' shared physical appearance.
+(C) Omen series would have consolidated eventually had scribal institutions been pressed hard enough.
+(D) The two traditions are wholly alien procedures that share nothing beyond their conditional phrasing.
+
+Q5. All of the following are supported by the passage EXCEPT:
+(A) Both the physician and the omen scribe begin their inference from something visibly present.
+(B) The omen scribe devised the correspondences he applied to each malformed newborn brought before him.
+(C) Medical entries accumulate qualifications in a way that omen entries characteristically do not.
+(D) The birth-anomaly series expands by addition rather than by being consolidated into classes.
+
+Q6. According to the passage, why can a medical tradition compile its cases into a nosology while the omen series cannot be so compiled?
+(A) Symptoms sharing a cause can be grouped under it, whereas no omen explains another omen.
+(B) Diseases occur repeatedly in many patients, whereas each malformed newborn is an unrepeatable event.
+(C) Physicians revised their correspondences by experience, while scribes copied theirs without any alteration.
+(D) The gods write verdicts individually, so each certified sign demands its own necessary middle term.
+
+Q7. Why does the author include the objection that the scribes believed the gods wrote the verdict into the flesh?
+(A) To provide a counterargument that structurally divides the descriptive opening from the concluding verdict.
+(B) To concede that an invisible causal middle term does preserve the parallel between the two practices.
+(C) To report the theological convictions the Babylonian scribes held about divine writing in animals.
+(D) To press the strongest defence of the parallel and expose what the format itself never demands.
+
+Q8. Which one of the following, if true, would most support the claim made in the fourth paragraph about sufficiency displacing necessity?
+(A) Scribes sometimes appended prayers asking the gods to confirm the verdicts their tablets had certified.
+(B) Omen tablets record no procedure for deciding which of two matching entries a given anomaly satisfies.
+(C) The omen series was consulted by kings before campaigns more often than by shepherds or farmers.
+(D) Physicians occasionally recorded fevers whose underlying disease they were finally unable to identify.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — The passage moves from apparent parallel (paras 1-2) to the causal disanalogy (para 3), the sufficiency-necessity swap (para 4), and its consequence for how the series grows (para 5).
+  (A) nec_suff_swap — Paragraph 3 denies any descent from cause to sign in omens, so omen-reading is not diagnosis relocated.
+  (B) straw_version — The closing paragraph explicitly rejects that balanced verdict as splitting a difference not there to split.
+  (D) causal_inversion — The passage never claims one genre descended from the other; it only notes their shared grammar in paragraph 1.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — Mirrors paragraph 3's distinction: the reconciliation failure descends from the misposting, while the logo bears no productive relation to earnings, only a matched entry.
+  (A) nec_suff_swap — Paragraph 4 shows such an invisible middle term is never required or displayed by the format itself.
+  (B) half_truth — Paragraph 4 treats that need for qualification as diagnosis's claim to necessity, not as a disqualifying weakness.
+  (C) causal_inversion — This is the paragraph-2 surface parallel the author dismantles in paragraph 3 by noting nothing travels between the omen's clauses.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — The argument's load-bearing move is that no omen explains another, so entries can only accumulate; grouped omens under an explanatory principle would restore necessity and consolidation.
+  (B) nec_suff_swap — Paragraph 4 already concedes this belief and shows the tablet's format neither requires nor displays that chain.
+  (C) category_slip — Shared copyists concern personnel, not the inferential structure the argument compares in paragraphs 3 and 4.
+  (D) causal_inversion — A common external cause is not the descent from verdict to sign that paragraph 3 requires for the parallel.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The final clause attributes the balanced verdict's persistence to the tablets looking as though they belong on the same shelf — a resemblance of form, not of reasoning.
+  (A) stage_misattribution — The error diagnosed is misled by format resemblance, not by any underrating of medical sophistication.
+  (C) causal_inversion — Paragraph 5 makes consolidation impossible in principle because no omen explains another, not a matter of pressure.
+  (D) moderate_extremism — The last sentence explicitly denies that they are wholly alien, rejecting both poles of the balanced verdict.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — Paragraph 2 states the omen-scribe used a correspondence he 'also learned by heart and also did not devise,' so this reverses the passage's stance on the scribe's role.
+  (A) passage_supported — Paragraph 2 states that both begin in the seen and both end in the unseen.
+  (C) passage_supported — Paragraph 4 states medical entries multiply qualifications while omen entries do not.
+  (D) passage_supported — Paragraph 5 states the series grows and does not consolidate, certifying each anomaly separately.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — Paragraph 5 gives exactly this reason: grouping is possible where a shared cause exists, and omens supply no such explanatory relation between entries.
+  (B) adjacent_answer — The passage grounds the contrast in explanatory relations between entries, not in the frequency of occurrences.
+  (C) framework_import — Paragraph 2 says neither practitioner devised his correspondences; revision by experience is imported, not stated.
+  (D) nec_suff_swap — Paragraph 4 says the omen format dispenses with necessity entirely; the sign alone suffices without any middle term.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The objection is raised so the author can answer it, revealing that the tablet certifies by sufficiency alone — the pivot on which the thesis first becomes visible.
+  (A) stage_misattribution — This names the passage's structural architecture rather than the author's purpose in raising the objection.
+  (B) stance_misread — Paragraph 4 rejects the concession outright, insisting the tablet never requires, displays, or argues from that chain.
+  (C) level_confusion — This summarises the objection's content but misses why the author placed it there — to be answered.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — If matching an entry ends the inquiry with no test of which entry properly applies, the sign certifies on its own — precisely the sufficiency the paragraph describes.
+  (A) nec_suff_swap — Appended prayers suggest a further step beyond the sign, weakening rather than supporting the sufficiency claim.
+  (C) scope_inflation — Who consulted the series concerns its social use, not the inferential structure the paragraph analyses.
+  (D) half_truth — Diagnostic failures show the difficulty of establishing necessity, not that omen practice dispensed with it.
+
+[Inspired by: "How the Ancient Greeks Interpreted Their Dreams", https://nautil.us/how-the-ancient-greeks-interpreted-their-dreams-1284046/]

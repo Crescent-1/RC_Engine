@@ -1,0 +1,114 @@
+RC ID: RC-MEDIUM-260822-0034 | Tier: medium | Score: 0.0 | Status: solver_dispute | Compliance F1: 0.85 | Novelty: 0.565 | Generated: 2026-08-22T02:45:48.873392+00:00
+======================================================================
+
+[PASSAGE]
+
+The style manual on the sub-editor's desk at the paper where I once corrected proofs — a 1963 edition, rebacked in tape — devotes four pages to the distinction between "which" and "that," and does so with the serene confidence of an institution that has never been contradicted to its face. This is prescriptivism at its most attractive: a single coherent grammar, teachable, examinable, capable of sorting any utterance into the permitted and the barred, and enforced through the mild ceremonies of schooling, the red pen, the returned application, the raised eyebrow at a job interview. One admires the architecture. One admires, in particular, how completely it accounts for everything except the people who speak.
+
+The sub-editor also spoke. So did the compositors. So did everyone in the building after six o'clock, when the manual stayed shut. "Ain't" persisted three floors down and had persisted for two centuries. Double negatives did their work in that print room with perfect precision, understood by all parties, misunderstood by none. Nobody was confused. Sociolinguists have spent decades documenting exactly this: variation by region, by generation, by room, by hour, stable and rule-governed in its own right, entirely indifferent to the four pages on "which." The manual prescribed. The building spoke. The building won, and it is tempting to file the matter there.
+
+Tempting, but the ledger doesn't balance that way — no: more precisely, the two parties were never keeping the same accounts. The manual was answering a question about what ought to appear in a newspaper of record; the linguists studying that same print room were answering a question about what human beings demonstrably do with their mouths. Neither answer bears on the other. To find the manual empirically refuted by the compositors is like finding a wedding invitation refuted by a census: the invitation was not a claim about attendance. And the symmetry usually drawn between the two positions fails at exactly this joint, because only one of them carries institutional force. Descriptivism can tell you that "ain't" is systematic; it cannot tell the applicant whether to use it on the form. The manual could, and did, and the applicant knew it. This is not incommensurability, and it is certainly not an invitation to declare both sides equally right and retire. It is a difference in what the question was for.
+
+What the print room actually knew, and neither literature quite says, is that a compositor choosing his register at the counter was not choosing between correct and incorrect but between two goods that do not reconcile: being understood by strangers, and being recognised by his own. The manual encoded the first and pretended it was the whole of the matter. The linguists mapped the second with great care and declined, on principle, to say what it cost anyone. Grant the descriptivists their evidence entirely — the variation is real, the systems are real — and the compositor's difficulty survives intact, because it was never a difficulty about rules. It is a standing negotiation, conducted daily, by people who cannot be told from outside which loss to accept, and who may be right to distrust anyone confident enough to tell them.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) demonstrating that descriptive evidence has defeated prescriptive superstition about correct usage
+(B) establishing that the two disciplines are incommensurable and thus both entirely correct
+(C) arguing that style manuals still deserve institutional authority over informal speech everywhere
+(D) showing that the dispute dissolves into a lived conflict between two irreconcilable goods
+
+Q2. Which one of the following, if established, would most damage the author's central claim?
+(A) The 1963 manual devoted rather fewer pages to relative pronouns than the author recalls
+(B) Formal rules function as obstacles to authentic speech rather than instruments of power
+(C) Sociolinguists have occasionally issued advice to applicants about filling out official forms
+(D) Speakers routinely combine registers so that being understood and being recognised coincide
+
+Q3. Which one of the following findings would most complicate the author's account of the asymmetry between the manual and the linguists?
+(A) Compositors in the print room privately preferred standard usage when writing formal letters
+(B) Employers now ignore usage entirely, so nonstandard forms carry no cost in hiring
+(C) Descriptive linguistics originated later than the prescriptive manuals it is often compared against
+(D) The two frameworks are incommensurable, making each equally valid within its own domain
+
+Q4. Which one of the following situations is most analogous to the mechanism described in the passage?
+(A) A dietary guideline is faulted by surveys of what people in fact eat
+(B) A dialect survey finds two villages using different words for the same tool
+(C) A traffic law is repealed after engineers show that drivers ignore it constantly
+(D) A judge and a novelist disagree about whether a punishment was truly just
+
+Q5. The passage as a whole is best understood as an attempt to:
+(A) defend sociolinguistics against the charge that its findings are practically useless everywhere
+(B) contrast a style manual's confident prescriptions with the varied speech of a print room
+(C) relocate the real question from rule-correctness to the cost borne by speakers
+(D) open with an anecdote, concede a rival position, and then qualify that concession
+
+Q6. The author attributes all of the following to the print room's speech EXCEPT:
+(A) a deliberate rejection of the manual's authority by those who worked below
+(B) systematic variation by region, generation, room and even hour
+(C) a long history, with 'ain't' having persisted there for two centuries
+(D) precision, since double negatives were understood by all parties present
+
+Q7. The passage stops where it does in order to:
+(A) restate that prescriptive and descriptive claims answer two entirely different questions
+(B) suggest that further sociolinguistic fieldwork will eventually settle which loss to accept
+(C) leave the choice with the speakers, whose distrust of outside advice it endorses
+(D) imply that the manual's authority will fade once its institutional force weakens
+
+Q8. According to the passage, why does the usual symmetry drawn between the two positions fail?
+(A) Only one of the two positions is backed by institutional force over applicants
+(B) Descriptive claims rest on evidence while prescriptive claims rest on mere tradition
+(C) The two positions are incommensurable and cannot be compared on any shared scale
+(D) Linguists studied the print room while the manual described a newspaper of record
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 dismantles the shared-question assumption and paragraph 4 relocates the real difficulty in the speaker's daily negotiation between intelligibility and belonging.
+  (A) premature_closure — Stops at the paragraph 2 verdict 'the building won', which paragraph 3 explicitly declines to file the matter under.
+  (B) false_symmetry — Paragraph 3 states directly that this is not incommensurability and not grounds for declaring both sides equally right.
+  (C) stance_misread — The author grants the manual force but never endorses its authority, calling its pretence to wholeness a mistake.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — The thesis rests on the two goods being irreconcilable; showing they can be jointly satisfied removes the standing negotiation entirely.
+  (A) example_promotion — A decorative detail about the opening anecdote; the argument does not depend on the page count.
+  (B) stage_misattribution — This attacks a position the author never holds; he grants the manual real institutional force, not mere obstruction.
+  (C) half_truth — An exception in disciplinary practice leaves the logical distinction between the two questions untouched.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The asymmetry rests on only one party carrying institutional force; removing the applicant's penalty dissolves that asymmetry.
+  (A) adjacent_answer — Register-switching is consistent with, not damaging to, the account of negotiated goods.
+  (C) level_confusion — Chronology of the disciplines bears on history, not on the claim about differing questions and force.
+  (D) stage_misattribution — Paragraph 3 already rejects this reading, so it complicates nothing the author actually argues.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Like the wedding-invitation analogy, a normative claim about what ought to be is mistakenly treated as refuted by descriptive data about behaviour.
+  (B) example_promotion — This is plain descriptive variation without the normative claim that the passage's mechanism requires.
+  (C) causal_inversion — Here the descriptive finding legitimately alters the norm, whereas the passage insists neither answer bears on the other.
+  (D) category_slip — Both parties here address the same normative question; the passage turns on two different questions being asked.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — The author's purpose across all four paragraphs is to move the debate off legitimacy of claims and onto what register-choice costs the person choosing.
+  (A) stance_misread — The author faults linguists for declining to say what variation costs, rather than defending them.
+  (B) level_confusion — An accurate summary of paragraphs one and two, but it names the material rather than the author's aim.
+  (D) level_confusion — This describes the structural sequence of the argument rather than the purpose the structure serves.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The passage calls the vernacular 'entirely indifferent' to the manual, which is not the same as deliberate rejection; it imports a stance the text denies.
+  (B) passage_supported — Paragraph 2 lists exactly these axes of documented, rule-governed variation.
+  (C) passage_supported — Paragraph 2 states 'ain't' persisted three floors down and had persisted for two centuries.
+  (D) passage_supported — Paragraph 2: double negatives 'did their work in that print room with perfect precision'.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — The final clause grants that speakers 'may be right to distrust anyone confident enough to tell them', deliberately withholding a verdict.
+  (A) stage_misattribution — That was paragraph 3's work; the ending moves past it to the compositor's surviving difficulty.
+  (B) premature_closure — The passage denies that outsiders can settle it, and faults linguists for not costing the choice.
+  (D) adjacent_answer — Nothing in the closing paragraph forecasts decline; the negotiation is presented as standing, not expiring.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — Paragraph 3 states the symmetry 'fails at exactly this joint, because only one of them carries institutional force'.
+  (B) prior_belief — The author grants the descriptivists' evidence but never grounds the failure of symmetry in evidential quality.
+  (C) false_symmetry — Paragraph 3 explicitly says 'This is not incommensurability' when explaining the asymmetry.
+  (D) half_truth — Both in fact concerned the same print room; the difference lay in the question asked, not the object.
+
+[Inspired by: "Fatiguing Us into Compliance", https://www.commonwealmagazine.org/declaration-independence-tyson-charlie-trump-ice]

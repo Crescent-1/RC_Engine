@@ -1,0 +1,114 @@
+RC ID: RC-HARD-260822-0059 | Tier: hard | Score: 8.4 | Status: approved | Compliance F1: 0.837 | Novelty: 0.546 | Generated: 2026-08-22T03:24:16.588983+00:00
+======================================================================
+
+[PASSAGE]
+
+Every organization I have worked with treats departure as a form of leakage. When a person with decades in the building goes, something is understood to drain out with them, and the standard response is to build a vessel: a system for catching what would otherwise be lost. I believed in the vessels. For about eleven years, professionally, I built them.
+
+The industrial version of this belief is unusually well-developed, because manufacturing has a demographic problem it can count. Plants know when their veteran line workers will reach sixty-five, and they respond with succession planning: shadowing rotations, structured exit interviews, task decomposition, video capture of setup procedures, searchable databases of failure modes. The toolkit is not naive. It was designed by people who had watched documentation fail and had asked why. Their answer — that expertise is capturable if you decompose it finely enough — is sufficient to justify the whole apparatus, and I want to be careful here: I am not yet saying the apparatus fails. It captures a great deal. What it captures is real.
+
+In 2016 I spent six months at a chemical-processing plant in Lorraine, watching one such handoff. The retiring worker was a senior batch operator named Marguerite, thirty-one years on the same reactor train, the last nineteen on nights. The plant's incident rate over those three decades was, by sector standards, remarkable. Management built the handoff to match: a junior engineer, Théo, was assigned to her full-time with a tablet and instructions to record every judgment call she made, the reasoning behind it, and the conditions that triggered it. Six months, roughly nine hundred logged decisions. The design was intelligent. It assumed her expertise consisted of rules she could state if asked patiently enough, and it asked patiently. I should be exact about what that design established, because it is easy to slide: it established that the plant considered her valuable. It did not establish why the plant was safe.
+
+Théo's log is good. Her explicit rules came out cleanly — feed rates, hold times, the temperature bands she treated as narrower than the SOP allowed. He missed one thing. Walking the train, roughly every forty minutes, she would put her right palm flat on the housing of the number-three feed valve and leave it there for two or three seconds. She did not stop walking so much as pause mid-stride. Asked about it, she said the valve "sounds wrong sometimes." Pressed, she could not say what wrong meant. Nobody taught her; she did not know when she started. What she was reading was a vibration signature that preceded overheating in the downstream exchanger by something like three shifts — well before any gauge crossed a threshold. I want to state the finding narrowly. I cannot demonstrate that her hand caused those three decades. I can demonstrate that at least four documented near-misses were interrupted by it, that no instrument in the plant duplicated the function, and that after she left, the exchanger failed twice in fourteen months. So the question worth asking is not whether the handoff captured her rules. It is what else, in that building, was being held together by gestures nobody had a name for and no one had thought to look for.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) Capture systems record what experts can state, leaving unnamed practices that may quietly carry an institution's performance unexamined.
+(B) Documentation efforts succeed only when the retiring expert is questioned patiently over many months by a trained engineer.
+(C) The safety record of a plant depends on veteran workers whose bodily habits instruments cannot replicate or reliably measure.
+(D) Knowledge-management methods such as shadowing, task decomposition and exit interviews are fundamentally inadequate instruments for retaining organisational expertise.
+
+Q2. According to the passage, why did management design the handoff at the Lorraine plant as it did?
+(A) The plant's remarkable three-decade incident rate had been produced by earlier handoffs of the same structured kind.
+(B) It presumed her expertise consisted of statable rules that sufficiently patient questioning could elicit.
+(C) Engineers had established that vibration signatures preceded exchanger overheating and wanted the readings logged systematically.
+(D) Documentation projects elsewhere had failed, so managers deliberately decomposed her work into finely separable component tasks.
+
+Q3. Which one of the following is a view the author presents sympathetically without endorsing it?
+(A) Expertise can be retained wholesale provided it is decomposed into sufficiently fine and recordable units.
+(B) Some functions performed by long-serving staff are duplicated by no instrument installed anywhere in the facility.
+(C) Marguerite's habitual palm on the valve housing was the operative cause of the plant's exceptional safety record.
+(D) Organisations habitually understand a veteran's departure as leakage requiring some purpose-built vessel to catch it.
+
+Q4. Which one of the following, if true, would most support the claims the author advances in the final paragraph?
+(A) Théo's nine-hundred-entry log was later judged by auditors to be unusually thorough and well organised documentation.
+(B) The plant's sector rivals recorded higher incident rates across the same three decades of continuous reactor operation.
+(C) Marguerite reported that she had first noticed the valve's changed sound during her nineteenth year on nights.
+(D) Vibration monitors retrofitted to the number-three valve after her exit detected the exchanger's precursor signature.
+
+Q5. The central idea of the passage would be most undermined if:
+(A) Systematic re-interviews of retiring workers routinely surfaced their unnamed habits and the conditions that triggered them.
+(B) The two exchanger failures in the fourteen months after her exit were traced to a defective replacement gasket.
+(C) Marguerite had in fact been shown the palm test by a night-shift colleague during her earliest years on the train.
+(D) Most chemical plants in the sector run succession programmes considerably less elaborate than the one built at Lorraine.
+
+Q6. Which one of the following best describes the role played by the second paragraph in the passage?
+(A) It catalogues the succession-planning techniques manufacturers use because their retirement demographics are countable and predictable well ahead.
+(B) It establishes that the industrial sector's documentation methods are the most rigorous available anywhere in organisational practice.
+(C) It grants the capture apparatus its strongest rationale, so the later failure cannot be blamed on careless design.
+(D) It concedes early that decomposition-based capture eventually fails, preparing readers for the Lorraine case that demonstrates that failure.
+
+Q7. In the context of the passage, the author's insistence on stating the finding 'narrowly' is best understood as:
+(A) A concession that the four near-misses may have been interrupted by causes other than her habitual pause.
+(B) A stylistic signal of scientific modesty intended to make the closing question sound more reasonable to sceptics.
+(C) An admission that a single plant cannot ground conclusions about how industrial expertise is generally transmitted.
+(D) A refusal to convert corroborating evidence about the gesture into a causal account of the safety record.
+
+Q8. Which reading of the following scenario best follows the passage's reasoning? A hospital ward with an unusually low rate of medication errors loses its longest-serving night nurse, whose entire checklist and protocol knowledge had been transcribed into a training manual before she left. Errors rise in the following year.
+(A) The ward's low error rate was produced by its protocols, and the rise reflects newer staff applying those protocols poorly.
+(B) The manual holds what she could articulate; the ward should now hunt for unnamed routines nobody thought to record.
+(C) Her departure caused the increase in errors, showing that a veteran nurse's presence sustains a ward's safety performance.
+(D) The transcription project was inadequately conducted, since a thorough manual would have preserved everything her practice contributed.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — It holds the concession of paragraph 2 (capture is real) together with paragraph 4's narrow finding and the closing widening into what else goes unnoticed.
+  (B) adjacent_answer — Théo's patient six-month questioning is precisely the well-designed effort that still missed the valve gesture, so patience is not the fix.
+  (C) causal_inversion — Paragraph 4 refuses exactly this causal claim: the author says he cannot demonstrate that her hand caused those three decades.
+  (D) nec_suff_swap — Paragraph 2 explicitly concedes the toolkit captures a great deal; the essay attacks its sufficiency, not its adequacy as a category.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — Paragraph 3 states outright that the design assumed her expertise consisted of rules she could state if asked patiently enough, and it asked patiently.
+  (A) causal_inversion — Paragraph 3 describes the design as matching her value; it never credits prior handoffs with producing the incident record.
+  (C) stage_misattribution — The vibration signature is the author's later reconstruction in paragraph 4; no one at the plant knew of it during the handoff.
+  (D) level_confusion — The learning-from-failed-documentation point belongs to paragraph 2's general toolkit, not to the stated rationale for Marguerite's handoff.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — Paragraph 2 attributes this answer to the toolkit's designers and calls it sufficient to justify the apparatus, while the essay's evidence in paragraph 4 works against it.
+  (B) stance_misread — This is the author's own documented finding in paragraph 4, not a position he reports at arm's length.
+  (C) causal_inversion — The author refuses this claim explicitly rather than steelmanning it: he says he cannot demonstrate her hand caused those decades.
+  (D) half_truth — Paragraph 1 offers this as observed institutional behaviour and the author's own former belief, not a reported argument he declines.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — It independently confirms that the signature she was reading was real and that no existing instrument had covered it, tightening the narrow finding without overclaiming causation.
+  (A) adjacent_answer — Log quality is already conceded in paragraph 4 ('Théo's log is good'), so it adds nothing to the claim about what was missed.
+  (B) scope_inflation — Comparative sector rates were already stated in paragraph 3 and cannot connect the record to the uncaptured gesture.
+  (C) straw_version — Paragraph 4 stresses she did not know when she started; a recalled origin date does not bear on the gesture's function.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — The argument's load-bearing move is that patient elicitation cannot reach practices the expert cannot name; showing such elicitation routinely reaches them collapses it.
+  (B) adjacent_answer — The author already declines to rest on causation; the failures are one corroborating detail, not the argument's support.
+  (C) half_truth — Where she learned it is irrelevant; the argument turns on the handoff's failure to capture it, not on its origin.
+  (D) scope_inflation — A weaker sector baseline strengthens the case, since Lorraine is offered as the intelligently designed best instance.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The paragraph steelmans the toolkit ('not naive', 'captures a great deal') precisely so that paragraph 4's gap indicts sufficiency rather than sloppiness.
+  (A) level_confusion — This summarises the paragraph's content accurately but names no role it plays in the argument's construction.
+  (B) scope_inflation — The paragraph calls industrial practice unusually well-developed for demographic reasons, not the most rigorous in all of organisational life.
+  (D) premature_closure — The author expressly halts short of that: 'I am not yet saying the apparatus fails.'
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The sentences that follow separate what he cannot demonstrate (her hand caused three decades) from what he can (near-misses, no duplicate instrument, later failures).
+  (A) straw_version — He states the interruptions as documented; the hedging is applied to the three-decade record, not to those four incidents.
+  (B) stance_misread — The narrowing does argumentative work in separating demonstrable from undemonstrable claims, not merely rhetorical positioning.
+  (C) level_confusion — The narrowing is about the strength of the causal claim, not about the sample's generalisability across plants.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — This reproduces the passage's actual move: a good capture of statable rules, plus a widening search for practices no one had a name for, without asserting causation.
+  (A) adjacent_answer — This relocates the explanation inside codified procedure, the very assumption the Lorraine case is used to unsettle.
+  (C) causal_inversion — The passage explicitly declines this inference for Marguerite, resting only on documented interruptions and the absence of duplicate coverage.
+  (D) nec_suff_swap — Paragraph 2 concedes such projects are intelligently designed; the gap concerns what cannot be stated, not execution quality.
+
+[Inspired by: "Let Them Visit", https://www.thenewatlantis.com/practicing-medicine/let-them-visit]

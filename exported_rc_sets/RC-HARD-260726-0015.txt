@@ -1,0 +1,90 @@
+RC ID: RC-HARD-260726-0015 | Tier: hard | Score: 8.2 | Status: approved | Compliance F1: 1.0 | Novelty: 0.673 | Generated: 2026-07-26T09:13:14.998948+00:00
+======================================================================
+
+[PASSAGE]
+
+The Ealing Choral Society lost its second tenor section in 2019, and the minute-book records it drily: "numbers no longer viable." Across British and American cities, community choirs are folding. Decline here means what it usually means — a measurable fall in participation rates, heads counted against heads counted a decade earlier. A modest, sober definition. It will do a great deal of work.
+
+Two explanations dominate. The first is busyness. Rehearsal on Tuesday at seven-thirty, every Tuesday, for thirty-six weeks, is an absurd ask of a person with shift work and a commute; surveys of lapsed members put "no time" at the top, reliably. The second is atomization. People no longer join anything — not the Rotary, not the bowls club, not the choir — because the neighbourhood ties that once produced joiners have thinned. Membership data across voluntary associations tracks together, which is suggestive. Both theses have their partisans, and both are respectable.
+
+Now, I may be missing something, but the numbers are not cooperating with either. If Tuesday evenings are the problem, one wants to know why parkrun and its cousins — Saturday mornings, unforgiving, all-weather — have grown for fifteen straight years, and why amateur gaming leagues demand four hours of synchronised attendance from people who claim to have none. If thinned neighbourhood ties are the problem, one wants to know why Seoul and Berlin, cities not famous for their thick parochial webs, sustain choirs that turn applicants away. And there is a smaller, more awkward fact that neither camp likes to be asked about: the choirs that do survive are not conspicuously stocked with the unbusy or the well-connected. They are stocked with people who came for a specific reason and stayed for a different one. Both theories, granted their best day, predict the wrong survivors.
+
+Here is what they share, and it was handed to them in the first paragraph. To define decline as falling participation is to have already decided that singing together is valuable because of what it produces — cohesion, belonging, the stock of goodwill a neighbourhood can draw down. Bonding-output, measured in bodies. Once that is the yardstick, every explanation of the fall must be a story about obstacles to bonding, and busyness and atomization are simply the two obvious obstacles: no time to bond, no one to bond with. They are not rivals so much as roommates. The argument between them was never adjudicable, because the interesting disagreement lies underneath, where nobody was looking. What I would rather ask about is smaller and, I think, more durable: what happens in the act itself — forty people finding a chord without discussing it, adjusting pitch by a fraction nobody could name, tuning to each other faster than thought. That is not a bonding mechanism. It is a form of coordination we have almost no other occasion to practise. The Ealing minute-book records the numbers. It does not record that the tenors, before they went, could hold a unison without a conductor.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central thesis of the passage?
+(A) Choral singing should be defended primarily because it trains a rare form of wordless coordination among people who rehearse together.
+(B) The debate over choral decline is stuck because both sides inherit a definition that values singing for the bonding it yields.
+(C) Community choirs are declining across British and American cities, and the losses they represent deserve more serious public attention than they get.
+(D) Neither busyness nor atomization survives scrutiny, so the true cause of falling choral participation still awaits a proper empirical accounting.
+
+Q2. What is the primary structural function of the third paragraph, with its references to parkrun, gaming leagues, Seoul and Berlin?
+(A) It supplies the empirical groundwork for a third causal explanation of decline, which the closing paragraph then names and defends.
+(B) It concedes that survey evidence on lapsed members is unreliable and that participation figures should therefore be treated with suspicion.
+(C) It weighs the two explanations against each other and establishes that atomization accounts for the evidence somewhat better than busyness does.
+(D) It shows both dominant explanations mispredicting who survives, which prepares the claim that they share a defective premise.
+
+Q3. In context, the remark that busyness and atomization "are not rivals so much as roommates" most nearly means that they:
+(A) occupy the same explanatory frame, each naming one obstacle to the bonding that the shared definition made decisive.
+(B) are functionally identical claims, differing only in the vocabulary that their respective partisans happen to have adopted.
+(C) have quietly cleared the ground for a third causal account, one that the author reserves for his concluding paragraph.
+(D) are compatible enough to be combined into a single stronger theory of decline once their respective evidential gaps are patched.
+
+Q4. The author's argument that the busyness and atomization theses fail requires which unstated assumption?
+(A) Self-reported survey answers about time are systematically unreliable and should be discounted when assessing why members lapse.
+(B) Participation in running events and gaming leagues offers the same social rewards that participation in a choir once offered.
+(C) An explanation of decline must also account for which groups persist, not merely for why participation falls.
+(D) Cross-national comparisons of associational life are methodologically sound enough to settle disputes that domestic membership data leave open.
+
+Q5. Which statement most accurately distinguishes what the author reports from what he himself maintains?
+(A) He reports the two explanations as unserious, and maintains that only the coordination he describes could ever explain why participation has fallen.
+(B) He reports the survey finding on time as the strongest available evidence, and maintains that atomization has been overstated by its partisans.
+(C) He reports the minute-book entry sympathetically, and maintains that better record-keeping by such societies would clarify the causes of decline.
+(D) He reports both dominant theses as respectable, and maintains that their shared yardstick is what deserves scrutiny.
+
+Q6. What does the final sentence about the tenors holding a unison without a conductor accomplish?
+(A) It names precisely what the participation count omits, narrowing the essay onto the practice rather than its social output.
+(B) It supplies a sentimental coda that softens an otherwise severe critique of how sociologists have handled voluntary association data.
+(C) It proposes musical proficiency as a superior metric of choral health, one that societies could record alongside their membership figures.
+(D) It implies that the Ealing tenors would have survived had their skill been recognised and valued by the society's own leadership.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — The passage moves from a 'modest, sober definition' in paragraph 1 to the fourth paragraph's diagnosis that this definition, not the rival causes, is what makes the argument unadjudicable.
+  (A) scope_inflation — The coordination point is the author's alternative question, not a defence programme; he offers it as what he would rather ask about.
+  (C) overqualification — Treats the passage's opening premise as its thesis, ignoring the fourth paragraph's attack on the shared definition of decline.
+  (D) premature_closure — The author is not calling for a better causal theory; he redirects attention from causes of decline to the act of singing itself.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — The paragraph's counterexamples end on 'both theories, granted their best day, predict the wrong survivors,' which sets up paragraph four's exposure of the shared definition.
+  (A) premature_closure — The closing paragraph replaces the causal question rather than answering it with a third cause.
+  (B) half_truth — The author accepts the survey findings and the counts; his objection concerns what the counts are taken to measure.
+  (C) moderate_extremism — No adjudication occurs; the Seoul and Berlin cases damage atomization exactly as parkrun damages the busyness account.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — The phrase follows directly from the claim that once bonding-output is the yardstick, every explanation must be an obstacle story — 'no time to bond, no one to bond with.'
+  (B) moderate_extremism — The passage calls them two distinct obstacles sharing a premise, not one claim wearing two names.
+  (C) overqualification — The concluding paragraph changes the question rather than supplying the third cause this option anticipates.
+  (D) adjacent_answer — The author sees no fix by combination; both mispredict survivors because the frame itself is what he questions.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — The counterexamples work only if 'predict the wrong survivors' counts as a defeat, which presupposes that survivorship is a legitimate test of the theories.
+  (A) half_truth — The author cites the surveys without impeaching them; he questions their sufficiency, not their honesty.
+  (B) false_symmetry — Those activities are invoked to test the time constraint, not equated with choirs in what they provide.
+  (D) scope_inflation — Seoul and Berlin are illustrative pressure points, not a claimed method for settling the dispute.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — Paragraph 2 grants both theses partisans and respectability; paragraph 4 locates the author's own quarrel underneath, at the bonding-output definition.
+  (A) straw_version — He calls both theses respectable, and the coordination point is not offered as a rival cause of the fall.
+  (B) stance_misread — The author neither ranks the evidence this way nor singles out atomization for correction; both theses fare alike.
+  (C) category_slip — The minute-book closes the essay as an image of what counting misses, not as a plea for improved documentation.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The closing pair of sentences contrasts what the minute-book records with what it does not, enacting the shift from bonding-output to the act itself.
+  (B) stance_misread — The sentence carries the argument's final substantive move; it is not decorative relief from the critique.
+  (C) category_slip — The author points to an unpractised form of coordination, not to a replacement statistic for minute-books to log.
+  (D) missing_link — No causal claim about survival is made; the point concerns what the record fails to register.
+
+[Inspired by: "Following the Football", https://www.commonwealmagazine.org/following-football]

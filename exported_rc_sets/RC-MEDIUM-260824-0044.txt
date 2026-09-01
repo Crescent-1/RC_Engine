@@ -1,0 +1,114 @@
+RC ID: RC-MEDIUM-260824-0044 | Tier: medium | Score: 8.8 | Status: needs_review | Compliance F1: 0.683 | Novelty: 0.493 | Screen: green | Generated: 2026-08-24T18:42:10.367874+00:00
+======================================================================
+
+[PASSAGE]
+
+Let me fix what "Global South" will mean here, since the phrase invites lazy mapping onto latitudes and per-capita income tables. It has never been a compass reading; Australia sits well south of Abu Dhabi and nobody proposes it for the club. It is a bloc — a negotiating habit inherited from the non-aligned years, held together by a shared grievance about who set the rules. On that reckoning the United Arab Emirates is not an absurdity. It was a British protectorate until 1971. Its security still rests on other people's fleets. Its coastline and its outdoor workforce sit squarely in the path of heat that will make parts of the Gulf unlivable by any ordinary standard. When such a state took the presidency of COP28, the awkwardness stopped being a matter of vocabulary and became a matter of who chairs the room.
+
+The objection arrives promptly and it deserves its best day. Sovereign funds measured in the trillions. A hydrocarbon export book that funds the state twice over. Solar capacity built without a cent of concessional finance. Whatever the UAE is short of, it is not capital. Set it beside Malawi in a discussion of loss and damage and the shared category starts to look like a costume. Nor does the softer label rescue it: to call the Emirates "developing" implies it is merely at an earlier station on a track the wealthy have already ridden, which is precisely backwards — its problem is not arriving late at prosperity but arriving there by selling the very commodity under negotiation. A petrostate borrowing the moral standing of the exposed, while keeping the gavel, is a fair description of what many delegations saw.
+
+And yet each rival label fails in its own way, which is what I find instructive. "Developing" misdescribes a country with more desalination capacity than it can pay for in carbon terms. "Petrostate" flattens a foreign policy that runs from Emirati-funded transmission lines in East Africa to mediation in Yemen to money in Caribbean adaptation funds. "Donor" flatters, since donors do not spend the conference arguing that historical emissions are somebody else's ledger to settle. Kuwait, Norway, Guyana, Indonesia — each strains the taxonomy differently. What is under strain is not our knowledge of the Emirates; it is the expectation that a category name can decide who is owed what. Legitimacy questions are being smuggled into classification questions because classification is cheaper to argue about, and the categories cannot carry the freight.
+
+So the Global South survives as a working vocabulary. It should. It keeps the table open to states that a poverty-to-riches ladder cannot rank, and it preserves the one claim that unites them, which concerns the origin of the rules rather than the size of the reserves. The bill is legible. Sharp inequalities inside the coalition go quiet. A country with money can speak in the cadence of a country without any, and membership will be mistaken for a mandate to speak for the smallest members — which it never was, and which the smallest members have not granted. That confusion is affordable only while nothing turns on it. It will not stay affordable: the eligibility criteria for the loss-and-damage fund, and the seat allocations that follow, will require somebody to write the boundary down, and once it is written the courtesy that made it usable will be gone.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) No available label fits the Emirates, because classification is being asked to settle entitlement questions it cannot bear.
+(B) Petrostates chairing climate conferences corrupt negotiations, so presidencies must rotate to states genuinely exposed to warming harms.
+(C) The Emirates should surrender its claim to Southern membership because its sovereign wealth makes the shared grievance a mere costume.
+(D) The Global South denotes the poorer countries lying south of the equator, and the wealthy Emirates plainly falls outside it.
+
+Q2. Regarding the Emirates' position described in the passage, the author asserts that:
+(A) its security now rests on its own fleets rather than on external military protection.
+(B) its solar capacity was financed largely through concessional lending from wealthier donor states.
+(C) it stands at an earlier station on the same track the wealthy states already rode.
+(D) its difficulty is having reached prosperity by selling the commodity that negotiations are about.
+
+Q3. What is the purpose of listing Kuwait, Norway, Guyana and Indonesia in the third paragraph?
+(A) To show the strain is general to the taxonomy rather than peculiar to the Emirates.
+(B) To demonstrate that hydrocarbon exporters should be excluded from any future Southern coalition.
+(C) To prove that the Emirates is an unusually hard case among otherwise well-sorted states.
+(D) To establish that membership in the vocabulary licenses speaking for the coalition's weakest states.
+
+Q4. Which one of the following, if established, would most damage the author's central claim?
+(A) A published rule set has for years assigned entitlements accurately across all such contested cases.
+(B) The Emirates has recently increased its contributions to Caribbean adaptation funds quite substantially.
+(C) Several delegations privately supported the Emirati presidency despite objecting to it publicly.
+(D) Australia has occasionally been invited to attend Global South coordination meetings as an observer.
+
+Q5. Which one of the following findings would most weaken the author's conclusion in the final paragraph?
+(A) Sharp inequalities inside the coalition are openly discussed in most preparatory technical meetings.
+(B) Non-aligned bargaining habits have persisted for decades despite repeated shifts in member incomes.
+(C) Wealthier coalition members frequently adopt the rhetorical cadence of their poorest fellow members.
+(D) Loss-and-damage funds elsewhere have allocated seats without ever writing a membership boundary down.
+
+Q6. Which one of the following situations is most analogous to the mechanism described in the passage?
+(A) A charity renames its beneficiaries to avoid language that donors have come to find condescending.
+(B) A hospital board debates whether a wing counts as "rural" instead of debating who deserves the funding.
+(C) A university admits a wealthy applicant under a scholarship scheme intended for first-generation students.
+(D) A trade bloc expels a member whose exports have grown faster than the agreed threshold permits.
+
+Q7. "The bill is legible" most nearly means:
+(A) The proposed eligibility legislation is clear enough to be enforced.
+(B) The costs of retaining this vocabulary can be plainly named.
+(C) The financial obligations of wealthy members are transparently recorded.
+(D) The historical emissions ledger has finally been settled by delegations.
+
+Q8. Which one of the following, if true, would most support the claim made in the third paragraph?
+(A) Emirati transmission projects in East Africa have been funded chiefly by commercial rather than state lenders.
+(B) Emirati desalination plants consume more electricity than the country's solar installations currently generate.
+(C) Norwegian negotiators have repeatedly declined to be described as a Southern coalition member.
+(D) Delegations dispute the Emirati label far more often than they dispute its actual obligations.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — It joins the definitional opening, the objection, the failure of every rival label in paragraph three, and the closing warning about written boundaries.
+  (B) scope_inflation — The passage raises the presidency as an illustration, never proposing rules about who may chair.
+  (C) stance_misread — The author says the coalition survives as a working vocabulary and should, rejecting expulsion.
+  (D) terminological_twin — The first paragraph explicitly denies that the phrase is a compass reading or an income table.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — Paragraph two states its problem is not arriving late at prosperity but arriving there by selling the very commodity under negotiation.
+  (A) half_truth — Paragraph one says its security still rests on other people's fleets.
+  (B) half_truth — Paragraph two says solar capacity was built without a cent of concessional finance.
+  (C) phrase_misuse — That is the implication of "developing" which the author calls precisely backwards.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — The list immediately precedes the claim that what is under strain is the expectation that a category name can decide who is owed what.
+  (B) stance_misread — The list complicates labels rather than recommending exclusion of exporters.
+  (C) causal_inversion — The list makes the Emirates ordinary, not exceptional, in straining the taxonomy.
+  (D) phrase_misuse — The fourth paragraph denies that membership was ever a mandate to speak for the smallest.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — The load-bearing move is that categories cannot carry the freight of entitlement; a working written criterion would refute it directly.
+  (B) adjacent_answer — This decorates the point that "petrostate" flattens its foreign policy without touching the argument.
+  (C) level_confusion — Delegate opinion about the presidency is illustration, not the claim about classification's limits.
+  (D) scope_inflation — The Australia remark only denies the geographic reading; observer status leaves the argument standing.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The closing claim is that eligibility and seat allocation will force somebody to write the boundary; a precedent of allocation without one weakens it.
+  (A) adjacent_answer — Discussion of inequality does not address whether formal eligibility criteria must be written.
+  (B) framework_import — Durability of the habit is granted by the author, who dates the harm to formal eligibility rules.
+  (C) half_truth — This confirms rather than weakens the author's worry about cadence being borrowed.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — It reproduces the smuggling of a legitimacy question into a classification question because the label is cheaper to argue about.
+  (A) terminological_twin — Mere renaming is a vocabulary matter, not the transfer of entitlement disputes into naming disputes.
+  (C) example_promotion — This dramatizes the costume objection of paragraph two rather than the classification-smuggling mechanism.
+  (D) stance_misread — The author rejects expulsion, arguing the vocabulary should survive despite internal inequality.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — The sentence introduces the enumerated costs — silenced inequalities, borrowed cadence, mistaken mandate — that follow the author's endorsement.
+  (A) category_slip — Treats "bill" as draft law, while the passage places written criteria in the future.
+  (C) phrase_misuse — It reads "bill" as literal accounting, though the following sentences list political costs.
+  (D) terminological_twin — Borrows the ledger image from paragraph three, which concerns a disputed claim, not this cost tally.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — It supports the claim that legitimacy questions are smuggled into classification because classification is cheaper to argue about.
+  (A) half_truth — Funding source does not bear on whether "petrostate" flattens the country's foreign policy.
+  (B) example_promotion — It embellishes one illustration of "developing" misdescribing the state, not the paragraph's governing claim.
+  (C) adjacent_answer — Norway appears as a straining case, but declining a label does not show entitlement disputes hiding in naming.
+
+[Inspired by: "A New Non-Aligned Movement?", https://dissentmagazine.org/online_articles/a-new-non-aligned-movement/]

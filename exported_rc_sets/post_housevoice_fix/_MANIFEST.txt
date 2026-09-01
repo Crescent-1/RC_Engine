@@ -1,0 +1,38 @@
+Sets generated after the house-voice work began (2026-08-21 onward).
+
+What changed across this window, in order:
+  1. move_signature novelty channel + corpus quarantine
+  2. saturation ban list on rhetorical moves        (FAILED - ignored by renderer)
+  3. prescribed beat plans replacing the bans       (worked; adherence 33% -> 78%)
+  4. 14 new arc-shape families + tier gating
+  5. persona_leak demoted to a flag; answerability + tiebreak checks added
+  6. similarity screen (only active from the OpenAI sets onward)
+
+NOT active for any set here: the topic-shape layer, which is the fix aimed
+at the remaining sameness. Those sets do not exist yet.
+
+Caveat when reading the screen column: it went live with the OpenAI key, so
+every Claude set below is blank because it was never screened - not because
+it passed.
+
+rc_id                  tier    status          score provider  screen 
+--------------------------------------------------------------------------
+RC-HARD-260821-0052    hard    approved          8.6 claude           
+RC-ELITE-260821-0048   elite   needs_review      8.6 claude           
+RC-ELITE-260821-0050   elite   needs_review      8.6 claude           
+RC-HARD-260821-0056    hard    needs_review      8.6 claude           
+RC-ELITE-260821-0053   elite   approved          8.8 claude           
+RC-MEDIUM-260822-0033  medium  needs_review      8.6 claude           
+RC-MEDIUM-260822-0034  medium  solver_dispute    0.0 claude           
+RC-ELITE-260822-0056   elite   solver_dispute    0.0 claude           
+RC-MEDIUM-260822-0035  medium  solver_dispute    0.0 claude           
+RC-HARD-260822-0059    hard    approved          8.4 claude           
+RC-ELITE-260822-0057   elite   approved          8.2 claude           
+RC-MEDIUM-260822-0037  medium  needs_review      8.2 openai    red    
+RC-MEDIUM-260822-0038  medium  needs_review      7.8 openai    red    
+RC-HARD-260822-0060    hard    needs_review      8.0 openai    red    
+RC-ELITE-260822-0059   elite   needs_review      6.0 openai    red    
+RC-ELITE-260822-0060   elite   needs_review      8.6 openai    red    
+RC-MEDIUM-260822-0039  medium  needs_review      8.2 openai    red    
+RC-HARD-260822-0061    hard    needs_review      8.0 openai    red    
+RC-ELITE-260822-0061   elite   needs_review      7.6 openai    red    

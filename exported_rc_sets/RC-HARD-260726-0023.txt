@@ -1,0 +1,90 @@
+RC ID: RC-HARD-260726-0023 | Tier: hard | Score: 8.0 | Status: approved | Compliance F1: 1.0 | Novelty: 0.652 | Generated: 2026-07-26T13:22:46.128880+00:00
+======================================================================
+
+[PASSAGE]
+
+The scene repeats. In a rented flat in Toronto in the early 1990s, a woman from Braga is explaining saudade to a Canadian colleague over the last of the dinner, and the explanation is going badly, as it was always going to. She tries "missing something." Too thin. She tries "the feeling you get hearing fado," which only relocates the problem into a genre of music the colleague has not heard. Then she does what nearly everyone in her position eventually does: she says that the word cannot be translated, and she says it with a certain satisfaction, as though the failure were a small inheritance she had just been able to display. That satisfaction is worth pausing over. By the twentieth century the untranslatability of saudade had hardened into a national commonplace in Portugal and Galicia alike — repeated in schoolbooks, in émigré newspapers, in the liner notes of records sold to tourists — and had acquired the function that such commonplaces usually acquire, which is less to describe than to distinguish. The word became a boundary marker. Foreigners were told, kindly, that they could learn to pronounce it and never quite to feel it. Anyone examining the period from outside would be tempted to file the whole business under cultural self-fashioning, and to note that Portuguese has a word doing roughly the work that nostalgia does in English, with a fado singer's rasp attached. The temptation should be recorded and then set aside. What the dinner-table failure exposes is not that Portuguese has a prettier term for a common feeling; it is that the colleague and the woman from Braga were, without either noticing, reaching for two differently shaped things, and that the shape of the second one is what the conversation could not carry across.
+
+Begin with the obvious rendering: nostalgia. It surrenders a great deal at once. Nostalgia has a grammar of prior possession — the village, the childhood, the marriage, held and then not held. The ache is a subtraction. But saudade can attach to a country the speaker has never seen, a life not lived, a child not born, an emigration that was never undertaken. Sailors' families in the sixteenth century felt it for men still on shore. Nostalgia requires a before; saudade does not. Whatever the closest English word is, it is not this one, and the failure is not a matter of degree.
+
+Try a tighter fit: longing. Less is lost. Longing tolerates objects that were never possessed, so the first surrender is recovered. Still it points forward, toward getting, toward the object arriving. Saudade can sit down in the absence and stay there, unhurried, wanting nothing to be restored — the missing thing not a destination but a room one keeps.
+
+So the pattern of failure is itself the finding. Each substitute needs the absence to be a stage in something — before loss, before return — while saudade treats absence as a place one can inhabit. English's emotional vocabulary was built for loss-then-recovery. This is not a gap awaiting a loanword. Across four centuries and two continents the word has been carried by people who had no intention of coming back, and it kept its shape.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central idea of the passage?
+(A) Saudade resists translation because it treats absence as habitable rather than as a stage in loss and recovery.
+(B) English lacks a term for inhabited absence, a gap that borrowing saudade as a loanword would usefully repair for its speakers.
+(C) The claim that saudade cannot be translated is best understood as a nationalist boundary marker rather than as a defensible description of feeling.
+(D) Saudade is the Portuguese word for nostalgia, coloured by fado and by the country's long history of departure and emigration.
+
+Q2. In paragraph 2, the statement "the failure is not a matter of degree" is best understood to mean that
+(A) nostalgia remains the nearest English equivalent, and the essay objects only that it is somewhat too weak a word.
+(B) nostalgia misdescribes saudade's structure, not merely its intensity, since saudade needs no prior possession.
+(C) saudade is felt more acutely by Portuguese and Galician speakers than nostalgia is felt by speakers of English.
+(D) the sailors' families of the sixteenth century experienced a version of saudade unavailable to modern emigrants.
+
+Q3. What is the primary structural function of paragraph 3, on "longing"?
+(A) It concedes that the differences between saudade and English terms are smaller than the opening scene had implied.
+(B) It offers the accurate translation the earlier paragraph was searching for, since longing tolerates objects never possessed.
+(C) It demonstrates that translation problems can be solved by patiently testing successive candidate words against usage.
+(D) It supplies a second, closer failure whose particular shortfall isolates the feature paragraph 4 names as decisive.
+
+Q4. According to the passage, the commonplace about saudade's untranslatability
+(A) circulated in schoolbooks, émigré newspapers and tourist record notes, and served to distinguish rather than describe.
+(B) was maintained chiefly by fado singers and the tourist trade, whose interest lay in keeping the word's meaning obscure.
+(C) hardened in Portugal during the twentieth century while Galician usage retained a more flexible sense of the word.
+(D) arose among Portuguese emigrants abroad and only later reached schoolbooks and the liner notes of records sold to tourists.
+
+Q5. The argument that the dinner-table breakdown reveals something conceptual, rather than merely rhetorical, depends on which unstated assumption?
+(A) Speakers of a language are the most reliable judges of what their own emotional vocabulary can and cannot express.
+(B) A conversational failure between two people can be extended to a claim about two entire languages only with care.
+(C) Emotions felt in one culture are in principle inaccessible to members of another, whatever vocabulary is available to them.
+(D) Words carry structures of relation to their objects, so a translation can fail by shape and not only by connotation.
+
+Q6. Which best characterises the author's intellectual posture toward the untranslatability claim?
+(A) Neutral between the nationalist reading and the conceptual one, treating both as equally supported by the historical record.
+(B) Sceptical of how the claim is used, yet persuaded that something in it survives analysis.
+(C) Sympathetic to the speakers who make the claim, and reluctant to press their satisfaction into an object of inquiry.
+(D) Convinced that the claim is a piece of cultural self-fashioning that closer conceptual analysis eventually dissolves entirely.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — The passage moves from the dinner-table anecdote through two failed substitutes to paragraph 4's finding: English words stage absence, while saudade inhabits it. That structural claim is the thesis.
+  (B) adjacent_answer — The final paragraph states directly that this is not a gap awaiting a loanword, so the remedy proposed here is disowned.
+  (C) stance_misread — The self-fashioning reading is raised in paragraph 1 and then deliberately set aside, not adopted as the passage's conclusion.
+  (D) half_truth — This is the tempting reading of the opening scene that paragraph 2 explicitly refuses when it says nostalgia's grammar of prior possession does not apply.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — The paragraph grounds the claim in examples of saudade for things never had — a country unseen, a child unborn — making the mismatch structural rather than a question of how strongly the feeling registers.
+  (A) adjacent_answer — The paragraph says outright that the closest English word is not this one, refusing the near-equivalence this option restores.
+  (C) category_slip — This converts a claim about the shape of a concept into a comparison of how strongly two populations feel things.
+  (D) example_promotion — The sixteenth-century families illustrate absence without a before; the passage never grades their feeling against later emigrants'.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — Longing recovers what nostalgia surrendered but still points forward; that residue — absence as destination rather than dwelling — is precisely what paragraph 4 generalises into the finding.
+  (A) stance_misread — The paragraph narrows the gap in one respect only to sharpen it in another; no overall concession of similarity is made.
+  (B) adjacent_answer — Longing is granted one recovery but faulted for pointing forward, so it is a nearer failure, not the accepted rendering.
+  (C) level_confusion — The passage treats the pattern of failure, not the testing procedure, as the finding, and produces no successful candidate.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Paragraph 1 lists exactly these three sites of repetition and states that such commonplaces function less to describe than to distinguish.
+  (B) scope_inflation — Liner notes are one venue among several, and no motive of deliberate obscurity is attributed to musicians or sellers.
+  (C) false_symmetry — The passage says the commonplace hardened in Portugal and Galicia alike, ruling out this contrast between the two.
+  (D) adjacent_answer — The passage lists the venues of repetition without tracing any order of origin among them, so this sequence is invented.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The whole method — testing substitutes and reading the residue — assumes vocabulary encodes structural features like requiring a before or pointing forward, which is what the substitutes fail to match.
+  (A) causal_inversion — The passage treats the speaker's satisfied claim of untranslatability sceptically, so it cannot rest on her authority.
+  (B) overqualification — This states a methodological caution rather than the premise the argument actually needs to license its reading.
+  (C) moderate_extremism — This adopts the boundary-marker view the passage records and sets aside, and the analysis itself describes saudade to outsiders.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — The author names the boundary-marker function and the temptation to file it under self-fashioning, records that temptation, sets it aside, and then argues the conceptual difference is real.
+  (A) false_symmetry — The passage does not balance the two; it records one temptation and then argues for the conceptual account.
+  (C) stance_misread — The author says the satisfaction is worth pausing over and analyses its social function, rather than declining to examine it.
+  (D) premature_closure — The self-fashioning reading is set aside rather than endorsed, and the analysis vindicates a real structural difference.
+
+[Inspired by: "Astrophysicists Puzzle Over Webb’s New Universe", https://www.quantamagazine.org/astrophysicists-puzzle-over-webbs-new-universe-20260702/]

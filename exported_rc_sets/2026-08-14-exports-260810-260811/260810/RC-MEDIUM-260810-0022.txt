@@ -1,0 +1,114 @@
+RC ID: RC-MEDIUM-260810-0022 | Tier: medium | Score: 0.0 | Status: solver_dispute | Compliance F1: 1.0 | Novelty: 0.647 | Generated: 2026-08-10T14:14:48.347334+00:00
+======================================================================
+
+[PASSAGE]
+
+A cardiologist writes a statin prescription for a man of fifty-five whose arteries have so far done nothing wrong. An insurer files it under prevention; a health ministry counts it toward a target; a pharmacist hands over ninety tablets. The word does an enormous amount of work — it moves money, sorts budgets, justifies decades of daily swallowing — and nobody stops to ask what it claims. It claims a counterfactual. It says something *would have* happened. The efficacy of the pill is not in doubt; the trials are large and the arithmetic is honest. What is in doubt is the tense.
+
+Where the French hygienists of the 1840s spoke of *prophylaxie* and the German sanitarians of *Vorbeugung*, the shared image was the same: a chain already rattling, and a hand thrust into it. Cholera moved along a pump handle. Snow removed the handle. Quarantine did not reduce the probability of plague reaching a port; it interrupted a journey that was underway. When the tuberculosis dispensaries and the polio campaigns inherited the vocabulary, the grammar held — an organism was present, or on its way, and the intervention stood between it and a body. This is not a story of lost virtue. Those campaigns were coercive, often crude, and frequently wrong about mechanism. What they possessed was not moral clarity but a particular kind of temporal object: a future that could plausibly be described in the indicative. Prevention meant stopping something. The word was accurate to its era and travelled well within it, the way a trade term stays legible along one route and loses its referent on another.
+
+The route has changed. Where a nineteenth-century inspector could point to a specific cistern and say what would issue from it, contemporary preventive medicine works on distributions — elevated risk, hazard ratios, the shape of a curve across ten thousand people — such that when a clinician tells a hypertensive patient that untreated pressure will cause a stroke, the sentence is true of the cohort and false, four times out of five, of the person hearing it. That gap is not a translation error awaiting a better word. Substituting *risk-reducing* fixes the label and leaves everything else standing.
+
+Because the trouble was never that patients are told a certainty where only a probability exists; clinicians hedge constantly, and consent forms are thick with percentages. The epistemology is more or less on display. What the inherited word governs is something else — how long the future stays open. Where the Ayurvedic tradition organizes *rasayana* around the maintenance of a body over decades, and where the sanitarian organized his effort around a fortnight's interruption, modern pharmacological prevention borrows the sanitarian's verb for the Ayurvedic timescale. Thirty years of daily dosing is not an interruption of anything; it is a mode of living, and it is being described with a word designed for an intercepted arrival. The side effect ceases to be a cost weighed against an event and becomes a permanent condition weighed against a permanently deferred one. Whether that trade is worth making is not settled by noticing the mismatch — and the mismatch, once noticed, is not a thing the vocabulary can be adjusted to repair, because what the vocabulary got wrong is not the odds but the duration it silently assigns to them.
+
+[QUESTIONS]
+
+Q1. According to the passage, why is the clinician's statement to a hypertensive patient about stroke problematic?
+(A) It holds for the cohort but fails for most individuals who hear it.
+(B) Clinicians rarely disclose probabilities, so patients hear certainty where only chance exists.
+(C) Elevated pressure is a consequence rather than a cause of the distributional risk described.
+(D) The trial arithmetic behind such claims is unreliable and overstates the drug's real benefit.
+
+Q2. Which one of the following findings, if true, would most weaken the author's claim in paragraph 2 about nineteenth-century prevention?
+(A) Snow's removal of the pump handle did little to shorten the cholera outbreak already spreading through the district.
+(B) Ayurvedic rasayana regimens were in fact organized around short seasonal cycles rather than the maintenance of a body across decades.
+(C) Nineteenth-century sanitarians were morally clearer and less coercive than the passage's dismissive account of them suggests.
+(D) Quarantine officers in the 1840s justified detention mainly by long-run population risk scores, not by any identified incoming carrier.
+
+Q3. A city installs permanent air purifiers in every classroom, describing the programme as "preventing childhood asthma," and budgets for their upkeep over twenty years. Which reading of this case best follows the passage's reasoning?
+(A) The purifiers cause a decline in asthma only insofar as the label 'prevention' secures the funding for them.
+(B) Because most children would never develop asthma anyway, the expenditure cannot be justified on preventive grounds.
+(C) An indefinite mode of institutional living is being named with a word built for interrupting an arrival.
+(D) The city should relabel the programme as risk-reducing, so its language finally matches the probabilities involved.
+
+Q4. In the context of the passage, "a future that could plausibly be described in the indicative" is best understood as:
+(A) A prediction whose accuracy was later confirmed by the outcomes of the sanitary campaigns.
+(B) A coming event concrete enough to be stated as a fact about what will occur.
+(C) A future rendered morally certain by the confidence of the sanitarians who intervened in it.
+(D) A period short enough that the intervention's benefit could be measured within a fortnight.
+
+Q5. Which one of the following is suggested by the sentence "The side effect ceases to be a cost weighed against an event and becomes a permanent condition weighed against a permanently deferred one"?
+(A) Because the deferred event may never arrive, continuing the medication cannot be rationally defended.
+(B) Patients accept ongoing side effects only because clinicians conceal how remote the feared event is.
+(C) Side effects of long-term prevention are typically more severe than those of brief sanitary interventions.
+(D) Long-term dosing turns a bounded trade-off into an open-ended one with no terminating event.
+
+Q6. The passage is primarily concerned with:
+(A) Showing that patients are misled about probability by clinicians who present statistical risk as personal certainty.
+(B) How a word inherited from interruption smuggles a wrong duration into modern preventive care.
+(C) Tracing how nineteenth-century sanitary campaigns achieved a clarity of purpose that pharmacological medicine has since squandered.
+(D) Arguing that preventive medicine should abandon a misleading label and adopt more accurate probabilistic terminology instead.
+
+Q7. Which one of the following best expresses the author's view of substituting "risk-reducing" for "prevention"?
+(A) It corrects the label but leaves untouched the mistaken duration the vocabulary assigns.
+(B) It resolves the mismatch by making the language honest about probabilities at last.
+(C) It is the reform paragraph 3 recommends clinicians adopt when addressing cohorts.
+(D) It fails only because patients are already told certainties where probabilities exist.
+
+Q8. The comparison to "a trade term [that] stays legible along one route and loses its referent on another" functions to:
+(A) argue that preventive vocabulary was always imprecise, even in the sanitarian era.
+(B) explain how a word accurate to one era can travel into another where its object no longer holds.
+(C) suggest that only specialists in etymology can recover the word's original meaning.
+(D) show that modern medicine deliberately borrowed a misleading term to move money and sort budgets.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Paragraph 3 states the sentence is true of the cohort and false, four times out of five, of the person hearing it — a level mismatch, not a falsehood.
+  (B) half_truth — Paragraph 4 explicitly says clinicians hedge constantly and consent forms are thick with percentages.
+  (C) causal_inversion — The passage never reverses the causal direction; it questions the level of application, not the causality.
+  (D) nec_suff_swap — Paragraph 1 concedes efficacy is not in doubt and the arithmetic is honest; the critique is not a debunking of the evidence.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — Paragraph 2's load-bearing move is that early prevention had an indicative, present or arriving object; a distributional justification collapses the contrast with modern practice.
+  (A) adjacent_answer — The passage cites Snow to illustrate the grammar of interruption, not to claim the intervention succeeded in reducing deaths.
+  (B) scope_inflation — Rasayana appears in paragraph 4 as a timescale comparison; it does not support paragraph 2's claim about sanitarian grammar.
+  (C) nec_suff_swap — Paragraph 2 already grants those campaigns were coercive and crude, and disclaims any story of lost virtue.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — Paragraph 4's core move: the sanitarian's verb of interception is borrowed for an open-ended duration, which is precisely the mismatch the passage identifies.
+  (A) causal_inversion — The passage notes the word moves money but never claims the label produces the health effect itself.
+  (B) scope_inflation — The passage refuses to settle whether such trades are worth making; it addresses vocabulary, not budget justification.
+  (D) nec_suff_swap — Paragraph 3 says substituting risk-reducing fixes the label and leaves everything else standing; relabelling is not the remedy.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — Paragraph 2 opposes the indicative to distributional probability: an organism present or on its way permits a definite statement, unlike a hazard ratio.
+  (A) terminological_twin — Indicative here concerns grammatical form of the claim, not retrospective verification; the passage grants those campaigns were often wrong about mechanism.
+  (C) stance_misread — The passage explicitly says what those campaigns possessed was not moral clarity but a temporal object.
+  (D) category_slip — Duration belongs to paragraph 4's argument; the indicative in paragraph 2 concerns the describability of the threat.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The sentence extends paragraph 4's duration argument: with no interception to complete, both the burden and its supposed benefit lose an endpoint.
+  (A) premature_closure — The passage states explicitly that whether the trade is worth making is not settled by noticing the mismatch.
+  (B) half_truth — Paragraph 4 says the epistemology is more or less on display; concealment is not the problem the author identifies.
+  (C) scope_inflation — The passage contrasts the structure of the trade-off, not the comparative severity of the harms involved.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — The passage moves from the counterfactual claim, through the sanitarian grammar, to the closing point that what the vocabulary got wrong is duration rather than odds.
+  (A) half_truth — Paragraph 4 opens by denying this: clinicians hedge constantly and the epistemology is on display.
+  (C) nec_suff_swap — Paragraph 2 disclaims any story of lost virtue and calls those campaigns coercive, crude and often wrong.
+  (D) premature_closure — Paragraph 3 rejects relabelling, and the close denies the vocabulary can be adjusted to repair the mismatch.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — Paragraph 3 says substituting risk-reducing fixes the label and leaves everything else standing, and paragraph 4 states what the vocabulary got wrong is the duration, not the odds.
+  (B) premature_closure — The passage denies the mismatch is something the vocabulary can be adjusted to repair.
+  (C) stance_misread — Paragraph 3 raises relabelling only to dismiss it, not to recommend its adoption.
+  (D) half_truth — Paragraph 4 opens by denying the trouble was ever telling a certainty where only a probability exists.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — The metaphor closes paragraph 2, where the word was accurate to its era and travelled well within it — legible on one route, its referent lost once the route changes in paragraph 3.
+  (A) contradiction — The passage insists the word WAS accurate to its era, not that it was always imprecise.
+  (C) scope_inflation — No claim is made that recovering the meaning requires specialists in etymology.
+  (D) causal_inversion — Paragraph 1 notes the word moves money, but the borrowing is never framed as deliberate deception.
+
+[Inspired by: "Graham Platner Was a Train Wreck—but Playing It Safe Is Not the Answer", https://newrepublic.com/article/212877/graham-platner-resigns-democrats-response]

@@ -1,0 +1,116 @@
+RC ID: RC-MEDIUM-260822-0033 | Tier: medium | Score: 8.6 | Status: needs_review | Compliance F1: 0.85 | Novelty: 0.487 | Generated: 2026-08-22T02:43:53.708435+00:00
+======================================================================
+
+[PASSAGE]
+
+A man I know keeps a spare key to a flat he has not been invited into for six years. That is the sort of fact we can record. Most friendships absorb small violations without anyone bothering to record them: a confidence passed on at a dinner, a birthday missed twice running, a loyalty quietly declined when it would have cost something. In the cases that have been studied — mostly interview studies, which means self-report, which means reconstruction — these injuries sort themselves along what looks like a scale. Trivial at one end, grave at the other. The scale invites a conclusion it cannot support, namely that if both ends are legible, the midpoint must be too, and somewhere along that line friendship crosses into its own absence.
+
+But some breaches do not read as points on a line at all. After them, the bond is not a friendship carrying damage; it is something that has stopped being that kind of thing. What changes is not the quantity of injury but the category of the relation — the way a cracked lens and a shattered one are not two degrees of the same optical defect. The instrument still exists. It is no longer an instrument.
+
+We should grant the counterevidence at close to face value. Friendships have survived what looks, from outside, unsurvivable: a confidence sold for advantage, a betrayal in court testimony, an affair with a spouse disclosed and, after years, absorbed. Most such reports come from the betrayed party, late, which is a known distortion — Judith Shklar noted that the injured are also the historians of the injury, and their chronologies are written backward from the outcome. Still, the cases are real. They suggest the threshold is not fixed but contingent: on remorse offered and believed, on shared history, on whether the two people have anywhere else to go. Which sounds like the discovery that there is no threshold, only choice. It is not that.
+
+The temptation, then, is to locate the line by better criteria. Repair impossible. Trust unreconstitutable. Contrition insufficient. Each term sounds measurable until we ask who holds the gauge. Repair is impossible when one party judges it so; trust is unreconstitutable when it has not been reconstituted. The criteria do not measure the threshold. They restate it in a longer form.
+
+And this dissolves the question of intent and magnitude rather than answering it. We wanted to say: a small betrayal done deliberately outweighs a large one done carelessly. But deliberateness is not a property we read off the act. It is attributed — no: more precisely, it is inferred by the person who was hurt, from evidence they cannot fully audit, about a mind they cannot enter. Magnitude travels with that inference. The two variables were never independent. So the narrowed claim is this, and only this: friendships do end, and the ending is observable, sometimes to the day. The crossing is not. Not merely unmeasured. Unmeasurable, because the quantity that would have to be measured does not exist prior to someone's reading of it. We can watch the light go. We cannot say where the shutter fell.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) Friendships demonstrably end, but the point of crossing cannot be located, since the quantity requiring measurement exists only in the injured party's reading.
+(B) Because friendships have survived affairs, court betrayals and sold confidences, resilience is finally a matter of the two parties' continuing choice.
+(C) Deliberate small betrayals outweigh careless large ones, and any adequate account of endings must weigh intent before it weighs magnitude.
+(D) Small harms form a reliable scale of damage, so if negligible and severe injuries are legible, the midpoint where friendship ends must also be locatable.
+
+Q2. According to the text, the interview studies of friendship injuries are described as:
+(A) Evidence that friendship's resilience has no fixed limit and rests entirely on the parties' willingness.
+(B) Records kept by observers outside the friendship, and thus free of the injured party's backward chronology.
+(C) Self-reported and therefore reconstructive, yet still yielding injuries that appear to sort along a scale.
+(D) Unreliable enough that the author discards their scale before beginning his own argument about rupture.
+
+Q3. The author uses the word 'category' in 'the category of the relation' to mean:
+(A) The kind of thing the bond is, rather than how much damage it has taken on.
+(B) The classification the betrayed party assigns after reconstructing the history of the injury backward.
+(C) A severity band into which researchers place breaches when they rank them from trivial to grave.
+(D) A moral label distinguishing deliberate breaches from those committed carelessly or without any intent.
+
+Q4. Which one of the following, if true, would most call into question the claim that the criteria merely restate the threshold in a longer form?
+(A) Some friendships end without either party ever using words like repair, trust, or contrition about them.
+(B) Betrayals involving money are reported as more repairable than betrayals involving a confidence sold cheaply.
+(C) A physiological marker taken from both parties predicts, before either speaks, which bonds will later be judged unrepairable.
+(D) Betrayed people often revise their accounts of remorse many years after the friendship in question ended.
+
+Q5. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) A researcher interviews both parties separately and finds their dates for the ending of the friendship agree exactly.
+(B) Two colleagues speak weekly for a decade after one leaked a memo; the leaker calls the tie unbroken, the other calls it finished.
+(C) A woman lists eleven small slights by a friend and ends the friendship when the twelfth arrives, citing accumulated weight.
+(D) A man forgives a friend's testimony against him in court and later says the forgiveness required no remorse whatsoever.
+
+Q6. Based on the passage, we can infer that someone insisting 'trust is unreconstitutable here' would most likely:
+(A) Be misreporting the case, since the passage shows trust returns wherever the parties have remorse.
+(B) Be reporting a verdict already reached, in language that borrows the sound of a measurement.
+(C) Be applying a criterion that could, with sharper definition, finally locate where friendship ends.
+(D) Be describing a property of the betrayal itself rather than of the two people involved in it.
+
+Q7. The analogy of the cracked lens and the shattered lens is introduced primarily to:
+(A) Concede that outside observers cannot judge which friendships have suffered irreparable optical damage.
+(B) Show that severe betrayals damage friendships far more heavily than the accumulation of small ones does.
+(C) Illustrate how instruments and relationships both deteriorate gradually until some final use becomes impossible.
+(D) Mark the turn from degrees of damage to a change in what kind of thing the bond is.
+
+Q8. The passage stops where it does in order to:
+(A) Hold the claim at what remains sayable: the ending is visible, while the crossing cannot be located.
+(B) Concede that the whole inquiry into friendship's endings has been misconceived from its very first sentence.
+(C) Suggest that clearer definitions of repair, trust and contrition would let us identify where friendships end.
+(D) Leave open whether intent or magnitude ultimately carries more weight in judgments about serious betrayals.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — It integrates the scale critique, the conceded counterevidence, the collapse of criteria, and the final narrowed claim about observable endings and unlocatable crossings.
+  (B) half_truth — Paragraph three concedes such survivals but then says 'It is not that,' refusing the no-threshold-only-choice reading.
+  (C) stance_misread — Paragraph five raises this wish only to dissolve it, since intent is inferred and magnitude travels with the inference.
+  (D) premature_closure — Paragraph one explicitly says the scale invites a conclusion it cannot support, so this is the rejected inference.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — Paragraph one states the studies are interview studies, meaning self-report, meaning reconstruction, and that the injuries sort along an apparent scale.
+  (A) half_truth — That inference belongs to paragraph three's survival cases, which the author explicitly declines to read as abolishing a threshold.
+  (B) phrase_misuse — Shklar's point in paragraph three is the opposite: reports come from the betrayed, written backward from outcome.
+  (D) scope_inflation — The author accepts the scale's appearance and disputes only the midpoint inference drawn from it.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — Paragraph two contrasts quantity of injury with category, glossed by the lens that still exists but is no longer an instrument.
+  (B) adjacent_answer — Attribution by the injured is developed later, in paragraphs three and five, not in this phrase.
+  (C) category_slip — That is the scale of paragraph one, precisely the reading paragraph two sets aside.
+  (D) framework_import — Intent enters only in paragraph five and is there dissolved rather than used as a category.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — It supplies a gauge held by no participant, so the criterion would measure rather than restate the injured party's judgment.
+  (A) missing_link — Vocabulary absence leaves intact the claim that such criteria, when used, only restate the judgment.
+  (B) level_confusion — This compares contents of reports, still self-judged, and so does not supply an external gauge.
+  (D) adjacent_answer — This strengthens the Shklar point about backward chronologies rather than showing criteria measure anything independently.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The disagreement locates the crossing in someone's reading rather than in an event, matching the passage's final narrowed claim.
+  (A) false_symmetry — The passage grants endings are observable, sometimes to the day, so agreement on dates illustrates nothing contested.
+  (C) premature_closure — This enacts the additive scale the passage says cannot fix a midpoint where friendship tips over.
+  (D) half_truth — Paragraph three lists remorse offered and believed among contingencies, so this treats survival as sheer unlimited resilience.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — Paragraph four says trust is unreconstitutable when it has not been reconstituted, so the term restates the judgment rather than testing it.
+  (A) straw_version — The passage lists remorse as one contingency, never guaranteeing that trust reliably returns with it.
+  (C) premature_closure — Paragraph four's whole point is that sharpening these terms only lengthens the restatement of the threshold.
+  (D) causal_inversion — The passage locates the judgment in the party who holds the gauge, not in the act's own properties.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — It executes the passage's single structural pivot from the paragraph-one scale to paragraph two's claim about category rather than quantity.
+  (A) stage_misattribution — The observer problem belongs to paragraph three's counterevidence, not to this second-paragraph image.
+  (B) category_slip — This keeps the analogy on the severity scale the analogy was written to abandon.
+  (C) straw_version — Gradual deterioration is exactly what the shattered lens is meant to contrast with.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — The final paragraph narrows deliberately to observable endings and an unmeasurable crossing, closing the aperture without resolving continuity versus rupture.
+  (B) scope_inflation — The author keeps a narrowed claim rather than abandoning the inquiry as misconceived.
+  (C) premature_closure — Paragraph four already showed those criteria restate the threshold instead of locating it.
+  (D) stance_misread — Paragraph five dissolves that pairing by showing the two variables were never independent.
+
+[Inspired by: "An American Pope on American Freedom", https://www.commonwealmagazine.org/leo-250-liberty-medal-munch]

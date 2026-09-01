@@ -1,0 +1,114 @@
+RC ID: RC-HARD-260822-0061 | Tier: hard | Score: 8.0 | Status: needs_review | Compliance F1: 0.857 | Novelty: 0.524 | Screen: red | Generated: 2026-08-22T06:49:59.832953+00:00
+======================================================================
+
+[PASSAGE]
+
+At the edge of the runway, beside a low building where the air-conditioning never quite silences the engines, a foreign military facility is already enough to discredit the state offering a ceasefire channel. Add a large trade account with one combatant, or dependence on a neighbouring capital’s patronage, and the verdict seems available before the delegates arrive. By neutrality, in this usage, we mean not impartial conduct during talks but prior detachment from the parties’ fortunes. The distinction is often lost. A broker with interests is presumed to have chosen a side; access becomes evidence of corruption. The complaint has force because mediation asks parties to expose fears they cannot safely announce elsewhere.
+
+The image behind that complaint belongs, roughly, to the neutral intermediary of nineteenth- and early twentieth-century diplomacy: a sheltered state outside the belligerents’ alliances, receiving a sealed dispatch and carrying it across a political distance that was also, often, a physical one. Governments did not speak continuously; contact was intermittent, formal, and costly. Under those conditions legal non-belligerence could serve as a practical method. Distance kept the messenger from being drawn into the quarrel. It also made the messenger look fair. Neutrality acquired its moral sheen through this arrangement, as a classroom rule acquires authority when the teacher can stand apart from the children’s factions.
+
+But a ceasefire now may depend on permissions no distant messenger possesses: airspace for an evacuation, a bank able to move emergency funds, an intelligence contact who can verify a detention, relatives who will carry assurances into a besieged district, and reconstruction money whose promise changes calculations in the room. A state able to speak privately with enemies may do so because it has traded, armed, hosted, borrowed, guaranteed, or been useful to them. Its connections are not decorations around mediation; they are often the stairway by which mediation reaches the parties. That is too generous — no: more precisely, it mistakes access for innocence. The same stairway can direct pressure unevenly. A flight clearance can be withheld. Credit can be delayed. Information can be rationed. An offer of future aid can make one party’s assent look voluntary while narrowing every alternative. Influence works. Influence binds. Influence may serve its owner. The old demand for detachment therefore clashes with the means by which contemporary intervention becomes possible, without thereby making those means clean.
+
+Seen from this changed ecology, the opening demand for a neutral broker applies an inherited category before examining the work the broker performs. The distant outsider may be free of entanglement and unable to move anyone. The embedded intermediary may possess leverage and exercise it as a regional ambition in diplomatic dress. Calling the latter effective does not certify it; calling the former neutral does not establish trust. The evidence lies in the terms offered, the pressures applied, and the settlement’s aftermath, not in presumed purity. A verdict reached earlier would confuse an old credential with a present judgment. Neutrality may be less a condition than a claim that must be tested.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) Older diplomacy proved that legal non-belligerence reliably produces fair outcomes in every conflict.
+(B) Effective mediation depends chiefly on replacing distant states with regional powers that possess coercive tools.
+(C) Any mediator with economic or security ties is partisan and therefore disqualified from brokering peace.
+(D) Contemporary mediation requires leverage, but its legitimacy must be judged through its use and consequences.
+
+Q2. Which one of the following is suggested by the sentence "Neutrality acquired its moral sheen through this arrangement"?
+(A) Neutrality appeared virtuous because historical distance made detachment both workable and visible.
+(B) Neutrality gained authority because governments consistently preferred moral ideals to practical access.
+(C) Formal neutrality directly caused mediators to behave fairly in earlier diplomatic encounters.
+(D) Neutrality became admirable because distant mediators lacked any meaningful role in conflicts.
+
+Q3. According to the text, contemporary mediation is described as:
+(A) A practice conducted mainly through formal dispatches between geographically distant governments.
+(B) A practice where outside states avoid material commitments to preserve public credibility.
+(C) A practice whose leverage makes effective intervention morally legitimate by definition.
+(D) A practice often enabled by relationships that can also impose unequal pressure.
+
+Q4. Which one of the following, if true, would most support the claim made in the final paragraph?
+(A) Parties often distrust mediators who maintain visible military facilities near conflict zones.
+(B) Distant states sometimes receive praise for avoiding alliances with the belligerents involved.
+(C) Settlements brokered by similarly connected states vary sharply with the pressures each state applies.
+(D) Regional intermediaries generally possess more transportation capacity than distant diplomatic missions do.
+
+Q5. Which one of the following, if replaced, would most change the passage's argument?
+(A) Replacing paragraph one with a longer description of airport noise would alter the argument most.
+(B) Replacing paragraph three with an account of leverage as uniformly benign would alter the argument most.
+(C) Replacing paragraph two with additional examples of sealed diplomatic dispatches would alter the argument most.
+(D) Replacing paragraph four with a list of recent ceasefire agreements would alter the argument most.
+
+Q6. "An inherited category" most nearly means:
+(A) A legal designation retained by states after they abandon formal diplomatic obligations.
+(B) A classification created by current mediators to conceal their regional political ambitions.
+(C) A moral ideal that remains valid because international relations retain the same structure.
+(D) A label formed under earlier conditions and applied without testing current circumstances.
+
+Q7. Why does the author include the discussion of airspace, banks, intelligence contacts, relatives, and reconstruction money?
+(A) To show why contemporary mediation often depends on entanglements that neutrality standards overlook.
+(B) To demonstrate that material assistance makes negotiated settlements legitimate in difficult conflicts.
+(C) To contrast operational permissions with the earlier era of intermittent diplomatic communication.
+(D) To summarize the practical resources that mediators can deploy during ceasefire negotiations.
+
+Q8. Which one of the following is most strongly implied by the way the passage ends?
+(A) Future assessments should restore legal non-belligerence as the clearest test of broker trustworthiness.
+(B) Future assessments should treat embedded mediators as preferable because they possess more useful leverage.
+(C) Future assessments of mediators should examine exercised influence rather than presume neutrality from distance.
+(D) Future assessments should disregard a broker's connections because outcomes alone determine legitimacy.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — It integrates the passage's movement from inherited neutrality to embedded leverage, while retaining scrutiny rather than endorsing influence.
+  (A) missing_link — It mistakes a historically useful arrangement for a sufficient guarantee of fairness, contrary to the passage's historical qualification.
+  (B) premature_closure — It treats effectiveness as the conclusion while omitting the passage's concern that leverage can bind parties unevenly.
+  (C) category_slip — It converts entanglement into automatic disqualification, whereas the final paragraph requires judging terms, pressures, and aftermath.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The sentence ties neutrality's reputation to a particular diplomatic arrangement of distance, rather than to an inherent moral property.
+  (B) stance_misread — It imports a moral-priority explanation absent from the account of intermittent and costly diplomatic contact.
+  (C) missing_link — It treats legal status as the direct cause of fairness, while the passage describes distance as making fairness appear plausible.
+  (D) causal_inversion — Distance enabled a practical intermediary role; it did not make mediators admirable by rendering them irrelevant.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The passage explicitly presents connections as a stairway to access and as a possible means of uneven coercion.
+  (A) stage_misattribution — This describes the earlier diplomatic setting, not the contemporary permissions and networks listed in paragraph three.
+  (B) half_truth — The passage notes concerns about credibility but emphasizes that material connections often enable contemporary intervention.
+  (C) category_slip — The passage says influence may serve its owner and expressly refuses to treat effectiveness as certification.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — This directly supports the claim that entanglement alone cannot determine trustworthiness; conduct and settlement outcomes must be assessed.
+  (A) adjacent_answer — It supports the opening concern about appearances, not the final claim that judgments require examining actual mediation.
+  (B) half_truth — It confirms the older prestige of detachment but does not show why neutrality fails as a present judgment.
+  (D) example_promotion — It supports access as useful, but does not establish that legitimacy depends on terms, pressures, and aftermath.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — Paragraph three supplies the essential double character of access: it enables mediation while also permitting coercive, self-serving influence.
+  (A) level_confusion — The runway image introduces suspicion, but its sensory detail is not a load-bearing element of the reasoning.
+  (C) example_promotion — The historical paragraph matters as a framework, but more examples would not overturn the argument's central contemporary tension.
+  (D) adjacent_answer — Examples could illustrate the conclusion, but the concluding evaluative framework is what resolves the prior contrast.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — The phrase refers to neutrality as a historically produced standard being used before the broker's present work is examined.
+  (A) terminological_twin — The phrase concerns an evaluative framework, not a legal status surviving the loss of obligations.
+  (B) stage_misattribution — The category is inherited from older diplomacy, while regional ambition is a contemporary risk requiring assessment.
+  (C) framework_import — The passage argues that changed conditions make automatic reliance on the old ideal questionable.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — The discussion explains why access-producing ties are necessary conditions of modern mediation, thereby motivating the reassessment of neutrality.
+  (B) category_slip — The passage insists that access and leverage can be coercive, so material assistance does not establish legitimacy.
+  (C) level_confusion — The contrast is structurally present, but it does not state the author's purpose for including these particular examples.
+  (D) adjacent_answer — This accurately summarizes the list but misses why the author uses it to challenge inherited neutrality.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — The ending redirects judgment from prior purity toward terms, pressures, and aftermath, leaving the evaluative task open.
+  (A) framework_import — The ending explicitly rejects inherited neutrality as a sufficient present credential for trust.
+  (B) premature_closure — The passage grants leverage's utility but warns that it can impose uneven pressure and serve its owner.
+  (D) false_symmetry — The passage calls for examining pressures and terms, which includes how connections are exercised, not ignoring them.
+
+[Inspired by: "Pakistan’s Rise To A Middle Power", https://www.noemamag.com/pakistans-rise-to-a-middle-power]

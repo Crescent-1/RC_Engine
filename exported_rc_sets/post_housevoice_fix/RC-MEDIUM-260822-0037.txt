@@ -1,0 +1,116 @@
+RC ID: RC-MEDIUM-260822-0037 | Tier: medium | Score: 8.2 | Status: needs_review | Compliance F1: 0.725 | Novelty: 0.629 | Screen: red | Generated: 2026-08-22T05:46:12.003470+00:00
+======================================================================
+
+[PASSAGE]
+
+When a university votes to apologise for land taken from a displaced people, what follows the vote? The statement is drafted, read beneath a seal, placed on a website, and cited in the next admissions brochure. At a reception, someone folds the programme into quarters and slips it into a coat pocket. The institution has altered the public record: an injury once described as settlement or development now has an agent and a victim. That alteration matters. It is not nothing. But an apology cannot count as ethical action merely because it has been spoken; it must be joined to changes in ownership, access, or power that its own account of the past makes due. This does not mean that every sentence of regret must be followed by a cheque or a deed transfer before sunset. It means that speech which names a confiscation while leaving every resulting advantage undisturbed chiefly repairs the speaker’s moral portrait. The apparent subject is the fit between public words and restitution.
+
+Acknowledgment is often said to come first, and properly so. Without it, later claims appear to be demands from nowhere; responsibility has not yet entered the grammar of the institution. A formal apology can therefore be a necessary first act. Names matter. Records matter. Admission matters. Consider a school that excluded a neighbourhood’s children for decades, then opens its archive and publishes the decisions that did so. Parents can now point to more than inherited suspicion. Still, the value of that publication lies in the claims it permits: altered admissions, funded transport, authority over the archive itself. Remorse and remedy are not parallel ceremonies. One identifies a wound; the other changes who must bear its consequences.
+
+Historical injuries differ in source documents, surviving property, living descendants, and the powers an institution still possesses. No common tariff can settle them. A watchmaker does not repair every stopped watch by replacing the same spring. One has a cracked jewel; another a bent balance; a third has been wound until the mainspring has bitten itself. Such variation governs the design of a duty, not its disappearance. Difficulty is a bad solvent.
+
+The harder fear should not be brushed aside. Grief is not a bill of sale, and a relationship scarred by removal or exclusion can be further demeaned when its history is translated into units, deadlines, and approved categories of loss. Private mourning, ceremony, and renewed human regard may be less degrading than an institutional bargain. But neither sentimentality nor accounting gets to close the file. The dispute is misdescribed when apologies are ranked by the apparent depth of their feeling. Their public language makes certain obligations harder to evade; that is why the language matters, and why its audience extends beyond those on the stage.
+
+Apologies remain necessary because recognition is public work. The injured still must articulate remedies; institutions must make them measurable. Neither side owes reassurance. Recognition is not completion, though it may become one condition under which changed access, resources, and authority can be demanded.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) arguing that apologies are worthless unless followed immediately by money or property transfers.
+(B) showing that institutions should avoid apologies because historical injuries resist common monetary valuation.
+(C) defending archival disclosure as the most reliable substitute for institutional redistribution of authority.
+(D) explaining why public acknowledgment must enable material changes in power, access, or ownership.
+
+Q2. Which one of the following findings would most complicate the author's account of acknowledgment as a necessary first act?
+(A) Communities regularly secure institutional remedies despite institutions refusing to acknowledge the original harm.
+(B) Ceremonial apologies can provide adequate moral repair even when institutional advantages remain unchanged.
+(C) Different historical injuries require remedies designed around distinct surviving circumstances and powers.
+(D) Formal acknowledgments often prompt institutions to publish records that were previously inaccessible.
+
+Q3. The example of the school publishing its exclusionary archive functions to:
+(A) show that archival publication itself restores authority to those formerly excluded from school.
+(B) prove that restitution demands should yield to private grief and interpersonal reconciliation alone.
+(C) show how acknowledgment can furnish grounds for demanding concrete institutional remedies.
+(D) demonstrate that historical injuries can be remedied through one standard institutional procedure.
+
+Q4. Based on the passage, we can infer that the claim that “difficulty is a bad solvent” would most likely mean that institutions should:
+(A) tailor remedies to particular injuries without treating complexity as an excuse for inaction.
+(B) limit remedies to cases where ownership records establish a direct contemporary financial loss.
+(C) delay remedies until every surviving document and descendant can be identified with certainty.
+(D) adopt identical remedies whenever institutions confront injuries arising from similar historical periods.
+
+Q5. Which one of the following statements, if true, would best invalidate the main argument of the passage?
+(A) Some institutions miscalculate the financial value of property taken from displaced communities.
+(B) Public apologies automatically create enforceable transfers of resources, access, and decision-making authority.
+(C) Some harmed communities prefer ceremonies of mourning to negotiations over institutional compensation.
+(D) Some apologies are drafted with care and received respectfully by affected community members.
+
+Q6. According to the text, the value of publishing the school’s archive is described as:
+(A) enabling claims for altered admissions, funded transport, and authority over the archive.
+(B) compensating parents for the suspicion they inherited from decades of exclusion.
+(C) proving that the school’s original exclusionary decisions were legally unenforceable at the time.
+(D) replacing the need for institutional changes in admissions, transport, and archival authority.
+
+Q7. Which one of the following positions is described in the passage but not endorsed by the author?
+(A) Acknowledgment is necessary because responsibility must enter an institution’s public language.
+(B) Recognition can become a condition under which changed access and authority are demanded.
+(C) Historical variation should shape the design of obligations rather than erase institutional duties.
+(D) Private mourning may be preferable to institutional bargaining as the proper response to historical injury.
+
+Q8. The author's position on public apologies is best characterised as:
+(A) morally empty performances whose public language cannot assist demands for material repair.
+(B) necessary public recognition that remains ethically incomplete without changes in institutional arrangements.
+(C) preliminary legal admissions that should be replaced by standardized monetary settlements for all injuries.
+(D) valuable symbolic gestures that ordinarily satisfy institutional duties toward historically injured communities.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — The passage moves from the value of recognition to its incompleteness, making repair the necessary bridge between apology and ethical action.
+  (A) moderate_extremism — It distorts the first paragraph, which rejects both the sufficiency of speech and any requirement for instant payment or transfer.
+  (B) half_truth — It borrows the discussion of varied injuries but ignores the conclusion that difficulty shapes duty rather than dissolves it.
+  (C) stage_misattribution — The archive example presents disclosure as enabling later claims, not as a substitute for changed authority.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — This finding challenges the claim that acknowledgment is necessary for responsibility to enter institutional grammar and for remedies to become intelligible.
+  (B) overqualification — It mistakes acknowledgment's necessity for its sufficiency, directly contradicting the passage's distinction between remorse and remedy.
+  (C) passage_supported — This restates the watchmaker analogy, which concerns the design rather than the necessity of duty.
+  (D) passage_supported — This reinforces the archive example, where publication makes later claims more publicly grounded.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — The example links published records to claims for admissions, transport, and authority, illustrating recognition as an enabling rather than completing act.
+  (A) nec_suff_swap — The passage says publication permits claims to authority; it does not say that publication itself transfers authority.
+  (B) moderate_extremism — The example concerns public records and remedies, while the passage rejects closing the matter through sentiment alone.
+  (D) scope_inflation — The subsequent watchmaker analogy explicitly denies that a common tariff or uniform remedy can settle such injuries.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — The phrase follows the watchmaker analogy, which makes variation a guide to designing obligations rather than a reason to abandon them.
+  (B) category_slip — The passage includes access and authority alongside ownership, and does not reduce injury to financial loss.
+  (C) overqualification — The passage treats incomplete evidence as a source of design difficulty, not as a prerequisite for any duty.
+  (D) example_promotion — The watchmaker comparison rejects a single repair method even for watches sharing the same broad problem of stoppage.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — If apology itself necessarily effected the material changes the passage demands, its central contrast between recognition and remedy would collapse.
+  (A) adjacent_answer — Valuation difficulties are acknowledged, but they do not challenge the need for remedies beyond monetary calculation.
+  (C) half_truth — The passage grants this concern but insists that neither ceremony nor accounting can close the file alone.
+  (D) missing_link — Sincerity and reception may matter, but they do not establish that unchanged advantages have been repaired.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The passage explicitly identifies these claims as the practical value that publication permits.
+  (B) phrase_misuse — Inherited suspicion is contrasted with documentary evidence; the archive does not itself compensate parents.
+  (C) framework_import — The passage discusses public responsibility and remedy, not the historical legal enforceability of the decisions.
+  (D) nec_suff_swap — The text presents publication as permitting such changes, rather than replacing the need for them.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The author presents this as a serious fear about degradation, then rejects allowing sentiment or accounting alone to close the matter.
+  (A) stance_misread — The author explicitly endorses acknowledgment as a necessary first act, though not as completion.
+  (B) stance_misread — The final paragraph explicitly advances this qualified role for recognition in relation to material change.
+  (C) stance_misread — This is the author's own conclusion from the watchmaker analogy and the claim that difficulty is a bad solvent.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — The author values naming harm and public responsibility while maintaining that repair requires altered access, resources, ownership, or authority.
+  (A) moderate_extremism — The passage says public language matters because it makes obligations harder to evade and can support demands.
+  (C) framework_import — The author rejects common tariffs and treats remedies as broader than money, including access and authority.
+  (D) overqualification — This converts the necessity of acknowledgment into sufficiency, contrary to the repeated distinction between recognition and completion.
+
+[Inspired by: "The Israeli Activists Aiding Palestinian Victims of Settler Violence", https://newrepublic.com/article/212483/israeli-activists-aiding-palestinian-victims-settler-violence]

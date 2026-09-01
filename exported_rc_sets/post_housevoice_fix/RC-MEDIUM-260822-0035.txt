@@ -1,0 +1,116 @@
+RC ID: RC-MEDIUM-260822-0035 | Tier: medium | Score: 0.0 | Status: solver_dispute | Compliance F1: 0.9 | Novelty: 0.59 | Generated: 2026-08-22T03:19:52.462649+00:00
+======================================================================
+
+[PASSAGE]
+
+Begin with the file. Tioga County, Pennsylvania, 2019. A mother of two works two part-time jobs, one at a diner, one driving for a rideshare platform. Her childcare subsidy lapses in March. The stated reason: missed work-verification deadline. She says she mailed the forms. The state says it has no record. I confess my first instinct was the old one, the one I was raised on — keep your papers, meet your dates, and the world mostly holds. Somebody dropped something. Probably her.
+
+Not her. The intake queue at the county assistance office had a six-week backlog and four caseworkers for a workload sized to nine. Her packet was date-stamped on receipt and processed after the cutoff. Worse: the cutoff had been revised downward in February and applied to submissions already in transit. So this is not the story of a woman who cannot follow instructions. Nor — and here I have to correct my second instinct, which was to blame the four exhausted caseworkers — is it the story of an understaffed office. Understaffing is the symptom. The design is the thing.
+
+Suppose she had made every date. The verification form still required an employer's countersignature attesting that the second job was real, and her second employer was a platform that classifies its drivers as independent contractors and, as a matter of standing legal posture, declines to countersign anything absent a subpoena — a refusal that some readers will take as proof that gig work is not real employment and that the mandate is right to test it, when what the refusal actually tests is whether a woman earning eleven dollars an hour can obtain a court order during the same twenty hours per week she must document as job search or lose the subsidy she is documenting in order to keep.
+
+Follow the threshold itself. It moves. Pennsylvania recalculated eligibility bands against revised federal poverty guidelines on a rolling monthly basis in that period, so the marginal effect of an extra shift was unknowable in advance: the same eight hours could clear a work requirement and breach an income ceiling. Her caseworker could not tell her which. I have looked for the sentence in the policy manual that resolves this and cannot find it. The mandate did not measure her employability. It measured the distance between two of the state's own numbers.
+
+Four passes, and nothing from the earlier ones withdrawn: the deadline was real, the office was starved, the platform did refuse, the thresholds did drift. What accumulates is not a list of fixable errors. The mandate presumes stable employment categories and a bureaucracy that answers on time, and by 2019 neither existed; the test therefore stopped testing her and began testing the apparatus, which failed. Here the two camps — the design school, which says tighten enforcement, and the capacity school, which says fund the offices — both take the resulting failure rate as data about recipients. It is not. And I refuse the tidy middle verdict that it is somewhat both. The burden now sits with whoever claims a mandate can detect a pre-existing barrier: show one it did not help build. Start with the countersignature line on Form PA 1663, still blank, still required.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) showing that a claimant's own carelessness with deadlines explains why her subsidy lapsed
+(B) documenting how chronic understaffing of county assistance offices delays otherwise workable eligibility rules
+(C) arguing that the work mandate manufactures the barriers it claims merely to detect
+(D) proposing a balanced settlement between the design school and the capacity school of welfare reform
+
+Q2. According to the text, the February revision of the submission cutoff is described as:
+(A) lowered and then applied to packets already travelling through the mail
+(B) the single administrative error that fully accounts for her lapsed childcare subsidy
+(C) a change that the policy manual resolves through a clearly written provision
+(D) a rule that the four exhausted caseworkers had quietly chosen to ignore
+
+Q3. The author cites the platform's refusal to countersign the verification form primarily in order to:
+(A) prove that subpoenas are routinely obtainable by claimants who plan their weeks carefully
+(B) establish that gig driving is not real employment and deserves the mandate's testing
+(C) illustrate that corporate legal departments behave badly toward their lowest-paid workers
+(D) show that compliance would remain impossible even had every deadline been met
+
+Q4. Which one of the following statements, if true, would best invalidate the main argument of the passage?
+(A) The platform eventually agreed to countersign forms for drivers who requested them in writing
+(B) The Tioga County office later hired five additional caseworkers and cleared its intake backlog
+(C) Claimants facing identical rules and offices succeeded whenever a pre-existing employment barrier was absent
+(D) Several other states adopted rolling monthly recalculation of eligibility bands during the same period
+
+Q5. Which one of the following findings would most weaken the author's conclusion in the fourth paragraph?
+(A) Federal poverty guidelines themselves were revised only once during the entire year in question
+(B) The policy manual contained a lengthy appendix describing the history of eligibility band design
+(C) Caseworkers were issued a monthly table letting them state exactly which extra shifts were safe
+(D) Most claimants in that period worked fixed schedules and rarely picked up any extra shifts
+
+Q6. Based only on information provided in the passage, which hypothetical case would best fit the author's account?
+(A) A hospital rejects a patient's insurance claim because the referring physician left the practice
+(B) A licensing board demands a transcript from a college whose records office it defunded
+(C) A tax office processes returns slowly because it employs too few seasonal clerical staff
+(D) A university rejects an applicant who submitted her essay two full weeks past the posted date
+
+Q7. In the context of the passage, "the distance between two of the state's own numbers" is best understood as:
+(A) the delay separating a packet's date-stamp from the day the office actually processed it
+(B) an arithmetic discrepancy that better trained caseworkers could have quickly explained away
+(C) the shortfall between her actual earnings and the federal poverty guideline for households
+(D) a gap internal to policy that the mandate scores as the claimant's shortcoming
+
+Q8. Which one of the following would best license the inference the author draws from the four passes taken together?
+(A) Enforcement tightened after 2019 and the number of successful applications fell further still
+(B) Advocacy groups have long argued that work requirements are punitive toward low-wage mothers
+(C) Surveys show most recipients report finding the verification paperwork confusing and unpleasant to complete
+(D) Failure rates rose sharply in counties where staffing, rules, and employers were otherwise unchanged
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — The four passes accumulate into the claim that the test stopped measuring the recipient and began producing failure through its own design.
+  (A) straw_version — Paragraph 2 explicitly retracts this first instinct: her packet was date-stamped on receipt.
+  (B) stance_misread — The author calls understaffing a symptom, not the thing, in paragraph two.
+  (D) false_symmetry — The final paragraph explicitly refuses the tidy middle verdict that it is somewhat both.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Paragraph 2 states the cutoff was revised downward in February and applied to submissions already in transit.
+  (B) stance_misread — The author insists nothing from earlier passes is withdrawn and that design, not one error, is the thing.
+  (C) phrase_misuse — The unfindable manual sentence in paragraph 4 concerns threshold drift, not the February cutoff.
+  (D) half_truth — Caseworkers processed her packet after cutoff; no passage sentence attributes rule-flouting to them.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The paragraph opens with 'Suppose she had made every date', using the refusal to close the counterfactual escape route.
+  (A) causal_inversion — The passage argues the opposite: obtaining a court order competes with mandated documentation hours.
+  (B) straw_version — The author explicitly names this as a reader's misreading of what the refusal actually tests.
+  (C) scope_inflation — The refusal is described as standing legal posture, not moral misconduct, in paragraph three.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — It restores the mandate's diagnostic power: failure would then track real barriers rather than being built by the apparatus.
+  (A) half_truth — One later concession leaves the threshold drift and retroactive cutoff arguments untouched.
+  (B) adjacent_answer — Staffing repair addresses the symptom the author already set aside, leaving the design claim intact.
+  (D) level_confusion — Wider adoption of drifting thresholds does not show the mandate measured employability.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — The paragraph rests on the marginal effect of an extra shift being unknowable in advance; such a table removes that unknowability.
+  (A) missing_link — The state's rolling recalculation, not federal revision frequency, drives the paragraph's instability claim.
+  (B) phrase_misuse — A historical appendix is not the resolving sentence the author says he cannot find.
+  (D) scope_inflation — Typical scheduling elsewhere does not restore predictability for the case the paragraph analyses.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — The requirement can only be met through a channel the same authority has disabled — the mandate helping to build the barrier it tests.
+  (A) category_slip — A departed physician is an outside contingency, not a barrier built by the demanding body.
+  (C) stance_misread — Pure understaffing is what the author calls a symptom rather than the design problem.
+  (D) straw_version — This is the individual-failure reading the passage discards in its second paragraph.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The sentence contrasts measuring employability with measuring the drift between a work floor and an income ceiling set by the state.
+  (A) stage_misattribution — That timing gap belongs to paragraph two's backlog, not the fourth paragraph's thresholds.
+  (B) stance_misread — The caseworker could not tell her, and the manual offers no resolving sentence.
+  (C) terminological_twin — The phrase names two state thresholds in conflict, not a single earnings shortfall.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — It shows the accumulated failure tracks the mandate's own structure rather than any of the separable local conditions.
+  (A) adjacent_answer — Later tightening could equally reflect the design school's remedy rather than licensing this inference.
+  (B) prior_belief — Prior advocacy opinion supplies no evidence for the passage's structural inference about design.
+  (C) level_confusion — Reported confusion is about claimant experience, not about whether the apparatus manufactures failure.
+
+[Inspired by: "The Trump Administration Is Making It Nearly Impossible to Get Food Stamps", https://www.thenation.com/article/economy/snap-food-stamps-cuts-trump/]

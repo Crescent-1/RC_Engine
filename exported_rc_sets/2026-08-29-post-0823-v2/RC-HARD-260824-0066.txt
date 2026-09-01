@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260824-0066 | Tier: hard | Score: 9.0 | Status: approved | Compliance F1: 0.76 | Novelty: 0.51 | Screen: green | Generated: 2026-08-24T19:21:11.422964+00:00
+======================================================================
+
+[PASSAGE]
+
+The file is thin: eleven pages, a carbon of a checklist, a hand-drawn plan folded twice, and a signature dated March 1998. What was that signature supposed to certify? Not that the rooming house conformed to a drawing on record, and not that its owner had made certain promises in writing. A fire-safety inspection of an occupied lodging house is meant to certify the building as lived in: this hallway, on this morning, with these doors, these detectors, these people asleep behind them. The unit of certification is the room, not the structure. That distinction turns out to carry most of the weight.
+
+Suppose the inspection consisted of matching the filed plan against the checklist, line by line, as a clerk reconciles two columns. The plan on file showed six units on two floors, with a single stair and a rear egress; the building by 1998 held nine, the extra three having been partitioned out of what the drawing called a parlor and a storage room. Every checklist item could have been marked satisfied against the six-unit drawing and every mark would have been true of a building that no longer existed. Whether those partitions had anything to do with what happened eleven months later is a separate matter, and the fire marshal's report addresses it. A floor plan is not a building.
+
+His deposition, taken the following year, describes the visit in the flat register such documents encourage. He entered by the front door. He walked the second-floor corridor. He pushed on doors to test whether they latched, and he recalls that one stuck. All of this is consistent, and it is also consistent with the six-unit configuration and with the nine-unit configuration alike; a man can walk a corridor and see partition walls without registering them as units, because units are a legal category and walls are only walls. The corridor was walked. What was found and what was assumed produce identical marks on the carbon.
+
+Then there is the affidavit, signed by the owner two weeks earlier, listing smoke detectors installed in each sleeping room and tested within the preceding ninety days. Departmental practice at the time, as the deposition concedes without embarrassment, was to accept such attestations for detector items and to reserve independent testing for cases where something looked wrong. Read quickly, this is one more document in a file of documents, each contributing its portion of confidence. Read slowly, it changes the grammar of the signature: what the inspector certified was not that detectors were present but that a man had said so, which is a claim about the man.
+
+So the definition that survives is the narrow one. An inspection is the inspector's own sensory contact with the current state of each unit — not the drawing, not the corridor walked, not the sworn word of an interested party. Applied honestly to those eleven pages, the definition yields a hard result: the 1998 signature attests to nothing that can be shown to have happened in the nine rooms. The price of keeping it is that the same test, run backward through the department's files, empties most of a decade's passed inspections into the same category. That accounting belongs to auditors, not to historians. The file cannot pay it.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) Because documents accumulate confidence severally, a thin file of eleven pages cannot support conclusions about a building that no longer stands.
+(B) Because departmental practice accepted owners' attestations, the inspector's conduct was ordinary rather than negligent, and blame belongs to the department's rules.
+(C) Because inspection must mean direct sensory contact with each occupied unit, the 1998 signature certifies nothing verifiable about the nine rooms.
+(D) Because the filed plan showed six units while nine existed, the undetected partitions produced the conditions that killed the sleeping lodgers eleven months later.
+
+Q2. According to the text, the inspector's deposition account of his visit is described as:
+(A) consistent with both the six-unit and the nine-unit configurations, and therefore incapable of distinguishing between them
+(B) sufficient evidence that a genuine compliance inspection of the second-floor rooms was in fact carried out that morning
+(C) internally inconsistent, since he recalled a sticking door while the checklist recorded every listed item as fully satisfied
+(D) evasive in register, since such sworn documents encourage witnesses to omit what they failed to notice at the time
+
+Q3. "It changes the grammar of the signature" most nearly means:
+(A) the signature's object shifts from a fact about detectors to a fact about someone's testimony
+(B) the owner rather than the inspector becomes the party responsible for certifying the sleeping rooms
+(C) the signature becomes legally invalid because departmental practice permitted attestations in place of testing
+(D) the affidavit adds one further document whose weight must be balanced against the checklist's marks
+
+Q4. Which one of the following newly discovered findings would most weaken the author's conclusion in the final paragraph?
+(A) The fire marshal's report concludes the partitions contributed nothing measurable to the spread of the 1999 fire.
+(B) A second carbon in the file records detector readings taken room by room in all nine rooms that morning.
+(C) The owner's affidavit was later confirmed accurate: detectors were indeed installed in each sleeping room.
+(D) Other departments in the state accepted owners' attestations for detector items throughout the same decade.
+
+Q5. Which reading of the following scenario best follows the passage's reasoning? A food-safety officer signs off on a restaurant kitchen after reviewing the manager's temperature logs, glancing into the walk-in cooler, and comparing the layout to a licensing diagram filed years earlier.
+(A) His certificate is unreliable chiefly because the licensing diagram is years old and no longer depicts the kitchen's actual layout.
+(B) His certificate is sound provided the logs prove accurate, since accepted departmental practice permits reliance on managers' records.
+(C) His certificate records that a manager kept logs and that a diagram exists, not that the cold-storage units held safe temperatures.
+(D) His certificate should be voided, and every certificate the agency issued under the same procedure must likewise be voided.
+
+Q6. Which one of the following is suggested by the sentence "What was found and what was assumed produce identical marks on the carbon"?
+(A) The inspector deliberately marked items he had not verified, and the uniform carbon conceals that choice from later readers.
+(B) Checklists should be redesigned to require inspectors to note separately which items were tested and which were inferred.
+(C) The checklist's form cannot preserve the difference between observation and inference, so its marks underdetermine what occurred.
+(D) Assumptions about a building are as reliable as findings when the inspector has physically walked the relevant corridor himself.
+
+Q7. Which one of the following best describes the role played by the second paragraph in the passage's argument?
+(A) It runs a hypothetical version of the inspection to show that a fully satisfied checklist can be true of nothing extant.
+(B) It introduces the documentary record whose thinness the opening paragraph announced and the closing paragraph finally weighs.
+(C) It supplies the factual background about partitions and egress that the fire marshal later relied on to explain the deaths.
+(D) It concedes that the inspector could not reasonably have known the parlor and storage room had been subdivided into rooms.
+
+Q8. Which one of the following is most strongly implied by the way the passage ends?
+(A) The 1998 file remains too thin to establish anything, and the inspector's conduct must therefore stay permanently undetermined.
+(B) The narrow definition should be softened, since applying it consistently would discredit a decade of otherwise unremarkable departmental work.
+(C) Historians must eventually audit the department's decade of files, because no other party has the documents needed to do so.
+(D) The definition's cost is real and institutional, but settling that cost lies outside what this file can decide.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Holds the whole movement: the narrow definition announced in paragraph 5 is what the plan, the corridor walk, and the affidavit have each been eliminated to reach.
+  (A) half_truth — The 'read quickly' accumulation view is the reading the fourth paragraph explicitly overturns, not the author's position.
+  (B) stance_misread — The passage concedes the practice without embarrassment but uses it to reclassify the signature, not to distribute blame.
+  (D) missing_link — Converts an analytic point about what certification means into a causal claim the author explicitly hands to the fire marshal's report.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Paragraph 3 states the walk is consistent with either configuration because units are a legal category while walls are only walls.
+  (B) category_slip — Treats walking a corridor as identical to inspecting units, the very conflation paragraph 3 dismantles.
+  (C) adjacent_answer — The passage never reports a contradiction between the stuck door and the marks; it stresses consistency, not conflict.
+  (D) stance_misread — The flat register is attributed to the document genre, not offered as evidence of evasion by the deponent.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — The following clause spells it out: what was certified was not presence of detectors but that a man had said so.
+  (B) causal_inversion — Responsibility is not transferred; the inspector still certifies, but certifies something about the owner's word.
+  (C) level_confusion — The passage revises what the signature asserts, not its legal validity under the practice of the time.
+  (D) category_slip — This is the explicitly labelled 'read quickly' view, which treats the affidavit as cumulative evidence rather than as a change of kind.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The conclusion rests on the file containing no record of first-hand sensory contact with each of the nine units; such a record would satisfy the narrow definition itself.
+  (A) missing_link — Causation was already set aside as a separate matter, so removing it leaves the certification argument untouched.
+  (C) nec_suff_swap — Truth of the attestation does not make the signature a first-hand finding, which is the author's actual point.
+  (D) scope_inflation — Widespread practice broadens the audit problem the author already concedes rather than repairing this file.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — Applies the migrated definition: attestation and filed drawing yield claims about documents and about a person, not sensory contact with each current unit.
+  (A) example_promotion — Elevates the plan mismatch, one illustration among three, into the whole defect; the affidavit problem survives a current diagram.
+  (B) nec_suff_swap — Accuracy of the attestation still leaves the officer certifying testimony, which the passage says is a different claim.
+  (D) scope_inflation — The passage assigns that backward-running accounting to auditors and declines to draw the conclusion itself.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The sentence closes the paragraph showing a walk consistent with either configuration; the record's notation collapses two epistemic sources into one mark.
+  (A) stance_misread — The passage attributes the collapse to the notation and to legal categories, never imputing deliberate falsification.
+  (B) level_confusion — The sentence diagnoses what the existing document can show; it issues no reform proposal for future forms.
+  (D) false_symmetry — Identical marks show a defect in the record, not equivalent evidential standing for assumption and observation.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — The 'suppose' construction is a test case that eliminates the plan-matching sense of inspection, the first of three candidates cleared before paragraph 5.
+  (B) stage_misattribution — Describes an accurate structural placement while missing why the hypothetical clerk-reconciliation is staged at all.
+  (C) missing_link — The paragraph explicitly defers causation to the marshal's report; the partitions serve the definitional argument here.
+  (D) straw_version — No concession about reasonable knowledge is made; the point concerns what the marks would certify, not the inspector's excuse.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — The closing displaces: the author keeps the narrow test, names its backward-running price, and hands the reckoning to auditors rather than absorbing it.
+  (A) half_truth — The passage reaches a hard result about what the signature attests; only the wider accounting is left open.
+  (B) premature_closure — The author explicitly keeps the definition and names its price; nothing suggests retreating from it to protect the archive.
+  (C) category_slip — The final lines assign the accounting to auditors and specifically not to historians.
+
+[Inspired by: "A Fair Process?", https://www.commonwealmagazine.org/schlumpf-pfleger-church-sex-abuse-priests]

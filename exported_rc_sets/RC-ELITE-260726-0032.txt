@@ -1,0 +1,90 @@
+RC ID: RC-ELITE-260726-0032 | Tier: elite | Score: 8.6 | Status: approved | Compliance F1: 1.0 | Novelty: 0.658 | Generated: 2026-07-26T10:02:55.398827+00:00
+======================================================================
+
+[PASSAGE]
+
+In 1957 a journalist counted the motivation researchers on retainer to American brands and published the number. The critique landed. Depth interviews, symbol testing, the flattery of the subconscious — all named, all quoted back to the industry in its own memoranda. The industry did not fight long. Within fifteen years it had truth-in-advertising codes, disclosure requirements, an internal vocabulary of ethics. By the 1980s it had something better: the wink. Agencies hired copywriters who mocked copywriting. The persuaders stopped hiding. They took a bow.
+
+Three slices, then, taken at intervals like plates from the same photographic survey. 1957: a soap commercial engineered around a mother's guilt, its mechanism concealed, its power dependent on concealment. 1994: a beer commercial that opens by announcing beer commercials use attractive people to sell beer, then uses attractive people, and sells beer. The mechanism is the joke; the joke is the mechanism. Then 2019, and the instrument stops registering the same class of object. A feed contains no argument. Nothing in it claims that a product will improve a life. What it does is set the interval between rewards, weight the queue, and decide which of nine thousand available items appears while a thumb is already moving. There is no message to hold up to the light. The unit that mid-century critics learned to dissect — the discrete persuasive artifact, with an author and an intention and a running time — has become a rounding error in the system's actual output.
+
+Two positions have hardened. One holds the critique spent: nothing is hidden, the persuader has filed his methods, and unmasking a face that is already bare is a ritual, not an analysis. The other holds it urgent, merely misaimed — confession being the most durable disguise, irony a way of pre-absorbing objection. Both arguments are well made. Both, examined closely, keep reaching for the 1994 beer commercial as their exhibit, the self-aware ad that admits what it is doing. Each side is fighting over a specimen collected twenty-five years ago, and neither seems to notice that the light from it is old.
+
+Which suggests that the obsolescence question, as posed, cannot be settled — not because both answers are true, but because it was asked about the wrong stratum. Read the second paragraph again and the sequence is not confession following concealment; it is the artifact thinning out until it is gone, taking the whole apparatus of unmasking with it. A critique does not expire when its object owns up. It expires, or relocates, when its object stops being a statement anyone could own up to. What erodes across those three plates is the artifact-level charge — that a particular message lied about its purpose — and the erosion was needed, because it strips away everything in the original critique that was contingent on there being a message at all. Underneath sits the claim that survives: that the arrangement of attention is engineered, by parties with measurable interests, at intervals a person cannot perceive. That claim was in Packard, buried under the tricks. It is the one now standing, and it is the one on which the verdict should turn.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the role the 1994 beer commercial plays in the passage's argument?
+(A) It refutes the mid-century critique by showing that disclosure removes the harm of persuasion.
+(B) It demonstrates that irony is a disguise more durable than concealment ever was.
+(C) It defines the current condition of advertising, in which persuasion openly announces its own techniques while still working.
+(D) It marks a transitional stage that both camps have wrongly frozen into the present.
+
+Q2. The author's remark that "Both arguments are well made" primarily functions to
+(A) grant each side its merits so that their shared error of evidence becomes the real point
+(B) soften a coming attack on the intellectual seriousness of contemporary media criticism
+(C) establish that the obsolescence question admits no resolution, leaving the debate permanently suspended between two equally defensible readings
+(D) signal a preference for the second position, whose account of irony the author will develop
+
+Q3. In context, the statement that "the light from it is old" most nearly means that
+(A) the debaters have misinterpreted the beer commercial's actual mechanism of persuasion
+(B) the mid-century critique was already stale by the time the beer commercial aired in 1994
+(C) the shared example no longer reports the conditions the disputants believe they are describing
+(D) self-aware advertising has grown so familiar that audiences no longer respond to it
+
+Q4. A city replaces its posted speed-limit signs with an adaptive traffic-signal network that, without informing drivers, lengthens or shortens greens to steer volume onto particular streets. A safety group insists the network is deceptive because it never discloses its routing goals. Based on the passage, the author would most likely respond that the group
+(A) should demand that the network publish its routing logic, after which the objection would lose force
+(B) has confused a technical system with a persuasive statement and therefore has no valid grievance
+(C) is charging the wrong level, since the objection should address engineered flow rather than absent disclosure
+(D) is right that concealment is the core problem, because the network's refusal to state its aims is precisely what makes its influence effective
+
+Q5. The author's claim that the erosion of the artifact-level charge "was needed" depends on which unstated assumption?
+(A) Critiques that fail to name concrete persuasive artifacts cannot mobilize any public concern.
+(B) A critique's core claim can be separated from the message-based features it once relied on.
+(C) The industry's disclosure codes and ironic self-mockery amounted to the critique's complete and final victory.
+(D) Packard's original account was chiefly valuable for its catalogue of subconscious techniques and symbol tests.
+
+Q6. Which best describes the author's intellectual posture toward the two hardened positions?
+(A) Respectful of their reasoning but convinced they dispute the wrong stratum of the problem.
+(B) Dismissive, holding that criticism of advertising has outlived whatever usefulness it once had.
+(C) Detached, treating the disagreement as an unresolvable difference of interpretive taste.
+(D) Broadly sympathetic to the second position, since irony's capacity to absorb objection is what the closing paragraph ultimately vindicates.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 shows both positions reaching for the same twenty-five-year-old specimen, and paragraph 4 recasts it as one plate in a thinning sequence, not the current condition.
+  (A) stance_misread — That is one debating position the author declines to endorse, not the function the example serves in the essay.
+  (B) stance_misread — This is the second camp's reading; the author treats it as another argument built on an outdated exhibit.
+  (C) example_promotion — The passage explicitly dates this specimen to 1994 and says its light is old; the 2019 feed has displaced it.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The concession is immediately followed by the observation that both reach for the same 1994 exhibit — the compliment isolates the common flaw rather than balancing the sides.
+  (B) straw_version — The critique targets the choice of specimen and stratum, not the competence or seriousness of the critics.
+  (C) scope_inflation — Paragraph 4 says the question cannot be settled as posed, then settles it by relocating the claim, so nothing stays suspended.
+  (D) stance_misread — The author sets aside both positions equally; neither the concealment nor the confession framing survives the fourth paragraph.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — The astronomical figure follows directly from the specimen being collected twenty-five years earlier; both sides read a present from evidence that has since been superseded by the 2019 stratum.
+  (A) level_confusion — The complaint concerns the specimen's date, not any error in reading how that particular ad worked.
+  (B) stage_misattribution — The staleness is located in the 1994 exhibit relative to 2019, not in Packard relative to 1994.
+  (D) adjacent_answer — The passage discusses the critics' evidence, not shifts in consumer response to ironic ads.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — This mirrors the passage's relocation: the artifact-level charge of a concealed message lapses, while the surviving claim concerns imperceptible engineering of movement by interested parties.
+  (A) scope_inflation — Paragraph 4 denies that a critique expires when its object owns up, so disclosure would not dissolve the complaint.
+  (B) premature_closure — The author preserves a grievance at the level of engineered attention; only the deception framing is discarded.
+  (D) stage_misattribution — The passage retires the concealment charge as contingent on there being a message; the durable claim concerns arrangement, not hiding.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — Paragraph 4 keeps the attention-arrangement claim while discarding everything contingent on there being a message, which requires that the two be detachable.
+  (A) nec_suff_swap — The passage argues the opposite: the surviving claim needs no artifact, which is why the erosion helps.
+  (C) scope_inflation — Paragraph 1's confession phase is precisely what the author denies settles anything; the verdict turns on the surviving claim.
+  (D) example_promotion — The passage says the durable claim was buried under the tricks, treating the techniques as the disposable layer.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The author calls both arguments well made, then relocates the question to the level of engineered attention, dissolving the dispute rather than joining a side.
+  (B) premature_closure — The final paragraph preserves a claim that still stands, contradicting wholesale dismissal of the critique.
+  (C) scope_inflation — The author explicitly indicates where the verdict should turn, so the stance is not detachment.
+  (D) stance_misread — The closing paragraph abandons the confession-versus-concealment axis entirely rather than crowning the irony argument.
+
+[Inspired by: "From Summit to Source", https://www.commonwealmagazine.org/summit-source]

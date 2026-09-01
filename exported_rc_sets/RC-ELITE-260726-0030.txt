@@ -1,0 +1,90 @@
+RC ID: RC-ELITE-260726-0030 | Tier: elite | Score: 0.0 | Status: rejected_novelty | Compliance F1: 1.0 | Novelty: 0.687 | Generated: 2026-07-26T09:18:40.362791+00:00
+======================================================================
+
+[PASSAGE]
+
+A layer of white pumice sits over the streets of Akrotiri, on Santorini, sealing the doorways at the height a man's shoulder would reach. When did it fall? Radiocarbon runs on seeds carbonised in that ash cluster in the late seventeenth century BC. The pottery lying under the same ash, and the Egyptian objects that travel with such pottery, point a hundred years later. Neither method is vague. Both give tight intervals. The obvious answer, offered for forty years, is that the two scales are slightly misaligned and want only careful cross-tuning until they meet.
+
+The tuning has been done, at length and with skill. Sequences of tree rings, counted one by one, have been matched to measured carbon fluctuations; Bayesian models have squeezed the intervals; the Aegean samples have been re-run in three laboratories. The gap did narrow, by perhaps a generation. But the narrowing came from fixing faults elsewhere in the calibration curve — a regional offset in the eastern Mediterranean growing season, an error in a section of Irish oak — not from any movement in the disputed material itself. Each improvement in precision has arrived and left the residual difference standing. That is the awkward part. A rounding error shrinks toward zero as instruments improve. This one has held its shape while everything around it sharpened, which is the behaviour of a feature rather than a fault, and forty years is long enough to notice.
+
+So the question was probably wrong. Radiocarbon does not date the eruption. It dates the atmosphere a seed breathed while it was still a living plant, filtered through solar cycles and ocean exchange. Egyptian chronology dates the eruption only in the sense that it places a jar in a reign, and a reign in a king-list compiled by scribes with their own reasons for counting. Both are accurate accounts of what they measure. Both refer to the same physical morning on Thera — and that shared reference is what makes comparison seem obligatory, though it does not make the two scales commensurable. One is a record of carbon in air; the other, a record of what a bureaucracy chose to remember and in what order. Agreement on the event is the necessary condition for aligning them. It has been mistaken, quietly and for a long time, for a sufficient one.
+
+Which leaves the harder question standing. What is a chronology for? If it is a neutral grid, two grids that disagree is a scandal. If it is an instrument, we may simply own two of them. The consolation available here is that better science will decide the matter, and that consolation should be set down; the evidence shows the old goal was wrong, not what should replace it. Perhaps some narratives are askable only under one calendar. That is not yet an argument. It is a suspicion, and it waits, along with the seeds — barley, and a few peas — still sealed in a jar in the storeroom at Akrotiri.
+
+[QUESTIONS]
+
+Q1. The passage moves from a described stratum at Akrotiri, through four decades of calibration work, to a question about what chronologies are for. Which statement best captures the central claim that this movement is built to deliver?
+(A) The persistent gap is not a measurement error awaiting repair but a sign that two differently constituted scales were wrongly assumed to be comparable.
+(B) The eruption's absolute date remains genuinely uncertain because both radiocarbon and Egyptian chronology yield intervals too loose to fix a single year.
+(C) Egyptian chronology, resting on king-lists compiled by scribes with motives of their own, should yield to the physically grounded radiocarbon determinations.
+(D) Bayesian modelling and tree-ring matching have already narrowed the discrepancy enough that continued refinement of laboratory technique will close it within a generation.
+
+Q2. In the second paragraph the author writes that a rounding error 'shrinks toward zero as instruments improve. This one has held its shape while everything around it sharpened.' Read against the account of what actually produced the narrowing, this contrast is meant to establish which point?
+(A) Errors in the calibration curve were the true source of the Thera disagreement, and their correction has now removed the problem.
+(B) The residual difference is not behaving like noise, since improved precision has left it untouched rather than eroding it.
+(C) Refinement did shrink the gap by a generation, so further refinement of the same kind should be expected to finish the job.
+(D) The instruments used on the Aegean samples were insufficiently sharp, which is why three laboratories were needed to re-run them.
+
+Q3. The third paragraph concludes that agreement about the event is 'the necessary condition for aligning them' and has been 'mistaken, quietly and for a long time, for a sufficient one.' Which unstated premise must hold for this sentence to carry the argumentative weight the paragraph gives it?
+(A) Two records that disagree about a single event cannot both be valid, so one of the scales must ultimately be discarded.
+(B) Physical measurements of atmosphere are in principle translatable into administrative reign-lengths once a sufficient number of samples is available.
+(C) Scribal king-lists are unreliable enough that any synchronism resting upon them should be treated as provisional at best.
+(D) Two records may refer to one physical morning and still be built on scales that measure different things.
+
+Q4. A hospital finds that a blood-based biomarker assay and a clinician-administered cognitive scale both diagnose early dementia with high internal consistency, yet the two identify different patient sets; twenty years of recalibrating cut-offs has shifted the mismatch slightly but never dissolved it. Which mechanism from the passage best explains this situation?
+(A) Both instruments are valid for their own object, and the shared name of the disease has been treated as guaranteeing a shared measurement.
+(B) The cognitive scale reflects clinicians' institutional judgements and so should be subordinated to the biochemical measurement wherever the two conflict.
+(C) Twenty years of recalibration is too short a period, and further modelling of cut-off thresholds will eventually bring the two patient sets together.
+(D) The stable mismatch shows that one of the two instruments contains a systematic bias that recalibration has so far been unable to locate and remove.
+
+Q5. In the final paragraph the author writes: 'The consolation available here is that better science will decide the matter, and that consolation should be set down; the evidence shows the old goal was wrong, not what should replace it.' What is the structural function of this sentence within the closing movement?
+(A) It introduces the possibility that some narratives are askable only under one calendar, which the closing lines then develop into an argument.
+(B) It concedes that the author's reframing is speculative and therefore withdraws the claim that the two chronologies are incommensurable.
+(C) It summarises the failure of Bayesian modelling and laboratory re-runs described earlier, drawing the second paragraph's evidence to a conclusion.
+(D) It blocks the reassuring exit the argument invites, keeping the reframed question open rather than handing it back to technique.
+
+Q6. Considering the author's handling of the calibration work, the two chronologies, and the unanswered question at the close, which description best characterises the intellectual posture the passage sustains?
+(A) Dismissive of forty years of calibration as wasted effort, since the corrections it produced touched only unrelated regions of the curve.
+(B) Respectful of the technical labour, yet convinced it answered a question that should not have been asked, and unwilling to supply the replacement.
+(C) Sceptical of radiocarbon's pretensions and inclined to restore documentary chronology, compiled by scribes, to the authority it once held in Aegean studies.
+(D) Confident that reconceiving chronologies as instruments rather than grids resolves the dispute and licenses historians to work with two calendars.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Paragraph 2's 'behaviour of a feature rather than a fault' and paragraph 3's 'accurate accounts of what they measure' combine into the reframe the fourth paragraph then extends.
+  (B) nec_suff_swap — Paragraph 1 insists 'Neither method is vague. Both give tight intervals'; the puzzle is precise disagreement, not looseness.
+  (C) half_truth — The passage calls both records accurate for what they measure and never ranks carbon above bureaucracy.
+  (D) causal_inversion — Paragraph 2 states the narrowing came from unrelated calibration fixes and that the residual has held its shape.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — The contrast between shrinking noise and a stable residual is the bridge to 'the behaviour of a feature rather than a fault'.
+  (A) missing_link — Those corrections are explicitly described as elsewhere in the curve, and the difference stands after them.
+  (C) causal_inversion — The text attributes that shrinkage to fixing an Irish oak error and a growing-season offset, not to progress on the disputed material.
+  (D) stage_misattribution — The re-runs are cited as evidence of care taken, not as evidence that the instruments were deficient.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — Only if shared reference is separable from commensurability can the necessary/sufficient distinction do work; the paragraph supplies carbon-in-air versus bureaucratic memory as the split.
+  (A) nec_suff_swap — The paragraph calls both 'accurate accounts of what they measure', so validity is not what the disagreement threatens.
+  (B) framework_import — This assumes precisely the commensurability the paragraph denies, importing a translation the author says does not follow.
+  (C) half_truth — The remark about scribes' 'own reasons for counting' describes what the scale records, not a verdict on its reliability.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — This reproduces the necessary/sufficient error of paragraph 3: common reference to one condition mistaken for commensurable scales.
+  (B) half_truth — The passage refuses to privilege the physical record over the humanly compiled one; both are accurate for what they measure.
+  (C) premature_closure — Paragraph 2 makes duration of failed refinement evidence against convergence, not a reason to expect it later.
+  (D) causal_inversion — The passage treats a residual surviving refinement as a feature of incommensurability rather than as a hidden fault awaiting detection.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — Placed after the 'neutral grid or instrument' fork, it refuses the methodological consolation so the closing suspicion can stand unresolved.
+  (A) adjacent_answer — That possibility follows this sentence and is explicitly labelled a suspicion rather than an argument.
+  (B) stance_misread — The withdrawal is only of a replacement goal; the incommensurability argument from paragraph 3 is left standing.
+  (C) stage_misattribution — The sentence addresses what the finding licenses going forward, not a recapitulation of the calibration history.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — Paragraph 2 credits the tuning as skilled, paragraph 3 declares the question wrong, and paragraph 4 explicitly declines to name what should replace the old goal.
+  (A) moderate_extremism — The work is called skilled and its corrections real; only its capacity to close the residual is denied.
+  (C) half_truth — The author grants both scales accuracy within their domains and advocates no restoration of textual primacy.
+  (D) premature_closure — The instrument framing is offered as a conditional fork, not a settled resolution the author endorses.
+
+[Inspired by: "Astrophysicists Puzzle Over Webb’s New Universe", https://www.quantamagazine.org/astrophysicists-puzzle-over-webbs-new-universe-20260702/]

@@ -14,8 +14,9 @@ import statistics
 
 from . import config
 from .fingerprints import (UNKNOWN_MOVEMENT, burrows_delta, cosine,
-                           jensen_shannon, movement_similarity, pearson,
-                           topology_similarity, zscored_cosine)
+                           curve_similarity, jensen_shannon,
+                           move_signature_similarity, movement_similarity,
+                           pearson, topology_similarity, zscored_cosine)
 from .models import Fingerprint, NoveltyReport
 from .registry import posture_class
 
@@ -29,7 +30,8 @@ class NoveltyScorer:
     def _pairwise(self, fp: Fingerprint, other: Fingerprint,
                   rhythm_stats: tuple[list, list] | None,
                   stylometry_corpus: list[dict],
-                  include_question_channels: bool) -> dict:
+                  include_question_channels: bool,
+                  move_freq: dict | None = None, move_n: int = 0) -> dict:
         scores: dict[str, float] = {}
 
         if (fp.movement_string in UNKNOWN_MOVEMENT
@@ -43,6 +45,25 @@ class NoveltyScorer:
             scores["movement_levenshtein"] = lev
             scores["movement_bigram_jaccard"] = jac
 
+        # Level-aware curve distance is the gating channel. Pearson is retained
+        # ONLY as a diagnostic in the channel report — it is scale/location
+        # invariant, so it cannot tell "opens hostile, ends convinced" from
+        # "opens warm, ends warmer" and scored those a perfect 1.00. See
+        # fingerprints.curve_similarity.
+        # ---- move_signature: the rhetorical grammar of the PROSE ------------
+        # Independent of the blueprint by construction (the extractor never sees
+        # it), which is what movement_* is not. An empty signature means "never
+        # extracted", and unknown structure is not evidence of similar
+        # structure — same convention as UNKNOWN_MOVEMENT above.
+        if fp.move_signature and other.move_signature:
+            scores["move_signature_sim"] = move_signature_similarity(
+                fp.move_signature.split("|"), other.move_signature.split("|"),
+                move_freq, move_n)
+        else:
+            scores["move_signature_sim"] = 0.0
+
+        scores["curve_similarity"] = curve_similarity(
+            fp.commitment_curve, other.commitment_curve)
         r = pearson(fp.commitment_curve, other.commitment_curve)
         same_sign_ends = (fp.commitment_curve and other.commitment_curve and
                           fp.commitment_curve[-1] * other.commitment_curve[-1] > 0)
@@ -81,10 +102,12 @@ class NoveltyScorer:
                    include_question_channels: bool) -> float:
         w = config.COMPOSITE_WEIGHTS
         movement = max(s["movement_levenshtein"], s["movement_bigram_jaccard"])
+        move_sig = s["move_signature_sim"]
         parts = [
             ("blueprint", blueprint_sim),
             ("movement", movement),
-            ("curve", max(0.0, s["curve_pearson"])),
+            ("move_signature", move_sig),
+            ("curve", max(0.0, s["curve_similarity"])),
             ("rhythm", max(0.0, s["rhythm_cosine"])),
             ("stylometry", s["stylometry_sim"]),
             ("embedding", s["embedding_cosine"]),
@@ -122,17 +145,30 @@ class NoveltyScorer:
                                    if len(w.rhythm_vector) > i] or [0.0]) for i in range(dims)]
         stylometry_corpus = [w.stylometry for w in window]
 
+        # Corpus move frequencies for the rarity weighting: a shared move that
+        # most of the corpus performs is weak evidence; a shared rare one is
+        # strong. Computed over the same window the gates score against.
+        move_freq: dict[str, int] = {}
+        move_n = 0
+        for w in window:
+            if w.move_signature:
+                move_n += 1
+                for m in set(w.move_signature.split("|")):
+                    move_freq[m] = move_freq.get(m, 0) + 1
+
         caps = config.NOVELTY_CAPS
         # see CURVE_CAP_MIN_CORPUS: the curve breach check needs corpus mass
         # before near-1.0 pearson on 4-6 point curves means anything
         curve_cap_active = len(window) >= config.CURVE_CAP_MIN_CORPUS
         worst_composite, worst_rc = 0.0, None
         breached: list[str] = []
+        persona_candidates: list[tuple[str, str, float]] = []
         channel_report: dict = {}
 
-        for other in window:
+        # window is newest-first, so the index doubles as recency
+        for idx, other in enumerate(window):
             s = self._pairwise(fp, other, (means, stds), stylometry_corpus,
-                               include_question_channels)
+                               include_question_channels, move_freq, move_n)
             bp_sim = blueprint_sims.get(other.rc_id, 0.0)
             comp = self._composite(s, bp_sim, include_question_channels)
             if comp > worst_composite:
@@ -140,15 +176,34 @@ class NoveltyScorer:
                 channel_report = {k: round(v, 3) for k, v in s.items()}
                 channel_report["blueprint_sim"] = round(bp_sim, 3)
 
-            if s["movement_levenshtein"] > caps["movement_levenshtein"]:
+            # Movement, like topology below, only counts as a breach against the
+            # RECENT corpus — same window the free precheck uses, so the two
+            # agree. They MUST agree: the precheck exists to catch a movement
+            # collision before a paid render, and when Gate B looked further
+            # back than the precheck did, candidates cleared the free gate and
+            # were then rejected after the render. That is strictly worse than
+            # no precheck (2026-08-10: three hard attempts, $0.20, all paid,
+            # all rejected on movement vs sets older than the precheck window).
+            # It stays in the composite score at every distance either way.
+            movement_recent = idx < config.MOVEMENT_RECENCY_WINDOW
+            if movement_recent and s["movement_levenshtein"] > caps["movement_levenshtein"]:
                 breached.append(f"movement_levenshtein {s['movement_levenshtein']:.2f} vs {other.rc_id}")
-            if s["movement_bigram_jaccard"] > caps["movement_bigram_jaccard"]:
+            if movement_recent and s["movement_bigram_jaccard"] > caps["movement_bigram_jaccard"]:
                 breached.append(f"movement_bigram_jaccard {s['movement_bigram_jaccard']:.2f} vs {other.rc_id}")
             coarse_supported = self._coarse_channel_supported(s, bp_sim)
-            if curve_cap_active and s["curve_pearson"] > caps["curve_pearson"]:
+            if curve_cap_active and s["curve_similarity"] > caps["curve_similarity"]:
                 if (coarse_supported
-                        or s["curve_pearson"] >= config.NOVELTY_SUPPORT_CAPS["curve_pearson_extreme"]):
-                    breached.append(f"curve_pearson {s['curve_pearson']:.2f} vs {other.rc_id}")
+                        or s["curve_similarity"] >= config.NOVELTY_SUPPORT_CAPS["curve_similarity_extreme"]):
+                    breached.append(f"curve_similarity {s['curve_similarity']:.2f} vs {other.rc_id}")
+            # move_signature is checked against the WHOLE window, not just the
+            # recent slice the movement channels use. Recycling a movement token
+            # after its exclusion window is deliberate composer policy; repeating
+            # the rhetorical grammar is a defect at any distance — the pair that
+            # motivated this channel (RC-ELITE-260712-0028 / RC_E_0706_1) is six
+            # days apart and every other channel called them maximally novel.
+            if s["move_signature_sim"] > config.MOVE_SIGNATURE_CAPS["move_signature_sim"]:
+                breached.append(f"move_signature {s['move_signature_sim']:.2f} "
+                                f"vs {other.rc_id}")
             if s["rhythm_cosine"] > caps["rhythm_cosine"]:
                 breached.append(f"rhythm_cosine {s['rhythm_cosine']:.2f} vs {other.rc_id}")
             if s["embedding_cosine"] > caps["embedding_cosine"]:
@@ -160,13 +215,66 @@ class NoveltyScorer:
                     and (coarse_supported
                          or s["stylometry_delta"]
                             < config.NOVELTY_SUPPORT_CAPS["stylometry_delta_extreme"])):
-                # A stylometric echo alone is the generator's house voice, not a
-                # duplicate essay; only reject when a structural channel agrees
-                # (coarse_supported) or the voices are near-identical (extreme).
-                breached.append(f"persona_leak delta={s['stylometry_delta']:.2f} vs {other.rc_id}")
-            if include_question_channels and \
-                    s["topology_similarity"] > caps["topology_similarity"]:
+                # Candidate only — the leak/house-voice call needs the whole
+                # window, so it is decided after the loop (see below).
+                persona_candidates.append(
+                    (other.persona_id, other.rc_id, s["stylometry_delta"]))
+            # Topology only counts as a breach against the RECENT corpus. The
+            # composer recycles a topology on purpose once
+            # EXCLUSION_WINDOWS["topology"] sets have passed, and with a
+            # 20-item library and a larger corpus that recycling is mandatory —
+            # scoring it against the whole window made a reused topology a
+            # guaranteed 1.00 breach, contradicting the composer's own policy.
+            # Inside the window it is still a hard reject (that would be a
+            # composer bug). It stays in the composite score either way.
+            if (include_question_channels
+                    and idx < config.EXCLUSION_WINDOWS["topology"]
+                    and s["topology_similarity"] > caps["topology_similarity"]):
                 breached.append(f"topology {s['topology_similarity']:.2f} vs {other.rc_id}")
+
+        # ---- persona_leak: a leak is SPECIFIC, the house voice is DIFFUSE ----
+        # A real leak means "this passage reads like persona X" — one voice
+        # bleeding through. A render that sits equally close to many different
+        # personas is not leaking any of them; it is sitting near the corpus
+        # centroid, which is the single generator's house voice. The old
+        # per-pair test could not tell those apart and rejected both.
+        #
+        # The corpus separates them cleanly (2026-08-11): shipped sets that trip
+        # the gate breach exactly 1 distinct persona, while the render that
+        # burned three paid attempts breached 7 at once (P03/P05/P06/P07/P14/
+        # P15/P16, deltas 0.59-0.69). persona_leak was in 11 of 22 paid
+        # rejections that day — the largest single source of wasted spend.
+        #
+        # Diffuse cases become a corpus flag instead: the voice IS converging and
+        # that is worth surfacing, but a blind re-roll cannot fix it, so
+        # rejecting the render only burns money.
+        # 2026-08-22: persona_leak REPORTS, it no longer rejects.
+        #
+        # The diffuse case was already only a flag, on the reasoning that a blind
+        # re-roll cannot move the house voice. That reasoning applies just as
+        # well to the specific case, and the bill proved it: across three live
+        # batches persona_leak was the single largest source of wasted spend
+        # (~$0.72 of $1.05 in the 2026-08-21 batch alone), and none of the
+        # re-rolls it forced produced a materially different voice.
+        #
+        # What made it defensible as a gate was that nothing else measured
+        # structural repetition. move_signature does now — from the prose,
+        # blind, and acted on by a beat plan the renderer obeys — so the
+        # stylometric reading survives as the corpus signal it always was.
+        house_voice_flag = None
+        if persona_candidates:
+            personas = {p for p, _, _ in persona_candidates}
+            worst_d = min(d for _, _, d in persona_candidates)
+            nearest = min(persona_candidates, key=lambda c: c[2])[1]
+            if len(personas) >= config.PERSONA_LEAK_DIFFUSE_MIN:
+                house_voice_flag = (
+                    f"house_voice: stylometry within the persona-leak band of "
+                    f"{len(personas)} distinct personas (worst delta {worst_d:.2f}) "
+                    f"— generator voice converging, not a leak of any one persona")
+            else:
+                house_voice_flag = (
+                    f"persona_leak (reported, not gated): delta {worst_d:.2f} vs "
+                    f"{nearest} across {len(personas)} persona(s)")
 
         posture_flag = self._posture_run_check(fp, window, breached)
 
@@ -180,6 +288,8 @@ class NoveltyScorer:
         corpus_flags = self._corpus_flags(fp) if include_question_channels else []
         if posture_flag:
             corpus_flags = corpus_flags + [posture_flag]
+        if house_voice_flag:
+            corpus_flags = corpus_flags + [house_voice_flag]
         return NoveltyReport(
             verdict=verdict, composite=round(novelty, 3),
             channel_scores={"nearest": worst_rc, **channel_report},

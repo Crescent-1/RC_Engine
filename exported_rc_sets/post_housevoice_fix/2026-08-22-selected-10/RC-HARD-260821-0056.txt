@@ -1,0 +1,114 @@
+RC ID: RC-HARD-260821-0056 | Tier: hard | Score: 8.6 | Status: needs_review | Compliance F1: 0.925 | Novelty: 0.547 | Generated: 2026-08-21T18:45:24.881491+00:00
+======================================================================
+
+[PASSAGE]
+
+In 1363, an English parliament decided that a carter, ploughman, or oxherd should wear nothing but blanket and russet cloth costing no more than twelve pence the yard, and belt himself with linen — no silver on the buckle. Was there ever a law so easy to laugh at? Venice appointed magistrates specifically to inspect sleeves. Florence had officials who counted the buttons on a woman's gown in the street and levied fines by the button; one chronicler records a lady arguing that her buttons were not buttons, having no buttonholes, and winning. The Japanese shogunate banned certain reds. Nuremberg told merchants' wives how far a train might trail behind them. Everywhere the same pattern: the powerful decided that the merely rich must not look like them, and dressed the decision up as thrift and piety, with a garnish of hostility toward whatever foreign silk was arriving that decade. The whole apparatus reads now as caste enforcement conducted at the level of the hemline, petty in method and vicious in aim, and it collapsed, as it deserved to, once liberal societies decided a person's coat was that person's affair. I have never met anyone who wished the button-counters back. Nor, for what it is worth, do I.
+
+But watch what the button-counters were actually doing. A dinner party where one guest arrives in cloth-of-gold obliges every other guest to spend more next time, and the guest after that more again — the sort of game where nobody can stop while anyone continues, and where the winner has merely arrived at the starting line of the following round. Sumptuary law was a clumsy referee blowing a whistle on that game. Its stated reasons were nonsense and its enforcement was snobbery. Its effect, in a world without advertising, consumer credit, or the mail-order catalogue, was to put a ceiling on how far a family could be dragged upward by the spending of its neighbours. Crude, yes. But something was holding the ceiling up.
+
+Nothing holds it now. When the statutes went, no institution inherited the job; the function was not transferred but abolished, on the assumption that it had never been a function at all, only a prejudice wearing the costume of policy. Fred Hirsch, in 1976, named the difficulty precisely: positional goods are those whose value consists in others not having them, and no amount of general enrichment can distribute them more widely. He proposed no magistrate. Neither do I. What I am pointing at is an absence — the absence of anything whatever, custom or law or shame, standing between a household and the escalation its neighbours set in motion. Markets are not referees. They are the game.
+
+So let me say plainly what I am not saying. The old laws cannot be salvaged, patched, or quietly reintroduced under a better name; they were built to keep a wool merchant's daughter in her place, and that was not incidental to them but the point. The loss is real, and it is uncompensated, and it is also permanent. We were right to burn the instrument. We simply had nothing else that did the work, and we still have nothing.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) tracing how positional competition among households replaced older hierarchies of birth and inherited legal rank
+(B) identifying a restraining function that vanished when the odious institutions carrying it were rightly abolished
+(C) arguing that some equivalent of consumption regulation should be reconstructed in a form suited to modern markets
+(D) exposing sumptuary laws as caste enforcement dressed up in the borrowed language of thrift and piety
+
+Q2. Regarding the sumptuary statutes described in the passage, the author asserts that:
+(A) their stated justifications were nonsense, yet their practical effect placed a ceiling on neighbour-driven spending
+(B) their basic design could be recovered today if stripped of the class hostility that originally motivated them
+(C) their collapse was premature, since liberal societies had no considered replacement ready for the abandoned role
+(D) their underlying rationale was sound even though officials enforced them with pettiness and evident class malice
+
+Q3. All of the following are true of the historical enforcement of dress rules, as presented in the passage, EXCEPT:
+(A) Restrictions were commonly accompanied by suspicion of newly imported foreign silks
+(B) Florentine officials assessed fines according to the number of buttons on a gown
+(C) Venice created magistrates whose specific responsibility was the inspection of garment sleeves
+(D) Enforcement failed chiefly because ordinary people found the categories of cloth impossible to distinguish
+
+Q4. What work does the dinner party at which one guest arrives in cloth-of-gold do in the argument?
+(A) It illustrates the snobbery that made medieval enforcement of dress rules so contemptible
+(B) It models the escalating game that the discredited statutes happened to interrupt
+(C) It shows that wealthy households have always resented the constraints imposed on them
+(D) It demonstrates why some modern authority must be assigned the abandoned refereeing job
+
+Q5. Which one of the following findings would most complicate the author's account of what was lost when the statutes lapsed?
+(A) Some rulers imposed dress restrictions on themselves as well as on their social inferiors
+(B) Informal neighbourhood conventions still reliably cap household display in most contemporary societies
+(C) Hirsch's category of positional goods has been contested by later economists studying status
+(D) Medieval enforcement of dress statutes was sporadic, easily evaded, and often quietly abandoned
+
+Q6. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) A school abolishes uniforms as coercive, after which parents report steadily rising clothing costs nobody individually chose
+(B) A village revives an old festival requiring plain dress, and the wealthiest families quietly refuse to participate
+(C) A city bans billboard advertising to protect residents from the psychological pressures generated by aggressive consumer marketing
+(D) A firm publishes salary bands, after which employees discover their pay lags behind that of peers
+
+Q7. Which one of the following views does the author present without endorsing it as his own?
+(A) Markets themselves cannot serve as referees of competitive spending, being the game rather than its umpire
+(B) The vanished statutes cannot be revived under any improved name, because their class purpose was central
+(C) The end of dress statutes involved no genuine loss, since they were prejudice in policy's costume
+(D) Nobody today would welcome the return of the officials who counted buttons in the streets
+
+Q8. Which one of the following would best license the inference the author draws from the abolition of the statutes?
+(A) Households in societies without any dress regulation report higher satisfaction with their own clothing choices
+(B) Modern advertising and consumer credit emerged only long after the last dress statutes had lapsed
+(C) Legislatures repealing such codes recorded no debate about which body would assume their restraining role
+(D) Historians agree that sumptuary statutes were drafted with explicitly hierarchical and status-preserving intentions in mind
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — The essay moves from ridicule (para 1) to the steelman of the referee function (para 2) to the named absence (paras 3-4), resolving on a loss that is real, uncompensated, and permanent.
+  (A) scope_inflation — Hirsch's positional goods illustrate the escalation problem; the passage never narrates a historical replacement of birth hierarchies.
+  (C) adjacent_answer — Paragraph three states 'He proposed no magistrate. Neither do I'; the essay names an absence without proposing any remedy.
+  (D) half_truth — This stops at paragraph one's mockery, missing that the ridicule is set up precisely so paragraph two can reverse it.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Paragraph two separates the laws' bogus reasons and snobbish enforcement from their effect, which was to cap how far a family could be dragged upward.
+  (B) adjacent_answer — Paragraph four insists the laws cannot be salvaged, patched, or reintroduced, since the class purpose was not incidental.
+  (C) stance_misread — The author says 'We were right to burn the instrument'; the loss is lamented but the abolition is endorsed.
+  (D) half_truth — The author calls the stated reasons nonsense; only the unintended effect, not the rationale, is defended in paragraph two.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The passage attributes the laws' collapse to liberal societies deciding a person's coat was their own affair, not to any failure of categorical clarity.
+  (A) passage_supported — Paragraph one notes 'a garnish of hostility toward whatever foreign silk was arriving that decade.'
+  (B) passage_supported — Paragraph one says Florence's officials 'counted the buttons on a woman's gown in the street and levied fines by the button.'
+  (C) passage_supported — Paragraph one states 'Venice appointed magistrates specifically to inspect sleeves.'
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The image licenses the pivot in paragraph two: it makes visible the unstoppable spending spiral for which sumptuary law was a 'clumsy referee'.
+  (A) stage_misattribution — Snobbery belongs to paragraph one's account of enforcement; the dinner party illustrates competitive spending, not official pettiness.
+  (C) category_slip — The example concerns mutual escalation among guests, not resentment of legal constraint by the rich.
+  (D) half_truth — The essay names an absence and explicitly proposes no magistrate; the image diagnoses rather than recommends any institutional fix.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The thesis rests on there being nothing — 'custom or law or shame' — between a household and escalation; surviving informal caps would restore the missing function.
+  (A) adjacent_answer — This complicates paragraph one's claim about caste motives, a point the author concedes anyway, not the argument about lost function.
+  (C) missing_link — Hirsch supplies vocabulary for a difficulty the passage independently describes; disputing his terminology leaves the escalation argument standing.
+  (D) half_truth — The author already concedes the instrument was crude; patchy enforcement does not touch the claim that nothing now holds the ceiling.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — This reproduces the whole movement: an instrument rightly abolished for its coercive character, whose incidental restraining effect vanishes with it and leaves escalation unopposed.
+  (B) stage_misattribution — This depicts an attempted restoration of the old instrument, which paragraph four rules out as neither salvageable nor desirable.
+  (C) adjacent_answer — This installs a new restraint, whereas the author's case concerns the disappearance of restraint with nothing inheriting the role.
+  (D) category_slip — Transparency about existing inequality is not the escalating spiral in which each household's spending drags the next upward.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — Paragraph three attributes this to the assumption on which abolition proceeded, and the essay's whole point is that the assumption was mistaken about the function.
+  (A) stance_misread — 'Markets are not referees. They are the game' is the author's own declarative claim closing paragraph three.
+  (B) stance_misread — Paragraph four states this flatly in the author's own voice: the laws were built to keep a merchant's daughter in place.
+  (D) half_truth — The author affirms this personally: he has met no one wishing the button-counters back, and does not wish it himself.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — It directly supports paragraph three's load-bearing claim that the function was not transferred but abolished, on the assumption it was never a function at all.
+  (A) adjacent_answer — Individual satisfaction with choice is consistent with, and irrelevant to, the claim about an unopposed collective spending spiral.
+  (B) missing_link — Chronology of these institutions does not establish that nothing inherited the ceiling-holding role the statutes incidentally performed.
+  (D) half_truth — This confirms paragraph one's concession about motive, which the author grants, rather than supporting the inference about a vanished function.
+
+[Inspired by: "Outdated?", https://www.commonwealmagazine.org/ramos-just-war-theory-leo-pope]

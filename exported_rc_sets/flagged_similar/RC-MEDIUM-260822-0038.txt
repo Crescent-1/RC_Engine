@@ -1,0 +1,114 @@
+RC ID: RC-MEDIUM-260822-0038 | Tier: medium | Score: 7.8 | Status: needs_review | Compliance F1: 0.95 | Novelty: 0.633 | Screen: red | Generated: 2026-08-22T05:55:47.911592+00:00
+======================================================================
+
+[PASSAGE]
+
+At half past two, the stone façade of a municipal hall can be brighter than the pavement before it. Its floodlights have found no audience but pigeons tucked beneath a cornice, a cleaner’s cart, the occasional taxi. Yet the arrangement persists because light is rarely treated as mere equipment. It is a public promise made visible: the square remains available, the building remains ours, the city has not withdrawn behind its doors. Jane Jacobs’s phrase “eyes on the street” still supplies part of the inheritance, even when the eyes are cameras, passing drivers, or nobody at all. Security explains some of it. Civic pride explains some more. Those of us who planned public works learned to speak of illuminated landmarks as a kind of welcome, a house lamp left on in the front room. But a lamp also announces which arrivals have been anticipated. The monument’s glow can make darkness look like abandonment, and can make the unlit edges of the same district appear to have fallen outside the municipal household.
+
+A lighting engineer and a nocturnal field worker may stand beneath that façade with instruments aimed at the same night and produce incompatible accounts without either falsifying it: the engineer’s meter records the lux reaching a face, a curb, a camera lens, while the field worker’s trap and notebook register the moths drawn out of their routes and the birds altering their flight through the lit air; and although brighter streets can change confidence and movement, they do not reliably convert visibility into safety, particularly where selective illumination makes certain passers-by feel observed rather than sheltered. The measurements are not parallel. One records what human sight is enabled to do; the other records what the light causes living creatures to do.
+
+Those costs include energy spent maintaining a human timetable, but they are not reducible to a bill or an unpleasant view. Moths circle a lamp until dawn; migrating birds meet a bright façade as they would meet a false opening in a house. Dark-sky advocates count such disorientations, while lighting designers count the places where a person can recognise another person’s face. Each camp has a usable measure, and the advocates’ account has the force of damage plainly described. Still, a lit clock tower after a funeral, or a bridge held in light during a winter blackout, can carry memory rather than display. We knew this. A city’s symbols are not simply ornaments appended to utility — no: more precisely, they are among the ways utility has been imagined.
+
+If reassurance is distributed to humans by reorganising the lives of creatures unable to consent, should a city ask what darkness requires before deciding what night is for? Urban branding cannot answer that alone; nocturnal ecology may be better placed to describe the terms, though civic meaning will not disappear merely because its claims are harder to count.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) examining how civic illumination can reassure humans while imposing uncounted ecological costs.
+(B) showing that improved visibility reliably produces safer streets and more confident public movement.
+(C) rejecting decorative municipal lighting because its aesthetic appeal disguises unnecessary public expenditure.
+(D) defending illuminated monuments as essential expressions of civic pride and communal memory.
+
+Q2. Which one of the following situations is most analogous to the mechanism described in the passage?
+(A) A town removes streetlights after data show that brighter roads do not guarantee safety.
+(B) A museum replaces costly lamps after calculating that their electricity use exceeds its annual budget.
+(C) A theatre brightens its lobby so visitors can more easily recognise one another's faces.
+(D) A hospital installs soothing overnight music that comforts patients but disrupts roosting bats nearby.
+
+Q3. Which one of the following, if established, would most damage the author's central claim?
+(A) Controlled studies show that ordinary urban lighting does not alter local nocturnal animals' movement, feeding, or migration.
+(B) Many residents describe lit monuments as reassuring during emergencies and periods of collective grief.
+(C) Some lighting engineers use measures that differ from those used by nocturnal field workers.
+(D) Ecological measurement supplies a neutral final standard that replaces contested civic meanings in public space.
+
+Q4. Which one of the following is most strongly implied by the way the passage ends?
+(A) Cities should preserve existing lighting because symbols remain necessary forms of public utility.
+(B) Cities should replace all symbolic lighting with darkness because ecological damage outweighs every human benefit.
+(C) Cities should let ecological knowledge inform lighting decisions without treating civic meaning as irrelevant.
+(D) Cities should measure illumination more precisely before deciding whether lit spaces are genuinely safe.
+
+Q5. Based on information provided in the passage, all of the following are true, EXCEPT:
+(A) Nocturnal ecology can provide a final standard that resolves disputes over civic meaning.
+(B) Brighter streets can alter confidence and movement without reliably producing safety.
+(C) Illuminated landmarks can convey welcome while marking unlit areas as neglected.
+(D) Field workers may record animals changing routes or flights in response to artificial light.
+
+Q6. Regarding the engineer's and field worker's measurements, the author asserts that:
+(A) they conflict because only the field worker uses instruments capable of detecting light.
+(B) they differ because engineers study safety while field workers study only scenic darkness.
+(C) they record different effects of light and therefore cannot be treated as parallel measures.
+(D) they measure the same night from complementary angles and can therefore be readily combined.
+
+Q7. The primary purpose of the passage is to:
+(A) describe the symbolic meanings that illuminated buildings acquire within public urban life.
+(B) urge cities to reconsider night lighting through the ecological claims of darkness.
+(C) contrast engineers' light measurements with field workers' records of nocturnal animal behaviour.
+(D) establish that municipal lighting should be judged solely by measurable public safety outcomes.
+
+Q8. Which one of the following would best license the inference the author draws from the effects of selective illumination?
+(A) Surveys find that well-lit stations help many commuters recognise approaching acquaintances.
+(B) Surveys find that dark-sky advocates track bird migrations near illuminated civic buildings.
+(C) Surveys find that selectively lit districts make some residents feel watched rather than protected.
+(D) Surveys find that municipal lights consume more electricity during winter evenings than summer evenings.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — It integrates the passage's movement from light as civic promise to its ecological consequences and the final call to consider darkness.
+  (B) causal_inversion — Paragraph two explicitly states that visibility does not reliably convert into safety.
+  (C) prior_belief — The passage is not chiefly about taste or expenditure; it contrasts civic reassurance with effects on nocturnal life.
+  (D) prior_belief — It treats the opening civic meanings as the conclusion, ignoring the ecological challenge developed in later paragraphs.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — Like civic lighting, the intervention distributes a human benefit by reorganising the lives of creatures unable to consent.
+  (A) framework_import — This treats lighting's failure to guarantee safety as sufficient reason to settle the issue entirely for darkness.
+  (B) level_confusion — This reduces the issue to financial cost rather than weighing human meaning against ecological disruption.
+  (C) half_truth — It reflects a human benefit of light but omits the displaced ecological burden central to the analogy.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — This would remove the central factual basis for asking cities to account for ecological requirements of darkness.
+  (B) half_truth — The passage already grants such symbolic reassurance, which does not answer its concern about nonhuman costs.
+  (C) example_promotion — The passage explicitly notes nonparallel measurements; this fact supports rather than damages its argument.
+  (D) framework_import — The passage denies that civic meaning disappears, so this imports a resolution rather than weakening the ecological concern.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — The ending gives nocturnal ecology a stronger role in setting terms while retaining civic meaning as a surviving consideration.
+  (A) stance_misread — This elevates the concession about symbols while overlooking the final demand to ask what darkness requires.
+  (B) premature_closure — The ending displaces human-centred branding but does not erase civic meaning or prescribe total darkness.
+  (D) adjacent_answer — Safety measurement matters earlier, but the ending shifts to ecological terms rather than technical measurement alone.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — The passage says ecology may describe the terms better, but explicitly maintains that civic meaning will not disappear.
+  (B) passage_supported — Paragraph two states that brighter streets can change confidence and movement but do not reliably convert visibility into safety.
+  (C) passage_supported — Paragraph one says the glow may signal welcome yet make unlit edges appear outside the municipal household.
+  (D) passage_supported — Paragraph two describes moths being drawn from routes and birds altering flight through lit air.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The engineer measures what human sight can do, whereas the field worker records what light causes living creatures to do.
+  (A) factual_inversion — The engineer's meter is also an instrument and records lux reaching faces, curbs, and camera lenses.
+  (B) category_slip — The field worker studies effects on creatures, not scenic darkness, and the engineer measures lux rather than safety.
+  (D) false_symmetry — The passage expressly says the measurements are not parallel, despite their shared setting.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — The author uses civic symbolism and competing measurements to press the final question of what darkness requires.
+  (A) half_truth — This accurately summarises early material but misses the author's larger purpose of reconsidering lighting through ecology.
+  (C) stage_misattribution — This is a structural move in the argument, not the reason the passage presents the material.
+  (D) prior_belief — The passage rejects safety as a reliable result of visibility and broadens evaluation beyond human measures.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — This directly supports the author's inference that visibility can produce observation rather than shelter for certain passers-by.
+  (A) half_truth — This supports one human function of lighting but does not show that selective illumination creates felt surveillance.
+  (B) adjacent_answer — This concerns ecological monitoring, whereas the specified inference concerns passers-by feeling observed rather than sheltered.
+  (D) level_confusion — Energy use is a cost mentioned elsewhere but does not support the claimed social effect of selective illumination.
+
+[Inspired by: "The fog of hunger", https://aeon.co/essays/a-hungry-woman-is-easier-to-dismiss-than-a-well-fed-woman]

@@ -1,0 +1,118 @@
+RC ID: RC-ELITE-260822-0061 | Tier: elite | Score: 7.6 | Status: needs_review | Compliance F1: 0.77 | Novelty: 0.595 | Screen: red | Generated: 2026-08-22T06:51:59.447266+00:00
+======================================================================
+
+[PASSAGE]
+
+Public access has never meant that every use of a shared room travels with every visitor who enters it. The branch librarian traces the trouble through successive meanings of “public”: a door kept open without inquiry, then observation and description as liberties exercised through that door, then the translation of both into potential circulation. A lifestyle streamer crossed the reading room with her phone upright, broadcasting live. Nobody challenged her at first. Faces appeared. Voices carried. Objections began only when patrons learned that the scene was already online, moving beyond the room faster than consent could be requested or refusal made useful. At the board meeting, the librarian proposed a cream notice, NO CASUAL FILMING, to be taped beside the clock. One faction called it a restoration of library quiet, treating the camera as an amplified conversation; another called it a border guard, turning an institution funded by strangers into a club for those whom staff deemed unobtrusive. The quarrel was not caused simply by new equipment; in her account, portable transmission made an old distinction operationally urgent. Not secrecy imposed on civic life, she said, but a separation between being observable in place and being distributable elsewhere. Yet the notice’s blunt adjective offered staff control without explaining whose purposes counted as casual.
+
+The streamer answers that she entered neither a confidential service desk nor a private home. Her viewers wanted the neglected building: cracked terrazzo, dim stacks, a local room surviving between a pharmacy and a vacant shop. Where patrons treated the camera as taking possession of their images, she treated it as returning a publicly maintained place to public attention. She did not interview anyone. She named no one. She lingered nowhere. She concedes that a live audience removes the interval in which accidental exposure can be edited away, but says the complaint converts ordinary co-presence into proprietary authority over a room belonging, in some measure, to everyone.
+
+The man beside the computers gives the narrower account. Recently dismissed, he was completing a job application when the camera passed: screen glare, hunched shoulders, an unfinished form, the cheerfully narrated bad day. A sidewalk permits glances, he allows, but the broadcast preserved what nearby strangers would forget. For him, that difference was enough.
+
+A deaf student reports another preservation: staff now preserve vigilance around any upright phone. Her video calls carry classmates’ faces; captions carry their words. Under disability practice the device is access, while under the notice it resembles evidence of breach. Twice asked what she was recording, she became conspicuous because the rule promised inconspicuousness to others.
+
+The security guard prefers the sign. Before it, each dispute made him classify a phone within seconds: notebook, captioning tool, parent’s camera, or instrument of humiliation. People shouted. He guessed. Someone complained. The notice gives him words before judgment, although its exceptions return judgment through a side door; administrative tradition values that pause even when equal treatment cannot survive classification.
+
+The board secretary records six incompatible accounts and no unanimously acceptable wording, leaving permission, assistance and enforcement unsettled. The surviving proposition is not that the library is public or private, but that entry need not entail equal availability to everyone else; because neither openness nor uniform prohibition can secure that distinction, this rule can only keep it under revision.
+
+[QUESTIONS]
+
+Q1. Why does the author include the successive accounts of the librarian, streamer, patron, student, guard, and secretary?
+(A) They expose competing claims that any workable filming rule must repeatedly renegotiate.
+(B) They show how one proposed restriction produces arguments about access, privacy, and enforcement.
+(C) They demonstrate that the unemployed visitor’s embarrassment decisively condemns filming throughout shared civic spaces.
+(D) They establish that public institutions should protect vulnerable patrons from unwanted circulation.
+
+Q2. Based on the passage, we can infer that making the old distinction “operationally urgent” would most likely require the library to:
+(A) restore traditional silence by restricting modern devices that weaken institutional control.
+(B) distinguish local observability from technologically enabled circulation when regulating conduct.
+(C) reserve shared rooms for visitors who avoid drawing attention to themselves.
+(D) treat every visible activity as freely reproducible beyond the library’s walls.
+
+Q3. The author uses the phrase “return judgment through a side door” to mean:
+(A) Exceptions permit staff to enforce the notice without explaining its ambiguous terminology.
+(B) Exceptions reveal why administrative convenience properly overrides every competing claim about access.
+(C) Exceptions allow disputed filming practices to continue despite an apparently firm prohibition.
+(D) Exceptions quietly restore the discretion that the notice initially appears to suspend.
+
+Q4. What is the purpose of the deaf student’s experience in the passage?
+(A) It suggests that staff questions are more intrusive than unauthorized online distribution.
+(B) It shows that protecting inconspicuousness can itself make an access user conspicuous.
+(C) It proves that disability accommodations should automatically override restrictions on public filming.
+(D) It illustrates that upright phones usually transmit classmates’ faces and captioned words.
+
+Q5. Which one of the following findings would most complicate the librarian’s account that portable transmission made an old distinction operationally urgent?
+(A) Livestream viewers often recognize patrons whom the streamer herself cannot identify.
+(B) Archived newspapers reveal recurrent library disputes over sketches and written descriptions of identifiable patrons.
+(C) Several librarians prefer flexible guidance because fixed exceptions require continued staff classification.
+(D) Most patrons distinguish incidental glances from recordings that remain searchable for years.
+
+Q6. Which reading of the following scenario best follows the passage’s reasoning? A public museum permits note-taking but restricts visitors from uploading real-time transcriptions of nearby conversations.
+(A) The museum converts a publicly funded gallery into a private space for silent visitors.
+(B) The museum establishes that nearby speakers possess proprietary control over every overheard sentence.
+(C) The museum resolves competing access claims by applying one technologically neutral rule uniformly.
+(D) The museum separates access to speech in place from its immediate availability elsewhere.
+
+Q7. Which one of the following research findings would most strengthen the author’s conclusion that the library’s filming rule must remain under revision?
+(A) Every tested wording protected one affected group while creating new access or enforcement burdens.
+(B) Security staff enforced short notices more consistently than detailed policies containing multiple exceptions.
+(C) Livestreams of historic libraries substantially increased donations and first-time visitor attendance.
+(D) Most patrons preferred a clear filming rule even when they disputed its wording.
+
+Q8. Which one of the following best captures the central idea of the passage?
+(A) Filming in public institutions should be barred outright, since patrons cannot consent to a live broadcast.
+(B) Libraries must choose between staying open to all strangers and protecting the patrons who use them most.
+(C) Entry to a public room need not carry consent to circulation, and no settled rule can secure that distinction.
+(D) The dispute over the notice is a drafting failure that clearer wording and tighter exceptions would resolve.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — The staged voices move from abstract meanings of publicness to conflicting practical claims, explaining why the final rule must remain revisable.
+  (B) level_confusion — This accurately describes the passage’s structure and content but not the author’s purpose in arranging those accounts.
+  (C) level_confusion — The computer user supplies one narrower perspective; his experience does not settle the passage’s broader dispute.
+  (D) premature_closure — This summary privileges the patron’s concern before the secretary’s unresolved synthesis in the final paragraph.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — Portable transmission converts a conceptual distinction into an immediate governance problem because visibility within the room no longer fixes an exposure’s reach.
+  (A) stance_misread — This adopts the reactionary reading rejected when the librarian says new equipment merely made an older distinction urgent.
+  (C) premature_closure — The border-guard criticism presents this risk as one faction’s objection, not the distinction’s intended implementation.
+  (D) scope_inflation — The librarian explicitly separates being observable in place from being distributable elsewhere in the first paragraph.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The sign supplies a default before disputes begin, but identifying access uses and other exceptions again requires case-by-case classification.
+  (A) level_confusion — The first paragraph identifies ambiguity in “casual,” whereas the phrase specifically concerns discretion recreated by exceptions.
+  (B) stance_misread — The guard values the pause, but the passage stresses that classification still threatens equal treatment.
+  (C) half_truth — The phrase concerns renewed official classification, not merely the continued existence of filming under the notice.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — Her upright phone resembles prohibited filming while functioning as disability access, so enforcement reverses the notice’s promised protection.
+  (A) false_symmetry — The student describes conspicuous scrutiny, but the passage never ranks that harm against unwanted circulation.
+  (C) scope_inflation — Her account complicates classification but does not establish an overriding hierarchy among all competing claims.
+  (D) example_promotion — Those details explain her access practice; they are not the broader argumentative work of the example.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — If nonportable forms had already generated recurrent disputes over local observation becoming durable representation, transmission may not explain the distinction’s new operational urgency.
+  (A) half_truth — This increases the consequences of circulation and therefore supports rather than complicates the librarian’s account.
+  (C) adjacent_answer — This bears on rule design and enforcement, not on whether portable transmission created operational urgency.
+  (D) half_truth — This confirms the passage’s contrast between transient observation and preserved, distributable exposure.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — Like the library, it distinguishes permitted local observation from technologically expanded circulation rather than treating entry as consent to distribution.
+  (A) stance_misread — A circulation limit does not necessarily deny public access or impose silence, echoing the border-guard misreading.
+  (B) scope_inflation — The restriction can protect against expanded distribution without granting speakers ownership of all local co-presence.
+  (C) premature_closure — The scenario distinguishes notes from real-time uploads, so it neither applies uniformly nor resolves every claim.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — The finding directly supports the final bridge: neither openness nor uniform prohibition preserves limited availability without producing countervailing costs.
+  (B) level_confusion — Administrative consistency addresses enforceability, not whether competing claims make settled wording inadequate.
+  (C) half_truth — Benefits from circulation strengthen the streamer’s position but do not establish that every rule requires revision.
+  (D) adjacent_answer — Preference for clarity supports having guidance, not the necessity of keeping that guidance under revision.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — The closing paragraph names the surviving proposition: entry need not entail equal availability to everyone else, and since neither openness nor uniform prohibition secures that, the rule can only be kept under revision.
+  (A) moderate_extremism — The passage records the streamer’s defence and the guard’s difficulty without endorsing prohibition; the secretary finds no unanimously acceptable wording.
+  (B) false_symmetry — The quarrel concerns availability elsewhere, not whether the door stays open; the border-guard objection names exactly this misreading.
+  (D) premature_closure — Six incompatible accounts, not defective drafting, are why permission, assistance and enforcement remain unsettled.
+
+[Inspired by: "How to Become a Person After Smartphones Have Rotted Your Brain", https://www.thenewatlantis.com/publications/how-to-become-a-person-after-smartphones-have-rotted-your-brain]

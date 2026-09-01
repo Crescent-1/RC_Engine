@@ -1,0 +1,116 @@
+RC ID: RC-MEDIUM-260828-0047 | Tier: medium | Score: 8.2 | Status: approved | Compliance F1: 0.77 | Novelty: 0.59 | Screen: red | Generated: 2026-08-28T02:51:56.527125+00:00
+======================================================================
+
+[PASSAGE]
+
+A microphone stand in a hotel conference room, adjusted twice before the statement begins: from this small fitting the whole circuit can be traced. Public apology, as the term will be used here, is any expression of regret routed through an audience rather than delivered privately. Such statements sometimes enlarge what they address, since the injured party must now answer both the original harm and a conspicuous display of remorse. Whether this counts as repair that misfires, or as control over the account, is the objection worth taking seriously.
+
+The most careful version of that objection runs roughly so: the failure is technical, not political, and better-drafted apologies would fix it. Given full force, it has weight. Apologies do carry real moral load. Sincerity is not decoration. Refusal can be mere obstinacy. But trace the sequence. An offence is named. A speaker is positioned before witnesses. Recognition of altered standing is requested. Ratification of that alteration is then quietly sought from the one person least free to withhold it. Once closure has been publicly offered, refusal tends to register as excess, and the burden of proof migrates — under most configurations, silently — from the party who caused harm to the party who absorbed it. That migration is not a drafting defect.
+
+What moves along that channel is interpretive authority. To narrate motives, to specify limits, to draw the lesson, is to render the injury legible in vocabulary that leaves the speaker's social identity intact — and this occurs whether or not manipulation is intended. Practitioners in restorative justice mediation, working in rooms where both parties sit, are often trained to keep the harmed person speaking first for precisely this reason: whoever frames the account fixes its scale. Two camps have formed around the same event. One reads defective repair. The other reads successful capture. Both are describing the flow correctly and mislabelling its direction.
+
+At institutional scale the same topology appears with more valves. Workplace apology rituals, university statements, corporate acknowledgements: each can supply a genuine grammar of accountability, a channel where previously there was none, and it would be careless to treat every such protocol as ornament. Yet the same channels tend to reward visible contrition above restitution, and an audience's appetite for emotional resolution can be discharged entirely without any adjustment to procedure, budget or authority. Consider the case that presses hardest: a wholly sincere executive whose statement, broadcast, still shifts attention from a shortfall in wages to the quality of his regret. Sincerity held constant; the redistribution occurred anyway. The location of the fault is not inside the speaker.
+
+The dispute as usually posed — sincere or theatrical, adequate or inadequate — is misconceived, because publicity alters the object undergoing repair. Privately, what is repaired is a relation. Publicly, what is repaired is a reputation, and the relation becomes the instrument. Sincerity remains morally significant; it simply stops determining the outcome once the circuit widens. Zoom out one further step and a culture appears in which recognition is increasingly consumed as an event rather than extended as a practice. Apologies do not fail at that scale. They succeed at something else.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) Making an apology public changes what is being repaired, so interpretive authority shifts to the speaker regardless of sincerity.
+(B) Institutional apology protocols are ornamental gestures that substitute emotional display for restitution and should therefore be abandoned entirely.
+(C) Every public apology is a manipulative performance, and sincerity carries no genuine moral significance in such staged settings.
+(D) Public apologies fail mainly because they are badly drafted, and more carefully worded statements would remove the burden they impose.
+
+Q2. What does the passage's final sentence accomplish?
+(A) It concludes that demands for accountability and closure are themselves illegitimate, given the burdens they place on injured parties.
+(B) It concedes that the earlier critique overstated matters and that apologies mostly work as intended for participants.
+(C) It proposes a corrective procedure by which public apologies could be redesigned to deliver restitution rather than contrition.
+(D) It reframes apparent failure as success at a different function, widening the claim to a cultural scale.
+
+Q3. Which one of the following views does the author report or steelman rather than endorse?
+(A) Institutional apology rituals can supply a genuine grammar of accountability where none previously existed at all.
+(B) Whoever frames an account of harm thereby fixes the scale at which that harm is understood.
+(C) The trouble with public apology is technical, so better-drafted statements would remove the difficulty.
+(D) Publicity converts the object of repair from a relation into a reputation, with the relation becoming instrumental.
+
+Q4. The author's attitude towards public apology can best be described as:
+(A) analytically critical while granting that apologies carry real moral load
+(B) broadly sympathetic, treating criticism of such rituals as largely misplaced cynicism
+(C) uniformly hostile, regarding public contrition as a device for evading restitution
+(D) detachedly neutral, cataloguing two camps without preferring either account offered
+
+Q5. Which one of the following statements, if true, would best invalidate the main argument of the passage?
+(A) Many executives who apologise publicly are later found to have been privately insincere about their expressed regret.
+(B) Restorative justice mediators sometimes allow the offending party to speak first without harming the eventual settlement.
+(C) Hotel conference rooms are being replaced by recorded video statements as the standard venue for corporate apology.
+(D) Studies find that public apologies typically increase, rather than shift, the pressure on offenders to fund restitution.
+
+Q6. The author refers to the wholly sincere executive in order to:
+(A) illustrate how audiences misjudge the emotional quality of statements they hear broadcast to them
+(B) isolate the variable of sincerity so the redistribution can be attributed to the public structure
+(C) provide a concrete instance of the institutional protocols described in the preceding sentences of that paragraph
+(D) demonstrate that corporate leaders routinely exploit apology rituals to avoid raising the wages they owe
+
+Q7. Which one of the following would best license the inference the author draws from restorative justice mediation practice?
+(A) Restorative justice programmes have expanded rapidly across jurisdictions that previously relied on adversarial court procedures.
+(B) Mediators are trained in techniques for detecting insincerity in statements offered by those who caused harm.
+(C) Mediators report that sessions in which both parties are present feel more satisfying to everyone involved afterwards.
+(D) Trials show that harmed parties who speak second accept narrower definitions of the injury than those speaking first.
+
+Q8. Regarding the two camps that have formed around the same event, the author asserts that:
+(A) both mistake the movement itself, though their labels for it are apt.
+(B) both track the movement accurately but assign it the wrong direction.
+(C) one camp describes the movement correctly while the other mistakes it entirely.
+(D) neither camp has noticed that interpretive authority is moving at all.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Integrates paragraph 2's channel of migrating burden, paragraph 3's interpretive authority, and paragraph 5's claim that publicity alters the object repaired.
+  (B) scope_inflation — Paragraph 4 warns it would be careless to treat every such protocol as ornament; no abandonment is urged.
+  (C) moderate_extremism — Passage states sincerity remains morally significant and that capture occurs whether or not manipulation is intended.
+  (D) straw_version — This is the steelmanned objection the author explicitly rejects: 'That migration is not a drafting defect.'
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — 'They succeed at something else' converts the failure diagnosis into a functional one, extending it to the consumption of recognition as event.
+  (A) overqualification — The passage locates fault in the circuit, not in accountability itself; no delegitimising of closure demands appears.
+  (B) stance_misread — The sentence sharpens rather than softens the critique; nothing retracts the earlier analysis of migrating burden.
+  (C) premature_closure — No remedy is offered; the passage explicitly denies the problem is a drafting or design defect.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — Paragraph 2 presents this as 'the most careful version of that objection', grants it weight, then rejects it: the migration is not a drafting defect.
+  (A) half_truth — Paragraph 4 offers this as the author's own concession, which he then complicates rather than attributes elsewhere.
+  (B) stance_misread — This is the author's own claim, supported by the restorative-justice training practice in paragraph three.
+  (D) adjacent_answer — Paragraph 5 asserts this directly as the author's conclusion, not as a reported position.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — He affirms sincerity's moral significance and institutional value while arguing the public circuit redistributes authority regardless.
+  (B) stance_misread — The passage sustains a critique of the public circuit and does not dismiss criticism as cynicism.
+  (C) moderate_extremism — Ignores the concession that protocols can create genuine channels of accountability where none existed.
+  (D) false_symmetry — He judges both camps to be mislabelling direction and advances his own third reading.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The argument's load-bearing move is that the burden migrates from harm-doer to harmed and displaces restitution; this reverses that migration.
+  (A) causal_inversion — The argument explicitly holds sincerity constant; insincerity findings leave the structural claim untouched.
+  (B) example_promotion — The mediation practice is illustrative support, not the load-bearing claim about publicity's effect.
+  (C) level_confusion — Venue is a decorative detail; the circuit analysis applies to any audience-routed statement.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — The case 'presses hardest' precisely because sincerity is held constant, forcing the fault outside the speaker.
+  (A) adjacent_answer — Audience appetite is mentioned earlier; the example's function is to control for sincerity, not to indict perception.
+  (C) level_confusion — This describes surface content rather than the argumentative role of a variable-holding test case.
+  (D) straw_version — The example stipulates sincerity; it is not an accusation of exploitation by executives generally.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — It supplies the missing evidential link for 'whoever frames the account fixes its scale', which the mediation training only implies.
+  (A) scope_inflation — Institutional growth of the practice does not support the specific claim about framing and scale.
+  (B) framework_import — Imports sincerity detection, which the passage sets aside as not determining the outcome.
+  (C) adjacent_answer — Satisfaction with co-presence says nothing about who frames the account or the scale that results.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — Paragraph 3 states plainly: 'Both are describing the flow correctly and mislabelling its direction.'
+  (A) causal_inversion — Reverses the passage: description is correct, labelling of direction is wrong.
+  (C) false_symmetry — The text credits both camps with correct description, not one against the other.
+  (D) half_truth — Both camps describe the flow; their error concerns direction, not failure to notice.
+
+[Inspired by: "Graham Platner Got Way Too Many Passes", https://newrepublic.com/article/212801/graham-platner-rape-allegations-progressives-working-class-voters]

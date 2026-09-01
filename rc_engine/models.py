@@ -26,6 +26,15 @@ class ParagraphPlan:
     cadence: str
     gist: str = ""                   # filled by the refine stage
 
+    @property
+    def words_label(self) -> str:
+        """How this paragraph's length is stated in a prompt. The composer now
+        emits a single target per paragraph (a degenerate (n, n) band), so print
+        one number; legacy blueprints stored with a real range still render as
+        'lo-hi'."""
+        lo, hi = self.len_words
+        return f"{lo}" if lo == hi else f"{lo}-{hi}"
+
 
 @dataclass
 class Blueprint:
@@ -44,6 +53,12 @@ class Blueprint:
     movement: list[ParagraphPlan] = field(default_factory=list)
     letter_plan: list[str] = field(default_factory=list)
     closing_register: str = ""   # id from config.CLOSING_REGISTERS
+    render_stance_id: str = ""   # id from components/render_stances.json
+    topic_shape_id: str = ""     # id from components/topic_shapes.json
+    seed_genre: str = ""         # from seed_classify; "" = never classified
+    # Prescribed rhetorical beats (labels from config.RHETORICAL_MOVES), in
+    # order. A PLAN, not a ban list — see BlueprintComposer._sample_move_plan.
+    move_plan: list[str] = field(default_factory=list)
     # refine-stage content (dicts straight from the refiner JSON)
     topic: str = ""
     tension_system: dict = field(default_factory=dict)
@@ -61,6 +76,7 @@ class Blueprint:
             "revelation": self.revelation_id,
             "distractor_profile": self.distractor_profile_id,
             "topology": self.topology_id,
+            "render_stance": self.render_stance_id,
         }
 
     @property
@@ -111,6 +127,12 @@ class RealizedStructure:
     directives: list[str] = field(default_factory=list)
     closing_posture_guess: str = ""            # blind classifier output ("" = unusable)
     final_line_is_aphorism: bool | None = None  # None = classifier gave no usable answer
+    rhetorical_moves: list[str] = field(default_factory=list)
+    # Did the prose open and close on the beats the plan prescribed? Membership
+    # of the plan was checked from the start; POSITION was not, and position is
+    # where the house voice lived (see ComplianceAuditor.audit).
+    opening_beat_ok: bool = True
+    closing_beat_ok: bool = True
 
     def movement_string(self) -> str:
         return "|".join(self.paragraph_functions)
@@ -137,6 +159,9 @@ class Fingerprint:
     stylometry: dict                       # word -> relative freq (plus _stats keys)
     embedding: list[float] | None = None
     source: str = "engine"                 # engine | legacy | manual (filterable)
+    # Blind rhetorical-move read of the PROSE ("|"-joined, closed vocabulary).
+    # Empty = never extracted; treated as unknown, never as similar.
+    move_signature: str = ""
 
 
 @dataclass
@@ -176,3 +201,7 @@ class RCResult:
     # family skeleton (seed rotation alone does not change movement).
     ban_families: list[str] = field(default_factory=list)
     ban_movements: list[str] = field(default_factory=list)
+    # On rejected_seed_genre: which genre was over its cap, so the batch's seed
+    # rotation can steer away from the source kinds that produce it instead of
+    # redrawing uniformly (which could not clear the saturation).
+    saturated_genre: str = ""

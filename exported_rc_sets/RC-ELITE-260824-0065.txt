@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260824-0065 | Tier: elite | Score: 6.8 | Status: needs_review | Compliance F1: 0.833 | Novelty: 0.557 | Screen: green | Generated: 2026-08-24T18:54:25.764707+00:00
+======================================================================
+
+[PASSAGE]
+
+For roughly four decades, occupational psychology treated a particular proposition as settled: that a working adult possesses an underlying personality type, that a trained administrator can identify it with a paper instrument in under an hour, and that once identified, it can be matched to a job structure suited to it. I want to be exact about how strong that consensus was. Corporations bought the instruments in bulk. Universities certified administrators. Placement decisions — who moved into supervision, who stayed on analysis, who was told they were miscast — were made downstream of a four-letter code. This was not folklore that leaked into human resources from the culture. It was professional practice, taught as such, with a literature behind it.
+
+Several weaker claims travel under the same name, and none of them is what I am examining. Not the claim that temperament colours how someone works — trivially true, and no basis for an industry. Not the claim that a shared vocabulary helps a team argue less bitterly about style, which is a claim about conversation and would never have justified a hiring decision. Not the claim that people find the categories illuminating about themselves; they do, and so what. The proposition doing the load-bearing work was harder and fully falsifiable: that measured type predicts job performance well enough that placing people by it beats placing them without it.
+
+That claim rests on one condition. Type must hold still. If a person's measured type drifts, there is nothing durable for the placement to be matched against — you cannot fit a component to a dimension that changes between measurements. Stability was the load path. And for decades it looked secure, for reasons that were not silly. The instruments were internally consistent; items within a scale moved together, as they should. Administrators were trained and re-trained. Respondents recognised their own descriptions and said so. Norming samples ran to thousands. There were certification programs, licensing exams, continuing-education requirements for people whose living depended on scoring the thing correctly. Every part of that apparatus was constructed as though stability had been established. None of it established stability. Internal consistency tells you a scale coheres at one sitting. It says nothing about what happens at the second sitting. The direct test — administer, wait, administer again, count how many people land in the same box — is cheap, obvious, and was not, for a long while, run at scale.
+
+When it was run at scale, and the retest data accumulated across the ordinary channels of the field's own journals, the condition failed outright rather than narrowly: substantial fractions of respondents were classified differently on retake within weeks, with no change in the job and none in the person, and meta-analytic estimates of predictive validity against actual performance outcomes sat close to what you would get from nothing. So the field was right to retire type-matching as a selection tool, and I would say so with no hedge. What it has not yet paid for is the aftermath: coaching practices, team workshops, and the private self-descriptions of millions of employees still run on that vocabulary, and nobody has explained why a diagnostic language survives so comfortably the death of its diagnosis.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) Occupational psychology built an elaborate apparatus of certification and norming that was fraudulent from the outset and designed to protect commercial interests.
+(B) A strong, testable version of type-matching was rightly abandoned once retest data broke its stability condition, yet its vocabulary persists unexplained.
+(C) Personality typing remains broadly valuable for self-knowledge and team conversation, even though its earlier institutional confidence about placement was expressed too strongly.
+(D) Because internal consistency and retest reliability measure different things, psychological instruments should be validated only against performance outcomes rather than scales.
+
+Q2. The list of weaker claims in the second paragraph functions primarily to:
+(A) demonstrate that the vocabulary of personality typing carries several distinct meanings, which explains why the instruments produced unstable classifications on retake
+(B) concede that critics of personality typing have overstated their case by attacking positions that practitioners themselves never actually defended in print
+(C) clear away undemanding versions so that the hardest, falsifiable version of the claim is the one actually put on trial
+(D) soften the target into a modest thesis about temperament and team conversation that the evidence in later paragraphs can comfortably accommodate
+
+Q3. The passage most directly corrects which one of the following impressions?
+(A) That the field's long confidence rested on evidence of stability, so the reversal must have arrived from outside the discipline.
+(B) That paper instruments administered in under an hour can never yield information worth using in any organisational or developmental setting.
+(C) That corporations rather than universities were responsible for spreading four-letter codes into supervision and analysis placement decisions.
+(D) That practitioners of type-matching knowingly ignored retest studies that were available in their journals throughout the four decades in question.
+
+Q4. In the context of the passage, "Stability was the load path" is best understood as:
+(A) the property that made the instruments internally consistent across items within any single scale
+(B) the standard of professional conduct that certification and continuing education were designed to protect
+(C) the reason placement decisions felt secure to the employees who were sorted by four-letter codes
+(D) the single assumption through which the whole practical case for type-based placement had to pass
+
+Q5. Which one of the following, if true, would most call into question the author's claim that the field was right to retire type-matching as a selection tool?
+(A) Respondents reclassified on retake are those whose original scores fell near category boundaries, and placements guided by clearly non-boundary scores outperform unguided placements.
+(B) Employees who learn their four-letter code report higher job satisfaction and describe their working styles to colleagues with noticeably greater precision afterwards.
+(C) Several instruments competing with the best-known typology were never subjected to large-scale retest studies at all before the field's consensus collapsed.
+(D) Retest disagreements are concentrated in one of the four letter dimensions, while the remaining three dimensions show reasonably stable classification across intervals of several weeks.
+
+Q6. We can infer that "What it has not yet paid for is the aftermath" refers to:
+(A) the reluctance of occupational psychologists to concede that predictive validity estimates were close to nothing
+(B) the financial losses borne by corporations that purchased large quantities of instruments before the retest evidence appeared
+(C) the field's failure to account for the survival of a vocabulary whose evidential basis it has already discarded
+(D) the professional damage done to certified administrators whose livelihoods depended on scoring the instruments correctly
+
+Q7. Which one of the following, if true, would most support the third paragraph's claim about what the field's apparatus did and did not establish?
+(A) Internal consistency coefficients for the scales were computed correctly and replicated in samples gathered by researchers unaffiliated with the instruments.
+(B) Norming samples drawn from thousands of respondents were assembled with careful attention to occupational and demographic representativeness across regions.
+(C) Respondents who read their type descriptions endorsed them at rates far exceeding chance, in studies conducted independently of instrument publishers.
+(D) Certification examinations tested administration and scoring procedure, and their published syllabi required no familiarity with test-retest classification agreement.
+
+Q8. Regarding the retest evidence described in the passage, the author asserts that:
+(A) the results emerged through channels outside the discipline before its own journals were willing to publish them.
+(B) reclassification occurred within weeks among substantial fractions of respondents whose jobs and circumstances had not altered.
+(C) predictive validity estimates fell somewhat short of what practitioners had promised employers during the earlier decades.
+(D) the direct retest was technically demanding, which explains why the field postponed running it at any serious scale.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — It joins the strong claim isolated in paragraph 2, the stability condition and its collapse in paragraphs 3-4, and the unpaid aftermath that widens the ending.
+  (A) stance_misread — Paragraph 3 says the reasons for confidence 'were not silly'; the author diagnoses a methodological gap, not deliberate fraud.
+  (C) straw_version — Paragraph 2 explicitly sets aside self-knowledge and shared-vocabulary claims as not what the author is examining, and never endorses them.
+  (D) scope_inflation — This turns one supporting distinction in paragraph 3 into a general methodological rule the passage never proposes.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The paragraph rejects three easy claims and ends by naming 'the proposition doing the load-bearing work,' isolating the strong claim for testing.
+  (A) missing_link — Instability is attributed in paragraph 4 to retest data, not to any ambiguity among the weaker claims listed earlier.
+  (B) straw_version — The author is disciplining his own target, not defending typing's practitioners against critics anywhere in paragraph 2.
+  (D) stance_misread — The paragraph narrows toward the strongest claim, not a modest one; the weaker claims are dismissed as 'no basis for an industry.'
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — Paragraph 3 says every part of the apparatus was built as though stability were established while none of it established stability, and paragraph 4 locates the reversal in the field's own journals.
+  (B) scope_inflation — The author retires type-matching as a selection tool only, and grants that people find the categories illuminating.
+  (C) category_slip — Paragraph 1 names corporations and universities together as parts of one professional apparatus, drawing no such contrast.
+  (D) half_truth — The passage says the direct retest was 'not, for a long while, run at scale,' not that practitioners suppressed existing results.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — The preceding sentences state the claim 'rests on one condition' — that type must hold still — making stability the structural member the argument's weight travels through.
+  (A) terminological_twin — Paragraph 3 separates internal consistency at one sitting from stability across sittings; the phrase names the latter.
+  (B) level_confusion — Confuses the logical dependency of the argument with the training apparatus described later in the same paragraph.
+  (C) phrase_misuse — Reads a claim about employees' subjective confidence into a phrase describing the argument's structural dependency.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — It rescues predictive validity for the subset the placement decision actually rests on, attacking the inference from instability to uselessness in selection.
+  (B) straw_version — This revives the weaker self-knowledge and conversation claims paragraph 2 explicitly excludes from the proposition under test.
+  (C) adjacent_answer — Gaps in other instruments' evidence say nothing about whether retiring type-matching as a selection tool was warranted.
+  (D) missing_link — Partial stability of some dimensions does not restore the predictive validity that meta-analyses found close to nothing.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The final sentence specifies coaching, workshops and self-descriptions still running on the vocabulary, with nobody explaining why the language outlives the diagnosis.
+  (A) stance_misread — The author says the field did retire the tool and endorses that decision without hedging; the debt lies elsewhere.
+  (B) phrase_misuse — Reads 'paid for' literally as monetary cost, though the sentence concerns an unmet explanatory obligation.
+  (D) adjacent_answer — Administrators appear in paragraph 3 as evidence of apparatus, not as the unaddressed consequence named at the close.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — It shows the apparatus was built entirely around one-sitting competence, confirming that none of it could have established stability across sittings.
+  (A) level_confusion — Confirming internal consistency reinforces the very statistic the paragraph says speaks only to a single sitting.
+  (B) half_truth — Larger, better norming samples describe the apparatus the passage already grants; they bear nothing on stability across sittings.
+  (C) straw_version — Self-recognition is one of the weaker claims paragraph 2 dismisses, and paragraph 3 already lists it among non-establishing evidence.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — Paragraph 4 states that substantial fractions were classified differently on retake within weeks, 'with no change in the job and none in the person.'
+  (A) stage_misattribution — Paragraph 4 says the data accumulated 'across the ordinary channels of the field's own journals,' not through outside routes.
+  (C) moderate_extremism — The passage says estimates sat close to what you would get from nothing, a stronger finding than falling somewhat short.
+  (D) causal_inversion — Paragraph 3 calls the direct test 'cheap, obvious,' so difficulty cannot explain the delay in running it.
+
+[Inspired by: "Why Is Everyone In Tech So Sad?", https://www.noemamag.com/why-is-everyone-in-tech-so-sad]

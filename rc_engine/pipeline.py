@@ -33,7 +33,7 @@ from .models import Blueprint, RCResult, RealizedStructure, SeedEssay
 from .novelty import NoveltyScorer
 from .question_engine import (QuestionEngine, QuestionEngineError,
                               assemble_rc_text, length_bias_report,
-                              passage_word_check)
+                              passage_word_report)
 from .quality import blind_solve, judge_rc
 from .registry import ComponentRegistry
 from .renderer import PassageRenderer, TruncatedRender
@@ -92,11 +92,39 @@ class RCPipeline:
         max_mov = max(1, getattr(config, "MOVEMENT_PRECHECK_MAX_RECOMPOSES", 3)
                       if getattr(config, "MOVEMENT_PRECHECK_ENABLED", True) else 1)
         bp = None
+        # Stage 0 — what KIND of source is this? Runs before any paid stage,
+        # so a genre the corpus is already saturated with costs ~$0.001 to skip
+        # rather than being discovered after a $0.02 refine. Classified once
+        # per RC, not once per movement retry: the seed does not change inside
+        # that loop.
+        seed_info, topic_shape_id = self.composer.classify_and_pick_shape(
+            seed, ledger, tier)
+        if seed_info.get("saturated") is not None                 and not self._pool_is_single_kind(tier):
+            print(f"  [seed] genre '{seed_info['genre']}' is already "
+                  f"{seed_info['saturated']:.0%} of the recent corpus - "
+                  f"rotating rather than adding another")
+            return RCResult(None, "", tier, "rejected_seed_genre",
+                            cost_usd=ledger.spent_usd, cost_lines=ledger.lines,
+                            saturated_genre=seed_info["genre"],
+                            notes=[f"seed genre '{seed_info['genre']}' saturated "
+                                   f"at {seed_info['saturated']:.0%}"])
+        elif seed_info.get("saturated") is not None:
+            notes.append(
+                f"seed genre '{seed_info['genre']}' is "
+                f"{seed_info['saturated']:.0%} of the recent corpus, but this "
+                f"tier's seed pool offers no alternative kind - shipped anyway")
+            print(f"  [seed] genre '{seed_info['genre']}' saturated at "
+                  f"{seed_info['saturated']:.0%}, but the '{tier}' pool is a "
+                  f"single kind - gate skipped (widen TIER_SEED_GENRES to fix)")
+        print(f"  [seed] {seed_info['genre']} / {seed_info['domain']} "
+              f"-> topic shape {topic_shape_id}")
+
         for mov_attempt in range(1, max_mov + 1):
             try:
                 bp = self.composer.compose(
                     tier, seed, ledger,
-                    ban_families=ban_f, ban_movements=ban_m)
+                    ban_families=ban_f, ban_movements=ban_m,
+                    seed_info=seed_info, topic_shape_id=topic_shape_id)
             except CompositionExhausted as e:
                 return RCResult(None, "", tier, "failed_composition", notes=[str(e)],
                                 ban_families=sorted(ban_f), ban_movements=sorted(ban_m))
@@ -155,10 +183,21 @@ class RCPipeline:
                 break
             lev, jac, near = hits[0]
             ms = bp.movement_string()
-            ban_f.add(bp.family_id)
             ban_m.add(ms)
+            # Ban the colliding movement STRING, not the family. Rhythm varies a
+            # family's function sequence into 3-5 distinct movement strings, so
+            # one collision leaves several usable — banning the family discarded
+            # them and made each collision cost a whole family. On the
+            # 2026-08-10 hard run that exhausted the pool in 3 recomposes; every
+            # family it barred still had 3-4 free movement strings. The family is
+            # only barred once all of them are gone.
+            exhausted = self.composer.family_movement_exhausted(bp.family_id, ban_m)
+            if exhausted:
+                ban_f.add(bp.family_id)
             msg = (f"movement precheck: near {near} lev={lev:.2f} jac={jac:.2f} "
-                   f"— ban {bp.family_id}, recompose {mov_attempt}/{max_mov}")
+                   f"— ban movement"
+                   + (f" + {bp.family_id} (no free movements left)" if exhausted else "")
+                   + f", recompose {mov_attempt}/{max_mov}")
             notes.append(msg)
             print(f"  [movement] {msg}")
             self.history.set_blueprint_status(bp.blueprint_id, "rejected_novelty")
@@ -193,7 +232,11 @@ class RCPipeline:
             for attempt in range(1, config.MAX_RENDER_ATTEMPTS + 1):
                 try:
                     candidate = self.renderer.render(bp, ledger, directives)
-                    audit = self.auditor.audit(candidate, bp, ledger)
+                    # Blind beat read first: compliance scores the passage
+                    # against bp.move_plan, and must not be the thing that
+                    # produced the reading (see ComplianceAuditor.move_signature).
+                    cand_moves = self.auditor.move_signature(candidate, ledger, tier)
+                    audit = self.auditor.audit(candidate, bp, ledger, cand_moves)
                 except TruncatedRender:
                     directives = ["previous attempt was cut off — tighten paragraph lengths"]
                     continue
@@ -215,12 +258,19 @@ class RCPipeline:
             if realized.f1 < config.COMPLIANCE_F1_THRESHOLD:
                 notes.append(f"shipping best compliance F1={realized.f1} (below threshold) -> needs_review")
 
-            for w in passage_word_check(passage, bp):
+            for w in passage_word_report(passage)["warnings"]:
                 notes.append(f"prevalidate: {w}")
+            from .question_engine import texture_report
+            for w in texture_report(passage)["warnings"]:
+                notes.append(f"texture: {w}")
+                print(f"  [texture] {w}")
 
+            # realized.rhetorical_moves was filled by the blind read inside the
+            # render loop above, before compliance scored the beat plan.
             pre_fp = extract_fingerprint(rc_id, bp, passage, realized,
                                          {"questions": [], "letters": [], "trap_usage": {}},
                                          embed=self.embed)
+            pre_fp.move_signature = "|".join(realized.rhetorical_moves)
             self._inject_posture(pre_fp, bp, realized)
             pre_report = self.novelty.score(pre_fp, bp_sims, include_question_channels=False)
             self.history.record_novelty_audit(bp.blueprint_id, None, pre_report.channel_scores,
@@ -245,7 +295,7 @@ class RCPipeline:
                                 notes=notes + [f"passage novelty: {pre_report.breached or pre_report.composite}"],
                                 ban_families=sorted(ban_f), ban_movements=sorted(ban_m))
             notes.append(f"gate B breach {pre_report.breached} — one breach-directed re-render")
-            print(f"  [gate-b] {pre_report.breached} — re-rendering with directives")
+            print(f"  [gate-b] {pre_report.breached} - re-rendering with directives")
             directives = retry_dirs
 
         # persist the novelty-clean passage: a question failure can now resume
@@ -283,9 +333,18 @@ class RCPipeline:
         bp_sims = self._blueprint_sims(bp)
 
         rc_id = self.history.generate_rc_id(bp.tier)
+        if not realized.rhetorical_moves:
+            # passage persisted before the channel existed (or extraction failed
+            # on the original run) — the read is sub-cent, so just redo it
+            try:
+                realized.rhetorical_moves = self.auditor.move_signature(
+                    passage, ledger, bp.tier)
+            except BudgetExceeded:
+                realized.rhetorical_moves = []
         pre_fp = extract_fingerprint(rc_id, bp, passage, realized,
                                      {"questions": [], "letters": [], "trap_usage": {}},
                                      embed=self.embed)
+        pre_fp.move_signature = "|".join(realized.rhetorical_moves)
         self._inject_posture(pre_fp, bp, realized)
         pre_report = self.novelty.score(pre_fp, bp_sims, include_question_channels=False)
         self.history.record_novelty_audit(bp.blueprint_id, None, pre_report.channel_scores,
@@ -350,14 +409,23 @@ class RCPipeline:
         length_bias = length_bias_report(qdata)
         if length_bias.get("biased"):
             print(f"  [length-bias] correct-longest "
-                  f"{length_bias['correct_longest_count']}/6 "
+                  f"{length_bias['correct_longest_count']}/{config.QUESTIONS_PER_SET} "
                   f"thesis_longest={length_bias['thesis_correct_longest']} "
                   f"— will not auto-approve")
         for w in length_bias["warnings"]:
             notes.append(f"option audit: {w}")
 
+        # Free passage-length gate (500-550, same standard on every
+        # tier). Computed here rather than in generate_one so the resume path
+        # is covered too — resume_questions ships a passage this check has
+        # never seen. Out of band never auto-approves; no re-render is paid for.
+        word_report = passage_word_report(passage)
+        for w in word_report["warnings"]:
+            notes.append(f"passage length: {w}")
+
         # ---- Gate C: full novelty ------------------------------------------
         fp = extract_fingerprint(rc_id, bp, passage, realized, qdata, embed=self.embed)
+        fp.move_signature = "|".join(realized.rhetorical_moves)
         # record the length-bias stats on the fingerprint so `health` can trend
         # them; _thesis_longest is keyed only when the set has a thesis slot
         fp.stylometry["_correct_longest_count"] = length_bias["correct_longest_count"]
@@ -394,11 +462,48 @@ class RCPipeline:
         rc_text = assemble_rc_text(bp, passage, qdata)
         solver, judge = None, {"scores": {}, "average": 0.0, "verdict": "skipped"}
         solver_dispute = False
+        # Answerability: asked before the solver, so a question that cannot be
+        # settled from the passage is named as such rather than surfacing later
+        # as an unexplained dispute. Warnings only — nothing is withheld.
+        try:
+            from .qa_checks import answerability_warnings, check_answerability
+            rows = check_answerability(passage, qdata.get("questions", []),
+                                       self.llm, ledger, bp.tier)
+            for w in answerability_warnings(rows):
+                notes.append(f"answerability: {w}")
+                print(f"  [answerability] {w}")
+        except BudgetExceeded:
+            notes.append("answerability skipped: budget")
+        except Exception as e:
+            notes.append(f"answerability check errored: {e}")
+
         try:
             solver = blind_solve(self.llm, ledger, bp, passage, qdata)
             solver_dispute = bool(solver.get("disputes"))
         except BudgetExceeded:
             notes.append("solver skipped: budget")
+        # A dispute means two defensible answers, not necessarily a wrong key.
+        # An independent cheap read says which the passage supports — and
+        # "ambiguous" is the most useful verdict of the three, because it means
+        # the question needs rewriting rather than re-keying.
+        if solver_dispute:
+            try:
+                from .qa_checks import tiebreak_disputes
+                for t in tiebreak_disputes(passage, qdata.get("questions", []),
+                                           solver.get("disputes"), self.llm,
+                                           ledger, bp.tier):
+                    line = (f"Q{t['q']}: solver said {t['solver']}, key says "
+                            f"{t['key']}, independent read supports "
+                            f"{t['supported']} ({t['agrees_with']})")
+                    notes.append(f"tiebreak: {line}")
+                    print(f"  [tiebreak] {line}")
+                    if t.get("evidence"):
+                        notes.append(f"tiebreak evidence: {t['evidence']}")
+            except BudgetExceeded:
+                notes.append("tiebreak skipped: budget")
+            except Exception as e:
+                notes.append(f"tiebreak errored: {e}")
+
         try:
             if not solver_dispute:
                 judge = judge_rc(self.llm, ledger, bp, rc_text, self.registry)
@@ -415,13 +520,20 @@ class RCPipeline:
             # thesis answer is longest) — never auto-approve; a human decides.
             status = "needs_review"
             notes.append("length_bias: routed to needs_review "
-                         f"(correct-longest {length_bias['correct_longest_count']}/6, "
+                         f"(correct-longest {length_bias['correct_longest_count']}/{config.QUESTIONS_PER_SET}, "
                          f"thesis_longest={length_bias['thesis_correct_longest']})")
         elif posture_run:
             # blueprint-consistent closing-posture run (collision with the
             # pre-posture corpus or residual library skew) — a human decides.
             status = "needs_review"
             notes.append("posture run: routed to needs_review")
+        elif not word_report["in_band"]:
+            # 500-word standard is mandatory: a passage outside the band never
+            # auto-approves, whatever the judge thinks of it.
+            status = "needs_review"
+            notes.append(
+                f"passage length: {word_report['words']} words vs required "
+                f"{word_report['lo']}-{word_report['hi']} — routed to needs_review")
         elif judge.get("verdict") == "approve" and avg >= config.JUDGE_SCORE_THRESHOLD \
                 and realized.f1 >= config.COMPLIANCE_F1_THRESHOLD:
             status = "approved"
@@ -435,12 +547,17 @@ class RCPipeline:
             compliance_f1=realized.f1, novelty_composite=report.composite,
             total_cost=ledger.spent_usd, essay_doc_id=seed.doc_id, essay_url=seed.url,
             domain=bp.topic, embedding=fp.embedding, attempts=1)
+        self.history.conn.execute(
+            "UPDATE rc_sets SET seed_genre = ?, topic_shape = ? WHERE rc_id = ?",
+            (bp.seed_genre or "", bp.topic_shape_id or "", rc_id))
+        self.history.conn.commit()
         self.history.record_fingerprint(fp)
         self.history.mark_shipped(bp, rc_id)
         self.history.set_passage_status(bp.blueprint_id, "consumed")
 
         print(f"  [{rc_id}] status={status} f1={realized.f1} novelty={report.composite} "
-              f"avg={avg} cost=${ledger.spent_usd:.4f} (budget ${ledger.budget_usd:.2f})")
+              f"avg={avg} words={word_report['words']} "
+              f"cost=${ledger.spent_usd:.4f} (budget ${ledger.budget_usd:.2f})")
         return RCResult(rc_id, bp.blueprint_id, tier, status, rc_text=rc_text,
                         average_score=avg, compliance_f1=realized.f1,
                         novelty_composite=report.composite, cost_usd=_spent(),
@@ -456,6 +573,32 @@ class RCPipeline:
         f.stylometry["_planned_posture"] = self.registry.posture_of(bp.family_id)
         if realized.final_line_is_aphorism is not None:
             f.stylometry["_aphorism_ending"] = 1 if realized.final_line_is_aphorism else 0
+        # Beat-position obedience, so the corpus can be audited on it the same
+        # way _aphorism_ending made the register drift visible.
+        f.stylometry["_opening_beat_ok"] = 1 if realized.opening_beat_ok else 0
+        f.stylometry["_closing_beat_ok"] = 1 if realized.closing_beat_ok else 0
+
+    def _pool_is_single_kind(self, tier: str) -> bool:
+        """Can this tier's seed pool offer any alternative content kind?
+
+        A genre-saturation rejection assumes rotation has somewhere to go. For
+        hard and elite it does not: TIER_SEED_GENRES restricts them to an
+        18-magazine whitelist whose 168 unused docs are all idea_essay, so
+        every seed classifies conceptual_essay and every rotation returns
+        another one. Measured 2026-08-29, that deadlocked both tiers — three
+        rotations each, then rejected_seed_genre, with no seed able to pass.
+
+        Rejecting a seed for being what the pool exclusively contains is not a
+        diversity lever, it is a stall, so the gate stands down and says so.
+        Recomputed per call: widening the whitelist re-arms it automatically.
+        """
+        try:
+            import RAG
+            mix = RAG.unused_pool_kinds(
+                genre=config.TIER_SEED_GENRES.get(tier))
+        except Exception:
+            return False          # cannot tell -> leave the gate armed
+        return len([k for k, n in mix.items() if n > 0]) < 2
 
     def _abort(self, bp: Blueprint, ledger: CostLedger, why: str,
                notes: list[str]) -> RCResult:
@@ -473,14 +616,25 @@ class RCPipeline:
         ]
 
     def _topology_collisions(self, topology_id: str) -> list[tuple[float, str]]:
-        """Blueprint-derived topology signature vs the corpus, worst first.
-        Free (local): the signature comes from the registry, not the render."""
+        """Blueprint-derived topology signature vs the RECENT corpus, worst
+        first. Free (local): the signature comes from the registry, not the
+        render.
+
+        Scoped to EXCLUSION_WINDOWS["topology"], not the full fingerprint
+        window, because that is the composer's own policy: _eligible() drops a
+        topology only until that many sets have passed, then deliberately
+        recycles it. The library has 20 topologies and the corpus is already
+        larger, so recycling is mandatory — scoring it against all 100
+        fingerprints made every topology collide at 1.00 and left zero clear
+        options on every tier. Reuse inside the window is a composer bug and
+        still gets caught; reuse outside it is the design."""
         cap = config.NOVELTY_CAPS["topology_similarity"]
         mine = self._planned_topology_signature(topology_id)
         if not mine:
             return []
         hits = []
-        for other in self.history.fingerprint_window(config.FINGERPRINT_WINDOW):
+        for other in self.history.fingerprint_window(
+                config.EXCLUSION_WINDOWS["topology"]):
             if not other.topology_signature:
                 continue
             sim = topology_similarity(mine, other.topology_signature)
@@ -489,12 +643,15 @@ class RCPipeline:
         hits.sort(reverse=True)
         return hits
 
+    def _tier_topologies(self, tier: str) -> list[str]:
+        """The plans this tier may draw. Must match the composer's bar exactly —
+        this re-pick runs after the composer has chosen, so a looser rule here
+        would quietly hand medium a plan the composer refused it."""
+        return [i for i in self.registry.ids("topology")
+                if self.composer._topology_allowed(i, tier)]
+
     def _pick_clear_topology(self, bp: Blueprint) -> str | None:
-        ids = list(self.registry.ids("topology"))
-        allowed = config.TIER_PARAMS[bp.tier].get("allowed_topologies")
-        if allowed:
-            ids = [i for i in ids if i in allowed]
-        ids = [i for i in ids if i != bp.topology_id]
+        ids = [i for i in self._tier_topologies(bp.tier) if i != bp.topology_id]
         rng = getattr(self.composer, "rng", None) or random.Random()
         rng.shuffle(ids)
         for tid in ids:
@@ -508,10 +665,14 @@ class RCPipeline:
         100% blueprint-derived, so catching it here saves the whole question
         call. Returns (bp, notes, ok).
 
-        If every allowed topology collides (common on medium's small pool once
-        a few sets ship), fall back to the *least* colliding option and proceed
-        rather than burning the slot as rejected_novelty with no paid work.
-        Gate C still scores topology; this only unblocks generation."""
+        If every allowed topology collides, fall back to the *least* colliding
+        option — but only if it is actually under Gate C's cap. Proceeding above
+        the cap is not "unblocking generation", it is paying for a rejection
+        that was already certain: on the 2026-07-26 batch this path shipped a
+        blueprint at topology 0.78 against a 0.75 cap and Gate C duly rejected
+        it after the render AND the questions call had been paid for ($0.2553).
+        A pre-render rejection costs the refine call alone and the batch loop
+        recomposes for free."""
         notes: list[str] = []
         if not getattr(config, "TOPOLOGY_PRECHECK_ENABLED", True):
             return bp, notes, True
@@ -534,10 +695,7 @@ class RCPipeline:
             sim0, near0 = hits[0]
         # No fully clear topology: pick the least-colliding allowed alternative.
         best_tid, best_sim, best_near = bp.topology_id, sim0, near0
-        allowed = config.TIER_PARAMS[bp.tier].get("allowed_topologies")
-        candidates = (allowed if allowed
-                      else list(self.registry.ids("topology")))
-        for tid in candidates:
+        for tid in self._tier_topologies(bp.tier):
             th = self._topology_collisions(tid)
             if not th:
                 best_tid, best_sim, best_near = tid, 0.0, ""
@@ -549,16 +707,27 @@ class RCPipeline:
             notes.append(
                 f"topology precheck: no clear option — least-colliding "
                 f"{bp.topology_id}->{best_tid} @ {best_sim:.2f} vs {best_near}")
-            print(f"  [topo] no clear option — using least-colliding "
+            print(f"  [topo] no clear option - using least-colliding "
                   f"{bp.topology_id}->{best_tid} @ {best_sim:.2f}")
             bp.topology_id = best_tid
             self.history.record_blueprint(bp, "composed")
-        else:
+
+        # Gate C scores this exact signature against the same cap. If the best
+        # we can do is still above it, the rejection is already decided — bail
+        # now (cost: the refine call) instead of after render + questions.
+        cap = config.NOVELTY_CAPS["topology_similarity"]
+        if best_sim > cap:
             notes.append(
-                f"topology precheck: proceeding with {bp.topology_id} "
-                f"@ {best_sim:.2f} vs {best_near} (no clearer alternative)")
-            print(f"  [topo] proceeding with {bp.topology_id} "
-                  f"@ {best_sim:.2f} (no clearer alternative)")
+                f"topology precheck: best available {best_tid} @ {best_sim:.2f} "
+                f"is above the Gate C cap {cap} vs {best_near} — rejecting "
+                f"pre-render rather than paying for a certain rejection")
+            print(f"  [topo] best available @ {best_sim:.2f} > Gate C cap {cap} "
+                  f"- rejecting pre-render (recompose is free)")
+            return bp, notes, False
+
+        notes.append(
+            f"topology precheck: proceeding with {bp.topology_id} "
+            f"@ {best_sim:.2f} vs {best_near}")
         return bp, notes, True
 
     def _movement_collisions(self, movement_string: str
@@ -573,7 +742,10 @@ class RCPipeline:
             return []
         caps = config.NOVELTY_CAPS
         hits: list[tuple[float, float, str]] = []
-        for fp in self.history.fingerprint_window(config.FINGERPRINT_WINDOW):
+        # Recency-scoped, not whole-corpus — see config.MOVEMENT_RECENCY_WINDOW.
+        window = getattr(config, "MOVEMENT_RECENCY_WINDOW",
+                         config.FINGERPRINT_WINDOW)
+        for fp in self.history.fingerprint_window(window):
             if not fp.movement_string or fp.movement_string in UNKNOWN_MOVEMENT:
                 continue
             lev, jac = movement_similarity(movement_string, fp.movement_string)
@@ -614,10 +786,14 @@ class RCPipeline:
             return []
 
         collisions: list[tuple[float, str, str]] = []
+        # SHIPPED blueprints only. A topic that never shipped cannot be a
+        # duplicate for the customer, and including rejects made every failed
+        # attempt a permanent obstacle to the next one — see the note above
+        # TOPIC_PRECHECK_ENABLED in config.py. Rejected topics still steer the
+        # refine prompt for free through history.recent_topics().
         rows = self.history.conn.execute(
             """SELECT blueprint_id, blueprint_json FROM blueprints
-               WHERE status IN ('shipped', 'composed', 'rejected_novelty',
-                                'rejected_questions')
+               WHERE status = 'shipped'
                ORDER BY created_at DESC LIMIT ?""",
             (config.FINGERPRINT_WINDOW,)).fetchall()
         for bpid, bj in rows:
@@ -715,8 +891,9 @@ class RCPipeline:
         return dirs[:3]
 
     # Gate-B channels a re-render can actually move (prose-level, not blueprint).
-    _RENDER_MOVABLE_BREACHES = ("rhythm_cosine", "curve_pearson",
-                                "embedding_cosine", "persona_leak")
+    _RENDER_MOVABLE_BREACHES = ("rhythm_cosine", "curve_similarity",
+                                "embedding_cosine", "persona_leak",
+                                "move_signature")
 
     def _breach_directives(self, report) -> list[str]:
         """Map render-movable Gate-B breaches to concrete re-render directives.
@@ -730,13 +907,21 @@ class RCPipeline:
             if head == "rhythm_cosine":
                 dirs.append("Vary the sentence-length rhythm sharply: break any regular "
                             "alternation and include at least one very short sentence early.")
-            elif head == "curve_pearson":
-                dirs.append("Change how the argument's commitment builds — make its "
-                            "intensity rise more gradually, or in a different cadence — "
+            elif head == "curve_similarity":
+                dirs.append("Change the LEVELS the argument's commitment passes through, "
+                            "not just its cadence: start from a markedly different degree "
+                            "of endorsement or resistance, and land somewhere else — "
                             "without changing which paragraph first reveals the thesis.")
             elif head == "embedding_cosine":
                 dirs.append("Reframe the angle and examples away from the nearest passage's "
                             "territory: choose different illustrative cases and vocabulary.")
+            elif head.startswith("move_signature"):
+                dirs.append("Change the ARGUMENT'S CHOREOGRAPHY, not its wording: the "
+                            "sequence of rhetorical operations matches an existing "
+                            "passage too closely. In particular do not relocate the "
+                            "dispute to a deeper level, and do not set up an obvious "
+                            "reading in order to demolish it — build the difficulty "
+                            "some other way.")
             elif head.startswith("persona_leak"):
                 dirs.append("Push the prose texture away from the house voice: alter hedging "
                             "frequency and clause structure while staying in the persona.")
@@ -765,7 +950,62 @@ def _seed_collision(pipeline: RCPipeline, seed: SeedEssay | None) -> str | None:
             if c > worst:
                 worst, worst_id = c, fp.rc_id
     if worst >= config.SEED_PRESCREEN_COSINE:
-        return f"{worst_id} @ {worst:.2f}"
+        return f"{worst_id} @ {worst:.2f} (passage)"
+
+    # Second channel: the SEEDS of recent sets, not their passages. Two seeds
+    # can share a territory that the finished passages no longer visibly share,
+    # because refine walked each one somewhere specific — see
+    # config.SEED_ANCESTRY_COSINE for the case that motivated this.
+    hit = _seed_ancestry_collision(pipeline, seed, vec)
+    if hit:
+        return hit
+    return None
+
+
+def _seed_ancestry_collision(pipeline: RCPipeline, seed: SeedEssay,
+                             vec: list) -> str | None:
+    """Compare this seed against the SEEDS of recently shipped sets. $0 — the
+    seed embeddings are already in the vector store."""
+    try:
+        rows = pipeline.history.conn.execute(
+            """SELECT rc_id, essay_doc_id FROM rc_sets
+               WHERE essay_doc_id IS NOT NULL AND essay_doc_id != ''
+               ORDER BY created_at DESC LIMIT ?""",
+            (config.SEED_ANCESTRY_WINDOW,)).fetchall()
+    except Exception:
+        return None
+    recent_ids = [(rc, doc) for rc, doc in rows if doc and doc != seed.doc_id]
+    if not recent_ids:
+        return None
+    # Chroma returns embeddings as a NUMPY ARRAY, not a list. `x or []` and
+    # `if e is None` are both wrong on one: the first raises
+    # "truth value of an array with more than one element is ambiguous" and the
+    # second silently misreads. That crashed the first real batch this ran in
+    # (2026-08-29) — the whole extraction has to sit inside the try, and every
+    # emptiness test has to be an explicit length check.
+    try:
+        import RAG
+        store = RAG.get_db()
+        got = store.get(ids=[d for _, d in recent_ids],
+                        include=["embeddings"]) or {}
+        embs = got.get("embeddings")
+        ids = got.get("ids")
+        embs = [] if embs is None else list(embs)
+        ids = [] if ids is None else list(ids)
+        by_doc = {i: e for i, e in zip(ids, embs) if e is not None and len(e)}
+        worst, worst_rc = 0.0, None
+        for rc, doc in recent_ids:
+            e = by_doc.get(doc)
+            if e is None or not len(e):
+                continue
+            c = _cosine(vec, list(e))
+            if c > worst:
+                worst, worst_rc = c, rc
+    except Exception as exc:     # store unavailable — degrade, never block a batch
+        print(f"  [seed-ancestry] skipped ({type(exc).__name__}: {exc})")
+        return None
+    if worst >= config.SEED_ANCESTRY_COSINE:
+        return f"{worst_rc} @ {worst:.2f} (shared seed territory)"
     return None
 
 
@@ -802,7 +1042,7 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
                 if seed_provider:
                     seed, on_success = seed_provider(tier)
                     if seed is None:
-                        print(f"[seeds] exhausted — continuing seedless for {tier}")
+                        print(f"[seeds] exhausted - continuing seedless for {tier}")
                     elif seed.doc_id:
                         tried_doc_ids.add(seed.doc_id)
                     # pre-screen: rotate seeds whose territory the corpus has
@@ -842,19 +1082,33 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
                     results.append(res)
                     ban_families.update(res.ban_families or [])
                     ban_movements.update(res.ban_movements or [])
-                    if res.status not in ("rejected_novelty", "failed_composition"):
+                    if res.status not in ("rejected_novelty", "failed_composition",
+                                          "rejected_seed_genre"):
                         break
                     if spent() >= max_usd:
-                        print(f"[batch] spending cap reached mid-retry — stopping cleanly.")
+                        print(f"[batch] spending cap reached mid-retry - stopping cleanly.")
                         return results
-                    print(f"  [retry] {res.status} — recomposing ({attempt + 1}/3)"
+                    print(f"  [retry] {res.status} - recomposing ({attempt + 1}/3)"
                           + (f" bans={sorted(ban_families)}" if ban_families else ""))
                     # rotate the seed too: a fresh blueprint keeps the same
                     # topic anchor, so an embedding-channel collision would
                     # just repeat. The untried previous seed stays unused
                     # (only success marks it consumed).
                     if seed_provider and seed is not None:
-                        new_seed, new_cb = seed_provider(tier, exclude_ids=tried_doc_ids)
+                        # Steer the rotation away from the kinds that produce a
+                        # saturated genre. A uniform redraw could not clear it:
+                        # see config.GENRE_SOURCE_KINDS.
+                        avoid = config.GENRE_SOURCE_KINDS.get(
+                            res.saturated_genre or "", None)
+                        if avoid:
+                            print(f"  [retry] avoiding source kinds {avoid} "
+                                  f"(genre '{res.saturated_genre}' saturated)")
+                        try:
+                            new_seed, new_cb = seed_provider(
+                                tier, exclude_ids=tried_doc_ids, avoid_kinds=avoid)
+                        except TypeError:     # provider predates avoid_kinds
+                            new_seed, new_cb = seed_provider(
+                                tier, exclude_ids=tried_doc_ids)
                         if new_seed is not None:
                             seed, on_success = new_seed, new_cb
                             if new_seed.doc_id:
@@ -865,7 +1119,7 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
                 if res and res.status == "failed_questions" and res.blueprint_id \
                         and spent() < max_usd:
                     bp_id = res.blueprint_id
-                    print("  [retry] questions failed — regenerating questions on the same passage")
+                    print("  [retry] questions failed - regenerating questions on the same passage")
                     reason = "; ".join(res.notes)[:600]
                     guidance = (
                         f"A previous attempt on this exact passage failed validation: "
@@ -883,7 +1137,7 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
                 if res and res.rc_id and on_success:
                     on_success(res.rc_id)
     except APIExhausted as e:
-        print(f"\n[STOP] API exhausted ({e}) — batch stopped cleanly; "
+        print(f"\n[STOP] API exhausted ({e}) - batch stopped cleanly; "
               f"completed work is committed. Re-run later to continue.")
     total = sum(r.cost_usd for r in results)
     shipped_statuses = {"approved", "needs_review", "solver_dispute"}

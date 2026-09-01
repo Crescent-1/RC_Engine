@@ -1,0 +1,114 @@
+RC ID: RC-HARD-260822-0063 | Tier: hard | Score: 8.2 | Status: approved | Compliance F1: 0.88 | Novelty: 0.539 | Screen: green | Generated: 2026-08-22T09:03:20.744082+00:00
+======================================================================
+
+[PASSAGE]
+
+At a small desk beside the stage, usually lit by a hooded lamp, the surtitler works from a prepared translation of the libretto. By surtitles, here, we mean the brief lines projected above or beside the action, not the printed translation in a programme. The translator first renders the text; the surtitler then divides that rendering into screens, marks them against the score, and advances them during performance. A cue may be a chord, an entrance, a raised hand. The machinery is modest. The labour appears settled. The words seem to have been translated before the curtain rose.
+
+Rehearsal disturbs that account. A literal sentence may require three screens, while the singer gives its crucial preposition twelve seconds of musical air; two characters may overlap so that their separately intelligible remarks become, in English, an illegible column; a joke may arrive only after the orchestra has already delivered its sting. Cut the names. Join the replies. Show the consequence. Some of these alterations are plainly forced by the dimensions of the screen and by the finite speed at which most spectators can read. It would be unserious to deny that constraint. Yet the desk resembles a camera operator’s viewfinder more than a copying machine: it selects a field, holds it long enough to register, then moves before the object has ceased existing. In one rehearsal, an attendant’s repeated complaint about a missing key became “He has shut us out,” not because those words were sung, but because the locked door had become the scene’s audible fact.
+
+The annotated score makes the criterion less permissive than that example can suggest. Its margins contain bar numbers, pencil slashes, crossings-out, and cues such as “after laugh” or “wait for look”; they record not a freedom to paraphrase but a sequence of tests applied under performance conditions. Music cannot be reduced to background. Gesture cannot be treated as redundant. Plot cannot be assumed to survive a reader’s delayed comprehension. The operator is calibrating several signals whose alignment is known only from the auditorium, not from a page. A printed comparison can therefore establish that a phrase has vanished, but it cannot by itself establish what vanished with it. Some decisions that look like mistranslation in a bilingual column preserve the timing by which an accusation, a recognition, or a silence becomes available. The score’s own economy offers a stern warning: “Surtitles are not a translation,” writes the surtitler Sonya Friedman in her practical account of the craft; they are “a guide to the action.” That guide, however, remains answerable to the words it cannot carry.
+
+An audience may still be entitled to ask for more than guidance, and perhaps for verbal fidelity that this apparatus cannot supply. But complete fidelity has a cost that its advocates must specify rather than merely deplore: viewers would read through held notes, faces, and the small exchanges by which music alters speech. It is not enough to point to every omission on paper. One must say what a restored phrase would preserve in the theatre, at that instant. Would “I have misplaced the key” clarify more than “He has shut us out” while the singer stands at the bolted door?
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) Surtitles should reproduce every spoken phrase so audiences receive complete verbal fidelity.
+(B) Surtitles are performance-based guides that must balance verbal accountability with theatrical timing.
+(C) Surtitlers may replace operatic language whenever a clearer interpretation serves the audience.
+(D) Surtitling is a settled, largely mechanical form of written translation performed before the curtain rises.
+
+Q2. According to the text, the annotated score is described as:
+(A) A record of performance tests coordinating music, gesture, plot, and audience comprehension.
+(B) A cue sheet allowing operators to paraphrase freely during changing performances.
+(C) A bilingual record proving which original phrases have been lost in English.
+(D) A list of regrettable cuts caused by cramped screens and insufficient rehearsal time.
+
+Q3. Had the author omitted the third paragraph, the passage's central claim would:
+(A) Gain support for unlimited replacement of language by interpretive theatrical summaries.
+(B) Lose all evidence that screen limits affect what audiences can read.
+(C) Cease to distinguish surtitles from printed programme translations altogether.
+(D) Lose its account of why adaptation remains disciplined rather than freely interpretive.
+
+Q4. Which one of the following, if established, would most damage the author's central claim?
+(A) Some spectators prefer consulting literal translations before attending an opera performance.
+(B) Operators sometimes make avoidable errors when they advance a projected screen late.
+(C) Audience trials show complete literal surtitles preserve timing, gesture, and comprehension equally well.
+(D) Different theatres use different screen sizes and projection arrangements for surtitles.
+
+Q5. The passage as a whole is best understood as an attempt to:
+(A) Describe the desk procedures through which surtitlers prepare screens for performance.
+(B) Reframe surtitling as accountable theatrical mediation rather than deficient written translation.
+(C) Contrast literal translation with performance adaptation across successive rehearsal stages.
+(D) Defend all departures from libretti as necessary conditions of operatic accessibility.
+
+Q6. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) A live-caption editor condenses overlapping debate to preserve a decisive audience reaction.
+(B) A live-caption editor preserves every word despite captions obscuring key visual exchanges.
+(C) A live-caption editor rewrites every remark into a single editorial interpretation for viewers.
+(D) A live-caption editor deletes disputed evidence because the debate has become politically inconvenient.
+
+Q7. The author uses the word 'answerable' to mean:
+(A) Capable of responding immediately to any audience request for fuller translations.
+(B) Required to reproduce each omitted phrase at a later point in performance.
+(C) Authorised to substitute clearer wording whenever musical timing makes reading difficult.
+(D) Subject to justification in relation to the source words omitted from display.
+
+Q8. Based on the passage, we can infer that a restored omitted phrase would most likely:
+(A) Remove the need to consider faces, held notes, and visual exchanges.
+(B) Need to preserve a theatrical value beyond merely increasing verbal completeness.
+(C) Demonstrate that the earlier surtitling decision was a mistranslation of the original.
+(D) Automatically improve spectators' understanding because it supplies more of the libretto.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — This integrates the movement from apparent translation to calibrated performance practice, while retaining the final insistence on accountability to omitted words.
+  (A) stance_misread — The final paragraph questions fidelity without specifying its theatrical cost, rather than endorsing exhaustive reproduction.
+  (C) scope_inflation — The passage permits calibrated alteration but says the guide remains answerable to words it cannot carry.
+  (D) adjacent_answer — It mistakes the opening appearance for the revised account developed through rehearsal and the annotated score.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The score's markings document repeated calibration among signals, not simply textual editing or mechanical cueing.
+  (B) scope_inflation — Paragraph three explicitly denies that the markings record a freedom to paraphrase.
+  (C) level_confusion — The passage says printed comparison can establish disappearance, but not what disappeared theatrically with a phrase.
+  (D) half_truth — Screen limits matter in paragraph two, but the score records broader performance tests, not merely regrettable compromises.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The third paragraph supplies the limiting bridge: performance calibration justifies departures, yet keeps them answerable to the source.
+  (A) half_truth — Timing matters, but paragraph three specifically blocks the inference that relevance grants unlimited licence.
+  (B) adjacent_answer — Paragraph two already explains finite reading speed and screen dimensions as practical constraints.
+  (C) adjacent_answer — The opening paragraph explicitly distinguishes projected surtitles from printed programme translations.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — This would undermine the load-bearing claim that verbal completeness imposes theatrical costs requiring calibrated selection.
+  (A) adjacent_answer — Private pre-performance preference does not challenge the passage's claim about real-time theatrical attention.
+  (B) half_truth — Operational mistakes may occur, but they do not refute the need for principled adaptation under performance constraints.
+  (D) adjacent_answer — Variation in equipment supports the relevance of conditions rather than disproving the account of calibration.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The author aims to alter the evaluative frame for judging omissions, while preserving a demand for verbal responsibility.
+  (A) adjacent_answer — This accurately summarizes opening material but misses the author's larger evaluative purpose.
+  (C) level_confusion — This describes the passage's structure, not why the author presents the contrast.
+  (D) scope_inflation — The passage requires each departure to be assessed for what it preserves in the theatre.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — This new case mirrors the passage's principle of selecting language so crucial action and timing remain available to viewers.
+  (B) stance_misread — The passage treats such visual and temporal costs as relevant to assessing complete fidelity.
+  (C) scope_inflation — The account permits selection under constraints, not unrestricted substitution of editorial summary.
+  (D) framework_import — Political convenience is not a performance constraint or accountability criterion developed in the passage.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The phrase qualifies the guide's freedom: omissions may be warranted by performance needs but must remain accountable to the libretto.
+  (A) terminological_twin — The word concerns responsibility to omitted words, not responsiveness to audience requests.
+  (B) phrase_misuse — The passage demands justification for omissions, not later restoration of every phrase.
+  (C) scope_inflation — Timing can justify choices, but answerability imposes a limit rather than granting blanket authority.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — The final paragraph requires advocates of restoration to specify what a phrase would preserve at that theatrical instant.
+  (A) stance_misread — Those performance elements are precisely the costs that restoration must be weighed against.
+  (C) level_confusion — A bilingual comparison can show omission but cannot alone establish its theatrical significance.
+  (D) causal_inversion — The passage questions whether additional wording clarifies more than it disrupts during performance.
+
+[Inspired by: "Growing Mutant Bacteria To Save Earth", https://www.noemamag.com/inside-the-lab-growing-mutant-bacteria-to-terraform-earth]

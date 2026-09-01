@@ -28,19 +28,25 @@ FUNCTION_WORDS = [
 UNKNOWN_MOVEMENT = ("LEGACY_UNKNOWN", "MANUAL_UNKNOWN")
 
 # Answer-key line in engine exports and the manual prompt's output format:
-#   "Q1 — Correct answer: (B)"   /   "Q1 - Correct answer: (C)"
+#   "Q1 — Correct answer: (B)"  /  "Q1 - Correct answer: (C)"  /  "Q1 — Correct: (B)"
+# Leading [^\w\n]{0,6} tolerates markdown bold/list chrome ("**Q1 — …").
+# The \W{0,10} gap keeps stems out: prose between "Q1." and "correct" won't match.
 _ANSWER_LINE = re.compile(
-    r"(?im)^\s*Q\s*(\d)\W{0,10}correct\s+answer\W{0,10}([A-D])\b")
+    r"(?im)^[^\w\n]{0,6}Q\s*(\d{1,2})\W{0,10}correct(?:\s+answer)?\W{0,10}([A-D])\b")
 # Older manual exports use a markdown key: "**1. Correct: (B)**"
 _ANSWER_LINE_ALT = re.compile(
-    r"(?im)^\W{0,6}(\d)\W{0,4}correct\W{0,12}([A-D])\b")
+    r"(?im)^\W{0,6}(\d{1,2})\W{0,4}correct\W{0,12}([A-D])\b")
+# Compact keys: "Q1: B" / "Q3 — (C)" — the letter must end the line, so
+# question stems ("Q1. Which of…") never match.
+_ANSWER_LINE_COMPACT = re.compile(
+    r"(?im)^[^\w\n]{0,6}Q\s*(\d{1,2})[ \t]*[:.\-—–][ \t]*\(?([A-D])\)?[ \t]*$")
 
 
 def parse_answer_letters(text: str) -> str:
     """Extract the answer-letter sequence from an RC's answer-key block.
     Tolerant: returns '' when the text carries no recognizable key."""
     letters: dict[int, str] = {}
-    for pattern in (_ANSWER_LINE, _ANSWER_LINE_ALT):
+    for pattern in (_ANSWER_LINE, _ANSWER_LINE_ALT, _ANSWER_LINE_COMPACT):
         for qnum, letter in pattern.findall(text):
             letters.setdefault(int(qnum), letter.upper())
     return "".join(letters[k] for k in sorted(letters))
@@ -60,7 +66,7 @@ def _embed(text: str) -> list[float] | None:
             _EMBEDDER = SentenceTransformer(config.EMBED_MODEL_NAME)
         except Exception as e:
             _EMBED_FAILED = True
-            print(f"  [fingerprint] embedding model unavailable ({e}) — channel disabled")
+            print(f"  [fingerprint] embedding model unavailable ({e}) - channel disabled")
             return None
     return [float(x) for x in _EMBEDDER.encode(text, normalize_embeddings=True)]
 
@@ -163,6 +169,63 @@ def movement_similarity(ms_a: str, ms_b: str) -> tuple[float, float]:
     return lev_sim, jac
 
 
+def _lcs_len(a: list, b: list) -> int:
+    """Longest common subsequence length — order-preserving but gap-tolerant."""
+    if not a or not b:
+        return 0
+    prev = [0] * (len(b) + 1)
+    for x in a:
+        cur = [0]
+        for j, y in enumerate(b):
+            cur.append(prev[j] + 1 if x == y else max(cur[j], prev[j + 1]))
+        prev = cur
+    return prev[-1]
+
+
+def move_signature_similarity(a: list[str], b: list[str],
+                              freq: dict[str, int] | None = None,
+                              corpus_n: int = 0) -> float:
+    """Similarity of two blind rhetorical-move signatures, in [0, 1].
+
+    Deliberately NOT movement_similarity(). That function is exact-order
+    Levenshtein plus adjacent-bigram Jaccard, and on the pair this channel was
+    built to catch — RC-ELITE-260712-0028 vs RC_E_0706_1 — it returned
+    lev=0.23 / jac=0.00 even though the two passages share six moves including
+    every distinctive one. Two essays can run the same argumentative grammar
+    while interleaving it differently and at different lengths; adjacency is
+    the wrong unit.
+
+    Two terms instead:
+      overlap — rarity-weighted set overlap (weighted Jaccard). A shared
+                INSTANCE_SURVEY means little if 80% of the corpus does it; a
+                shared BOTHSIDES_REFUSED means a lot if 10% does. Without corpus
+                frequencies every move weighs 1.0 (plain Jaccard).
+      order   — LCS over the sequences, normalised by the shorter one. Same
+                moves in the same order is a stronger match than the same moves
+                shuffled.
+
+    Weighted 0.7 / 0.3: sharing the distinctive moves at all is the primary
+    signal; running them in the same order sharpens it.
+    """
+    if not a or not b:
+        return 0.0
+    sa, sb = set(a), set(b)
+
+    def weight(move: str) -> float:
+        # inverse document frequency, floored so a universal move still counts
+        # for something and a unique one cannot dominate on its own
+        if not freq or corpus_n <= 0:
+            return 1.0
+        share = freq.get(move, 1) / corpus_n
+        return max(0.25, min(2.0, 1.0 / max(share, 0.05) ** 0.5))
+
+    inter = sum(weight(m) for m in sa & sb)
+    union = sum(weight(m) for m in sa | sb)
+    overlap = inter / union if union else 0.0
+    order = _lcs_len(a, b) / max(1, min(len(a), len(b)))
+    return round(0.7 * overlap + 0.3 * order, 4)
+
+
 def pearson(a: list[float], b: list[float]) -> float:
     n = min(len(a), len(b))
     if n < 3:
@@ -173,6 +236,54 @@ def pearson(a: list[float], b: list[float]) -> float:
     da = math.sqrt(sum((x - ma) ** 2 for x in a))
     db = math.sqrt(sum((y - mb) ** 2 for y in b))
     return num / (da * db) if da and db else 0.0
+
+
+# Commitment values live in [-1, 1], so the largest possible per-paragraph gap
+# is 2.0 — the divisor that turns mean absolute deviation into a [0,1] similarity.
+CURVE_VALUE_RANGE = 2.0
+# Curves are 3-5 points (one per paragraph). Both sides are resampled onto this
+# many points so a 4-paragraph and a 5-paragraph passage are comparable end to
+# end; pearson() truncated to the shorter curve instead, which silently dropped
+# the closing paragraph — the most informative point in the arc.
+CURVE_GRID = 5
+
+
+def _resample_curve(c: list[float], n: int = CURVE_GRID) -> list[float]:
+    """Linear-interpolate a commitment curve onto an n-point grid."""
+    if len(c) == n:
+        return list(c)
+    if len(c) == 1:
+        return [c[0]] * n
+    out = []
+    for k in range(n):
+        pos = k * (len(c) - 1) / (n - 1)
+        lo = int(pos)
+        hi = min(lo + 1, len(c) - 1)
+        frac = pos - lo
+        out.append(c[lo] * (1 - frac) + c[hi] * frac)
+    return out
+
+
+def curve_similarity(a: list[float], b: list[float]) -> float:
+    """Level-aware commitment-curve similarity. 1.0 = same arc at the same
+    commitment levels; 0.0 = maximally opposed.
+
+    This replaces pearson() as the curve NOVELTY channel. Pearson is invariant
+    to location and scale, so it scores only "do these rise together" and
+    ignores where they sit. On 4-point curves that made it useless as a
+    duplicate detector: [-0.8, 0.4, 0.7, 1.0] and [0.3, 0.7, 0.8, 0.9] score a
+    perfect 1.000 under pearson despite being opposite passages (one author
+    opens hostile and is won over, the other opens warm and warms further).
+    Because the engine deliberately builds toward a late thesis, most curves
+    rise monotonically — so pearson flagged the corpus's most common and most
+    desirable shape, rejecting ~29% of valid renders once the gate activated.
+    Mean absolute deviation keeps the levels and scores that same pair 0.805.
+    """
+    if not a or not b:
+        return 0.0
+    ra, rb = _resample_curve(a), _resample_curve(b)
+    mad = sum(abs(x - y) for x, y in zip(ra, rb)) / len(ra)
+    return max(0.0, 1.0 - mad / CURVE_VALUE_RANGE)
 
 
 def cosine(a: list[float], b: list[float]) -> float:

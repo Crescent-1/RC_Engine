@@ -1,0 +1,88 @@
+{
+  "library": "topic_shape",
+  "version": "1.0",
+  "note": "What KIND of question the passage is about, as distinct from arc_shape (how the argument moves) and render_stance (how the instruction is framed). Added 2026-08-22 after the topic layer turned out to be the last place the house voice was living: of ~60 stored topics, 14 opened 'Whether...' and 11 'Why...', and effectively all were two-sided conceptual disputes about a social practice. The cause was structural rather than stylistic — the refine schema REQUIRED a tension_system with primary and secondary axes, each with two poles, so every topic had to be bipolar before a word was written. Shapes with requires_tension=false are exempt from that and supply content_frame instead.",
+  "items": [
+    {
+      "id": "TS01",
+      "name": "The Conceptual Dispute",
+      "topic_form": "A genuine disagreement about how something should be understood, where both sides are held by serious people. State what is at issue, not who is right.",
+      "requires_tension": true,
+      "content_frame": "",
+      "compatible_genres": ["conceptual_essay", "criticism", "analysis", "legal_analysis"],
+      "note": "The engine's only shape before 2026-08-22. Kept, but no longer the default by construction."
+    },
+    {
+      "id": "TS02",
+      "name": "The Episode Reconstructed",
+      "topic_form": "One specific event, reconstructed from what can be established about it. The argument is what the reconstruction shows, and it is never announced as a thesis.",
+      "requires_tension": false,
+      "content_frame": "Name the event, the place, the period, and the parties. Say what is known, what is contested, and what cannot be recovered.",
+      "compatible_genres": ["narrative_history", "reportage", "investigation", "biography"]
+    },
+    {
+      "id": "TS03",
+      "name": "How It Works, Where It Fails",
+      "topic_form": "The actual working of a process, instrument, or system, followed to the point where it stops working. No general claim about technology or modernity.",
+      "requires_tension": false,
+      "content_frame": "Name the process and its steps concretely enough that a reader could describe it afterwards. The failure must be specific, not a limitation in principle.",
+      "compatible_genres": ["technical_explainer", "practice_account", "analysis"]
+    },
+    {
+      "id": "TS04",
+      "name": "One Object, Read Closely",
+      "topic_form": "A single document, artefact, image, recording, or work, attended to closely. Generalise only where the object forces it.",
+      "requires_tension": false,
+      "content_frame": "Name the object and its provenance. Say what is in it, what is absent from it, and what its arrangement assumes.",
+      "compatible_genres": ["criticism", "narrative_history", "conceptual_essay"]
+    },
+    {
+      "id": "TS05",
+      "name": "The Changed Mind",
+      "topic_form": "A field, institution, or identifiable group that abandoned a position it once held. What made the old position reasonable, and what broke it.",
+      "requires_tension": false,
+      "content_frame": "Date the shift. Reconstruct the abandoned position at full strength before saying what dislodged it.",
+      "compatible_genres": ["narrative_history", "conceptual_essay", "analysis", "technical_explainer"]
+    },
+    {
+      "id": "TS06",
+      "name": "What the Measure Missed",
+      "topic_form": "An attempt to count, record, rank, or measure something, and the specific remainder that escaped it. Not a complaint about quantification in general.",
+      "requires_tension": false,
+      "content_frame": "Name the instrument and what it was built to capture. The remainder must be specific and must matter.",
+      "compatible_genres": ["analysis", "technical_explainer", "reportage", "legal_analysis"]
+    },
+    {
+      "id": "TS07",
+      "name": "The Practice As Practised",
+      "topic_form": "How a craft, trade, or professional practice is actually carried out, as opposed to how it is described. The gap is the subject.",
+      "requires_tension": false,
+      "content_frame": "Ground it in the specific motions, tools, judgements and constraints of the work. Practitioners must be recognisable in it.",
+      "compatible_genres": ["practice_account", "reportage", "narrative_history"]
+    },
+    {
+      "id": "TS08",
+      "name": "The Thing That Fits Nowhere",
+      "topic_form": "Something that resists the categories available for it, examined until the categories rather than the thing look like the problem.",
+      "requires_tension": false,
+      "content_frame": "Name the candidate categories and try each against the case honestly before any of them fails.",
+      "compatible_genres": ["conceptual_essay", "technical_explainer", "legal_analysis", "criticism"]
+    },
+    {
+      "id": "TS09",
+      "name": "The Consequence Followed",
+      "topic_form": "A decision, rule, or change that was already made, followed forward through what it did — to whom, in what order, with what delays.",
+      "requires_tension": false,
+      "content_frame": "Fix the decision in time and place. Follow the causal chain concretely; the verdict, if any, comes only after it.",
+      "compatible_genres": ["legal_analysis", "reportage", "analysis", "narrative_history"]
+    },
+    {
+      "id": "TS10",
+      "name": "Two Counts of the Same Thing",
+      "topic_form": "Two serious attempts to record or quantify the same phenomenon that produced different answers, with both methods taken seriously.",
+      "requires_tension": true,
+      "content_frame": "",
+      "compatible_genres": ["technical_explainer", "analysis", "narrative_history", "reportage"]
+    }
+  ]
+}

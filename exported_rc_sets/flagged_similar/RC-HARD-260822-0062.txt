@@ -1,0 +1,114 @@
+RC ID: RC-HARD-260822-0062 | Tier: hard | Score: 7.4 | Status: needs_review | Compliance F1: 0.843 | Novelty: 0.6 | Screen: red | Generated: 2026-08-22T07:44:23.435802+00:00
+======================================================================
+
+[PASSAGE]
+
+By commonweal I mean, here, not the sum of satisfactions but the public habit of receiving benefits and burdens as though they belonged to a shared ceremony. Its most serviceable emblem is the civic apology: an official admits a wrong, records it, and promises repair; later generations, receiving the document, are asked to treat remembrance and anticipation as matching duties. The formula has an admirable tidiness. Remember injury; foresee its recurrence. Honour sacrifice; prepare gratitude. Yet tidiness is not proof. In a parish archive, a clerk once kept petitions in a blue cardboard box beneath a radiator, each folded so that the petitioner’s name appeared first. The order was bureaucratically modest and morally eloquent. Memory seemed to confer standing. Anticipation, by analogy, seemed to confer care. The conclusion presents itself with the composure of a committee minute: a community is just insofar as it balances backward acknowledgment with forward provision. This is a mistake. Not because the two duties lack kinship—no: more precisely, because kinship has been mistaken for equivalence.
+
+A future claimant cannot sign the petition. A dead claimant cannot revise it. The resemblance is ceremonial, not reciprocal. Still, the rival position has its attractions: posterity may be represented by trustees, while the past can only be honoured by proxies. That arrangement looks almost scrupulous.
+
+Its scruple conceals the referent of “shared ceremony.” Memory assigns a claim to someone already injured; anticipation assigns authority over conditions not yet inhabited. Praise can ratify an achieved act. Blame cannot simply be issued in advance. The difference is not sentimental. It alters who may speak, and on what warrant.
+
+The language of commonweal has travelled accordingly. In older civic usage it could name a people’s welfare, a condition inferred from roads maintained, poor relief administered, quarrels contained. Later it acquired the polish of constitutional speech, where “the public good” can sound like an office seal applied to whatever survives negotiation. Contemporary appeals to future generations inherit both usages, and the official vocabulary is generous enough to accommodate nearly everything except a clear account of representation. One may concede that institutions routinely act for absentees: infants, incapacitated persons, the unborn, even those whose names have vanished from the blue box. Such action is often necessary, and sometimes honourable. But the necessity does not make backward and forward claims symmetrical. A memorial may recognise a wrong without governing anyone; a forecast governs precisely because those affected cannot yet contest it. The commonweal, then, is not a balanced scale between remembrance and foresight, though it has often been dressed for that part. It is a discipline of unequal permissions, in which the dead may demand acknowledgment and the unborn require restraint, without either becoming the other’s petitioner.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) Commonweal is achieved by balancing remembrance of past injury with provision for future welfare.
+(B) Commonweal requires distinct duties toward the dead and unborn, not symmetrical representation.
+(C) Commonweal chiefly depends on trustees representing both posterity and past victims with equal authority.
+(D) Commonweal names a public welfare secured whenever institutions negotiate competing social interests.
+
+Q2. Which one of the following, if established, would most damage the author's central claim?
+(A) Some memorials influence later laws as well as publicly recognising earlier injuries.
+(B) Trustees for posterity sometimes consult extensive scientific forecasts before recommending policy.
+(C) Public institutions increasingly combine commemorations with long-term planning in single ceremonies.
+(D) Future persons can authoritatively contest present policies before those policies govern their lives.
+
+Q3. What is the purpose of the blue cardboard box example used in the passage?
+(A) It demonstrates that trustees can represent posterity more scrupulously than they honour the dead.
+(B) It shows why ordered remembrance can make backward claims appear morally weighty.
+(C) It establishes that civic officials should preserve petitions beneath radiators for public inspection.
+(D) It proves that bureaucratic procedures always translate individual injury into enforceable civic rights.
+
+Q4. Regarding the civic apology described in the passage, the author asserts that:
+(A) Officials are asked to make future blame equivalent to retrospective public praise.
+(B) Officials are asked to balance financial compensation with future institutional reform.
+(C) Later generations are asked to appoint trustees for victims named in the document.
+(D) Later generations are asked to treat remembrance and anticipation as matching duties.
+
+Q5. If the paragraph beginning “Its scruple conceals” were removed, the argument would:
+(A) Lose the conclusion that institutions may sometimes act honourably for absent persons.
+(B) Lose its clearest account of why backward and forward claims carry different warrants.
+(C) Lose the archival illustration that makes memory seem to confer standing on petitioners.
+(D) Lose the historical account of how commonweal acquired constitutional and civic meanings.
+
+Q6. Which view does the author report or steelman rather than hold?
+(A) Posterity may be represented by trustees, while the past is honoured through proxies.
+(B) A memorial may recognise a wrong without governing anyone affected by its recognition.
+(C) The dead demand acknowledgment, whereas the unborn require restraint from present institutions.
+(D) A future claimant cannot sign a petition, whereas a dead claimant cannot revise one.
+
+Q7. The author’s account of commonweal is a result of the emergence of all of the following EXCEPT:
+(A) Constitutional language in which public good may ratify negotiated political outcomes.
+(B) Institutional action for absentees such as infants, incapacitated persons, and the unborn.
+(C) The ability of future claimants to authorize representatives before policies affect them.
+(D) Older civic attention to welfare inferred from maintained roads and administered poor relief.
+
+Q8. Which one of the following best explains why the impression created early in the passage does not survive the argument?
+(A) The apparent analogy confuses shared ceremonial resemblance with reciprocal political authority.
+(B) The historical meanings of commonweal make present public language too vague for civic use.
+(C) The archival example is later shown to be historically inaccurate and administratively unreliable.
+(D) The author later rejects any institutional action undertaken for persons who are absent.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — It follows the passage from the attractive initial analogy through the distinction between acknowledgment and governing absent future persons.
+  (A) scope_inflation — It treats the opening formulation as settled doctrine, despite the later rejection of balance as the governing model.
+  (C) false_symmetry — It converts the reported rival arrangement into an equivalence the author explicitly denies.
+  (D) terminological_twin — It mistakes the historical constitutional usage for the author's normative account of unequal permissions.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — This would remove the asserted warrant-based difference: forecasts govern because their affected subjects cannot yet contest them.
+  (A) half_truth — Memorial influence does not show that backward acknowledgment itself governs an unrepresented subject.
+  (B) missing_link — Better forecasting does not establish that future claimants can authorize or contest present representation.
+  (C) scope_inflation — Combined ceremonial practice does not resolve the passage's retained distinction in permissions and warrant.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The archive makes memory seem to confer standing, thereby explaining the appeal of the later rejected analogy.
+  (A) example_promotion — It imports the rival trusteeship view into an example that precedes and merely motivates the analogy.
+  (C) example_promotion — It promotes a descriptive archival detail into a practical prescription absent from the passage.
+  (D) scope_inflation — The example suggests moral standing, not a general rule about enforceable rights or all procedures.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — This precisely restates the function assigned to the document in the opening paragraph.
+  (A) false_symmetry — The author later distinguishes praise from blame and rejects their simple advance application.
+  (B) framework_import — The passage mentions repair but supplies no compensation-and-reform balancing requirement.
+  (C) category_slip — Trustees belong to the later rival position concerning posterity, not the apology's described function.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — That paragraph identifies the distinction in who may speak and explains why anticipation governs while memory acknowledges.
+  (A) stage_misattribution — That qualified concession is developed later in the discussion of institutional action for absentees.
+  (C) stage_misattribution — The blue-box illustration occurs earlier and would remain available after the removal.
+  (D) stage_misattribution — That historical account appears in the following paragraph, not in the paragraph specified.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The author presents this as an attractive rival arrangement before exposing the limitation concealed by its scruple.
+  (B) adjacent_answer — This is part of the author's final account of differing backward and forward functions.
+  (C) adjacent_answer — This restates the author's concluding formulation of unequal permissions within the commonweal.
+  (D) adjacent_answer — This is the author's own contrast establishing nonreciprocity, not a reported position.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — This reverses the passage's premise that future persons cannot yet contest policies governing their conditions.
+  (A) passage_supported — The passage says constitutional speech can make public good sound like an office seal on negotiated outcomes.
+  (B) passage_supported — The author explicitly concedes that institutions routinely act for these absent persons.
+  (D) passage_supported — The historical paragraph explicitly describes older civic usage through roads maintained and poor relief administered.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — The passage initially makes memory and anticipation seem parallel, then distinguishes acknowledgment from governing unrepresented future persons.
+  (B) premature_closure — Vocabulary's breadth matters because representation remains unclear, not because civic language becomes unusable.
+  (C) framework_import — The passage never discredits the archive; it uses it to explain the analogy's moral appeal.
+  (D) stance_misread — The author calls such action often necessary and sometimes honourable, while denying symmetry.
+
+[Inspired by: "A Good Place to Lose Your Mind", https://www.commonwealmagazine.org/slater-last-word-aging-monastery]

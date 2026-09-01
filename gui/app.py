@@ -18,7 +18,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from rc_engine import config
-from rc_engine.providers import provider_key_present
+from rc_engine.providers import provider_key_present, provider_key_source
 
 from . import db
 from .jobs import MANAGER, PROJECT_ROOT
@@ -98,9 +98,16 @@ def api_settings():
              "models": config.PROVIDER_MODELS[p],
              "env_keys": list(config.PROVIDER_ENV_KEYS[p]),
              # presence booleans ONLY — key values never leave the server
-             "key_present": provider_key_present(p) is not None}
+             "key_present": provider_key_present(p) is not None,
+             # presence is NOT health: a revoked key looks identical to a good
+             # one, which is how a stale shadowing key stayed invisible until it
+             # 401'd mid-batch. Say where the key came from too.
+             "key_var": provider_key_present(p),
+             "key_source": provider_key_source(p)}
             for p in config.PROVIDERS
         ],
+        # non-empty => the environment is silently overriding .env
+        "key_conflicts": config.shadowing_conflicts(),
         "model_rates": {m: {"input": r[0], "output": r[1]}
                         for m, r in config.MODEL_RATES.items()},
         "tier_budgets": config.TIER_BUDGET_USD,

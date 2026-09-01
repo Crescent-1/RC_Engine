@@ -10,8 +10,8 @@ from . import config
 from .llm import CostLedger, extract_json
 from .models import Blueprint
 
-SOLVER_SYSTEM = """You are an expert CAT VARC solver operating at a 99.9 percentile level.
-You will receive a Reading Comprehension passage and 6 MCQs WITHOUT the answer key.
+SOLVER_SYSTEM = f"""You are an expert CAT VARC solver operating at a 99.9 percentile level.
+You will receive a Reading Comprehension passage and {config.QUESTIONS_PER_SET} MCQs WITHOUT the answer key.
 Solve honestly from the passage alone — reason from the text, do not guess what a
 test-setter would want.
 
@@ -21,7 +21,7 @@ Confidence definitions:
 - "torn": two options are genuinely defensible — name the rival in your reasoning
 
 Respond ONLY with valid JSON, no markdown fences:
-{"answers": [{"q": 1, "answer": "A", "confidence": "certain", "reasoning": "max 20 words"}, ...exactly 6...]}"""
+{{"answers": [{{"q": 1, "answer": "A", "confidence": "certain", "reasoning": "max 20 words"}}, ...exactly {config.QUESTIONS_PER_SET}...]}}"""
 
 
 def blind_solve(llm, ledger: CostLedger, bp: Blueprint, passage: str,
@@ -53,7 +53,8 @@ def blind_solve(llm, ledger: CostLedger, bp: Blueprint, passage: str,
                              "confidence": sa.get("confidence"),
                              "reasoning": sa.get("reasoning", "")})
     return {"verdict": "ok", "answers": parsed.get("answers", []),
-            "disputes": disputes, "comparable": len(answers) == 6}
+            "disputes": disputes,
+            "comparable": len(answers) == config.QUESTIONS_PER_SET}
 
 
 JUDGE_SYSTEM_TEMPLATE = """You are a strict, adversarial CAT VARC quality auditor. Assume the
@@ -113,11 +114,17 @@ def judge_rc(llm, ledger: CostLedger, bp: Blueprint, rc_text: str,
         dimensions=dim_lines, score_fields=score_fields,
         threshold=config.JUDGE_SCORE_THRESHOLD)
 
+    user = rc_text
     for attempt in range(config.MAX_JUDGE_ATTEMPTS):
         try:
             text, truncated = llm.call(ledger, "judge", model, max_tokens, system,
-                                       rc_text, context={"dimensions": list(dims)})
+                                       user, context={"dimensions": list(dims)})
             if truncated:
+                # Retrying the identical prompt at the identical ceiling would
+                # truncate identically — a guaranteed wasted call. Ask for a
+                # shorter body before spending the second attempt.
+                user = (rc_text + "\n\nYOUR PREVIOUS REPLY WAS CUT OFF. Emit the "
+                        "same JSON with every note at most 8 words.")
                 continue
             parsed = extract_json(text)
             if "average" in parsed and "verdict" in parsed:

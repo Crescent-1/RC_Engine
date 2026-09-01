@@ -1,0 +1,34 @@
+Selected 10 of 19 from post_housevoice_fix — 2026-08-22
+Screened on argumentative flow (not score) to eliminate structural repetition.
+Full rationale + rejection reasons: ../2026-08-22-rc-selection-shortlist.md
+
+rc_id                  tier    status          score  F1     novelty  screen
+-----------------------------------------------------------------------------
+RC-ELITE-260821-0048   elite   needs_review     8.6   0.740  0.504
+RC-ELITE-260821-0053   elite   approved         8.8   0.886  0.590
+RC-ELITE-260822-0061   elite   needs_review     7.6   0.770  0.595    red
+RC-HARD-260821-0052    hard    approved         8.6   1.000  0.585
+RC-HARD-260821-0056    hard    needs_review     8.6   0.925  0.547
+RC-HARD-260822-0059    hard    approved         8.4   0.837  0.546
+RC-MEDIUM-260822-0033  medium  needs_review     8.6   0.850  0.487
+RC-MEDIUM-260822-0034  medium  solver_dispute   0.0   0.850  0.565
+RC-MEDIUM-260822-0037  medium  needs_review     8.2   0.725  0.629    red
+RC-MEDIUM-260822-0039  medium  needs_review     8.2   0.950  0.561    red
+
+Pre-ship blockers:
+  1. RC-MEDIUM-260822-0034 carries solver_dispute — adjudicate the key first.
+     Likely friction: Q3(B) vs Q8(A), both turning on institutional force.
+  2. The tic "— no: more precisely," survives in 0033, 0034, 0037, 0039.
+     Strip or vary before shipping four papers that share a rhetorical hinge.
+  3. Only 0053, 0052, 0059 are approved; six are needs_review.
+  4. RC-MEDIUM-260822-0033 may be mis-tiered — conceptually closer to hard.
+
+Note: the "screen" column is not comparable across sets. Per _MANIFEST.txt the
+similarity screen only went live with the OpenAI sets, so blank = never screened,
+not passed. Red was NOT treated as a negative signal in this selection.
+
+Top alternate: RC-ELITE-260822-0057 (Halloran's ledger, approved, F1 0.933)
+  — swap for RC-ELITE-260822-0061 to trade architectural range for polish.
+Second alternate: RC-MEDIUM-260822-0038 (city lighting, F1 0.950)
+  — swap for RC-MEDIUM-260822-0037 to trade the normative-essay slot for the
+    corpus's only ecology passage.

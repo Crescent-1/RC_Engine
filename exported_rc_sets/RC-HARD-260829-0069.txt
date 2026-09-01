@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260829-0069 | Tier: hard | Score: 7.0 | Status: needs_review | Compliance F1: 0.922 | Novelty: 0.552 | Screen: green | Generated: 2026-08-29T15:21:29.424510+00:00
+======================================================================
+
+[PASSAGE]
+
+The term "genetic counselling" was coined in 1947 by Sheldon Reed at the Dight Institute in Minneapolis, and for the first two decades it named a plain activity. A counsellor sits with a couple. Their first child has phenylketonuria. He works the arithmetic — autosomal recessive, one in four — and then he tells them what he thinks they should do. Not coldly. He has read the file, he knows the mother is thirty-four, he knows what a second affected child would cost this household. He says it kindly and he says it clearly. The pedigree chart is drawn by hand on graph paper, squares and circles, and he turns it toward them so they can see. Nobody in the room thinks anything improper is happening. This was competent medicine, and by the standards of the day it was generous.
+
+Reopen the same file twenty years later and a second pattern is legible. The couple came back in 1954, and again in 1957, with the identical question. Each time the arithmetic was performed correctly. Each time the recommendation was the same, and each time it was delivered. What no page records is anyone asking the wife what she wanted, or whether the number meant to her what it meant to him.
+
+Through the 1960s the ground shifted underneath the practice without anyone quite moving: state sterilization statutes were repealed or quietly stopped being enforced, newborn PKU screening spread from Massachusetts outward, chromosomal diagnosis of Down syndrome became routine, and — less visibly at first — parents began to write things down. Some of them were the grown children of the earlier era's patients. Their letters and testimony describe being directed out of parenthood by men who had shown them a fraction and never taught them how to hold it; one in four, and no account of what the other three would have been. Here the old camps hardened. The Minneapolis school held that a trained man who withholds his judgment is withholding the only thing he has. The critics answered that a recommendation offered with a pedigree chart is not advice but instruction.
+
+By the early 1970s the ethics discussions inside the American Society of Human Genetics were using "genetic counselling" in a second sense, and the two senses could not be reconciled. Counselling now meant: give the information, decline the recommendation. So the phrase had been carrying two opposed jobs all along. Not a practice that reformed itself — rather a word that changed employers.
+
+Which is the vantage from which the whole sequence has to be read. The mid-1970s consensus statements made non-directiveness a professional norm, and I grant them their best day: the norm is honest about what the counsellor cannot know. But consider a dinner host who insists guests serve themselves, having decided what is on the table, in what order the dishes arrive, and which of them sits within reach. The counsellor must still choose which risk to raise first, how long to dwell on it, whether to mention the one-in-four before or after the description of what phenylketonuria does to an untreated child. Those choices steer. They are simply no longer called steering. I may be missing something, but the tidy verdict — old advice bad, new silence good — will not survive the graph paper, still in the folder, still turned toward the couple.
+
+[QUESTIONS]
+
+Q1. The primary purpose of the passage is to:
+(A) trace how one term came to serve two opposed jobs, and question the comfort of the resulting verdict
+(B) recount the institutional history of medical genetics from Reed's Dight Institute through the mid-1970s consensus statements on professional practice
+(C) show that the earlier directive counsellors acted from ignorance and self-regard, thereby vindicating the non-directive standard now in force
+(D) argue that counsellors should abandon non-directiveness and return to offering candid recommendations backed by their professional training
+
+Q2. In context, the claim that the phrase "had been carrying two opposed jobs all along" most nearly means that:
+(A) counsellors of the 1950s privately doubted their recommendations even while continuing to deliver them to families each visit
+(B) the same term named directive advising and its refusal, so continuity of the word masked a break in the practice
+(C) the earlier counsellors were performing two distinct tasks, calculating risk and giving advice, in a single consultation session
+(D) the profession finally resolved the long-running conflict between paternalistic medicine and patient autonomy in favour of the latter
+
+Q3. Regarding the practice of the first two decades after 1947, the author asserts that:
+(A) it was widely regarded as improper by contemporaries, whose objections the Minneapolis school answered with appeals to professional training
+(B) it was competent medicine, judged generous by the standards then prevailing, though no record shows the wife being asked
+(C) its arithmetic was frequently miscalculated, which is why the grown children of those patients later wrote letters of complaint
+(D) it already meant conveying the arithmetic while withholding any recommendation, a discipline that later consensus statements simply codified
+
+Q4. Which one of the following, if true, would most support the claim made in the final paragraph?
+(A) Professional consensus statements of the mid-1970s were drafted largely by geneticists rather than by any of the affected families
+(B) Counsellors trained after 1975 report far greater personal discomfort when a patient directly asks them what they would themselves do
+(C) Couples given the same risk figure chose differently depending on whether the disorder's effects were described before or after the number
+(D) Many families in the 1950s later said they had felt directed out of parenthood by counsellors who showed them only a fraction
+
+Q5. Had the author omitted the dinner-host comparison in the final paragraph, the passage's central claim would:
+(A) shift its target from professional norms onto the personal motives of individual counsellors working with families
+(B) lose its mechanism for showing that a freely chosen decision can be shaped by whoever arranges the options
+(C) still stand intact, because the historical account of the term's two employers already establishes everything the author wants
+(D) become an unqualified endorsement of the mid-1970s consensus, since nothing else in the passage questions non-directiveness at all
+
+Q6. "A word that changed employers" most nearly means:
+(A) a term retained while the interests it served were replaced, so its stability concealed a reversal
+(B) a term gradually refined by practitioners until it captured what counselling had in fact always involved
+(C) a term whose users migrated from one professional institution to another over the course of two decades
+(D) a term borrowed from an older discipline and applied to newly available diagnostic and screening technologies
+
+Q7. The passage as a whole is best understood as an attempt to:
+(A) establish that non-directive counselling is ethically indefensible and ought to be replaced by candid professional recommendation
+(B) adjudicate between the Minneapolis school and its critics by weighing the evidence that each camp assembled during the 1960s
+(C) unsettle a settled moral verdict by showing that the reform renamed steering rather than removing it
+(D) document the technical advances in screening and chromosomal diagnosis that made older counselling arrangements obsolete in practice
+
+Q8. The passage stops where it does in order to:
+(A) concede that the author's own case remains speculative, given the admission that something important may have been missed
+(B) close the historical narrative at the point where the profession's two rival senses were finally reconciled in norms
+(C) recommend that counsellors resume drawing pedigree charts by hand so that families can see the reasoning directly
+(D) leave the graph paper unresolved, so the reader carries the older scene into any judgment of current practice
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — The passage moves from Reed's directive practice through the 1960s pressures to the 1970s redefinition, then uses the dinner-host image to unsettle the new norm's self-description.
+  (B) half_truth — The history is the vehicle, not the aim; the last paragraph converts it into an argument about concealed steering.
+  (C) prior_belief — The author calls the 1947 practice competent and generous, and refuses the tidy verdict that old advice was bad and new silence good.
+  (D) stance_misread — The author grants the norm its best day and never recommends reverting to explicit directive advice.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — Paragraph 4 says the two senses could not be reconciled, and that this was a word changing employers rather than a practice reforming itself.
+  (A) stage_misattribution — Paragraph 2 records no doubt among counsellors, only that nobody asked the wife what she wanted.
+  (C) level_confusion — The two jobs belong to the word's rival meanings across eras, not to two tasks within one 1950s consultation.
+  (D) framework_import — The passage declines to let the story settle into that resolved debate; paragraph 5 reopens it by showing steering persists.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — Paragraph 1 calls it competent and generous by the day's standards; paragraph 2 notes no page records anyone asking the wife what she wanted.
+  (A) stage_misattribution — Paragraph 1 says nobody in the room thought anything improper was happening; the camps harden only in the 1960s.
+  (C) causal_inversion — Paragraph 2 states the arithmetic was performed correctly each time; the complaint concerned direction, not error.
+  (D) prior_belief — The counsellor told couples what he thought they should do; the no-recommendation sense arrives only in the early 1970s.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — The final paragraph's load-bearing claim is that ordering and emphasis steer; evidence that sequence alters decisions establishes exactly that.
+  (A) missing_link — Authorship of the statements says nothing about whether the resulting practice covertly directs choices.
+  (B) adjacent_answer — Discomfort about being asked shows the norm is felt as binding, not that presentation choices steer outcomes.
+  (D) stage_misattribution — This supports the paragraph-three critics about the old era, not the claim that current non-directive practice still steers.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The host image supplies the concrete model of constrained choice that lets the author convert 'give information, decline recommendation' into disguised steering.
+  (A) level_confusion — The author's target is structural throughout; removing an analogy would not relocate the critique to motives.
+  (C) half_truth — Paragraph four ends the history; the fifth paragraph adds a further claim about present practice that the image carries.
+  (D) premature_closure — The paragraph independently lists ordering and dwelling choices as steering, so the critique would survive the image's removal.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The phrase is set against 'not a practice that reformed itself': the label persisted while its work passed to an opposed commitment.
+  (B) prior_belief — The author explicitly denies gradual self-reform and says the two senses could not be reconciled.
+  (C) phrase_misuse — 'Employers' is figurative for the commitments the word serves, not literal institutions such as the Dight Institute.
+  (D) framework_import — Reed coined the term for this field in 1947; nothing suggests borrowing from an older discipline.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — The whole sequence is presented as the vantage from which the final paragraph rejects 'old advice bad, new silence good' while conceding the norm's honest core.
+  (A) moderate_extremism — The author grants the norm its best day and claims only that its self-description is incomplete.
+  (B) straw_version — The author does not decide that dispute; paragraph three reports the hardening and then moves past it.
+  (D) half_truth — Those advances appear as background shifts in paragraph three, not as the passage's object of concern.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — The closing image returns the 1947 chart, still turned toward the couple, refusing the tidy verdict and displacing the question onto present-day practice.
+  (A) stance_misread — 'I may be missing something' is a courtesy before a firm claim that the tidy verdict will not survive.
+  (B) premature_closure — The passage states the two senses could not be reconciled, and the ending reopens rather than closes the account.
+  (C) phrase_misuse — The graph paper functions as an emblem of persistent direction, not as a procedural recommendation about charts.
+
+[Inspired by: "Sometimes, the road to virtue comes by way of vice", https://psyche.co/ideas/sometimes-the-road-to-virtue-comes-by-way-of-vice]

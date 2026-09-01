@@ -1,4 +1,4 @@
-RC ID: RC-ELITE-260707-0022 | Tier: elite | Score: 8.8 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.714 | Generated: 2026-07-07T21:11:05.200728+00:00
+RC ID: RC-ELITE-260707-0022 | Tier: elite | Score: 8.8 | Status: approved | Compliance F1: 1.0 | Novelty: 0.714 | Generated: 2026-07-07T21:11:05.200728+00:00
 ======================================================================
 
 [PASSAGE]

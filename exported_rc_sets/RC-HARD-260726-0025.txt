@@ -1,0 +1,90 @@
+RC ID: RC-HARD-260726-0025 | Tier: hard | Score: 8.4 | Status: approved | Compliance F1: 1.0 | Novelty: 0.581 | Generated: 2026-07-26T13:26:27.469674+00:00
+======================================================================
+
+[PASSAGE]
+
+In a rented parish hall in Dunstable, a choir of about sixty rehearsed on Tuesdays for eleven years and sounded, by the account of most of its own members, thin. Flat on descending lines. Sopranos scooping. Then, at a Christmas concert in what members remember as the twelfth year, the sound arrived — round, in tune, frighteningly quiet where quiet was asked for. Members have explanations, and they are good stories. The new conductor, they say, has an ear that catches a sixteenth of a semitone. An alto joined from a cathedral choir and the section reorganised itself around her. The hall was reroofed and someone stripped the felt from the rear wall, and after that the sound simply came back at them.
+
+Each of these can be checked, and the checking is unkind. Parish records date the conductor's appointment two years and four months before the concert, which is to say she directed roughly ninety rehearsals during the thin period, and no one recalls those years as promising. The alto's first attendance is logged in a term when amateur recordings — phone recordings, poor ones, but adequate for pitch analysis — already show measurable narrowing of intonation spread. The roof work postdates all of it. What the timeline permits is not a smaller version of the same story, a slower conductor effect, a delayed catalysis; it forbids catalysis as a category, because for each candidate cause the improvement is already underway when the cause arrives.
+
+What we can document, from attendance books and from what perhaps a dozen members will say when asked directly, is duller. Somewhere in the eighth or ninth year, singers began arriving early and holding intervals against a tuning drone from a phone speaker on the piano lid. Two did it, then five, then most of the tenors. No one called a meeting. No one proposed it. The habit spread by the ordinary mechanism of watching someone else do something and doing it too. Whether this generalises to smaller ensembles, or to choirs organised around soloists, we have no evidence either way — but the absence of evidence elsewhere does not soften what the Dunstable case shows, which is a transformation with no author.
+
+So the question that matters is not what happened there. It is what a choirmaster elsewhere is supposed to do with it. There is no event to import. No person to hire. No room to book. The fifteen-minute drone habit can, of course, be instituted from the front of the room on a Tuesday — and instituted habits are a different object from grown ones, because the thing that made Dunstable work was that each singer had, over three or four years, privately internalised a reference pitch, which is not a policy but a slow change in what a body finds normal. It cannot be scheduled. It cannot be audited quarterly. And nobody can be thanked for it. Ask who did this and the honest answer distributes across sixty people and eleven years, which is to say it lands on no one. That parish hall in Dunstable, the one where the sound suddenly arrived, is not a place where something happened; it is a place where nothing sufficiently large happened for long enough that the sound had no choice.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central thesis of the passage?
+(A) Slow collective habits outperform deliberate leadership interventions, which is why choirs should stop hiring conductors and let practice norms grow.
+(B) The conductor's influence was real but began much earlier than members suppose, so credit belongs to her ninety unremembered rehearsals rather than to the concert year.
+(C) A real transformation can have no author, and therefore nothing that another group can import.
+(D) Members of institutions systematically misremember their own histories, and only documentary records can correct the flattering narratives they build.
+
+Q2. Regarding the drone habit described in the third paragraph, the passage asserts that:
+(A) it began among the tenors, who first held intervals against the drone and then persuaded the other sections to join them.
+(B) it works only in choirs of moderate size that are not organised around dominant soloists, as the author carefully concedes.
+(C) it was introduced during the eighth or ninth year by singers who had been trained in cathedral choirs elsewhere.
+(D) it spread by imitation without any meeting, proposal, or decision behind it.
+
+Q3. What is the structural function of the final sentence, which returns to the parish hall 'where the sound suddenly arrived'?
+(A) It restates the opening image in order to strip it of the event-shape that made it feel importable.
+(B) It concedes that the members' original stories were partly accurate, since the sound did in fact arrive at a particular concert.
+(C) It ends on an encouraging note, since any choirmaster who begins the fifteen-minute drone habit next Tuesday has already started down the same road.
+(D) It shifts the passage's attention from the Dunstable choir to the general conditions under which any amateur ensemble can improve its intonation over time.
+
+Q4. In context, the claim that the timeline 'forbids catalysis as a category' most nearly means that:
+(A) the amateur phone recordings are too imprecise to establish when any of the three changes actually took effect.
+(B) the conductor, the alto, and the roof each contributed too little individually to account for a change of that magnitude on its own.
+(C) the effects of the three named causes were delayed, so a slower version of the same explanation still holds.
+(D) no arriving cause can be the trigger, because the improvement precedes every candidate's arrival.
+
+Q5. The passage's move from the checked timeline to the conclusion that Dunstable offers a choirmaster nothing to import depends on which unstated assumption?
+(A) What produced the change was a private shift in each singer's sense of normal pitch, not the observable practice itself.
+(B) Transformations of this kind occur only in ensembles large enough that no individual member's contribution can be separately identified and credited.
+(C) Any practice that a leader introduces from the front of the room will be resisted by singers who did not choose it themselves.
+(D) Documentary sources such as attendance books and parish records are more reliable guides to causation than the recollections of participants.
+
+Q6. A hospital ward's infection rate falls sharply over four years. Staff credit a new protocol and a senior nurse's arrival, but logs show the decline was already steady before both. Audit notes record that gowning at the door, adopted by two nurses and then by nearly everyone, had become automatic well earlier. Which reading best follows the passage's reasoning?
+(A) Since the protocol and the nurse both arrived late, their real contribution was to consolidate and formalise a gain that the ward had already achieved on its own.
+(B) Other wards should adopt the gowning rule at once, since the Dunstable case shows that small shared routines reliably produce large improvements over several years.
+(C) The decline had no author, so another ward can copy the gowning rule but not the reflex it became.
+(D) The audit is unreliable, because a change with no identifiable author cannot be documented well enough to support any conclusion about its cause.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Paragraph 2 forbids catalysis as a category, paragraph 3 documents an unauthored habit, and paragraph 4 converts that finding into the problem of non-transferability — the passage's arc from debunking to consequence.
+  (A) straw_version — Paragraph 4 says grown habits differ from instituted ones, not that leadership is inferior or dispensable in choral training.
+  (B) moderate_extremism — It converts the timeline's refutation in paragraph 2 into a milder rescue of the conductor, though the text says improvement precedes each candidate cause.
+  (D) scope_inflation — It promotes the local checking of three explanations in paragraph 2 into a general claim about institutional memory that the passage never argues.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 states directly that no one called a meeting or proposed it and that the habit spread by watching someone else do something and doing it too.
+  (A) half_truth — The passage says two did it, then five, then most of the tenors — the tenors are a late stage, not the origin, and nobody persuades anyone.
+  (B) overqualification — Paragraph 3 says there is no evidence either way about smaller or soloist-led ensembles, which is not a concession that the habit fails there.
+  (C) stage_misattribution — The cathedral alto belongs to the debunked explanations of paragraphs 1 and 2, and is never linked to the origin of the drone practice.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — The closing sentence reverses paragraph 1's 'the sound arrived' by denying that anything happened there, sealing paragraph 4's argument that there is no event to import.
+  (B) premature_closure — The sentence denies that a locatable happening occurred; the concert is when the change became audible, not when it was caused.
+  (C) moderate_extremism — Paragraph 4 explicitly distinguishes instituted habits from grown ones, so the ending names a cost rather than offering a usable recipe.
+  (D) scope_inflation — Paragraph 3 refuses generalisation to other ensembles, and the last line stays fixed on this one hall rather than widening outward.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — The clause immediately following supplies the reason — for each candidate cause the improvement is already underway when the cause arrives — so the objection targets the trigger model itself, not any one trigger.
+  (A) half_truth — Paragraph 2 calls the recordings poor but adequate for pitch analysis, using them as evidence rather than doubting their sufficiency.
+  (B) moderate_extremism — The passage rules out these causes by chronology, not by weighing their magnitude, and never suggests small contributions summing to the change.
+  (C) adjacent_answer — The passage names 'delayed catalysis' precisely as what the timeline does not permit, rejecting the slower version of the story.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — Paragraph 4 treats the drone as institutable while denying transferability, which holds only if the causally operative thing was the slowly internalised reference pitch rather than the visible routine.
+  (B) scope_inflation — Paragraph 3 declares the evidence silent on smaller ensembles, so no size requirement is assumed anywhere in the argument.
+  (C) missing_link — The passage distinguishes instituted from grown habits by how the change was acquired, never by predicting resistance to leaders' proposals.
+  (D) level_confusion — This premise supports the paragraph 2 debunking but not the paragraph 4 conclusion about what another choirmaster can borrow.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — This maps the passage's two moves: the timeline rules out arriving causes as triggers, and the operative thing was an internalised habit that is institutable in form but not in substance.
+  (A) causal_inversion — The passage never grants consolidating roles to late arrivals; it drops them from the causal account once the chronology fails.
+  (B) framework_import — The passage refuses to generalise beyond its single case and separates an instituted rule from the slow internalisation that did the work.
+  (D) moderate_extremism — Paragraph 3 documents the unauthored habit from attendance books and interviews, treating authorlessness as a finding rather than a documentary failure.
+
+[Inspired by: "The Hidden Grief of American Musicals", https://daily.jstor.org/the-hidden-grief-of-american-musicals/]

@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260821-0050 | Tier: elite | Score: 8.6 | Status: needs_review | Compliance F1: 0.74 | Novelty: 0.517 | Generated: 2026-08-21T18:34:38.960081+00:00
+======================================================================
+
+[PASSAGE]
+
+The story always has the same shape. A grandmother saw him across a church hall in 1961 and told her sister that night. Three weeks to the engagement, fifty-four years to the funeral. Every family keeps one of these. The aunt who married a man she'd known nine days; the cousin who broke off a sensible engagement to a dentist because something in her chest said no, and who now has four children with the man she met the following spring. Against this: the friend who has been on the apps for six years, filtering by height, politics, smoking status, desired number of children, and who has learned to conduct a first date like a hiring panel. She is exhausted. She is also single. The folklore draws the obvious conclusion. Chemistry does not lie. The body knows something the questionnaire cannot ask about, some fast subterranean reading of gait and smell and timing, and the checklist people are simply deaf to it. They are trying to hear a chord by reading the score. And the evidence, such as it is, arrives ready-made in anecdote: the ones who just knew are still married, and the ones who audited are still auditing.
+
+Two claims are being sold here as one. The first is that choosing on feeling tends to go well. The second is that it goes well because feeling is a scanner — an instrument tuned by evolution to detect a particular person's suitability. Only the first has anything going for it. The advice can be sound while every reason anyone gives for it is false, which is a more common arrangement than the people giving reasons would like.
+
+And the first claim does hold up tolerably well. People who report choosing on conviction rather than criteria are not, in the aggregate, worse off ten years on; on several measures they do slightly better. Whatever the mystical machinery underneath, the outcome column is not embarrassing. That much survives the audit, and it is worth keeping.
+
+Who pays for the survival, though, and what account is it drawn on? Three candidates present themselves, none flattering to instinct. Commitment: the woman who felt certain has staked more on being right and works harder to make it so — the outcome is bought, not detected. Narrative: satisfied spouses reconstruct their courtship, and the certainty they remember at the church hall in 1961 may be a satisfaction from 1994 filed under an earlier date. Filtering: the ones who felt certain and were wrong left quietly and are not in the sample. Any of the three would produce the correlation without instinct doing any perceptual work at all. The trouble is that the evidence does not choose among them, and cannot yet — the studies that would separate commitment effects from detection effects would need decades and a control group nobody will volunteer for. So the belief stands and its mechanism does not, and there is no honest way to say how much confidence should transfer. Grandmothers have always said you'll know it when you feel it, and the sentence is still worth repeating, provided one hears knowing as a debt to be paid rather than a fact received.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) The folk advice to trust conviction survives scrutiny, but every explanation offered for why it works remains unsupported by available evidence.
+(B) Romantic instinct is a genuine perceptual faculty, tuned by evolution, that reads a partner's suitability faster than any deliberate checklist can manage.
+(C) Because commitment, memory and survivorship each explain the correlation, the advice to choose on feeling should be quietly retired as folklore.
+(D) Checklist-based partner selection fails because it converts courtship into an audit, which exhausts participants and screens out the very chemistry it seeks.
+
+Q2. The finding that people who choose on conviction are 'not, in the aggregate, worse off ten years on' functions in the passage to:
+(A) establish that choosing on feeling causally produces the better long-run outcomes.
+(B) suggest that questionnaire-based matching methods perform measurably worse over comparable periods.
+(C) expose the anecdotes of paragraph one as statistically unrepresentative and largely unreliable.
+(D) grant the outcome claim while leaving entirely open what produces the outcome.
+
+Q3. Which one of the following best explains why the impression created early in the passage does not survive the argument?
+(A) The anecdotes support that feeling-based choices end well, but not the further claim that feeling perceived anything.
+(B) Once commitment, memory and survivorship are named, the original advice stands revealed as lucky rather than sound.
+(C) The anecdotes are drawn from families who remember only their successes, so the whole outcome pattern collapses.
+(D) The exhausted app user shows that criteria-based choosing works slowly, so the contrast with instinct was overdrawn.
+
+Q4. The author uses the word 'scanner' to mean:
+(A) a habit of rapid judgement that most people acquire through repeated courtship experience.
+(B) a memory process by which spouses later locate certainty at the moment of meeting.
+(C) an instrument that detects a specific person's fitness before reasoning arrives.
+(D) an emotional commitment strong enough to make the chosen relationship succeed afterwards.
+
+Q5. Which one of the following research findings, if true, would most weaken the author's conclusion in the third paragraph?
+(A) Physiological arousal at first meeting predicts nothing about later reported marital satisfaction levels.
+(B) Spouses interviewed at year ten misdate their first certainty by an average of several years.
+(C) Ten-year outcome surveys reach only intact couples, and conviction-choosers dissolve unions far earlier than criteria-choosers.
+(D) Couples who felt certain report investing more effort in repair after conflicts than other couples.
+
+Q6. In context, the claim that the advice can be sound 'while every reason anyone gives for it is false' most nearly means that:
+(A) a recommendation may reliably lead somewhere good even when its stated justification misdescribes the process entirely.
+(B) a recommendation retains its force only until someone produces a demonstrably accurate account of its workings.
+(C) the folk maxim about knowing survives because its vagueness makes it impossible to test properly.
+(D) people who give reasons for their advice are usually less trustworthy than those who simply act.
+
+Q7. Which one of the following would best license the author's inference that instinct may be doing no perceptual work?
+(A) Couples who felt certain describe their first meeting in unusually vivid and consistent sensory detail.
+(B) People rating strangers on brief exposure agree with one another about who seems trustworthy.
+(C) Interviewed decades later, most spouses say their initial certainty proved substantially accurate about the partner.
+(D) Randomly assigned couples told they were exceptionally well matched later showed the same outcome advantage.
+
+Q8. According to the passage, why can the evidence not yet decide among commitment, narrative and filtering?
+(A) Satisfied spouses misremember their courtships, making all self-reported evidence about outcomes unusable.
+(B) Researchers have consistently preferred the detection account and neglected the three rival explanations.
+(C) The studies capable of separating them would demand decades and an unavailable control group.
+(D) Each explanation predicts a different correlation, and existing surveys measure only one of them.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Integrates the paragraph-2 split (advice sound, reasons false), the paragraph-3 concession, and the paragraph-4 undecided mechanisms.
+  (B) category_slip — This is the second claim the author explicitly refuses in paragraph 2; the essay defends outcomes, not detection.
+  (C) premature_closure — Paragraph 4 says the evidence cannot choose among the three, and the sentence remains 'worth repeating'.
+  (D) example_promotion — The exhausted app user is an opening illustration of folklore's rhetoric, not the essay's own explanatory claim.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 concedes the first claim ('that much survives the audit') and paragraph 4 immediately asks who pays for the survival.
+  (A) missing_link — Correlation is conceded, but paragraph 4 offers three non-perceptual routes to the same correlation.
+  (B) scope_inflation — The passage says conviction-choosers do slightly better on several measures, not that criteria-based methods measurably fail.
+  (C) adjacent_answer — The data confirms rather than debunks the anecdotal outcome pattern; the debunking targets the explanation.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — Paragraph 2 separates the two claims sold as one, and only the outcome claim survives the audit.
+  (B) missing_link — Paragraph 4 leaves the mechanisms undecided and still endorses repeating the maxim, so soundness is not withdrawn.
+  (C) scope_inflation — Survivorship is one candidate explanation among three, not a demonstrated collapse of the outcome data.
+  (D) example_promotion — The passage never claims criteria eventually work; the app user illustrates folklore's framing, not a timing argument.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — Paragraph 2 glosses it as 'an instrument tuned by evolution to detect a particular person's suitability'.
+  (A) category_slip — The claim under examination is evolutionary and perceptual, not a learned skill built by practice.
+  (B) stage_misattribution — This is the narrative candidate in paragraph 4, not the meaning of the scanner metaphor in paragraph 2.
+  (D) terminological_twin — That describes the commitment explanation of paragraph 4, which the author offers as an alternative to detection.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — Paragraph 3 concedes the outcome column is 'not embarrassing'; showing the sample excludes early failures removes that concession's basis.
+  (A) missing_link — This undercuts the scanner claim of paragraph 2, which the author never endorsed anyway.
+  (B) level_confusion — Misdated certainty attacks the detection mechanism the author already doubts, not the paragraph-3 outcome claim.
+  (D) causal_inversion — This supports the commitment explanation the author raises, leaving the conceded outcome correlation intact.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — Paragraph 2 separates the outcome claim from the mechanism claim, and paragraph 4 keeps the first while suspending the second.
+  (B) nec_suff_swap — The author's point is that soundness never depended on the account; correct explanation is not a threat to it.
+  (C) half_truth — The maxim survives on outcome data in paragraph 3, not on being unfalsifiable or conveniently vague.
+  (D) straw_version — The remark concerns the logical independence of advice and justification, not the reliability of reason-givers as persons.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — It shows the outcome advantage arises where no detection occurred, supporting commitment or belief rather than perception.
+  (A) adjacent_answer — Vivid recall is compatible with retroactive narrative and does nothing to separate detection from its alternatives.
+  (B) category_slip — Consensus about strangers concerns general impressions, not detection of a particular person's suitability for oneself.
+  (C) causal_inversion — Self-reported accuracy is exactly the testimony paragraph 4 suspects of being reconstructed after the fact.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — Paragraph 4 states the separating studies 'would need decades and a control group nobody will volunteer for'.
+  (A) scope_inflation — Narrative reconstruction is one candidate mechanism, not a general disqualification of the outcome evidence.
+  (B) framework_import — No claim about researcher bias appears; the obstacle described is design feasibility, not disciplinary preference.
+  (D) half_truth — The passage says any of the three would produce the same correlation, not divergent ones.
+
+[Inspired by: "Student of Desire", https://thepointmag.com/criticism/student-of-desire/]

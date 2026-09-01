@@ -1,0 +1,114 @@
+RC ID: RC-HARD-260819-0050 | Tier: hard | Score: 8.6 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.559 | Generated: 2026-08-19T14:30:32.594237+00:00
+======================================================================
+
+[PASSAGE]
+
+In 1948, working out of Bell Labs, Claude Shannon set down what a signal is. Not a metaphor. A quantity. A signal was whatever passed through a channel and could be measured against the static that also passed through it. Noise had a number. The signal-to-noise ratio was that number made into a fraction. Everything was bounded: a sender, a receiver, a channel with finite capacity. Nothing floated free. You could compute the thing or you could not, and if you could not, you were not yet talking about signals in any sense Shannon would have recognized.
+
+The word did not stay in the channel. Cybernetics carried it into the study of feedback and control; from there it drifted into economics, where a diploma became a signal of unobserved ability, and into sociology, where almost any gesture could be read as one. By the time it reached the columnists and the dating manuals, the mathematics had fallen away entirely. People spoke of sending a signal, of separating signal from noise in a news cycle, without any channel in view and no ratio anyone could name. Granted, the popular sense keeps none of Shannon's arithmetic — and yet it holds onto the one discipline that mattered underneath the arithmetic, the habit of asking what, in a given wash of input, actually carries information, and what is merely the clutter that arrives alongside it. That question survives the loss of its equations.
+
+Consider the harder cases. A man reads his partner's curt reply and announces that it is a signal — of what, he is certain, though he could not say which channel he means or how curtness on a bad day differs from curtness that means something. Or the analyst who watches a stock tick upward and calls it a strong signal, a strong buy, with no denominator anywhere, no noise estimated, no baseline against which strength could be judged. The vocabulary is technical. The procedure is a hunch. What looks like measurement is closer to an intuition wearing a borrowed coat.
+
+It would be easy to stop there, with the coat and the hunch, and call the whole thing empty borrowing. I don't think that is quite right. Even the analyst with no denominator has been made to do one thing by the word he chose: he has committed himself to the claim that the tick is a pattern and not a coincidence. That is a distinction, and holding it costs something. To call an event a signal is to promise, however loosely, that it would recur, that it points beyond itself. Most talk asks for no such promise. So the popular usage does perform labor — thinner than Shannon's, unmeasured, often self-flattering, but not nothing. To close the account now, before that survival is weighed, would be to mistake the loss of the mathematics for the loss of the work. Who is to blame for the drift hardly matters; the word passed through too many hands to pin. What matters is that something small and real crossed over intact, worn down but still asking the one question it was built to ask, if we are patient enough to hear it doing so.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) A precise technical term inevitably decays as it travels across disciplines, until only an empty vocabulary of borrowed prestige remains.
+(B) Information theory supplies the only rigorous definition, so lay talk of signals should be regarded as corruption of a precise term.
+(C) Though popular usage discards Shannon's mathematics, it preserves the one real discipline the word was built to enforce.
+(D) The migration of Shannon's term into economics and sociology shows how mathematics loses rigor whenever specialists lend words to columnists.
+
+Q2. What does the passage's final sentence accomplish?
+(A) It concludes that the popular sense is finally indistinguishable from the noise it once was built to filter out.
+(B) It settles the debate definitively by proving the lay usage performs exactly the labor Shannon's arithmetic once performed.
+(C) It affirms that a diminished but genuine function crossed over, leaving the reader to keep listening for it.
+(D) It condemns the careless hands that wore the term down and demands we restore its lost mathematical rigor.
+
+Q3. In the context of the passage, "an intuition wearing a borrowed coat" is best understood as:
+(A) a hunch dressed in technical vocabulary that lends it an unearned air of measurement.
+(B) a deliberate fraud in which analysts knowingly disguise guesses as rigorous quantitative findings.
+(C) a metaphor showing the term retains full mathematical content even without any computed ratio.
+(D) an empty status-borrowing that proves the popular concept has nothing real left in it.
+
+Q4. Regarding Shannon's 1948 formulation described in the passage, the author asserts that:
+(A) signals could float free of any channel provided their information content stayed high.
+(B) a signal was a measurable quantity bounded by sender, receiver, and a finite channel.
+(C) the signal-to-noise ratio was a useful metaphor rather than a strictly computed fraction.
+(D) a signal was any meaningful gesture that a receiver could plausibly interpret as intentional.
+
+Q5. The author of the passage is likely to disagree with which one of the following statements?
+(A) The popular sense of signal keeps none of Shannon's original arithmetic intact.
+(B) Once the arithmetic is gone, calling something a signal accomplishes no real cognitive work at all.
+(C) To call an event a signal is to promise, however loosely, that it points beyond itself.
+(D) The analyst who calls a tick a signal commits himself to treating it as a pattern.
+
+Q6. Which one of the following situations is most analogous to the mechanism the author defends in the passage?
+(A) A marketer calls an ordinary product 'revolutionary' purely to borrow prestige it has not earned.
+(B) A translator abandons a foreign idiom entirely because no equivalent phrase exists in the target language.
+(C) A doctor without lab tests calls a symptom a 'red flag,' thereby committing to its pointing past itself.
+(D) A physicist derives a precise constant and reports it with its full margin of measured error.
+
+Q7. What is the structural function of the sentence "It would be easy to stop there, with the coat and the hunch, and call the whole thing empty borrowing"?
+(A) It restates the analyst example so the reader recalls how unmeasured the popular usage is.
+(B) It concedes a minor point before the author returns to defending Shannon's original arithmetic.
+(C) It delivers the author's final judgment that the term has decayed into empty status-borrowing.
+(D) It names the tempting verdict in order to set up the author's refusal of it.
+
+Q8. Which one of the following, if true, would most support the claim in the final paragraph that the popular usage still performs real work?
+(A) Studies show most casual uses of 'signal' occur in dating advice and market punditry.
+(B) Analysts who say 'strong signal' almost never compute any denominator or estimate the noise.
+(C) The mathematical definition of signal remains standard within engineering and communication theory.
+(D) Speakers who call an event a signal reliably expect it to recur, unlike those who merely note it.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates the paragraph-2 concession that arithmetic is lost with the paragraph-4 insistence that a small, real function survives.
+  (A) premature_closure — Stops at the 'coat and hunch' verdict the author names easy and then refuses in paragraph 4.
+  (B) prior_belief — The trap a reader steeped in information theory expects; the author explicitly rejects calling the drift empty borrowing in paragraph 4.
+  (D) example_promotion — Elevates the migration examples of paragraph 2 into the thesis, missing the survival argument that governs the whole.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — Matches the resolved tension plus held aperture: survival is asserted, yet the task of hearing it is handed forward.
+  (A) stance_misread — Inverts the closing claim that something real 'crossed over intact,' still asking its question.
+  (B) scope_inflation — Overstates the survival, which paragraph 4 calls 'thinner than Shannon's, unmeasured,' not equivalent.
+  (D) framework_import — Imports a purity-vs-corruption verdict; the passage says blame 'hardly matters' and never calls for restoration.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — Directly renders paragraph 3's contrast between technical wording and mere hunch, the 'borrowed coat' being the borrowed terminology.
+  (B) scope_inflation — Adds knowing deceit; the passage describes self-flattery and hunch, not conscious fraud.
+  (C) half_truth — Contradicts the phrase's point: the coat is borrowed precisely because the arithmetic is gone.
+  (D) prior_belief — The dismissal the vivid examples invite, but paragraph 4 explicitly denies the usage is 'nothing.'
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — Restates paragraph 1's insistence that everything was bounded and the thing was computable, not a metaphor.
+  (A) stance_misread — Paragraph 1 states plainly that 'nothing floated free' in Shannon's account.
+  (C) phrase_misuse — Paragraph 1 says 'Not a metaphor' and calls the ratio a number made into a fraction.
+  (D) framework_import — Imports the sociological reading of paragraph 2 into Shannon's definition, which required computation.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — Contradicts the author's core claim in paragraph 4 that the usage 'does perform labor,' 'not nothing.'
+  (A) passage_supported — The author grants exactly this at the start of paragraph 2's turn.
+  (C) passage_supported — This is stated directly by the author in paragraph 4.
+  (D) passage_supported — This is the author's own point in paragraph 4 about the labor the word forces.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — Mirrors the surviving discipline: no measurement, yet the word forces a claim that the event recurs and points beyond.
+  (A) prior_belief — Pure empty borrowing, the verdict the author explicitly declines to rest with in paragraph 4.
+  (B) category_slip — Depicts total loss, whereas the author's point is that something crossed over intact.
+  (D) false_symmetry — This is Shannon's rigorous side, not the stripped-down survival the author is analyzing.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — This is the pivot: it flags premature closure precisely so the following sentences can overturn it.
+  (A) adjacent_answer — Describes summary content, not the turn the sentence performs toward rebuttal.
+  (B) framework_import — The author never returns to defend the arithmetic; the concession sets up defending the survival.
+  (C) stance_misread — The very next sentence, 'I don't think that is quite right,' rejects this as the verdict.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — Directly confirms the load-bearing move: the word forces a commitment to pattern and recurrence that ordinary talk does not.
+  (A) adjacent_answer — Confirms where the word travels, from paragraph 2, but says nothing about the work it performs.
+  (B) half_truth — Supports the 'no denominator' complaint, which cuts against, not toward, the survival claim.
+  (C) framework_import — Concerns fidelity to origin, not whether the drifted popular sense does any labor.
+
+[Inspired by: "The Critic’s Loves", https://thepointmag.com/criticism/the-critics-loves/]

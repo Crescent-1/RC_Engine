@@ -1,0 +1,114 @@
+RC ID: RC-HARD-260811-0047 | Tier: hard | Score: 8.6 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.538 | Generated: 2026-08-11T04:34:30.573543+00:00
+======================================================================
+
+[PASSAGE]
+
+Read the three volumes in order and the effect is cumulative, tidal. Old Reinis lays his first keel in 1874 with wet rope burning his palms; his son bends steel plate under gaslight thirty years on; the granddaughter, Anda, sails out of the ruined harbor in 1945 and comes back in 1968 to a yard that has forgotten her name. What holds you is the evenness. Nobody in these books is a specimen. The author gives the drunken foreman the same close weather of attention as the shipping magnate, the same slow inventory of doubts. A decade's fear arrives as it was felt, not as it would be labeled. When Reinis frets over a Hamburg loan, the fret is his, undated, unresolved. You are inside the year, not above it. I have read few novels this patient, this unwilling to reduce a person to the era that produced him. The prose refuses the easy verdict at every turn, and refuses it so consistently that the refusal starts to feel like a moral position — humaneness as method. On the strength of the reading, nothing seems missing.
+
+The architecture is clean: yard, hull, exile, return, three generations answering one another across roughly a century of Baltic weather. When the trilogy first appeared, a reviewer in a Riga weekly called it "a novel that always already knows the tide," and quoted it everyone has since — as praise. The phrase sits well. It names the book's unhurried confidence, its refusal to be startled by anything its characters do. What the phrase also names, more quietly, is a position. To know the tide is to stand where the water has already gone out.
+
+Look again at how the humaneness actually operates. Every hopeful miscalculation in these books is framed so the reader, and only the reader, sees the wave coming. The son mortgages the yard for steel just before the war that will make steel worthless to him; we are placed to feel, from outside his hour, precisely how the loan will close on him. This is not neutrality. A narrator seated after 1945 cannot grant his 1874 patriarch a genuinely open morning; he can only reconstruct one and let us watch the light fail on schedule. The much-praised lived contingency is retrospection in costume — fate parceled out as texture, so finely that it passes for freedom. The book does not refuse to judge. It has judged, in advance, and hidden the sentence inside the weather.
+
+None of which makes the trilogy a lesser thing; it makes it a different thing than the reviews claim. What it delivers is not suspense but elegy served early, grief for people the narrator has already buried and now walks slowly back through. That is rarer, and harder, than open-endedness — and it costs exactly what it is praised for possessing: the reader's freedom to be surprised alongside Reinis is the one experience these three volumes, knowing the tide, can never give.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) The author admires the trilogy's neutrality, praising how it withholds every verdict and lets each decade arrive exactly as it was felt.
+(B) The trilogy fails as fiction because its narrator, judging events in advance, denies characters any genuinely open morning or authentic freedom.
+(C) Because its patience, evenness, and refusal to reduce people to their era are unmatched, the trilogy deserves the unqualified acclaim reviewers have given it.
+(D) The novel's celebrated contingency is retrospection disguised as freedom, making it early elegy rather than the open-ended suspense reviewers praise.
+
+Q2. Which one of the following research findings would most strengthen the author's conclusion that the trilogy's lived contingency is 'retrospection in costume'?
+(A) Critics confirm the 'knows the tide' remark was merely a passing compliment to the prose's calm, carrying no structural meaning.
+(B) Discovered outlines show the author fixed every character's fate before drafting, then wrote their hopeful deliberations backward from known outcomes.
+(C) Readers report feeling genuine suspense about Reinis's Hamburg loan, unsure until the final volume whether the yard survives.
+(D) Historians verify that the Baltic shipbuilding details across all three volumes are accurate to the century's actual industrial record.
+
+Q3. Which one of the following findings would most complicate the author's account of the narration as fate decided in advance?
+(A) Letters confirm the narrator is deliberately positioned after 1945, looking back on events the characters themselves could not foresee.
+(B) Surveys show most readers now consider the trilogy overrated, treating its concealed verdicts as a genuine artistic weakness.
+(C) A surviving variant ending has Anda never returning, drafted with equal conviction, implying the characters' outcomes were genuinely not fixed beforehand.
+(D) Scholars establish that the Hamburg loan subplot closely mirrors a real bankruptcy documented in period Baltic shipping archives.
+
+Q4. In context, the claim that 'to know the tide is to stand where the water has already gone out' most nearly means that:
+(A) The prose earns its confidence by refusing to be startled, a mastery reviewers rightly celebrate as its finest achievement.
+(B) The narrator's calm certainty derives from writing after the events, where nothing remains unknown or still in doubt.
+(C) The narrator possesses an intuitive wisdom about human nature that lets him anticipate how any character will act.
+(D) The characters themselves understand the historical tides, accepting their fates with the calm resignation of experienced sailors.
+
+Q5. 'Elegy served early' most nearly means:
+(A) suspense withheld deliberately so that grief can arrive with greater emotional force later
+(B) a funeral tone applied too soon, before the characters have actually died within the story
+(C) mourning delivered in advance, for characters the narrator has already consigned to their known ends
+(D) premature sentimentality that weakens the trilogy by grieving before readers can care about anyone
+
+Q6. Which one of the following best describes the role played by the second paragraph?
+(A) It repurposes a famous line of praise into the hinge on which the essay's later objection turns.
+(B) It concedes a weakness in the author's own reading before the argument moves to rebut it.
+(C) It supplies external critical authority to confirm the trilogy's reputation for unhurried, unshakable narrative confidence.
+(D) It introduces a rival critic whose misreading the essay will spend its remainder systematically dismantling.
+
+Q7. According to the passage, why is the reader able to see each hopeful miscalculation's outcome before the character does?
+(A) Because the characters are careless dreamers whose reckless miscalculations any sufficiently attentive reader could readily predict in advance.
+(B) Because the author maintains strict neutrality, refusing to guide the reader toward any particular outcome.
+(C) Because dramatic irony is a standard device that virtually every historical novel deploys to generate suspense.
+(D) Because the narrator, positioned after 1945, frames each scene so only the reader watches the wave approaching.
+
+Q8. Which view does the author report or steelman rather than hold?
+(A) That the trilogy immerses readers in genuinely open contingency, letting each character's future remain unresolved.
+(B) That the book delivers early elegy rather than the suspense readers expect from it.
+(C) That the narrator's foreknowledge is a position, not genuine neutrality—the verdict hidden inside the weather itself.
+(D) That the trilogy is not a lesser thing but simply different from reviewers' descriptions.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — Integrates the movement from apparent praise (P1) through the reinterpreted phrase (P2) to the turn (P3-4) that reclassifies the book as elegy, not different-in-value but different-in-kind.
+  (A) stance_misread — P3 states 'This is not neutrality' and that the book 'has judged, in advance,' reversing this reading.
+  (B) moderate_extremism — The essay explicitly says this 'makes it a different thing,' not a failed or lesser one (P4).
+  (C) overqualification — Reads only the unhedged praise of P1 and misses that P3-4 dismantle exactly that praise as retrospection.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — Directly supports the claim that the book 'has judged, in advance,' with fate 'parceled out as texture' rather than genuinely open (P3).
+  (A) moderate_extremism — Reduces the tide phrase to a flourish, whereas the essay drives its whole objection through it (P2-4).
+  (C) causal_inversion — This would undercut, not support, the claim that the reader always sees the wave coming (P3).
+  (D) missing_link — Factual accuracy of setting is unrelated to whether the narration is retrospective judgment.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — If outcomes were live enough to be drafted differently, the charge that the book 'has judged, in advance' loses its footing (P3).
+  (A) half_truth — This corroborates rather than complicates the author's retrospection reading (P3).
+  (B) moderate_extremism — Misreads the essay as declaring the book overrated; it insists the trilogy is 'not a lesser thing' (P4), and reader opinion doesn't touch the retrospection claim.
+  (D) missing_link — Historical sourcing of a subplot says nothing about whether narration predetermines outcomes.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The image glosses the narrator's confidence as temporal aftermath, matching P3's 'seated after 1945' who cannot grant an open morning.
+  (A) stance_misread — Takes the phrase as pure praise, the reading the essay quietly overturns in P2-3.
+  (C) adjacent_answer — Recasts a temporal position as psychological insight; the point is hindsight, not intuition.
+  (D) level_confusion — Shifts the foreknowledge from narrator to characters, who are precisely denied it (P3).
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — P4 defines it as 'grief for people the narrator has already buried,' offered before their stories play out.
+  (A) causal_inversion — P4 opposes elegy to suspense; the book is said to offer 'not suspense but elegy.'
+  (B) half_truth — Reads 'early' as literal timing of deaths rather than retrospective narration of settled fates.
+  (D) moderate_extremism — The author calls this mode 'rarer, and harder,' not a weakness (P4).
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The reviewer's 'knows the tide' phrase is quoted as praise, then reread as 'a position,' setting up the reversal of P3-4.
+  (B) stage_misattribution — The paragraph concedes nothing about the author's reading; it re-weaponizes a reviewer's praise.
+  (C) half_truth — Captures the phrase's surface use but misses the quiet turn ('more quietly...a position') that the paragraph performs.
+  (D) straw_version — The essay adopts the reviewer's phrase rather than dismantling the reviewer; the target is the book's method.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — P3 states the narrator is 'seated after 1945' and frames events 'so the reader, and only the reader, sees the wave coming.'
+  (A) straw_version — The passage attributes the reader's vantage to narrative framing, not to characters' carelessness.
+  (B) causal_inversion — P3 explicitly says 'This is not neutrality'; the guiding is the whole point.
+  (C) framework_import — Imports a generic explanation the passage never invokes; it also ties the effect to suspense, which P4 denies.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — This is the reviewers' 'much-praised lived contingency,' which the author reports only to expose as 'retrospection in costume' (P3).
+  (B) stance_misread — This is the author's concluding position in P4, not something merely reported.
+  (C) stance_misread — This is the author's own central claim (P3), not a reported view.
+  (D) stance_misread — P4 states this directly as the author's verdict.
+
+[Inspired by: "Distressingly Resonant", https://www.commonwealmagazine.org/jensen-effingers-Gabriele-Tergit-review]

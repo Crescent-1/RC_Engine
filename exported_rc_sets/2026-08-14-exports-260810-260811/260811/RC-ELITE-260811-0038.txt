@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260811-0038 | Tier: elite | Score: 8.2 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.529 | Generated: 2026-08-11T03:25:52.145510+00:00
+======================================================================
+
+[PASSAGE]
+
+In the parish of Nether Wick, through the wet autumn of 1918, a sexton named Coombes climbed the tower each morning and pulled the great tenor bell once for every villager the influenza had taken in the night, so that the whole valley — the men in the flint-quarry, the women scalding milk pails, the schoolmaster keeping his register — could stand still and count. Three tolls meant three fresh graves. Nine meant a very bad night indeed. The parish had no telephone and one overworked doctor, and the bell did the work a bulletin board would later do: it told you, before you had washed, exactly how much the sickness had cost while you slept, and whom you might, by the arithmetic, expect to have lost.
+
+Then the arithmetic broke. Deaths ran to a dozen a week, then two dozen. The counting went ragged. A woman would lose the thread at eleven and simply decide it had been ten. Some counted low on purpose. Others, half asleep, heard the wind knock the bell and added a phantom to the sum. By November nobody in Nether Wick could have told you the week's true figure from the tower alone. The instrument that had measured the disaster now blurred it. As information, the bell had failed. If you wanted a number you went to the sexton's slate, not to your own ear at the window.
+
+So why keep ringing? A bell that no longer counts, that only announces horror without delivering fact, looks like cruelty dressed as duty — noise for its own sake, a wound reopened each dawn. When the district officer, fearing for what he called morale, ordered Coombes to stop, the objection seemed unanswerable. Yet the village would not have it. They petitioned, crowded the vestry, threatened to ring it themselves. Read quickly, that looks like a community clutching a comfort it could not bear to release, denial with a rope in its hands. It was the opposite. What they were defending had never depended on the count. The bell told them they were still a place that marked its dead together, and that assurance did not need to be accurate to be true.
+
+Here is what the vestry records make plain, and what the officer never grasped. Weeks before his order, Coombes had quietly stopped tolling per death. He rang once, each evening, for the whole day — one stroke whether the day had taken one soul or eleven. Nobody had announced the change. Nobody had noticed. The village had already converted its bell from a counter into a nightly full stop, a shared drawing of breath, and precisely because it no longer measured the catastrophe it could not be crushed by the catastrophe's size. That is why it survived the worst weeks unbroken. Whether every community under long siege performs this quiet substitution — trading the instrument that informs for the one that endures — I cannot say from a single tower; but Nether Wick shows that when a ritual outlives its facts, it is often because it was doing the harder job all along.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) A ritual can outlast the accurate information it once carried because its deeper purpose was communal endurance, not measurement.
+(B) The reliability of informal signals like a tolled bell inevitably collapses once the events they track exceed a person's ability to count them.
+(C) When wartime disease overwhelms a parish, official orders to protect morale will usually collide with a community's stubborn attachment to old habit.
+(D) A community's insistence on retaining a failed measuring device reveals how grief distorts a people's capacity to face plain quantitative facts.
+
+Q2. Which one of the following is most strongly implied by the way the passage ends?
+(A) Because the bell grew inaccurate, rituals of its kind should be regarded with suspicion until their factual reliability can be verified.
+(B) The district officer will eventually be vindicated once the true weekly death figures are recovered from the sexton's slate.
+(C) One parish suggests, but cannot confirm, that enduring rituals often survive by having quietly served a purpose beyond the facts they seemed to report.
+(D) The author is confident that every community under long siege performs this same substitution of endurance for information.
+
+Q3. Which one of the following, if true, would most call into question the claim that the bell survived the worst weeks because it had stopped measuring the catastrophe?
+(A) The sexton's slate recorded weekly death totals that differed sharply from what villagers counted at their windows.
+(B) In neighbouring parishes bells that continued tolling once per death also rang on unbroken through the epidemic's peak.
+(C) The district officer's fear for morale was shared by the overworked doctor attending the parish.
+(D) The villagers who petitioned the vestry were clinging to a comfort they could not bear to release in their grief.
+
+Q4. According to the text, the change Coombes made to his ringing is described as:
+(A) a response to the district officer's order that Coombes reluctantly agreed to obey.
+(B) a compromise of two strokes nightly, one for the dead and one for the living.
+(C) a single evening stroke for the whole day, made without announcement and noticed by no one.
+(D) a public reform of ringing that the vestry formally endorsed after long debate over morale.
+
+Q5. Which one of the following, if established, would most damage the author's central claim?
+(A) Several other parishes kept telephones and bulletin boards that reported death tolls more accurately than any bell.
+(B) Interviews reveal the villagers fought to keep the bell precisely because they still trusted it to report each night's true toll.
+(C) The influenza killed more parishioners in Nether Wick than the vestry records had originally suggested.
+(D) Sexton Coombes disliked climbing the tower and privately hoped the officer's order would relieve him.
+
+Q6. Why does the author include the detail that Coombes had quietly changed the ringing weeks before the officer's order?
+(A) To summarize how the sexton adjusted his duties as the epidemic's death toll grew steadily worse each week.
+(B) To expose the officer's incompetence in failing to consult the vestry records that were freely available to him.
+(C) To mark the structural turn from the district officer's objection to the vestry's recorded rebuttal of it.
+(D) To show that the village's defence of the bell was never about the count, since the count had already been abandoned unnoticed.
+
+Q7. Which view does the author report or steelman rather than personally hold?
+(A) That one parish cannot settle whether all besieged communities make the same quiet substitution.
+(B) That a ritual can remain true to a community even when it has ceased to be accurate.
+(C) That the bell's survival through the worst weeks owed to its no longer measuring the catastrophe's size.
+(D) That continuing to ring a bell which no longer counts is cruelty dressed as duty, noise reopening a wound each dawn.
+
+Q8. 'A shared drawing of breath' most nearly means:
+(A) a moment of relief in which the village celebrated that the epidemic had begun to recede.
+(B) a collective daily pause that closes the day together rather than tallying its losses.
+(C) an inhalation of grief so heavy that the community could scarcely bear to keep enduring.
+(D) a synchronized effort by villagers to hold the bell steady against the buffeting wind.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Integrates the reversal in paragraphs 3-4: the bell stopped counting yet survived because it was always doing the harder job of marking loss together.
+  (B) half_truth — Captures only paragraph 2's breakdown of the count, missing the thesis that the ritual's worth never depended on accuracy.
+  (C) scope_inflation — Generalizes to all parishes and frames the villagers as merely stubborn, ignoring the passage's point that they defended endurance, not habit.
+  (D) category_slip — Treats the bell as a data-recording tool judged by precision, the exact misreading paragraph 4 overturns by showing the count never mattered.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — Matches the final paragraph's deliberate aperture: Nether Wick shows the pattern but the author declines to universalize from a single tower.
+  (A) missing_link — Assumes degraded accuracy licenses distrust of the ritual, the connection the passage explicitly refuses by valuing endurance over fact.
+  (B) stance_misread — The ending sides against the officer, who 'never grasped' the substitution, not toward his vindication.
+  (D) scope_inflation — Contradicts the closing 'I cannot say from a single tower,' which withholds exactly this universal claim.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — Directly attacks the causal claim: if per-death bells endured too, the survival cannot be attributed to abandoning the count.
+  (A) adjacent_answer — Reinforces paragraph 2's known inaccuracy rather than challenging why the ritual endured.
+  (C) missing_link — Adds a sympathizer to the officer but says nothing about whether ceasing to count explains the ritual's survival.
+  (D) category_slip — Restates the 'denial with a rope' reading the passage calls the opposite of the truth; it does not test the causal claim.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — Paragraph 4 states he rang once each evening for the whole day, that nobody announced it and nobody noticed.
+  (A) causal_inversion — The change came 'weeks before his order,' so it could not be a response to it.
+  (B) terminological_twin — The text specifies one stroke whether the day took one soul or eleven, not two.
+  (D) stage_misattribution — The passage says the change was quiet and unannounced, not a debated public reform.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — Destroys the load-bearing move that the assurance 'did not need to be accurate to be true'; if they defended it as accurate information, endurance was not the point.
+  (A) framework_import — Confirms bells are poor data tools, which the author already grants; it does not touch the endurance thesis.
+  (C) adjacent_answer — Corrects a death figure but leaves untouched the argument about why the ritual endured.
+  (D) straw_version — Impugns Coombes's motive, a decorative detail, not the claim that the ritual served endurance.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — The revelation supplies the proof for the thesis: the ritual had already shed measurement, so what the villagers protected was endurance, not accuracy.
+  (A) level_confusion — This is a correct summary of the fact but mistakes what it says for why the author deploys it.
+  (B) straw_version — Overreads a jab at the officer; the point is evidentiary support for the thesis, not blame.
+  (C) stage_misattribution — Names a structural function, not the authorial purpose of proving the count was already irrelevant.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 voices this as the 'unanswerable'-seeming objection, then paragraph 4 refutes it; the author states 'It was the opposite.'
+  (A) stance_misread — This is the author's own cautious hedge in the final paragraph, not a steelmanned rival position.
+  (B) stance_misread — This is the author's own concluding thesis, not a reported opposing view.
+  (C) stance_misread — This is the author's explicit causal claim in paragraph 4, held rather than merely reported.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — It restates the immediately preceding 'nightly full stop,' a communal marking of the day, contrasted with the counter it replaced.
+  (A) phrase_misuse — Reads the phrase as hope for recovery, but it occurs during 'the worst weeks,' not a reprieve.
+  (C) moderate_extremism — Inverts the sense toward collapse, whereas the phrase names precisely why the ritual could not be crushed.
+  (D) phrase_misuse — Takes 'breath' physically; the wind detail belongs to paragraph 2's miscounting, not this ritual.
+
+[Inspired by: "A Journal of the Plague Months", https://www.thenewatlantis.com/practicing-medicine/a-journal-of-the-plague-months]

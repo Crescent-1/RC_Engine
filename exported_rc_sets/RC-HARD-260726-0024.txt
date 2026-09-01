@@ -1,0 +1,92 @@
+RC ID: RC-HARD-260726-0024 | Tier: hard | Score: 8.6 | Status: approved | Compliance F1: 1.0 | Novelty: 0.623 | Generated: 2026-07-26T13:24:30.481460+00:00
+======================================================================
+
+[PASSAGE]
+
+In 1974, in a free clinic on St. Mark's Place, Herbert Freudenberger watched volunteers who had arrived with enormous energy stop showing up, or show up and speak of the addicts they served with a flat contempt they had not brought with them. He gave the state a name. Fifty years later the name has an address. The Maslach Burnout Inventory, twenty-two items in its original human-services form, scores three dimensions: emotional exhaustion, depersonalization, reduced personal accomplishment. Ministries of health commission surveys with it. Hospital systems benchmark departments against it. The World Health Organization placed burnout in ICD-11 as an occupational phenomenon, with a definition specifying that it arises from chronic workplace stress that has not been successfully managed. So the object appears fixed: origin story, instrument, classification, literature running to tens of thousands of papers. What remains, on this picture, is the ordinary work of verification — determining how much of the reported epidemic is real and who has been miscounted.
+
+The verification stalls almost immediately. When Renzo Bianchi and colleagues ran the inventory alongside standard depression scales, the exhaustion dimension loaded so heavily onto depressive symptomatology that the two constructs would not separate cleanly. Depersonalization and reduced efficacy behaved less like independent dimensions than like consequences of the first. A reader might expect a contest here, two well-drawn categories disputing a border. But only one of them has a border. Depression has diagnostic criteria, thresholds, treatment trials. Burnout has an inventory with no cut-off score its own authors endorse.
+
+And the classification, which was supposed to settle what the instrument could not, is split down the middle: the WHO states flatly that burnout is not a medical condition, only a phenomenon relating to the occupational context, while in Sweden, the Netherlands, and Germany physicians write sick notes for exhaustion syndromes, insurers reimburse them, and employers count the days — roughly a fifth of long-term absence in some Dutch figures, though the coding varies by canton, by clinic, by year. It looks like an administrative gap. It is easier to read as bad coordination than as an absence of anything for coordination to track.
+
+Here the two failures stop looking separate. Each operational definition of burnout begins by deciding which suffering is chargeable to the employer and which is the worker's own. That decision precedes the measurement; it is not discovered by it. Ask the inventory why a nurse's despair counts and a caregiving daughter's does not, and the answer is not clinical but contractual — one has an employer, a rota, a grievance procedure. The triad does not detect a syndrome. It records a settlement about who owes whom, and the WHO's careful phrasing about the occupational context is that settlement written down.
+
+Which means the sharpening instruments were never lenses. Every refinement drew the line it claimed to find, and the honest cost of saying so is that the exhausted lose a word that made their claim legible; what they keep is the argument the word was standing in for, which was always the harder thing to win, and which no revised inventory was ever going to settle on their behalf.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central thesis of the passage?
+(A) Burnout's instruments do not measure a syndrome; they encode a prior decision about which exhaustion an employer owes for.
+(B) Burnout research has been damaged by weak measurement, and a properly validated inventory with an endorsed cut-off score would finally establish the condition.
+(C) Since burnout possesses a named origin, an official classification, and a standard scale, what remains is deciding whether recent research has verified or falsified this established entity.
+(D) Because burnout's exhaustion dimension overlaps heavily with depression, the concept should be absorbed into psychiatry and its occupational framing abandoned.
+
+Q2. The passage says of burnout and depression: "But only one of them has a border." Which unstated premise does this move require?
+(A) Depression's diagnostic criteria and treatment trials confirm that its thresholds are set at biologically correct levels.
+(B) A construct can enter a genuine dispute over territory only if its own boundaries have been specified independently.
+(C) Depression and burnout are comparably well-defined categories, so the essay must adjudicate which of the two rightful claimants owns the overlapping symptoms.
+(D) Any psychological construct lacking a diagnostic threshold is thereby shown to describe nothing that people actually undergo.
+
+Q3. What structural role does the third paragraph, on Sweden, the Netherlands, and Germany, serve in the passage's argument?
+(A) It concedes that European physicians have empirically validated exhaustion syndromes, softening the doubts raised by the depression research.
+(B) It supplies statistical evidence that burnout is widespread enough to justify the WHO's decision to classify it in ICD-11.
+(C) It documents an administrative inconsistency between international guidance and national clinical practice, indicating that harmonised coding rules would resolve the confusion the earlier paragraphs described.
+(D) It stages a reading the essay will overturn, letting divergent practice look like poor coordination before paragraph four reinterprets it.
+
+Q4. The passage moves from two apparently separate failures to the claim that "the triad does not detect a syndrome." That move assumes which of the following?
+(A) A caregiving daughter's despair and a nurse's despair are clinically indistinguishable, so both should be entitled to identical employer compensation.
+(B) If a measure's scope is fixed by who has an employer rather than by symptoms, it cannot be tracking a clinical kind.
+(C) Measurement instruments in occupational health are equally likely to encode either employers' interests or workers' interests in their scoring rules.
+(D) Because the inventory's authors endorse no cut-off score, the three dimensions must have been derived from contractual rather than psychological reasoning.
+
+Q5. In context, the closing statement that "the sharpening instruments were never lenses" is best understood to mean that:
+(A) Clinical and occupational instruments distort in opposite directions, each magnifying the suffering that falls within its own institutional remit.
+(B) Researchers were dishonest about their methods, presenting normative judgements about liability as though they were neutral empirical findings.
+(C) The inventories were too crude to resolve fine distinctions, and sharper psychometric work on larger occupational samples might eventually bring the object into focus.
+(D) Each refinement of the measure inscribed the boundary it purported to observe, so improved precision could not reveal an underlying object.
+
+Q6. Which best describes the author's posture toward those who describe themselves as burnt out?
+(A) Their exhaustion is not doubted, but the author accepts that dismantling the word strips their claim of a shortcut to legitimacy.
+(B) He holds that their suffering and their employers' interests are equally served by clearer diagnostic language, which would benefit both parties in negotiation.
+(C) He treats their reports as largely inflated, since the epidemic's scale collapses once the exhaustion dimension is separated from ordinary depressive symptoms.
+(D) He regrets having weakened their position and suggests the term be retained provisionally until a better vocabulary for occupational suffering becomes available.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — It joins paragraph 4's revelation (the triad records a settlement about who owes whom) to the closing claim that refinement drew rather than found the line, which is the passage's full movement.
+  (B) premature_closure — The last paragraph denies that any revised inventory could settle the matter, since the line is drawn, not detected.
+  (C) half_truth — This restates the first paragraph's staged framing, which the second paragraph onward dismantles rather than pursues.
+  (D) adjacent_answer — The depression overlap in paragraph 2 is one failure among two; the essay's point is contractual, not a proposal to reclassify.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — The border metaphor works only if specification is a precondition for rivalry; that is why the essay refuses the two-category contest a reader expects.
+  (A) half_truth — Depression is invoked only as a contrast in specification; the passage makes no claim about the correctness of its thresholds.
+  (C) false_symmetry — The sentence explicitly withholds a border from one construct, cancelling the symmetry this option assumes.
+  (D) scope_inflation — The passage disputes the instrument's status, not the reality of the exhaustion it fails to delimit.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The paragraph closes by naming the tempting reading ('easier to read as bad coordination'), which paragraph 4 replaces with the claim that nothing exists for coordination to track.
+  (A) stance_misread — Sick notes and reimbursement are institutional facts, not validation, and the paragraph deepens rather than softens the doubt.
+  (B) stage_misattribution — The Dutch absence figures are hedged and serve the coordination puzzle, not a defence of the classification.
+  (C) half_truth — The paragraph names that reading only to mark it as the easier one; the next paragraph refuses it.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The nurse-versus-daughter contrast supplies the premise that a contractual criterion of inclusion disqualifies the instrument as a detector of clinical fact.
+  (A) category_slip — The contrast establishes that the criterion is contractual, not that the two states are clinically identical or equally chargeable.
+  (C) false_symmetry — The passage describes a prior settlement about liability, not a balanced pair of competing interests inside the scale.
+  (D) causal_inversion — The missing cut-off is evidence of underspecification, not the source of the contractual boundary the passage identifies.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The clause immediately following ('Every refinement drew the line it claimed to find') fixes the metaphor: instruments constituted the boundary rather than transmitting a view of it.
+  (A) false_symmetry — No paired opposing distortion is described; the point is that one line was drawn rather than found.
+  (B) stance_misread — The passage attributes a structural feature of definition-making, not deliberate deception, to the researchers.
+  (C) premature_closure — The final sentence denies that any revised inventory could settle the question, ruling out better instruments as a remedy.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The closing sentence names the 'honest cost' — the exhausted lose a legible word while keeping the underlying argument — which is sympathy paired with refusal to soften the analysis.
+  (B) false_symmetry — The passage presents definition as a prior settlement of liability, not a neutral gain shared by workers and employers.
+  (C) stance_misread — The 'miscounted' framing belongs to the first paragraph's staged view, which the essay abandons rather than endorses.
+  (D) half_truth — He names the cost without recommending retention; the argument, not the word, is what he says they keep.
+
+[Inspired by: "How to do less for your children", https://psyche.co/guides/how-to-do-less-for-your-children]

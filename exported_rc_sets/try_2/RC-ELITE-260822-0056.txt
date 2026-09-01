@@ -1,0 +1,116 @@
+RC ID: RC-ELITE-260822-0056 | Tier: elite | Score: 0.0 | Status: solver_dispute | Compliance F1: 0.9 | Novelty: 0.531 | Generated: 2026-08-22T02:50:04.426646+00:00
+======================================================================
+
+[PASSAGE]
+
+In a folder at the Brooklyn Historical Society sits a manila envelope labeled "Blessing Man — Flatbush Ave., 1968–1981," and inside it are forty-one newspaper clippings, most from the same three columnists. He is not alone in the literature. Across a dozen studies from the 1970s onward, folklorists compiling what they call charisma indices — scored tallies drawn from press coverage, photographic frequency, and oral-history mentions — keep finding the same clustering. The costumed subway fixtures, the self-appointed blessing figures, the sidewalk preachers with a signature hat: they score high, and they score high in study after study, across coders trained separately. The convergence is real. The obvious reading is that these people had something, that the instrument found it, and that the scores mean the same thing wherever they appear.
+
+Marguerite Okonjo, who spent nineteen years processing community-collection accessions before she wrote a word about them, put it flatly in a 1994 conference paper: "The index does not detect magnetism. It detects the clipping habit — ours and theirs." Her charge is that the apparatus manufactures its own quarry. I think she overstates it, and I think she is close to right. Not that charisma is fictional; rather that the property the indices measure is inseparable from the accumulation that made measurement possible. What work does the distinction do? Considerable work, once you ask which cases the index can be trusted on.
+
+Consider the pair Okonjo built her paper around. Two Chicago performers, 1958 to 1972, near-identical routines — chalk portraits, a fixed corner, a recited blessing. One kept a shoebox of clippings and staged an annual photo with the alderman. The other kept nothing. On indices compiled in 1983, the shoebox keeper scores nearly four times higher. One mechanism, cleanly shown. Not the only one.
+
+The trouble deepens when you notice that the shoebox was itself a performance. What the Blessing Man chose to save, the origin story he told reporters, which photograph he pressed into a visitor's hand — these were curatorial decisions, made by him, in advance of any folklorist. Fifty years later a graduate student codes that same pile for "self-mythologizing narrative" and "iconic visual repetition," and scores it high. Object and method turn out to be one heap of paper accumulating in two directions. This does not condemn the indices. It tells you exactly what they can be trusted to register, which is not nothing, and exactly which cases — the shoeboxless ones — they silently discount.
+
+So the property cannot be recovered. Charisma, as a trait residing in a person, does not survive extraction from the archive that made it visible. But something durable does survive, and it is not the performer. A collection of forty-one clippings from three columnists is evidence of three columnists, their editors, and the readers who wrote in. A photograph circulated for thirty years is evidence of the people who kept circulating it. I have been reading, this whole time, from a finding aid — the Brooklyn envelope's own two-page inventory, typed on a manual machine, corrections struck over in the same ink. It documents a public that decided, repeatedly, to keep her. That decision has structure, and the structure is measurable. The better question is who mailed in the forty-first clipping, and why, in 1979.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) Charisma cannot be extracted from the archive that made it visible, but the collecting public whose decisions built that archive remains a measurable object.
+(B) The high scores recorded for these street performers are straightforward empirical findings about personal magnetism, and remain comparable across every subject the corpus happens to contain.
+(C) The Chicago pair demonstrates that self-archiving alone determines index scores, so folklorists should adjust rankings to correct for differences in performers' record-keeping habits.
+(D) Because folklorists' methods and their subjects grew from the same heaps of paper, charisma indices measure nothing usable and should be abandoned by community-collection researchers.
+
+Q2. The passage stops where it does in order to:
+(A) Suggest that better-designed finding aids and richer accession notes would eventually recover the trait the indices missed.
+(B) Establish that the paired Chicago comparison has settled the question of whether any charisma index reflects anything beyond self-archiving.
+(C) Shift the object of inquiry from the performer onto the public whose repeated acts of keeping produced the record.
+(D) Concede that Okonjo's flat verdict about the clipping habit was right all along and that measurement should now cease.
+
+Q3. Which one of the following findings would most complicate the author's account of why the indices converge across separately trained coders?
+(A) The 1983 indices used slightly different scoring weights for photographic frequency than the studies compiled during the middle of the 1970s.
+(B) Coders working only from oral-history mentions, with all clippings and photographs withheld, produced the same rankings as coders using full archival files.
+(C) Several performers in the corpus kept shoeboxes considerably larger than the Blessing Man's, yet their newspaper coverage was confined to a single local weekly.
+(D) The three columnists who wrote about the Blessing Man corresponded regularly with one another and occasionally reprinted each other's descriptive phrases.
+
+Q4. According to the text, what the charisma indices register is described as:
+(A) An artifact so thoroughly manufactured by the apparatus that no case in the corpus can be trusted at all.
+(B) Something real but limited, which quietly leaves out performers who kept no records of themselves.
+(C) A scoring convention whose value lies mainly in ranking performers consistently against each other over time.
+(D) A reliable trait measurement whose only defect is the uneven survival rates of photographs across decades.
+
+Q5. Which one of the following statements, if true, would best invalidate the main argument of the passage?
+(A) Contemporary bystanders in each city independently named the same performers as compelling before any columnist, photographer or collector had documented them.
+(B) Folklorists after 1990 abandoned the term charisma index in favour of subtler vocabulary borrowed from the sociology of celebrity and reputation.
+(C) Okonjo's Chicago pair were in fact cousins, and their near-identical routines derived from a shared apprenticeship under one older chalk artist.
+(D) The Brooklyn finding aid was retyped in 1988 by a volunteer who silently corrected several dates and misspellings in the original inventory.
+
+Q6. Which one of the following best explains the primary purpose of the discussion of the shoebox and the annual photograph with the alderman?
+(A) To establish that differences in self-archiving are the single decisive determinant of the scores any charisma index will produce.
+(B) To provide the concrete illustration that transitions the essay from Okonjo's flat charge toward the author's own qualified position.
+(C) To describe how one Chicago performer preserved clippings and posed with officials while his counterpart preserved nothing whatever.
+(D) To show that the performer's own curatorial choices anticipate and shape the coding categories folklorists later apply.
+
+Q7. The author of the passage is likely to disagree with which one of the following statements?
+(A) Forty-one clippings drawn from three columnists tell us a good deal about those columnists and their readers.
+(B) The indices detect nothing but the clipping habit, so nothing durable can be measured from these collections.
+(C) Charisma understood as a trait lodged in an individual does not survive removal from its documentary surroundings.
+(D) A performer who saved nothing would be quietly disadvantaged by any index compiled from press and photographic materials.
+
+Q8. The author uses the phrase 'manufactures its own quarry' to mean that:
+(A) The measuring apparatus produces the very deposits it then treats as independently existing findings.
+(B) Performers invented elaborate origin stories that reporters accepted uncritically and then repeated for decades afterward.
+(C) Folklorists deliberately falsify their scoring in order to make certain celebrated street performers rank higher.
+(D) Separately trained coders unconsciously copy one another's rankings whenever they work from identical source folders.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — It tracks the full arc: the convergence of indices, Okonjo's charge, the entanglement of object and method, and the closing displacement onto the public that kept the material.
+  (B) scope_inflation — This is the "obvious reading" of paragraph one that the rest of the passage dismantles, treating scores as trait-detection.
+  (C) example_promotion — The pair is called "one mechanism, cleanly shown. Not the only one," and no score-correction remedy is proposed.
+  (D) moderate_extremism — Paragraph four states "This does not condemn the indices" and specifies what they can be trusted to register.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The final paragraph converts the finding aid into evidence of "a public that decided, repeatedly, to keep her," and the closing question about the forty-first clipping relocates the research target.
+  (A) premature_closure — The passage states the property "cannot be recovered" and does not propose improved documentation as a remedy.
+  (B) example_promotion — Paragraph three explicitly limits the pair to "one mechanism, cleanly shown. Not the only one," and the ending does not return to it.
+  (D) stance_misread — The author says Okonjo "overstates it" and insists that the structure of collective keeping "is measurable."
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The author's account roots convergence in a shared paper heap accumulating in two directions; identical rankings from a non-clipping evidence stream would show something detected independently of that heap.
+  (A) level_confusion — Technical weighting differences operate below the level of the author's claim that the measured property is inseparable from accumulation.
+  (C) example_promotion — Variation in one performer's self-archiving relative to another's affects the Chicago illustration, not the general claim about method and object.
+  (D) adjacent_answer — This strengthens rather than complicates the author, since it makes the clippings even more clearly evidence of columnists.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — Paragraph four says the entanglement "does not condemn the indices," identifies what they can be trusted to register as "not nothing," and names the shoeboxless cases as silently discounted.
+  (A) scope_inflation — This inflates the entanglement finding into a blanket verdict the author explicitly refuses in paragraph four.
+  (C) terminological_twin — The passage treats cross-case comparability as precisely what fails, not as the indices' residual value.
+  (D) half_truth — The passage denies charisma survives extraction as a trait; photographic survival is not the diagnosed defect.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — The load-bearing move is that the measured property is inseparable from the accumulation that made measurement possible; pre-archival independent identification restores charisma as a trait detectable prior to the record.
+  (B) framework_import — A change in terminology and disciplinary borrowing does not address whether the measured property is separable from accumulation.
+  (C) example_promotion — The pair only illustrates one mechanism; their kinship does not disturb the entanglement thesis the author builds beyond it.
+  (D) level_confusion — A clerical detail about one document leaves untouched the claim that collective keeping is what the archive documents.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — The shoebox material is introduced so the author can argue that self-mythologizing was performed in advance, making object and method "one heap of paper accumulating in two directions."
+  (A) example_promotion — The text calls this "one mechanism, cleanly shown. Not the only one," and then adds the deeper curatorial point.
+  (B) level_confusion — This names the passage's structural function rather than the authorial purpose of the shoebox discussion itself.
+  (C) stage_misattribution — This is an accurate summary of the content, not the reason the author placed the material in the argument.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — The author says Okonjo "overstates it" and insists a public's repeated decision to keep "has structure, and the structure is measurable."
+  (A) passage_supported — The final paragraph asserts exactly this about the Brooklyn envelope's contents.
+  (C) passage_supported — Paragraph five states this claim almost verbatim about extraction from the archive.
+  (D) passage_supported — The author endorses this; paragraph four names "the shoeboxless ones" as cases the indices silently discount.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — The phrase glosses Okonjo's charge that indices detect the clipping habit, and the passage develops it into object and method being one accumulating heap.
+  (B) half_truth — Performer self-mythologizing is a later development in paragraph four, not what Okonjo's phrase itself names.
+  (C) straw_version — The charge concerns a structural artifact of collecting practices, not deliberate fabrication by researchers.
+  (D) adjacent_answer — Convergence across independent coders is the puzzle to be explained, not the meaning of the phrase.
+
+[Inspired by: "Rollerena: New York’s Fairy Godmother", https://daily.jstor.org/rollerena-new-yorks-fairy-godmother/]

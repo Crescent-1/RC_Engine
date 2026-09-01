@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260821-0053 | Tier: elite | Score: 8.8 | Status: approved | Compliance F1: 0.886 | Novelty: 0.59 | Generated: 2026-08-21T18:50:20.684400+00:00
+======================================================================
+
+[PASSAGE]
+
+What are sixteen bars worth? In the archive of a provincial conservatoire, in a room with a broken window sash and a card index that no one has migrated, sits the engraver's proof of a symphony's slow movement, and across bars 94 to 109 the composer has drawn two diagonal strokes in brown ink. The strokes are not in dispute. What they mean is. One party — call them the strict editionists — holds that the work is what the composer authorized, and that authorization is an act with a date; the deletion is the last word and the last word governs. The other party, the restorationists, points to two concert notices from the year before publication describing a passage no printed score contains, and argues that the deleted bars were heard, and that what was heard cannot simply be unheard by a pen.
+
+I expected the quarrel to be small. It is not. Two national societies have issued incompatible critical editions. A funding body in Vienna declined to underwrite a recording on textual grounds. A journal ran a special issue; the editor's introduction runs to nine thousand words and cites forty-one items. Conductors are asked, in interviews, which text they use, and their answers are reported as positions. All of this is conducted in the register of rigor: better sources, cleaner stemma, more scrupulous handling of the concert notices. An informant, a librarian of thirty years, describes the annual conference session as a ritual — the same two men, the same lectern, the same slides of the brown ink, applause of equal length for both.
+
+The escalation is disproportionate, and disproportion is diagnostic. Nobody spends a career on ink. Strip the footnotes and the two camps are not disagreeing about the proof sheet at all. The restorationists believe, without ever writing it down, that a piece of music belongs to those who have received it, that meaning silts up over generations, and that a composer is one contributor among many to something held in common. The strict editionists believe the opposite: that the artist is sovereign over the artifact, and everyone after is a custodian. Neither belief is stated. Both are unarguable in the open. So they are fought where they can be fought — over dates, hands, watermarks, the reliability of a Leipzig reviewer who may have been drunk.
+
+Say it more carefully: the proxy is not merely a convenient venue. It is the only venue. A direct argument about whether art means what its maker meant has no shared standard of evidence — the restorationist cannot lose, the editionist cannot lose, and the exchange becomes two cosmologies bowing to each other. The textual dispute supplies what the deep question lacks: sub-questions that look falsifiable. When was the ink applied? Whose hand? The word "authentic" performed this migration once already, from theology to law to instrument-making before it reached the concert hall, and each move bought an unarguable commitment a set of arguable proxies. So the strict editionists are right about the bars, because the definition they inherited already decided the case before the watermarks were examined — and they will remain right until someone can say, in plain terms and to a standard both camps accept, what a work is when its author has stopped speaking.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) A technical editorial quarrel is disproportionate because it hosts an unstatable disagreement about who owns a work.
+(B) Scholarly societies inflate small textual disputes because funding bodies and journals reward visibly entrenched institutional positions.
+(C) Musicology should abandon the word 'authentic' entirely, since its migration through theology and law corrupted its use.
+(D) The deleted sixteen bars deserve restoration because concert notices confirm that listeners actually heard the passage.
+
+Q2. Which one of the following statements, if true, would best invalidate the main argument of the passage?
+(A) The brown ink has been chemically dated to a period well after the composer's death in the archive.
+(B) The two national societies receive separate state subsidies that lapse if their critical editions ever converge.
+(C) Both camps have published joint criteria stating plainly what makes a work its author's, and each accepts them.
+(D) The Leipzig reviewer's notice has been redated, and the concert it describes occurred after publication.
+
+Q3. What purpose does the account of the word 'authentic' migrating from theology to law to instrument-making serve in the passage?
+(A) It suggests that inherited vocabulary favours the restorationists, whose communal view better fits the word's older meanings.
+(B) It shows that unarguable commitments habitually acquire arguable proxies, generalizing the mechanism the essay has just described.
+(C) It demonstrates that a definition inherited from theology is unsuited to music and should be discarded by editors.
+(D) It traces the concert hall's borrowing of legal standards of proof, explaining why watermarks now decide musical questions.
+
+Q4. Regarding the annual conference session described by the librarian, the author reports that:
+(A) the session was suspended after a funding body in Vienna raised textual objections.
+(B) the session has grown longer each year as the special issue's citations accumulate.
+(C) the session's audience has gradually shifted its sympathies toward the strict editionist camp.
+(D) the session repeats itself yearly, with both speakers receiving applause of equal length.
+
+Q5. Which one of the following, if replaced, would most change the passage's argument?
+(A) Paragraph one, which describes the archive, the brown diagonal strokes, and the two rival readings of them.
+(B) Paragraph three, which names the unstated beliefs each camp holds about ownership of a work.
+(C) Paragraph two, which catalogues the editions, the declined funding, and the conference ritual described by a librarian.
+(D) Paragraph four, which reports the migration of 'authentic' from theology through law to instrument-making.
+
+Q6. Which one of the following positions is described in the passage but not endorsed by the author?
+(A) What audiences have once heard cannot be cancelled by a later stroke of the composer's pen.
+(B) The strict editionists are right about the bars because their inherited definition had settled the matter beforehand.
+(C) A direct dispute about whether art means what its maker meant lacks any shared standard of evidence.
+(D) The intensity of the quarrel is out of proportion to the object, and that disproportion is itself informative.
+
+Q7. The passage supports all of the following statements about the textual dispute EXCEPT:
+(A) The quarrel is carried on in a register of rigor, with appeals to cleaner sources and stemma.
+(B) The dispute would dissolve if archival techniques for dating ink and watermarks became sufficiently precise.
+(C) Two national societies have issued critical editions that cannot be reconciled with one another.
+(D) Neither camp has committed its underlying belief about ownership of a work to writing.
+
+Q8. The passage most directly corrects which one of the following impressions?
+(A) That editorial disagreements about deleted passages can occasionally be traced to defective archival storage conditions.
+(B) That critical editions issued by national societies are generally produced without any consultation of concert notices.
+(C) That an essay opening on brown ink in an archive will end by settling whether the bars belong in the score.
+(D) That conductors interviewed about their chosen text are reluctant to have their answers reported as positions.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Integrates the opening puzzle, the escalation noted in para 2, the buried beliefs of para 3, and para 4's claim that the proxy is the only available venue.
+  (B) framework_import — Imports a sociological incentives account; para 3 locates the escalation in unstated philosophical beliefs, not institutional reward.
+  (C) scope_inflation — The migration in para 4 illustrates how commitments acquire proxies; no reform of vocabulary is recommended anywhere.
+  (D) prior_belief — Treats the essay as reportage adjudicating the bars; the author never rules for restoration and in fact concedes the editionists.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The argument's load-bearing move is that the deep question has no shared standard of evidence, forcing displacement onto proxies; a mutually accepted standard removes that necessity.
+  (A) half_truth — Settles the sub-question of authorship of the strokes, which the passage treats as exactly the arguable proxy it describes.
+  (B) framework_import — Supplies an institutional incentive for entrenchment, which supplements rather than replaces the author's account of the buried disagreement.
+  (D) adjacent_answer — Damages one restorationist item of evidence inside the proxy dispute, leaving the claim about displacement fully intact.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — Para 4 introduces the migration immediately after asserting that the textual dispute supplies falsifiable sub-questions, presenting it as a prior instance of the same displacement.
+  (A) prior_belief — Readers primed by para 3's sympathetic phrasing expect an argument for restoration; the sentence that follows awards the case to the editionists.
+  (C) scope_inflation — The author uses the inherited definition to explain the verdict, not to recommend its abandonment by anyone.
+  (D) category_slip — Confuses the history of a term with a transfer of evidentiary procedure, which para 4 does not claim.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — Para 2 quotes the informant describing a ritual: the same two men, lectern, slides, and applause of equal length for both.
+  (A) stage_misattribution — The Vienna body declined to underwrite a recording; nothing connects it to the conference session's continuation.
+  (B) half_truth — The nine thousand words and forty-one citations belong to the journal introduction, not to any growth in the session.
+  (C) stance_misread — Equal applause is reported precisely to show no shift; the editionist verdict comes from the author in para 4.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — Para 3 supplies the buried disagreement that explains the disproportion of para 2 and licenses para 4's claim about proxies; without it the essay is only an escalation report.
+  (A) level_confusion — Para 1 sets the case up; replacing the occasion would not alter the essay's explanatory claim about displaced disputes.
+  (C) example_promotion — Para 2 evidences disproportion, but the explanatory move that drives the argument is made in para 3.
+  (D) half_truth — The migration generalizes an argument already established; its removal weakens support without dismantling the central claim.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — This is the restorationist argument reported in para 1; the author later grants the editionists the verdict on the bars.
+  (B) stance_misread — The author asserts this verdict directly in the closing paragraph rather than attributing it to a camp.
+  (C) stance_misread — Para 4 states this as the author's reasoning for why the proxy is the only available venue.
+  (D) stance_misread — Para 3 opens with this claim in the author's own voice as the hinge of the essay.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — Unsupported in scope and causality: the author holds that better proxy evidence cannot settle a quarrel whose real content is an unstated question about what a work is.
+  (A) passage_supported — Para 2 states that all of this is conducted in the register of rigor, citing better sources and cleaner stemma.
+  (C) passage_supported — Para 2 reports that two national societies have issued incompatible critical editions.
+  (D) passage_supported — Para 3 says the restorationists believe it without ever writing it down, and that neither belief is stated.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — The opening invites a restoration verdict; the essay instead diagnoses the quarrel as a proxy and grants the editionists on definitional grounds while leaving the deep question open.
+  (A) adjacent_answer — The broken window sash is atmospheric detail; the passage never attributes any disagreement to storage conditions.
+  (B) scope_inflation — The notices are central to the restorationist case; no claim is made about how editions generally handle such sources.
+  (D) phrase_misuse — Para 2 says their answers are reported as positions, saying nothing about reluctance on the conductors' part.
+
+[Inspired by: "Ed Pulford: Beyond the 38th Parallel", https://www.lrb.co.uk/the-paper/v48/n14/ed-pulford/beyond-the-38th-parallel]

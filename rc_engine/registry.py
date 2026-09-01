@@ -6,6 +6,8 @@ from __future__ import annotations
 import json
 import os
 
+from . import config
+
 COMPONENTS_DIR = os.path.join(os.path.dirname(__file__), "components")
 
 LIBRARY_FILES = {
@@ -16,23 +18,38 @@ LIBRARY_FILES = {
     "revelation": "revelations.json",
     "distractor_profile": "distractor_profiles.json",
     "topology": "topologies.json",
+    "render_stance": "render_stances.json",
+    "topic_shape": "topic_shapes.json",
 }
 
 REQUIRED_FIELDS = {
     "family": {"id", "name", "tier_floor", "core", "movement", "question_affinities",
-               "closing_posture"},
+               "closing_posture", "arc_shape"},
     "persona": {"id", "name", "register", "sentence_profile", "hedge_style", "signature_moves"},
     "ending": {"id", "name", "aperture", "gesture"},
     "rhythm": {"id", "name", "shape", "cadence_note"},
     "revelation": {"id", "name", "timing", "mechanism"},
     "distractor_profile": {"id", "name", "primary", "secondary", "note"},
     "topology": {"id", "name", "slots", "curve"},
+    "render_stance": {"id", "name", "frame", "arc_constraint", "forbidden_beats"},
+    "topic_shape": {"id", "name", "topic_form", "requires_tension",
+                    "compatible_genres"},
 }
 
 MIN_COUNTS = {
     "family": 30, "persona": 20, "ending": 20, "rhythm": 20,
     "revelation": 20, "distractor_profile": 20, "topology": 20,
+    # Fewer than the others on purpose: a stance rewrites the whole instruction
+    # frame, so each one is a much larger change than a persona swap, and the
+    # exclusion window (6) already forces rotation across a batch.
+    "render_stance": 8,
+    "topic_shape": 8,
 }
+
+# A slot type with one stem shape reproduces that wording in every set that
+# draws it — the surface half of the "all the RCs ask the same six questions"
+# complaint. Enforced at load so a thin library fails fast, not in production.
+MIN_STEM_FORMS = 3
 
 
 class RegistryError(RuntimeError):
@@ -68,6 +85,29 @@ class ComponentRegistry:
         except KeyError:
             raise RegistryError(f"Unknown component {ctype}:{cid}")
 
+    def withholds_thesis(self, family_id: str) -> bool:
+        """True when the family states no position by design, so a thesis /
+        main-idea question would have no defensible answer in the text."""
+        return bool(self.get("family", family_id).get("withholds_thesis", False))
+
+    def shape_of(self, family_id: str) -> str:
+        """The family's ARC SHAPE — the sequence-level form of the argument.
+
+        Added 2026-08-22. All 32 original families encode one shape
+        (stage -> develop/concede -> turn -> settle) under 32 different
+        function-token vocabularies, and 31 of them were exactly 4 paragraphs.
+        `health` reported family KL at 0.128 throughout, because KL over IDs
+        measures how evenly the labels rotate, not whether they name different
+        things. Shape is what the reader actually perceives as sameness."""
+        return self.get("family", family_id).get("arc_shape", "unknown")
+
+    def shapes(self) -> dict[str, list[str]]:
+        """arc_shape -> family ids carrying it."""
+        out: dict[str, list[str]] = {}
+        for fid in self.ids("family"):
+            out.setdefault(self.shape_of(fid), []).append(fid)
+        return out
+
     def ids(self, ctype: str) -> list[str]:
         return list(self.libraries[ctype].keys())
 
@@ -82,6 +122,13 @@ class ComponentRegistry:
     @property
     def slot_type_definitions(self) -> dict:
         return self.meta["topology"]["slot_types"]
+
+    @property
+    def stem_forms(self) -> dict:
+        """slot type -> the authentic CAT stem shapes it may be asked in. The
+        question prompt rotates one per slot so a type does not always produce
+        the same wording."""
+        return self.meta["topology"]["stem_forms"]
 
     @property
     def generic_fillers(self) -> list[str]:
@@ -114,9 +161,24 @@ class ComponentRegistry:
                     errors.append(f"distractor_profile:{cid} unknown mechanism {prof[key]!r}")
 
         slot_types = set(self.slot_type_definitions)
+        stem_forms = self.stem_forms
+        for stype in sorted(slot_types):
+            if len(stem_forms.get(stype, [])) < MIN_STEM_FORMS:
+                errors.append(f"slot type {stype!r} needs >= {MIN_STEM_FORMS} stem "
+                              f"forms, has {len(stem_forms.get(stype, []))}")
+        for stype in stem_forms:
+            if stype not in slot_types:
+                errors.append(f"stem_forms has unknown slot type {stype!r}")
+        n_slots = config.QUESTIONS_PER_SET
         for cid, topo in self.libraries["topology"].items():
-            if len(topo["slots"]) != 6:
-                errors.append(f"topology:{cid} must have exactly 6 slots")
+            if len(topo["slots"]) != n_slots:
+                errors.append(f"topology:{cid} must have exactly {n_slots} slots")
+            # Q1 is pinned to the thesis/main-idea question on every topology
+            # (client requirement 2026-08-10). Validated here rather than left to
+            # the library so a hand-edited topology cannot silently drop it.
+            if topo["slots"] and topo["slots"][0]["type"] != "thesis":
+                errors.append(f"topology:{cid} slot 1 must be 'thesis', "
+                              f"got {topo['slots'][0]['type']!r}")
             for i, slot in enumerate(topo["slots"]):
                 if slot["type"] not in slot_types:
                     errors.append(f"topology:{cid} slot {i+1} unknown type {slot['type']!r}")

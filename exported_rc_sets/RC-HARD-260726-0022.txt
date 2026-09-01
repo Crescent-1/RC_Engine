@@ -1,0 +1,90 @@
+RC ID: RC-HARD-260726-0022 | Tier: hard | Score: 8.6 | Status: approved | Compliance F1: 1.0 | Novelty: 0.621 | Generated: 2026-07-26T13:20:44.897202+00:00
+======================================================================
+
+[PASSAGE]
+
+A chair-maker in Windsor once told a visiting journalist that he had never in forty years explained how to sharpen a spokeshave. He showed. The boy watched. The boy got it wrong, and got it wrong again, and then one afternoon did not get it wrong. This story, or one of its cousins, appears in nearly every book on traditional craft published in the last thirty years. The praise is always the same. Words flatten what the hands know. A description of the angle is not the angle. Craft knowledge lives in the wrist, in the eye's judgment of grain, in ten thousand corrections too fine to name. Instruction manuals teach you to read manuals. Only the shop teaches the work. It is an appealing claim, and most of us have half-believed it.
+
+But the shops in question were noisy places, and what filled the noise was talk — not instruction exactly, not lecture, but the running verbal weather of eight or ten people working within earshot of one another: the older journeyman muttering that a joint had been forced, the nickname attached to a particular kind of tearout, the argument about whether a customer's chair had been badly made or badly used, the tools called by names that encoded what they were for and how they went wrong. None of this was teaching in the sense the manuals mean. All of it was commentary. It sorted the master's continuous motion into distinctions a beginner could actually see, and it came from the peers, not the master.
+
+So the two lines meet here. Imitation cannot work unless the learner already knows which features of the demonstration matter, and that knowledge came from the surrounding chorus, which means tacit transmission was never an alternative to language but a division of labour with it. Now consider what has thinned. Not the master's skill; there are excellent makers. Not the availability of demonstration; there is more footage of hands than any apprentice could watch. What has gone is the room with eight people in it. A maker working alone, or a student in a two-week intensive, or an apprentice paired with a single teacher, may see everything and still have no one to tell them what they are seeing. Video changes nothing here. A workshop of forty solitary viewers is still forty solitary viewers.
+
+The craft schools now reviving apprenticeship have understood the visible half. They restage the demonstration carefully, insist on silence, ration explanation, treat the manual as a fallen thing. Some of them are very good. But the arrangement they have recovered was one half of a pair, and the other half was never designed, never written down, and therefore never noticed as something requiring recovery. Whether it can be rebuilt deliberately is genuinely open; peer commentary of that density arose from economic conditions — many hands, long tenures, shared piecework — that no school controls. Until such groupings exist again somewhere, and they may, what the revival transmits is the gesture of apprenticeship rather than its mechanism, and we should not comfort ourselves that the gesture will suffice.
+
+[QUESTIONS]
+
+Q1. Which of the following best represents what the passage says about the talk that filled the old workshops?
+(A) It confirms that craft knowledge resists language and must be caught by watching alone.
+(B) It was commentary from fellow workers rather than instruction from the master.
+(C) It mostly consisted of disputes about customers, which distracted apprentices from the actual work.
+(D) It functioned as informal lecturing that supplied beginners with the master's stated rules.
+
+Q2. In the third paragraph, the sentence "What has gone is the room with eight people in it" primarily identifies the loss of
+(A) physical workshops of adequate size, which modern schools and studios can no longer afford to maintain.
+(B) a co-present group of working peers dense enough to generate steady commentary.
+(C) communication itself, since makers now work in conditions where nobody talks to anybody.
+(D) the master's ability to demonstrate before a group of attentive apprentices at once.
+
+Q3. The remark "A workshop of forty solitary viewers is still forty solitary viewers" is introduced in order to
+(A) concede that recorded demonstration can substitute for presence when the maker is genuinely skilled.
+(B) argue that video instruction has displaced traditional transmission and so caused the decline.
+(C) suggest that large classes dilute attention, so apprenticeship works best one-to-one with a teacher.
+(D) block the inference that better access to footage repairs the loss being described.
+
+Q4. The Windsor chair-maker anecdote at the start of the passage functions to
+(A) prove that unspoken demonstration is sufficient for the transmission of a difficult manual skill.
+(B) illustrate an exceptional teacher whose methods the later craft schools have correctly chosen to restage.
+(C) set up a familiar and attractive position that the passage will later reframe.
+(D) expose the story as fabricated, since such repeated anecdotes rarely survive careful historical checking.
+
+Q5. Which of the following best captures the central idea of the passage?
+(A) Explicit verbal instruction was in fact the true source of craft mastery, and the celebrated role of silent demonstration has been considerably overstated.
+(B) Because words cannot capture manual skill, apprenticeship must be restaged as wordless imitation, and the craft schools are right to ration explanation.
+(C) Since the economic conditions producing dense peer talk are gone for good, deliberate attempts to rebuild craft apprenticeship are bound to transmit nothing of value.
+(D) Silent demonstration worked only alongside peer commentary, so reviving the demonstration alone recovers a gesture, not a mechanism.
+
+Q6. The passage's claim that the revival transmits "the gesture of apprenticeship rather than its mechanism" depends on which unstated assumption?
+(A) Peer commentary of the needed density does not arise spontaneously wherever apprenticeship is restaged.
+(B) The makers now teaching in craft schools have inherited less skill than the journeymen of the old workshops.
+(C) Any teaching arrangement that includes some spoken explanation will reproduce what the old shops supplied.
+(D) Learners can identify the significant features of a demonstration without help once they have watched it often enough.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — Paragraph 2 states explicitly that none of it was teaching in the manuals' sense, all of it was commentary, and that it came from the peers, not the master.
+  (A) missing_link — This is the paragraph-1 claim the author proceeds to undercut in paragraph 2 by describing the noisy verbal weather of the shop.
+  (C) example_promotion — The customer argument is one item in a list of commentary types, not the character or effect of the talk overall.
+  (D) category_slip — Paragraph 2 explicitly denies it was teaching or lecture, and locates its source in peers rather than the master.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — Paragraph 3 rules out skill and demonstration as the losses and names the multi-person peer chorus of paragraph 2 as the missing element.
+  (A) level_confusion — The "room" stands for a social grouping, not floor space; the passage cites tenures and piecework, not premises.
+  (C) category_slip — The loss is the specific structure of a peer group producing commentary, not the general occurrence of talk, which persists elsewhere.
+  (D) stage_misattribution — Paragraph 3 explicitly says neither the master's skill nor the availability of demonstration has thinned.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — It follows "Video changes nothing here," pre-empting the medium-based fix and keeping the diagnosis on the absent peer group.
+  (A) stance_misread — The sentence denies substitution rather than conceding it, and skill is expressly not what has thinned.
+  (B) missing_link — The passage says footage is abundant and changes nothing; it locates the cause in vanished peer groupings, not in technology's arrival.
+  (C) causal_inversion — The same paragraph lists the apprentice paired with a single teacher as equally deprived of commentary.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — The anecdote grounds the tacit-knowledge orthodoxy, whose appeal the author concedes before paragraph 2's "But" reopens it as half of a pair.
+  (A) stage_misattribution — The anecdote states the orthodox view rather than proving it; paragraph 3 argues imitation alone cannot work.
+  (B) example_promotion — The chair-maker exemplifies a widely repeated genre of praise, and the schools' restaging is judged incomplete.
+  (D) straw_version — The author notes the story's many cousins to mark its familiarity, never questioning whether the events occurred.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3's "division of labour" collapses the tacit-versus-explicit opposition, and paragraph 4 applies that finding to judge the revival incomplete.
+  (A) false_symmetry — The passage dissolves the opposition into a division of labour rather than reversing it in favour of language.
+  (B) prior_belief — This restates the paragraph-1 orthodoxy that paragraph 2 undercuts and paragraph 4 finds insufficient.
+  (C) premature_closure — The final paragraph calls rebuilding "genuinely open," allows such groupings may exist again, and praises some schools.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The verdict holds only if the second half of the pair fails to reappear on its own; the passage grounds that in uncontrolled economic conditions.
+  (B) stage_misattribution — Paragraph 3 states that skill is not what has thinned and that there are excellent makers today.
+  (C) nec_suff_swap — The passage treats rationed explanation from a teacher as different in kind from dense commentary among many peers.
+  (D) missing_link — This contradicts paragraph 3's premise that imitation requires prior knowledge of which features matter, supplied by the chorus.
+
+[Inspired by: "Why you should talk to your dead ancestors", https://psyche.co/ideas/why-you-should-talk-to-your-dead-ancestors]

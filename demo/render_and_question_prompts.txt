@@ -1,0 +1,595 @@
+==============================================================================
+STAGE 2 - RENDER: SYSTEM PROMPT (identical for every tier and set)
+==============================================================================
+
+You are a writer producing intellectually serious long-form prose
+(Aeon / LRB / Boston Review register) that will later be adapted into a CAT VARC
+reading-comprehension passage.
+
+You will receive a STRUCTURAL CONTRACT: an authorial persona, a paragraph-by-paragraph
+movement plan, a thesis-revelation schedule, reader-trap directives, and an ending
+directive. The contract fixes STRUCTURE. You invent all content.
+
+HARD RULES:
+1. Output ONLY the passage text: plain paragraphs separated by blank lines. No title,
+   no headers, no commentary, no questions.
+2. Produce EXACTLY the number of paragraphs specified, in order, each performing its
+   assigned function within its word range.
+3. The passage must read as a naturally occurring essay, not prose engineered to sound
+   difficult. Sentence-by-sentence it stays readable; the difficulty is architectural.
+4. Reader traps: each trap paragraph must genuinely INVITE the specified misreading
+   from a fast reader while a careful reader can see past it. Never state the
+   misreading; make it the path of least resistance.
+5. The thesis must first become visible exactly where the revelation schedule says,
+   in the manner it says.
+6. Stay entirely in the specified persona's voice. Do not use any forbidden phrase.
+7. No moralizing, no policy prescriptions, no direct address to the reader.
+8. ARCHITECTURE INVISIBILITY. The contract's structure is scaffolding for you, not
+   content for the reader. Never use wording whose main job is to announce the
+   passage's own argumentative shape — "the deeper issue", "the real point", "this
+   raises the question", "the first objection", "what remains is", "it is worth
+   pausing", "which brings us to", "the question then becomes" — or any equivalent
+   signpost. A movement plan beat is performed, never named. The reader should be
+   able to feel the turn without being told a turn is happening. The single
+   exception is a genre that genuinely signposts (a formal review, a legal brief),
+   and only where the persona already establishes that genre.
+9. NO FABRICATED SCHOLARSHIP. Do not invent empirical studies, statistics,
+   quotations, named scholars, institutions, dated experiments, or historical
+   events and present them as real. This is the most common way generated prose
+   fakes authority, and it makes the passage unusable as a test item: a
+   well-read candidate who knows the field is penalised for knowing it.
+   - Real, checkable references are fine when you are confident they are accurate
+     (Shannon at Bell Labs in 1948; Boas on Kwakwaka'wakw texts).
+   - Where the argument needs a case the world does not supply, keep it INTERNAL
+     and verifiable inside the passage: an unnamed practitioner, a described
+     document, a situation set out in enough detail that the reader can reason
+     about it from the text alone. "A county assistance office with four
+     caseworkers for a workload sized to nine" is legitimate; "a 2019 Michigan
+     State study found that 62% of claimants..." is not.
+   - When a beat plan asks you to quote an authority, satisfy it with a real
+     source, a described-but-unnamed one, or a document the passage itself
+     characterises — never with a plausible-sounding invention.
+8. HUMAN TEXTURE (a touch only — keep the intellect; break factory polish):
+   - Plant one concrete, slightly stubborn particular that is not immediately cashed
+     out as a system-metaphor (a room, job title, tool, dated practice, named place,
+     small physical action). It must earn its place in the argument.
+   - Allow one sentence that is plainer / more workmanlike than its neighbors — not
+     every sentence equally epigrammatic. One midstream re-steer is fine
+     ("— no: more precisely,").
+   - Mix sentence subjects; avoid a run of abstract openers ("The doctrine… The
+     residue… The mechanism… The ledger…"). Prefer some agents and concrete nouns
+     when the persona allows.
+   - Do not default to the stock cadence "I grant X. The trouble is Y. What remains
+     is Z." unless the movement plan requires that shape; rebuild the paragraph if
+     you hear yourself writing it.
+   - Soft-ban stock house metaphors (ledger / residue / aperture / altitude as
+     default furniture) unless the topic forces them; invent fresher local images.
+   - Still forbidden as "humanizing": typos, slang, throat-clearing, fake anecdotes,
+     "as someone who…", reader address, moral lectures.
+
+
+==============================================================================
+STAGE 5 - QUESTIONS: SYSTEM PROMPT (identical for every tier and set)
+==============================================================================
+
+You are a senior CAT VARC question architect. You receive a passage,
+its hidden structural blueprint (trap map, tension system, revelation schedule), and a
+QUESTION PLAN of 8 slots. Write exactly one MCQ per slot, to spec.
+
+Q1 is the set's opening integrator: whatever its slot type, it must be answerable
+only by holding the passage's full movement — never by matching a single sentence —
+and its correct option must not be the longest of the four. Usually the slot is
+thesis / main-idea. Some passages state no position at all, by design; those are
+given a primary_purpose slot instead, and for them there IS no central claim to
+recover — ask what the passage is doing, and never invent a thesis it withheld.
+
+DISTRACTOR RULES:
+- Where a slot lists a trap_id, at least one wrong option must be exactly the
+  misreading that trap invites — a fast reader who fell into the trap should find
+  that option waiting for them.
+- Every wrong option carries a named mechanism from the allowed list. Wrong options
+  fail narrowly, not theatrically: no "completely", "never", "proves". Extremity must
+  be conceptual, not lexical.
+- All four options in a question: same register, parallel grammar, and word counts
+  within 3 WORDS OF EACH OTHER. You choose how long the
+  options are for a given question — they simply have to match each other. Count the
+  words; do not eyeball it. If one option needs a qualifier the others don't, give the
+  others their own substance rather than letting that one run longer.
+- In thesis/main-point slots the correct option must NOT be the longest of the four:
+  write at least one wrong option with more words than the correct one.
+
+SLOT TYPES THAT INVERT OR NARROW THE RULES ABOVE:
+- except_scan — the option contract flips. The three WRONG options must each be
+  directly supported by the passage: they are the statements that ARE true. Give
+  each of them mechanism "passage_supported" and a why_wrong that cites the
+  sentence supporting it. The CORRECT option is the one the passage does NOT
+  support, and it must fail for a nameable reason (scope, stance, causality,
+  level) — never merely because it is unmentioned, and never because it is
+  lexically extreme. The stem must use the CAT form: "...all of the following
+  EXCEPT" or "Which one of the following does NOT ...".
+- undermine_thesis — the options are candidate NEW facts, not restatements of the
+  thesis. The correct one must damage the argument's load-bearing move, not
+  contradict a decorative detail. Wrong options should be facts that look
+  damaging but leave the actual argument standing.
+- primary_purpose — the answer is why the author put the material there
+  (authorial purpose), not what the material says (summary) and not the
+  structural role it plays. Wrong options should include a correct summary and a
+  correct structural description, both of which miss the question.
+- ACROSS THE SET: in at least 6 of the 8 questions the correct option must NOT be
+  the strictly longest of its four — pad a wrong option or compress the correct one.
+  The correct option may be strictly longest in AT MOST 2 of the 8 questions.
+- Never make "longest option = right" a reliable heuristic anywhere in the set.
+- Correct options must not be systematically the most hedged; in at least 2 questions
+  phrase the correct option more flatly than its strongest distractor.
+- Application slots require a genuinely NEW scenario, not a paraphrase.
+
+LENGTH-BIAS SELF-CHECK (mandatory before you emit JSON):
+After drafting all 8 questions, re-count word lengths for every option (A-D texts
+as you wrote them — ignore letters; count the option strings only).
+1. Per question: max_words - min_words <= 3. This is the
+   binding parity rule — check it on every question before you emit, and fix any
+   question that fails by rewriting options, not by trimming one into a fragment.
+2. Set-wide: count how many questions have the correct option as the STRICTLY
+   longest (unique max). That count must be <= 2. If it is 3+, fix before emit —
+   prefer lengthening a wrong option with one precise clause; only then shorten
+   the correct option.
+3. Thesis / main-point / global slots: correct must NOT be strictly longest.
+4. COMPREHENSIBILITY LOCK when adjusting length:
+   - Never trim into fragments, telegraphic stubs, or options that lose the claim.
+   - After any cut, the option must still be a full grammatical proposition a CAT
+     test-taker can parse in one read — subject, predicate, and the content that
+     makes it right or wrong must remain explicit.
+   - Do not delete qualifiers that change meaning (scope, stance, causality).
+   - Prefer adding substance to a distractor over gutting the correct answer.
+5. Only after this recheck passes, emit the JSON.
+
+OUTPUT DISCIPLINE (this model writes extra visible reasoning when thinking is
+off, and that reasoning competes with the JSON for the output budget):
+- Emit the JSON object and NOTHING else. No preamble, no "Here is...", no
+  commentary before or after, no markdown fences, no notes on your process.
+- Do the length-bias recheck silently. Do not narrate it or show your counts.
+- The first character of your response must be ' and the last must be '.
+
+Respond ONLY with valid JSON, no markdown fences:
+{
+  "questions": [
+    {
+      "q": 1,
+      "slot_type": "...",
+      "stem": "...",
+      "correct": {"text": "...", "why_right": "1-2 sentences naming the structural bridge"},
+      "wrong": [
+        {"text": "...", "mechanism": "...", "why_wrong": "one sentence, max 25 words, naming the error and the passage location it distorts"},
+        {"text": "...", "mechanism": "...", "why_wrong": "..."},
+        {"text": "...", "mechanism": "...", "why_wrong": "..."}
+      ]
+    },
+    ...exactly 8...
+  ]
+}
+
+
+
+==============================================================================
+MEDIUM  -  RC-MEDIUM-260822-0035
+==============================================================================
+family    : F33 "The Deepening Case"  arc_shape=accretive_no_turn  paragraphs=5
+persona   : P07    stance: RS05
+topology  : QT16    register: concrete_particular
+render    : claude-opus-5 (max_tokens 1500)
+questions : claude-opus-5 (max_tokens 5600)
+
+------------------------------------------------------------------------------
+[MEDIUM] STAGE 2 - RENDER: USER MESSAGE
+------------------------------------------------------------------------------
+STRUCTURAL CONTRACT
+
+WRITING STANCE (this governs the SHAPE of the whole piece — obey it even where it makes the movement plan harder to satisfy):
+  The Mechanism: Explain how something actually works, step by step, in enough detail that a reader could describe the process afterwards. The argument arrives through the explanation: what the mechanism cannot do, or does at a cost, is the point. Resist stepping back to say what it signifies.
+  Arc constraint: procedural order; the evaluative claim appears only in the final third
+
+TOPIC: Whether job-training mandates for welfare recipients measure genuine employability barriers or partly manufacture them through administrative friction.
+TIER: medium — one clean structural turn; readable throughout. A careful reader should reach every answer in one pass, and at most one question may require synthesis across paragraphs. The answers live in the passage, not behind it.
+ARGUMENT FAMILY: The Deepening Case — One case is examined at four increasing depths; each pass finds more than the last, and nothing the earlier passes said is withdrawn.
+
+PRIMARY TENSION: measurement_vs_manufacture (poles: barriers to employment are pre-existing and measurable; mandates reveal them, the mandate system itself creates the barriers it claims to measure;
+fate by the end: resolved_with_qualification)
+SECONDARY TENSION: benevolence_vs_effect (fate: displaced)
+INTERACTION: Both poles of the primary tension coexist; the secondary tension shifts focus from intent to outcome, showing that benevolent design can manufacture the very dysfunction it aims to cure.
+INSTABILITY DEGREE: 0.26 (0 = neat closure, 1 = fully suspended; this governs
+how contested the MIDDLE of the passage feels — the ENDING's stance is governed by the
+closing posture directive below, not by this number)
+
+AUTHORIAL PERSONA: The Reluctant Modernist
+  Register: suspicious of novelty but honest about tradition's failures
+  Sentence signature: double-concession constructions; balanced clauses that refuse balance at the end
+  Hedging style: flags his own nostalgia as bias in his own prose
+  Characteristic moves: credits the new with solving a real problem before pricing it; catches himself idealizing and says so
+  Pronoun posture: first person, self-correcting
+  Metaphor domains to draw from: craft, tools, apprenticeship
+  Texture: invent one small voice tell unique to THIS passage (a concrete detail
+  habit, a self-correction tic, or a slightly plainer register dip) so it does not
+  read as the generator's default house polish.
+
+TOTAL LENGTH (hard requirement): 500-550 words. Anything outside that
+range is rejected. The per-paragraph targets below are sized to land inside it —
+follow them and the total takes care of itself.
+
+RHETORICAL BEAT PLAN (hard requirement — this is the passage's argumentative shape, in order. Each beat may span or share paragraphs. Together they account for the whole argument: if you find yourself performing an operation that is not on this list, the beat it displaced is the one you still owe):
+  1. HISTORICAL_ORIGIN — opens by dating or attributing where an idea or practice came from
+  2. COUNTEREXAMPLE_PRESSED — presses one specific case against the general claim
+  3. CONCESSION_GRANTED — grants the opposing point at something close to face value
+  4. SELF_CORRECTION — visibly re-steers mid-argument, correcting what it just said
+  5. STACCATO_TRIAD — three or more consecutive very short declarative sentences used for cadence
+  6. GENEALOGY_TRACED — follows a term or practice as it migrates across domains or eras
+  7. EASY_READING_DEMOLISHED — names the obvious or tempting interpretation and dismisses it as a mistake
+  8. TWO_CAMP_SPLIT — stages two named factions or schools taking opposite views of the same thing
+  9. BOTHSIDES_REFUSED — anticipates the split-the-difference verdict and explicitly rejects it
+
+PARAGRAPH MOVEMENT PLAN (5 paragraphs; rhythm: Slow Fuse — three even expository paragraphs; all detonation in the last):
+  Paragraph 1 (~94 words, cadence: staccato): role = case opened. Content brief: A single mother in rural Pennsylvania works two part-time jobs but loses childcare subsidy due to a missed deadline in the work-verification system—she had submitted her forms but the state lost them in their intake queue.
+  Paragraph 2 (~94 words, cadence: staccato): role = first pass depth. Content brief: First pass: the obvious reading—she failed to navigate the system, proving that some recipients lack organizational skills or follow-through. But closer inspection shows the deadline was imposed retroactively and the state office was understaffed; administrative design, not her capacity, created the failure.
+  Paragraph 3 (~94 words, cadence: long periodic): role = second pass depth. Content brief: Second pass: even if she had submitted everything on time, the verification process itself required employer confirmation that her second job was genuine. Her employer, a gig platform, refused to cooperate without a legal subpoena, creating a Catch-22 between proving employment and losing the job-search time needed to maintain it.
+  Paragraph 4 (~94 words, cadence: mixed): role = third pass depth. Content brief: Third pass: tracking backwards through state policy documents reveals that eligibility thresholds shift monthly based on revised poverty guidelines, making it impossible to know in advance whether additional work would help or harm her status. The mandate measures not her barriers but the system's internal contradictions.
+  Paragraph 5 (~149 words, cadence: dense analytic): role = accumulated weight. Content brief: Accumulated weight: the mandate is not simply poorly executed; its logic assumes stable employment categories and predictable bureaucracy that do not exist. What began as a test of employability becomes a stress-test of the system itself, producing failure statistics that are then cited as proof that tougher mandates are needed—inverting cause and effect.
+
+THESIS REVELATION: Escalating Denial — the author repeatedly says what the thesis is NOT; the positive content is the residue
+The thesis first becomes visible in paragraph 2.
+Before that point, the reader must not be able to state the passage's final position.
+
+READER TRAPS (build these into the prose):
+  TR1 (paragraph 1): invite the misreading that "The woman's loss of benefits is primarily a personal failure—she missed a deadline or didn't follow instructions carefully enough." [mechanism: straw_version]
+  TR2 (paragraph 2): invite the misreading that "Once we blame the understaffed office rather than the mother, the case is settled: administrative incompetence, not policy design, is the problem." [mechanism: stance_misread]
+  TR3 (paragraph 3): invite the misreading that "The gig-platform refusal to verify employment proves the existence of a genuine employment gap that the mandate is correctly trying to close." [mechanism: straw_version]
+
+ENDING DIRECTIVE: The Burden Shift — relocates the onus of proof onto the previously comfortable side. Aperture: holds.
+CLOSING POSTURE (hard requirement): END by actually committing to a position: the final paragraph delivers the verdict, hedged only as much as honesty requires. Do NOT end by suspending judgment, opening a new question, or retreating into irresolution.
+FINAL SENTENCE: End on a specific concrete particular - an example, a named case, a physical detail - not on an abstraction or a maxim.
+
+FORBIDDEN WORDS/PHRASES (never use any of these): furthermore, moreover, in conclusion, it is a testament, tapestry, delve, paradigm shift, navigate the complexities, underscores, multifaceted, the deeper issue, the real point, the deeper question, this raises the question, the question then becomes, the first objection, what remains is, it is worth pausing, which brings us to, to put it another way, progress
+
+BEFORE YOU RESPOND: count the words in the passage you have written. If the
+total is not between 500 and 550, revise it into that range —
+expand or compress the argument itself, do not pad with filler or amputate a
+paragraph's function. Emit only the corrected passage.
+
+Write the passage now.
+
+------------------------------------------------------------------------------
+[MEDIUM] STAGE 5 - QUESTIONS: USER MESSAGE
+------------------------------------------------------------------------------
+PASSAGE:
+Begin with the file. Tioga County, Pennsylvania, 2019. A mother of two works two part-time jobs, one at a diner, one driving for a rideshare platform. Her childcare subsidy lapses in March. The stated reason: missed work-verification deadline. She says she mailed the forms. The state says it has no record. I confess my first instinct was the old one, the one I was raised on — keep your papers, meet your dates, and the world mostly holds. Somebody dropped something. Probably her.
+
+Not her. The intake queue at the county assistance office had a six-week backlog and four caseworkers for a workload sized to nine. Her packet was date-stamped on receipt and processed after the cutoff. Worse: the cutoff had been revised downward in February and applied to submissions already in transit. So this is not the story of a woman who cannot follow instructions. Nor — and here I have to correct my second instinct, which was to blame the four exhausted caseworkers — is it the story of an understaffed office. Understaffing is the symptom. The design is the thing.
+
+Suppose she had made every date. The verification form still required an employer's countersignature attesting that the second job was real, and her second employer was a platform that classifies its drivers as independent contractors and, as a matter of standing legal posture, declines to countersign anything absent a subpoena — a refusal that some readers will take as proof that gig work is not real employment and that the mandate is right to test it, when what the refusal actually tests is whether a woman earning eleven dollars an hour can obtain a court order during the same twenty hours per week she must document as job search or lose the subsidy she is documenting in order to keep.
+
+Follow the threshold itself. It moves. Pennsylvania recalculated eligibility bands against revised federal poverty guidelines on a rolling monthly basis in that period, so the marginal effect of an extra shift was unknowable in advance: the same eight hours could clear a work requirement and breach an income ceiling. Her caseworker could not tell her which. I have looked for the sentence in the policy manual that resolves this and cannot find it. The mandate did not measure her employability. It measured the distance between two of the state's own numbers.
+
+Four passes, and nothing from the earlier ones withdrawn: the deadline was real, the office was starved, the platform did refuse, the thresholds did drift. What accumulates is not a list of fixable errors. The mandate presumes stable employment categories and a bureaucracy that answers on time, and by 2019 neither existed; the test therefore stopped testing her and began testing the apparatus, which failed. Here the two camps — the design school, which says tighten enforcement, and the capacity school, which says fund the offices — both take the resulting failure rate as data about recipients. It is not. And I refuse the tidy middle verdict that it is somewhat both. The burden now sits with whoever claims a mandate can detect a pre-existing barrier: show one it did not help build. Start with the countersignature line on Form PA 1663, still blank, still required.
+
+HIDDEN BLUEPRINT CONTEXT (never reveal to students):
+- Primary tension: measurement_vs_manufacture (fate: resolved_with_qualification)
+- Thesis first visible: paragraph 2
+- Ending aperture: holds
+- Allowed distractor mechanisms: straw_version (primary, use in ~2 questions),
+  stance_misread (secondary), plus at most 2 other mechanisms from:
+  premature_closure, scope_inflation, stage_misattribution, framework_import, half_truth, causal_inversion, stance_misread, phrase_misuse, moderate_extremism, straw_version, category_slip, prior_belief, false_symmetry, level_confusion, nec_suff_swap, example_promotion, missing_link, overqualification, adjacent_answer, terminological_twin
+
+TIER: medium — one clean structural turn; readable throughout. A careful reader should reach every answer in one pass, and at most one question may require synthesis across paragraphs. The answers live in the passage, not behind it.
+
+QUESTION PLAN (The Load-Bearing Claim; isolates the one claim the argument cannot lose, then attacks it from several sides):
+  Q1: type=thesis — central thesis / main idea — requires integrating the full movement of the passage | target=global | difficulty=0.54
+      stem shape (adapt to this passage): "The passage is primarily concerned with:"
+      HARVESTS TR1: one wrong option must be the misreading "The woman's loss of benefits is primarily a personal failure—she missed a deadline or didn't follow instructions carefully enough." (mechanism: straw_version)
+  Q2: type=detail_check — a precise factual/claim-level detail from the passage | target=local | difficulty=0.44
+      stem shape (adapt to this passage): "According to the text, {X} is described as:"
+      HARVESTS TR2: one wrong option must be the misreading "Once we blame the understaffed office rather than the mother, the case is settled: administrative incompetence, not policy design, is the problem." (mechanism: stance_misread)
+  Q3: type=evidence_function — what work an example or piece of evidence does (illustrate, prove, complicate, license) | target=local | difficulty=0.7
+      stem shape (adapt to this passage): "The author cites {X} primarily in order to:"
+      HARVESTS TR3: one wrong option must be the misreading "The gig-platform refusal to verify employment proves the existence of a genuine employment gap that the mandate is correctly trying to close." (mechanism: straw_version)
+  Q4: type=undermine_thesis — which new fact, if true, would most damage the passage's central argument | target=global | difficulty=0.7
+      stem shape (adapt to this passage): "Which one of the following statements, if true, would best invalidate the main argument of the passage?"
+  Q5: type=weaken — which new fact would most weaken a specified claim from the passage | target=local | difficulty=0.48
+      stem shape (adapt to this passage): "Which one of the following research findings would weaken the author's conclusion in {the specified paragraph}?"
+  Q6: type=application — a NEW real-world scenario (not a paraphrase); identify which mechanism from the passage best explains it | target=global | difficulty=0.69
+      stem shape (adapt to this passage): "Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?"
+  Q7: type=phrase_in_context — the meaning of a specific phrase as used in the passage, not in general usage | target=local | difficulty=0.7
+      stem shape (adapt to this passage): "In the context of the passage, {quoted phrase} is best understood as:"
+  Q8: type=strengthen — which new fact would most strengthen a specified claim from the passage | target=span | difficulty=0.47
+      stem shape (adapt to this passage): "Which one of the following would best license the inference the author draws from {X}?"
+
+The stem shapes above are the forms these questions take in the real exam. Adapt each
+to this passage's content — keep the shape, replace the placeholders. Do not reuse one
+shape for two slots.
+
+Before emitting JSON, recheck option word counts on EVERY question for both rules:
+  (a) parity — longest minus shortest <= 3 words;
+  (b) length bias — the correct option is strictly longest in at most 2/8,
+      and never on the thesis/main-point question.
+If you adjust for parity, keep every option a complete, comprehensible sentence — no
+clipped fragments.
+Write the 8 questions now as JSON.
+
+
+==============================================================================
+HARD  -  RC-HARD-260822-0059
+==============================================================================
+family    : F38 "The Narrowing"  arc_shape=descending_scale  paragraphs=4
+persona   : P18    stance: RS04
+topology  : QT11    register: bound_continuation
+render    : claude-opus-5 (max_tokens 1600)
+questions : claude-opus-5 (max_tokens 5600)
+
+------------------------------------------------------------------------------
+[HARD] STAGE 2 - RENDER: USER MESSAGE
+------------------------------------------------------------------------------
+STRUCTURAL CONTRACT
+
+WRITING STANCE (this governs the SHAPE of the whole piece — obey it even where it makes the movement plan harder to satisfy):
+  The Abandoned Position: Write from inside a position the author once held and no longer does. Reconstruct why it was persuasive — not as a straw figure but as something that genuinely worked — then show what broke it. The break must be located in something specific: a case that would not fit, a consequence that could not be paid.
+  Arc constraint: first-person intellectual history; the turn happens once and is dated
+
+TOPIC: Whether the value of institutional memory in organizations is best understood at the level of policy, or only becomes visible in the specific habits of a single retiring employee
+TIER: hard — genuine interpretive work; the author's stance has to be tracked across the argument rather than read off any one sentence.
+ARGUMENT FAMILY: The Narrowing — Begins at the widest generality and narrows by stages to a single instance, ending inside that instance own detail; the general claim is never returned to.
+
+PRIMARY TENSION: Where institutional knowledge actually resides — in codified procedure or in uncodifiable individual practice (poles: formal knowledge-management systems (manuals, handoffs, databases), the tacit, undocumented judgment of one long-serving worker;
+fate by the end: displaced)
+SECONDARY TENSION: Whether the retiring worker's value is a cause of organizational stability or merely a symptom of it (fate: left_open)
+INTERACTION: The secondary tension supplies the causal-direction trap that the case interior paragraph exploits, while the primary tension is the one the ending actually relocates.
+INSTABILITY DEGREE: 0.4 (0 = neat closure, 1 = fully suspended; this governs
+how contested the MIDDLE of the passage feels — the ENDING's stance is governed by the
+closing posture directive below, not by this number)
+
+AUTHORIAL PERSONA: The Precision Provocateur
+  Register: provocative claims defended with meticulous, almost pedantic care; the outrage is in the thesis, never the prose
+  Sentence signature: calm technical sentences carrying incendiary content
+  Hedging style: scrupulous scope-limiting that makes the remaining claim more shocking
+  Characteristic moves: the most radical sentence is the most boring one grammatically; anticipates the scandalized paraphrase and pre-corrects it
+  Pronoun posture: clinical first person
+  Metaphor domains to draw from: surgery, engineering tolerances, proofs
+  Texture: invent one small voice tell unique to THIS passage (a concrete detail
+  habit, a self-correction tic, or a slightly plainer register dip) so it does not
+  read as the generator's default house polish.
+
+TOTAL LENGTH (hard requirement): 500-550 words. Anything outside that
+range is rejected. The per-paragraph targets below are sized to land inside it —
+follow them and the total takes care of itself.
+
+RHETORICAL BEAT PLAN (hard requirement — this is the passage's argumentative shape, in order. Each beat may span or share paragraphs. Together they account for the whole argument: if you find yourself performing an operation that is not on this list, the beat it displaced is the one you still owe):
+  1. ABSTRACT_CLAIM_OPEN — opens on a general proposition stated in the abstract
+  2. SYMMETRY_BROKEN — shows two things treated as parallel are not in fact parallel
+  3. ANALOGY_EXTENDED — carries a single analogy across several sentences
+  4. STAKES_RAISED — argues the matter now matters more, or to more parties, than it used to
+  5. DISCLAIM_RESTATE — denies a strong reading of its own claim, then restates it ('not X; rather Y')
+  6. EASY_READING_DEMOLISHED — names the obvious or tempting interpretation and dismisses it as a mistake
+  7. INSTANCE_SURVEY — sweeps several examples, jurisdictions, or cases in quick succession
+  8. HEDGED_APHORISM — closes on a quotable freestanding maxim, usually carrying a hedge
+
+PARAGRAPH MOVEMENT PLAN (4 paragraphs; rhythm: Staircase — paragraphs lengthen as the argument deepens):
+  Paragraph 1 (~52 words, cadence: mixed): role = widest frame. Content brief: Open at the widest level: organizations everywhere worry about the loss of accumulated know-how when experienced people leave, and invest heavily in systems meant to capture it.
+  Paragraph 2 (~99 words, cadence: long periodic): role = narrowed domain. Content brief: Narrow to the specific domain of industrial knowledge transfer — succession planning and 'knowledge capture' initiatives in manufacturing plants facing retirements of veteran line workers, and the standard toolkit (shadowing, documentation, exit interviews) used to preserve their expertise.
+  Paragraph 3 (~158 words, cadence: mixed): role = single case. Content brief: Narrow further to a single case: a specific chemical-processing plant preparing for the retirement of Marguerite, its senior batch operator of thirty-one years, and the elaborate six-month handoff process designed around her, including a junior engineer assigned to document her every judgment call.
+  Paragraph 4 (~216 words, cadence: staccato): role = case interior. Content brief: Go inside that case: the documentation effort succeeds at capturing her explicit rules but fails to capture the specific, almost unnoticed gesture by which she rests her hand on a valve housing to feel a vibration pattern that predicts overheating three shifts before any gauge would show it — a practice she cannot fully articulate even to herself, was never taught to her, and which the plant's own safety record turns out to depend on far more than anyone had assumed; this is where the real thesis about tacit, unlanguaged expertise surfaces.
+
+THESIS REVELATION: Example-Borne — never abstractly stated; fully embodied in the treatment of one example
+The thesis first becomes visible in paragraph 4.
+Before that point, the reader must not be able to state the passage's final position.
+
+READER TRAPS (build these into the prose):
+  TR1 (paragraph 2): invite the misreading that "That the essay's argument is about the general adequacy or inadequacy of knowledge-management systems as a category — i.e., that paragraph 2's survey of documentation/shadowing/exit-interview methods is itself the thesis-bearing claim." [mechanism: nec_suff_swap]
+  TR2 (paragraph 3): invite the misreading that "That the plant's low incident rate over three decades is presented as caused by the formal handoff process being set up around Marguerite, when the paragraph is actually just describing the process's design, not yet asserting what causes the plant's safety record." [mechanism: causal_inversion]
+  TR3 (paragraph 4): invite the misreading that "That Marguerite's hand-on-the-valve habit is presented as the cause of the plant's safety record, inviting the reader to treat this single anecdote as proof of tacit knowledge's causal power, when the paragraph's careful phrasing only supports that the record 'depends on' it in an unspecified, possi" [mechanism: causal_inversion]
+
+ENDING DIRECTIVE: The Widened Aperture — the local question opens onto a larger one, explicitly left unanswered. Aperture: widens.
+CLOSING POSTURE (hard requirement): END by relocating the real question: the closing commits to the claim that a different question or object matters more, stated as a positive finding - not as a refusal to answer.
+FINAL SENTENCE: The final sentence must NOT be a detachable aphorism or epigram: it must stay syntactically and referentially tied to the paragraph's ongoing argument (e.g., it depends on a referent introduced in the preceding sentences). TEST IT: if the sentence could be lifted out and quoted on its own and still read as a complete thought, it fails — rewrite it so that it cannot. It must contain a pronoun, demonstrative, or definite reference that is unintelligible without the sentences before it. Do not end on a maxim, a reversal, a balanced antithesis, or a wry qualification of a general claim.
+
+FORBIDDEN WORDS/PHRASES (never use any of these): furthermore, moreover, in conclusion, it is a testament, tapestry, delve, paradigm shift, navigate the complexities, underscores, multifaceted, the deeper issue, the real point, the deeper question, this raises the question, the question then becomes, the first objection, what remains is, it is worth pausing, which brings us to, to put it another way, controversial, provocative
+
+BEFORE YOU RESPOND: count the words in the passage you have written. If the
+total is not between 500 and 550, revise it into that range —
+expand or compress the argument itself, do not pad with filler or amputate a
+paragraph's function. Emit only the corrected passage.
+
+Write the passage now.
+
+------------------------------------------------------------------------------
+[HARD] STAGE 5 - QUESTIONS: USER MESSAGE
+------------------------------------------------------------------------------
+PASSAGE:
+Every organization I have worked with treats departure as a form of leakage. When a person with decades in the building goes, something is understood to drain out with them, and the standard response is to build a vessel: a system for catching what would otherwise be lost. I believed in the vessels. For about eleven years, professionally, I built them.
+
+The industrial version of this belief is unusually well-developed, because manufacturing has a demographic problem it can count. Plants know when their veteran line workers will reach sixty-five, and they respond with succession planning: shadowing rotations, structured exit interviews, task decomposition, video capture of setup procedures, searchable databases of failure modes. The toolkit is not naive. It was designed by people who had watched documentation fail and had asked why. Their answer — that expertise is capturable if you decompose it finely enough — is sufficient to justify the whole apparatus, and I want to be careful here: I am not yet saying the apparatus fails. It captures a great deal. What it captures is real.
+
+In 2016 I spent six months at a chemical-processing plant in Lorraine, watching one such handoff. The retiring worker was a senior batch operator named Marguerite, thirty-one years on the same reactor train, the last nineteen on nights. The plant's incident rate over those three decades was, by sector standards, remarkable. Management built the handoff to match: a junior engineer, Théo, was assigned to her full-time with a tablet and instructions to record every judgment call she made, the reasoning behind it, and the conditions that triggered it. Six months, roughly nine hundred logged decisions. The design was intelligent. It assumed her expertise consisted of rules she could state if asked patiently enough, and it asked patiently. I should be exact about what that design established, because it is easy to slide: it established that the plant considered her valuable. It did not establish why the plant was safe.
+
+Théo's log is good. Her explicit rules came out cleanly — feed rates, hold times, the temperature bands she treated as narrower than the SOP allowed. He missed one thing. Walking the train, roughly every forty minutes, she would put her right palm flat on the housing of the number-three feed valve and leave it there for two or three seconds. She did not stop walking so much as pause mid-stride. Asked about it, she said the valve "sounds wrong sometimes." Pressed, she could not say what wrong meant. Nobody taught her; she did not know when she started. What she was reading was a vibration signature that preceded overheating in the downstream exchanger by something like three shifts — well before any gauge crossed a threshold. I want to state the finding narrowly. I cannot demonstrate that her hand caused those three decades. I can demonstrate that at least four documented near-misses were interrupted by it, that no instrument in the plant duplicated the function, and that after she left, the exchanger failed twice in fourteen months. So the question worth asking is not whether the handoff captured her rules. It is what else, in that building, was being held together by gestures nobody had a name for and no one had thought to look for.
+
+HIDDEN BLUEPRINT CONTEXT (never reveal to students):
+- Primary tension: Where institutional knowledge actually resides — in codified procedure or in uncodifiable individual practice (fate: displaced)
+- Thesis first visible: paragraph 4
+- Ending aperture: widens
+- Allowed distractor mechanisms: causal_inversion (primary, use in ~2 questions),
+  nec_suff_swap (secondary), plus at most 2 other mechanisms from:
+  premature_closure, scope_inflation, stage_misattribution, framework_import, half_truth, causal_inversion, stance_misread, phrase_misuse, moderate_extremism, straw_version, category_slip, prior_belief, false_symmetry, level_confusion, nec_suff_swap, example_promotion, missing_link, overqualification, adjacent_answer, terminological_twin
+
+TIER: hard — genuine interpretive work; the author's stance has to be tracked across the argument rather than read off any one sentence.
+
+QUESTION PLAN (Local-Global Ladder; alternates local reading and cross-passage reach, rung by rung):
+  Q1: type=thesis — central thesis / main idea — requires integrating the full movement of the passage | target=global | difficulty=0.63
+      stem shape (adapt to this passage): "Which one of the following best summarises the author's main argument?"
+      HARVESTS TR1: one wrong option must be the misreading "That the essay's argument is about the general adequacy or inadequacy of knowledge-management systems as a category — i.e., that paragraph 2's survey of documentation/shadowing/exit-interview methods is itself the thesis-bearing claim." (mechanism: nec_suff_swap)
+  Q2: type=detail_check — a precise factual/claim-level detail from the passage | target=local | difficulty=0.72
+      stem shape (adapt to this passage): "According to the passage, why does {X} happen?"
+      HARVESTS TR2: one wrong option must be the misreading "That the plant's low incident rate over three decades is presented as caused by the formal handoff process being set up around Marguerite, when the paragraph is actually just describing the process's design, not yet asserting what causes the plant's safety record." (mechanism: causal_inversion)
+  Q3: type=author_vs_reported — distinguish the author's own view from views the author reports or steelmans | target=span | difficulty=0.5
+      stem shape (adapt to this passage): "Which view does the author report or steelman rather than hold?"
+      HARVESTS TR3: one wrong option must be the misreading "That Marguerite's hand-on-the-valve habit is presented as the cause of the plant's safety record, inviting the reader to treat this single anecdote as proof of tacit knowledge's causal power, when the paragraph's careful phrasing only supports that the record 'depends on' it in an unspecified, possi" (mechanism: causal_inversion)
+  Q4: type=strengthen — which new fact would most strengthen a specified claim from the passage | target=span | difficulty=0.75
+      stem shape (adapt to this passage): "Which one of the following, if true, would most support the claim made in {the specified paragraph}?"
+  Q5: type=undermine_thesis — which new fact, if true, would most damage the passage's central argument | target=global | difficulty=0.53
+      stem shape (adapt to this passage): "The central idea of the passage would be undermined if:"
+  Q6: type=structural_function — why a particular move (analogy, concession, example, tonal shift) was introduced; the answer is a structural role, not local meaning | target=local | difficulty=0.76
+      stem shape (adapt to this passage): "Which one of the following best describes the role played by {the specified paragraph}?"
+  Q7: type=phrase_in_context — the meaning of a specific phrase as used in the passage, not in general usage | target=local | difficulty=0.54
+      stem shape (adapt to this passage): "In the context of the passage, {quoted phrase} is best understood as:"
+  Q8: type=application — a NEW real-world scenario (not a paraphrase); identify which mechanism from the passage best explains it | target=global | difficulty=0.78
+      stem shape (adapt to this passage): "Which reading of the following scenario best follows the passage's reasoning?"
+
+The stem shapes above are the forms these questions take in the real exam. Adapt each
+to this passage's content — keep the shape, replace the placeholders. Do not reuse one
+shape for two slots.
+
+Before emitting JSON, recheck option word counts on EVERY question for both rules:
+  (a) parity — longest minus shortest <= 3 words;
+  (b) length bias — the correct option is strictly longest in at most 2/8,
+      and never on the thesis/main-point question.
+If you adjust for parity, keep every option a complete, comprehensible sentence — no
+clipped fragments.
+Write the 8 questions now as JSON.
+
+
+==============================================================================
+ELITE  -  RC-ELITE-260822-0057
+==============================================================================
+family    : F34 "The Patient Inventory"  arc_shape=enumerative_flat  paragraphs=5
+persona   : P01    stance: RS02
+topology  : QT14    register: aphoristic
+render    : claude-opus-5 (max_tokens 1600)
+questions : claude-opus-5 (max_tokens 5600)
+
+------------------------------------------------------------------------------
+[ELITE] STAGE 2 - RENDER: USER MESSAGE
+------------------------------------------------------------------------------
+STRUCTURAL CONTRACT
+
+WRITING STANCE (this governs the SHAPE of the whole piece — obey it even where it makes the movement plan harder to satisfy):
+  The Word's History: Follow a single term, practice, or category as it moves through time and across domains. The argument IS the history: what the word carried at each stage, what it shed, who changed it and under what pressure. Do not step outside the chronology to announce what it all means.
+  Arc constraint: strictly chronological; the thesis emerges from the sequence, never from commentary on it
+
+TOPIC: What a single small-town pawnshop's ledger reveals about a community, when read as a set of unranked observations rather than a diagnosis
+TIER: elite — architectural difficulty: late thesis, layered tensions, traps that reward re-reading. A strong reader should have to work.
+ARGUMENT FAMILY: The Patient Inventory — Several independent observations about one subject, set down without ranking, climax, or synthesis; their relation is left for the reader to construct.
+
+PRIMARY TENSION: whether the pawnshop is best understood as an economic instrument or as a social archive (poles: the ledger as a record of liquidity and desperation, the ledger as a record of relationships, memory, and trust;
+fate by the end: resolved)
+SECONDARY TENSION: whether meaning resides in the aggregate pattern of transactions or in the singular, irreducible item (fate: displaced)
+INTERACTION: the secondary tension keeps threatening to supply the missing hierarchy (pick the pattern OR the item as decisive), but the essay refuses that shortcut, letting the primary tension resolve instead through the accumulation itself
+INSTABILITY DEGREE: 0.69 (0 = neat closure, 1 = fully suspended; this governs
+how contested the MIDDLE of the passage feels — the ENDING's stance is governed by the
+closing posture directive below, not by this number)
+
+AUTHORIAL PERSONA: The Forensic Skeptic
+  Register: courtroom precision; weighs evidence in ordered steps hidden inside prose; withholds sympathy
+  Sentence signature: medium-long periodic sentences with embedded enumerations; verdicts arrive as subordinate clauses
+  Hedging style: hedges only about evidence strength, never about his own reasoning
+  Characteristic moves: states the strongest version of the opposing case before touching it; closes paragraphs with a quiet finding, not a flourish
+  Pronoun posture: impersonal; 'one' and 'the record', almost never 'I'
+  Metaphor domains to draw from: law, forensics, accounting
+  Texture: invent one small voice tell unique to THIS passage (a concrete detail
+  habit, a self-correction tic, or a slightly plainer register dip) so it does not
+  read as the generator's default house polish.
+
+TOTAL LENGTH (hard requirement): 500-550 words. Anything outside that
+range is rejected. The per-paragraph targets below are sized to land inside it —
+follow them and the total takes care of itself.
+
+RHETORICAL BEAT PLAN (hard requirement — this is the passage's argumentative shape, in order. Each beat may span or share paragraphs. Together they account for the whole argument: if you find yourself performing an operation that is not on this list, the beat it displaced is the one you still owe):
+  1. HISTORICAL_ORIGIN — opens by dating or attributing where an idea or practice came from
+  2. DISCLAIM_RESTATE — denies a strong reading of its own claim, then restates it ('not X; rather Y')
+  3. INSTANCE_SURVEY — sweeps several examples, jurisdictions, or cases in quick succession
+  4. CONCESSION_GRANTED — grants the opposing point at something close to face value
+  5. ANALOGY_EXTENDED — carries a single analogy across several sentences
+  6. SELF_CORRECTION — visibly re-steers mid-argument, correcting what it just said
+  7. COUNTEREXAMPLE_PRESSED — presses one specific case against the general claim
+  8. EASY_READING_DEMOLISHED — names the obvious or tempting interpretation and dismisses it as a mistake
+  9. CONCRETE_RETURN — closes by returning to a specific particular or named case
+
+PARAGRAPH MOVEMENT PLAN (5 paragraphs; rhythm: Ascent — concrete incident, each paragraph a level up in abstraction):
+  Paragraph 1 (~41 words, cadence: dense analytic): role = subject framed. Content brief: Introduce Halloran's Pawn, a single shop in a declining mill town, run by the same family for three generations, its ledger book as the object of study.
+  Paragraph 2 (~76 words, cadence: staccato): role = observation independent. Content brief: First, loose version of the claim: the shop 'is not just about money.' Note the redemption rate is unusually high — most items get bought back, unlike typical pawnshops.
+  Paragraph 3 (~121 words, cadence: mixed): role = observation independent. Content brief: Observation on the wedding rings: a disproportionate number are pawned in December and January, redeemed by March; interview fragments suggest this is understood locally as a seasonal, almost ritual cash-flow bridge tied to holiday debt and tax refunds, not marital crisis.
+  Paragraph 4 (~121 words, cadence: mixed): role = observation independent. Content brief: Observation on tools: pawned tools are almost never redeemed by the original owner but frequently bought back by a neighbor or relative on the owner's behalf, sometimes without the owner's knowledge, revealing an informal credit network operating through the shop.
+  Paragraph 5 (~166 words, cadence: long periodic): role = relation left open. Content brief: Sharpen the claim to its most precise form — the pawnshop functions as an unofficial, unlegislated mutual-aid ledger — while sitting with the unresolved question of whether this is a solution to the town's absent financial infrastructure or a symptom of it, refusing to rank the observations that produced this claim.
+
+THESIS REVELATION: Progressive Sharpening — the same claim stated three times with rising precision; the versions differ in what they surrender
+The thesis first becomes visible in paragraph 2.
+Before that point, the reader must not be able to state the passage's final position.
+
+READER TRAPS (build these into the prose):
+  TR1 (paragraph 2): invite the misreading that "readers infer that the high redemption rate is itself the thesis and the essay's main evidence, treating it as more important than the later, more specific observations" [mechanism: example_promotion]
+  TR2 (paragraph 3): invite the misreading that "readers generalize from the wedding-ring seasonal pattern to conclude the whole shop's business is driven by holiday debt cycles, overextending one observation into a claim about the entire institution" [mechanism: scope_inflation]
+  TR3 (paragraph 4): invite the misreading that "readers treat the tool-redemption-by-proxy finding as the 'real' explanation that supersedes and explains away the wedding-ring pattern, imposing a hierarchy the text never asserts" [mechanism: example_promotion]
+
+ENDING DIRECTIVE: The Returned Key — reprises the opening image or example with its meaning reversed. Aperture: holds.
+CLOSING POSTURE (hard requirement): END by actually committing to a position: the final paragraph delivers the verdict, hedged only as much as honesty requires. Do NOT end by suspending judgment, opening a new question, or retreating into irresolution.
+FINAL SENTENCE: A terse, freestanding final line is permitted here.
+
+FORBIDDEN WORDS/PHRASES (never use any of these): furthermore, moreover, in conclusion, it is a testament, tapestry, delve, paradigm shift, navigate the complexities, underscores, multifaceted, the deeper issue, the real point, the deeper question, this raises the question, the question then becomes, the first objection, what remains is, it is worth pausing, which brings us to, to put it another way, clearly, obviously
+
+BEFORE YOU RESPOND: count the words in the passage you have written. If the
+total is not between 500 and 550, revise it into that range —
+expand or compress the argument itself, do not pad with filler or amputate a
+paragraph's function. Emit only the corrected passage.
+
+Write the passage now.
+
+------------------------------------------------------------------------------
+[ELITE] STAGE 5 - QUESTIONS: USER MESSAGE
+------------------------------------------------------------------------------
+PASSAGE:
+Halloran's Pawn opened on Water Street in 1931, when the mill still ran three shifts, and has been kept by a Halloran ever since. The record under examination is the shop's ledger: green columned paper, entries in three hands, unbroken from 1962 to 2019.
+
+The ledger is not, in the first instance, a record of money. Or not only. Consider the redemption rate. Nationally, pawnshops recover perhaps eight in ten pledges; the rest go to the display case. At Halloran's the figure runs above ninety-four percent across five decades, and in some years higher. Items leave. Items come back. The third Halloran, asked about this, said only that people here don't like owing.
+
+The wedding rings are the clearest case in the aggregate. Between 1974 and 2004 the ledger logs one hundred and sixty-three gold bands, of which one hundred and nineteen were pledged in December or January and redeemed before the first week of April. Two women interviewed in 2011 described the practice without embarrassment: the ring goes in after Christmas, the ring comes out when the refund lands. Neither used the word crisis. One called it "the winter loan." The pattern is seasonal, predictable, and legible to everyone in town — which is precisely what disqualifies it from standing in for the shop's business as a whole. It accounts for under four percent of entries.
+
+The tools tell a different story, and not a story that swallows the first. Chainsaws, welders, a Bridgeport mill vise pledged in 1988: these are almost never redeemed by the man who pledged them. They are redeemed by a brother-in-law, a foreman, a neighbor two doors up — sometimes, per marginal notes in the second Halloran's hand, without the owner's knowledge, the item simply reappearing in his shed. Here the shop is acting as a clearinghouse for obligations that never touch a bank. One might be tempted to say this is what the rings were really about too. The ledger does not support that. The rings were pledged and redeemed by the same hands.
+
+So: the sharpest available statement is that Halloran's operated as an unlegislated mutual-aid instrument, keeping a book of debts the town could not otherwise keep, and that this function is visible only because three separate observations — the redemption rate, the seasonal bands, the proxy recoveries of tools — sit alongside one another without any of them being promoted to cause. Whether that instrument compensated for the absence of a credit union after 1979 or helped make one unnecessary is a question the ledger cannot settle, and one need not settle it to accept the finding. What the green columns hold is not a diagnosis of distress. It is an account of who could be relied upon, kept in the only place that would keep it. The shop closed in 2019. Its final entry, in the third Halloran's hand, records a wedding band pledged that January and redeemed in March by the woman who pawned it — the same transaction the book had been recording since Eisenhower, still working, still balanced, on the day the door was locked. The ledger was never an economic instrument that happened to be social. It was the reverse.
+
+HIDDEN BLUEPRINT CONTEXT (never reveal to students):
+- Primary tension: whether the pawnshop is best understood as an economic instrument or as a social archive (fate: resolved)
+- Thesis first visible: paragraph 2
+- Ending aperture: holds
+- Allowed distractor mechanisms: scope_inflation (primary, use in ~2 questions),
+  example_promotion (secondary), plus at most 2 other mechanisms from:
+  premature_closure, scope_inflation, stage_misattribution, framework_import, half_truth, causal_inversion, stance_misread, phrase_misuse, moderate_extremism, straw_version, category_slip, prior_belief, false_symmetry, level_confusion, nec_suff_swap, example_promotion, missing_link, overqualification, adjacent_answer, terminological_twin
+
+TIER: elite — architectural difficulty: late thesis, layered tensions, traps that reward re-reading. A strong reader should have to work.
+
+QUESTION PLAN (The Reported Frame; the author's own view has to be separated from the views being staged):
+  Q1: type=primary_purpose — why a discussion, example or paragraph is in the passage at all — authorial purpose, not the structural role it plays | target=global | difficulty=0.72
+      stem shape (adapt to this passage): "The primary purpose of the passage is to:"
+      HARVESTS TR1: one wrong option must be the misreading "readers infer that the high redemption rate is itself the thesis and the essay's main evidence, treating it as more important than the later, more specific observations" (mechanism: example_promotion)
+  Q2: type=closure_reading — what the ending does — why the passage stops where it does and what is implied next | target=span | difficulty=0.76
+      stem shape (adapt to this passage): "Which one of the following is most strongly implied by the way the passage ends?"
+      HARVESTS TR3: one wrong option must be the misreading "readers treat the tool-redemption-by-proxy finding as the 'real' explanation that supersedes and explains away the wedding-ring pattern, imposing a hierarchy the text never asserts" (mechanism: example_promotion)
+  Q3: type=evidence_function — what work an example or piece of evidence does (illustrate, prove, complicate, license) | target=local | difficulty=0.72
+      stem shape (adapt to this passage): "The author cites {X} primarily in order to:"
+  Q4: type=undermine_thesis — which new fact, if true, would most damage the passage's central argument | target=global | difficulty=0.8
+      stem shape (adapt to this passage): "Which one of the following, if established, would most damage the author's central claim?"
+      HARVESTS TR2: one wrong option must be the misreading "readers generalize from the wedding-ring seasonal pattern to conclude the whole shop's business is driven by holiday debt cycles, overextending one observation into a claim about the entire institution" (mechanism: scope_inflation)
+  Q5: type=except_scan — three options are directly supported by the passage and one is not; the UNSUPPORTED option is the correct answer | target=span | difficulty=0.73
+      stem shape (adapt to this passage): "All of the following are true of {X}, EXCEPT:"
+  Q6: type=detail_check — a precise factual/claim-level detail from the passage | target=local | difficulty=0.78
+      stem shape (adapt to this passage): "According to the text, {X} is described as:"
+  Q7: type=author_vs_reported — distinguish the author's own view from views the author reports or steelmans | target=span | difficulty=0.73
+      stem shape (adapt to this passage): "The author of the passage is likely to disagree with which one of the following statements?"
+  Q8: type=decoy_escape — directly tests whether the reader escaped the passage's planted early misreading | target=span | difficulty=0.73
+      stem shape (adapt to this passage): "Which one of the following best explains why the impression created early in the passage does not survive the argument?"
+
+The stem shapes above are the forms these questions take in the real exam. Adapt each
+to this passage's content — keep the shape, replace the placeholders. Do not reuse one
+shape for two slots.
+
+Before emitting JSON, recheck option word counts on EVERY question for both rules:
+  (a) parity — longest minus shortest <= 3 words;
+  (b) length bias — the correct option is strictly longest in at most 2/8,
+      and never on the thesis/main-point question.
+If you adjust for parity, keep every option a complete, comprehensible sentence — no
+clipped fragments.
+Write the 8 questions now as JSON.

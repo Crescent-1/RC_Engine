@@ -1,0 +1,116 @@
+RC ID: RC-ELITE-260822-0062 | Tier: elite | Score: 8.2 | Status: needs_review | Compliance F1: 0.907 | Novelty: 0.616 | Screen: green | Generated: 2026-08-22T09:05:24.622157+00:00
+======================================================================
+
+[PASSAGE]
+
+What kind of object is the grey chat window in which a daughter types, “Did you ever forgive me?”, and receives her dead father’s answer? The firm’s brochure calls it a memorial, placing it beside photographs, voicemail recordings, timelines and searchable message collections, as though each belonged to one ancestral cabinet. Yet names distribute permissions. An archive may be opened; a performance attended; a proxy instructed. Each category appoints different custodians and different taboos. “Memorial” performs a small consecration, sheltering the software among accepted vessels of remembrance while obscuring its chosen rite: not merely keeping the father’s traces, but inviting continued address to him.
+
+The archive category has travelled far: from the magistrate’s chest to the state repository, then to the family folder and cloud account. Its custodians select. Its contents move. Its silences hurt. Still, the archive answers to deposits. In the chat window, fragments become replies. Asked about a childhood holiday, the father-bot describes rain on a caravan roof, although the source messages mention neither rain nor caravan. It may reassure. It may judge. It may remember. A technician can mark these sentences as generated, but the startling invention is only the loose floorboard. The chamber itself has been rebuilt so that stored remains can speak in the grammatical present.
+
+Performance seems a roomier designation, since impersonation has long furnished masks for the absent and the dead, but the theatre analogy holds only while its furniture remains visible: an author supplies lines, an actor embodies them, an audience gathers, and the edge of the stage marks representation from encounter. Even an improvised portrayal occurs before witnesses who know what social event they have entered. The chat window removes the chairs—one stubborn beige chair, in the demonstration suite—and admits a mourner alone. It studies each prompt, alters its tone, and returns at midnight. Resemblance helps sell the rite; responsiveness is the commodity.
+
+Disclosure labels appear to restore the missing boundary. “AI simulation,” says the strip above the father’s name. Informants in product teams report that prior consent completes the arrangement: the dying person records samples, chooses prohibited topics, signs permission for posthumous use. Consent matters. It does not settle this. A person can bequeath letters or license a performance, but cannot inspect and authorize an unlimited series of future judgments uttered as situational replies. Knowledge that a medium is artificial also coexists easily with participation in its address, as every ritual specialist knows. Archive and performance therefore fail at the same seam: open-ended posthumous chat institutes a fabricated reciprocal relationship, and should be prohibited as such.
+
+The prohibition is not against preserving digital remains; rather, it bars institutions from converting them into an indefinitely available partner. Messages may stay. Recordings may play. Collections may be searched. The dead need not be digitally erased to be unavailable for conversation. Refusing simulated return leaves an unresolved cultural task: which forms of remembrance can bear grief without manufacturing an answering presence? Perhaps every durable taboo is a boundary drawn where useful distinctions otherwise soften. Here the boundary should hold, though holding it withdraws from mourners the immediate, tailored comfort that this grey window was designed to provide.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) Digital remains may be preserved, but institutions should not turn them into responsive, indefinitely available partners.
+(B) Digital memorial objects, including photographs, recorded voicemails, and online archives, should be prohibited because they impede healthy mourning.
+(C) Posthumous chatbots should be permitted when disclosure labels and prior consent jointly establish appropriate ethical safeguards.
+(D) Posthumous chatbots should be classified as performances because responsiveness merely extends familiar theatrical impersonation into private settings.
+
+Q2. The author refers to the invented rain and caravan in order to:
+(A) show that family archives inevitably distort memories whenever custodians select, move, or suppress their contents.
+(B) introduce a visible defect before identifying the deeper transformation of stored traces into present-tense speech.
+(C) establish factual inaccuracy as the decisive reason that all generated memorial responses deserve prohibition.
+(D) demonstrate that technicians cannot reliably distinguish generated memories from authentic deposits in digital archives.
+
+Q3. A museum creates an interactive avatar of a deceased scientist, using her authorized recordings and displaying a permanent simulation label. Visitors privately ask new moral questions, and the avatar produces tailored replies. Which reading of this scenario best follows the passage's reasoning?
+(A) The scientist's prior authorization settles the issue, so prohibition would concern only avatars trained without permission.
+(B) The permanent label preserves the representational boundary, so visitors encounter an ordinary licensed performance.
+(C) The museum setting makes the system permissible because public institutions already curate selective historical archives.
+(D) The authorized archive becomes ethically different once it generates situational answers within an apparently reciprocal encounter.
+
+Q4. According to the passage, why does the category of performance fail to accommodate the chat window?
+(A) The chat removes familiar theatrical boundaries and privately adapts its replies to each mourner's prompts.
+(B) The chat generates inaccurate memories, whereas theatrical impersonations preserve their subjects' factual histories faithfully.
+(C) The chat conceals every artificial feature and persuades mourners that the dead literally returned.
+(D) The chat lacks an identifiable author who supplies fixed lines for an actor to embody.
+
+Q5. Which one of the following research findings would most weaken the author's conclusion that institutions should prohibit open-ended posthumous chat?
+(A) Most users prefer consent-based bots over otherwise identical systems assembled without the deceased person's permission.
+(B) Many bereaved users report greater immediate comfort after conversations with highly responsive memorial chatbots.
+(C) Users consistently experience labelled bots as reflective writing tools, not partners, despite receiving personalized situational replies.
+(D) Some bots occasionally invent biographical details even when their source archives contain extensive verified material.
+
+Q6. Which one of the following, if true, would most support the claim that disclosure labels do not restore the missing boundary?
+(A) Users usually notice simulation labels more quickly when interfaces display them beside the deceased person's name.
+(B) Labelled bots produce fewer invented details when developers restrict them to carefully verified message archives.
+(C) Labelled users knowingly suspend disbelief and address responsive bots as socially present partners during repeated exchanges.
+(D) Product teams increasingly combine prominent labels with detailed consent forms and prohibited-topic controls.
+
+Q7. We can infer from the passage that the phrase “the startling invention is only the loose floorboard” refers to:
+(A) a minor technical defect that developers can repair without changing the chatbot's ethical status.
+(B) an archival omission that becomes painful because custodians have selected which messages remain accessible.
+(C) a fabricated memory that alone provides sufficient grounds for prohibiting every posthumous conversational system.
+(D) a conspicuous error that reveals, but does not constitute, the deeper reconstruction of reciprocal presence.
+
+Q8. The author's position on digitally mediated remembrance is best characterised as:
+(A) protective of preservation but firmly opposed to institutions manufacturing an indefinitely responsive posthumous partner.
+(B) principally concerned with technical accuracy, while remaining undecided about responsive memorial systems themselves.
+(C) cautiously accepting of responsive memorial systems when prior consent and conspicuous disclosure jointly govern use.
+(D) generally suspicious of digital preservation because searchable collections weaken inherited rituals and custodial responsibilities.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — This bridges the passage's critique of archive and performance labels with its final distinction between preserving remains and manufacturing reciprocal presence.
+  (B) scope_inflation — The final paragraph explicitly permits messages, recordings, and searchable collections while prohibiting only simulated reciprocal conversation.
+  (C) stance_misread — Paragraph four concedes that disclosure and consent matter but argues that neither resolves open-ended posthumous judgment.
+  (D) category_slip — Paragraph three argues that private, adaptive responsiveness removes the theatrical boundaries that make performance an inadequate category.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — The example supplies the conspicuous error, while the 'loose floorboard' metaphor redirects attention to the reconstructed chamber of reciprocal address.
+  (A) scope_inflation — The earlier archive discussion notes selection and silence, but the invented reply marks a different transformation.
+  (C) example_promotion — Paragraph two calls the startling invention only the 'loose floorboard,' not the argument's decisive objection.
+  (D) missing_link — The passage says technicians can label generated sentences; it does not claim that they cannot distinguish them.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The scenario preserves consent and disclosure yet crosses the passage's decisive boundary by converting deposited traces into adaptive, open-ended replies.
+  (A) example_promotion — Paragraph four says prior consent cannot authorize an unlimited series of future situational judgments.
+  (B) category_slip — The passage argues that awareness of artificiality can coexist with participation in reciprocal address.
+  (C) missing_link — Institutional curation does not answer the objection to generating responsive, present-tense judgments.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Paragraph three contrasts theatre's visible author, actor, audience, and stage edge with solitary, adaptive, continuously available chat.
+  (B) false_symmetry — The passage neither guarantees theatrical accuracy nor makes factual invention the reason the performance category fails.
+  (C) scope_inflation — Paragraph four explicitly includes a visible 'AI simulation' label and denies that disclosure settles the issue.
+  (D) half_truth — This notes one theatrical difference but omits the crucial private, responsive encounter emphasized in paragraph three.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — This directly weakens the load-bearing claim that adaptive posthumous chat institutes a fabricated reciprocal relationship rather than merely mediating remembrance.
+  (A) missing_link — A preference for consent does not show that consent authorizes unlimited future situational replies.
+  (B) half_truth — The conclusion already concedes immediate tailored comfort, so this finding leaves its ethical boundary intact.
+  (D) example_promotion — Additional inaccuracies concern the 'loose floorboard' rather than weakening the argument about fabricated reciprocity.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — This directly supports the passage's claim that knowledge of artificiality can coexist with participation in reciprocal address.
+  (A) missing_link — Noticing the label establishes awareness, which the passage already says can coexist with ritual participation.
+  (B) example_promotion — Improved factual accuracy does not establish whether labels prevent users from entering a reciprocal relationship.
+  (D) half_truth — The prevalence of safeguards does not show that labels restore the boundary between representation and encounter.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The invented memory attracts notice, yet the metaphor shifts attention to the rebuilt 'chamber' where remains speak in the present.
+  (A) stance_misread — The defect exposes a deeper categorical problem that technical correction would leave untouched.
+  (B) category_slip — The rain and caravan are generated additions, not silences created through archival selection.
+  (C) example_promotion — Calling it 'only' the loose floorboard explicitly subordinates inaccuracy to the reconstructed speaking relationship.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — The author values retained messages and recordings while drawing a firm taboo against converting those remains into an answering presence.
+  (B) example_promotion — The author subordinates invented details and takes an explicit position against open-ended posthumous chat.
+  (C) stance_misread — Paragraph four treats consent and disclosure as important but insufficient, then calls for prohibition.
+  (D) scope_inflation — The conclusion expressly allows preserved, playable, and searchable digital remains.
+
+[Inspired by: "AI’s Builders Are Both Arrogant and Afraid", https://www.thenewatlantis.com/publications/ai-builders-are-arrogant-and-afraid]

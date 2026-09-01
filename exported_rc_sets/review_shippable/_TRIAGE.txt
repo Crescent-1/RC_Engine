@@ -1,0 +1,44 @@
+RED-SCREENED SETS TRIAGED FOR SHIPPING
+
+All 11 red-flagged sets were reviewed against: judge score >= 7.0,
+compliance f1 >= 0.75, passage length 500-550 words, no unresolved
+solver dispute. The red screen verdict alone was NOT treated as
+disqualifying - 8 of 8 sets predating this work also screen red, so a
+red flag marks structural similarity, not a defect.
+
+NOT copied here (3 sets, genuinely not shippable):
+  RC-ELITE-260822-0059   scored 6.0, judge verdict 'regenerate',
+                         family_realization 2/10
+  RC-HARD-260822-0062    452 words, 48 short
+  RC-MEDIUM-260822-0040  401 words, 99 short - a fifth under length
+
+Pattern worth noting: 7 of the 8 length failures are OpenAI sets.
+Every Claude set here is in band or 2 words over. GPT-5.6
+systematically misses the word target where Opus does not.
+
+========================================================================
+01_shippable_as_is
+========================================================================
+Clean on every hard criterion: judge >= 7.0, compliance f1 >= 0.75, 500-550 words, no dispute. Red screen flag only.
+
+  RC-HARD-260822-0061    hard    needs_review   score 8.0  f1 0.857  503 words  [openai]
+  RC-ELITE-260824-0067   elite   approved       score 8.6  f1 0.944  535 words  [claude]
+  RC-MEDIUM-260825-0046  medium  needs_review   score 8.0  f1 0.9  533 words  [claude]
+
+========================================================================
+02_likely_length_only
+========================================================================
+Blocked ONLY by the 500-550 word band, by 14-21 words (2.6-4.2%). Quality is otherwise fine. Ship if the band is your own rule rather than a client spec.
+
+  RC-MEDIUM-260822-0038  medium  needs_review   score 7.8  f1 0.95  479 words  (+21 outside band)  [openai]
+  RC-MEDIUM-260822-0039  medium  needs_review   score 8.2  f1 0.95  486 words  (+14 outside band)  [openai]
+  RC-ELITE-260822-0060   elite   needs_review   score 8.6  f1 0.895  564 words  (+14 outside band)  [openai]
+  RC-ELITE-260822-0061   elite   needs_review   score 7.6  f1 0.77  565 words  (+15 outside band)  [openai]
+
+========================================================================
+03_check_one_question
+========================================================================
+One disputed question. The solver answered D at 'leaning' confidence; an independent tiebreak read supported the KEY. Same pattern as RC-ELITE-260824-0067, which was cleared. Verify Q5 and it is very likely shippable.
+
+  RC-ELITE-260825-0068   elite   solver_dispute score 0.0  f1 0.763  552 words  (+2 outside band)  [claude]
+

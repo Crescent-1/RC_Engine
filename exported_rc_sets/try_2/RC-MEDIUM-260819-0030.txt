@@ -1,0 +1,114 @@
+RC ID: RC-MEDIUM-260819-0030 | Tier: medium | Score: 8.6 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.468 | Generated: 2026-08-19T14:25:56.821084+00:00
+======================================================================
+
+[PASSAGE]
+
+Ask where authenticity comes from and two guilds stake rival claims. One traces it to the Romantic poet, alone with his feeling; the other to the anthropologist in the field, notebook open, racing extinction. Each files for priority. Neither concedes. The dispute has outlasted every generation that inherited it.
+
+I once found the Romantic case irresistible, and I can still feel why. The argument runs inward: what is real in a person lies beneath the crust of manners, and the work of art is the moment that crust cracks. Wordsworth walking the fells, Keats writing that he was certain of nothing but the heart's affections—these were not decorations on the idea but its engine. Convention lied; feeling did not. To be authentic was to refuse the borrowed script and speak from the one place society had not yet colonized. For a long stretch of my apprenticeship I took that place to be self-evidently the source, and the poets its first cartographers.
+
+Then the other guild made its case, and for a while it seemed the stronger one. The anthropologists relocated authenticity outward—not in the solitary breast but in the shared life of a people: the ritual, the kinship term, the harvest song passed down before the trade ships came. Boas assembling his enormous Kwakwaka'wakw texts, Malinowski among the Trobrianders, treated a culture as something that could be lost the way a manuscript burns. Here authenticity wore the dignity of the endangered. It was not a mood to be expressed but a record to be defended against the leveling machinery of empire, and defense, plainly, is a graver duty than self-discovery. The stakes felt higher. The clock was running. Against that urgency the Romantic seemed almost indulgent—a man admiring his own weather.
+
+I no longer think either guild wins, because I no longer think they are fighting over what they say they are. Both assume authenticity is an essence lying in wait—to be uttered, or to be catalogued—and it was the sameness of that assumption, not the difference in their objects, that finally stopped me. The poet's introspection did not report a prior self; it manufactured one, in the very act of writing it down. The ethnographer's field notes did not preserve an untouched culture; the notes helped decide, retroactively, which strand would count as the real one, purified of whatever contact had already reshaped it. In both rooms the thing was being made in the moment of its supposed recovery. So the priority quarrel—who found authenticity first—rests on a premise that dissolves the moment you look hard at the record. The better question is not who owns the essence but why so many practices, poetic and scientific alike, are organized to produce the effect of an essence: what work does that effect do, for whom, and at whose expense? That is not a matter literary history can settle, nor ethnography either; it asks how communities transact in the currency of the real. Perhaps it belongs to a philosophy of value—if any discipline is competent to ask why we needed the essence to have been there all along.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) Anthropology's duty to defend endangered cultures gives it the stronger claim to authenticity over the merely self-admiring Romantic poet's inward mood.
+(B) Romantic introspection reliably reports a prior self while ethnography preserves untouched cultures, and both deserve recognition as authentic discoveries.
+(C) Both rival traditions share a false premise that authenticity is a waiting essence, so the real question concerns why practices manufacture that effect.
+(D) The centuries-old priority dispute between poets and ethnographers can finally be settled by a careful philosophy of value adjudicating the essence.
+
+Q2. Which one of the following best describes the role played by the third paragraph?
+(A) It supplies historical background about Boas and Malinowski to establish the antiquity and scholarly credibility of ethnographic fieldwork.
+(B) It concedes that anthropological authenticity is the correct answer, quietly abandoning the Romantic position the author had earlier been defending.
+(C) It presents the anthropological case at its most persuasive so the later turn can reject a genuinely strong rival, not a weak one.
+(D) It exposes the anthropological view as indulgent by contrasting its urgency against the more disciplined introspection of the Romantic poet.
+
+Q3. The passage stops where it does in order to:
+(A) deliver the author's final verdict crowning the Romantic tradition as the deeper source of genuine authenticity.
+(B) summarize the two guilds' claims so readers can judge for themselves which one holds priority.
+(C) concede that no discipline whatsoever can ever address why we needed the essence to have been present all along.
+(D) hand the reframed question to a discipline of value rather than resolve it within the two guilds' own terms.
+
+Q4. Which one of the following statements, if true, would best invalidate the main argument of the passage?
+(A) Introspective writing and field notes have been shown to record pre-existing selves and cultures accurately, without altering what they document.
+(B) Many poets openly admitted that convention shaped their verse just as much as private feeling did.
+(C) Boas and Malinowski disagreed sharply with each other about which methods best captured a vanishing culture's true form.
+(D) The Romantic and anthropological guilds actually began their competing claims within decades of one another historically.
+
+Q5. Which one of the following is suggested by the sentence 'the notes helped decide, retroactively, which strand would count as the real one, purified of whatever contact had already reshaped it'?
+(A) Ethnographers faithfully transcribed cultures exactly as they existed before any contact with trade ships or empire.
+(B) Colonial contact had so corrupted every culture that no authentic strand could be identified by anyone.
+(C) The documentation act itself selected an authentic version, editing out the cultural contact that had preceded the ethnographer's arrival.
+(D) The purity of a culture depended on how many field notes a given ethnographer managed to assemble.
+
+Q6. Regarding the Romantic account of authenticity, the author asserts that:
+(A) the poets treated feeling as truthful and convention as false, locating the real self beneath the crust of manners.
+(B) Wordsworth and Keats were mere decorations added later to an idea that already stood on its own.
+(C) the poets defended feeling as a record to be guarded against the leveling machinery of empire.
+(D) the poets regarded their private weather as a shared inheritance passed down before the trade ships arrived.
+
+Q7. 'I no longer think either guild wins, because I no longer think they are fighting over what they say they are.' We can infer from this statement that the author is being:
+(A) diagnostic, exposing a shared premise beneath a quarrel both sides misdescribe as being about rival objects.
+(B) dismissive, treating the entire question of authenticity as an empty pseudo-problem unworthy of any serious inquiry.
+(C) nostalgic, mourning his early Romantic conviction while conceding the anthropologists had ultimately proven correct.
+(D) partisan, preparing to defend one claimant as the rightful inheritor while discrediting the other guild's pretensions.
+
+Q8. Which one of the following positions is described in the passage but not endorsed by the author?
+(A) Both introspection and fieldwork make the very thing they claim to be recovering in the moment of recovery.
+(B) The authentic self lies beneath borrowed convention, and the poem is the moment that crust of manners cracks open.
+(C) The priority quarrel over who found authenticity first rests on a premise that dissolves under scrutiny.
+(D) The effect of an essence is produced by many practices, and one should ask what work that effect does.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates the paragraph-4 turn that both guilds share an assumption and redirects toward the effect-producing question.
+  (A) level_confusion — Mistakes paragraph 3's reported urgency for the author's verdict; paragraph 4 rejects both claimants.
+  (B) half_truth — Directly contradicts paragraph 4, which says introspection manufactures and notes decide rather than preserve.
+  (D) premature_closure — The passage dissolves the dispute rather than settling it; philosophy asks a different question, not who owns the essence.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The paragraph steelmans the second guild, whose strength makes paragraph 4's shared-premise critique land against a real opponent.
+  (A) example_promotion — The examples serve the argument's steelman, not a standalone history lesson about fieldwork's credentials.
+  (B) stance_misread — The author reports feeling the pull but never concedes; paragraph 4 dismisses both, so no side is adopted.
+  (D) causal_inversion — Reverses the text, which calls the Romantic the indulgent one against anthropology's urgency.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The ending displaces the inquiry to a philosophy of value, refusing closure inside literary history or ethnography.
+  (A) stance_misread — No verdict for either guild is delivered; paragraph 4 rejects the essence premise both share.
+  (B) premature_closure — The passage denies the priority quarrel is valid; it does not leave readers to adjudicate it.
+  (C) moderate_extremism — The author tentatively nominates philosophy of value; the ending opens a door rather than closing all of them.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — The thesis rests on the claim that both practices manufacture rather than recover; showing they merely record would collapse it.
+  (B) half_truth — This supports rather than damages the author, who argues introspection manufactures the self it seems to report.
+  (C) adjacent_answer — Internal method disputes leave intact the claim that ethnography constructs the real strand retroactively.
+  (D) scope_inflation — Chronology of the quarrel is decorative; the argument targets the shared essence premise, not timing.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — The retroactive deciding and purifying show the notes constructing, not preserving, the 'real' strand.
+  (A) causal_inversion — This is precisely the preservation claim the sentence denies by stressing retroactive selection.
+  (B) moderate_extremism — The sentence says a strand was chosen as real, not that authenticity was impossible everywhere.
+  (D) level_confusion — Confuses volume of documentation with the retroactive selecting of which strand counts.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — Paragraph 2 states convention lied, feeling did not, and the real lies beneath the crust of manners.
+  (B) half_truth — The text says they were not decorations but the idea's engine.
+  (C) category_slip — Defense against empire's leveling machinery describes the anthropological duty, not the Romantic mood.
+  (D) category_slip — That inherited, pre-contact framing belongs to the anthropologists in paragraph 3, not the Romantics.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — The author reframes the dispute as resting on a common false assumption rather than picking a winner.
+  (B) moderate_extremism — The author reframes rather than dismisses, proposing a better question for a philosophy of value.
+  (C) half_truth — He recalls the pull of both but concedes neither; no side is granted correctness.
+  (D) stance_misread — The sentence refuses both winners; nothing sets up defending one tradition against the other.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — This is the reported Romantic case of paragraph 2, which paragraph 4 rejects as manufacturing rather than reporting a self.
+  (A) stance_misread — This is the author's central claim, explicitly endorsed, not a reported guild position.
+  (C) stance_misread — This is the author's conclusion in paragraph 4, affirmed rather than merely described.
+  (D) stance_misread — This is the author's own reframing in paragraph 4, not a merely reported view.
+
+[Inspired by: "Armando Ledezma: Diary", https://www.lrb.co.uk/the-paper/v48/n12/armando-ledezma/diary]

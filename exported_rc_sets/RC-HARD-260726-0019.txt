@@ -1,0 +1,92 @@
+RC ID: RC-HARD-260726-0019 | Tier: hard | Score: 8.6 | Status: approved | Compliance F1: 1.0 | Novelty: 0.637 | Generated: 2026-07-26T10:00:42.725556+00:00
+======================================================================
+
+[PASSAGE]
+
+In the clerk's office at the back of a brick municipal building, a green steel cabinet held the deed transfers for a single decade; by 1968 the microfilm reader had been installed in the same room, and the cabinet was emptied over three afternoons. What followed was orderly. Each year a defensible fraction of paper originals was withdrawn from storage once filming had been verified, the verification itself conducted by a second reading of every frame, and each withdrawal was recorded on a form retained — inevitably — in paper. Storage costs fell. Retrieval times fell. When magnetic tape arrived, then relational tables, then an off-site provider whose racks nobody in the town has seen, the same logic extended without visible strain, since improvement in a system of this kind tends to be measured against the configuration it replaces rather than against the configuration it began from.
+
+Granted: no single migration was reckless, and by the clerk's own accounting — page counts, field counts, frames verified — the same information crossed each interval intact. That accounting is not being disputed here. What is being proposed is that a records office can be locally faithful at every transfer and still, across the sequence, stop being an archive at all, having become an instrument of a different kind while every gauge on it read normal.
+
+Consider what a deed in the green cabinet was. Ink pressed by a specific hand. A crease where it had been folded to fit a pocket. Coffee. The document was a trace: caused by the event, physically continuous with it. A scan is not caused by the event. It is caused by the document, and shaped by what the retrieval system needs — indexed fields, normalized dates, a resolution chosen to make text legible and everything else negligible. So the object migrated from being evidence to being an answer. To consult the town record now is to query, and a query returns what was made findable. Nothing else is present to be overlooked.
+
+Where, then? The first microfilming preserved every mark on the page, so not there. The first database entry only added an index; the images stayed. The first search-replacing-a-folder-pull changed no bits. And bits do match: checksums run monthly, migrations validated, corruption caught. Every candidate threshold, examined closely, turns out to have been the one that changed nothing.
+
+Which is the finding, not the failure to reach one. The kind-shift occurred, is irreversible, and is not located in any transfer, because it is a property of transferring rather than of transfers — each of which is authenticated by whichever custodian holds the current format, using criteria supplied by that format, so that fidelity can be certified indefinitely while the standard of fidelity migrates too. Nobody in the chain was in a position to see it; the position does not exist within the chain. This is a real conclusion and it costs something to hold. It forbids the remedy it implies: there is no migration to have refused, no year to have stopped at, no cabinet whose emptying can be identified as the wrong one, and so the town's memory of itself remains fully documented, monthly verified, and no longer of a kind that can be checked against anything but itself.
+
+[QUESTIONS]
+
+Q1. In the first paragraph, the phrase "the same logic extended without visible strain" is used to convey that:
+(A) the town's modernization proceeded smoothly, each technology delivering lower storage costs and faster retrieval than the last.
+(B) the migrations were technically demanding but the clerks concealed the difficulties from the townspeople who funded them.
+(C) the underlying reasoning was sound, since every later format genuinely preserved the page counts and field counts intact.
+(D) each new format was judged only against the one it displaced, so no cumulative drift registered as strain.
+
+Q2. Regarding the clerk's accounting of page counts, field counts and frames verified, the passage states that:
+(A) the author accepts it and builds the argument on it, claiming an office can be faithful at each transfer yet cease to be an archive.
+(B) the author grants it as a genuine limit on the critique, since demonstrated fidelity at each step weakens the charge of loss.
+(C) the author suspects it of measuring only what the retrieval system had already been designed to make countable.
+(D) the author finds it accurate for microfilm but progressively less meaningful once magnetic tape and relational tables arrived.
+
+Q3. The fourth paragraph, which runs through the microfilming, the database entry, the search function and the monthly checksums, functions primarily to:
+(A) exhaust the search for a decisive moment and thereby convert the absence of one into the argument's central claim.
+(B) concede that the breaking point cannot yet be identified, while urging closer technical audit of each historical transfer.
+(C) illustrate that the town's custodians were negligent at several stages by failing to notice what their own verifications omitted.
+(D) establish that no loss occurred, since the bits match, the migrations validate, and corruption is reliably caught each month.
+
+Q4. Which best characterizes the author's intellectual posture across the passage?
+(A) Nostalgically attached to the physical document, mourning the creases and coffee stains that digitization has stripped from the town's paper record.
+(B) Provisionally skeptical, treating the argument as an open hypothesis pending evidence about what future custodians may recover.
+(C) Cautiously optimistic that better indexing standards could restore to queried records the evidential character the originals possessed.
+(D) Analytically committed to a conclusion whose practical uselessness the author states rather than softens.
+
+Q5. The claim that fidelity "can be certified indefinitely while the standard of fidelity migrates too" depends on which unstated assumption?
+(A) Certification of fidelity is meaningful only when an independent external authority, outside the town's custody, audits each successive format.
+(B) A custodian's criteria of authentication derive from the format currently held, so they cannot register what an earlier format made available.
+(C) Custodians in a migration chain tend, over long intervals, to relax their verification procedures to keep pace with the volume of records.
+(D) Every format loses some information that the preceding format retained, which accumulates until the record differs measurably from the original.
+
+Q6. Which statement best captures the central thesis of the passage?
+(A) The digitized record has become an instrument for answering queries, which shows that towns should retain paper originals alongside their scans.
+(B) An institution can preserve its information faithfully through every transfer and still become a different kind of thing, with no transfer answerable for the change.
+(C) Because verification in a records office is always conducted by the custodian of the current format, the certification of archival fidelity is essentially fraudulent.
+(D) Successive digital migrations of public records introduce small unnoticed losses that accumulate over decades until the archive no longer represents the original documents accurately.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — The clause immediately following the phrase supplies its sense: improvement is measured against the prior configuration rather than the original one, which is why nothing appears strained.
+  (A) prior_belief — This reads the paragraph as a straightforward efficiency-success story, ignoring the closing clause about the shifting baseline of comparison.
+  (B) phrase_misuse — "Without visible strain" describes the absence of any detectable warning sign, not clerks hiding operational hardship from the public.
+  (C) half_truth — Preservation of counts is conceded later in paragraph two; here the phrase concerns the frame of comparison, not verified fidelity.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Paragraph two explicitly says that accounting "is not being disputed" and then proposes local fidelity plus categorical change — the concession is load-bearing, not a retreat.
+  (B) prior_belief — It treats the concession as the author softening; paragraph two makes local fidelity the premise of the claim, not a limit on it.
+  (C) adjacent_answer — The design-shaped-measurement point belongs to paragraph three's account of scans; the accounting itself is expressly not disputed.
+  (D) stage_misattribution — No stage is singled out as the point where the accounting fails; paragraph four insists every candidate threshold changed nothing.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — Paragraph five names the exhaustion as "the finding, not the failure to reach one" — the survey's structural role is to relocate the loss from any transfer to transferring itself.
+  (B) premature_closure — The passage forecloses such audit: paragraph five says the position from which to see the shift does not exist within the chain.
+  (C) straw_version — The passage states nobody was in a position to see it and that no migration was reckless, so negligence is not the point.
+  (D) framework_import — It imports a bit-integrity model in which matching checksums settle the question; the passage uses that very matching to show the loss lies elsewhere.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — Paragraph five asserts the kind-shift as "a real conclusion" while noting it "forbids the remedy it implies" — conviction held together with acknowledged inability to act.
+  (A) stance_misread — The material details serve an argument about trace versus answer; the passage nowhere recommends or laments the paper as such.
+  (B) stance_misread — The author calls the kind-shift a finding that occurred and is irreversible, not a hypothesis awaiting later evidence.
+  (C) prior_belief — The passage denies any remedy, calling the shift irreversible and locating it in transferring rather than in correctable design choices.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The certification-drift claim only follows if each check is internal to its own format; the passage supplies this in the clause about criteria "supplied by that format."
+  (A) framework_import — It imports an external-audit standard; the passage's point is that no position outside the chain exists, not that one was neglected.
+  (C) causal_inversion — The passage stresses rigorous, monthly verification; drift comes from the criteria's origin, not from slackening effort.
+  (D) category_slip — This substitutes cumulative measurable loss for the categorical shift the passage argues, contradicting the conceded intactness of the information.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — This joins paragraph two's proposal, paragraph three's trace-to-answer shift, and paragraph five's relocation of the change into transferring rather than any transfer.
+  (A) framework_import — It converts the analysis into a retention policy the passage explicitly forecloses, since no migration was there to be refused.
+  (C) moderate_extremism — The passage treats the certifications as genuine and defensible; drift in the standard is not presented as fraud.
+  (D) category_slip — The passage concedes information crossed each interval intact; its claim is categorical change, not accumulated inaccuracy.
+
+[Inspired by: "Common Readers", https://thepointmag.com/criticism/common-readers-booktok/]

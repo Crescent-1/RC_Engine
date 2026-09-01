@@ -1,0 +1,116 @@
+RC ID: RC-ELITE-260822-0060 | Tier: elite | Score: 8.6 | Status: needs_review | Compliance F1: 0.895 | Novelty: 0.509 | Screen: red | Generated: 2026-08-22T06:33:18.311022+00:00
+======================================================================
+
+[PASSAGE]
+
+Cinema has taught its faithful to look for the breach in performance: the moment when a real cry escapes the part and leaves feeling, briefly, on the face. I used to hunt such moments with the zeal of a convert, replaying a close-up in which an actress sits beside a chipped blue enamel basin and her lower lid shines. The School of Accident called that tear grief’s involuntary witness; the School of Craft called it glycerine, breath control, and trade. The eye fills. The camera stays. We believe. Between induced sorrow and induced moisture, this tear appeared to await a verdict.
+
+That close shot frustrates the division. Glycerine before a take may mingle with tears brought on by private bereavement; a person flattened by grief may sit beside that blue basin dry-eyed; a trained actor may alter breath, memory and facial muscles until the lacrimal glands answer, although no loss in her life corresponds to the role’s. The liquid supplies no pedigree. This gives the Craft school much of what it wants: cinema can manufacture persuasive moisture. Yet manufacture does not cancel feeling that may attend it — no, it prevents the fluid from certifying feeling. The close-up’s tear is a poor witness.
+
+The inward test has an older, tenderer appeal: ask the actress at the basin. I once treated an interview after a premiere as a priest’s deposition. Yet her account of the close-up could report sorrow and omit the calculation that held the take together; at the instant, sorrow can coexist with fatigue, vanity, concentration, even pleasure in hitting a mark. Stanislavski’s Tortsov tells a pupil in An Actor Prepares that every moment onstage he must be “living the part.” Performance has travelled from theatre into managerial ratings and machine benchmarks, where achievement is assessed outside the doer. Sincerity does no cleaner work than the moisture.
+
+When the close-up holds on the actress’s cheek beside the basin—whether moisture arrived through a nozzle, a remembered death, or the disciplined tightening of a throat—the filmed cry ceases to look like evidence dispatched from an interior and appears as an event arranged among body, role, camera attention, and a spectator’s wish to recognise pain, each giving the droplet a use the others cannot supply. Camera and spectator are not symmetrical: the former selects duration and scale; the latter lends belief, suspicion, or appetite. “Real” names ethical and aesthetic weight within this arrangement, not a substance in the tear.
+
+Tempting as it is, ‘partly real and partly fake’ will not do for the close-up. It imagines two ingredients whose line can be located before the scene begins. It cannot. Authenticity is not a hidden content in the tear, waiting for a measure; rather, it is a contested mode of receiving the filmed event. Viewers may grant it gravity, enjoy its virtuosity, or dismiss it as manipulation, and the performer’s testimony joins that traffic without mastering it. This is not a denial: bodies hurt and actors work; it refuses to make the droplet final proof. I had wanted the wet eye to save me from the uncertainty of other people. That faith costs something when it fails. No bodily display can verify an interior on screen. Attention may settle instead on what a film asks a body to enact, and on the claims an audience makes in believing, enjoying, or refusing that enactment. Those claims stay open.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) The limits of tears and testimony as proof, and the relational conditions through which filmed authenticity is received.
+(B) The camera's sole power to determine whether viewers regard a bodily display as authentic or deceptive on screen.
+(C) The verdict on whether a particular filmed tear is genuine emotion or technical fabrication by a skilled actor on camera.
+(D) The technical means by which skilled performers create tears that audiences mistake for private grief in close filming.
+
+Q2. Which one of the following would best license the inference the author draws from the tear's variable possible causes: that no bodily display can verify an interior on screen?
+(A) Actors report that privately bereaved performers often find glycerine useful during technically demanding close-ups.
+(B) A review argues that failed physiology establishes that every cinematic cry is merely fake.
+(C) Camera operators use longer lenses to make tears appear larger during emotionally charged scenes.
+(D) In blinded trials, viewers cannot identify whether identical filmed tears arose from glycerine, memory work, or bereavement.
+
+Q3. Which one of the following, if true, would most call into question the claim that no bodily display can verify an interior on screen?
+(A) Researchers describe every filmed tear as partly authentic and partly artificial whenever several causes coexist in production.
+(B) Audiences disagree about a close-up's seriousness after receiving the same account of its production.
+(C) A validated visual protocol identifies, from close-ups alone, tears caused by acute grief with near-perfect accuracy.
+(D) Actors often describe genuine sorrow while also concentrating on technical marks during a take.
+
+Q4. Based on the passage, we can infer that the ethical and aesthetic weight called "real" would most likely:
+(A) It would identify an emotional substance located inside the performer before the scene is filmed.
+(B) It would settle once the performer reports the private feeling accompanying the recorded close-up.
+(C) It would depend equally on camera choices and spectator responses to a filmed image.
+(D) It would vary as camera framing, performance, and spectator response alter a tear's assigned significance.
+
+Q5. In the context of the passage, "The liquid supplies no pedigree" is best understood as:
+(A) It means that visible moisture cannot establish the emotional history or technique that produced it.
+(B) It means that chemical analysis can reveal whether a performer used glycerine rather than personal memory.
+(C) It means that a tear contains equal shares of organic feeling and cinematic artifice within itself.
+(D) It means that a tear's meaning depends chiefly on the spectator evaluating its apparent emotional force.
+
+Q6. The reference to managerial ratings and machine benchmarks is introduced primarily to:
+(A) It broadens the problem by showing that performance is judged through external assessments beyond the actor's avowal.
+(B) It establishes that external evaluation gives audiences authority to determine an actor's actual private feelings on film.
+(C) It contrasts an inward theatrical ideal with institutions assessing performance only by numerical productivity targets in practice.
+(D) It demonstrates that machine benchmarks assess performance more reliably than an actor's own account can during screenings.
+
+Q7. According to the passage, why does the description "partly real and partly fake" fail for the close-up?
+(A) It treats audience belief as the only factor in whether a filmed tear appears emotionally credible.
+(B) It assigns spectators an equal role with cameras in determining the visual scale and duration of tears.
+(C) It denies that trained performers can make lacrimal glands respond through controlled breath, memory, and facial muscles.
+(D) It presumes separable ingredients whose boundary can be fixed before the scene and its reception unfold.
+
+Q8. Which one of the following positions is described in the passage but not endorsed by the author?
+(A) Performers' testimony enters interpretive traffic without controlling how viewers receive an emotional close-up within a particular film in practice.
+(B) A filmed tear cannot serve as final proof of an otherwise inaccessible interior emotional state on screen.
+(C) An actor must be "living the part" at every onstage moment in order to perform with sincerity.
+(D) Camera attention and spectator response help constitute the significance of a filmed bodily display for film viewers.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — It tracks the bridge from failed bodily and testimonial proof to authenticity as a relational, contested reception.
+  (B) scope_inflation — Scope inflation makes camera selection decisive, though paragraph four assigns spectators a distinct, if unequal, role.
+  (C) premature_closure — Premature closure mistakes the opening dispute for the endpoint, ignoring paragraphs four and five's relational redefinition.
+  (D) example_promotion — Example promotion elevates the Craft school's manufacture in paragraph two over the later account of reception.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — Blinded indistinguishability links the passage's multiple causal routes to its conclusion that visible moisture cannot certify an inner state.
+  (A) half_truth — Half-truth notes mixed circumstances from paragraph two, but it does not show that appearance cannot reveal any interior.
+  (B) stage_misattribution — Stage misattribution substitutes a critic's counterfeit verdict for the author's conclusion; paragraphs two and five reject that verdict.
+  (C) adjacent_answer — Adjacent answer concerns camera scale from paragraph four, not whether the viewer can infer a tear's source.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — Such visual accuracy would create the evidentiary bridge from filmed appearance to acute grief that the final claim denies.
+  (A) premature_closure — Premature closure revives the two-ingredient mixture that paragraph five explicitly rejects as unable to locate a prior boundary.
+  (B) half_truth — Half-truth confirms contested reception in paragraph five, rather than challenging the claim that displays cannot verify interiors.
+  (D) level_confusion — Level confusion treats an actor's mixed experience in paragraph three as evidence that the filmed appearance can verify it.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — It follows paragraph four's redefinition of authenticity as arising through an arrangement rather than residing in a substance.
+  (A) phrase_misuse — Phrase misuse restores the interior substance that paragraph four explicitly displaces with an arranged filmed event.
+  (B) nec_suff_swap — Necessary-sufficient swap makes testimony decisive, although paragraph five says it joins interpretive traffic without mastering it.
+  (C) false_symmetry — False symmetry ignores paragraph four's distinction between camera control of duration and scale and spectator forms of reception.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — The phrase condenses paragraph two's causal ambiguity into a refusal to treat moisture as a certificate of feeling.
+  (B) framework_import — Framework import turns the local issue of visible certification in paragraph two into a claim about laboratory chemistry.
+  (C) premature_closure — Premature closure recasts uncertainty as a stable mixture, which paragraph five says cannot be drawn before the scene.
+  (D) level_confusion — Level confusion imports the later spectator-centered reception account into a phrase specifically about the fluid's causal source.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The reference moves from Tortsov's inward ideal to outside assessment, setting up the conclusion that sincerity does no cleaner work.
+  (B) level_confusion — Level confusion turns managerial or machine assessment into audience access to private feeling, a claim the passage rejects.
+  (C) framework_import — Framework import supplies numerical productivity targets, which the paragraph neither names nor needs for its broader extension.
+  (D) scope_inflation — Scope inflation adds comparative reliability, whereas the paragraph merely notes that achievement is assessed outside the doer.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — It mistakes authenticity for pre-existing components, whereas the passage locates meaning in the event's later, contested reception.
+  (A) scope_inflation — Scope inflation isolates audience belief, though the passage treats authenticity as an arrangement involving body, role, camera, and spectator.
+  (B) false_symmetry — False symmetry imports an issue from paragraph four; the phrase instead assumes a separable boundary between ingredients.
+  (C) straw_version — Straw version makes the phrase deny actor technique, although paragraph two explicitly grants trained actors can induce tears.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — This is Tortsov's prescription, used to represent the inward sincerity test before the author subjects sincerity to the same evidentiary limitation.
+  (A) stance_misread — Stance misread treats the final account of testimony as reported doctrine, although the author states it directly.
+  (B) stage_misattribution — Stage misattribution presents the author's final conclusion as a merely reported position, reversing the question's author-versus-report distinction.
+  (D) stance_misread — Stance misread treats paragraph four's relational account as unendorsed, though it is the author's own redescription.
+
+[Inspired by: "Anahid Nersessian: Little Ayatollahs", https://www.lrb.co.uk/the-paper/v48/n14/anahid-nersessian/little-ayatollahs]

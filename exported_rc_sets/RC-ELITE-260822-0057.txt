@@ -1,0 +1,116 @@
+RC ID: RC-ELITE-260822-0057 | Tier: elite | Score: 8.2 | Status: approved | Compliance F1: 0.933 | Novelty: 0.588 | Generated: 2026-08-22T03:25:58.998263+00:00
+======================================================================
+
+[PASSAGE]
+
+Halloran's Pawn opened on Water Street in 1931, when the mill still ran three shifts, and has been kept by a Halloran ever since. The record under examination is the shop's ledger: green columned paper, entries in three hands, unbroken from 1962 to 2019.
+
+The ledger is not, in the first instance, a record of money. Or not only. Consider the redemption rate. Nationally, pawnshops recover perhaps eight in ten pledges; the rest go to the display case. At Halloran's the figure runs above ninety-four percent across five decades, and in some years higher. Items leave. Items come back. The third Halloran, asked about this, said only that people here don't like owing.
+
+The wedding rings are the clearest case in the aggregate. Between 1974 and 2004 the ledger logs one hundred and sixty-three gold bands, of which one hundred and nineteen were pledged in December or January and redeemed before the first week of April. Two women interviewed in 2011 described the practice without embarrassment: the ring goes in after Christmas, the ring comes out when the refund lands. Neither used the word crisis. One called it "the winter loan." The pattern is seasonal, predictable, and legible to everyone in town — which is precisely what disqualifies it from standing in for the shop's business as a whole. It accounts for under four percent of entries.
+
+The tools tell a different story, and not a story that swallows the first. Chainsaws, welders, a Bridgeport mill vise pledged in 1988: these are almost never redeemed by the man who pledged them. They are redeemed by a brother-in-law, a foreman, a neighbor two doors up — sometimes, per marginal notes in the second Halloran's hand, without the owner's knowledge, the item simply reappearing in his shed. Here the shop is acting as a clearinghouse for obligations that never touch a bank. One might be tempted to say this is what the rings were really about too. The ledger does not support that. The rings were pledged and redeemed by the same hands.
+
+So: the sharpest available statement is that Halloran's operated as an unlegislated mutual-aid instrument, keeping a book of debts the town could not otherwise keep, and that this function is visible only because three separate observations — the redemption rate, the seasonal bands, the proxy recoveries of tools — sit alongside one another without any of them being promoted to cause. Whether that instrument compensated for the absence of a credit union after 1979 or helped make one unnecessary is a question the ledger cannot settle, and one need not settle it to accept the finding. What the green columns hold is not a diagnosis of distress. It is an account of who could be relied upon, kept in the only place that would keep it. The shop closed in 2019. Its final entry, in the third Halloran's hand, records a wedding band pledged that January and redeemed in March by the woman who pawned it — the same transaction the book had been recording since Eisenhower, still working, still balanced, on the day the door was locked. The ledger was never an economic instrument that happened to be social. It was the reverse.
+
+[QUESTIONS]
+
+Q1. The primary purpose of the passage is to:
+(A) establish that an unusually high redemption rate makes this shop nationally exceptional in kind
+(B) trace how seasonal borrowing against wedding rings sustained a mill town through hard winters
+(C) argue that a single shop's ledger records social obligation rather than mere lending
+(D) explain why the absence of a local credit union pushed lending into informal private hands
+
+Q2. Which one of the following is most strongly implied by the way the passage ends?
+(A) The last transaction demonstrates that economic pressure on the town had finally eased somewhat
+(B) The shop's social function persisted intact until closure rather than decaying into ordinary pawnbroking
+(C) The closing of the shop left the town without any means of recording mutual obligation
+(D) The tool transfers among neighbours ultimately reveal what the wedding-ring pledges had always meant
+
+Q3. The author cites the tools redeemed by brothers-in-law, foremen and neighbours primarily in order to:
+(A) prove that informal credit fully substituted for the banking absent from town
+(B) show that men in the town were more reluctant than women to pawn
+(C) add a second kind of obligation the ledger tracks without displacing the first
+(D) correct the misleading impression created by the seasonal wedding-ring pledges earlier
+
+Q4. Which one of the following, if established, would most damage the author's central claim?
+(A) Halloran's charged interest rates matching the national average for comparable pawnbroking operations
+(B) The three ledger hands routinely recorded proxy redemptions as personal pledges by absent owners
+(C) A majority of ring pledges occurred in Decembers when the mill cut its winter shifts
+(D) A credit union opened in a neighbouring town during 1979 and drew some borrowers
+
+Q5. All of the following are true of the wedding-ring pledges described in the passage, EXCEPT:
+(A) They constitute the pattern the author treats as most representative of the shop's business
+(B) They were typically redeemed by the same person who had originally pledged them
+(C) They amount to a small fraction of the total entries recorded in the ledger
+(D) The women interviewed described the practice without treating it as a personal crisis
+
+Q6. According to the text, the redemption rate at Halloran's is described as:
+(A) exceeding ninety-four percent over five decades, and higher in certain years
+(B) remaining above ninety percent only in the years the wedding bands dominated
+(C) averaging eight in ten pledges, matching the broader national pawnbroking figure
+(D) rising steadily across the decades as the town's mill shifts were reduced
+
+Q7. The author of the passage is likely to disagree with which one of the following statements?
+(A) Whether the shop forestalled a credit union cannot be determined from these records
+(B) People in the town were unusually averse to leaving debts outstanding for long
+(C) The ledger's value lies in documenting the economic distress that gripped the town
+(D) Some pledged tools returned to sheds without their owners having arranged it
+
+Q8. Which one of the following best explains why the impression created early in the passage does not survive the argument?
+(A) The tool recoveries reveal that the earlier redemption statistic measured obligation, not repayment
+(B) The redemption figure is later shown to be inflated by proxy recoveries of pledged tools
+(C) The seasonal ring pledges eventually emerge as the true engine behind the whole ledger
+(D) The redemption rate opens the case but is never allowed to outrank the later observations
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — The passage moves through three unranked observations to a closing inversion — the shop was social first, economic second — which is the author's own purpose in assembling the record.
+  (A) example_promotion — Paragraph 2's redemption figure is one of three observations the author refuses to promote; it is entry evidence, not the point.
+  (B) scope_inflation — The ring pattern is explicitly under four percent of entries and disqualified from standing for the whole business.
+  (D) premature_closure — The author states the credit-union question cannot be settled by the ledger and need not be settled at all.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — The final entry repeats the earliest pattern 'still working, still balanced' on the last day, implying continuity of function rather than erosion.
+  (A) stance_misread — The author denies the ledger is a diagnosis of distress, so it cannot register distress easing either.
+  (C) scope_inflation — The passage records the closure without claiming what followed it or what the town lost thereafter.
+  (D) example_promotion — Paragraph 4 explicitly refuses this hierarchy: rings were pledged and redeemed by the same hands.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — The passage introduces the tools as 'a different story, and not a story that swallows the first,' making them additive evidence rather than superseding evidence.
+  (A) scope_inflation — The clearinghouse phrase describes obligations bypassing banks; the substitution question is later called unsettleable.
+  (B) category_slip — Gender comparison is not the point; the marginal notes concern who redeems, not who feels shame.
+  (D) example_promotion — The tools do not correct the ring pattern; the author says the ledger will not support reading rings through tools.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The thesis rests on three independent observations sitting alongside one another; if the proxy entries were fabricated bookkeeping, both the redemption rate and the clearinghouse finding collapse together.
+  (A) half_truth — The author never denies the shop was economic; the claim is about which function was primary.
+  (C) scope_inflation — This inflates a four-percent pattern into a claim about the institution, which the author has already ruled out.
+  (D) premature_closure — The credit-union question is expressly bracketed as unsettleable and inessential to accepting the finding.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — The passage says the ring pattern's legibility 'is precisely what disqualifies it from standing in for the shop's business as a whole' — a stance reversal, not an omission.
+  (B) passage_supported — Paragraph 4 states plainly that the rings were pledged and redeemed by the same hands.
+  (C) passage_supported — The passage states the seasonal ring pattern accounts for under four percent of entries.
+  (D) passage_supported — The 2011 interviewees spoke 'without embarrassment' and neither used the word crisis.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — Paragraph 2 gives the figure as above ninety-four percent across five decades, 'and in some years higher,' against a national eight in ten.
+  (B) example_promotion — The rate is reported for five decades overall; the ring pattern is a small subset of entries.
+  (C) terminological_twin — Eight in ten is the national rate the passage contrasts with Halloran's, not Halloran's own figure.
+  (D) missing_link — The passage reports a sustained high rate, not a trend correlated with mill employment.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — The author states flatly that the green columns hold 'not a diagnosis of distress' but an account of who could be relied upon.
+  (A) premature_closure — The author says explicitly that the ledger cannot settle this question and need not.
+  (B) stance_misread — The third Halloran's remark that 'people here don't like owing' is reported approvingly alongside the redemption figure.
+  (D) half_truth — Marginal notes in the second Halloran's hand record exactly this, sometimes without the owner's knowledge.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — The closing paragraph insists all three observations sit alongside one another 'without any of them being promoted to cause,' dissolving the early statistic's apparent primacy.
+  (A) example_promotion — This installs the tools as the explanatory key, a hierarchy paragraph five refuses to grant.
+  (B) causal_inversion — The passage never treats proxy redemptions as distorting the rate; it treats them as a separate finding.
+  (C) scope_inflation — The rings are expressly disqualified from representing the business and cover under four percent of entries.
+
+[Inspired by: "Wiseman’s Children", https://thepointmag.com/criticism/wisemans-children/]

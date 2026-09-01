@@ -1,0 +1,90 @@
+RC ID: RC-HARD-260726-0021 | Tier: hard | Score: 8.6 | Status: approved | Compliance F1: 1.0 | Novelty: 0.545 | Generated: 2026-07-26T10:41:27.881439+00:00
+======================================================================
+
+[PASSAGE]
+
+In a corridor at Georgetown in the mid-1970s, a card-punch operator kept a hand-lettered sign taped above her desk listing sentences the system had mangled that month. That was the mood. The funding proposals of the previous decade had promised something grander: general-purpose engines that would take any sentence in any source language and return a publishable sentence in any target language, the pairs multiplying like entries in a timetable. What arrived instead was output that had to be rewritten by a human being at roughly the cost of translating from scratch. Reviewers used words like brittle. Idioms collapsed. Pronouns wandered off and attached themselves to the wrong nouns. By the end of the decade the major sponsors had, to a first approximation, stopped believing the promise, and the money went elsewhere.
+
+What survived the retreat were small, ugly, domain-locked systems: bulletins for weather services, standardized phrasing for controllers and pilots, parts catalogues. A critic writing in 1981 — a linguist of real distinction, and not, I think, an unfair man — dismissed the whole surviving lot in a sentence worth keeping: these were "not translation at all, just glorified phrasebooks for diplomats and pilots." He meant it as a burial. He was describing, without quite hearing himself, the thing that had actually been built. A phrasebook does not pretend to give you a language. It gives you a fenced enclosure inside which two strangers can transact, and — this is the part the insult contains — it makes the fence visible. Step outside the phrases and you know instantly that you have stepped outside.
+
+Consider what the aviation systems did. They did not translate what a pilot meant. They constrained what a pilot could say. The vocabulary was closed. Ambiguous constructions were forbidden outright, in both languages. This looks like a scaled-down version of the failed dream, a small clean room inside the collapsed cathedral. It is not. The general engines had been built to substitute one meaning for another and hide the seam. The narrow systems did the opposite work. They marked the seam. When a controller and a pilot ran up against the edge of the permitted set, both parties learned, in the same instant, that agreement had not yet been reached. Nobody designed for that. It was the whole value.
+
+I have been writing from the far side of a distinction that the 1970s proposals could not state, and it is worth saying plainly now what the vantage point is. The evaluation metric of the failed era asked how close a machine's output came to the meaning of the original — a question that treats a translation as a replacement and its quality as a matter of distance. Every scaffold that survived was serving a different question: what does this particular exchange require its participants to notice they do not yet share? A weather bulletin needs almost nothing shared beyond numbers and a handful of nouns. A treaty needs a great deal, and needs to know precisely where the sharing stops. The engineers of the narrow systems had not solved the substitution problem; they had discovered that for most working exchanges it was the wrong problem, and that the useful machine is the one that shows you the gap instead of covering it. Equivalence was never the point. Locating the disagreement was.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central thesis of the passage?
+(A) The surviving narrow systems succeeded at a different task: making the limits of shared understanding visible rather than concealed.
+(B) Evaluation metrics measuring distance from an original's meaning were poorly designed and should have been replaced with better statistical measures of output quality.
+(C) Machine translation collapsed in the 1970s because computing power and available text data were far too limited for the general-purpose engines that sponsors had been promised in funding documents.
+(D) Because general translation proved unreachable, engineers wisely retreated to modest domains where the same substitution goal could at last be met with acceptable accuracy.
+
+Q2. Suppose the 1981 critic's quoted verdict were deleted from paragraph two and replaced with the author's own neutral description of the surviving systems as 'limited, domain-specific tools'. What would the argument most lose?
+(A) The author's clearest statement of agreement with the critic, since the passage also treats the narrow systems as falling short of genuine translation work.
+(B) The historical evidence that funding for translation research had been withdrawn, which the rest of the passage depends on for its account of the decade's retreat.
+(C) The hostile phrase that the author reinterprets, so the thesis would arrive as assertion rather than as something recovered from an opponent's own words.
+(D) The passage's only concession to the opposing view, without which the argument would read as an unbalanced defence of narrow engineering against a distinguished linguist's objection.
+
+Q3. The sentence 'This looks like a scaled-down version of the failed dream, a small clean room inside the collapsed cathedral. It is not.' primarily serves to:
+(A) signal a change of tone from historical narration to technical specification of how constrained aviation vocabularies were designed
+(B) block a natural inference so that the narrow systems can be reclassified as doing opposite work rather than lesser work
+(C) introduce an architectural metaphor that will organise the remaining paragraphs by contrasting cathedral-scale ambition with small rooms
+(D) concede that the aviation systems achieved the original ambition on a smaller scale before praising the discipline of their closed vocabularies and forbidden constructions
+
+Q4. If the final paragraph were removed and the passage ended with 'Nobody designed for that. It was the whole value', which consequence for the argument is most accurately described?
+(A) The claim would remain a reading of particular systems, without the reframing that treats substitution as the wrong question for most working exchanges.
+(B) The passage would end on the aviation example and thereby imply that only safety-critical exchanges can benefit from systems that expose the limits of shared understanding.
+(C) The argument would lose nothing essential, since paragraph three already states that the narrow systems marked the seam and that this was their whole value.
+(D) The historical claim about sponsors withdrawing support would become unsupported, since the closing paragraph supplies the evaluative standard those sponsors had originally used.
+
+Q5. In context, the remark that a phrasebook 'makes the fence visible' is best understood to mean that:
+(A) its openly acknowledged narrowness protects users from the false impression that a full language has been placed at their disposal
+(B) its restricted repertoire lets both parties recognise at once when they have moved beyond what can be reliably exchanged
+(C) its limitations are printed plainly enough that a critic can measure exactly how far short of real translation the tool actually falls
+(D) its fixed phrases fence off ambiguity so that whatever is said inside the enclosure carries a single reliable meaning for both speakers
+
+Q6. Which of the following best characterises the author's intellectual posture in the passage?
+(A) Polemical toward the 1981 critic, whose distinguished reputation the author works steadily to undermine by exposing the carelessness of his judgement.
+(B) Sceptical of both the failed engines and their narrow successors, treating the whole enterprise as a cautionary tale about overpromising to sponsors.
+(C) Retrospectively appreciative, crediting engineers with an achievement they neither intended nor could have named at the time.
+(D) Technologically optimistic, arguing that constrained-vocabulary designs point the way toward eventually solving the substitution problem that defeated the earlier engines.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — It tracks the passage's full movement — the failure of substitution engines, the reclaimed phrasebook insult, and the final restatement that locating disagreement, not equivalence, was the point.
+  (B) level_confusion — Paragraph four faults the question the metric asked, not the metric's technical crudeness, and proposes no improved measurement.
+  (C) missing_link — The passage attributes failure to a misconceived problem, not to scale; paragraph one cites brittleness and wandering pronouns, never hardware limits.
+  (D) category_slip — Paragraph three explicitly denies the narrow systems were a scaled-down version of the same aim; they did the opposite work.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The quotation functions as the seed of the thesis: the author reclaims 'phrasebook' by showing the insult accurately described what was built, and neutral phrasing removes that reversal.
+  (A) category_slip — The author calls the burial a misheard description of a real achievement; agreement with the dismissal is exactly what paragraph two withdraws.
+  (B) stage_misattribution — The funding collapse is established in paragraph one; the 1981 quotation supplies conceptual leverage, not the historical record.
+  (D) stance_misread — The quotation is not conceded but converted; the author says the critic described the real thing without hearing himself.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The author raises the tempting reading only to reject it, clearing the way for the claim that general engines hid the seam while narrow ones marked it.
+  (A) level_confusion — The technical details precede this sentence; the sentence performs conceptual correction, not a shift into specification.
+  (C) example_promotion — The cathedral image appears once and is dropped; the organising contrast in paragraph four is substitution versus locating disagreement.
+  (D) category_slip — The two-word refusal 'It is not' denies precisely this scaled-down reading, which paragraph three then reverses.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Paragraph four generalises from the aviation case to a rival criterion — what an exchange requires participants to notice they do not share — which the earlier paragraphs illustrate but never state.
+  (B) scope_inflation — An unstated generalisation is not an implied restriction; the loss is the criterion's statement, not an inference confining it to aviation.
+  (C) premature_closure — Paragraph three establishes the case; paragraph four names the vantage point and the displaced criterion, which no earlier sentence articulates.
+  (D) missing_link — The withdrawal is reported in paragraph one and needs no later support; paragraph four diagnoses the metric rather than evidencing the retreat.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The next sentence glosses the fence: stepping outside the phrases makes the departure instantly known, which the aviation paragraph restates as both parties learning agreement has not been reached.
+  (A) half_truth — Honest modesty about coverage is real but secondary; the operative point is that users detect the boundary in the moment of crossing it.
+  (C) stance_misread — Visibility serves the two transacting strangers, not the evaluating critic whose measuring standard paragraph four rejects.
+  (D) adjacent_answer — Disambiguation inside the enclosure is a design feature; the fence's visibility concerns the edge, where shared ground runs out.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The author writes from a later 'vantage point', says nobody designed for the value that emerged, and holds that the engineers discovered rather than solved.
+  (A) straw_version — The author calls the critic distinguished and not unfair, and borrows his phrase rather than attacking his competence.
+  (B) stance_misread — The narrow systems are credited with the whole value in paragraph three, so an even-handed dismissal misreads the passage's balance.
+  (D) category_slip — Paragraph four says substitution was the wrong problem, not a deferred one awaiting better narrow designs.
+
+[Inspired by: "The 1970s push to build 'universal' translation machines that could handle any language pair, and what the failure of that ambition accidentally taught engineers about what translation is actually for", engine-composed]
