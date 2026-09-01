@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260810-0035 | Tier: elite | Score: 8.6 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.652 | Generated: 2026-08-10T18:49:28.095091+00:00
+======================================================================
+
+[PASSAGE]
+
+An elephant matriarch in Amboseli turns aside from a straight path to the water and stands over the weathered jaw of a female who died two seasons before, touching it with the underside of her trunk; a chimpanzee mother in the Bossou hills carries her infant's mummified body across her shoulders for two months, grooming what the flies have left; crows gather in the branches above a dead crow and produce a noise that field notes from the 1970s recorded, with admirable restraint, as "assembly." Such cases are offered, at conferences and in the popular press alike, as though their evidential burden were self-evident, and the question they raise appears correspondingly simple: is this grief, properly so called, or merely the machinery of attachment running on after its object has been withdrawn?
+
+The observations, one should note, are not in dispute. What is remarkable is how completely two bodies of researchers can share a data set and part company at its interpretation. The first group treats the corpse-carrying, the vigils, the refusal of food as a family of behaviours whose most economical explanation is felt loss, and charges its opponents with a squeamishness dressed up as rigour. The second declines to infer any interior at all, describing instead the disruption of a habituated routine, and accuses the first of importing a Victorian sentimentality into the savannah. Each side's papers are careful, well-controlled, admirably footnoted. Neither has noticed that the word under contest is not one word.
+
+For one camp, grief names something felt from the inside — an experienced absence, a subject to whom the loss occurs — and such a thing is, by construction, not visible to a spotting scope. For the other, grief is what is defined by a protocol: measurable behavioural change following the death of a bonded conspecific, ideally with cortisol figures appended. The first definition renders the claim unverifiable; the second renders it nearly automatic, since almost any social animal alters its routine when a companion stops appearing. The two camps have been answering different questions with a shared vocabulary, and the sensible response would appear to be a shrug: a quarrel about usage, tidied by stipulation.
+
+That response would be wrong, and not by a narrow margin. The definitions are not interchangeable labels but the visible edges of two rival accounts of what an emotion is for the purposes of science — one holding that emotions are inner states which behaviour imperfectly indicates, the other that they are functional patterns of which the inner state is an optional ornament. Stipulating a definition does not adjudicate between these; it conceals that adjudication has been declined. Nor is this a dispute about elephants, exactly. What the field has been arguing about, under cover of the animals, is the reach of comparative psychology itself: whether its instruments were ever built to license claims about experience, or only about function wearing experience's name. So the question worth putting is not whether animals grieve but what evidence could in principle discriminate between an inner-state and a functional reading of any bereaved creature's conduct — and here the awkwardness is that no such criterion has been fixed for the human case either, where the widow's altered routine and the widow's felt absence have never been prised apart by anything but her testimony, which the elephant does not offer and the crow declines to give.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) Because the two camps use one vocabulary for two questions, the dispute is a quarrel about usage that clearer stipulated definitions would tidy away.
+(B) Researchers who deny animal interiors are practising a squeamishness dressed as rigour, while their opponents correctly read felt loss into behaviour.
+(C) The animal-grief debate hides an unresolved choice between inner-state and functional accounts of emotion, a choice stipulation cannot make.
+(D) Careful field observations of corpse-carrying, vigils and food refusal can now settle whether elephants and chimpanzees genuinely experience the loss of companions.
+
+Q2. Which one of the following research findings, if established, would most weaken the author's conclusion in the final paragraph?
+(A) The camp defining grief by protocol publishes better-controlled studies, showing that its rigour exceeds that of its inner-state rivals.
+(B) Chimpanzee mothers carrying mummified infants show habituation patterns closely resembling those seen in ordinary infant transport.
+(C) A neural measure reliably separates felt absence from routine disruption in bereaved humans, and the same measure applies to elephants.
+(D) Cortisol elevation after a companion's death occurs in nearly every social species tested, including those with minimal social bonding.
+
+Q3. What purpose is served by the author's reference to the widow at the close of the passage?
+(A) It shows the missing criterion is not a limitation of animal research but a gap in our account of emotion generally.
+(B) It demonstrates that the definitional quarrel, once identified, turns out to be merely semantic and therefore of limited scientific consequence.
+(C) It concedes that human grief is verifiable through testimony while animal grief must remain a matter of inference from behaviour.
+(D) It illustrates how Victorian sentimentality about human mourning has been improperly transported into observations of bereaved animals.
+
+Q4. We can infer from the passage that "function wearing experience's name" refers to:
+(A) behavioural regularities that are labelled with emotion words although the labelling licenses no claim about anything felt.
+(B) inner states that behaviour indicates imperfectly, so that experience must be reconstructed from measurable functional traces.
+(C) the deliberate misuse of emotional vocabulary by researchers seeking wider readership in the popular press and at conferences.
+(D) the cortisol figures appended to protocol-based studies, which supply physiological evidence that grief is genuinely experienced.
+
+Q5. The central argument of the passage would be most undermined if:
+(A) researchers in one camp were found to have privately conceded that their opponents' footnoting practices were considerably more thorough.
+(B) field notes from the 1970s were found to have overstated the coordination of the crows gathering above their dead companion.
+(C) elephants were shown to visit the remains of unrelated conspecifics as often as those of bonded kin within their own herd.
+(D) the two camps were shown to share one account of emotion, differing only in the instruments they happen to prefer.
+
+Q6. Regarding the two definitions of grief described in the passage, the author asserts that:
+(A) one makes the claim impossible to verify, while the other makes it hold for almost any social animal.
+(B) one has been operationalised with cortisol figures, which makes it the definition better suited to comparative psychology's instruments.
+(C) neither definition has been stated explicitly in the published literature, which explains why the two camps continue to talk past each other.
+(D) both definitions are fully compatible once researchers agree to stipulate which sense of the word they are employing.
+
+Q7. The author of the passage is most likely to disagree with which one of the following statements?
+(A) The behavioural observations at issue, from corpse-carrying to vigils, are themselves accepted by both camps.
+(B) Both camps produce careful work while answering different questions with a single shared vocabulary.
+(C) Almost any social animal alters its routine when a bonded companion ceases to appear among the group.
+(D) Comparative psychology's instruments were designed to license claims about animal experience rather than about function.
+
+Q8. The author's position on the question "do animals grieve?" is best characterised as:
+(A) sympathetic to the inner-state camp, since the economy of felt loss explains vigils and corpse-carrying better than routine disruption does.
+(B) holding that the question is badly posed until a criterion separating inner state from function is specified.
+(C) sceptical of the whole enterprise, since comparative psychology cannot deliver knowledge about animals beyond their observable behaviour.
+(D) impatient with a merely verbal quarrel that could be resolved if each camp simply stipulated its preferred sense of the word.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — It joins the definitional split of paragraph 3 to the displacement in paragraph 4, where the quarrel is revealed as one about what an emotion is for science and what comparative psychology can license.
+  (A) half_truth — Paragraph 4 explicitly rejects this shrug: stipulation conceals rather than performs the required adjudication between rival accounts.
+  (B) stance_misread — That charge is quoted as one camp's accusation in paragraph 2, not endorsed; the author calls both camps careful and internally coherent.
+  (D) scope_inflation — The passage says the observations are undisputed yet cannot settle the question; paragraph 4 denies any fixed criterion exists, even for humans.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The final paragraph rests on the claim that no criterion discriminating inner state from function has been fixed even for humans; such a measure supplies exactly that criterion and extends it across species.
+  (A) half_truth — The author already grants both camps careful, footnoted work; relative rigour leaves the definitional adjudication untouched.
+  (B) adjacent_answer — This reinterprets one illustrative case in paragraph 1 without touching the claim that no discriminating criterion exists.
+  (D) half_truth — This confirms the author's remark that the functional definition makes grief nearly automatic, strengthening rather than weakening the conclusion.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — The widow generalises the problem: since even the human case is settled only by testimony, the inner-state/function gap is not species-specific but built into the concept.
+  (B) half_truth — Paragraph 4 opens by rejecting the semantic shrug as wrong 'not by a narrow margin'.
+  (C) half_truth — Testimony is offered as the only thing ever used, not as genuine verification; the author calls the human case unprised apart too.
+  (D) framework_import — Sentimentality is one camp's accusation in paragraph 2; the widow example concerns evidential criteria, not sentiment.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — The phrase glosses the second account named earlier in paragraph 4, on which emotions are functional patterns whose inner state is optional; the borrowed word 'grief' does no experiential work.
+  (B) category_slip — This states the rival inner-state account, the one the phrase is contrasted with in the same sentence.
+  (C) stance_misread — The author charges no deception; paragraph 2 credits both camps with careful, well-controlled, footnoted work.
+  (D) level_confusion — Cortisol belongs to the protocol definition described in paragraph 3 and is said to make the claim nearly automatic, not experiential.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The thesis holds that the definitional split marks two rival accounts of what an emotion is for science; a shared underlying account would make the quarrel genuinely terminological and stipulation sufficient.
+  (A) half_truth — Comparative rigour is irrelevant to the argument that both camps decline the same adjudication.
+  (B) example_promotion — The examples are decorative openers; the passage states the observations themselves are not in dispute.
+  (C) scope_inflation — This challenges a bonding assumption inside one protocol, leaving the inner-state versus function problem untouched.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — Paragraph 3 states precisely this asymmetry: the inside-felt definition is not visible to a spotting scope, and the protocol definition is satisfied whenever a companion stops appearing.
+  (B) half_truth — The author notes the cortisol protocol but treats its near-automatic satisfaction as a defect, not a recommendation.
+  (C) scope_inflation — The passage says the camps failed to notice the word is not one word, not that the definitions were never articulated.
+  (D) premature_closure — Paragraph 4 says the definitions are edges of rival accounts and that stipulation conceals a declined adjudication.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — Paragraph 4 raises exactly this as the open question the field has been avoiding, and the widow case suggests no instrument yet discriminates experience from function.
+  (A) phrase_misuse — Paragraph 2 opens by conceding that the observations are not in dispute.
+  (B) stance_misread — The author states this directly in paragraphs 2 and 3 as his own diagnosis.
+  (C) adjacent_answer — Paragraph 3 asserts this as the reason the protocol definition is nearly automatic.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — The final paragraph replaces the original question with the evidential one, and the widow case shows why the replacement is required rather than optional.
+  (A) stance_misread — That economy claim is attributed to the first group in paragraph 2; the author endorses neither camp.
+  (C) moderate_extremism — The author questions what the instruments license, not the enterprise's value, and treats the reach question as open.
+  (D) premature_closure — Paragraph 4 rejects the verbal-quarrel reading outright and calls stipulation a concealment of the real issue.
+
+[Inspired by: "Is Life Just Different?", https://www.quantamagazine.org/is-life-just-different-20260708/]

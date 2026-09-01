@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260811-0039 | Tier: elite | Score: 8.8 | Status: approved | Compliance F1: 1.0 | Novelty: 0.678 | Generated: 2026-08-11T04:38:13.300346+00:00
+======================================================================
+
+[PASSAGE]
+
+Orwell despised the tea-stained bureaucratic memo. He wanted prose you could see through, like a clean window onto its object. The line runs from him forward: unadorned sentences are a civic instrument, the medium by which citizens govern themselves. Ornate writing, on this account, hoards meaning behind a screen only initiates can part. Plain writing surrenders it. No priest, no glossator, no seminar stands between the sentence and the reader who must weigh it. A pamphlet that any farmer can parse is more democratic than a treatise that needs a professor. Say what you mean. The argument has an honest appeal, and its champions have never lacked for examples.
+
+But consider who is doing the praising. To call a sentence "plain" rather than merely flat, to distinguish earned clarity from thin naivety, to hear the difference between Hemingway's restraint and the blankness of a manual — this is connoisseurship. Where the classical rhetorician graded ornament, the modern critic grades its absence, and grading is grading whichever pole you stand at. The eye that certifies plainness has been trained to certify. So the very judgment meant to dissolve expertise turns out to be one of its finer exercises: the reader is told he needs no specialist, by a specialist ruling on what needs no specialist.
+
+One might rescue the critic here. Perhaps his skill serves rather than supplants the reader's — a translator's expertise, which exists to be spent and disappear, not a customs officer's, which exists to detain. The critic clears the road; the farmer still does the driving. It is a graceful defense, and I would like it to hold. The trouble surfaces the moment one asks the defense to be specific. Which sentences count as plain? Whose reading counts as competent enough to confirm that they are? Every answer smuggles the officer back into the translator's coat. To assemble the demonstrating examples, someone must already know which prose democratizes and which merely flatters the untrained; to certify the judging reader, someone must set the bar. The service, described, becomes the substitution again. And here the essay's real quarry steps into view. The question was never which prose serves self-government. It is whether any critical vocabulary can name that service without the naming itself performing the authority it disowns — whether the border can be described from a position not already inside one country.
+
+Which leaves this essay's author where the argument put everyone else. I have ranked Orwell above the manual, called one clarity earned and another thin, decided which cases would carry the point — the discriminating work, done in plain view, in the act of warning against it. Refusing to judge would not release me. It would only be a judgment of a quieter kind, relocating the critic one room over in the same building. The debate closes with each side still in arrears. The democrat owes an account of taste that does not need a taster. The skeptic owes a reason his exposure is not itself another connoisseur's verdict, dressed down. Neither debt, so far as these sentences can reach, has been paid.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) No critical vocabulary can certify plain style as democratic without itself exercising the expertise it claims to make unnecessary.
+(B) The dispute between democrats and skeptics dissolves once both concede that clarity is a matter of trained taste.
+(C) Plain, unadorned prose is genuinely more democratic than ornate writing, and the essay simply defends writing plainly for all citizens.
+(D) Critics who praise plain style are frauds whose expertise adds nothing to the ordinary reader's independent judgment.
+
+Q2. Which one of the following is suggested by the phrase 'whether the border can be described from a position not already inside one country'?
+(A) Any attempt to describe critical judgment neutrally already presupposes the evaluative authority it hopes to observe from outside.
+(B) Critics stand outside both plain and ornate camps, judging fairly from a neutral border between the styles.
+(C) The failed attempts to define 'plain' merely illustrate a difficulty a sharper vocabulary could still describe impartially.
+(D) The border dividing democratic prose from flattering prose is real, awaiting only a more precise cartographer to map it.
+
+Q3. The author of the passage is likely to disagree with which one of the following statements?
+(A) Distinguishing earned clarity from thin naivety is itself a fine exercise of trained critical connoisseurship.
+(B) The reader parsing a plain pamphlet needs no specialist between the sentence and his judgment.
+(C) Choosing which examples demonstrate democratic prose requires already knowing which prose democratizes and which merely flatters.
+(D) Refusing to judge would itself be a quieter judgment, merely relocating the critic one room over.
+
+Q4. Why does the author include the translator-versus-customs-officer analogy?
+(A) To supply a transitional analogy that neatly links the middle paragraph to the essay's concluding reflections.
+(B) To raise the strongest defense of the critic's role and then show it collapses under demand for specifics.
+(C) To explain that a translator's skill is meant to disappear in use while a customs officer's exists to detain.
+(D) To concede that critics genuinely serve readers by clearing the road so the farmer can drive.
+
+Q5. According to the passage, why does the judgment meant to dissolve expertise turn out to be one of its finer exercises?
+(A) Because plain prose secretly conceals ornament that only the most trained literary specialists are able to detect.
+(B) Because no reader can grasp any prose without a professor mediating between sentence and meaning.
+(C) Because certifying a sentence as plain rather than merely flat requires an eye trained to grade.
+(D) Because the essay's real aim is to expose critics as frauds pretending expertise is unnecessary.
+
+Q6. The author suggests the 'translator' defense of the critic fails for all of the following reasons, EXCEPT:
+(A) Choosing the examples that demonstrate democratic prose presupposes knowing which prose actually democratizes.
+(B) Once specified, the promised service collapses back into substitution for the reader's own judgment.
+(C) Certifying which reader counts as competent requires that someone first set the bar.
+(D) The critic secretly prefers ornate prose and only feigns his admiration for plainness.
+
+Q7. Which one of the following, if true, would most call into question the claim that judging prose as 'plain' is inescapably an act of trained connoisseurship?
+(A) Readers with no critical training sort prose into plain and ornate exactly as trained critics do.
+(B) Trained critics frequently disagree with one another about whether a given sentence counts as plain.
+(C) Technical manuals are sometimes clearer and more transparent than celebrated works of literary prose.
+(D) Orwell himself occasionally wrote quite ornate sentences despite advocating a transparent, window-like plainness.
+
+Q8. The central idea of the passage would be most undermined if:
+(A) ordinary readers often disagreed sharply about which pamphlets counted as genuinely democratic writing.
+(B) Orwell's own celebrated prose turned out to fall short of his own standard of transparent clarity.
+(C) plain style proved historically less democratic than ornate style within several past societies.
+(D) a purely descriptive vocabulary could identify democratizing prose without ranking, certifying, or presupposing evaluative authority.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Integrates the turn from paragraph 1's democratic claim to paragraph 3's real quarry: any naming of the service performs the authority it disowns, leaving the debate open.
+  (B) premature_closure — The final paragraph leaves both debts unpaid and the aperture widening, not a settlement reached by mutual concession.
+  (C) scope_inflation — Takes paragraph 1's steelmanned Orwellian case as the whole thesis, ignoring the reversal begun in paragraph 2.
+  (D) stance_misread — The author implicates himself too and calls the expertise real, not fraudulent; he never dismisses it as adding nothing.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The border metaphor names the recursion: to describe the service, one must occupy the very evaluative country one claims to view impartially.
+  (B) stance_misread — The sentence denies exactly this neutral outside position; it is the possibility the author rules out.
+  (C) example_promotion — The specification failures are load-bearing proof that no vocabulary escapes, not stray illustrations awaiting a better tool.
+  (D) premature_closure — The point is not that mapping is imperfect but that any mapper is already inside the authority being described.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — This is the democrat's claim the author reports and then undercuts: certifying such plainness is itself the specialist's work.
+  (A) framework_import — This is the author's own paragraph-2 claim, not a view he would reject.
+  (C) half_truth — The author asserts precisely this in paragraph 3 as the reason the defense collapses.
+  (D) stance_misread — The author states this about himself in the final paragraph; he endorses it.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The analogy is set up as the graceful rescue the author 'would like to hold,' precisely so its failure when specified can advance the real quarry.
+  (A) stage_misattribution — Names a structural role correctly while missing the argumentative purpose of testing and defeating the defense.
+  (C) example_promotion — Accurately summarizes the analogy's content but mistakes restatement for the author's reason for deploying it.
+  (D) stance_misread — The author explicitly finds this defense fails once made specific; he does not concede it.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — Paragraph 2 states the eye that certifies plainness has been trained to certify, making the anti-expert verdict an expert act.
+  (A) straw_version — The passage never claims plain prose hides ornament; the difficulty lies in grading, not in concealed decoration.
+  (B) scope_inflation — Inverts paragraph 1, which grants that a farmer can parse the pamphlet; the issue is who certifies it as plain.
+  (D) scope_inflation — Mislabels the whole essay's aim; the point is the recursion of judgment, not the unmasking of frauds.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — Unsupported and fails on stance: the author attributes no hidden preference for ornament; the defense fails through recursion, not concealed motive.
+  (A) passage_supported — Paragraph 3 states someone must already know which prose democratizes to assemble the demonstrating examples.
+  (B) passage_supported — Paragraph 3 states 'the service, described, becomes the substitution again.'
+  (C) passage_supported — Paragraph 3 asks whose reading counts as competent and answers that someone must set the bar.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — If untrained readers replicate the certification without training, the verdict no longer requires the connoisseur's trained eye the argument depends on.
+  (B) missing_link — Disagreement among experts still presupposes expertise; it does not show the judgment needs no training.
+  (C) adjacent_answer — Concerns which prose is clearer, not whether identifying plainness requires a trained grading eye.
+  (D) example_promotion — Attacks a decorative biographical detail, leaving the claim about who certifies plainness untouched.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — The thesis's load-bearing move is that naming the service always performs authority; a genuinely non-evaluative vocabulary would break exactly that recursion.
+  (A) missing_link — Reader disagreement does not supply a neutral vocabulary; it arguably deepens, rather than dissolves, the recursion.
+  (B) example_promotion — A biographical failing about one exemplar leaves the argument about critical vocabulary's recursion standing.
+  (C) adjacent_answer — Attacks the decorative democratic claim from paragraph 1, not the paragraph-3 point about naming performing authority.
+
+[Inspired by: "Rising Above the Slop", https://www.commonwealmagazine.org/american-founding-250-day-foley-keene-bailyn]

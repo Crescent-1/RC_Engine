@@ -1,0 +1,116 @@
+RC ID: RC-ELITE-260825-0068 | Tier: elite | Score: 0.0 | Status: solver_dispute | Compliance F1: 0.763 | Novelty: 0.597 | Screen: red | Generated: 2026-08-25T04:23:24.339254+00:00
+======================================================================
+
+[PASSAGE]
+
+A quarto notebook catalogued in a county record office as "Commonplace book of Thomas Sowerby, clerk, Manchester, 1849–1871," and the catalogue entry decides more than it appears to. A commonplace book, as the schoolmasters of the seventeenth century meant it and as the Victorians inherited it, is a store: extracts copied under headings, wisdom banked against future need, the compiler's own voice deliberately absent because his voice is not the asset. Much of Sowerby's notebook obliges. Fourteen leaves of hymn verses, transcribed accurately from Watts and Cowper. Proverbs, some in Latin. Two pages of shipping tonnages copied from a newspaper. The genre fits, and the cataloguer, working through eleven boxes of an unaccessioned bequest, paid for the fit with a word that settles the object's worth before anyone has read it.
+
+Set against that: sixty-odd entries carry dates in Sowerby's own hand, the weather is noted on nearly every one of them from 1856 onward — "close, thundery, no rain by six" — and there are first-person sentences that no theory of copied extracts can absorb, of which the plainest is "I could not sleep for the noise of the engines," written twice in the same fortnight and copied from nobody.
+
+The case for the store, though, survives closer reading and is strengthened by it. The extracts are not accumulated; they are arranged. Between March and September of 1861, the months in which Sowerby's wife Ann was ill, the transcribed verses turn almost uniformly to mortality — Cowper on the grave, four separate psalms of affliction, a proverb about the borrowed hour repeated on three occasions with slight variation in spelling. Nothing in the notebook says she was ill; a parish register says it. What the arrangement shows is selection under private pressure, and selection is precisely the operation the genre disallows. A commonplace book is meant to be indifferent to its keeper's month. This one keeps time with his.
+
+The diary side has its own complication. Nineteen of the dated entries have been struck through and written again beneath, and four of those exist in three or four successive versions, each shorter, each with an adjective removed. A man recording his day does not draft it. Something is being composed here, and composed toward a standard the notebook never states.
+
+Three claims, then, each with its pages. The store accounts for perhaps a third of the leaves and cannot explain the weather, the dates, or the engines. The diary accounts for another third and cannot explain fourteen leaves of Watts or the drafting. And the drafting itself supports a third reading that the first two have no room for: that the crossings-out are the ordinary machinery of devotional self-examination, in which a man revises his account of his own week until it is honest, a discipline his chapel would have expected of him weekly. That reading, too, takes a third, and is falsified by the shipping tonnages. This is not a case where the evidence is thin and patience would settle it; the evidence is abundant and settles nothing, because each category is doing real work on real pages and lying about the rest. The cost of saying so is that Sowerby's notebook stays where the cataloguer's word put it, shelved under a heading two-thirds of it refuses.
+
+[QUESTIONS]
+
+Q1. Why does the author open with the cataloguer's entry and the seventeenth-century definition of a commonplace book?
+(A) To show how overworked archivists routinely misdescribe the bequests they are given to process
+(B) To fix the classification whose partial fit the rest of the essay will steadily embarrass
+(C) To establish the genre that the surviving evidence, on balance, confirms as the correct one
+(D) To supply the background definitions before the passage turns to Sowerby's private life
+
+Q2. Which one of the following findings would most complicate the author's account of the 1861 verses?
+(A) The parish register recording Ann's illness was compiled some years after her death occurred
+(B) The proverb about the borrowed hour appears in several published Manchester almanacs of the period
+(C) Watts's printed anthology places its mortality psalms in the order Sowerby copied them
+(D) Other Victorian diarists kept both transcribed extracts and dated first-person daily entries
+
+Q3. What work do the nineteen struck-through and rewritten entries do in the passage?
+(A) They break the diary reading and license a third candidate that the other two cannot accommodate
+(B) They demonstrate that Sowerby's prose improved steadily across the twenty-two years covered
+(C) They confirm the store reading by showing extracts were copied with unusual editorial care
+(D) They settle the matter by showing the notebook is private composition rather than any diary
+
+Q4. We can infer from the passage that "a standard the notebook never states" refers to:
+(A) the cataloguer's generic expectation that a commonplace book suppress its compiler's voice
+(B) an external criterion of honesty that the successive shortenings are working toward
+(C) a literary ideal of concision that Sowerby absorbed from the verses of Watts and Cowper
+(D) a shared household convention that Ann's illness be recorded only in indirect language
+
+Q5. The central idea of the passage would be undermined if:
+(A) the engines sentence was later proved to have been copied verbatim from a printed memoir
+(B) the hymn verses were found to be transcribed from a schoolbook rather than directly from Watts
+(C) the shipping tonnages were shown to be a standard devotional exercise in Sowerby's chapel
+(D) the weather notes were found in many other Manchester notebooks of the same decade
+
+Q6. According to the passage, why does the 1861 run of mortality verses count against the store reading?
+(A) Because the notebook records Ann's illness directly in Sowerby's own first-person voice
+(B) Because the copied psalms of affliction were transcribed inaccurately and with varied spelling
+(C) Because devotional verse was never regarded as suitable commonplace material by Victorians
+(D) Because arranging extracts by the keeper's private month is an operation the genre forbids
+
+Q7. Which one of the following positions is described in the passage but not endorsed by the author?
+(A) The abundance of evidence here is not what stands in the way of resolution
+(B) The notebook is properly classed as a commonplace book, as its heading records
+(C) Each of the three candidate readings does genuine work on a portion of the leaves
+(D) Selection of extracts under private pressure is visible in the 1861 sequence
+
+Q8. The author's position on the classification of Sowerby's notebook is best characterised as:
+(A) persuaded that the devotional reading finally supersedes both the store and the diary
+(B) undecided between two rival descriptions, pending the fuller evidence that further study may yield
+(C) convinced that no available category fits, and unwilling to purchase tidiness by choosing one
+(D) critical of archival cataloguing and hopeful that recataloguing would resolve the difficulty
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — The opening definition and catalogue word are planted so the later evidence — dates, weather, engines, drafting — can show the heading covering only a third of the leaves.
+  (A) scope_inflation — The eleven-boxes detail explains one cataloguer's shortcut; the essay makes no general claim about archival practice.
+  (C) half_truth — The essay grants the store real pages but ends saying two-thirds of the notebook refuses that heading, so no confirmation occurs.
+  (D) level_confusion — This describes the paragraph's structural placement rather than the authorial purpose the opening serves in the argument.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The 1861 argument rests on selection under private pressure; if the sequence merely follows a printed source, the arrangement stops evidencing the keeper's month.
+  (A) adjacent_answer — The register dates the illness; a later compilation date does not touch the claim that the verses were selected under pressure.
+  (B) half_truth — Copied sources are assumed throughout; the argument concerns which extracts were chosen when, not their origin.
+  (D) false_symmetry — This treats store and diary as two rival equals to be balanced, whereas the essay's problem is that three readings each cover a third.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — The drafting is introduced to show a man does not draft his day, then explicitly becomes the support for the devotional self-examination reading the first two categories have no room for.
+  (B) category_slip — The shortening versions evidence composition toward an unstated standard, not a chronicle of stylistic development.
+  (C) causal_inversion — The revisions occur in dated first-person entries, the diary side, and are said to be what a recorder would not do.
+  (D) half_truth — Paragraph 5 gives the drafting only a third of the leaves and has it falsified by the shipping tonnages, so nothing is settled.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — Paragraph 5 identifies the drafting with chapel-expected self-examination, in which a man revises until his account is honest — a norm the pages obey without naming.
+  (A) terminological_twin — The genre's silence about the keeper belongs to paragraph 2's definition, not to the unnamed standard governing the rewritten entries.
+  (C) framework_import — The removed adjectives are read as devotional revision, not as an aesthetic borrowed from the transcribed poets.
+  (D) missing_link — Nothing in the notebook mentions the illness at all; the passage supplies no rule about how it was to be written.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — The essay's deadlock depends on each reading being falsified by pages it cannot hold; if the tonnages fit devotion, that third reading absorbs the rest and the abundance stops settling nothing.
+  (A) scope_inflation — One sentence's provenance does not dissolve the dates, weather, drafting and arrangement that generate the three-way deadlock.
+  (B) adjacent_answer — The source of the verses is decorative; the store reading turns on their arrangement and volume, not their exact edition.
+  (D) half_truth — Commonness elsewhere leaves intact the claim that the store category cannot explain those notes here.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 states the arrangement shows selection under private pressure, and that a commonplace book is meant to be indifferent to its keeper's month.
+  (A) half_truth — The passage says nothing in the notebook mentions the illness; a parish register supplies it.
+  (B) phrase_misuse — The spelling variation belongs to the repeated proverb and is not offered as evidence of inaccuracy.
+  (C) straw_version — The essay accepts fourteen leaves of hymn verse as fitting the genre; content is not the objection.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — The cataloguer's judgement is reported and even given its strongest case, but the closing sentence has two-thirds of the notebook refusing that heading.
+  (A) stance_misread — The author states plainly that the evidence is abundant and settles nothing, rejecting the thin-evidence diagnosis.
+  (C) stance_misread — This is the author's own summation in paragraph 5, that each category does real work on real pages.
+  (D) stance_misread — Paragraph 3 advances this as the author's own reading of the arrangement, not as a reported view.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — The essay strengthens each reading in turn, shows each falsified by pages it cannot hold, and accepts the cost of leaving the object under a heading it refuses.
+  (A) premature_closure — The devotional reading is granted a third of the leaves and then said to be falsified by the shipping tonnages.
+  (B) false_symmetry — There are three readings, and the author denies that patience would help, since the evidence is already abundant.
+  (D) scope_inflation — The closing sentence treats the notebook's misfiling as a cost that persists, not as an error recataloguing could repair.
+
+[Inspired by: "Tess Little: Grasshoppermindedness", https://www.lrb.co.uk/the-paper/v48/n12/tess-little/grasshoppermindedness]

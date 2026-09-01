@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260828-0067 | Tier: hard | Score: 8.6 | Status: needs_review | Compliance F1: 0.883 | Novelty: 0.591 | Screen: red | Generated: 2026-08-28T03:06:16.445548+00:00
+======================================================================
+
+[PASSAGE]
+
+A parish keeps stranger records than it knows. In one suburban office, a secretary saved the chat logs from every livestreamed Mass of the lockdown spring, exported to spreadsheets and stored on a shared drive under a folder called PRAYERS. There are thousands of lines. Each row carries a display name, a timestamp accurate to the second, and a typed petition: for a mother on a ventilator, for a son who lost his job. Underneath, in the video, an altar. A single camera locked off at the sanctuary. A priest moving through a rite designed for a room with people in it. Those of us who spent years arguing that liturgical practice survives its media — that the sacraments do not care what wire they travel down — were handed, in that folder, a document we could not read as easily as we expected. The petitions scroll. The Mass proceeds. The two do not touch, and the question the archive forces is not whether the typing was sincere but what the typists believed they were addressing.
+
+The obvious reading is continuity, and it is a good reading. Catholic petition has always been material and slightly cluttered: the candle stand with its rows of guttering flames, the wooden box for intention cards, the parish bulletin that prints a list of the sick in small type. The chat window is that furniture rebuilt in glass. The language supports it — *St Jude, pray for us*, *Blessed Mother, hear my prayer*, *for the repose of the soul of*, formulas so worn they arrive intact through a phone keyboard. Nothing doctrinal has changed, on this account; a house has been re-clad, and the load-bearing walls are where they were.
+
+A second reading treats the window as a pew substitute. The logs show what a votive rack cannot: replies. Someone types a petition for her father and four strangers type *praying with you*, and there are heart reactions, and thumbs, and the small typed amens that accumulate under a request the way flowers accumulate at a roadside. Read that way, the chat is a support thread wearing vestments, and its work is loneliness, not intercession.
+
+Both readings live on content. The timestamps live elsewhere. Sort the logs by time and the petitions cluster in the homily — the long stretch when the priest is talking and the screen is least demanding — and thin out almost to nothing during the Prayers of the Faithful, the one moment the rite actually reserves for exactly this. Easy to call that lag, or distraction, or people who never learned the shape of the Mass. But the address gives it away. *Father, could you remember my aunt.* *You all, please pray.* Second person, plural, human.
+
+Nobody read them. Not the priest, who faced an altar and a camera; not the server; not the secretary until months later. The petitions went out to the only audience present, which was the other typers, and were answered by them, which means what the folder preserves is not prayer and not liturgy but people witnessing each other in the presence of something they had agreed to treat as sacred — a practice with its own integrity, though not, I think, the one we told ourselves had merely moved online.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) The chat window is the parish intention board rebuilt in glass, technologically updated while its devotional theology remains entirely unaltered underneath.
+(B) Livestreamed worship failed because a locked-off camera and an absent congregation cannot sustain the rite's demands upon a room.
+(C) Parish record-keeping should be reformed so that petitions typed during a stream reach the priest who is meant to voice them.
+(D) The archive shows a practice of mutual witness among typists rather than the liturgy the author had assumed simply relocated.
+
+Q2. In context, the claim that the chat is "a support thread wearing vestments" most nearly means that:
+(A) The liturgy borrowed the conventions of online support groups, changing how the priest conducted the rite itself.
+(B) Participants disguised ordinary online consolation as devotion, using pious formulas to make secular comfort look respectable.
+(C) On one available reading its real work is companionship, a claim the author records without finally accepting.
+(D) The replies and reactions prove the chat's function was emotional community-building rather than address to any divine listener.
+
+Q3. Which one of the following positions is described in the passage but not endorsed by the author?
+(A) The question the archive raises concerns whom the typing addressed rather than whether it was sincere.
+(B) The clustering of petitions away from the intercessions reflects lag, distraction, or simple unfamiliarity.
+(C) The petitions were answered by the other typers, who were the only audience actually present there.
+(D) Catholic petition has long been material and cluttered, from candle stands to bulletins printing names.
+
+Q4. Which one of the following best explains the primary purpose of the discussion of the timestamps in the fourth paragraph?
+(A) To demonstrate that congregations unfamiliar with the Mass require better instruction in its liturgical shape.
+(B) To move the analysis off content, where both readings are comfortable, onto evidence that can adjudicate between them.
+(C) To supply a transition between the two competing readings and the passage's concluding verdict about witness.
+(D) To report that petitions cluster during the homily and thin out during the Prayers of the Faithful.
+
+Q5. According to the passage, why does the author conclude that the mistimed posting cannot be explained as simple lag or distraction?
+(A) Because replies, hearts and typed amens accumulated beneath each request within a few seconds.
+(B) Because the petitions used worn devotional formulas that arrived intact through a phone keyboard.
+(C) Because the wording of the petitions is second person and plural, addressed to other humans.
+(D) Because the timestamps are accurate to the second, ruling out delay in the streaming feed.
+
+Q6. Based on information provided in the passage, all of the following are true, EXCEPT:
+(A) The author concludes that the practice preserved in the folder lacks integrity of its own.
+(B) The priest during the livestream faced an altar and a camera, not the chat.
+(C) The author had earlier argued that sacraments are indifferent to their transmitting medium.
+(D) The chat logs were exported to spreadsheets and stored in a folder named PRAYERS.
+
+Q7. Which one of the following findings, if true, would most weaken the author's reasoning in the fourth paragraph?
+(A) Many typists were long-standing parishioners who could recite the order of the Mass accurately.
+(B) Chat platforms of that period buffered typed lines and released them in bursts several minutes late.
+(C) Some petitions used third-person formulas asking a named saint to intercede for the sick.
+(D) Parish bulletins of the same period also printed intercessions in a small, easily overlooked type.
+
+Q8. The central idea of the passage would be undermined if:
+(A) Several typists later said the livestream had eased their loneliness more than any parish meeting.
+(B) The secretary had archived the candle-stand cards and intention boxes for decades in similar spreadsheets.
+(C) The priest reviewed the chat before each Mass and voiced its petitions aloud during the intercessions.
+(D) Attendance at in-person Mass in that parish recovered fully within a year of the lockdown ending.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — It joins the timestamp and address evidence of paragraph 4 to the paragraph 5 verdict, where the author revises the position held in paragraph 1.
+  (A) prior_belief — This is the paragraph 2 continuity reading the author calls good but ultimately displaces in paragraph 5.
+  (B) scope_inflation — The author never declares the streamed Mass a failure; the argument concerns whom typists addressed, not liturgical validity.
+  (C) category_slip — The passage offers no procedural recommendation; the fact that nobody read the petitions is evidence, not a problem to fix.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The phrase belongs to the second reading of paragraph 3, which the author sets out and then displaces in paragraph 5 with mutual witness before something held sacred.
+  (A) causal_inversion — Nothing suggests the rite altered; the priest faces altar and camera, unaware of the chat entirely.
+  (B) straw_version — The author explicitly refuses to question sincerity in paragraph 1; no charge of disguise is made.
+  (D) framework_import — It imports a therapeutic frame as settled truth; the author treats this as a candidate reading, not the conclusion.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — Paragraph 4 names these explanations as 'easy' and immediately overturns them with the evidence of second-person, plural address.
+  (A) half_truth — Paragraph 1 states this in the author's voice as the framing of the whole inquiry.
+  (C) stage_misattribution — This is the author's own paragraph 5 finding, not a reported view held by others.
+  (D) stance_misread — The author asserts this directly in paragraph 2 as part of a reading called good, not as a rejected position.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — Paragraph 4 opens by noting both readings 'live on content' and then uses timing plus address as the leverage that content could not supply.
+  (A) framework_import — The author names and discards the untutored-congregation explanation; no pedagogical concern is advanced anywhere.
+  (C) level_confusion — This names the structural role the paragraph plays rather than the authorial purpose behind it.
+  (D) level_confusion — This is an accurate summary of the paragraph's content, not the reason the author included it.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — Paragraph 4 says 'the address gives it away' and cites 'Father, could you remember my aunt' and 'You all, please pray' as second person, plural, human.
+  (A) stage_misattribution — The reactions belong to paragraph 3's support-thread reading, not to the timing argument of paragraph 4.
+  (B) phrase_misuse — The formulas from paragraph 2 support the continuity reading, not the rejection of the lag explanation.
+  (D) adjacent_answer — Second-level accuracy is mentioned in paragraph 1 as a record feature, never used to rule out lag.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — Paragraph 5 expressly grants the practice 'its own integrity' while denying it is the migrated liturgy; the option reverses the author's stance.
+  (B) passage_supported — Paragraph 5 states nobody read the petitions, including the priest who faced an altar and a camera.
+  (C) passage_supported — Paragraph 1 identifies the author with those arguing sacraments do not care what wire they travel down.
+  (D) passage_supported — Paragraph 1 states the secretary saved and exported the logs to a shared drive under that folder name.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — The paragraph's leverage is that petitions genuinely clustered away from the intercessions; systematic delayed release would make the observed timing an artefact rather than evidence.
+  (A) adjacent_answer — This strengthens the author, who already discards unfamiliarity with the rite as an explanation for the pattern.
+  (C) half_truth — The author already concedes such formulas in paragraph 2; a few instances do not overturn the dominant second-person address.
+  (D) missing_link — Bulletin typography belongs to paragraph 2's continuity illustration and bears on neither timing nor address.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — The thesis rests on paragraph 5's claim that nobody read the petitions and that typists addressed only each other; incorporation into the rite restores the liturgical addressee.
+  (A) framework_import — This supports the support-thread reading of paragraph 3, which the author's conclusion already absorbs rather than contradicts.
+  (B) prior_belief — Continuity of record-keeping supports paragraph 2's good reading but leaves the addressee argument entirely intact.
+  (D) scope_inflation — Later attendance concerns the parish's recovery, not what the typists during the stream believed they were addressing.
+
+[Inspired by: "AI’s Greatest Gift To Humanity", https://www.noemamag.com/ais-greatest-gift-to-humanity]
