@@ -315,7 +315,7 @@
 
     var foot = el("p", "srcline");
     foot.textContent =
-      "These eight channels carry the weighted composite. A ninth fingerprint " +
+      "These nine channels carry the weighted composite. A tenth fingerprint " +
       "signal — the answer-letter sequence — is audited across the corpus rather " +
       "than pairwise, alongside slot-distribution drift and the longest-option budget." +
       (n.verdict ? "  Recorded verdict: " + n.verdict + "." : "");
