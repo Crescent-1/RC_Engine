@@ -1,0 +1,116 @@
+RC ID: RC-MEDIUM-260901-0051 | Tier: medium | Score: 8.6 | Status: needs_review | Compliance F1: 0.77 | Novelty: 0.614 | Screen: green | Generated: 2026-09-01T11:07:12.855863+00:00
+======================================================================
+
+[PASSAGE]
+
+Contamination is treated according to what it is thought to be, and resistance genes in wastewater are not reliably any one thing. Chlorination is the obvious remedy, and a good one on its own terms. It kills. Free chlorine oxidizes membranes, proteins, whatever it reaches, and the count of viable resistant organisms in a treated effluent falls by orders of magnitude. The objection raised against it by wastewater microbiologists is precise rather than sweeping: a dead cell is not an empty one. Extracellular DNA persists in water for hours to days, sometimes longer when adsorbed to sediment, and a resistance cassette in that fragment can still be taken up by a competent bacterium downstream. Filtration has the mirror problem. Membranes are sized for particles, and a plasmid a few hundred nanometres across in solution is not a particle in the sense the filter was designed around.
+
+The causes are unglamorous and additive: antibiotic use in clinics and livestock selects for resistant strains; hospitals and feedlots concentrate those strains at high density; bacteria trade resistance genes across species on mobile elements; and a treatment plant, receiving all of this, mostly redistributes what arrives rather than manufacturing it.
+
+Engineers did not arrive at these methods by mistaking DNA for a germ. A plant must report something. Regulators require an endpoint that can be measured on a Tuesday by a technician with a defined protocol, and "log reduction of viable organisms" is such an endpoint in a way that "diminished probability of horizontal transfer somewhere downstream" is not. The WHO's guidance on antimicrobial resistance in the environment is explicit that surveillance methods remain unsettled, which is an admission about instruments, not about intentions. The material simply changes category as it moves. In the sewer it behaves as a pollutant load. In the aeration basin it is a pathogen carrier. In the receiving river, released from its dead host, it is transferable information, and the categories that make treatment legible were built before that last state was measurable.
+
+Conventional treatment does substantially reduce viable resistant bacteria, and abandoning it would be absurd. But a reduction in carriers is not the elimination of the trait. The case resembles neither a pathogen that can be killed nor a chemical that can be diluted; its hazard is realized only on uptake, inside a host that may be encountered years later.
+
+What follows from that is a layered procedure, and it works. Reduce antibiotic discharge where it is concentrated, at hospital wards and animal operations. Segregate those high-strength streams rather than blending them into the municipal flow. Then treat in sequence: biological degradation to lower the organic burden, membrane capture to hold back cells and the larger free fragments, and a validated DNA-damaging step — UV at adequate fluence, ozone at demonstrated dose — aimed at the nucleic acid itself. Monitor both compartments, culturable carriers and extracellular genes by quantitative assay. No single stage certifies that every sequence is destroyed, which is precisely the argument for the sequence rather than against it. The approach is sound because it tracks the material through each form it takes, and it will remain the correct one for as long as resistance genes can still travel through shared water.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) Regulators' insistence on convenient measurable endpoints is the principal reason resistance genes now spread through shared water.
+(B) Wastewater engineers misunderstood the material by confusing genetic fragments with living germs when designing plants.
+(C) Because resistance genes change category as they move, treatment must be layered across stages rather than single.
+(D) Since chlorination lowers viable resistant organisms by orders of magnitude, the resistance hazard in effluent has been handled.
+
+Q2. The author refers to "a technician with a defined protocol" measuring an endpoint on a Tuesday in order to:
+(A) explain why measurable viability endpoints, rather than negligence, shaped existing treatment practice
+(B) show that WHO surveillance guidance has already settled which environmental methods should apply
+(C) argue that regulators' fondness for tidy categories is what keeps resistance genes circulating
+(D) illustrate that routine laboratory work in plants is performed by insufficiently trained staff
+
+Q3. What does the passage's final sentence accomplish?
+(A) It concedes that layered treatment is unnecessary since no single test certifies complete gene destruction
+(B) It withdraws the earlier endorsement of conventional treatment in favour of source segregation alone
+(C) It ties the approach's validity to a condition still holding, leaving the recommendation open-ended
+(D) It predicts that resistance genes will soon stop moving through shared water systems entirely
+
+Q4. The central idea of the passage would be undermined if:
+(A) extracellular resistance genes were shown to degrade within minutes of host death in all natural waters
+(B) hospitals and feedlots were found to contribute smaller antibiotic loads than municipal households do
+(C) regulators were shown to have adopted viability endpoints long after membrane filtration became standard
+(D) UV disinfection were found to be more expensive than ozone at equivalent demonstrated doses
+
+Q5. Based on the passage, we can infer that a plant relying on membrane filtration alone would most likely:
+(A) destroy nucleic acids directly because pore sizes approach a few hundred nanometres
+(B) remove resistance genes more thoroughly than chlorination does at comparable operating cost
+(C) retain cells while allowing dissolved plasmids to pass into the receiving water
+(D) manufacture new resistance determinants by concentrating bacteria against the membrane surface
+
+Q6. According to the passage, why does a treated effluent still carry transferable resistance despite effective chlorination?
+(A) Sediment adsorption converts free chlorine into compounds that select for resistant strains
+(B) Killed cells leave DNA fragments that persist and can be taken up by competent bacteria
+(C) Chlorine doses used in practice fall short of what oxidation of membranes requires
+(D) Plants generate fresh resistance determinants while blending hospital and municipal wastewater streams
+
+Q7. "Conventional treatment does substantially reduce viable resistant bacteria, and abandoning it would be absurd." We can infer from this statement that the author is being:
+(A) neutral, reporting the practitioners' debate without endorsing either method or objection
+(B) dismissive, treating existing plants as obsolete relics of an outdated regulatory era
+(C) resigned, accepting that resistance transfer cannot be reduced by any available engineering
+(D) discriminating, granting real effectiveness while insisting the reduction is not elimination
+
+Q8. The author of the passage is likely to disagree with which one of the following statements?
+(A) Free chlorine oxidises cellular membranes and sharply lowers counts of viable resistant organisms
+(B) Bacteria exchange resistance genes across species by means of mobile genetic elements
+(C) Surveillance methods for environmental resistance are, by WHO's own account, still unsettled
+(D) A log reduction in viable organisms is a sufficient measure of a plant's resistance performance
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — It joins the passage's category-shift analysis (para 3) to the layered procedure endorsed in the closing paragraphs.
+  (A) causal_inversion — Reverses causation; para 2 lists antibiotic use, concentration and gene trading as causes, not reporting rules.
+  (B) straw_version — Para 3 explicitly denies this: engineers did not arrive at these methods by mistaking DNA for a germ.
+  (D) nec_suff_swap — Treats killing cells as sufficient, but para 1 notes extracellular DNA persists and remains transferable downstream.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The detail sits in para 3's defence of engineers, converting an apparent error into a constraint of measurement.
+  (B) half_truth — Para 3 says the WHO calls surveillance methods unsettled, an admission about instruments.
+  (C) causal_inversion — Inverts the argument; regulation shapes reporting, while para 2 attributes gene persistence to use and trading.
+  (D) phrase_misuse — Reads a jibe at technicians into a phrase used to characterise protocol-based measurability.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — The clause "for as long as resistance genes can still travel" conditions the endorsement, so the argument holds without closing.
+  (A) nec_suff_swap — Para 5 states the lack of a certifying stage is the argument for the sequence, not against it.
+  (B) scope_inflation — Para 4 keeps conventional treatment; segregation is one stage of the layered sequence, not a replacement.
+  (D) premature_closure — The sentence states a condition of continued validity; it forecasts no end to gene travel.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — The whole case rests on DNA persisting after cells die; removing persistence collapses the need for a DNA-directed stage.
+  (B) adjacent_answer — Shifts the source ranking in para 2 but leaves the category-shift argument for layered treatment intact.
+  (C) stage_misattribution — Chronology of regulation is decorative; para 3's point about measurability constraints survives such reordering.
+  (D) level_confusion — A cost comparison between two named options touches implementation, not the argument for a DNA-damaging stage.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — Para 1 says membranes are sized for particles and a dissolved plasmid is not a particle in that sense.
+  (A) category_slip — Confuses physical exclusion with DNA damage, which para 5 assigns to UV or ozone.
+  (B) false_symmetry — Para 1 calls filtration the mirror problem of chlorination, not a superior alternative to it.
+  (D) causal_inversion — Para 2 says plants mostly redistribute what arrives rather than manufacturing resistance.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — Para 1 states a dead cell is not an empty one and that cassettes survive for uptake downstream.
+  (A) phrase_misuse — Sediment adsorption is mentioned as prolonging DNA persistence, not as altering chlorine chemistry.
+  (C) half_truth — Para 1 grants that free chlorine works and viable counts fall by orders of magnitude.
+  (D) causal_inversion — Para 2 says plants redistribute rather than manufacture resistance genes.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The sentence concedes efficacy and the next sentence separates carrier reduction from removal of the trait.
+  (A) half_truth — The closing paragraphs commit clearly to sequenced treatment and dual-compartment monitoring.
+  (B) stance_misread — The author defends engineers and keeps conventional treatment as the first layer of the sequence.
+  (C) moderate_extremism — Para 5 endorses a layered procedure and says plainly that it works.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — Para 3 presents that endpoint as regulatorily convenient, and para 5 demands monitoring of extracellular genes too.
+  (A) passage_supported — Para 1 asserts exactly this about chlorination's action and its effect on counts.
+  (B) passage_supported — Para 2 lists gene trading on mobile elements among the additive causes.
+  (C) passage_supported — Para 3 cites WHO guidance as explicit that surveillance methods remain unsettled.
+
+[Inspired by: "These math tricks can make rare Pokémon appear out of nowhere", https://www.scientificamerican.com/article/these-math-tricks-can-make-rare-pokemon-appear-out-of-nowhere/]

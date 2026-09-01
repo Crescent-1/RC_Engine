@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260901-0075 | Tier: hard | Score: 8.6 | Status: approved | Compliance F1: 0.803 | Novelty: 0.557 | Screen: green | Generated: 2026-09-01T11:55:06.246106+00:00
+======================================================================
+
+[PASSAGE]
+
+A characteristic earthquake, in the usage that governed field seismology for two decades, means a rupture of near-fixed size that a given stretch of fault produces again and again. The stretch is called a segment. Segments are bounded by geometric interruptions — bends, step-overs, gaps where the fault trace jogs sideways by a kilometre or two. Strain accumulates along the segment. It releases. The segment resets. Under such a scheme, hazard becomes almost an accounting problem: measure the interval, measure the elapsed time, subtract. The boundaries hold the rupture the way a stone wall holds a field. Prediction stops being prophecy and becomes arithmetic.
+
+The evidence arrived from three directions at once. Geodetic instruments on the San Andreas near Parkfield, California, tracked strain loading that was steady enough to look like a mechanism rather than a coincidence; trenches cut across the fault exposed stacked layers offset by past ruptures, and the spacing between those offsets, once dated, suggested a recurrence interval of roughly twenty-two years; and the moderate shocks of the twentieth century, spaced through that same window, seemed to confirm what the trenches implied. On the strength of that convergence, a forecast was issued in 1985 giving a specific window for the next Parkfield event. The interval was treated, in practice, as something close to a schedule.
+
+The rupture came in 2004, more than a decade past the window's close. It began at the wrong end of the segment and propagated in the wrong direction; the slip distribution bore little resemblance to the events reconstructed from earlier cycles. The segment had not repeated itself. It had done something its own recorded history gave no basis for expecting.
+
+Two readings suggest themselves and both are too cheap. Segmentation is not fiction — the step-overs are physically there, and ruptures do arrest at them more often than not. Nor was the failure simply careless work. The trench logs were meticulous; the recurrence pattern was real. Yet the care of the data is exactly what cannot be used as an alibi, because the limit was never in the reading of the layers. It was in what fault geometry constrains, which is less than the model asked of it. Multi-segment events elsewhere had already shown ruptures leaping barriers classified as rupture-stopping. A boundary that usually stops a rupture is a tendency wearing the costume of a law.
+
+So the split hardened into two camps: those treating segment boundaries as the primary architecture of hazard, and those treating them as one variable among many in a cascading system. Neither camp won. Current hazard models retain segment geometry, because it still accounts for most observed arrests, while assigning explicit probabilities to jumps across barriers, because arrest sometimes fails. The word "characteristic" migrated out of mechanics and into statistics, where it now names a distribution rather than a habit. This is not a placeholder pending some truer account. It is the working posture of a field that has decided a locally wrong model, run with its wrongness quantified, tends to be more honest than a locally right one nobody has. Twenty-two years, in the trenches near Parkfield, still means twenty-two years — with the wider bounds now printed beside it.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) Because segment boundaries are permanent physical divisions, ruptures cannot cross them, and the Parkfield forecast simply misdated the interval involved.
+(B) Careful paleoseismic fieldwork was undone by hasty forecasting, showing that hazard estimates should rest on trench data alone.
+(C) A model whose limits were exposed by one rupture survives as a quantified tendency rather than a mechanical law.
+(D) Seismologists abandoned segmentation after 2004 and now model faults purely as cascading systems with probabilistic barrier jumps.
+
+Q2. Which one of the following is suggested by the sentence "The interval was treated, in practice, as something close to a schedule"?
+(A) An estimate carrying inferential uncertainty was operationally used as though its uncertainty were negligible.
+(B) Forecasters knowingly overstated their confidence in order to secure funding for the Parkfield instrumentation.
+(C) Geodetic strain measurements were the sole basis on which the specific 1985 forecast window was constructed.
+(D) The twenty-two-year period was a settled fact whose expected event merely arrived later than anticipated.
+
+Q3. "the care of the data is exactly what cannot be used as an alibi" most nearly means:
+(A) Data quality should be assessed separately from the theoretical assumptions any hazard model imports.
+(B) Rigorous fieldwork exonerates the practitioners, so the blame belongs wholly to interpretive overreach.
+(C) Trench logging near Parkfield was less meticulous than its defenders subsequently claimed it to be.
+(D) Meticulous observation cannot excuse a failure that originated in the model's demands on geometry.
+
+Q4. Which one of the following research findings would most strengthen the author's conclusion about current hazard models?
+(A) Step-over geometries mapped near Parkfield have been confirmed in the field by three independent surveying teams.
+(B) Several faults studied since 2004 have produced ruptures that arrested exactly at previously mapped step-over boundaries.
+(C) Forecasts that publish barrier-jump probabilities have outperformed geometry-only forecasts on subsequent ruptures worldwide.
+(D) Trenching methods have improved enough to date past offsets with far narrower dating uncertainty than before.
+
+Q5. A reader who concluded that the 2004 rupture proved segmentation to be a fiction would have misread the passage because:
+(A) the author affirms that step-overs are physically real and usually do arrest ruptures.
+(B) the author argues that the 2004 event actually fell inside the 1985 forecast window.
+(C) the author blames the failure on flawed trench logging rather than on segmentation itself.
+(D) the author shows that multi-segment ruptures elsewhere were later reclassified as single events.
+
+Q6. The primary purpose of the passage is to:
+(A) warn that hazard forecasting will remain unreliable until fault mechanics are fully understood.
+(B) contrast an early confident position with the objections that were later raised against it.
+(C) recount how a Parkfield forecast built on three evidence lines failed in 2004.
+(D) defend a field's decision to keep a flawed model while making its flaws explicit.
+
+Q7. According to the passage, why do current hazard models continue to include segment geometry?
+(A) Because no cascading alternative has yet been formulated in terms precise enough to test.
+(B) Because the step-overs bounding segments are permanent divisions that ruptures are unable to cross.
+(C) Because the trench logs near Parkfield were meticulous and their recurrence pattern was real.
+(D) Because segment geometry still accounts for the majority of arrests that are actually observed.
+
+Q8. Which one of the following paragraphs, if replaced, would most change the passage's argument?
+(A) The second, since removing the evidence lines would leave the 1985 forecast entirely unexplained.
+(B) The first, since the accounting metaphor is what makes segmentation seem intuitively plausible.
+(C) The fourth, since without it both cheap verdicts on the failure would stand unrefused.
+(D) The third, since the 2004 rupture is the single event the whole discussion is built around.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — It joins the opening scheme, the Parkfield failure, the refusal of both cheap verdicts, and the closing statistical posture into one movement.
+  (A) terminological_twin — Treats 'segment' as a fixed partition, but the fourth paragraph notes ruptures leaping barriers classified as rupture-stopping.
+  (B) stage_misattribution — The fourth paragraph explicitly denies that careless work caused the failure, locating the limit in what geometry constrains.
+  (D) scope_inflation — The final paragraph states current models retain segment geometry because it still accounts for most observed arrests.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The phrase 'in practice' marks a gap between what the trench-derived interval was — an inference — and how forecasters deployed it.
+  (B) stage_misattribution — The passage attributes the forecast to a convergence of three evidence lines, never to motives of the forecasting scientists.
+  (C) half_truth — The second paragraph names three converging lines — geodesy, trenches, and twentieth-century shocks — not geodesy alone.
+  (D) phrase_misuse — Reads 'recurrence interval' as an established period only delayed; the closing paragraph shows it was an estimate needing wider bounds.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The following sentences place the limit in what fault geometry constrains, not in how the layers were read.
+  (A) level_confusion — The sentence links the two rather than separating them, arguing quality cannot shield the model from its own limits.
+  (B) phrase_misuse — This is the clean 'practice right, theory wrong' verdict the paragraph forbids by rejecting both cheap readings.
+  (C) straw_version — The paragraph states plainly that the trench logs were meticulous and the recurrence pattern was real.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — The conclusion is that a wrongness-quantified model is more honest and useful than an unavailable right one; measured outperformance supports exactly that.
+  (A) adjacent_answer — Confirms segmentation's physical reality, which the author already concedes, without supporting the probabilistic posture at issue.
+  (B) half_truth — Arrests at boundaries are already granted as the usual case and do not bear on quantifying the exceptions.
+  (D) level_confusion — Improves data quality, but the author locates the limit in geometry's constraints rather than in the reading of layers.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — The fourth paragraph opens by refusing that verdict: segmentation is not fiction, and current models retain it.
+  (B) straw_version — The third paragraph states the rupture came more than a decade past the window's close.
+  (C) stage_misattribution — The paragraph calls the trench logs meticulous and denies that careless work explains the failure.
+  (D) terminological_twin — The passage cites multi-segment events as ruptures leaping barriers, with no mention of any reclassification.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — The final paragraph declares this the working posture, not a placeholder, which is the author's own endorsement of that choice.
+  (A) stance_misread — The closing paragraph denies the current posture is a placeholder awaiting some truer account.
+  (B) level_confusion — Describes the passage's structural movement rather than why the author assembled the material.
+  (C) level_confusion — An accurate summary of paragraphs two and three, but it names content rather than the author's purpose.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The final paragraph states models retain segment geometry because it still accounts for most observed arrests.
+  (A) missing_link — The passage describes a cascading camp and jump probabilities already in use, not an untestable alternative.
+  (B) terminological_twin — The fourth paragraph notes ruptures have leapt barriers classified as rupture-stopping, so boundaries are tendencies.
+  (C) adjacent_answer — Data quality is conceded in paragraph four but is not the stated reason for retaining geometry.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — That paragraph blocks the fiction reading and the carelessness reading, and it relocates the limit into geometry — the hinge the conclusion rests on.
+  (A) example_promotion — Losing supporting detail weakens illustration but leaves the argument's interpretive move about tendency versus law intact.
+  (B) adjacent_answer — The opening supplies setup and framing, yet the argumentative work is done where the two readings are refused.
+  (D) example_promotion — The rupture is the occasion for the argument, but the author's reasoning about it occurs in the paragraph following.
+
+[Inspired by: "Culture clash", https://aeon.co/essays/at-the-heart-of-the-snow-leavis-two-cultures-clash]

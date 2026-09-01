@@ -1,0 +1,114 @@
+RC ID: RC-MEDIUM-260901-0050 | Tier: medium | Score: 0.0 | Status: solver_dispute | Compliance F1: 0.784 | Novelty: 0.534 | Screen: red | Generated: 2026-09-01T11:04:48.722581+00:00
+======================================================================
+
+[PASSAGE]
+
+What can a set of transcripts actually establish about why men refuse? Start close. Port Chicago, July 1944: two ships, a pier, roughly 320 dead in a blast that broke windows miles off. Weeks later the survivors are marched back toward loading duty. Some go. Most stop. The Navy's account, assembled fast, reads like a road with clear signposts — order given, order refused, names taken, arrests made. In that account a few men talk, and the rest follow. Witnesses at the time helped it along. Officers described one sailor speaking up in the ranks, another repeating it down the line, and the balance drifting after them like cattle turning at a gate. A shaken petty officer said the men "would have gone if nobody had said anything." Read at that range, with the muster lists and the hour-by-hour movements laid alongside, the sequence fits. Fifty men are charged with mutiny. Two hundred more accept punishment and return. The paperwork closes cleanly, and the closing is itself part of what the paperwork was for. I have read those pages twice and both times the tidiness arrived before the explanation did.
+
+The documents underneath are rougher. Loading logs show tonnage rates encouraged as competition between divisions. Testimony describes crews given little formal training in handling high explosives, working winches at speed, under white officers who had not been trained either. The casualty figures are unambiguous. So is the segregation of assignment. And the court-martial record, when the men speak for themselves, does not converge: one says he would load anywhere but there, another says he wanted the officers changed, a third says he was afraid and said so plainly. The prosecution treated this variety as evasion. It is at least as easily read as accuracy.
+
+Step back from the pier and the wartime Navy comes into view as a labor system: Black sailors concentrated in ammunition handling, complaints routed through discipline rather than safety, and a legal process that needed a single act to charge. That system did not merely surround the refusal; it produced the shape the refusal was recorded in. What looked like decisive command at close range was a machine that could only register collective fear as individual defiance. This does not license the reading that every wartime labor dispute was at bottom a racial contest — plenty were not — and the Port Chicago record cannot carry that weight. Nor is the claim that the men were passive material. They chose. The system chose what their choosing would be called.
+
+So the fifty convicted men cannot now be described securely as either a spontaneous panic or one coordinated protest. The institution converted a shared refusal into fifty separate intentions and then proved conspiracy from the sum. Splitting the difference — calling it partly mutiny, partly protest — only restates the confusion in gentler words. What the records leave unsettled is narrower and harder: whether the man who said he would load ammunition anywhere but that pier meant the same thing as the man beside him who said nothing at all.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) The Port Chicago record by itself establishes that wartime military labor disputes were at bottom struggles over racial hierarchy within the services.
+(B) The Navy's institutional machinery converted a shared refusal into fifty individual intentions, so the event resists description as either panic or coordinated protest.
+(C) The men at Port Chicago were passive material shaped by a segregated labor system that left them no meaningful room to choose anything.
+(D) The most defensible account calls the episode partly a mutiny and partly a protest, combining the Navy's record with the sailors' own varied testimony.
+
+Q2. According to the text, the working conditions at the Port Chicago pier are described as:
+(A) Orderly loading routines disturbed when one or two outspoken sailors persuaded otherwise willing men to stop and refuse duty.
+(B) Segregated assignments in which safety complaints were formally investigated before being routed toward the disciplinary apparatus.
+(C) Tonnage rates encouraged as competition between divisions, with untrained crews handling explosives under officers also lacking training.
+(D) Adequately trained Black crews placed under white officers whose inexperience alone accounted for the speed of the winch work.
+
+Q3. The author cites the divergent statements of the men in the court-martial record primarily in order to:
+(A) Suggest that the differing accounts may record real differences of motive rather than shared evasion.
+(B) Establish that fear of the pier was the single motive uniting the men who stopped.
+(C) Demonstrate that the sailors deliberately coordinated inconsistent stories to frustrate the prosecution's charge.
+(D) Show that the individual convictions prove every sailor was acting within one deliberate, unified protest.
+
+Q4. The central idea of the passage would be undermined if:
+(A) Some of the two hundred men who accepted punishment later said privately they had also intended a protest against conditions.
+(B) The death toll at Port Chicago was later revised downward by several dozen after fresh identification work on the pier casualties.
+(C) The petty officer who spoke of men going if nobody had said anything later withdrew that remark under questioning.
+(D) Naval records showed the same charging procedure applied identically to white crews refusing hazardous duty elsewhere, with equally varied testimony collected.
+
+Q5. Which one of the following research findings would weaken the author's conclusion in the third paragraph?
+(A) Ammunition handling at other depots was carried out by crews of mixed rank and long service history.
+(B) Safety complaints from Port Chicago divisions were regularly forwarded to ordnance inspectors, who ordered several loading procedures changed.
+(C) The prosecution's conspiracy theory was rejected by some legal commentators writing shortly after the trial concluded.
+(D) Several officers at Port Chicago privately doubted that the men's refusal amounted to mutiny under naval law.
+
+Q6. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) Miners flee a shaft after a roof fall and their supervisor concludes that a single panicking worker started the rush out.
+(B) Factory workers organise a union vote, elect delegates, and present a written charter of demands that management negotiates over several weeks.
+(C) Nurses on one hospital ward stop taking shifts; management interviews each separately, records eleven distinct grievances, and disciplines them individually for abandonment.
+(D) A railway company investigates a derailment, publishes findings on equipment failure, and revises its maintenance schedules across the whole network.
+
+Q7. The author uses the word 'tidiness' (first paragraph) to mean:
+(A) The narrative smoothness of a record whose orderliness was itself a purpose of its making.
+(B) The moral clarity of a judgment that correctly separated the fifty ringleaders from the compliant remainder.
+(C) The physical orderliness of loading operations at the pier before the explosion destroyed both the ships.
+(D) The administrative efficiency with which the Navy assembled muster lists and hour-by-hour movement records.
+
+Q8. Which one of the following would best license the inference the author draws from the sailors' divergent court-martial statements?
+(A) Interviews with the two hundred men who returned to duty also produced widely differing reasons for going back.
+(B) The prosecution introduced additional witnesses who testified that the refusal had begun at a single point in the ranks.
+(C) Naval courts in the same period convicted most defendants charged jointly with offences committed during hazardous duty.
+(D) Defence counsel had advised the fifty accused men to give whatever answers they thought would help their case.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — Holds the close-range tidy account, the rougher documents, the labor-system turn in paragraph three, and the unresolved ending of paragraph four.
+  (A) scope_inflation — Paragraph three explicitly refuses this generalisation, saying the record cannot carry that weight.
+  (C) straw_version — The author states plainly that the men chose; only the naming of their choosing was institutional.
+  (D) false_symmetry — Paragraph four rejects splitting the difference as merely restating the confusion in gentler words.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — Paragraph two states loading logs show competitive tonnage rates and little formal training for crews or white officers.
+  (A) example_promotion — That is the officers' close-range account in paragraph one, which the author treats as a produced artefact, not conditions.
+  (B) causal_inversion — Paragraph three says complaints were routed through discipline rather than safety, not investigated first.
+  (D) half_truth — Paragraph two says the crews too were given little formal training, not that officers alone were inexperienced.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — Paragraph two contrasts the prosecution's reading of variety as evasion with the author's: 'at least as easily read as accuracy'.
+  (B) scope_inflation — Only a third man mentions fear plainly; the passage insists the statements do not converge.
+  (C) stance_misread — That is the prosecution's evasion reading, which the author declines to endorse in paragraph two.
+  (D) example_promotion — Paragraph four denies the episode can be secured as one coordinated protest; the sum proved conspiracy falsely.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — The load-bearing move is that a segregated labor system produced the shape of the recording; identical treatment of white crews removes that productive role.
+  (A) missing_link — This bears on individual motive, not on the institutional conversion of refusal into separate intentions.
+  (B) adjacent_answer — The argument does not rest on the exact figure; paragraph two calls the casualty figures merely unambiguous.
+  (C) example_promotion — That witness quotation is illustrative of the close-range account, not the load-bearing claim about the system.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — Paragraph three's system claim rests on complaints being routed through discipline rather than safety; a working safety channel removes that support.
+  (A) adjacent_answer — Rank and service composition elsewhere does not address the segregation of assignment claimed here.
+  (C) stage_misattribution — Later commentary on the verdict does not touch the paragraph's claim about the labor system's structure.
+  (D) level_confusion — Private doubts concern individual attitudes, not the institutional routing the paragraph describes.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — Reproduces the mechanism: an institution able to register a shared refusal only as separable individual acts, then punishing on that basis.
+  (A) example_promotion — This is the outspoken-instigator reading of paragraph one, the close-range account the author distrusts.
+  (B) category_slip — Coordinated protest with representative structure is precisely what the passage refuses to attribute to Port Chicago.
+  (D) framework_import — A safety inquiry outcome is the opposite of complaints routed through discipline; no refusal is being renamed.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — The sentence pairs 'the paperwork closes cleanly' with 'the closing is itself part of what the paperwork was for', so tidiness names produced neatness preceding explanation.
+  (B) stance_misread — The author treats that separation as the system's invention, not as clarity he endorses.
+  (C) category_slip — The word describes the documentary account, not the operational condition of the pier.
+  (D) phrase_misuse — Those records are supporting material; tidiness names the account's shape, not clerical speed.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — If variety appears among men not on trial, it supports reading divergence as accuracy rather than as coordinated evasion under charge.
+  (B) example_promotion — This reinforces the instigator narrative of paragraph one, not the reading of divergence as accurate.
+  (C) level_confusion — Conviction rates address outcomes of trials, not whether the men's stated motives were genuinely different.
+  (D) causal_inversion — Coached answers support the prosecution's evasion reading, weakening rather than licensing the author's inference.
+
+[Inspired by: "Drones Manufactured in Brooklyn Are Being Used to Bomb Gazans", https://www.thenation.com/article/world/easy-aerial-elbit-systems-brooklyn-israel/]

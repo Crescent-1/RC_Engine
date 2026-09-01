@@ -1,0 +1,114 @@
+RC ID: RC-HARD-260901-0074 | Tier: hard | Score: 7.6 | Status: needs_review | Compliance F1: 0.86 | Novelty: 0.529 | Screen: green | Generated: 2026-09-01T11:52:44.185592+00:00
+======================================================================
+
+[PASSAGE]
+
+Is the number wrong, or is the patient? That is the first question a cross-cover team asks when the overnight panel shows a platelet count of 41,000 in a woman admitted four days earlier for something else entirely, who was 190 the morning before. She has bruising along the forearm where the blood pressure cuff sits. Clumping in the tube can fake a low count; so can a mislabeled draw. So we redraw, this time in a citrate tube, and add fibrinogen, INR, D-dimer, a smear. The redraw costs an hour and rules out the cheapest explanation first, which is the whole discipline of the thing. Order the tests that would embarrass you if you had skipped them. The smear comes back with schistocytes — fragmented red cells, sheared.
+
+The second panel settles it. Fibrinogen 98. INR 1.9. D-dimer high. Platelets 34,000 and still going. This is disseminated intravascular coagulation: clotting factors being consumed faster than the liver can replace them, microthrombi forming, the same cascade that seals a wound turned loose on the whole vasculature. Naming it feels like arriving. It is not. DIC is what a body does in response to something else — sepsis, obstetric catastrophe, crush injury, malignancy. She has no fever, no positive cultures, no new complaint beyond fatigue she attributes to the ward. The mechanism is now fully described and entirely uninformative about its own origin. We have identified the fire's chemistry without locating the match.
+
+So: which trigger? Cultures are drawn from two sites and sent. Imaging is the faster instrument, and a CT of the chest, abdomen, and pelvis comes back within six hours showing hepatic lesions, retroperitoneal nodes, and a pancreatic mass. Adenocarcinoma, almost certainly, and mucin-producing tumors are a recognized cause of chronic consumptive coagulopathy. The biochemical puzzle closes. What opens is worse. Treating the DIC means treating the cancer, and whether this particular patient can tolerate cytotoxic therapy — with a platelet count in the thirties and a fibrinogen that will not hold a clot — is a judgment no scan makes. It requires an oncologist. We page the service at 2 p.m. The consult is accepted; the attending is in clinic until Thursday.
+
+Cryoprecipitate goes in. Platelets go in. Both are transient; the cascade eats them within hours, and transfusing into active consumption is closer to bailing than to repair. By day three the message is unreturned and there is no plan, only maintenance. I want to be careful here, because the tempting complaint is about handoffs and pagers, and better systems would help at the margins. That is not what stalled. Every instrument the diagnostic apparatus owns has fired correctly and produced an answer that is complete and useless without an act of clinical judgment that is not ours to make, and no protocol specifies how many hours a covering team may hold a bleeding patient in place before it proceeds without the specialist. The comfortable reading is that this is partly a medical limit and partly an administrative one, half biology and half scheduling, and I reject it — the two are not separable here, since the question of who is entitled to decide is itself the diagnostic question at this stage, and I do not know where the entitlement ends.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) Careful sequencing of cheap tests before expensive ones is the core discipline that ultimately rescues the patient's care.
+(B) A diagnostic apparatus can work perfectly and still stall, because the remaining question is who is entitled to decide.
+(C) Hospital scheduling failures, more than biological limits, explain why the bleeding patient received only maintenance care for days.
+(D) Naming the mechanism as DIC essentially solves the case, leaving only the routine task of labelling the underlying trigger.
+
+Q2. Which one of the following is most strongly implied by the way the passage ends?
+(A) The author cannot say where a covering team's authority to act without the specialist properly stops.
+(B) A protocol setting maximum wait times for consults would have resolved the impasse this case describes.
+(C) The imaging result closed the case, leaving only the qualified question of which chemotherapy regimen suits her.
+(D) Transfusion of cryoprecipitate and platelets can sustain a consuming cascade until the oncologist eventually returns.
+
+Q3. The author cites the observation that better systems 'would help at the margins' primarily in order to:
+(A) Explain why the covering team failed to escalate the unreturned page through an alternative channel.
+(B) Argue that reformed handoff and paging arrangements are the reform this particular case most urgently demands.
+(C) Demonstrate that administrative and medical limits can be cleanly separated once the mechanism is known.
+(D) Concede a partial truth so as to set aside the systems complaint as not the real obstacle.
+
+Q4. The central idea of the passage would be undermined if:
+(A) Citrate-tube redraws were shown to misestimate platelet counts more often than clinicians generally assume.
+(B) Standing hospital rules already specified when a covering team may begin cytotoxic therapy unaided.
+(C) Oncology attendings in clinic could be reached by a secondary pager most weekday afternoons.
+(D) Mucin-producing pancreatic tumours were found to cause consumptive coagulopathy less frequently than reported.
+
+Q5. The passage supports all of the following claims about the case EXCEPT:
+(A) DIC arises as a bodily response to some other underlying insult rather than alone.
+(B) Clumping in the tube or a mislabeled draw can produce a falsely low platelet reading.
+(C) Transfused platelets and cryoprecipitate are consumed within hours by the ongoing cascade.
+(D) The absence of fever and cultures made sepsis the most probable trigger to pursue first.
+
+Q6. Regarding the CT findings described in the passage, the author asserts that:
+(A) They suggest the mass is probably benign, since mucin production is uncommon in adenocarcinoma.
+(B) They establish a diagnosis firm enough to begin chemotherapy without waiting for specialist input.
+(C) They arrived after cultures returned, confirming that malignancy rather than infection drove the coagulopathy.
+(D) They close the biochemical puzzle while opening a harder question about tolerating cytotoxic treatment.
+
+Q7. The author of the passage is likely to disagree with which one of the following statements?
+(A) Deciding whether this patient tolerates cytotoxic therapy demands a judgment the covering team lacks.
+(B) The stall here is best understood as half a biological limit and half a scheduling problem.
+(C) Improved handoff and paging arrangements would help the situation somewhat, though only at the edges.
+(D) Ordering the tests one would be embarrassed to have skipped is a sound working discipline.
+
+Q8. The passage most directly corrects which one of the following impressions?
+(A) That a falling platelet count in a ward patient warrants immediate repeat laboratory testing.
+(B) That imaging is generally a faster diagnostic instrument than waiting for culture results.
+(C) That identifying the mechanism at work amounts to having identified what caused it.
+(D) That covering teams should proceed with therapy whenever a consulting service delays response.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — It holds together the full arc: the redraw, the naming of DIC, the CT finding, and the closing insistence that entitlement to decide is itself the diagnostic question.
+  (A) example_promotion — The redraw discipline is an opening illustration, not the passage's claim; the case stalls despite every instrument firing correctly.
+  (C) stance_misread — The author explicitly rejects splitting the stall into 'half biology and half scheduling' and denies the two are separable.
+  (D) moderate_extremism — Paragraph 2 states naming it 'feels like arriving. It is not' and calls the mechanism 'entirely uninformative about its own origin'.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The final clause narrows to an admitted ignorance — 'I do not know where the entitlement ends' — rather than resolving into diagnosis or reform.
+  (B) premature_closure — The author concedes better systems 'would help at the margins' and insists that is 'not what stalled' the case.
+  (C) overqualification — Paragraph 3 says the biochemical puzzle closes but 'what opens is worse' — tolerance of cytotoxic therapy is a judgment no scan makes.
+  (D) half_truth — Paragraph 4 calls both transient, eaten within hours, and compares transfusing into active consumption to bailing rather than repair.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The concession is granted only to be immediately overruled by 'That is not what stalled,' clearing space for the harder claim about entitlement.
+  (A) stage_misattribution — The remark diagnoses the argument's temptations, not the team's escalation conduct, which the passage never faults.
+  (B) moderate_extremism — The author names that complaint 'tempting' precisely to refuse it as the account of what stalled the case.
+  (C) false_symmetry — The closing sentence rejects exactly that separation, calling the two 'not separable here' in this case.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The argument's load-bearing move is that no protocol settles who is entitled to decide; an existing rule would make the stall administrative after all.
+  (A) adjacent_answer — The redraw is a decorative opening detail; the second panel's schistocytes and fibrinogen confirmed DIC independently.
+  (C) level_confusion — This addresses contactability, the very 'handoffs and pagers' complaint the author already sets aside as marginal.
+  (D) scope_inflation — Frequency of the association does not touch the claim that identifying the trigger left the decision problem untouched.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — Paragraph 2 lists the absence of fever and positive cultures as evidence against an infectious trigger, so this inverts the stated direction of inference.
+  (A) passage_supported — Paragraph 2 states DIC 'is what a body does in response to something else' and lists possible triggers.
+  (B) passage_supported — Paragraph 1 states directly that clumping can fake a low count, as can a mislabeled draw.
+  (C) passage_supported — Paragraph 4 says both are transient and that the cascade eats them within hours.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 states the biochemical puzzle closes and 'what opens is worse' — whether she can tolerate cytotoxic therapy is a judgment no scan makes.
+  (A) terminological_twin — The text reads 'Adenocarcinoma, almost certainly,' and cites mucin-producing tumours as a recognized cause of coagulopathy.
+  (B) nec_suff_swap — Paragraph 3 insists the treatment judgment 'requires an oncologist' and is one no scan makes.
+  (C) phrase_misuse — Cultures were merely 'drawn from two sites and sent'; imaging is described as the faster instrument and reports first.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — The author names this 'the comfortable reading' and explicitly rejects it, holding the two inseparable at this stage.
+  (A) stance_misread — Paragraph 3 says the judgment 'is not ours to make' and 'requires an oncologist.'
+  (C) stance_misread — The author concedes that 'better systems would help at the margins' before setting the complaint aside.
+  (D) stance_misread — The author endorses this as 'the whole discipline of the thing' in paragraph 1.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — The passage plants the satisfaction of naming DIC, then withdraws it: the mechanism is 'entirely uninformative about its own origin' — chemistry without the match.
+  (A) adjacent_answer — The passage endorses rather than corrects this; the redraw is presented as exemplary practice in paragraph 1.
+  (B) category_slip — Paragraph 3 affirms imaging as 'the faster instrument,' so no correction of this impression occurs.
+  (D) straw_version — The author never entertains this position; he admits not knowing where the entitlement to proceed ends.
+
+[Inspired by: "The Absent Oncologist", https://www.thenewatlantis.com/practicing-medicine/the-absent-oncologist]
