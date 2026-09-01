@@ -65,7 +65,7 @@ python tools/build_demo_snapshot.py --full-text "RC_E_0706_1,RC-HARD-260712-0009
 ```
 
 Sets outside the allowlist still contribute everything analytical — scores,
-blueprint, all eight audit channels, judge rubric, solver answers. Only the prose
+blueprint, all nine audit channels, judge rubric, solver answers. Only the prose
 and answer key are held back, and the page says so plainly. The demo works well
 with exactly one passage published; more is not better here.
 
@@ -79,14 +79,21 @@ which GitHub Pages does not.
 
 1. Cloudflare dashboard → Workers & Pages → Create → Pages → Connect to Git
 2. Pick `Crescent-1/RC_Engine`
-3. Build command: *(leave empty)* · Build output directory: `demo`
+3. Build command: `bash tools/check_demo_snapshot.sh` · Build output
+   directory: `demo` · Root directory: `/`
+   The site needs no build; that command is the pre-deploy guard, and a
+   snapshot carrying cost or token fields fails the deploy rather than
+   reaching a public URL.
 4. Deploy, then add a custom domain if you want one
 
 Every push to `master` that touches `demo/` redeploys.
 
-**GitHub Pages.** `.github/workflows/deploy-demo.yml` publishes `demo/` on push.
-Enable Settings → Pages → Source: GitHub Actions. Note that Pages on a *private*
-repo requires a paid GitHub plan; Cloudflare has no such restriction.
+**GitHub Pages.** No longer wired up. `.github/workflows/deploy-demo.yml` was
+removed on 2026-09-01 when the demo moved to Cloudflare — Pages on a *private*
+repo requires a paid GitHub plan, and the workflow failed on every push until
+it was retired. Its cost-leak guard now lives in `tools/check_demo_snapshot.sh`
+and runs as the Cloudflare build command. Recover the workflow from git history
+if you ever switch back.
 
 **Local preview.** The page fetches JSON, so `file://` will not work — it must be
 served over http:
@@ -102,4 +109,5 @@ python -m http.server 8736 --directory demo
       provider publishes `demo/`, but the repo keeps whatever visibility it has,
       and the full engine source lives alongside it
 - [ ] Rebuild the snapshot and confirm `composite check` passes
-- [ ] Confirm `costs_included` is `false` in `demo/data/corpus.json`
+- [ ] Run `bash tools/check_demo_snapshot.sh` — it checks `costs_included`
+      and sweeps the payload for stray cost or token fields
