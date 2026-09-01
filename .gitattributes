@@ -1,0 +1,9 @@
+# Shell scripts run on Linux (Cloudflare Pages build). A CRLF shebang fails
+# there with a "bad interpreter: ...^M" error that is slow to diagnose, and
+# this repo is edited on Windows, so pin the ending rather than rely on the
+# working copy happening to be right.
+*.sh text eol=lf
+
+# Workflow and config files parsed by Linux tooling.
+*.yml text eol=lf
+*.yaml text eol=lf
