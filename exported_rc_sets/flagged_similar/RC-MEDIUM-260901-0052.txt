@@ -1,0 +1,116 @@
+RC ID: RC-MEDIUM-260901-0052 | Tier: medium | Score: 9.2 | Status: approved | Compliance F1: 0.904 | Novelty: 0.529 | Screen: red | Generated: 2026-09-01T15:28:46.739252+00:00
+======================================================================
+
+[PASSAGE]
+
+What can a pot tell you about the people who used it? For most of a century, the answer looked easy. A distinctive style — a particular rim, a repeated chevron, a burnished slip — was read as the visible signature of a distinctive people. Find the same decoration across forty sites, draw a line around them, and you had a group with a name, a homeland, and a history. Sherds in the ground, peoples on the map. Few inferences in the human sciences have ever seemed so cheap and so productive.
+
+The confidence had a source, and it was not stupidity. Culture-historical archaeology inherited a mass of undated, undocumented material and needed some way to sort it, so it built bounded units out of recurring traits — pot forms, burial postures, brooch types — and called each bundle a culture. The word did a great deal of quiet work. It named an analytical grouping, a bookkeeping convenience for traits that clustered, and it also named, in ordinary speech, a living community with a language and a sense of itself. When written records were absent and evidence of movement scarce, the slide from one meaning to the other cost nothing anyone could measure.
+
+Follow the chain link by link. Excavation yields types. Types are plotted. Plots become clusters. Clusters are christened cultures, and cultures are then imagined marching across river valleys, displacing one another. Every step is a real operation performed by real hands, and every step is defensible on its own. What broke the chain was petrography: thin-sectioning a sherd and reading its temper and clay against local geology. Pots made from local clay turn up carrying wholly foreign decoration. Imported pots turn up in households that also made their own. A potter three valleys away copies a fashionable rim she has seen once. Local clay proves the vessel was made nearby. It proves nothing about who wanted it or why.
+
+The cost of the broken chain is not confined to the seminar room. Accounts of invasion, of migration, of one people supplanting another rest on precisely the step that will not bear weight, and so do the museum labels that summarise those accounts in forty words, and so do the origin stories that certain states tell about their soil. I grant the counter-case at full strength: styles do cluster, distributions are not random, and a wholesale scepticism would throw away real signal. Nothing here makes ceramics useless. It changes what they are evidence of. They stopped being census returns and became something else.
+
+That something else has a protagonist, and she was always in the room, ignored: the potter at the wheel, the householder in the market. Someone copies a rim because it looks current. Someone buys a jar from a trader and keeps using it for thirty years. Someone inherits a vessel from a grandmother and repurposes it for grain. Pottery is not a passport. It is a record of connection and choice, and it testifies most strongly where those two things meet — in a locally thrown cooking pot whose decoration was learned from a foreign one someone happened to admire.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) Pottery cannot map peoples, but it can record contact and individual choice.
+(B) Archaeologists were careless thinkers whose bounded units deserve wholesale scepticism today.
+(C) Petrographic analysis of clay and temper should replace stylistic study of ceramic decoration entirely.
+(D) Pottery styles do reliably reveal the ethnic identity of the groups making them.
+
+Q2. What does the passage's final sentence accomplish?
+(A) It locates ceramics' strongest evidence where local making meets borrowed style.
+(B) It shows that naming trait bundles 'cultures' described real communities sharing a language.
+(C) It concedes that foreign decoration on local pots indicates a migration event.
+(D) It withdraws the earlier concession that stylistic distributions are anything but random noise.
+
+Q3. According to the text, what petrography establishes about a sherd is described as:
+(A) proof that both the decoration and the owner were locally rooted.
+(B) proof that trade networks moved finished pots between distant valleys.
+(C) proof of where the vessel was made, silent about its user.
+(D) proof that stylistic clusters on maps correspond to no real signal.
+
+Q4. Which one of the following, if established, would most damage the author's central claim?
+(A) Copied decoration appears only where potters themselves relocated with their households.
+(B) Thin-sectioning techniques were developed considerably later than most culture-historical typologies were built.
+(C) Some burial postures cluster geographically even more tightly than pot rim forms do.
+(D) Museum labels have grown longer and now summarise excavation contexts with greater care.
+
+Q5. 'I grant the counter-case at full strength: styles do cluster, distributions are not random.' We can infer from this statement that the author is being:
+(A) sceptical, doubting that ceramic patterning carries any recoverable historical information whatever.
+(B) discriminating, separating a broken inference from evidence still worth reading.
+(C) conciliatory, softening a critique he privately regards as wholly decisive.
+(D) nostalgic, regretting the loss of a simpler and more productive archaeological method.
+
+Q6. Based on the passage, we can infer that the phrase 'Pottery is not a passport' would most likely mean:
+(A) a vessel loses meaning once it circulates outside its region of origin.
+(B) a vessel does not certify the ethnic belonging of whoever held it.
+(C) a vessel cannot be traced to the workshop or valley producing it.
+(D) a vessel names the community that originally invented its decorative scheme.
+
+Q7. Why does the author include the discussion of museum labels and state origin stories?
+(A) To provide a transition between the petrographic evidence and the concluding concession.
+(B) To describe how invasion narratives get compressed into forty words of text.
+(C) To accuse national governments of deliberately falsifying the archaeology of their own soil.
+(D) To show the faulty inference carries consequences outside academic debate.
+
+Q8. Which reading of the following scenario best follows the passage's reasoning? A survey finds that a distinctive glass bead form, made from sands sourced within one district, appears in graves across three neighbouring districts.
+(A) Bead distribution marks the territory a single bead-making population once occupied.
+(B) Bead distribution maps exchange and taste, not the extent of one population.
+(C) Bead distribution indicates that the neighbouring districts were settled by incoming migrants.
+(D) Bead distribution across districts is random patterning and carries no interpretable signal.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Holds the whole arc: the culture-history inference is broken by petrography, yet ceramics retain value as evidence of connection and choice.
+  (B) straw_version — The author says the confidence 'was not stupidity' and rejects wholesale scepticism in paragraph four.
+  (C) scope_inflation — Petrography breaks one inferential step; the author still values style as a record of borrowing and admiration.
+  (D) phrase_misuse — This is the culture-historical assumption the passage dismantles from paragraph three onward, not its position.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The closing sentence names the exact conjunction — local manufacture plus foreign-derived decoration — where connection and choice both show.
+  (B) terminological_twin — Paragraph two separates the analytical grouping from the lived community; the ending does not restore that slide.
+  (C) causal_inversion — Paragraph three explicitly denies that copied decoration implies movement of people.
+  (D) stance_misread — The author grants in paragraph four that distributions are not random; nothing is withdrawn.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — Paragraph three states local clay proves nearby manufacture but 'proves nothing about who wanted it or why.'
+  (A) phrase_misuse — Directly contradicts paragraph three, where local clay carries wholly foreign decoration.
+  (B) adjacent_answer — Imported pots are a separate observation; petrography of local clay shows the opposite.
+  (D) scope_inflation — Paragraph four affirms styles do cluster and distributions are not random.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — The argument's load-bearing move is that style travels without people; tying every borrowing to actual relocation restores the culture-historical inference.
+  (B) missing_link — Chronology of methods leaves untouched what petrography now shows about clay and decoration.
+  (C) half_truth — Tighter clustering restates that distributions are non-random, which the author already concedes.
+  (D) level_confusion — Label length is a downstream illustration in paragraph four, not the inferential step the argument rests on.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The concession shows the author rejects one inferential step while preserving the underlying signal — a targeted, not blanket, critique.
+  (A) moderate_extremism — He explicitly says wholesale scepticism would discard real signal and ceramics are not useless.
+  (C) stance_misread — The concession is substantive, not tactical; he insists ceramics remain genuine evidence.
+  (D) prior_belief — He calls the old inference cheap, not admirable, and welcomes what replaced it.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — The passport image denies pottery's function as an identity document, consistent with the paragraph's shift to connection and choice.
+  (A) half_truth — Circulation is precisely where the author finds the strongest evidence of connection.
+  (C) category_slip — Petrography does trace manufacture; what fails is the leap to identity.
+  (D) terminological_twin — Substitutes the analytical trait-bundle for a lived community, the very slide paragraph two exposes.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — Paragraph four opens by insisting the cost is 'not confined to the seminar room' — these examples exist to establish public stakes.
+  (A) stage_misattribution — Names a structural function rather than the authorial purpose of demonstrating real-world cost.
+  (B) level_confusion — That is an accurate summary of the sentence, not the reason the author placed it.
+  (C) straw_version — The author notes reliance on a weak step; no charge of deliberate falsification appears.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — Applies the passage's core replacement: material spread evidences connection and choice rather than the reach of a people.
+  (A) phrase_misuse — Repeats the sherds-to-peoples leap the passage identifies as the step that will not bear weight.
+  (C) causal_inversion — Movement of objects is treated in paragraph three as no evidence of movement of persons.
+  (D) moderate_extremism — The author concedes distributions are not random and refuses wholesale scepticism.
+
+[Inspired by: "Innovation is not linear", https://worksinprogress.co/issue/innovation-is-not-linear/]

@@ -136,6 +136,12 @@ class RealizedStructure:
     # Did the passage end inside the commitment band its closing posture
     # implies? The curve was measured and weighted but never targeted.
     commitment_in_band: bool = True
+    # Middle-beat discipline: retention of the planned body beats, and the
+    # DISTINCTIVE moves the passage added without being asked. Order inside the
+    # middle is deliberately not checked.
+    middle_beats_ok: bool = True
+    middle_retention: float = 1.0
+    gratuitous_moves: list[str] = field(default_factory=list)
 
     def movement_string(self) -> str:
         return "|".join(self.paragraph_functions)

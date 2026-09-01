@@ -829,9 +829,24 @@ CAT_SEED_GENRES = [
 # Back-compat alias
 SERIOUS_GENRES = CAT_SEED_GENRES
 
+# Hard's pool, widened 2026-09-01. Every one of the 18 CAT_SEED_GENRES
+# publications runs idea essays, so hard's 168 unused documents were 100% ONE
+# content kind — which deadlocked the seed-genre saturation gate (conceptual
+# essay sat at 62% of the trailing window with no legal alternative to rotate
+# to) and made the tier a genre monoculture by construction.
+#
+# These four are long-form and reported, anchored to a specific place, episode
+# or object rather than to a discourse. Elite is deliberately NOT widened: the
+# 2026-08-26 decision to keep elite on the literary forms stands, and this is
+# the seed-side counterpart of it. Elite therefore remains single-kind, and its
+# saturation gate still stands down — that is a known, deliberate gap.
+HARD_SEED_GENRES = CAT_SEED_GENRES + [
+    "Damn Interesting", "Hakai", "Rest of World", "Atlas Obscura",
+]
+
 TIER_SEED_GENRES = {
     "elite": CAT_SEED_GENRES,   # random within CAT-quality pool only
-    "hard": CAT_SEED_GENRES,    # same
+    "hard": HARD_SEED_GENRES,   # + four long-form reported sources
     "medium": None,             # any unused genre at random
 }
 # When True, hard/elite never fall back to non-preferred genres (seedless
@@ -1281,6 +1296,55 @@ MOVE_PLAN_RARITY_POWER = 1.0
 # not always name a move the writer did perform, so demanding every beat would
 # make this a permanent failure.
 MOVE_PLAN_MIN_REALIZED = 0.6
+
+# Middle-beat discipline (2026-09-01).
+#
+# The first and last beat have been position-enforced since 2026-08-29, and it
+# worked: openings went 2/9 -> 5/5 -> 3/3, and endings stopped landing on a
+# named physical object (5/5 -> 0/3). The MIDDLE was never checked, and that is
+# where the house voice actually lives. Measured over the 13 sets of
+# 08-29..09-01: planned middle beats are retained only 43% of the time, and the
+# passage substitutes the same handful in most sets regardless of which family
+# was assigned — EASY_READING_DEMOLISHED unplanned in 10 of 13, CONCESSION_GRANTED
+# in 8. That is the concede-then-pivot spine arriving on its own.
+#
+# beat_score alone could not catch it: it is computed over the WHOLE plan, so
+# now that the two endpoints land reliably they prop the score up while the
+# middle rots. A plan of 8 with both ends landing and 4 of 6 middle beats lost
+# still scores 0.75 and never fires.
+MOVE_PLAN_MIN_MIDDLE_RETAINED = 0.6
+
+# Share of the 124 real CAT/XAT/GMAT passages that perform each move, from the
+# blind extraction run on 2026-08-26. Only moves above 15% are listed; anything
+# absent is rarer than that in real exam prose.
+#
+# Used to tell ORDINARY connective moves from DISTINCTIVE ones. A passage adding
+# an unplanned MECHANISM_EXPLAINED is doing what 91% of exam passages do and is
+# not worth a directive; a passage adding an unplanned EASY_READING_DEMOLISHED
+# is reaching for a rhetorical gesture it was not given, and that gesture is one
+# of the two the corpus over-produces.
+EXAM_MOVE_SHARES = {
+    "MECHANISM_EXPLAINED": 0.91,
+    "BOUND_CONTINUATION": 0.81,
+    "ABSTRACT_CLAIM_OPEN": 0.77,
+    "AUTHORITY_QUOTED": 0.53,
+    "UNDERLYING_CAUSE_NAMED": 0.52,
+    "INSTANCE_SURVEY": 0.49,
+    "EASY_READING_DEMOLISHED": 0.41,
+    "STAKES_RAISED": 0.41,
+    "CONCESSION_GRANTED": 0.33,
+    "SYMMETRY_BROKEN": 0.27,
+    "TWO_CAMP_SPLIT": 0.21,
+    "COUNTEREXAMPLE_PRESSED": 0.19,
+    "GENEALOGY_TRACED": 0.16,
+    "QUESTION_POSED": 0.15,
+}
+# An unplanned move at or above this exam share is ordinary connective tissue and
+# is not flagged; below it, the passage reached for something distinctive it was
+# not asked to perform. 0.50 keeps MECHANISM_EXPLAINED and UNDERLYING_CAUSE_NAMED
+# free while catching EASY_READING_DEMOLISHED and CONCESSION_GRANTED, which are
+# the two the measurement actually implicates.
+UNPLANNED_MOVE_EXAM_FLOOR = 0.50
 
 # Free pre-render check on the PLANNED move signature (2026-08-22).
 #

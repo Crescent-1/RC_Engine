@@ -1,0 +1,114 @@
+RC ID: RC-HARD-260901-0073 | Tier: hard | Score: 8.8 | Status: needs_review | Compliance F1: 0.85 | Novelty: 0.499 | Screen: red | Generated: 2026-09-01T11:12:12.662238+00:00
+======================================================================
+
+[PASSAGE]
+
+"Sleep," in the literature of the instruments, has meant whatever the instrument was built to score, and for half a century the scoring has been done by proxy. The dispute is old. From the 1970s, when sleep laboratories began strapping accelerometers to the wrists of subjects whose electrodes had been removed, two habits of mind competed. One trusted the diary: the sleeper's own account, rich, contextual, and warped by mood, by ambition, by the way memory rounds a bad night down. The other trusted the device: consistent, cheap, indifferent to self-flattery, and blind to nearly everything the diary knew. Epidemiological cohorts of the 1990s and 2000s settled the matter administratively rather than intellectually — you cannot wire ten thousand people — and the consumer wearables that followed inherited that settlement without inheriting its caveats.
+
+What the wrist unit does not do is worth setting out. It does not read cortical activity. It does not detect unconsciousness, or the loss of responsiveness, or the disengagement from the room that a person means by falling asleep. It does not observe sleep architecture; it produces a curve labelled with architecture's vocabulary. It is a movement detector carrying sleep's name, and the inference from one to the other rests on an algorithm calibrated against populations who happen to move in ordinary ways when they sleep — and, crucially, who move when they lie awake. Every claim the instrument makes about a night depends on that second half of the assumption, which is the half nobody writes down.
+
+Consider the protocol in one lab running a climate-and-sleep cohort: a wrist unit worn continuously, motion binned into thirty-second epochs, each epoch scored by a proprietary threshold as sleep or wake, the whole night reconstructed from that binary string. The design is careful. Its calibration was validated, its drift checked, its epochs aligned to a clock. During a heat-wave collection run, the analysts noticed something the software could not: long, clean, unbroken sleep bouts in the small hours, from participants whose diaries for those same hours read, in various wordings, that they had lain awake because it was too hot to move.
+
+Read as a calibration curiosity, that mismatch is a footnote. It is not one. Thermal discomfort above roughly body temperature suppresses gross motor activity without inducing sleep — the body becomes still because moving is worse than not moving — and stillness is the only evidence the instrument accepts. So the error is not scattered randomly across nights, cancelling out in aggregate as measurement noise is supposed to do. It concentrates precisely on the hot, humid nights that the cohort exists to study, and it runs in one direction: toward more sleep, better sleep, less harm. The diary, that unreliable thing, was right about the one variable the device was deployed to detect. Every estimate of heat-related sleep loss drawn from actigraphic cohorts is therefore likely conservative, and conservative by an unknown margin, which means the case for trusting the wrist over the sleeper's own report — a case built on the diary's bias, and one this account has otherwise accepted — must be conceded only for nights when nothing external holds the body still, and abandoned for exactly the nights that now matter most.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) showing that a proxy measure fails hardest on exactly the nights the research was built to study
+(B) recounting how epidemiological convenience rather than hard evidence entrenched wrist devices in the field
+(C) arguing that any instrumental proxy inevitably distorts the human experience it is scoring
+(D) adjudicating a long dispute between subjective sleep diaries and objective wrist actigraphy
+
+Q2. The heat-wave collection run described in the third paragraph functions primarily to:
+(A) illustrate that a movement detector can never capture what sleep genuinely is
+(B) demonstrate that this particular laboratory's calibration and drift checks were poorly executed
+(C) expose the unstated half of the algorithm's assumption at the moment that it fails
+(D) establish that participant diaries are generally more accurate than devices about sleep
+
+Q3. Which one of the following best explains why the impression created by the third paragraph does not survive the argument?
+(A) The anomaly recurs in other cohorts, showing the lab's threshold was set unusually low
+(B) The diaries were later verified by electrodes, proving the software's scoring simply wrong
+(C) The lab's epoch alignment drifted over the run, corrupting the reconstructed binary string
+(D) The mismatch turns out to be systematic in direction, so aggregation cannot wash it away
+
+Q4. In the context of the passage, "the half nobody writes down" is best understood as:
+(A) the assumption that ordinary sleepers move in broadly comparable ways across nights
+(B) the manufacturer's refusal to publish the proprietary threshold used for scoring epochs
+(C) the premise that a wakeful body will move enough for the algorithm to register it as wake
+(D) the tacit belief that consumer devices need no caveats inherited from epidemiology
+
+Q5. Which one of the following, if true, would most call into question the claim that actigraphic estimates of heat-related sleep loss are likely conservative?
+(A) Some proprietary algorithms additionally use skin temperature alongside motion when scoring epochs
+(B) Diary entries written during heat waves systematically overstate the duration of wakeful periods
+(C) Above body temperature, wakeful people shift position more often, not less, than in cool rooms
+(D) Heat waves also shorten sleep by delaying onset, an effect the wrist unit records well
+
+Q6. In context, the claim that the wrist unit "produces a curve labelled with architecture's vocabulary" most nearly means that:
+(A) manufacturers deliberately market movement data using misleading clinical language to consumers
+(B) the output borrows the names of sleep stages without observing the states themselves
+(C) the device's stage estimates are less precise than those obtained from laboratory electrodes
+(D) the smoothness of the plotted curve conceals the underlying thirty-second binary scoring
+
+Q7. Which one of the following research findings would most strengthen the author's concluding position?
+(A) Polysomnography on hot nights records extended wakefulness that wrist units go on to score as sleep
+(B) Sleep diaries kept during cool nights show the familiar tendency to underestimate total sleep
+(C) Participants in heat-wave cohorts report worse mood and concentration the following morning
+(D) Consumer wearables and research-grade actigraphs disagree substantially about total sleep duration
+
+Q8. According to the text, the epidemiological cohorts of the 1990s and 2000s are described as:
+(A) reviving the laboratory practice of strapping accelerometers to subjects wearing electrodes
+(B) establishing that wrist devices outperform diaries in large population samples
+(C) passing their methodological caveats intact to the consumer wearables that followed
+(D) resolving the old dispute for practical reasons rather than by any intellectual argument
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Only by tracking paragraph 2's exposure of the unwritten wake-movement assumption through the heat-wave mismatch and the closing concession does one reach the claim that the error concentrates on the studied nights.
+  (B) half_truth — The administrative settlement is background in paragraph 1, not the argument the later paragraphs actually build.
+  (C) scope_inflation — Paragraph 2's list of what actigraphy lacks supports a specific thermal failure, not a general verdict on proxies.
+  (D) missing_link — The passage names the old diary-versus-device dispute only as setup; it never crowns either method as generally truer.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The mismatch is introduced precisely to make visible the buried premise from paragraph 2 — that waking bodies move — and paragraph 4 converts it into the structural claim.
+  (A) category_slip — It shifts a specific thermal breakdown into paragraph 2's general list of things wrist units cannot read.
+  (B) phrase_misuse — The text insists the design was careful, its calibration validated and its drift checked, so procedural sloppiness is excluded.
+  (D) scope_inflation — The diary is vindicated only on the single variable the device was deployed to detect, not generally.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — Paragraph 4 explicitly denies the footnote reading: the error does not scatter like noise but concentrates on hot nights and runs one way, toward less apparent harm.
+  (A) missing_link — The passage reports no replication and blames the shared assumption, not one lab's threshold setting.
+  (B) stage_misattribution — No cortical verification occurs; the analysts noticed the mismatch, and EEG belongs to the older laboratory era.
+  (C) phrase_misuse — Drift was checked and epochs aligned to a clock, so the passage forecloses this technical explanation.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — The sentence caps paragraph 2's chain: scoring depends not only on sleepers moving normally but on wakers moving at all, and this second condition goes unstated.
+  (A) half_truth — That is the first, acknowledged half of the calibration assumption, not the half the author says goes unrecorded.
+  (B) adjacent_answer — The threshold's proprietary status appears in paragraph 3 as protocol detail, not as the unwritten assumption named in paragraph 2.
+  (D) level_confusion — Confuses paragraph 1's institutional history with paragraph 2's specific algorithmic premise about movement.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — The conservative-bias conclusion rests entirely on heat suppressing wakeful movement; reversing that mechanism removes the directional error the argument requires.
+  (A) adjacent_answer — An additional input in some devices leaves the motion-only cohorts the passage discusses entirely untouched.
+  (B) causal_inversion — Diary exaggeration would not restore the device's ability to detect stillness-without-sleep, which is the load-bearing failure.
+  (D) half_truth — Capturing one heat effect does not offset the missed wakefulness that drives the underestimate.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — The sentence pairs with "does not observe sleep architecture," making the point that terminology outruns what motion data can evidence.
+  (A) stance_misread — The author diagnoses an inferential gap, not commercial deception; no manufacturer intent is discussed.
+  (C) half_truth — The claim is not about degraded precision but about the absence of any cortical observation at all.
+  (D) adjacent_answer — Epoch binning is described in paragraph 3's protocol and is not what the vocabulary remark concerns.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — Independent cortical evidence of wake during scored sleep confirms the directional, heat-concentrated error on which the whole conclusion depends.
+  (B) false_symmetry — Confirming the diary's known bias on ordinary nights supports the case the author concedes, not the exception.
+  (C) missing_link — Daytime consequences do not establish that the instrument misscored the night's wakefulness as sleep.
+  (D) level_confusion — Device-to-device disagreement is unrelated to the shared assumption that wakeful bodies move.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — The passage says these cohorts settled the matter "administratively rather than intellectually" because one cannot wire ten thousand people.
+  (A) stage_misattribution — That practice belongs to the 1970s laboratories, where electrodes had already been removed.
+  (B) causal_inversion — The text attributes the outcome to scale and cost, explicitly denying that it was an intellectual demonstration.
+  (C) half_truth — The passage states wearables inherited the settlement without inheriting its caveats.
+
+[Inspired by: "How the Heat is Messing with Your Sleep", https://nautil.us/how-the-heat-is-messing-with-your-sleep-1284501/]

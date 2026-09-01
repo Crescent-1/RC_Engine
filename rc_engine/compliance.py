@@ -257,9 +257,33 @@ class ComplianceAuditor:
         # genuinely the writer's business, but the opening gambit and the final
         # cadence are exactly the two beats a reader recognises as house voice.
         opening_ok = closing_ok = True
+        middle_retention = 1.0
+        middle_missing: list[str] = []
+        gratuitous: list[str] = []
         if bp.move_plan and realized_moves:
             opening_ok = realized_moves[0] == bp.move_plan[0]
             closing_ok = realized_moves[-1] == bp.move_plan[-1]
+
+            # ---- the MIDDLE (2026-09-01) -------------------------------------
+            # Order inside the middle is genuinely the writer's business, so this
+            # checks RETENTION (did the planned middle beats happen at all) and
+            # RESTRAINT (what did it perform instead), never sequence.
+            #
+            # Measured over 13 sets: planned middle beats retained 43% of the
+            # time, with the same substitutes recurring across unrelated
+            # families — EASY_READING_DEMOLISHED unplanned in 10 of 13.
+            planned_mid = set(bp.move_plan[1:-1])
+            real_mid = set(realized_moves[1:-1])
+            if planned_mid:
+                middle_retention = len(planned_mid & real_mid) / len(planned_mid)
+                middle_missing = [m for m in bp.move_plan[1:-1]
+                                  if m not in real_mid]
+            # An unplanned move is only worth a directive when it is DISTINCTIVE:
+            # adding a MECHANISM_EXPLAINED is what 91% of real exam passages do.
+            floor = config.UNPLANNED_MOVE_EXAM_FLOOR
+            gratuitous = sorted(
+                m for m in (real_mid - planned_mid)
+                if config.EXAM_MOVE_SHARES.get(m, 0.0) < floor)
 
         # weighted structural score
         fn_score = sum(matches) / n if n else 0.0
@@ -383,6 +407,24 @@ class ComplianceAuditor:
                 f"{config.RHETORICAL_MOVES.get(want, '')}. "
                 f"The passage closed on {realized_moves[-1]} instead")
 
+        middle_ok = True
+        if middle_missing and middle_retention < config.MOVE_PLAN_MIN_MIDDLE_RETAINED:
+            middle_ok = False
+            named = "; ".join(f"{m} ({config.RHETORICAL_MOVES.get(m, '')})"
+                              for m in middle_missing)
+            directives.append(
+                f"the BODY paragraphs dropped {len(middle_missing)} of "
+                f"{len(set(bp.move_plan[1:-1]))} planned middle beats. Perform "
+                f"these, in whatever order the argument wants: {named}")
+        if gratuitous:
+            middle_ok = False
+            named = ", ".join(gratuitous)
+            directives.append(
+                f"the body performed rhetorical moves the plan did not ask for: "
+                f"{named}. These are not neutral connective tissue — they are the "
+                f"gestures this engine reaches for by habit, and each one displaced "
+                f"a beat you were given. Drop them and perform the plan instead")
+
         # ---- commitment at the close (2026-09-01) ---------------------------
         # The curve was measured, weighted at 0.14 in the novelty composite --
         # the largest single channel -- and never targeted by any stage. The
@@ -411,7 +453,8 @@ class ComplianceAuditor:
         f1 = round(f1 - (0.0 if (register_ok and posture_ok) else 0.05)
                    - (0.0 if opening_ok else 0.04)
                    - (0.0 if closing_ok else 0.04)
-                   - (0.0 if commitment_ok else 0.04), 3)
+                   - (0.0 if commitment_ok else 0.04)
+                   - (0.0 if middle_ok else 0.06), 3)
 
         return RealizedStructure(
             paragraph_functions=functions, matches=matches,
@@ -424,4 +467,7 @@ class ComplianceAuditor:
             final_line_is_aphorism=aph,
             rhetorical_moves=realized_moves,
             opening_beat_ok=opening_ok, closing_beat_ok=closing_ok,
-            commitment_in_band=commitment_ok)
+            commitment_in_band=commitment_ok,
+            middle_beats_ok=middle_ok,
+            middle_retention=round(middle_retention, 3),
+            gratuitous_moves=gratuitous)

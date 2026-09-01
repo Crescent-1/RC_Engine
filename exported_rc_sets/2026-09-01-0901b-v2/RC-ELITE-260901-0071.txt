@@ -1,0 +1,116 @@
+RC ID: RC-ELITE-260901-0071 | Tier: elite | Score: 8.2 | Status: approved | Compliance F1: 0.795 | Novelty: 0.524 | Screen: red | Generated: 2026-09-01T15:34:02.739315+00:00
+======================================================================
+
+[PASSAGE]
+
+Classification precedes judgment in most archives, and film festivals are archives that happen to run projectors. The intake desk logs each submission, records a runtime to the second, and assigns a category folder before any programmer has watched a frame. The folders are fixed; the reasoning is documentary rather than critical. When *Chaconne* arrives — eighty-one minutes, one composer, one violin part — the clerk performs the first step, which is to read the synopsis against the genre list and see which word it answers to.
+
+Granted, the film does dramatise the composer's life: there are scenes with dialogue, a lead actor, sets built to a period specification, and a plot of sorts running from commission to first performance. That much is not in dispute, and the clerk records it. But the tagging rule is arithmetical rather than interpretive — a biopic must allocate a majority of runtime to dramatised narrative — and here the unbroken forty-three-minute performance sequence, filmed in a single take, never cutting away to the composer's story, occupies more than half of what was logged. So the concession is precisely what defeats the tag. The film is biographical in every respect except the one the folder measures, and the folder, having measured, returns the file automatically.
+
+The clerk tries concert film next. Here the music-clearance office keeps its own checklist, and its first line item states that a concert film shall contain no scripted dramatic scenes with actors playing named historical figures. The workshop scenes disqualify it immediately. What we know at this point is only that one threshold was not met; how we know it is that a reviewer initialled a box, having watched, so far as the file records, nothing. Other thresholds were in principle reachable. This one was not.
+
+Documentary remains. The verification desk requires — and this is a procedural safeguard, not an aesthetic preference, so it might be read as a small technical matter — that a documentary carry sourced captions or narration distinguishing attested fact from staged reconstruction. *Chaconne* withholds that distinction by design, letting invented dialogue sit uncaptioned beside a performance that actually occurred, so the desk, unable to certify which is which, returns the file unstamped.
+
+Three folders, three rejections, each internally correct. What is left is the residual category — miscellaneous, jury discretion — which has no dedicated jury, no comparative pool, and, in the years for which the office keeps figures, the lowest programming rate of any folder it maintains. We should not say that the instruments were wrong; each measured accurately what it was calibrated to measure. Rather, the three of them together cannot register a film whose achievement consists in refusing to resolve into any one of them, and the intake system converts that refusal into a penalty at the point of logging, before evaluation begins. To conclude here would be to conclude that the film failed, which is the reading the procedure produces and the evidence does not support. Whether an archive can hold a work whose value lies in what its folders are built to exclude is not answered by the file, though the file, unstamped and shelved under discretion, is at least where the question would have to be asked.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) showing that the film qualifies as a biopic despite reservations about its unusually long performance sequence
+(B) arguing that festival intake desks should be replaced by programmers who judge submitted films on artistic merit alone
+(C) how accurate classification rules, applied before evaluation, penalise a work whose value lies in resisting them
+(D) exposing the carelessness of reviewers who initial boxes and stamp files without having watched the submitted work
+
+Q2. The author uses the phrase 'Other thresholds were in principle reachable' to mean:
+(A) the film would have satisfied the remaining concert-film criteria had a reviewer actually watched it
+(B) the concert-film category failed on one contingent rule, not because the film was obviously unclassifiable
+(C) the clearance office had already settled the matter, since no plausible category could accommodate this film
+(D) the music-clearance checklist was internally inconsistent and its remaining items contradicted its opening rule
+
+Q3. The author of the passage is likely to disagree with which one of the following statements?
+(A) Each of the three desks measured accurately the thing that its own rule was calibrated to measure
+(B) The residual folder offers no comparative pool and has historically programmed fewer films than others
+(C) The caption requirement is a small technicality, so this rejection is incidental rather than structurally revealing
+(D) The film allocates more than half of its logged runtime to something other than dramatised narrative
+
+Q4. Which one of the following situations is most analogous to the mechanism described in the passage?
+(A) A hospital's triage software, routing by symptom codes, shunts a rare multi-system illness to an unstaffed general queue
+(B) A grant panel rejects a strong proposal because its reviewers misread the budget section and misapplied their own scoring rubric
+(C) A university denies a transfer student credit because the sending institution's accreditation lapsed during the semester in question
+(D) A library shelves an interdisciplinary book under two headings at once, so readers browsing either subject can eventually find it
+
+Q5. In context, the claim that 'the concession is precisely what defeats the tag' most nearly means that:
+(A) the clerk's willingness to concede dramatic elements shows the intake rules permit interpretive flexibility
+(B) conceding too much to the biopic category invited the clearance office's later rejection of the film
+(C) admitting the film's dramatic scenes weakens the case for reading it as a genuinely biographical work
+(D) granting the film's dramatic content still leaves the runtime arithmetic, which the biopic rule alone consults
+
+Q6. What does the passage's final sentence accomplish?
+(A) It withholds a verdict while locating where the unresolved question about archives must be posed
+(B) It proposes that festivals create a dedicated jury for the residual folder to correct the imbalance
+(C) It confirms that the film failed, since the record shows three correct rejections and no stamp
+(D) It concedes that the author's own analysis has reached the limits of what the archive can record
+
+Q7. What is the structural function of the parenthetical remark that the caption rule is 'a procedural safeguard, not an aesthetic preference, so it might be read as a small technical matter'?
+(A) It signals a shift in tone from procedural narration toward open evaluative criticism of festivals
+(B) It explains why the verification desk applies stricter standards than the other two desks consulted
+(C) It voices the dismissive reading of this rejection in advance, so the later synthesis can absorb it
+(D) It concedes that this particular disqualification is marginal and should be excluded from the tally
+
+Q8. Regarding the concert-film rejection described in the passage, the author asserts that:
+(A) the file records a reviewer initialling a box, with no indication that the film was watched
+(B) the reviewer watched the workshop scenes and then found the checklist's opening item inapplicable
+(C) the checklist was applied more slowly here than at either the biopic or verification desk
+(D) the clearance office consulted the runtime figures logged earlier by the intake desk's clerk
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates the three correct-but-blind rejections, the residual folder's low rate, and the closing claim that the system converts refusal into a penalty at logging.
+  (A) overqualification — Misreads the paragraph-2 concession as a hedge; the passage says the concession is precisely what defeats the biopic tag.
+  (B) straw_version — Recommends a reform the passage never proposes; the closing sentence leaves the archive question deliberately open.
+  (D) scope_inflation — Inflates one aside about the initialled box into the thesis, though the author insists each instrument measured accurately.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — The sentence follows the single disqualifying line item and preserves the possibility of other criteria being met, keeping the classification question live rather than settled.
+  (A) half_truth — Converts 'in principle reachable' into an assertion of actual compliance the passage does not make.
+  (C) moderate_extremism — Treats one line-item failure as proof the question is closed, which is exactly what the sentence resists.
+  (D) framework_import — Imports an incoherence charge; the author calls each rejection internally correct rather than contradictory.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — The author flags that reading ('might be read as a small technical matter') only to fold the documentary desk into the same pattern of instruments that cannot register the film.
+  (A) stance_misread — The author states plainly that the instruments were not wrong, so agreement rather than disagreement follows.
+  (B) adjacent_answer — Paragraph 5 asserts exactly this about miscellaneous, jury discretion, so the author would agree with it.
+  (D) half_truth — Paragraph 2 says the forty-three-minute take occupies more than half of what was logged, which the author endorses.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Reproduces the structure: several individually valid rules applied at intake, none able to register a case defined by crossing them, with the residual channel carrying the penalty.
+  (B) causal_inversion — Locates the failure in error, whereas the passage insists each rule was correctly applied to what it measured.
+  (C) category_slip — Turns on an external defect in the applicant's record, not on the classifier's inability to register a boundary-crossing object.
+  (D) false_symmetry — Describes accommodation of hybridity, the opposite of a system that converts non-fit into an automatic penalty.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The concession establishes dramatised material as one part of the film, but since the tagging rule counts minutes, admitting the long performance take is what pushes the majority the wrong way.
+  (A) stance_misread — Contradicts the stated point that the tagging rule is arithmetical rather than interpretive.
+  (B) missing_link — Invents a causal chain between paragraphs; the concert-film refusal rests on its own checklist item about actors.
+  (C) level_confusion — Confuses the folder's measurement with the film's nature; the author calls it biographical in every respect except the measured one.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The author refuses the procedure-produced conclusion of failure and instead names the unstamped file as the site where the larger question would have to be asked, leaving it open.
+  (B) scope_inflation — Turns an open question into a policy recommendation the passage never advances.
+  (C) premature_closure — Adopts the reading the author explicitly rejects as produced by procedure and unsupported by the evidence.
+  (D) stance_misread — Misreads the aperture as self-doubt; the file's limits are the subject, not a retreat from the argument.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — By naming the 'small technical matter' reading before the third refusal, the author sets up paragraph 5's claim that all three instruments together, technical ones included, share one blindness.
+  (A) level_confusion — Describes register rather than argumentative role, and the tonal shift arrives later, in the closing paragraph.
+  (B) adjacent_answer — Reports a comparison the passage never draws; nothing ranks the desks by strictness of their rules.
+  (D) overqualification — Takes the anticipated dismissal as the author's own, though paragraph 5 counts three rejections together.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — Paragraph 3 distinguishes what we know (one threshold unmet) from how we know it, noting the reviewer initialled a box having watched, so far as the file shows, nothing.
+  (B) half_truth — Reverses the paragraph: the workshop scenes disqualify the film under that very item, and no viewing is recorded.
+  (C) framework_import — Introduces a comparison of speed across desks that the passage nowhere makes, though it stresses immediate disqualification.
+  (D) category_slip — Transfers the biopic desk's arithmetical test to the clearance office, whose rule concerns scripted scenes with actors.
+
+[Inspired by: "Emily Wilson: An Uncomplicated Man", https://www.lrb.co.uk/the-paper/v48/n14/emily-wilson/an-uncomplicated-man]

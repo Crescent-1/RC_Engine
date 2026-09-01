@@ -1,0 +1,116 @@
+RC ID: RC-ELITE-260901-0072 | Tier: elite | Score: 8.0 | Status: needs_review | Compliance F1: 0.893 | Novelty: 0.55 | Screen: red | Generated: 2026-09-01T15:36:29.394213+00:00
+======================================================================
+
+[PASSAGE]
+
+"Accountability," in the targeting trade, has meant something narrow and auditable: a named person who can be asked why a particular building was struck on a particular afternoon, and who possessed, at the moment of authorization, enough information to answer. By that standard the profession has largely stopped believing that a human sign-off preserves accountability in AI-assisted kill chains. The belief did not die by argument. It died by attrition, as review windows shortened and target lists lengthened, until the signature at the bottom of the strike package certified nothing except that a person had been present. The doctrine remains in the manuals. It stopped paying out years ago.
+
+The obvious objection is that a person who clicks approve has still chosen, since the machine only nominates. Consider what the choice consists of. An operator with three minutes per nomination — sometimes four seconds, in the systems built for volume — receives a name, a confidence score, and a collateral estimate, and cannot re-derive any of it. He can decline. He cannot check. When a program officer says that "a human is always in the loop," the sentence is true and empty in the same breath: the loop contains a human the way a turnstile contains a passenger. The errors were not caused by human review. They were caused by review that had been hollowed while keeping its name.
+
+So slow the loop, the second objection runs; buy the operator twenty minutes. Time is indeed necessary — nobody verifies anything in four seconds — but the arithmetic runs the wrong way. These systems earn their budgets by fusing signals intelligence, pattern-of-life data and imagery at a rate no staff of analysts could adjudicate. Give each nomination twenty honest minutes and the queue collapses to the throughput of the old cell of twelve analysts, which is precisely the throughput the procurement was written to escape. Slowing the loop does not repair the system. It switches it off and leaves the hardware running.
+
+A third objection is harder, and it survives: humans still write the rules of engagement, set the confidence thresholds, define what counts as a military-age male in a compound at dusk, and no model originates those commitments. That is real agency, exercised by identifiable people, and it constrains every strike downstream. What it cannot do is validate a particular strike against particular evidence — a satellite pass eleven days stale, a phone that changed hands. Upstream rule-setting is necessary for legitimate targeting and cannot stand in for the judgment a specific afternoon requires; when the compound turns out to have held a wedding party, the rule-writer authorized a category and the operator authorized nothing he could have known.
+
+The field was right to stop believing, and the honest successor doctrine is uglier than either camp wants: accountability in these chains is partial, distributed, and in some cases genuinely absent — some strikes are authorized by nobody, in the auditable sense with which this began. There is no formula that splits the difference and leaves the tempo intact. The bill comes as fewer nominations cleared per day, analysts hired back, and an error rate that institutions must own by name rather than assign to a signature that, whatever else it certified, certified no knowledge at all.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) Accountability can be restored to these kill chains provided operators are granted longer review windows and thresholds are set by identifiable senior officers.
+(B) Because algorithmic fusion of intelligence outruns any analyst staff, machine nomination should be recognised as the sole locus of responsibility in modern kill chains.
+(C) Human sign-off in AI-assisted targeting has been emptied of substance by tempo, so accountability is now partial and sometimes absent, and restoring it costs throughput.
+(D) The practice of requiring a named human to approve each nomination is itself what produced the strike errors, and removing that requirement would improve targeting outcomes.
+
+Q2. According to the passage, the proposal to give each operator twenty minutes per nomination is described as:
+(A) necessary for verification but self-defeating, since honest review returns the system to the throughput its purchase was meant to escape
+(B) unnecessary, because operators receiving a name, a score and a collateral estimate can already decline any nomination they doubt
+(C) impractical only because procurement rules forbid changing the tempo of a system after the contract has been signed
+(D) sufficient to restore genuine accountability, provided commanders are also willing to accept a somewhat reduced rate of daily nominations
+
+Q3. If the fourth paragraph, on rules of engagement and confidence thresholds, were removed, the argument would:
+(A) lose its concession that real human agency survives upstream, leaving the claim of absent accountability looking like a refusal to see agency anywhere
+(B) be unchanged in substance, because rule-setting is presented as sufficient to secure accountability and therefore does no work the earlier paragraphs had not already done
+(C) collapse entirely, since the passage's definition of accountability depends on the wedding-party example that appears only within that fourth paragraph
+(D) gain force, since conceding that identifiable people set thresholds weakens the closing claim that certain strikes are authorized by nobody in the auditable sense
+
+Q4. The central argument of the passage would be most seriously undermined if it were shown that:
+(A) some procurement documents for fusion systems mention accountability preservation as a design goal alongside the speed advantages that justify their considerable expense
+(B) most erroneous strikes in the record occurred in chains where no algorithmic nomination system had yet been fielded by the deploying force
+(C) operators given four seconds per nomination can independently re-derive confidence scores and collateral estimates from a compact display, and routinely catch the errors
+(D) the program officer who said a human is always in the loop was speaking of a system since retired and replaced by a slower successor platform
+
+Q5. The primary purpose of the passage is to:
+(A) defend operators against blame by showing that machine nomination, not human failure, is what generates the errors observed in recent campaigns
+(B) press the field toward an uncomfortable successor doctrine by dismantling the fixes that would let it keep both tempo and the language of accountability
+(C) introduce three successive objections to a stated position and evaluate each one before arriving at a concluding formulation in the final paragraph
+(D) describe how review windows shortened and target lists lengthened until a signature on a strike package certified only that some person had been present at the desk
+
+Q6. Which one of the following situations is most analogous to the mechanism the passage describes?
+(A) A newspaper's editors write detailed style rules for freelancers and are therefore held responsible when a single unchecked article defames a named local trader.
+(B) A hospital keeps a consultant's countersignature on every discharge, though the ward's volume leaves seconds per file and the consultant cannot re-examine any patient.
+(C) A bank replaces its loan committee with a scoring model and openly states that no officer will henceforth be answerable for individual lending decisions.
+(D) An airline lengthens pre-flight checklists until crews complete them properly, accepting a lower number of daily departures as the price of safety.
+
+Q7. The author uses the phrase 'It stopped paying out years ago' to mean that:
+(A) the doctrine of human sign-off no longer delivers the accountability it was written to guarantee, though its text survives in the manuals
+(B) military manuals were formally amended some years ago to withdraw the requirement that a named person authorize each individual strike package
+(C) the financial case for staffing large analyst cells collapsed once fusion systems began generating nominations faster than people could adjudicate them
+(D) practitioners abandoned the belief after a decisive argument demonstrated that machine nomination makes human authorization logically incoherent
+
+Q8. In context, the statement that 'the loop contains a human the way a turnstile contains a passenger' most nearly means that:
+(A) the human passes through the process so quickly that longer review windows would restore his capacity to verify each nomination
+(B) the human occupies a position the process routes him through without his exercising any independent check on what passes
+(C) the human is physically constrained by the system and would be penalized for refusing to approve a nomination presented to him
+(D) the program officer misdescribed the system, since no human being is in fact present at the point of strike authorization
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates the death-by-attrition claim (P1-2), the refusal of both the slow-the-loop and rule-setting fixes (P3-4), and the closing admission plus its price (P5).
+  (A) nec_suff_swap — Paragraph 3 says slowing the loop switches the system off, and paragraph 4 says rule-setting cannot validate a particular strike.
+  (B) scope_inflation — The passage locates residual real agency in rule-writers (P4) and insists institutions must own errors by name, not machines.
+  (D) causal_inversion — Reverses paragraph 2's explicit claim that errors came not from human review but from review hollowed while keeping its name.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Paragraph 3 grants that nobody verifies anything in four seconds, then shows twenty honest minutes collapses the queue to the old twelve-analyst rate.
+  (B) half_truth — Paragraph 2 concedes the operator can decline but stresses he cannot check; declining is not offered as adequate review.
+  (C) stage_misattribution — The obstacle is the system's fusion-and-nomination rate, not any contractual prohibition; procurement is cited as motive, not legal bar.
+  (D) nec_suff_swap — The passage treats time as necessary but not sufficient; paragraph 3 says slowing the loop does not repair the system at all.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — Paragraph 4 is the surviving objection the author grants; without it the P5 admission would appear undefended against the obvious point that people still write the rules.
+  (B) nec_suff_swap — Paragraph 4 says upstream rule-setting is necessary but cannot validate a particular strike against particular evidence.
+  (C) example_promotion — The definition is set in paragraph 1; the wedding party illustrates the gap rather than founding the standard.
+  (D) stance_misread — The author treats the concession as strengthening honesty, not as damage; he distinguishes category authorization from per-strike knowledge.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — The load-bearing move is that the reviewer cannot check within the tempo; showing verification is compatible with the tempo dissolves the hollowing claim and its cost.
+  (A) level_confusion — Stated intentions in documents do not touch the operational claim that review windows shortened until signatures certified nothing.
+  (B) missing_link — The argument concerns accountability structure in AI-assisted chains, not a claim that such chains cause most errors.
+  (D) adjacent_answer — The quotation is a decorative illustration of hollow phrasing, not the support on which the argument rests.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The author's aim is normative persuasion: each objection is taken up and refused so the reader must accept partial or absent accountability and its costs.
+  (A) causal_inversion — Paragraph 2 attributes errors to hollowed review, not to machines; the passage assigns ownership to institutions, not exoneration.
+  (C) stage_misattribution — This names the structural arrangement rather than the authorial purpose that arrangement serves.
+  (D) level_confusion — This is an accurate summary of paragraph 1's content, not the reason the material was assembled.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — Reproduces the exact mechanism: a retained formal sign-off whose substance has been drained by throughput, so the signature certifies presence rather than knowledge.
+  (A) nec_suff_swap — Paragraph 4 denies that upstream rule-setting substitutes for validating a particular case against particular evidence.
+  (C) straw_version — The passage's mechanism turns on doctrine retained while emptied, not on candid abolition of the human role.
+  (D) nec_suff_swap — This is the slow-the-loop remedy paragraph 3 rejects for these systems, not the hollowing mechanism itself.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — The insurance metaphor closes paragraph 1's claim that the belief died by attrition: the policy remains on the books while its benefit has ceased.
+  (B) phrase_misuse — The same paragraph says the doctrine remains in the manuals; only its practical effect has lapsed.
+  (C) framework_import — The payout metaphor concerns doctrinal efficacy, not budgets; the cost argument arrives only in paragraph 3.
+  (D) causal_inversion — Paragraph 1 states the belief died by attrition rather than by argument, reversing the stated mode of collapse.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — The simile follows the account of an operator who can decline but cannot re-derive anything; containment is positional, not evaluative.
+  (A) nec_suff_swap — Imports the remedy paragraph 3 refuses; the simile describes the hollowed role, not a fixable scheduling problem.
+  (C) scope_inflation — Paragraph 2 explicitly grants that he can decline; the emptiness lies in inability to check, not coercion.
+  (D) half_truth — The author calls the officer's sentence true and empty at once; presence is conceded, significance denied.
+
+[Inspired by: "The Latest Chapter In American Military Muddling", https://www.noemamag.com/the-latest-chapter-in-american-military-muddling]
