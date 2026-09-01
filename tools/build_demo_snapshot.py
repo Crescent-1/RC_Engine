@@ -25,10 +25,20 @@ import json
 import os
 import re
 import sqlite3
+import sys
 import urllib.parse
 from collections import Counter, defaultdict
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Weights are READ from the engine, never copied. They were duplicated as
+# literals here once and drifted silently — blueprint 0.20 vs 0.14, movement
+# 0.18 vs 0.10 — which put wrong bars under 38 of 79 published sets while the
+# headline composite (taken from the stored audit) stayed right, so the page
+# disagreed with itself. Importing config is cheap and side-effect-free beyond
+# reading .env into os.environ.
+sys.path.insert(0, PROJECT_ROOT)
+from rc_engine import config  # noqa: E402
 
 # Fields that must never reach a public page.
 COST_FIELDS = (
@@ -57,7 +67,9 @@ GATE_ORDER = [
 ]
 
 # The weighted channels of the novelty composite, mirroring
-# NoveltyScorer._composite exactly. Weights come from config.COMPOSITE_WEIGHTS.
+# NoveltyScorer._composite exactly. The `key` of each entry is also its key in
+# config.COMPOSITE_WEIGHTS — that is what channel_view() looks the weight up by,
+# so a weight can never be stated in two places again.
 #
 # Direction matters and is easy to get wrong: every stored channel score is a
 # SIMILARITY (higher = more alike), including `movement_levenshtein`, which is
@@ -65,28 +77,39 @@ GATE_ORDER = [
 # The single exception is `distractor_jsd`, a divergence the engine folds in as
 # max(0, 1 - jsd * 4). `kind` below records how each raw score becomes the
 # similarity the composite actually consumes.
+#
+# Two further traps this list has already fallen into:
+#   - `curve` must read curve_similarity, NOT curve_pearson. Both are stored,
+#     both are plausible, and only the former is what _composite consumes.
+#   - a channel added to the engine must be added here too, or the page simply
+#     omits it: move_signature (the heaviest structural channel after
+#     blueprint) was missing from every published set until 2026-09-01.
 CHANNELS = [
-    ("blueprint", "Blueprint overlap", 0.20, "blueprint_sim", "sim",
+    ("blueprint", "Blueprint overlap", "blueprint_sim", "sim",
      "How many of the seven sampled structural slots this set shares with its "
      "nearest neighbour."),
-    ("movement", "Movement shape", 0.18, None, "movement",
+    ("movement", "Movement shape", None, "movement",
      "Similarity of the paragraph-function skeletons, taken as the worse of edit "
      "distance and shared adjacent-function pairs — so reordered but identical "
      "logic still registers."),
-    ("curve", "Commitment curve", 0.14, "curve_pearson", "sim_clamped",
+    ("move_signature", "Rhetorical moves", "move_signature_sim", "sim",
+     "Overlap in the ordered sequence of rhetorical moves — scene-setting, "
+     "concession, demolition of an easy reading. Two passages can share no "
+     "wording and still run the same play."),
+    ("curve", "Commitment curve", "curve_similarity", "sim_clamped",
      "Correlation of how the author's certainty rises and falls across the "
      "passage. Negative correlation is treated as fully distinct."),
-    ("topology", "Question topology", 0.14, "topology_similarity", "sim",
+    ("topology", "Question topology", "topology_similarity", "sim",
      "Overlap in the question-type layout of the set."),
-    ("distractor_jsd", "Distractor mix", 0.10, "distractor_jsd", "jsd",
+    ("distractor_jsd", "Distractor mix", "distractor_jsd", "jsd",
      "Jensen–Shannon divergence between the two sets' trap-type distributions. "
      "A low divergence means the same traps are being reused."),
-    ("rhythm", "Sentence rhythm", 0.08, "rhythm_cosine", "sim_clamped",
+    ("rhythm", "Sentence rhythm", "rhythm_cosine", "sim_clamped",
      "Similarity of the z-scored sentence-length cadence vector."),
-    ("stylometry", "Stylometry", 0.08, "stylometry_sim", "sim",
+    ("stylometry", "Stylometry", "stylometry_sim", "sim",
      "Burrows's Delta over function words and punctuation — the tell a human "
      "reader experiences as voice."),
-    ("embedding", "Semantic embedding", 0.08, "embedding_cosine", "sim",
+    ("embedding", "Semantic embedding", "embedding_cosine", "sim",
      "Dense-vector similarity of the passages themselves."),
 ]
 
@@ -294,7 +317,8 @@ def channel_view(scores: dict) -> tuple[list[dict], float | None]:
     function has drifted from NoveltyScorer._composite.
     """
     out, num_, den = [], 0.0, 0.0
-    for key, label, weight, field, kind, blurb in CHANNELS:
+    for key, label, field, kind, blurb in CHANNELS:
+        weight = config.COMPOSITE_WEIGHTS[key]
         if kind == "movement":
             lev = scores.get("movement_levenshtein")
             jac = scores.get("movement_bigram_jaccard")
@@ -331,8 +355,10 @@ def channel_view(scores: dict) -> tuple[list[dict], float | None]:
 
 
 def build_sets(conn, audits: list[dict], full_text: set[str],
-               include_costs: bool) -> tuple[list[dict], dict[str, dict], list[str]]:
+               include_costs: bool
+               ) -> tuple[list[dict], dict[str, dict], list[str], list[str]]:
     drift: list[str] = []
+    legacy_scored: list[str] = []
     final_audit = {}
     for a in audits:
         if a["rc_id"] and (a["verdict"] or "").startswith("full:"):
@@ -360,10 +386,21 @@ def build_sets(conn, audits: list[dict], full_text: set[str],
 
         channels, rebuilt = channel_view(scores)
         # Guard against this script's channel maths drifting from the engine's.
+        #
+        # Only sets scored under the CURRENT channel set can reconstruct. Sets
+        # audited before move_signature landed (2026-08-21) were scored by a
+        # composite that did not have that channel and weighted the others
+        # differently, so replaying today's weights over them must disagree —
+        # that is history, not drift. Counting them as drift kept this check
+        # permanently red, which is precisely why a real 0.20-vs-0.14 weight
+        # error hid behind it. Legacy sets are counted separately and quietly.
         if audit and rebuilt is not None:
             stored = audit["composite"]
             if stored is not None and abs(rebuilt - stored) > 0.02:
-                drift.append(f"{rc_id}: stored {stored:.3f} vs rebuilt {rebuilt:.3f}")
+                if "move_signature_sim" in scores:
+                    drift.append(f"{rc_id}: stored {stored:.3f} vs rebuilt {rebuilt:.3f}")
+                else:
+                    legacy_scored.append(rc_id)
 
         card = {
             "rc_id": rc_id,
@@ -427,7 +464,7 @@ def build_sets(conn, audits: list[dict], full_text: set[str],
             detail["questions"] = parsed["questions"]
         details[rc_id] = detail
 
-    return index, details, drift
+    return index, details, drift, legacy_scored
 
 
 def pick_default_full_text(conn) -> list[str]:
@@ -470,7 +507,8 @@ def main() -> None:
 
         corpus = build_corpus(conn, audits)
         funnel = build_funnel(audits)
-        index, details, drift = build_sets(conn, audits, full_text, args.include_costs)
+        index, details, drift, legacy_scored = build_sets(
+            conn, audits, full_text, args.include_costs)
     finally:
         conn.close()
 
@@ -504,12 +542,18 @@ def main() -> None:
     if unparsed:
         print(f"  WARNING unparsed rc_text: {', '.join(unparsed)}")
     if drift:
-        print(f"  WARNING composite mismatch on {len(drift)} set(s) — the channel "
-              f"maths here has drifted from NoveltyScorer._composite:")
+        print(f"  WARNING composite mismatch on {len(drift)} set(s) scored under "
+              f"the CURRENT channel set — the channel maths here has drifted "
+              f"from NoveltyScorer._composite:")
         for d in drift[:5]:
             print(f"    {d}")
     else:
-        print("  composite check  all audited sets reconstruct within 0.02")
+        print("  composite check  every set scored under the current channel "
+              "set reconstructs within 0.02")
+    if legacy_scored:
+        print(f"  legacy scoring  {len(legacy_scored)} set(s) predate the "
+              f"move_signature channel and cannot reconstruct under today's "
+              f"weights — expected, not drift")
 
 
 if __name__ == "__main__":

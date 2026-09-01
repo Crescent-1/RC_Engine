@@ -9,7 +9,7 @@
         "http.server",
         "8734",
         "--directory",
-        "portfolio"
+        "C:\\rc\\portfolio"
       ],
       "port": 8734
     },
@@ -21,7 +21,7 @@
         "http.server",
         "8735",
         "--directory",
-        "website"
+        "C:\\rc\\website"
       ],
       "port": 8735
     },
@@ -33,7 +33,7 @@
         "http.server",
         "8736",
         "--directory",
-        "demo"
+        "C:\\rc\\demo"
       ],
       "port": 8736
     },
