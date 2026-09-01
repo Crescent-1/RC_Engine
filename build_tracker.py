@@ -3,13 +3,15 @@ Manual columns on the 'RC Sets' sheet (Shared to Institute / Shared On /
 Remarks) are preserved across rebuilds, matched by RC_ID."""
 import json, os, sqlite3, sys
 
-sys.path.insert(0, r"C:\rc")
+# Derived, never hardcoded: this line has twice been left pointing at a
+# directory the project had already moved away from.
+PROJ = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, PROJ)
 from openpyxl import Workbook, load_workbook
 from openpyxl.styles import Alignment, Font, PatternFill
 from openpyxl.utils import get_column_letter
 
-PROJ = r"C:\rc"
-OUT = PROJ + r"\RC_Tracker.xlsx"
+OUT = os.path.join(PROJ, "RC_Tracker.xlsx")
 
 # manual columns to carry over (header text -> value per RC_ID)
 MANUAL_HEADERS = ["Shared to Institute (Y/N)", "Shared On", "Remarks"]

@@ -9,7 +9,7 @@
         "http.server",
         "8734",
         "--directory",
-        "C:\\rc\\portfolio"
+        "portfolio"
       ],
       "port": 8734
     },
@@ -21,7 +21,7 @@
         "http.server",
         "8735",
         "--directory",
-        "C:\\rc\\website"
+        "website"
       ],
       "port": 8735
     },
@@ -33,13 +33,13 @@
         "http.server",
         "8736",
         "--directory",
-        "C:\\rc\\demo"
+        "demo"
       ],
       "port": 8736
     },
     {
       "name": "rc-gui",
-      "runtimeExecutable": "C:\\Users\\anshu\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
+      "runtimeExecutable": "python",
       "runtimeArgs": [
         "-m",
         "gui"
@@ -51,7 +51,7 @@
       "runtimeExecutable": "cmd",
       "runtimeArgs": [
         "/c",
-        "C:\\rc\\run_gui_remote.bat"
+        "run_gui_remote.bat"
       ],
       "port": 8730
     }
