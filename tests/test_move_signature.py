@@ -1752,3 +1752,35 @@ def test_ship_lock_is_only_armed_in_parallel_mode():
     from rc_engine import pipeline
     src = inspect.getsource(pipeline.RCPipeline._questions_and_ship)
     assert "ship_lock(enabled=self.parallel)" in src
+
+
+def test_screen_spend_is_returned_not_just_printed():
+    """The similarity screen is a paid stage whose spend was printed and then
+    dropped — outside summarize_batch, outside `attempts`, outside `rc_sets`.
+    Every $/shipped-set figure the engine reported was low by ~0.75%."""
+    import inspect
+    from rc_engine.similarity_screen import screen_batch
+    src = inspect.getsource(screen_batch)
+    assert "return {}, 0.0" in src, "early returns must match the new signature"
+    assert "return results, ledger.spent_usd" in src
+    assert "screen_cost_usd" in src, "per-set attribution must be persisted"
+
+
+def test_screen_cost_column_exists():
+    from rc_engine import config
+    from rc_engine.history import HistoryStore
+    h = HistoryStore(config.DB_PATH)
+    try:
+        cols = [c[1] for c in h.conn.execute("PRAGMA table_info(rc_sets)")]
+        assert "screen_cost_usd" in cols
+    finally:
+        h.close()
+
+
+def test_both_screen_call_sites_fold_the_spend_in():
+    import inspect
+    from rc_engine import cli
+    src = inspect.getsource(cli)
+    assert src.count("_, screen_usd = screen_batch(") == 2, (
+        "generate and retry-questions both screen; both must report it")
+    assert src.count("_report_all_in(results, screen_usd)") == 2

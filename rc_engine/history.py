@@ -155,6 +155,9 @@ class HistoryStore:
         self._ensure_column("fingerprints", "source", "TEXT DEFAULT 'engine'")
         self._ensure_column("rc_sets", "seed_genre", "TEXT DEFAULT ''")
         self._ensure_column("rc_sets", "topic_shape", "TEXT DEFAULT ''")
+        # The similarity screen is a paid stage whose spend used to be printed
+        # and then dropped, so every $/shipped-set figure was low.
+        self._ensure_column("rc_sets", "screen_cost_usd", "REAL DEFAULT 0")
         self._ensure_column("rc_sets", "similarity_verdict", "TEXT DEFAULT ''")
         self._ensure_column("rc_sets", "similarity_note", "TEXT DEFAULT ''")
         self._ensure_column("fingerprints", "move_signature", "TEXT DEFAULT ''")
