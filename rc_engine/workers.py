@@ -180,6 +180,28 @@ def run_parallel(history, tier_counts: dict[str, int], workers: int, *,
     def spent() -> float:
         return sum(r.cost_usd for r in results)
 
+    # Which source kinds to steer the drawn pools away from. In sequential mode
+    # the retry loop passes avoid_kinds to the store at rotation time; a worker
+    # cannot, because its pool is pre-drawn by the parent — so the steering has
+    # to happen HERE or not at all, and before this it was not happening at all
+    # (the worker's seed_provider accepted avoid_kinds and ignored it). The
+    # saturated genre is knowable up front from the trailing window, so the
+    # spares are drawn away from the kinds that produce it.
+    avoid_kinds: list[str] | None = None
+    try:
+        from .seed_classify import genre_shares
+        shares, n = genre_shares(history)
+        if n >= config.SEED_GENRE_MIN_CORPUS:
+            hot = [g for g, sh in shares.items()
+                   if sh > config.SEED_GENRE_SATURATION]
+            avoid_kinds = sorted({k for g in hot
+                                  for k in config.GENRE_SOURCE_KINDS.get(g, [])})
+            if avoid_kinds:
+                print(f"[batch] drawing seed pools away from {avoid_kinds} "
+                      f"(saturated: {', '.join(hot)})")
+    except Exception as e:                                   # noqa: BLE001
+        print(f"[batch] seed-kind steering unavailable (non-fatal): {e}")
+
     def draw_seeds(tier: str) -> list[SeedEssay]:
         """A private pool per slot: the primary seed plus spares for the
         rotation the slot's retry loop would otherwise ask the store for.
@@ -188,7 +210,8 @@ def run_parallel(history, tier_counts: dict[str, int], workers: int, *,
         if not seed_provider:
             return out
         for _ in range(config.PARALLEL_SEEDS_PER_SLOT):
-            seed, cb = seed_provider(tier, exclude_ids=handed)
+            seed, cb = seed_provider(tier, exclude_ids=handed,
+                                     avoid_kinds=avoid_kinds)
             if seed is None:
                 break
             if seed.doc_id:

@@ -1702,3 +1702,53 @@ def test_retired_news_wire_is_commented_not_deleted():
     assert not any("statnews" in u for u in RAG.FEEDS), "still loaded"
     for u in ("damninteresting.com", "hakaimagazine.com", "restofworld.org"):
         assert u in src
+
+
+# ---------------------------------------------------------------------------
+# Parallel batch generation (reviewed 2026-09-01).
+# ---------------------------------------------------------------------------
+
+def test_seedless_attempt_is_exempt_from_the_genre_gate():
+    """The gate asks whether the RAG STORE holds another content kind, but
+    rotation draws from the SEED PROVIDER. With --no-seed there is none, so the
+    check said 'alternatives exist' while rotation had nowhere to go: all 12
+    attempts of a parallel dry run died rejected_seed_genre with no rotation
+    possible. That is a stall, not a gate."""
+    import inspect
+    from rc_engine import pipeline
+    src = inspect.getsource(pipeline.RCPipeline.generate_one)
+    assert "if not seed.doc_id:" in src
+    i = src.index("if not seed.doc_id:")
+    j = src.index('seed_info.get("saturated") is not None')
+    assert i < j, "the exemption must be applied before the gate reads it"
+
+
+def test_parallel_seed_pools_are_steered_by_kind():
+    """A worker's pool is pre-drawn by the parent, so the worker cannot apply
+    avoid_kinds at rotation time — its seed_provider accepts the argument and
+    ignores it. The steering therefore has to happen parent-side."""
+    import inspect
+    from rc_engine import workers
+    parent = inspect.getsource(workers.run_parallel)
+    assert "avoid_kinds=avoid_kinds" in parent, (
+        "seed pools drawn blind; the genre-aware rotation does nothing in "
+        "parallel mode")
+    assert "GENRE_SOURCE_KINDS" in parent
+
+
+def test_worker_entry_points_are_module_level_for_spawn():
+    """Windows uses the spawn start method: anything ProcessPoolExecutor calls
+    must be importable by name, not a closure."""
+    from rc_engine import workers
+    for fn in ("_worker_init", "_worker_slot"):
+        f = getattr(workers, fn)
+        assert f.__qualname__ == fn, f"{fn} is nested; spawn cannot pickle it"
+
+
+def test_ship_lock_is_only_armed_in_parallel_mode():
+    """A sequential run already sees every earlier ship in its window; taking a
+    cross-process lock there would be pure latency."""
+    import inspect
+    from rc_engine import pipeline
+    src = inspect.getsource(pipeline.RCPipeline._questions_and_ship)
+    assert "ship_lock(enabled=self.parallel)" in src

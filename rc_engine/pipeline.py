@@ -113,7 +113,16 @@ class RCPipeline:
         # that loop.
         seed_info, topic_shape_id = self.composer.classify_and_pick_shape(
             seed, ledger, tier)
-        if seed_info.get("saturated") is not None                 and not self._pool_is_single_kind(tier):
+        # Seedless attempts have nothing to rotate TO: the pool check below asks
+        # whether the RAG store holds another content kind, but rotation draws
+        # from the batch's seed provider, and with --no-seed (or an exhausted
+        # provider) there is none. Measured 2026-09-01 on a parallel dry run:
+        # all 12 attempts died rejected_seed_genre with no rotation possible,
+        # which is a stall, not a gate.
+        if not seed.doc_id:
+            seed_info["saturated"] = None
+        if (seed_info.get("saturated") is not None
+                and not self._pool_is_single_kind(tier)):
             print(f"  [seed] genre '{seed_info['genre']}' is already "
                   f"{seed_info['saturated']:.0%} of the recent corpus - "
                   f"rotating rather than adding another")
