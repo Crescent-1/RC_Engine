@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260901-0076 | Tier: hard | Score: 0.0 | Status: solver_dispute | Compliance F1: 0.8 | Novelty: 0.549 | Screen: green | Generated: 2026-09-01T19:33:29.959984+00:00
+======================================================================
+
+[PASSAGE]
+
+The template dates to October 17, 2015, mid-Synod, on the New York Times op-ed page: roughly nine hundred words under the headline "The Plot to Change Catholicism." No footnotes. No links to the synodal *relatio*. A column, not a brief.
+
+It is tempting to read the column's shape as pure conviction — the writer thought the Pope wrong and said so with heat. That is half right and therefore misleading. The op-ed form asks for an antagonist within a fixed count, and a synod is a slow, procedural, multilingual argument about the discipline of the sacraments. Something had to be cut. What survived the cutting was a verb: *plot*.
+
+Watch the ladder as it is climbed. Rung one: a disclaimer of lay standing, a deference so carefully phrased that it purchases license for everything after. Rung two: a summary of synodal maneuvering, accurate in outline, selective in emphasis, sourced to no quoted paragraph. Rung three: schism. Each rung is narrower than the one below and rests on less. It would be an error, though, to take that internal ascent as the history it describes; the sequence belongs to the argument, not to the Synod, whose actual sessions produced revisions and votes that fit no such curve. Within four years the shape was everywhere — the credential, the compressed maneuver, the warning — reproduced on Catholic commentary sites, in Anglican blog polemics, in Orthodox-convert Substacks, in at least one Southern Baptist quarterly that borrowed the ladder wholesale for its own convention fights.
+
+The column is still cited, unrevised, as evidence in disputes about Francis's legacy, and its lack of primary quotation now reads as a genre marker rather than a gap — the sound of somebody who knows. Against which: surely engaged criticism need not cite curial documents to be legitimate. Newman quoted little; the Fathers argued from memory. Granting that, the two cases are not parallel, and the disanalogy is what matters. Newman's authority came from having demonstrably read the sources and expected his readers to check. Here the omission does the opposite work: it manufactures interiority. The column is credited with access precisely because it shows none, and that trick, unlike an argument, can be copied by anyone with a keyboard and no access at all.
+
+So the dispute has been miscast from the start. Readers have spent a decade asking whether Douthat was right about Francis — whether the annulment reforms and *Amoris Laetitia* vindicated him — when the column's rhetorical construction makes that question unanswerable from the text. A document engineered for circulation cannot be graded for adjudication; it did not attempt the second task. Take the schism warning specifically: nothing in those nine hundred words specifies what would count as schism, which canonical threshold, which body. Later events may have unsettled some readers, and a reader may privately feel confirmed. The column cannot be credited with having argued them there, because it argued nothing that could be checked. That is the verdict, and it holds. It leaves standing a question the column itself provoked and never faced — whether nine hundred syndicated words about a Church council can carry documentary weight at all, or whether the form is built to be quoted rather than examined.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) The column was built to travel rather than to be checked, so the decade-long argument over whether it was right about Francis is misdirected.
+(B) Engaged criticism of a pope need not quote curial documents, since figures like Newman also argued from memory rather than from cited texts.
+(C) Douthat's theological hostility to Francis produced a schism warning that later events, including Amoris Laetitia, have substantially borne out over time.
+(D) The op-ed's three-rung structure faithfully records the actual progression of the 2015 Synod's debate from lay deference toward open schism.
+
+Q2. In context, the claim that "what survived the cutting was a verb: plot" most nearly means that:
+(A) The synodal proceedings were in fact conspiratorial, and the word simply named what the procedural record already showed.
+(B) Editors at the newspaper imposed the sharper vocabulary on a piece its author would have written more temperately.
+(C) The writer's settled theological judgment that the Pope had erred determined the accusatory word chosen for the headline.
+(D) The demands of a short column with an antagonist selected that framing, so heat cannot be read as conviction alone.
+
+Q3. The author uses the word "ladder" to mean:
+(A) The graded scale of authority by which a lay writer earns standing to correct a pope.
+(B) The widening chain of imitators, from Catholic sites through Anglican blogs to Baptist quarterlies.
+(C) A rhetorical staircase of claims, each narrower and less supported than the one beneath it.
+(D) The Synod's own escalation, moving from deferential procedure toward the open threat of schism.
+
+Q4. What is the purpose of the Newman example in the passage?
+(A) To stage the strongest objection to the author's case and then convert it into a disanalogy that sharpens the case.
+(B) To illustrate that readers of religious controversy reliably reward writers who display familiarity with the primary sources.
+(C) To concede that citation-free polemic has a respectable pedigree, which the author then accepts as limiting his verdict.
+(D) To supply a historical precedent showing that op-ed columns have always borrowed authority from patristic argumentative habits.
+
+Q5. Which one of the following findings would most complicate the author's account of why the column was so widely reproduced?
+(A) Douthat later published a book on Francis that quoted synodal documents and canonical thresholds in detail.
+(B) The imitating polemics that spread furthest quoted primary documents at length and dropped the deference disclaimer entirely.
+(C) Several bishops privately agreed with the column's description of synodal maneuvering during the October sessions.
+(D) The Southern Baptist quarterly that borrowed the structure was read by a far smaller audience than the original.
+
+Q6. Which reading of the following scenario best follows the passage's reasoning? A widely shared thread by an anonymous account, written during a central bank's rate meeting, opens by admitting the writer is no economist, sketches the committee's factional manoeuvring without quoting the minutes, and closes by warning of an institutional rupture it never defines.
+(A) Its opening disclaimer is honest self-limitation, so readers who take the rupture warning seriously have misread the writer's modest intent.
+(B) Its accuracy about the committee's factions should be tested first, since a vindicated warning would retroactively justify the missing citations.
+(C) Its absent sourcing will be read as insider knowledge, and that effect, not its forecast, explains why the thread propagates.
+(D) Its anonymity is the decisive flaw, because a named economist making identical claims would deserve the same institutional credibility.
+
+Q7. Which one of the following would best license the inference the author draws from the column's lack of primary quotation?
+(A) Surveys show readers rate unsourced commentary on closed institutions as better informed than versions carrying document citations.
+(B) Scholarly articles that quote extensively from primary documents are cited more often than essays that summarise them loosely.
+(C) The synodal relatio was available in English translation on the day the column appeared in the newspaper.
+(D) Editors at major newspapers routinely strip footnotes and hyperlinks from op-eds to keep the prose readable for general audiences.
+
+Q8. According to the passage, why can the column not be credited with having argued readers toward its schism warning?
+(A) Its author disclaimed lay standing and therefore lacked authority to name a coming rupture.
+(B) Subsequent events, notably Amoris Laetitia, decisively refuted the warning the column had issued.
+(C) It never specified what would count as schism, which threshold, or which body.
+(D) Its account of the synodal maneuvering was inaccurate in outline and misleading in emphasis.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Integrates the form-pressure account (para 2), the copyable ladder (para 3), the rebutted Newman objection (para 4), and the verdict that adjudication was never attempted (para 5).
+  (B) premature_closure — This is the objection raised in paragraph four in order to be refuted; the author calls the two cases non-parallel.
+  (C) stance_misread — The author says private confirmation cannot be credited to the column, which specified no canonical threshold for schism.
+  (D) half_truth — Paragraph three explicitly denies this: the sequence belongs to the argument, not to sessions that produced revisions and votes.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — Paragraph two says reading the shape as pure conviction is 'half right and therefore misleading' because the form itself requires an antagonist within a fixed count.
+  (A) scope_inflation — Nothing endorses the accusation; the passage stresses the column's selective emphasis and absence of quoted paragraphs.
+  (B) adjacent_answer — The pressure described is generic to the op-ed form, not an editorial intervention the passage anywhere reports.
+  (C) half_truth — Paragraph two grants conviction as half the story and warns that treating it as the whole explanation is misleading.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — Paragraph three defines the rungs as disclaimer, summary, schism, and states that each rung is narrower and rests on less.
+  (A) phrase_misuse — Lay standing appears only as rung one, a disclaimer purchasing license, not as the meaning of the whole figure.
+  (B) level_confusion — That list describes the ladder's later reproduction across venues, not what the metaphor itself designates.
+  (D) half_truth — Paragraph three warns against taking the internal ascent as history; the sessions produced revisions fitting no such curve.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Newman is introduced under 'Against which' and then dismantled: his authority rested on demonstrable reading, whereas the column's omission manufactures interiority.
+  (B) causal_inversion — The passage says the column is credited with access precisely because it shows none, reversing this proposed reward mechanism.
+  (C) premature_closure — The concession is granted only rhetorically; the author immediately insists the disanalogy is what matters and holds his verdict.
+  (D) framework_import — No continuity is claimed between the Fathers and the op-ed form; the comparison is raised precisely to be broken.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The account rests on the copyable trick of manufactured interiority through omission; imitators succeeding by citing sources and skipping rung one breaks that mechanism.
+  (A) level_confusion — The verdict concerns the nine hundred words themselves; a later, differently constructed book leaves that reading intact.
+  (C) half_truth — The passage already grants the summary was accurate in outline; agreement about content does not explain the form's spread.
+  (D) adjacent_answer — Circulation size of one imitator does not touch the claim that the form was copied because it is copyable.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — Transposes the manufactured-interiority mechanism: credit for access granted precisely because none is shown, plus an undefined rupture that cannot be checked.
+  (A) stance_misread — Rung one is described as deference that purchases license for what follows, not as genuine self-limitation.
+  (B) premature_closure — The passage denies that later vindication can be credited to a text that argued nothing checkable.
+  (D) adjacent_answer — The passage locates the trick in omitted sourcing, not in bylines; Douthat's column was signed and syndicated.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — It supplies direct support for the load-bearing claim that omission manufactures interiority and earns credit for access precisely by showing none.
+  (B) false_symmetry — Academic citation norms are a different arena; the claim concerns commentary read as evidence by lay disputants.
+  (C) adjacent_answer — Availability establishes that quotation was possible but says nothing about why omission reads as insider knowledge.
+  (D) causal_inversion — House style would make the omission incidental rather than an effect-producing device, undercutting rather than licensing the inference.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — Paragraph five states exactly this: nothing in the nine hundred words specifies canonical threshold or body, so nothing could be checked.
+  (A) phrase_misuse — The disclaimer is described as purchasing license, not as disqualifying the writer from making the claim.
+  (B) stance_misread — The passage says later events unsettled some readers; it does not adjudicate the warning as refuted.
+  (D) half_truth — Paragraph three calls the summary accurate in outline and merely selective in emphasis, not inaccurate.
+
+[Inspired by: "Learning from Ross Douthat", https://www.commonwealmagazine.org/faggioli-douthat-final-column-cbs-francis-trump]

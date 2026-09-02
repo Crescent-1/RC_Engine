@@ -1,0 +1,114 @@
+RC ID: RC-HARD-260901-0077 | Tier: hard | Score: 8.0 | Status: needs_review | Compliance F1: 0.79 | Novelty: 0.531 | Screen: green | Generated: 2026-09-01T19:37:03.472898+00:00
+======================================================================
+
+[PASSAGE]
+
+"Debriefing" here means a procedure that assumes the informant knows more than she has said, and that a structured sequence of prompts will draw it out intact. That assumption is what the sighting report form encodes. Consider a single filed sheet from a civilian reporting hotline. Two pages. The first page is almost entirely closed fields: date, local time to the minute, latitude and longitude or nearest crossroads, weather, moon phase, whether the observer wore corrective lenses. Then the shape checklist — disc, cigar, triangle, sphere, chevron, "other (specify)" — and beside it a duration field ruled for seconds and minutes, as though the witness had been holding a stopwatch. Angular size is to be given by the coin method: the width of a dime at arm's length, a quarter, a thumbnail. Then the confidence scale, one to five. The narrative box, the only place where the witness may say what she saw in her own words, is three ruled lines long. It sits below the fold. Everything above it has already taught her what counts as a fact. The ritual requires that a private, unrepeatable, badly lit fragment of memory be sorted into the hotline's vocabulary before a single reader touches it, and the sorting is done by the witness herself, alone at a kitchen table, hours or years after the fact. She is both informant and first analyst. She decides that the thing was a chevron because chevron is on the list. She rounds 9:40-ish to 21:37 because the field has a slot for minutes and no slot for "ish." Informants report that this feels like being helped. It is help of a kind. The finished sheet has the density of an instrument reading: coordinates, arcminutes, a numbered confidence. Nothing on it lies. Every number was supplied in good faith by someone who was there, and the precision belongs to the paper.
+
+Nearly every sighting form in circulation looks like this one. Not by coincidence. They descend from aviation incident reports, which were designed for crews with instruments, logs, and a filing deadline measured in hours. The lineage shows in the field order. What the borrowing never carried across is the thing that made those fields sensible: a cockpit, a clock, a duty to write it down before landing.
+
+Widen the frame and the same design logic turns up wherever a lay witness is asked to file an experience into categories built for aggregation — the traffic accident diagram with its little numbered cars, the intake symptom checklist with its ten-point pain face, the campus hate-incident form with its dropdown of protected characteristics — instruments that differ enormously in how soon and how directly they are filled out, and that therefore distort in very different amounts, but that share one habit: they retain the testimony and discard the conditions under which it was given.
+
+What such forms produce is not a record of uncertain events but a uniform-looking evidentiary object manufactured out of radically non-uniform acts of remembering. The distortion is real and it runs one way, toward false consistency. Analysts owe the archive an account of how each sheet was made. Designers owe it a field for the witness's own hedge. And the aggregate owes its readers a warning that it is smoother than anything anyone ever saw.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) The numerical precision recorded on sighting forms indicates that observers were in fact watching carefully and reporting accurately.
+(B) Because sighting forms descend from aviation incident reports, they are filled out by witnesses who lack instruments, clocks, and deadlines.
+(C) Witnesses who file sighting reports are misled into supplying details they cannot know, which makes the resulting archives evidentially worthless.
+(D) Standardised witness forms make ragged memories into uniform-looking evidence, so archives owe readers an account of that manufacture.
+
+Q2. Regarding the descent of sighting forms from aviation incident reports, the author asserts that:
+(A) the borrowed field order survived, while the cockpit conditions that made those fields sensible did not.
+(B) civilian hotlines adopted the aviation format deliberately so that their reports would resemble instrument readings.
+(C) the shared design lineage makes the two kinds of form equally well matched to their subject matter.
+(D) aviation reports were themselves flawed instruments whose defects were faithfully reproduced in civilian hotline forms.
+
+Q3. What is the purpose of the traffic diagram, symptom checklist, and hate-incident form mentioned in the third paragraph?
+(A) To argue that medical and legal paperwork should be redesigned before any reform of sighting hotline forms.
+(B) To suggest that sighting reports are unfairly singled out when ordinary bureaucratic forms behave much the same way.
+(C) To show that every form asking a lay witness to file experience into categories distorts to a comparable degree.
+(D) To show that one design habit recurs across instruments that nevertheless distort by very different amounts.
+
+Q4. Which one of the following statements, if true, would best invalidate the main argument of the passage?
+(A) A substantial share of filed sighting reports are eventually matched to aircraft, balloons, or ordinary astronomical objects.
+(B) Witnesses filling closed fields consistently leave slots blank when unsure, and hotlines record those gaps as filed uncertainty.
+(C) Most hotline analysts are trained to treat coordinates and durations on civilian sheets with considerable professional caution.
+(D) Aviation incident reports were themselves adapted from earlier maritime logs kept by officers on scheduled watches.
+
+Q5. Which one of the following, if true, would most call into question the claim that the witness acts as "both informant and first analyst"?
+(A) Many witnesses consult printed guides on angular measurement before choosing a coin comparison for the size field.
+(B) The three-ruled-line narrative box is frequently overflowed onto separate sheets that hotlines attach to the file.
+(C) Hotline staff phone every witness and jointly convert her loose account into the closed fields before any sheet is filed.
+(D) Witnesses often report that completing the closed fields feels less like analysis than like being efficiently helped.
+
+Q6. Which reading of the following scenario best follows the passage's reasoning? A city's flood-damage portal asks residents, weeks later, to enter water depth in centimetres, onset time to the minute, and a five-point severity rating, with two lines for comments.
+(A) The portal will yield a tidy depth-and-time dataset whose evenness comes from its fields, not from residents' recollections.
+(B) The portal is as trustworthy as engineers' gauge logs, since both record depth in the same standard units.
+(C) The portal's two comment lines are the flaw, and lengthening them would remove the distortion the passage describes.
+(D) The portal is unusable because residents weeks after a flood cannot honestly supply any of the requested figures.
+
+Q7. In the context of the passage, "the precision belongs to the paper" is best understood as:
+(A) the numbers entered on the sheet are fabrications introduced somewhere between the witness and the archive.
+(B) the physical document outlasts the witness's memory and so becomes the only surviving version of events.
+(C) the hotline's clerks bear responsibility for the rounding and coding that appear in the finished fields.
+(D) the exactness on the sheet is a property of its fields rather than of the remembering it records.
+
+Q8. Which one of the following, if true, would most support the claim made in the final paragraph that the distortion "runs one way, toward false consistency"?
+(A) Comparisons of filed sheets with later interviews show hedged, ragged accounts converging on the checklist's listed shapes and rounded times.
+(B) Analysts who aggregate sighting sheets report that shape distributions have remained broadly stable across several decades of filing.
+(C) Some witnesses deliberately choose "other (specify)" and write descriptions that no listed shape term would adequately capture.
+(D) Witnesses interviewed afterwards frequently say they found the checklist categories inadequate to what they believed they had seen.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — Holds both halves of the passage's movement: the diagnosis (non-uniform remembering rendered uniform by the witness's own pre-sorting) and the closing obligations owed to analysts, designers, and readers.
+  (A) half_truth — The passage says the precision belongs to the paper, not the sighting; nothing on the sheet lies, yet the observation stays badly lit.
+  (B) half_truth — True as a subsidiary point about lineage in paragraph two, but it is one supporting observation rather than the passage's governing claim.
+  (C) moderate_extremism — The author insists every number was supplied in good faith and asks for warnings and hedge fields, not for the archive to be discarded.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Paragraph two states the lineage shows in the field order and that what the borrowing never carried across was the cockpit, clock, and filing duty.
+  (B) causal_inversion — The instrument-like density is described as an effect of the design, not as an intention the hotlines are said to have held.
+  (C) false_symmetry — The passage draws the lineage precisely to mark a mismatch: aviation crews had instruments, logs, and deadlines that civilian witnesses lack.
+  (D) stage_misattribution — Aviation forms are presented as sensible for crews with instruments and deadlines; the defect appears only on transfer to lay witnesses.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The paragraph explicitly widens the frame to a shared habit — retaining testimony, discarding conditions — while insisting the instruments differ in how soon and how directly they are filled out.
+  (A) scope_inflation — No priority ordering among domains appears; the examples widen the diagnosis rather than rank which paperwork to fix first.
+  (B) stance_misread — The widening indicts the other forms too; it does not defend sighting reports against criticism by appealing to common practice.
+  (C) false_symmetry — The paragraph concedes these instruments "distort in very different amounts," so equal distortion is exactly what it refuses to claim.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The load-bearing move is that the witness pre-sorts her memory into false precision and the conditions vanish; preserved blanks would mean the sheet carries its own uncertainty rather than manufacturing smoothness.
+  (A) category_slip — Identifying the stimulus says nothing about how remembering was recorded; the argument is about manufacture of evidence, not misidentification.
+  (C) level_confusion — Analyst caution operates downstream; the argument concerns what the sheet itself encodes and what the aggregate then shows readers.
+  (D) adjacent_answer — This extends the genealogy of paragraph two without touching the claim that borrowed fields lost their enabling conditions.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — The claim rests on the sorting being done by the witness alone at a kitchen table; a staff-conducted conversion relocates the analytic step away from her.
+  (A) half_truth — Consulting a guide still leaves the witness doing the sorting herself, which is precisely the analytic role the claim identifies.
+  (B) adjacent_answer — Extra narrative space addresses the cramped box, not the question of who performs the initial categorisation into fields.
+  (D) stance_misread — The passage already grants that it feels like help and calls it help of a kind, so this confirms rather than challenges.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — Applies the central mechanism: closed fields teach what counts as a fact and produce instrument-like uniformity out of non-uniform remembering, with precision belonging to the form.
+  (B) false_symmetry — Shared units repeat the aviation-lineage error: instrumented recording and lay recall are not made equivalent by matching fields.
+  (C) premature_closure — A hedge field is one recommendation, but the distortion arises from pre-sorting into closed categories, which more lines do not undo.
+  (D) moderate_extremism — The passage holds that witnesses supply figures in good faith and that nothing on such sheets lies; it does not deny usability.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The phrase closes a sequence in which good-faith numbers acquire instrument-like density from the form's slots, not from the witness's actual perceptual access.
+  (A) stance_misread — The passage states plainly that nothing on the sheet lies and every number came in good faith from someone present.
+  (B) phrase_misuse — Reads "belongs to the paper" as durability or custody, whereas the sentence contrasts the source of exactness with the memory.
+  (C) stage_misattribution — The passage insists the sorting is done by the witness herself, alone, before any reader touches the sheet.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — Directly evidences directionality: independent recovery of the original testimony shows movement from variability toward the form's categories, never away from them.
+  (B) half_truth — Stability over time is consistent with either faithful recording or uniform distortion, so it cannot establish the direction of the effect.
+  (C) half_truth — Escape into the open option illustrates resistance to the categories and slightly cuts against uniform smoothing rather than supporting it.
+  (D) adjacent_answer — Reported dissatisfaction shows friction with the categories but not that filed sheets ended up smoother than the memories.
+
+[Inspired by: "Sasquatch science", https://aeon.co/essays/the-surprisingly-scientific-methods-of-bigfooters]

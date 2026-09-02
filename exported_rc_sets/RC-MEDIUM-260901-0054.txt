@@ -1,0 +1,116 @@
+RC ID: RC-MEDIUM-260901-0054 | Tier: medium | Score: 7.8 | Status: needs_review | Compliance F1: 0.884 | Novelty: 0.45 | Screen: green | Generated: 2026-09-01T19:30:05.172083+00:00
+======================================================================
+
+[PASSAGE]
+
+What does a museum label claim to do? Fifty words on a raked card, set at knee height beside a bronze or a beaded collar, propose themselves as a conduit: object at one end, visitor at the other, nothing added in transit. The claim does not survive inspection. Every label selects a date over a use, a maker over a market, a material over a wound. The selection is not concealed so much as unremarked. Whether that unremarked selection makes the description untrustworthy, or merely situated in a place and a purpose, the card itself gives no way to tell.
+
+Eilean Hooper-Greenhill's account of the post-museum is useful here, and its usefulness lies in what it declines to demand. She does not ask that curatorial authority be dissolved; she asks that its acts of selection become visible, so that a claim can be weighed rather than absorbed. On that view a label earns credit by accountable framing, not by a performance of neutrality — a performance that, as evidence goes, tends to be weakest exactly where the object's history is most disputed.
+
+The instances do not line up. A Benin plaque carrying only "brass, sixteenth century" makes a claim about relevance while appearing to make none; the 1897 expedition is not denied, it is simply outside the frame. A donated family photograph whose sitters were identified through parish and shipping records carries inference openly, and a viewer can check the reasoning. A recent installation described as being "about displacement," full stop, presents a contested reading in the grammar of settled fact. Interpretation is unavoidable in all three. It is not equally answerable in all three.
+
+Against this stands a fair objection. Visitors do not come to adjudicate provenance disputes, and a card that recites every curatorial hesitation becomes institutional autobiography, the museum studying itself in a mirror while the plaque waits. Readability is a real constraint, not an alibi. But conceding that disclosure must be brief concedes nothing about neutrality; a short label is still a chosen one, and brevity restricts how much can be marked, not whether marking is owed.
+
+The two camps take themselves to be arguing about how much a label should say. They are not. The word *label* comes into museums from commerce and taxonomy — the tag on a bale, the binomial pinned beneath a beetle — where the thing named was already agreed upon and the tag merely fixed it. Objects with contested histories were absorbed into a form built for uncontested ones. So the dispute is not about length. It is about grammar. A label can name observation and inference in different registers within the same twenty words. Nothing forbids "carried to Britain in 1897" beside "brass, sixteenth century." The demand for accessibility, which looks like a reason to say less, is what makes the marking necessary: a visitor with one pass through the gallery has no other means of knowing which parts of the sentence are load-bearing. So the question is not whether a label may interpret, since it cannot avoid it, but whose interpretation the visitor is being asked, in those seconds, to take on trust.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) Curatorial authority should be dissolved so that visitors can weigh evidence about objects themselves.
+(B) Museums should lengthen their labels so that contested colonial histories are recounted for the visitor.
+(C) Since labels must interpret, the real issue is marking observation and inference distinctly.
+(D) Because every label selects, all curatorial interpretations stand on roughly equal footing once neutrality is abandoned.
+
+Q2. Which one of the following, if true, would most support the claim made in the second paragraph about accountable framing?
+(A) Because every label interprets, museum descriptions amount to personal opinions no firmer than a visitor's.
+(B) Visitors report enjoying galleries more when labels are printed in larger, clearly legible type.
+(C) Curators surveyed say they intend no bias when choosing which facts a label will carry.
+(D) Labels that cite their sources are queried by visitors more often where object histories are disputed.
+
+Q3. Which one of the following, if true, would most call into question the claim that brevity restricts how much can be marked but not whether marking is owed?
+(A) Any wording that flags inference is understood by visitors only in labels far longer than galleries permit.
+(B) Some museums already print long labels beside objects whose acquisition histories are widely disputed.
+(C) Because readability is a genuine constraint, the author finally endorses conventional labels that appear neutral.
+(D) Visitors typically spend fewer than ten seconds reading any single card beside an object.
+
+Q4. Based on the passage, we can infer that a label reading "about displacement" would most likely:
+(A) offer a disputable reading while borrowing the phrasing reserved for settled description.
+(B) count as the least interpretive of the three instances the passage sets side by side.
+(C) be acceptable to the author provided the installation itself concerns migration and exile.
+(D) satisfy the standard of accountability because it names a theme rather than a date.
+
+Q5. "institutional autobiography" most nearly means:
+(A) a candid public admission that curators have selected some facts over others.
+(B) a card so occupied with the museum's own doubts that the object recedes.
+(C) an official written history of the museum's founding, holdings and past directors.
+(D) a scholarly catalogue essay printed separately from the labels in the gallery.
+
+Q6. Which one of the following best describes the role played by the fourth paragraph?
+(A) It grants a genuine constraint, then shows the constraint leaves the neutrality question untouched.
+(B) It abandons the earlier standard of accountability under pressure from a practical difficulty.
+(C) It introduces a third camp that rejects both the museum's claim and its critics.
+(D) It summarises how brief labels are and why visitors rarely read curatorial hesitations closely.
+
+Q7. According to the passage, why does the plaque labelled only "brass, sixteenth century" make a claim about relevance while appearing to make none?
+(A) Its curators concealed the object's acquisition history from visitors as a deliberate policy.
+(B) The material and date given on the card are, on inspection, factually inaccurate.
+(C) Its wording openly carries inference that any careful viewer is able to check.
+(D) The 1897 expedition is left outside the frame rather than being denied.
+
+Q8. The author of the passage is likely to disagree with which one of the following statements?
+(A) Observation and inference can be marked differently inside a single short label.
+(B) The vocabulary of labelling reached museums from commercial and taxonomic practice.
+(C) Whether a label may interpret at all remains the genuinely open question for museums.
+(D) Visitors do not enter galleries in order to settle disputes about an object's provenance.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates the opening critique of the conduit claim, Hooper-Greenhill's accountability standard, the graded examples, and the closing reframing from length to grammar.
+  (A) stance_misread — Paragraph two says Hooper-Greenhill does not ask that curatorial authority be dissolved, only that selection be visible.
+  (B) half_truth — The final paragraph explicitly denies the dispute is about length, locating it instead in grammar.
+  (D) scope_inflation — Paragraph three insists interpretation is unavoidable in all three cases but not equally answerable, refusing that levelling.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — It supports the paragraph's point that credit comes from framing a visitor can weigh, and that neutrality performs worst where history is contested.
+  (A) half_truth — The passage treats interpretation as unavoidable yet still gradable by answerability, not as collapse into mere opinion.
+  (B) level_confusion — Legibility concerns presentation, not the accountability of selection that paragraph two makes the criterion.
+  (C) adjacent_answer — Intention is beside the point; the paragraph asks that acts of selection be visible, not well-meant.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — It attacks the load-bearing move by making marking itself impossible within brief labels, so brevity would decide whether marking is owed.
+  (B) example_promotion — An existing practice of long labels leaves the claim about brevity's limits entirely intact.
+  (C) half_truth — Paragraph four states the concession about brevity concedes nothing about neutrality, so this misreads the concession.
+  (D) adjacent_answer — Short attention supports brevity as a constraint, which the passage already concedes without conceding neutrality.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Paragraph three faults it precisely for presenting a contested reading in the grammar of settled fact.
+  (B) causal_inversion — It is faulted for unmarked interpretation, not praised as minimally interpretive; all three interpret.
+  (C) adjacent_answer — The subject matter's accuracy is not the issue; the register in which the claim is made is.
+  (D) half_truth — Naming a theme without marking it as reading is exactly what the paragraph criticises.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The objection imagines the museum studying itself in a mirror while the plaque waits, i.e., self-narration displacing the object.
+  (A) half_truth — That admission is what the author endorses; the phrase names its excessive, object-eclipsing form.
+  (C) phrase_misuse — Takes the phrase in its ordinary sense rather than as the objection uses it in paragraph four.
+  (D) category_slip — The phrase describes an overloaded label itself, not a separate publication accompanying it.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The paragraph states the readability objection as fair, calls it a real constraint, and then limits what it concedes.
+  (B) stance_misread — The paragraph explicitly says brevity concedes nothing about neutrality, so the standard survives.
+  (C) straw_version — No third camp appears; the paragraph voices an objection the author then answers.
+  (D) level_confusion — Summary of content, not the structural work of conceding and then bounding the concession.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — Paragraph three states exactly this: the expedition is not denied, it is simply outside the frame.
+  (A) scope_inflation — Paragraph one says the selection is unremarked rather than concealed, and no policy is alleged.
+  (B) adjacent_answer — The passage never disputes the accuracy of material and date, only what the card omits.
+  (C) terminological_twin — That describes the family photograph, not the plaque, in paragraph three.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — The closing sentence rules this out: the question is not whether a label may interpret, since it cannot avoid it.
+  (A) passage_supported — The author claims a label can name both registers within the same twenty words.
+  (B) passage_supported — Paragraph five asserts this derivation from the bale tag and the pinned binomial.
+  (D) passage_supported — The author grants this in paragraph four as part of a fair objection he accepts.
+
+[Inspired by: "The Fight Over Affordability", https://dissentmagazine.org/online_articles/affordability-corporate-power/]
