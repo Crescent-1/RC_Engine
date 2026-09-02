@@ -167,17 +167,20 @@ def recent_passages(history, exclude: set[str], limit: int) -> list[tuple[str, s
 def screen_batch(history, rc_ids: list[str]) -> dict[str, dict]:
     """Screen every set from this batch against what shipped before it.
 
+    Returns (verdicts, spend_usd). The spend is returned, not just printed, so
+    the caller can fold it into the batch total — it used to be dropped.
+
     The comparison window deliberately excludes the batch's own sets: a batch is
     generated against one corpus state, and letting its members grade each other
     would make the verdict depend on generation order.
     """
     if not rc_ids:
-        return {}
+        return {}, 0.0
     cfg = config.SIMILARITY_SCREEN
     recent = recent_passages(history, set(rc_ids), cfg["compare_n"])
     if not recent:
         print("  [screen] no prior passages to compare against - skipping")
-        return {}
+        return {}, 0.0
 
     from .cli import _parse_rc_txt
 
@@ -190,12 +193,20 @@ def screen_batch(history, rc_ids: list[str]) -> dict[str, dict]:
         if not row or not row[0]:
             continue
         passage = _parse_rc_txt(row[0])["passage"]
+        before = ledger.spent_usd
         res = screen_passage(rc_id, passage, recent, ledger)
         results[rc_id] = res
+        # The screen is a paid stage like any other, and until 2026-09-02 its
+        # spend was printed and then dropped: outside summarize_batch, outside
+        # `attempts`, outside `rc_sets`. Every $/shipped-set figure the engine
+        # has ever reported was therefore low — 0.75% over this session, always
+        # in the same direction. Charged per set here because the screen makes
+        # one call per set, so the attribution is exact rather than averaged.
         history.conn.execute(
-            "UPDATE rc_sets SET similarity_verdict = ?, similarity_note = ? "
-            "WHERE rc_id = ?",
-            (res["verdict"], json.dumps(res, ensure_ascii=False), rc_id))
+            "UPDATE rc_sets SET similarity_verdict = ?, similarity_note = ?, "
+            "screen_cost_usd = ? WHERE rc_id = ?",
+            (res["verdict"], json.dumps(res, ensure_ascii=False),
+             round(ledger.spent_usd - before, 6), rc_id))
         mark = {"green": "GREEN", "red": "RED  ", "unchecked": "?????"}[res["verdict"]]
         print(f"    [{mark}] {rc_id}"
               + (f" ~ {res['nearest']}" if res.get("nearest") else ""))
@@ -208,4 +219,4 @@ def screen_batch(history, rc_ids: list[str]) -> dict[str, dict]:
     history.conn.commit()
     if ledger.spent_usd:
         print(f"  [screen] spend ${ledger.spent_usd:.4f}")
-    return results
+    return results, ledger.spent_usd

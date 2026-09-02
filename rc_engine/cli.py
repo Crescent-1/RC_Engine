@@ -264,6 +264,24 @@ def cmd_selftest(_args) -> int:
 # generate
 # ---------------------------------------------------------------------------
 
+def _report_all_in(results, screen_usd: float) -> None:
+    """Restate the batch total with the screen included.
+
+    summarize_batch necessarily prints BEFORE the screen runs (the screen needs
+    the sets to be in rc_sets), so its total cannot contain the screen. Rather
+    than reorder the pipeline, the true figure is stated once here — otherwise
+    the last cost number on screen is the wrong one, which is the number people
+    quote."""
+    if not screen_usd:
+        return
+    gen = sum(getattr(r, "cost_usd", 0.0) or 0.0 for r in results)
+    n = sum(1 for r in results if getattr(r, "rc_id", None))
+    total = gen + screen_usd
+    print(f"  all-in incl. screen  ${total:.4f} "
+          f"(generation ${gen:.4f} + screen ${screen_usd:.4f})"
+          + (f" | ${total / n:.4f} per shipped set" if n else ""))
+
+
 def _make_seed_provider():
     try:
         from RAG import get_db, get_unused_essay, mark_essay_used  # noqa: legacy module
@@ -391,7 +409,8 @@ def cmd_generate(args) -> int:
     shipped_ids = [r.rc_id for r in results if r.rc_id]
     if shipped_ids and not args.dry_run and not args.no_screen:
         from .similarity_screen import screen_batch
-        screen_batch(history, shipped_ids)
+        _, screen_usd = screen_batch(history, shipped_ids)
+        _report_all_in(results, screen_usd)
 
     if not args.no_export:
         out_dir = "exported_rc_sets_dryrun" if args.dry_run else "exported_rc_sets"
@@ -462,7 +481,8 @@ def cmd_retry_questions(args) -> int:
     if shipped_ids:
         if not args.dry_run and not getattr(args, "no_screen", False):
             from .similarity_screen import screen_batch
-            screen_batch(history, shipped_ids)
+            _, screen_usd = screen_batch(history, shipped_ids)
+            _report_all_in(results, screen_usd)
         out_dir = "exported_rc_sets_dryrun" if args.dry_run else "exported_rc_sets"
         cmd_export(argparse.Namespace(db=args.db, status=None, out=out_dir))
     history.close()
