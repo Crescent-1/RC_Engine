@@ -50,6 +50,9 @@ DEFAULT_MIN_WORDS = 1000
 #   paths     : optional list of URL path fragments; only links containing one
 #               of them are treated as long-form essays (skips /videos/,
 #               /notes-to-self/, etc.). None = accept every link the feed lists.
+#   exclude   : optional list of URL fragments to REJECT, applied after paths.
+#               For feeds whose roundups/previews/prize notices share the URL
+#               shape of their essays (see the note at the filter itself).
 #   min_words : optional per-feed override of DEFAULT_MIN_WORDS. JSTOR Daily
 #               publishes complete, self-contained scholarly essays at ~800
 #               words, so it uses a lower bar than magazine feeds.
@@ -69,26 +72,34 @@ FEEDS = {
         {"genre": "Nautilus", "js": False, "paths": None},
     "https://daily.jstor.org/feed/":
         {"genre": "JSTOR", "js": False, "paths": None, "min_words": 800},
-    "https://www.publicbooks.org/feed/":
-        {"genre": "Public Books", "js": False, "paths": None, "min_words": 900},
+    # DEAD 2026-09-07 (HTTP 202, zero entries); three alternate paths tried, none served.
+    # Re-enable if a feed reappears:
+    # "https://www.publicbooks.org/feed/":
+    # {"genre": "Public Books", "js": False, "paths": None, "min_words": 900},
     "https://thepointmag.com/feed/":
         {"genre": "The Point", "js": False, "paths": None, "min_words": 1000},
     "https://hedgehogreview.com/web-features/feed":
         {"genre": "Hedgehog Review", "js": False, "paths": None, "min_words": 900},
     "https://www.thenewatlantis.com/feed":
         {"genre": "New Atlantis", "js": False, "paths": None, "min_words": 1000},
-    "https://www.bostonreview.net/feed/":
-        {"genre": "Boston Review", "js": False, "paths": None, "min_words": 900},
+    # DEAD 2026-09-07 (HTTP 200, zero entries); three alternate paths tried, none served.
+    # Re-enable if a feed reappears:
+    # "https://www.bostonreview.net/feed/":
+    # {"genre": "Boston Review", "js": False, "paths": None, "min_words": 900},
     # DEAD 2026-08-25 (404 on /feed/ and /rss) — re-enable if a feed reappears:
     # "https://lareviewofbooks.org/feed/":
     # {"genre": "LARB", "js": False, "paths": None, "min_words": 900},
     "https://www.commonwealmagazine.org/rss.xml":
         {"genre": "Commonweal", "js": False, "paths": None, "min_words": 900},
-    "https://www.laphamsquarterly.org/rss.xml":
-        {"genre": "Lapham's Quarterly", "js": False, "paths": None, "min_words": 900},
+    # DEAD 2026-09-07 (HTTP 403); three alternate paths tried, none served.
+    # Re-enable if a feed reappears:
+    # "https://www.laphamsquarterly.org/rss.xml":
+    # {"genre": "Lapham's Quarterly", "js": False, "paths": None, "min_words": 900},
     "https://www.lrb.co.uk/feeds/rss":
         {"genre": "LRB", "js": False, "paths": None, "min_words": 1200},
-    "https://www.nybooks.com/feed/":
+    # Path moved: /feed/ still returns HTTP 200 but with zero entries, which is
+    # why this rotted silently. /rss/ carries 45 items (checked 2026-09-07).
+    "https://www.nybooks.com/rss/":
         {"genre": "NYRB", "js": False, "paths": None, "min_words": 1200},
     "https://harpers.org/feed/":
         {"genre": "Harper's", "js": False, "paths": None, "min_words": 1000},
@@ -136,7 +147,9 @@ FEEDS = {
     "https://publicdomainreview.org/rss.xml":
         {"genre": "Public Domain Review", "js": False, "paths": None,
          "min_words": 900, "kind": "narrative_history"},
-    "https://www.historytoday.com/feed/rss.xml":
+    # /feed/rss.xml began 403ing; /rss.xml serves (checked 2026-09-07). Some
+    # items are teaser stubs (~20 words) — min_words drops them.
+    "https://www.historytoday.com/rss.xml":
         {"genre": "History Today", "js": False, "paths": None,
          "min_words": 900, "kind": "narrative_history"},
 
@@ -182,9 +195,11 @@ FEEDS = {
     "https://hakaimagazine.com/feed/":
         {"genre": "Hakai", "js": False, "paths": None,
          "min_words": 900, "kind": "reportage"},
-    "https://restofworld.org/feed/latest/":
-        {"genre": "Rest of World", "js": False, "paths": None,
-         "min_words": 900, "kind": "reportage"},
+    # DEAD 2026-09-07 (HTTP 403); three alternate paths tried, none served.
+    # Re-enable if a feed reappears:
+    # "https://restofworld.org/feed/latest/":
+    # {"genre": "Rest of World", "js": False, "paths": None,
+    # "min_words": 900, "kind": "reportage"},
     "https://www.atlasobscura.com/feeds/latest":
         {"genre": "Atlas Obscura", "js": False, "paths": None,
          "min_words": 900, "kind": "narrative_history"},
@@ -196,6 +211,55 @@ FEEDS = {
     "https://asteriskmag.com/feed":
         {"genre": "Asterisk", "js": False, "paths": None,
          "min_words": 1000, "kind": "analysis"},
+
+    # --- Genre widening (2026-09-07) ---------------------------------------
+    # Driven by the shipped corpus rather than by the feed list: of 78 sets
+    # delivered to date, Philosophy & Ethics is 19% while Literature, Education,
+    # Economics, Medicine and Life Sciences are 1-4 sets EACH. The institute
+    # asked for more genre spread, and the thin buckets are the ones no feed
+    # here is pointed at. Each was checked the same way as the 2026-09-01 batch
+    # — feed returns items AND trafilatura extracts full article text on 3 of 3
+    # sampled articles unless noted.
+    #
+    # Rejected in the same pass, for the record: Hyperallergic (1/3 extracted;
+    # mostly short news), Crooked Timber (2/3; reactive academic blog posts),
+    # Yale e360 / LARB / Places Journal / VoxEU / Chemistry World / VAN /
+    # Economics Observatory / Emergence / Hechinger (no served feed path found).
+
+    # Literature and criticism — the thinnest bucket in the shipped corpus (1/78)
+    "https://themillions.com/feed":
+        {"genre": "The Millions", "js": False, "paths": None,
+         "exclude": ["-preview", "a-year-in-reading", "book-collecting-prize"],
+         "min_words": 1000, "kind": "criticism"},
+
+    # Medicine, as history and practice rather than health news. Fills the hole
+    # STAT left on 2026-09-01 without reintroducing a daily wire.
+    "https://nursingclio.org/feed/":
+        {"genre": "Nursing Clio", "js": False, "paths": None,
+         "exclude": ["interview-with", "sunday-morning-medicine"],
+         "min_words": 900, "kind": "narrative_history"},
+
+    # Anthropology and archaeology, from the field rather than the seminar
+    # (2 of 3 extracted; the miss was a short photo-essay, which min_words drops)
+    "https://www.sapiens.org/feed/":
+        {"genre": "Sapiens", "js": False, "paths": None,
+         "min_words": 900, "kind": "reportage"},
+
+    # Economics with an argument and a case, not a market column
+    "https://promarket.org/feed/":
+        {"genre": "ProMarket", "js": False, "paths": None,
+         "min_words": 900, "kind": "analysis"},
+
+    # Education — one shipped set in 78, and no feed was aimed at it
+    "https://kappanonline.org/feed/":
+        {"genre": "Kappan", "js": False, "paths": None,
+         "min_words": 900, "kind": "practice_account"},
+
+    # Ecology and conservation, anchored to a species, site or policy fight
+    "https://therevelator.org/feed/":
+        {"genre": "The Revelator", "js": False, "paths": None,
+         "exclude": ["environmental-books", "whale-of-the-month"],
+         "min_words": 900, "kind": "reportage"},
 
     # Dropped (weak CAT seeds — do not re-add without a strong reason):
     #   Ars Technica (tech news), Smithsonian arts-culture / innovation
@@ -263,7 +327,7 @@ def get_db():
 
 
 def get_unused_essay(db=None, genre=None, exclude_ids=None, randomize=True,
-                     avoid_kinds=None):
+                     avoid_kinds=None, only_kinds=None):
     """Returns ONE not-yet-used essay from the vector store, or None if there
     isn't one. `genre` restricts the source pool and may be:
       - None            -> any genre
@@ -273,6 +337,14 @@ def get_unused_essay(db=None, genre=None, exclude_ids=None, randomize=True,
     `avoid_kinds` steers away from content kinds (the `kind` metadata field,
     e.g. "idea_essay", "practice_account") rather than publications. Used when
     a seed GENRE is saturated and the rotation has to change something.
+
+    `only_kinds` restricts TO those kinds. Together the two let a caller hold a
+    kind to an exact share: restrict to it on a winning coin flip and away from
+    it on a losing one. A permit-only flip cannot do that — it multiplies the
+    flip probability by the kind's base rate in the pool and lands well under
+    the intended ceiling (the first-person persona cap realised 4-5% against a
+    20% ceiling that way, 2026-08-29). avoid_kinds wins on conflict: it carries
+    a correctness constraint, only_kinds only a distribution preference.
 
     By default picks uniformly at random among matches (so hard/elite are not
     stuck on the first Chroma hit / Aeon-heavy ordering). Set randomize=False
@@ -315,6 +387,12 @@ def get_unused_essay(db=None, genre=None, exclude_ids=None, randomize=True,
     # conceptual essays: 41.5% of the unused pool is idea_essay. Steering by
     # content kind makes the rotation actually change something. Falls back to
     # the full candidate list rather than dead-ending the slot.
+    if only_kinds and not (avoid_kinds and set(only_kinds) <= set(avoid_kinds)):
+        want = set(only_kinds)
+        steered = [c for c in candidates
+                   if (c["metadata"] or {}).get("kind") in want]
+        if steered:
+            candidates = steered
     if avoid_kinds:
         avoid = set(avoid_kinds)
         steered = [c for c in candidates
@@ -412,6 +490,19 @@ def sync_feeds(db=None):
                 # /notes-to-self/, etc. for feeds that mix content types).
                 allowed_paths = cfg.get("paths")
                 if allowed_paths and not any(p in link for p in allowed_paths):
+                    continue
+
+                # `exclude` is the negative of `paths`, added 2026-09-07. A
+                # magazine's roundups sit on the same URL shape as its essays,
+                # so an allowlist cannot separate them: The Millions' first
+                # sync pulled EIGHT seasonal book previews and prize notices
+                # (3,600-5,200 words each, so min_words waves them through)
+                # against two actual pieces of criticism. A list of forthcoming
+                # titles has no argumentative spine and is the worst seed the
+                # store can hold — it is long, on-topic and useless.
+                excluded = cfg.get("exclude")
+                if excluded and any(x in link for x in excluded):
+                    print(f"  [skip]  Excluded by feed rule: {link}")
                     continue
 
                 # JS-challenged sites (Aeon, Psyche) need a real browser; the

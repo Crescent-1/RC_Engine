@@ -153,6 +153,14 @@ MODEL_RATES = {
     # ledger does not model caching, so these are the uncached rates and the
     # recorded cost is therefore an upper bound. Luna additionally charges 2x
     # input / 1.5x output above 272K input tokens; our prompts are ~8K at most.
+    # verified 2026-09-05 against developers.openai.com/api/docs/pricing on the
+    # day GPT-6 Astra shipped. Cached input is $1.00; the ledger does not model
+    # caching, so the recorded cost is an upper bound as with the 5.6 family.
+    # NOTE the step change: Astra is 2.5x Sol on BOTH sides and 2x Opus 5's
+    # $5/$25. Reasoning bills at the $50 output rate and cannot be switched off
+    # (see OPENAI_EFFORT_SUPPORT), so an Astra render is the most expensive call
+    # this engine can make. The tier budgets below were re-sized for it.
+    "gpt-6-astra": (10.0, 50.0),
     "gpt-5.6-sol": (4.0, 20.0),
     "gpt-5.6-terra": (2.0, 12.0),
     "gpt-5.6-luna": (0.20, 1.20),
@@ -163,6 +171,32 @@ MODEL_RATES = {
     "gemini-3-pro-preview": (2.0, 12.0),
     "gemini-2.5-flash": (0.30, 2.50),
     "gemini-2.5-flash-lite": (0.10, 0.40),
+}
+
+# Cached-input rates, charged when a prompt prefix is served from OpenAI's
+# prompt cache. Measured 2026-09-05 against the live API: a 2,614-token system
+# prompt cached 100% on the SECOND identical call and every one after it.
+#
+#     call 1  prompt=2614  cached=0     (0%)
+#     call 2  prompt=2615  cached=2604  (100%)
+#     call 3  prompt=2615  cached=2604  (100%)
+#
+# This engine sends the same large system prompt for every stage of every set,
+# so nearly all input after the first call of a run is cached at a tenth of the
+# price. Ignoring it made the ledger over-record the 2026-09-05 Astra batch
+# 3.7x: $0.9671 booked against ~$0.26 actually billed. The gap was that large
+# because the batch ran at effort "low", where reasoning is minimal and input
+# DOMINATES the bill -- the regime where the discount is biggest. At medium
+# effort output grows and the recorded figure converges back toward the truth.
+#
+# Only CostLedger.record() uses these. CostLedger.guard() deliberately keeps
+# charging the uncached rate: the guard's job is to refuse a call whose WORST
+# case would break the cap, and a cache hit is never guaranteed.
+MODEL_RATES_CACHED_IN = {
+    "gpt-6-astra": 1.00,
+    "gpt-5.6-sol": 0.40,
+    "gpt-5.6-terra": 0.20,
+    "gpt-5.6-luna": 0.02,
 }
 
 # Env var(s) that must hold the API key for each provider; first found wins.
@@ -213,6 +247,26 @@ TIER_BUDGET_USD = {
 # Deliberately NOT a global raise: loosening Anthropic's cap would silently buy
 # more retries on a path that does not need them, and the cap is the one
 # guarantee this engine makes about spend.
+# 2026-09-05: hard and elite re-sized for GPT-6 Astra at $10/$50. `estimate`
+# put the happy path at $0.4426/set — above hard's $0.36, which would have
+# aborted every hard set mid-generation, and inside elite's $0.45 by $0.0074,
+# which is a cap with no retry headroom at all. Both are now $0.70.
+#
+# $0.70 is not a round number, it is the happy path plus the single most
+# expensive in-attempt retry: questions is $0.2265 on Astra and is marked x2
+# worst, so 0.4426 + 0.2265 = $0.669. Under $0.669 a questions retry aborts a
+# set that has already paid for its render. Above ~$1.23 the cap stops binding
+# at all (that is the fully-retried worst case).
+#
+# Note what this tier now costs: ~$0.44/set against ~$0.15 on the Anthropic
+# path. Astra is 2x Opus 5 per token AND pays for reasoning that Opus has
+# disabled. Medium deliberately stays on Terra for that reason.
+# Back to the pre-Astra cap when hard and elite returned to Terra/Sol
+# (2026-09-05). Left as a single elite entry, which is what it was before.
+#
+# These are UNCACHED worst-case figures, as the guard requires: it must refuse
+# a call whose worst case breaks the cap, and a cache hit is never guaranteed.
+# Read them as a ceiling, not a forecast.
 PROVIDER_TIER_BUDGET_USD = {
     "openai": {"elite": 0.45},
 }
@@ -414,6 +468,15 @@ PROVIDER_TIER_ROLE_OVERRIDES = {
         # into F40 "The Sequence Without Verdict" — whose whole definition is
         # that no paragraph states one. Terra at a higher effort is the
         # experiment replacing it.
+        #
+        # 2026-09-05: hard and elite spent a day on GPT-6 Astra and came back.
+        # Four sets at $0.32-0.56 each scored f1 0.766, 0.784, 0.804, 0.822
+        # against the Anthropic path's 0.85-0.87 at roughly half the price, and
+        # neither effort setting closed the gap (low and medium were within
+        # noise of each other on n=2 vs n=1). Everything else Astra needed is
+        # KEPT and tested — MODEL_RATES, OPENAI_EFFORT_SUPPORT, clamp_effort,
+        # OPENAI_MODEL_STAGE_EFFORT, RC_ENGINE_OPENAI_GEN_EFFORT — so putting a
+        # tier back on it is a one-line change here, not a re-integration.
         "elite":  {"big": "gpt-5.6-sol"},
     },
 }
@@ -427,6 +490,54 @@ PROVIDER_TIER_ROLE_OVERRIDES = {
 # but it silently caps quality: a Sol elite render at effort "low" is not the
 # model the tier is paying for. Stage-level values in STAGE_EFFORT still win.
 OPENAI_DEFAULT_EFFORT = "medium"
+
+# Which reasoning_effort values each OpenAI model actually accepts, and the
+# ladder used to clamp a request onto the nearest one it does.
+#
+# Probed against the live API on 2026-09-05, NOT read off a docs page or a
+# launch write-up. Every third-party summary of Astra's launch said it supported
+# "low through max"; the API returns HTTP 400 for max. It also refuses "none":
+#
+#   none  400  "does not support 'none' with this model"
+#   max   400  "does not support 'max' with this model"
+#   low | medium | high | xhigh  OK
+#
+# The refusal of "none" is the one that would have broken a run rather than
+# merely downgraded it: OPENAI_STAGE_EFFORT pins "questions" to none, so every
+# Astra set would have died at the questions stage AFTER paying for its render.
+# That is the same shape of failure as the 2026-08-22 move_signature ceiling
+# bug — a cheap parameter mistake that only bills you once the expensive stage
+# has already run.
+EFFORT_LADDER = ("none", "low", "medium", "high", "xhigh", "max")
+OPENAI_EFFORT_SUPPORT = {
+    "gpt-6-astra":   ("low", "medium", "high", "xhigh"),
+    "gpt-5.6-sol":   ("none", "low", "medium", "high", "xhigh", "max"),
+    "gpt-5.6-terra": ("none", "low", "medium", "high", "xhigh"),
+    "gpt-5.6-luna":  ("none", "low", "medium", "high", "xhigh"),
+}
+# Anything older tops out at high — the pre-5.6 clamp this table replaces.
+OPENAI_EFFORT_SUPPORT_DEFAULT = ("none", "low", "medium", "high")
+
+
+def clamp_effort(model: str, effort: str) -> str:
+    """Nearest effort this model accepts. Prefers DOWN (cheaper) and only goes
+    up when nothing below is supported, so clamping never silently raises
+    spend — except for "none" on a model that has no "none", where the only
+    direction available is up to "low"."""
+    ok = OPENAI_EFFORT_SUPPORT.get(model, OPENAI_EFFORT_SUPPORT_DEFAULT)
+    if effort in ok:
+        return effort
+    if effort not in EFFORT_LADDER:
+        return "medium"
+    i = EFFORT_LADDER.index(effort)
+    for cand in reversed(EFFORT_LADDER[:i]):
+        if cand in ok:
+            return cand
+    for cand in EFFORT_LADDER[i + 1:]:
+        if cand in ok:
+            return cand
+    return "medium"
+
 
 # Reasoning tokens are drawn from the SAME ceiling as the answer, so a model
 # that reasons needs the answer's budget PLUS its thinking budget.
@@ -488,6 +599,47 @@ OPENAI_TIER_STAGE_EFFORT = {
     # no measured return above that.
     "elite": {},
 }
+
+# Per-MODEL effort overrides, consulted before the tier and stage tables.
+#
+# Effort is a property of the model, not of the tier, and the 2026-09-05 Astra
+# run proved the tables below cannot express that. Both generative stages are
+# pinned to "none" as a deliberate 5.6-family cost trade; Astra has no "none",
+# so clamp_effort sent them to "low" -- and "low" is the WORST rung on the
+# ablation recorded under "render" below (f1 0.750, against 0.795 at none and
+# 0.925 at medium). The batch cost $0.97 and told us nothing about the model,
+# because it ran the one setting nobody would have chosen.
+#
+# Medium on both generative stages, from that same ablation. Not high: the
+# 2026-08-22 measurement has high buying 5,027 reasoning tokens against
+# medium's 3,420 while visible output moves 682 -> 714, and on Astra those
+# tokens bill at $50/MTok. The checking stages stay where they are; they are
+# pinned to Luna anyway and never see this table.
+OPENAI_MODEL_STAGE_EFFORT = {
+    "gpt-6-astra": {"render": "medium", "questions": "medium"},
+}
+
+# Experiment escape hatch: force the GENERATIVE stages to one effort for a
+# single run, so an A/B needs no edit to the table above.
+#
+#   RC_ENGINE_OPENAI_GEN_EFFORT=low python -m rc_engine.cli generate ...
+#
+# Added 2026-09-05 because this session ran the same comparison three times by
+# editing config in place, which is how the 2026-09-05 Astra batch ended up at
+# an effort nobody chose. Clamped per model at call time like any other value,
+# so an unsupported setting degrades instead of failing. Checking stages are
+# untouched: they are pinned to Luna and cost fractions of a cent, and
+# starving them was separately measured to lose real moves.
+_gen_effort = os.environ.get("RC_ENGINE_OPENAI_GEN_EFFORT", "").strip()
+if _gen_effort:
+    for _m in OPENAI_MODEL_STAGE_EFFORT:
+        OPENAI_MODEL_STAGE_EFFORT[_m] = dict(
+            OPENAI_MODEL_STAGE_EFFORT[_m],
+            **{"render": _gen_effort, "questions": _gen_effort})
+    OPENAI_MODEL_STAGE_EFFORT.setdefault(
+        "gpt-5.6-sol", {"render": _gen_effort, "questions": _gen_effort})
+    OPENAI_MODEL_STAGE_EFFORT.setdefault(
+        "gpt-5.6-terra", {"render": _gen_effort, "questions": _gen_effort})
 
 OPENAI_STAGE_EFFORT = {
     # reading and classification - reasoning adds cost, not accuracy
@@ -583,7 +735,7 @@ def set_provider(provider: str) -> None:
     if not _BUDGET_OVERRIDDEN:
         TIER_BUDGET_USD.update(PROVIDER_TIER_BUDGET_USD.get(provider, {}))
 
-    def _ceiling(stage: str, tier: str, base: int) -> int:
+    def _ceiling(stage: str, tier: str, base: int, role: str = "big") -> int:
         # Headroom follows the model that ACTUALLY runs the stage, not the
         # batch provider. Getting this wrong cost real money on 2026-08-24: the
         # Luna-pinned check stages kept their bare Anthropic ceilings on a
@@ -593,15 +745,26 @@ def set_provider(provider: str) -> None:
         stage_provider = pin[0] if pin else provider
         if stage_provider not in REASONING_PROVIDERS:
             return base
+        stage_model = pin[1] if pin else _model_for(role, tier)
         # Looked up through globals() rather than by name: set_provider() runs
         # at import, and some of these tables are defined further down the
         # module. A missing table here means "no explicit effort", which falls
         # through to the OpenAI default — not a crash at import time.
         g = globals()
-        effort = (g.get("OPENAI_TIER_STAGE_EFFORT", {}).get(tier, {}).get(stage)
+        effort = (g.get("OPENAI_MODEL_STAGE_EFFORT", {}).get(
+                      stage_model, {}).get(stage)
+                  or g.get("OPENAI_TIER_STAGE_EFFORT", {}).get(tier, {}).get(stage)
                   or g.get("STAGE_EFFORT", {}).get(stage, {}).get(tier)
                   or g.get("OPENAI_STAGE_EFFORT", {}).get(
                       stage, g.get("OPENAI_DEFAULT_EFFORT", "medium")))
+        # Size the ceiling for the effort that will ACTUALLY run, not the one
+        # asked for. providers.py clamps unsupported values per model, and the
+        # two disagree exactly where it is expensive: "questions" asks for
+        # "none" (headroom 0) but Astra has no "none" and runs it at "low",
+        # which spends real reasoning tokens against a ceiling sized for zero.
+        # That is the doubling-retry path — it recovers the call and bills it
+        # twice, on the single most expensive model in the table.
+        effort = clamp_effort(stage_model, effort)
         return base + g.get("REASONING_HEADROOM", {}).get(effort, 4500)
 
     STAGE_CONFIG = {
@@ -609,7 +772,7 @@ def set_provider(provider: str) -> None:
                        _THINKING_CEILINGS[stage]
                        if (OPUS_THINKING and role == "big"
                            and stage in _THINKING_CEILINGS)
-                       else _ceiling(stage, tier, max_tok))
+                       else _ceiling(stage, tier, max_tok, role))
                 for tier, (role, max_tok) in tiers.items()}
         for stage, tiers in _STAGE_PLAN.items()
     }
@@ -841,6 +1004,14 @@ TIER_LETTERS = {"medium": "M", "hard": "H", "elite": "E"}
 #   Medium may draw from any unused essay (including political / explainer).
 # ---------------------------------------------------------------------------
 # Gold + solid CAT seed genres (see RAG FEEDS "CAT gold" block).
+# Audited 2026-09-07: SEVEN of these eighteen have zero documents in the seed
+# store — Public Books, Boston Review, LARB, Lapham's Quarterly and NYRB
+# because their feeds rotted (the first four are now commented out in RAG.py;
+# NYRB's path was fixed and should refill), Harper's and Undark because their
+# feeds serve but nothing has cleared min_words. The nominal pool of eighteen
+# publications is really eleven, which is most of why the shipped corpus is 19%
+# Philosophy & Ethics. Left in place rather than pruned: a name with no
+# documents costs nothing, and NYRB/Harper's/Undark should come back.
 CAT_SEED_GENRES = [
     "Aeon", "Psyche", "Nautilus", "JSTOR",
     "Public Books", "The Point", "Hedgehog Review", "New Atlantis",
@@ -862,12 +1033,110 @@ SERIOUS_GENRES = CAT_SEED_GENRES
 # 2026-08-26 decision to keep elite on the literary forms stands, and this is
 # the seed-side counterpart of it. Elite therefore remains single-kind, and its
 # saturation gate still stands down — that is a known, deliberate gap.
+# Ceiling on the share of seeds drawn from idea-essay sources (2026-09-05).
+#
+# 22 of 34 feeds are idea_essay, so 53% of seeds classified conceptual_essay —
+# which is also the FALLBACK genre, so every unparseable classify lands there
+# too. Combined with the old shape matrix that gave conceptual_essay only 4 of
+# 10 outlets, 67% of shipped sets landed in three topic shapes.
+#
+# The classified GENRE is only known after the ~$0.001 classify call, so the
+# ceiling acts on the feed KIND, which is known at draw time (backfilled onto
+# all 935 documents on 2026-09-01).
+#
+# Enforced by steering BOTH ways — restrict to the kind on a winning flip,
+# away from it on a losing one — because a permit-only flip multiplies the flip
+# probability by the kind's base rate and under-binds. That is exactly how the
+# 20% first-person persona ceiling realised 4-5% until _steer_share was fixed
+# on 2026-08-29. Whitelist-limited tiers degrade rather than starve:
+# get_unused_essay falls back to the full pool if the restriction would empty it.
+SEED_KIND_MAX_SHARE = {"idea_essay": 0.45}
+
+# Share ceilings on GROUPS of topic shapes that ask the same underlying
+# question, enforced the same way as SEED_KIND_MAX_SHARE and
+# FIRST_PERSON_MAX_SHARE: one bidirectional coin flip per draw.
+#
+# Measured 2026-09-05 over the last 30 shipped sets (the all-time figure is
+# meaningless — 60 of 107 predate the topic_shape column):
+#
+#     TS06 13.3% + TS12 13.3% = 26.7%   against 14.3% uniform for 2 of 14
+#     over the last 14 shipped it was 6 of 14 = 43%
+#
+# Why these two and not the raw counts. Three sets that screened red on
+# consecutive days — RC-HARD-260905-0081 (TS06), RC-HARD-260905-0084 (TS12) and
+# RC-ELITE-260905-0077 — turned out on a read to be ONE argument: an instrument
+# is accurate inside its design, blind outside it, and the blind spot governs.
+# They shared no family, persona or topology (the exclusion windows guarantee
+# that), and came from unrelated seeds. The repetition is in the QUESTION the
+# passage asks, and TS06 ("someone set out to count or rank something, and one
+# thing got left out") and TS12 ("a long-held belief, and one study that tests
+# it") both put that question to the renderer directly.
+#
+# This is also why five earlier levers moved the red rate nothing: families,
+# seeds, beat placement and register all vary channels that are orthogonal to
+# the schema. The 2026-09-05 register fix in particular cannot touch it —
+# RC-ELITE-260905-0077's nouns are hydrants, valve covers and trenches, so it
+# passes the vocabulary-density check and is still the instrument argument.
+#
+# Capped AT uniform rather than below it. The shapes are not defective and the
+# exam asks this question too; what is defective is asking it three times a
+# week. If the red rate does not move at uniform, the attractor is in the render
+# contract rather than the shape library, and no ceiling here will reach it.
+TOPIC_SHAPE_COHORT_MAX_SHARE = [
+    ({"TS06", "TS12"}, 0.14),
+]
+
+# Widened again 2026-09-07. Two separate problems, one fix.
+#
+# First: the feeds added on 2026-08-22 and 2026-09-01 to break the idea-essay
+# monoculture were never added to a TIER list, and TIER_SEED_STRICT is True, so
+# hard and elite could not draw them at all — only medium could, at 4 slots a
+# week. The result is visible in the store: Works in Progress holds 224 UNUSED
+# documents (the largest pool by far) and has seeded 3 sets; Verfassungsblog 50
+# unused and 1 set; Physics World 18 unused, Asterisk 20 unused, Paris Review 8
+# unused and ZERO sets each. Widening the feed list again without this line
+# would just have grown the unused pile.
+#
+# Second: the shipped-corpus genre audit (2026-09-07, RC_Shipping_Tracker
+# "Genre Mix") showed Literature & Criticism and Education at one set in 78,
+# and Economics, Medicine and Life Sciences at four or fewer. The six feeds
+# added to RAG.FEEDS on the same date are aimed at exactly those buckets.
+#
+# "Rest of World" retained though its feed died 2026-09-07: 9 unused documents
+# are still in the store and remain drawable.
 HARD_SEED_GENRES = CAT_SEED_GENRES + [
     "Damn Interesting", "Hakai", "Rest of World", "Atlas Obscura",
+    # stranded by the missing TIER entry, not by quality
+    "Works in Progress", "Verfassungsblog", "Physics World", "Asterisk",
+    "Paris Review", "Public Domain Review", "History Today",
+    # aimed at the thin buckets in the shipped corpus
+    "The Millions", "Nursing Clio", "Sapiens", "ProMarket", "Kappan",
+    "The Revelator",
+]
+
+# Elite, widened 2026-09-05 — literary register only. Its 174 unused documents
+# were all one content kind, which left _pool_is_single_kind holding the
+# saturation gate permanently disarmed. These three are already in RAG.FEEDS,
+# are long-form and literary, and are NOT idea-essay in form:
+#   Public Domain Review, History Today  -> narrative_history
+#   Hakai                                -> reportage (narrative science)
+# Deliberately excluded: Atlas Obscura and Damn Interesting, which are popular
+# rather than literary in register. They stay on hard, where they were added on
+# 2026-09-01. This keeps the 2026-08-26 decision that elite stays literary while
+# ending the monoculture that decision accidentally created.
+# Extended 2026-09-07 with three more that meet the same literary-register bar
+# and are not idea-essay in form: Paris Review and The Millions are criticism
+# anchored to one work, Nursing Clio is narrative history of medicine. The
+# 2026-08-26 decision that elite stays literary is intact — ProMarket, Kappan,
+# Sapiens, The Revelator, Works in Progress, Physics World, Verfassungsblog and
+# Asterisk are hard-only, being professional or popular rather than literary.
+ELITE_SEED_GENRES = CAT_SEED_GENRES + [
+    "Public Domain Review", "History Today", "Hakai",
+    "Paris Review", "The Millions", "Nursing Clio",
 ]
 
 TIER_SEED_GENRES = {
-    "elite": CAT_SEED_GENRES,   # random within CAT-quality pool only
+    "elite": ELITE_SEED_GENRES,  # literary pool, but more than one kind
     "hard": HARD_SEED_GENRES,   # + four long-form reported sources
     "medium": None,             # any unused genre at random
 }
@@ -878,6 +1147,103 @@ TIER_SEED_STRICT = True
 # ---------------------------------------------------------------------------
 # Composer: exclusion windows (in shipped RCs) and decay weighting
 # ---------------------------------------------------------------------------
+
+# The ARGUMENT SCHEMA: what a passage's argument DOES, one level above the
+# rhetorical moves and independent of what it is about.
+#
+# Added 2026-09-05 after the schema audit below. Every other novelty channel in
+# this engine — family, movement, rhythm, curve, embedding, lexical overlap —
+# was already forcing sets apart, and the similarity screen kept calling them
+# repeats anyway. The reason, once measured, was that none of those channels
+# encodes the argument's shape:
+#
+#   PRIMARY schema, last 32 shipped        vs the 124 RC125 exam passages
+#     S1_INSTRUMENT_BLIND        46.9%          12.9%     3.6x over
+#     S4_MECHANISM_TRACED        18.8%          30.6%     0.6x under
+#     S3_TWO_CAMPS_RELOCATED     15.6%           8.1%     1.9x over
+#     S2_RECEIVED_ACCOUNT_REPL   12.5%          25.8%     0.5x under
+#     S7_CASE_AGAINST_RULE        3.1%          11.3%     0.3x under
+#     S5 / S8                     0.0%           7.2%     never produced
+#
+#   S1 was PRESENT (primary or secondary) in 72% of our sets against 18% of the
+#   exam's. Four consecutive sets that read as one argument — RC-HARD-0081,
+#   RC-HARD-0084, RC-ELITE-0077, RC-MEDIUM-0063 — shared no family, persona or
+#   topology, spanned all three tiers and two providers, and drew four
+#   different topic shapes. Only the schema was common.
+#
+# This is also why the red/green pairwise analysis found nothing (max Cohen's
+# d 0.49): with S1 in 72% of sets, both groups carry it, so no channel could
+# separate them. There was no discriminator to find.
+#
+# Weighted TO THE EXAM rather than to uniform. The exam repeats S4 at 30% and
+# that is correct for the form; a uniform draw would be as wrong in the other
+# direction. Capping S1 alone would only redistribute into whatever the engine
+# reaches for next — the whole distribution is off, in both tails.
+ARGUMENT_SCHEMAS = {
+    "S1_INSTRUMENT_BLIND": {
+        "description": "a method, measure, record or category is accurate inside "
+                       "its design but blind to something outside it, and the "
+                       "blind spot is what governs",
+        "directive": "Build the argument around something that measures, counts, "
+                     "records or classifies, which does its job correctly and "
+                     "still misses what turns out to matter most.",
+        "exam_share": 0.129},
+    "S2_RECEIVED_ACCOUNT_REPLACED": {
+        "description": "a long-standing explanation is retired and a different "
+                       "mechanism is worked through in its place",
+        "directive": "State the explanation the field has long accepted, give the "
+                     "single ground on which it fails, then work a replacement "
+                     "through in detail. The argument is the new mechanism.",
+        "exam_share": 0.258},
+    "S3_TWO_CAMPS_RELOCATED": {
+        "description": "two schools disagree, and the passage argues the dispute "
+                       "as posed is the wrong dispute",
+        "directive": "Stage two positions fairly, then show the disagreement as "
+                     "posed is not the real one, and relocate it.",
+        "exam_share": 0.081},
+    "S4_MECHANISM_TRACED": {
+        "description": "how something works, followed step by step, including "
+                       "where it breaks",
+        "directive": "Follow how the thing actually works, step by step, far "
+                     "enough that a reader could describe the steps afterwards. "
+                     "Where it breaks is one specific place, not a limit in "
+                     "principle.",
+        "exam_share": 0.306},
+    "S5_PRACTICE_VS_THEORY": {
+        "description": "how a thing is actually done on the ground, against how "
+                       "it is described or prescribed",
+        "directive": "Show the practice as it is really carried out, and let the "
+                     "gap with its official description emerge from the detail "
+                     "rather than being announced.",
+        "exam_share": 0.024},
+    "S6_ORIGIN_AND_DRIFT": {
+        "description": "where a term or practice came from and how it changed as "
+                       "it travelled",
+        "directive": "Date the origin, then follow the term or practice across "
+                     "domains or eras, showing what each move cost it.",
+        "exam_share": 0.040},
+    "S7_CASE_AGAINST_RULE": {
+        "description": "a general rule stated, then a specific case that breaks "
+                       "it, then what explains the exception",
+        "directive": "State the general rule plainly, name the case that breaks "
+                     "it precisely, and keep what PROVED the exception separate "
+                     "from what explains it.",
+        "exam_share": 0.113},
+    "S8_REMEDIES_WEIGHED": {
+        "description": "a practical problem, the available fixes, and what each "
+                       "one costs",
+        "directive": "Name the problem concretely and say who has it. Give each "
+                     "remedy as it is really practised, with its real drawback.",
+        "exam_share": 0.048},
+}
+
+# Same inverse-frequency damping as every other component, but applied ON TOP of
+# the exam weights rather than instead of them: weight = exam_share * lambda**n.
+# 0.7 rather than DECAY_LAMBDA's 0.5 because there are only eight schemas and
+# the exam genuinely repeats its top two; 0.5 would flatten the target
+# distribution the weights exist to reproduce.
+ARGUMENT_SCHEMA_DECAY_LAMBDA = 0.7
+ARGUMENT_SCHEMA_WINDOW = 12
 
 EXCLUSION_WINDOWS = {
     # TS08 was drawn for two of three elite sets on 2026-08-25 and the screen
@@ -961,6 +1327,17 @@ FINGERPRINT_WINDOW = 100
 # they shipped. Audit/reporting paths pass include_quarantined=True and see
 # everything, exactly as they do for quarantined rows.
 NOVELTY_WINDOW_EXCLUDE_STATUSES = ("solver_dispute", "rejected_novelty")
+
+# Statuses that mean a set actually ships to the client. Everything else is a
+# dead attempt: rejected_* and failed_* never reach anyone.
+#
+# Added 2026-09-05 because the similarity screen was selecting its subjects with
+# `[r.rc_id for r in results if r.rc_id]` — i.e. "has an ID", not "shipped". A
+# set rejected at the parallel ship lock already HAS an rc_id and an rc_sets
+# row, so RC-MEDIUM-260904-0059 was screened, charged $0.0019, and had a red
+# verdict written onto a row that will never be exported. It also inflated the
+# batch's red count, which is how a wrong figure reached the operator.
+SHIPPING_STATUSES = ("approved", "needs_review", "solver_dispute")
 
 # Below this corpus size the curve breach check is kept composite-only:
 # commitment curves are 4-6 coarse values and late-thesis tiers all share a
@@ -1305,6 +1682,52 @@ MOVE_GROUPS = {
 # prohibition, which is the point — the ban-list build failed precisely because
 # prohibitions get ignored.
 MOVE_PLAN_LEN = (8, 10)
+
+# Per-tier plan length and the density floor that bounds it (2026-09-05).
+#
+# Measured against 12 of the densest RC125 passages: a real hard exam passage
+# performs about 7.8 rhetorical moves over 4.3 paragraphs, giving each move
+# roughly 62 words. Ours performed 10.2 in the same length -- 52 words a move,
+# about 20% MORE crowded than the exam. That crowding is why the renderer keeps
+# only ~51% of its planned middle beats and fills the rest with the same four
+# habits: at 52 words a beat the instruction is too dense to execute, so it
+# reaches for what it can produce without thinking.
+#
+# The sampling ran against the LONGEST exam passages, which carry more beats
+# than typical, so 62 is if anything a generous floor.
+#
+# Beats also become a tier lever here, which they were not before: realised
+# counts were flat at medium 10.3 / hard 9.6 / elite 10.8. More distinct
+# operations in the same space is a real reading load and gives the question
+# stage more structural targets. NOTE this is a hypothesis, not a measured
+# effect -- move count correlates with judge score at r=+0.09, so the judge
+# will not confirm it either way.
+#
+# Every tier lands at or above exam density; elite merely matches it.
+#   medium 6-7 beats -> ~78 words each
+#   hard   7-8       -> ~70
+#   elite  8         -> ~66  (the densest the floor permits)
+# Upper bounds are set so the DENSITY FLOOR below never has to clamp them: at
+# 525 words, 9 beats is 58 words each, under the 62 floor. An earlier draft
+# wrote (8, 9) for elite and the cap silently reduced every draw to 8 — a
+# declared range that could not occur. The ranges here are what actually
+# happens.
+MOVE_PLAN_LEN_BY_TIER = {
+    "medium": (6, 7),   # ~75-87 words a beat
+    "hard": (7, 8),     # ~66-75
+    "elite": (8, 8),    # ~66, the densest the floor allows
+}
+# Hard floor on words per beat. A plan that would crowd past this is trimmed
+# rather than issued: the exam never goes below it, and below it the renderer
+# stops writing and starts coping. The visible symptom is signposting -- prose
+# that narrates its own scaffolding ("the first step", "having argued"), which
+# question_engine.texture_report already scans for free on every render. That
+# rate (~4 warnings in ~20 sets before this change) is the canary: if it climbs,
+# the plan is too dense and this floor should go UP.
+MIN_WORDS_PER_BEAT = 62
+# A paragraph shorter than this carries at most one beat, so an S-class
+# paragraph (30-60 words) is never asked to perform three operations.
+SINGLE_BEAT_PARA_WORDS = 60
 
 # Inverse-frequency sampling strength. weight = (1 - trailing_share) ** this.
 #
