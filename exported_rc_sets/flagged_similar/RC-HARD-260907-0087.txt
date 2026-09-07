@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260907-0087 | Tier: hard | Score: 8.2 | Status: needs_review | Compliance F1: 0.831 | Novelty: 0.534 | Screen: red | Generated: 2026-09-07T15:00:37.397102+00:00
+======================================================================
+
+[PASSAGE]
+
+A working object can be misclassified by everyone who handles it and still function perfectly, which is why the categories we use to sort musical documents deserve less trust than they get. Consider the fake book that sat on a piano at a Tuesday-night session for eleven years. Its spine gave out around the letter M. Pages from two other books are taped in, one upside down. Chord symbols in pencil sit over printed ones that were wrong; a bandleader's block capitals have been half-covered by a photocopy of somebody else's hand, and the substitution is not marked as a substitution. There are coffee rings on "Body and Soul." The corner of page 214 has been folded so long the fold has gone furry. Archivists who acquire such books catalogue them as ephemera of performance practice; the musicologists who study them treat them as informal notation, a score with the fat trimmed off. Both readings are defensible.
+
+Take the two boxes in turn. A score notates what is to be played. A notebook records what one player thinks or recalls. The fake book has notes on staves, so the first fits. It has private marginalia, so the second fits. Rossini, Ellington, a wedding-band medley: the pages hold all three, annotated by strangers.
+
+The genealogy helps. The term comes from the working "fake sheets" circulated illegally among dance-band players in mid-century America, sold under the counter, each melody stripped to a single line and a chord row. Faking meant supplying what the page withheld. And here is the structural fact that neither box anticipates: a printed score is written so that a stranger can reproduce the music, and a private notebook is written so that only its owner can read it, but the fake book is written to be legible to a stranger who already knows the tune. Three kinds of legibility, not two. Page 214 has four bars of melody and the word "Latin." Someone has drawn an arrow to nothing. The tape has yellowed and lifted at one edge.
+
+So the book cannot be corrected. Add the missing voicings and it becomes a score nobody can turn fast enough. Restrict it to one player's memory and it becomes useless to the bassist reading over a shoulder. Its incompleteness is not untidiness. It is the load-bearing element, sized to a shared partial memory that neither notation nor archiving has a word for.
+
+The tool box fails for the same reason, and this is where the cause sits: manuals are built for completeness and reproducibility, whereas the errors in a fake book are survival marks — a wrong bridge that stayed wrong because the band learned it wrong together. "Folk transcription" comes closer, and still undersells the thing, because a folk transcription can be read at a table by someone who cannot play, while this object requires a reader who is a musician and currently mid-performance. I decline to mint a fourth category. Naming it would recruit it into the family of documents that aim at sufficiency, and sufficiency is exactly what it is engineered to avoid. It is sui generis, not a hybrid. Which leaves the honest question in a different shape: not what kind of text this is, but what a reader must already be able to do before that furry folded corner on page 214 means anything at all.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) The fake book's incompleteness is functional, which makes it distinct in kind from scores, notebooks and manuals alike.
+(B) The fake book combines the reproducible content of a score with the private annotation of a notebook, so it is best read as a hybrid document.
+(C) Archivists and musicologists have each catalogued such books wrongly, and better cataloguing practices would settle the classification dispute.
+(D) The illegal mid-century trade in fake sheets explains why such books remain untidy and resist any orderly system of description.
+
+Q2. The author of the passage is likely to disagree with which one of the following statements?
+(A) The fake book is essentially a score in casual dress, differing from printed notation mainly in its tidiness and completeness.
+(B) Filling in the missing voicings would produce a document too slow for a player to use in performance.
+(C) The musicologists who read such books as informal notation hold a position that can reasonably be defended.
+(D) A folk transcription can be read at a table by a person who is unable to play an instrument.
+
+Q3. The author faults the available categories for describing the fake book for all of the following reasons, EXCEPT:
+(A) The folk transcription category permits a non-playing reader, whereas this object needs a musician mid-performance.
+(B) They were devised by outsiders who had no contact with the working dance-band players who used such pages.
+(C) The manual category assumes completeness and reproducibility, while the errors here are marks of collective survival.
+(D) The notebook category presumes a document readable only by its owner, which the shared pages do not satisfy.
+
+Q4. Which reading of the following scenario best follows the passage's reasoning?
+(A) The cards are simply sloppier than a published recipe and more widely shared than a personal diary, sitting between the two on a scale.
+(B) The cards work because they address a cook who already holds the omitted steps, so completing them would destroy their usefulness.
+(C) The cards should be transcribed in full so that later kitchen staff can reproduce the dishes without depending on any individual's memory.
+(D) The cards are a hybrid form, joining the public authority of a printed cookbook with the private shorthand of household notes.
+
+Q5. Which one of the following findings would most complicate the author's account of the fake book's incompleteness?
+(A) The bassist reading over a shoulder was usually able to recall the wrong bridge without consulting the page at all.
+(B) The mid-century fake sheets were in fact sold openly in music shops rather than passed under the counter.
+(C) Bands using fully voiced arrangements of the same tunes played from them at identical tempos with no loss of usability.
+(D) Several archivists have privately conceded that ephemera of performance practice is an imprecise catalogue heading.
+
+Q6. According to the passage, why did a wrong bridge in such a book stay wrong?
+(A) The band acquired the error jointly, so the mistake became part of what its members shared.
+(B) The pencilled substitutions were never marked as substitutions, leaving later players unable to spot the departure.
+(C) The taped-in pages from other books introduced readings that nobody present had the authority to overrule.
+(D) Manuals built for completeness and reproducibility have no procedure for registering an error of this kind.
+
+Q7. The passage stops where it does in order to:
+(A) suggest that a fourth category will eventually be minted once the object is better understood
+(B) withhold a verdict on which of the two existing categories finally describes the object better
+(C) leave the furry folded corner as an emblem of how much such documents have decayed
+(D) replace the classifying question with one about the competence a reader must bring to the page
+
+Q8. The author cites the comparison with folk transcription primarily in order to:
+(A) establish that the fake book descends from oral traditions of transmitting tunes without written parts
+(B) show that even the nearest available term misses the object's demand for a performing reader
+(C) illustrate the point that documents aimed at sufficiency are always built for reproducibility
+(D) concede that the object is finally best described as a species of folk transcription after all
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Integrates the two-box failure (para 2), the third legibility (para 3), the load-bearing incompleteness (para 4) and the refusal to mint a category (para 5).
+  (B) scope_inflation — The author explicitly says the object is sui generis, not a hybrid, in the final paragraph.
+  (C) half_truth — The passage calls both readings defensible and argues no available category fits, not that practice needs reform.
+  (D) example_promotion — The genealogy in para 3 is a step toward the legibility point, not the passage's central explanation.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Para 4 insists the incompleteness is load-bearing, not untidiness, so the difference is structural rather than one of grooming.
+  (B) half_truth — Paragraph four states exactly this: corrected, it becomes a score nobody can turn fast enough.
+  (C) stance_misread — The author says of both the archival and musicological readings that they are defensible, in paragraph one.
+  (D) adjacent_answer — This is the author's own contrast in the final paragraph, offered to show why the term undersells the object.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The passage never grounds the failure in the categorisers' distance from players; the fault is structural — the categories aim at sufficiency and cannot name shared partial memory.
+  (A) passage_supported — Para 5 says folk transcription undersells the thing for precisely this reason.
+  (C) passage_supported — Para 5 says manuals are built for completeness and reproducibility, whereas the errors are survival marks.
+  (D) passage_supported — Para 3 states a private notebook is written so only its owner can read it, unlike the fake book.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — Applies the third-legibility point (para 3) plus the load-bearing incompleteness (para 4): the gap is sized to shared prior knowledge, not a defect to be repaired.
+  (A) half_truth — This makes the asymmetry of paragraph three a matter of degree, when the passage insists on a different kind of legibility.
+  (C) causal_inversion — Paragraph four argues that supplying what was withheld destroys the object's function rather than preserving it.
+  (D) scope_inflation — The author refuses the hybrid reading and calls the analogous object sui generis in the final paragraph.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — The load-bearing claim in para 4 rests on the premise that completion makes the book unusable in performance; this finding removes that cost.
+  (A) level_confusion — This concerns one player's memory, not whether the page's gaps are structurally necessary to the object.
+  (B) adjacent_answer — The illegality is genealogical colour in paragraph three, not a premise of the incompleteness argument.
+  (D) half_truth — The author already grants both existing readings are defensible; expert doubt does not touch the functional claim.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — Para 5 states the wrong bridge stayed wrong because the band learned it wrong together — collective acquisition, which the passage classes as a survival mark.
+  (B) adjacent_answer — The unmarked substitution appears in paragraph one as physical description, not as the explanation for persisting error.
+  (C) framework_import — The taped pages are inventory detail; the passage assigns no authority dispute to them.
+  (D) level_confusion — That claim concerns why the tool-box category fails, not why the band's bridge remained uncorrected.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The final sentence reframes the inquiry from what kind of text this is to what a reader must already be able to do, keeping the aperture open rather than resolving it.
+  (A) stance_misread — The author declines to mint a fourth category on principle, since naming would recruit it into sufficiency.
+  (B) premature_closure — The author settled that earlier by calling both defensible and both inadequate; the ending moves elsewhere.
+  (C) phrase_misuse — The corner functions in the closing sentence as a test of reader competence, not as evidence of physical decay.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — Para 5 concedes folk transcription comes closer, then names the residual gap — a reader who is a musician and mid-performance — licensing the refusal to name.
+  (A) framework_import — The passage traces descent to mid-century fake sheets, not to oral tradition; the term is tested, not adopted.
+  (C) level_confusion — That generalisation belongs to the manual comparison; the folk transcription case turns on who can read it.
+  (D) half_truth — The author says the term still undersells the thing, so no such concession is made in paragraph five.
+
+[Inspired by: "The Sweet Lesson of Neuroscience", https://asteriskmag.com/issues/13/the-sweet-lesson-of-neuroscience]

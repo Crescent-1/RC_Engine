@@ -1,0 +1,114 @@
+RC ID: RC-MEDIUM-260907-0066 | Tier: medium | Score: 0.0 | Status: solver_dispute | Compliance F1: 0.785 | Novelty: 0.528 | Screen: green | Generated: 2026-09-07T15:09:16.000501+00:00
+======================================================================
+
+[PASSAGE]
+
+A map records not danger but the encounter between danger and an office equipped to notice it. The 1984 flood-hazard sheet for Nepal makes the point involuntarily. Across the Terai, the southern lowland strip, the paper is busy to the point of congestion: hazard bands in graduated tints, braided channels drawn with the patience of a surveyor, symbols for embankment, gauge, spillway, settlement threatened. Move north and the sheet empties. The middle hills thin out; the high Himalaya arrives as something close to untouched paper, crossed only by contour and a few blue threads. The obvious reading of such a document is that it is faithful — that floods do in fact gather where the rivers slow and spread, and that the mountains, being steep, are simply not where people drown. The map carries itself with enough authority to make that reading feel like mere literacy. And the reading is not wrong so much as it is incomplete in a way the sheet itself declares; the density of the south is not only a claim about water but a claim about attention, and the two have been printed in the same ink.
+
+The word survey does the damage. Borrowed from revenue assessment, where a surveyed district was a taxable one, it travelled into hydrology carrying its old sense intact, and the legend preserves the inheritance: one category for low hazard, another, separately keyed, for areas lacking survey or gauge record. Most of the northern blank sits in the second. That does not make the sheet deceptive. It makes it partial in a stated way.
+
+The strongest case for the old reading survives the legend. Gradient disperses water rather than pooling it; narrow valleys hold fewer fields; settlement in the high districts is thinner, and drainage is quick. A planner could argue that instruments and embankment schemes clustered in the Terai because the exposure was genuinely there. Tempting, and mistaken — the argument treats a distribution of gauges as evidence for a distribution of risk, when the gauges were sited by the same offices that drew the sheet.
+
+Follow what the paper does, step by step. Colour appears where a channel has a gauge upstream. Names appear on the same rivers: Kosi, Narayani, Bagmati, each lettered in full, while the torrents that feed them above the hills go unlettered or are given a number only. Gauges themselves sit near roads, near district headquarters, near irrigation works — places already written into files. So the sheet compounds. Observation follows administration; colour follows observation; and the finished image is read backwards as vulnerability. The two blanks are not alike, and treating them as one class is where the reading fails: an uncoloured stretch of plain means measured and found calm, an uncoloured mountain means unvisited. Nothing here shows an intent to conceal. Cartographers work with what the gauges give them. But a document of this kind explains a durable arrangement in which mountain communities can face debris floods and burst glacial lakes while remaining marginal to the budgets that measure and defend. The verdict is narrow and it holds: the sheet does not show where hazard stops, only where hazard had entered the state's field of vision by 1984, which is a smaller country than Nepal.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) The cartographers who drew the sheet concealed mountain hazard in order to protect the irrigation budgets of the southern districts.
+(B) The map is accurate: floods truly gather in the plains, while the steep, thinly settled mountains are genuinely safe.
+(C) The map's crowded south and empty north record where the state was looking, not where hazard actually ends.
+(D) Because hydrology borrowed its vocabulary from revenue assessment, the discipline is unable to describe mountain water at all.
+
+Q2. Which one of the following, if established, would most damage the author's central claim?
+(A) Independent teams had gauged the high Himalayan torrents thoroughly by 1984, and their records showed negligible flood hazard.
+(B) A few gauges in the Terai were installed far from any road, district headquarters, or existing irrigation scheme.
+(C) One legend category on the sheet was mislabelled, so the whole document is useless and should be treated as deceptive.
+(D) Later sheets, drawn after 1990, added tints and river names across several of the previously blank northern districts.
+
+Q3. Which one of the following findings would most complicate the author's account of why gauges cluster in the Terai?
+(A) Mountain gradients disperse water quickly, so steep terrain simply cannot produce the pooling that plains rivers produce.
+(B) Some Terai gauges were destroyed in later floods and were rebuilt in the very same administrative locations.
+(C) The Terai contains the majority of Nepal's cultivated fields, and most of its population lives in southern districts.
+(D) Gauge sites in Nepal were chosen by a foreign agency using rainfall models, with no reference to district files.
+
+Q4. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) A census undercounts nomadic herders because enumerators visit only in winter, when the herders have moved to distant pastures.
+(B) A disease atlas shows high incidence in wealthy districts because those districts genuinely suffer more of the disease.
+(C) An air-quality agency knowingly suppresses readings from industrial towns to avoid political embarrassment before an election.
+(D) A national crime map shows offences concentrated where police stations report electronically; unstaffed areas appear as untroubled white space.
+
+Q5. The primary purpose of the passage is to:
+(A) introduce a common reading of a map, concede a counterargument, and then trace the document's construction step by step
+(B) describe the contents of a 1984 hazard sheet, noting its dense southern tints and its largely unmarked northern reaches
+(C) show, through one document, how the reach of official measurement gets mistaken for the actual distribution of danger
+(D) argue that Nepal's mountain communities deserve larger budgets for flood defence than the southern lowland districts receive
+
+Q6. The author attributes all of the following features to the 1984 sheet EXCEPT:
+(A) its legend collapses low-hazard areas and unsurveyed areas into a single undifferentiated category
+(B) its high Himalayan portion is close to untouched paper, marked only by contours and a few blue threads
+(C) its gauges tend to sit near roads, district headquarters, and irrigation works already recorded in files
+(D) its named rivers are the very channels that carry gauges, while feeder torrents receive numbers only
+
+Q7. The passage stops where it does in order to:
+(A) propose a corrected mapping programme that would extend gauge networks into the previously unsurveyed northern districts
+(B) deliver a final indictment of the cartographers whose choices left mountain communities unprotected and unmeasured for decades
+(C) concede that the counterargument from gradient and settlement was ultimately stronger than the institutional reading
+(D) hold its finding to a limited claim while letting its implication for unmeasured places stand open
+
+Q8. Regarding the word 'survey' as discussed in the passage, the author asserts that:
+(A) it was redefined by hydrologists to mean gauged measurement, discarding the fiscal associations it had once carried
+(B) its fiscal ancestry proves that the sheet's makers intended the northern districts to remain outside state protection
+(C) it entered hydrology from revenue assessment with its older sense of taxable, assessed territory intact
+(D) its ambiguity explains why the legend fails to distinguish gauged plains from unvisited mountain terrain at all
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates the opening observation, the survey etymology, the rebuttal of the physical argument, and the closing verdict about the state's field of vision.
+  (A) stance_misread — The author states plainly that nothing here shows an intent to conceal and that cartographers use what gauges give.
+  (B) moderate_extremism — This is the 'obvious reading' the author calls incomplete in paragraph one and refutes in paragraph three.
+  (D) scope_inflation — The etymology point explains one legend category, not a wholesale incapacity of hydrology.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The argument's load-bearing move is that the northern blank means 'unvisited'; established measurement showing calm converts it into the plains-type blank.
+  (B) example_promotion — Exceptions to the siting pattern leave intact the general claim that observation followed administration.
+  (C) overqualification — The author already grants the sheet is partial in a stated way, and dismissal overshoots rather than damaging the claim.
+  (D) adjacent_answer — Later coverage confirms rather than undermines the point that 1984 coverage tracked administrative reach.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The author's rebuttal depends on gauges being sited by the same offices that drew the sheet; independent model-based siting breaks that circularity.
+  (A) moderate_extremism — This is the physical argument the author already concedes and then answers in paragraph three; it settles nothing.
+  (B) adjacent_answer — Rebuilding in the same places reinforces the administrative-siting pattern instead of complicating the account.
+  (C) half_truth — Density of settlement is granted in paragraph three and does not touch the circularity objection the author raises.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — It reproduces the compounding chain — observation follows administration, colour follows observation, and the blank is then read backwards as safety.
+  (A) category_slip — This is simple seasonal error, lacking the passage's mechanism of absence being read backwards as low risk.
+  (B) premature_closure — Here the map is simply faithful, which is the reading the author identifies as incomplete.
+  (C) stance_misread — The passage explicitly denies intent to conceal; deliberate suppression is a different mechanism entirely.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — The author uses the 1984 sheet as a case to make a general point about measurement reach being misread as hazard distribution.
+  (A) stage_misattribution — This correctly describes the structural sequence rather than the authorial purpose the question asks for.
+  (B) level_confusion — Accurate summary of paragraph one, but description is the means, not the reason the material is here.
+  (D) scope_inflation — Budget marginality is mentioned as a consequence; the passage's verdict is deliberately narrow, not a funding recommendation.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The passage says the opposite: low hazard has one category and areas lacking survey another, separately keyed; the collapsing is done by readers.
+  (B) passage_supported — Paragraph one describes the high Himalaya as near-blank, crossed only by contour and a few blue threads.
+  (C) passage_supported — Paragraph four says gauges sit near roads, headquarters and irrigation works, places already written into files.
+  (D) passage_supported — Paragraph four states the Kosi, Narayani and Bagmati are lettered while upstream torrents go unlettered or numbered.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The final sentence calls the verdict narrow yet ends on 'a smaller country than Nepal', widening outward from the single sheet.
+  (A) scope_inflation — No remedy is proposed; the passage ends on interpretation of the existing document.
+  (B) stance_misread — The author expressly absolves the cartographers of concealment; the close is a limited verdict, not an indictment.
+  (C) causal_inversion — The gradient argument was called tempting and mistaken in paragraph three, not conceded at the end.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — Paragraph two states the term was borrowed from revenue assessment, where a surveyed district was a taxable one, and travelled carrying that sense.
+  (A) causal_inversion — The passage says the old sense travelled intact rather than being discarded on entry into hydrology.
+  (B) scope_inflation — The passage denies intent, saying nothing here shows an intent to conceal.
+  (D) half_truth — The legend does distinguish them with separately keyed categories; the failure lies in how it is read.
+
+[Inspired by: "The Himalayas Didn’t Cause the Climate Crisis. Why Are Nepalis Paying the Price?", https://therevelator.org/himalayas-nepal-climate-justice/]

@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260907-0086 | Tier: hard | Score: 7.2 | Status: needs_review | Compliance F1: 0.847 | Novelty: 0.578 | Screen: green | Generated: 2026-09-07T14:57:21.028946+00:00
+======================================================================
+
+[PASSAGE]
+
+The practice of range-rating a bus dates to the diesel era, when a coach's advertised mileage was a fuel-tank arithmetic problem and nobody expected weather to enter into it. We inherited that habit and the confidence with it. So when a northern agency I have worked with put its first battery coaches into winter service — rated near 240 kilometres, and returning under 140 on the coldest mornings — the shortfall was read as a heater problem, since heaters are what make coaches cold or warm and cost energy either way. That reading was wrong, or rather it was too small. The gap held steady across drivers with very different pedal habits, across a downtown circulator and a long suburban run, and across the days when the cabin was barely heated at all.
+
+Cold does reduce range. Every operator knows it and every schedule already pays for it: reaction rates inside the cell slow, the cabin draws power that would otherwise go to the wheels, and winter timetables absorb a penalty of perhaps a fifth. Think of the pack as a house in January. The rooms are colder, so the furnace runs; the pipes carry water more sluggishly; you close off the back bedroom and live in less of the house than you paid for. That is derating, and it is gradual, and it is budgeted. What made the northern numbers interesting is that the house appeared to have lost a floor.
+
+An engineer at the manufacturer put loggers on six buses. Cell-level temperature. Cell-level voltage. GPS, door counts, load. Then the question, asked flatly in her notes and left standing there: is this ordinary winter loss, or is it something else wearing winter's coat? The instruments could see the shortfall arrive. They could not yet say why.
+
+What the logs showed was that the determining variable was not anything that happened on the road. It was pack temperature at the moment charging began. Buses parked overnight in unheated depots started the morning with cells in the low single digits, and the battery management system — the term migrated into buses from consumer laptops, where it once meant little more than a low-charge warning, and before that from aerospace power conditioning — imposes at that point not a gradual penalty but a hard restriction: charging current cut, available discharge power capped, by threshold rather than by degrees. On a twelve-minute circulator with the heat off, throttling still occurred. The buses were not spending their charge. They were never receiving it, and never permitted to spend what they had.
+
+Below roughly five degrees, lithium ions move through the electrolyte and across the electrode interface far more reluctantly, so pushing current in risks plating metallic lithium on the anode and pulling current out risks voltage collapse; the management system, doing exactly what it was designed to do, protects the cells by refusing both. Nothing is missing from the pack. The energy is in there, in the house, behind a door that cold has made too stiff to open at speed. Which is why the fix that works is not a bigger battery or a milder timetable but preconditioning — warming the pack from grid power in the last hour before departure, the side consideration that turns out to be the whole business.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) The unexplained winter shortfall came from threshold protections triggered by cold packs at charging, not from ordinary derating, so warming packs before departure is the remedy.
+(B) Because heaters make cabins warm at real energy cost, the northern agency's shortfall traced to cabin demand across circulator and suburban runs alike.
+(C) Winter reduces range because cells react slowly and cabin heaters draw power, so timetables must absorb roughly a fifth of the rated distance during cold months.
+(D) Battery coaches should not be advertised with single range figures inherited from diesel practice, since fuel-tank arithmetic ignores every variable that matters in service.
+
+Q2. The central idea of the passage would be undermined if:
+(A) buses whose packs were warmed to twenty degrees by grid power before departure returned the same sub-140 kilometre figures on the coldest mornings.
+(B) the loggers installed on the six buses recorded cell voltage at intervals too coarse to capture brief transient dips in available discharge power.
+(C) the northern agency's advertised 240 kilometre figure had been derived on a test route flatter and shorter than either of its two winter services.
+(D) battery management systems in laptops and aerospace power conditioning applied gradual rather than threshold restrictions to charging current in cold conditions.
+
+Q3. The twelve-minute circulator run with the heat off, mentioned in the passage, functions to:
+(A) establish that driver pedal habits matter less than route length once the cabin heater has been switched off for the whole trip.
+(B) demonstrate that gradual cold derating of the kind every operator budgets for occurs even on the agency's very shortest scheduled services.
+(C) illustrate how much of a rated range figure a downtown service can recover when operators reduce the energy spent on passenger comfort.
+(D) rule out cabin demand and long duty cycles, isolating cold pack temperature at charging as the operative cause of the loss.
+
+Q4. According to the text, the restriction imposed by the battery management system on a cold pack is described as:
+(A) a temporary shutdown of the pack that protects cells until the depot's grid connection restores their working temperature.
+(B) a warning to the driver that available charge is low, inherited unchanged from its earlier consumer laptop function.
+(C) a cut in charging current and a cap on discharge power applied by threshold rather than by degrees.
+(D) a proportional reduction in both charging current and discharge power scaled to how far cell temperature has fallen.
+
+Q5. Which one of the following, if replaced, would most change the passage's argument?
+(A) Paragraph four's finding that the determining variable was pack temperature when charging began, not anything occurring during the road run.
+(B) Paragraph one's account of range-rating as a fuel-tank arithmetic habit carried over from the era of diesel coaches.
+(C) Paragraph three's description of the loggers recording cell temperature, cell voltage, GPS position, door counts, and load.
+(D) Paragraph two's house-in-January comparison, which pictures colder rooms, sluggish pipes, and a closed-off back bedroom.
+
+Q6. Which one of the following positions is described in the passage but not endorsed by the author?
+(A) That preconditioning from grid power in the final hour before departure is the intervention that actually addresses the observed shortfall.
+(B) That cold genuinely reduces range, because cell reaction rates slow and the cabin draws power that would otherwise reach the wheels.
+(C) That the northern agency's shortfall below its rating was essentially a heating problem, since heaters govern cabin comfort and cost energy regardless.
+(D) That the management system, in refusing both charge and discharge below five degrees, is doing exactly what its designers intended.
+
+Q7. The winter shortfall observed on the northern agency's battery coaches is consistent with all of the following statements EXCEPT:
+(A) the energy remained inside the pack even while available charging and discharge power were restricted.
+(B) drivers with markedly different pedal habits recorded much the same gap between rated and actual range.
+(C) the shortfall varied with route type, being sharper on the long suburban run than on the downtown circulator service.
+(D) the shortfall persisted on mornings when the coach's cabin received very little heating at all.
+
+Q8. Which one of the following best explains why the impression created early in the passage does not survive the argument?
+(A) Heaters were shown to consume less energy in battery coaches than in the diesel vehicles whose rating conventions the industry had inherited.
+(B) The shortfall stayed constant where heating, driving style and route length varied, so the cabin heater could not be carrying the loss.
+(C) The manufacturer's engineer installed loggers on six buses and found that the recorded cell voltages contradicted every earlier claim about heater consumption.
+(D) Winter derating of roughly a fifth already appears in the timetables, and that budgeted penalty proved large enough to cover the observed gap.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Integrates the framing habit (P1), the budgeted gradual loss (P2), the logging question (P3), the threshold finding (P4), and the preconditioning fix (P5).
+  (B) half_truth — Endorses the reading paragraph one calls wrong, since the gap persisted on days when the cabin was barely heated.
+  (C) phrase_misuse — Takes paragraph two's already-budgeted gradual derating as the whole explanation, which paragraph two explicitly says cannot account for the missing floor.
+  (D) scope_inflation — Inflates the opening remark on rating habits into the passage's claim, whereas paragraph one only sets up the diagnostic error being corrected.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The argument's load-bearing move is that pack temperature at charging start determines the shortfall; identical results after preconditioning removes that causal link.
+  (B) terminological_twin — Attacks instrumentation resolution, but paragraph three treats logging only as detection; the mechanism argument in paragraphs four and five stands.
+  (C) adjacent_answer — Impugns the rating baseline but leaves intact the finding that shortfall tracked pack temperature at charging rather than route.
+  (D) framework_import — The etymological aside about laptops and aerospace is decorative; the passage's claim concerns what bus systems do below five degrees.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The short, unheated run strips away both candidate explanations from paragraph one, leaving the threshold restriction of paragraph four as the surviving cause.
+  (A) half_truth — Pedal habits and route type are ruled out in paragraph one; the circulator detail addresses heating and duty length, not their ranking.
+  (B) terminological_twin — Confuses paragraph four's threshold throttling with paragraph two's gradual derating; the example exists precisely to distinguish the two.
+  (C) causal_inversion — Reverses the point: with heat off the throttling still occurred, so nothing was recovered by cutting comfort loads.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — Paragraph four states the system imposes 'not a gradual penalty but a hard restriction: charging current cut, available discharge power capped, by threshold rather than by degrees.'
+  (A) scope_inflation — Nothing shuts down; paragraph five says energy remains in the pack, merely behind a door too stiff to open at speed.
+  (B) phrase_misuse — The laptop meaning is given as etymological history in paragraph four, not as what bus systems now do.
+  (D) terminological_twin — Substitutes the gradual, degree-scaled penalty of paragraph two for the threshold restriction paragraph four explicitly contrasts with it.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — That paragraph supplies the mechanism the whole piece is built to reach; replacing it leaves the anomaly of paragraph two unexplained and the fix of paragraph five unmotivated.
+  (B) stage_misattribution — That history frames the diagnostic overconfidence but is not premised on by the causal chain in paragraphs four and five.
+  (C) terminological_twin — Instrumentation detected the shortfall without explaining it; the passage says the instruments could not yet say why.
+  (D) example_promotion — The analogy is illustrative scaffolding, reused in paragraph five; removing it costs vividness rather than the argument's load-bearing claim.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — Paragraph one reports this reading, then calls it 'wrong, or rather it was too small', and paragraph one's own evidence about barely heated cabins refutes it.
+  (A) stance_misread — This is the author's concluding recommendation in paragraph five, described there as the whole business.
+  (B) stance_misread — The author affirms this in paragraph two, saying every operator knows it and every schedule already pays for it.
+  (D) stance_misread — Paragraph five states this in the author's own voice as protective behaviour, not as a reported claim held at arm's length.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — Paragraph one states the gap held steady across the circulator and the suburban run, so route-dependent variation contradicts the passage's evidence.
+  (A) passage_supported — Paragraph five says nothing is missing from the pack; the energy is there behind a stiff door.
+  (B) passage_supported — Paragraph one reports the gap holding steady across drivers with very different pedal habits.
+  (D) passage_supported — Paragraph one says the gap held across days when the cabin was barely heated.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — Paragraph one's own controls dissolve the heater reading, clearing the way for the charging-temperature mechanism reached in paragraph four.
+  (A) framework_import — No such comparison appears; paragraph one invokes diesel practice only to explain inherited confidence about rating.
+  (C) terminological_twin — Paragraph three says the instruments saw the shortfall arrive but could not yet say why; they did not refute heater claims.
+  (D) phrase_misuse — Paragraph two says the budgeted penalty is precisely what the northern numbers exceeded, as if the house had lost a floor.
+
+[Inspired by: "No quantum advantage (yet) in the world of tensor networks", https://physicsworld.com/a/no-quantum-advantage-yet-in-the-world-of-tensor-networks/]

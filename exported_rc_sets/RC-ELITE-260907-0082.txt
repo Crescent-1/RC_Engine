@@ -1,0 +1,116 @@
+RC ID: RC-ELITE-260907-0082 | Tier: elite | Score: 8.2 | Status: needs_review | Compliance F1: 0.884 | Novelty: 0.482 | Screen: green | Generated: 2026-09-07T14:50:12.887081+00:00
+======================================================================
+
+[PASSAGE]
+
+In March 2021 a county planner drove out to Palm Bend Kennel Club with a clipboard and a checklist of eleven items, and could not tick the first one, which read: *closure complete (Y/N)*. The referendum that ended commercial greyhound racing in the district had passed by nine points; the ordinance implementing it made the word do heavy lifting. Certified complete, the site's final tax abatements release. The operator's performance bond returns. The parcel becomes reclassifiable, which is to say sellable to whoever wants forty-one acres near an interstate exit. So the word is not decorative. It is a switch. Somebody has to define it precisely enough to sign a name under, and the ordinance, in the manner of ordinances, simply used it.
+
+Take the thinnest candidate: closure means the legal cessation of racing. Satisfied at 10:42 p.m. on 27 March 2021, when the last box opened. But the county's own file kept adding entries for months afterward, all of them concerning grooms, kennel hands, and dogs — which suggests the thing being tracked was never the racing. Racing stopped in an evening. What the ordinance was pricing was consequence.
+
+Try instead the physical candidate: closure means decommissioning — track surface, kennel compounds, tote board, grandstand. This one at least has a shape you can walk around. It also went badly. Demolition contracts sat unsigned for eleven months while an asbestos survey worked through the 1962 clubhouse; the kennel compounds stayed up, roofs intact, colonised by feral cats, because no line item in the award covered removing them; the starting-gate mechanism was cut up for scrap in month fourteen by a firm that paid by weight. The engineer who filed the survey noted, in a memorandum the county later attached to the file, that his scope covered structures and not obligations. Which is the trouble. Under this candidate the county could certify completion the morning the bulldozers arrived, with 340 grooms and handlers still unpaid, unnotified, and reading about the timeline in a trade newsletter.
+
+Push the other way, then. Closure means the last displaced worker is back in work. Humane, and useless. Three kennel hands were filing claims twenty-six months on. The state transition fund's own eligibility clause runs until need ceases, with no terminal date. A definition that cannot ever be satisfied is not a stricter version of the county's question. It is a different question, wearing the county's clothes — and the parties arguing about when Palm Bend closed were never disagreeing about dates. They were disagreeing about who counts as a party to the closing.
+
+So the survivor: closure means every party's contractual claim against the operator is settled — dog placements executed, severance paid where owed, vendors discharged. Not that this makes the closing just; it makes it *answerable*. A claim is settled or it isn't. Eighteen months, against the six the ordinance imagined, and the eighteen only arrived because 214 of the 340 worker claims were written off as unrecoverable against a shell with no assets. Written off is a settlement. That is the price of the definition, and it is a real price. The planner signed the first line of the checklist in September 2022, having satisfied himself that nothing further could be collected, which is not the same as having collected it.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) showing how demolition mismanagement at an obsolete racing facility defeated a district's clear referendum mandate
+(B) testing rival definitions of an operative term until one survives as workable rather than fair
+(C) documenting the sequence of dated operational events that followed the final race at Palm Bend
+(D) arguing that ordinances should adopt humane standards that follow displaced workers until their need finally ceases
+
+Q2. The author details the asbestos survey, the intact kennel roofs, and the scrapped starting gate in order to:
+(A) expose the gap the physical definition leaves between finished structures and unfinished obligations
+(B) argue that physical decommissioning should precede any settlement of the operator's contractual claims
+(C) establish that the county's contractors were negligent in awarding and supervising the demolition work
+(D) build toward the piece's factual climax in the long collapse of a decaying local institution
+
+Q3. Which one of the following situations is most analogous to the mechanism described in the passage?
+(A) A regulator refuses to call a merger 'complete' until consumer prices in the affected market have returned to their pre-merger levels
+(B) A university calls a research program 'concluded' when its grant lapses, though several graduate students remain without funding or supervision
+(C) A hospital declares an outbreak 'contained' only when every traced contact's file is closed, including files closed for being untraceable
+(D) A city delays certifying a bridge as 'safe' until an independent engineer completes a structural survey of every load-bearing element
+
+Q4. Regarding the definition of closure as the return of the last displaced worker to employment, the author asserts that:
+(A) its unsatisfiability makes it a substitution of one question for another, not a stricter answer
+(B) the three kennel hands still filing claims prove the operator concealed assets from the county
+(C) the state transition fund's terminal date shows the standard could be met within a defined period
+(D) its moral seriousness recommends it over the narrower contractual standard the county eventually certified
+
+Q5. Which one of the following findings would most complicate the author's account of why the contractual-claims definition is the one that survives?
+(A) The eighteen-month settlement period exceeded comparable closures elsewhere in the state by roughly a full year
+(B) In practice, whether a claim against an assetless shell counts as written off rested on contested planner judgement each time
+(C) The ordinance's drafters had privately intended closure to mean nothing more than the legal cessation of racing
+(D) Most of the 214 written-off workers later recovered partial sums through an unrelated state hardship programme
+
+Q6. Which one of the following would best license the inference the author draws from the county's continuing file entries after 27 March 2021?
+(A) The last race concluded at 10:42 p.m., a time the county's clerk recorded and later certified as accurate
+(B) The planner's eleven-item checklist had been drafted by an outside consultant with no prior racing experience
+(C) Feral cats occupied the kennel compounds because the demolition award contained no line item for their removal
+(D) The file's indexing categories were established by the ordinance itself and covered only workers, animals, and creditors
+
+Q7. Based on the passage, we can infer that the engineer's remark that his scope covered structures and not obligations would most likely:
+(A) be offered by the author as grounds for extending closure until every worker is re-employed
+(B) be cited by the author as evidence that obligations should be surveyed before any structures are
+(C) be read by the author as marking the exact boundary at which the physical definition stops answering
+(D) be treated by the author as an admission that the survey itself had been carried out improperly
+
+Q8. 'Written off is a settlement. That is the price of the definition, and it is a real price.' We can infer from this statement that the author is being:
+(A) indignant at a county that used a technical settlement to abandon 214 workers it owed
+(B) candid about the cost of choosing a criterion he nonetheless regards as the only workable one
+(C) confident that the eighteen-month process vindicated the ordinance's original six-month legislative timetable
+(D) detached about an administrative outcome whose human consequences fall outside his stated concern
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — The passage runs four candidate definitions in sequence, discarding three and keeping the fourth for being answerable, not just; that movement is the whole argument.
+  (A) example_promotion — Promotes paragraph three's asbestos and scrap details into the thesis; they only illustrate one candidate definition failing.
+  (C) scope_inflation — Mistakes the 10:42 p.m. last-race date as the passage's evidentiary spine; the file entries afterwards show racing was never what was tracked.
+  (D) stance_misread — Paragraph four calls that standard humane and useless, since a definition that can never be satisfied answers a different question.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The engineer's memorandum — scope covered structures and not obligations — is the point of the whole inventory: decommissioning can be certified while 340 workers remain unpaid.
+  (B) framework_import — No sequencing recommendation appears; paragraph three shows the physical candidate is inadequate, not merely mistimed.
+  (C) adjacent_answer — The passage faults the definition, not the contractors; the missing line item and unsigned contracts illustrate a definitional gap.
+  (D) example_promotion — Treats the demolition inventory as narrative payload rather than as the test that defeats one candidate definition of closure.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — This reproduces the survivor definition: a criterion chosen because each item is determinably resolved, with unresolvable items counted as resolved — answerable rather than just.
+  (A) adjacent_answer — This parallels the never-satisfiable worker standard rejected in paragraph four, which the author says asks a different question entirely.
+  (B) half_truth — This mirrors only the thin legal-cessation candidate the passage discards in paragraph two, not the definition that survives.
+  (D) level_confusion — This is ordinary technical verification of a fixed standard, not the selection among rival definitions of a term the rule left undefined.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Paragraph four states directly that a definition which can never be satisfied is not a stricter version of the county's question but a different question in the county's clothes.
+  (B) example_promotion — Those claims at twenty-six months illustrate unsatisfiability; the shell's lack of assets appears later without any concealment claim.
+  (C) phrase_misuse — The eligibility clause runs until need ceases with no terminal date, which is precisely why the standard cannot close.
+  (D) scope_inflation — The author grants it is humane but calls it useless; paragraph five rejects it rather than adopting the humane candidate.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The definition survives only because a claim is settled or it isn't; if write-offs turn on contestable judgement, the criterion loses the determinacy that made it answerable.
+  (A) scope_inflation — Slowness is already conceded against the ordinance's imagined six months and bears on cost, not on determinacy.
+  (C) causal_inversion — Drafter intent does not rescue the thin candidate, which paragraph two defeats by noting the file tracked grooms and dogs.
+  (D) adjacent_answer — Later relief from another source leaves the operator-claim criterion intact; the author never claimed write-offs ended hardship.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — The inference is that the tracked object was consequence, not racing; if the ordinance itself set categories excluding race operations, the file's contents license that reading.
+  (A) scope_inflation — Confirming the date strengthens nothing; the author already grants the legal cessation candidate is satisfied that evening.
+  (B) missing_link — The consultant's inexperience says nothing about what the post-race file entries were tracking or why.
+  (C) example_promotion — This detail belongs to the physical candidate's failure in paragraph three, not to the inference about file entries.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — The author follows the memorandum with 'Which is the trouble', then shows certification arriving with 340 workers unpaid — the remark locates the definition's limit.
+  (A) adjacent_answer — That extension is the candidate paragraph four calls humane and useless, so the remark cannot ground it.
+  (B) framework_import — The passage recommends no ordering of surveys; it uses the remark to expose a definitional gap.
+  (D) stance_misread — The author faults the definition's reach, not the engineer's competence; the survey worked through the 1962 clubhouse as scoped.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — He accepts write-offs as settlements to preserve answerability while naming the loss as real — endorsement and acknowledged cost held together, not resolved.
+  (A) stance_misread — The author declines indignation: he says the definition makes the closing answerable, not just, and still signs off on it.
+  (C) premature_closure — The eighteen months are set against the imagined six as a shortfall reached only through write-offs, not a vindication.
+  (D) half_truth — Calling the price real, and noting nothing further could be collected, registers the human cost rather than bracketing it.
+
+[Inspired by: "Last Days at the Aqueduct: New York’s Rundown Racetrack", https://www.theparisreview.org/blog/2026/08/04/last-days-at-the-aqueduct-new-yorks-rundown-racetrack/]

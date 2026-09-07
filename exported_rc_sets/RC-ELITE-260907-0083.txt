@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260907-0083 | Tier: elite | Score: 8.0 | Status: needs_review | Compliance F1: 0.862 | Novelty: 0.44 | Screen: green | Generated: 2026-09-07T14:54:01.545052+00:00
+======================================================================
+
+[PASSAGE]
+
+Was a man's failure to see at night his own fault, and how much of the sea's disorder was it made to explain? For the better part of a century the answer was settled with admirable economy: night blindness ran with diet and constitution, a defect the seaman carried aboard with his kit. The Board of Trade circulars phrased it with the courtesy of the period — a want of fresh provisions, a certain class of man — and the reach of the explanation was magnificent. Lookouts who reported nothing until the bow wave was under them. Collisions in convoy that nobody had seen coming. Men lost off the rigging on moonless nights, their footing gone. Against all of it stood the trimmer on a coastal collier, well fed ashore a fortnight earlier, who could not find the ladder. Is such blindness a fixed property of the man, or of the night he happens to be standing in?
+
+The 1943 dark-adaptation work of the Admiralty put the matter, at last, on an instrument. Survivors of torpedoed ships were taken from hospital wards and seated before an adaptometer, their thresholds recorded in minutes and foot-lamberts rather than inferred from a symptom sheet or from an officer's estimate of a man's character. That much was progress, and it answered the earlier question by removing it from opinion. It answered rather less than the writing-up implied. What the instrument caught was a man three days off a raft, burned, dehydrated, sleepless — and to ask whether his diet had ruined his rods is to have mistaken the argument for one about the seaman's body when it is really an argument about the conditions under which anybody's rods were ever measured at sea.
+
+The investigators saw the confound and worked at it, which is more than their predecessors managed: thresholds retaken over successive days as the men recovered, a comparison group drawn from crews on the same convoy routes who had not been sunk, adjustment for age and for months of prior night-lookout duty. This mattered to more parties than the Admiralty. Shipowners, insurers, the men's own unions and the schools that certified them had all leaned, for decades, on the proposition that vision was a fitness of the individual. Then the corrected figures came in. Watch rotation dominated. Recent light exposure dominated. Diet fell away. A man who had spent forty minutes in a lit alleyway before relieving the lookout adapted worse than a man half his age advantage who had come up in darkness — which leaves the older doctrine tracking something, but nobody could yet say what.
+
+Read the thing as a customs declaration rather than a proof: the tables list what passed the counter, not what the ship carried. Nearly all the men came off one class of vessel; nearly all reached the adaptometer because a hospital had admitted them, and wartime admission was itself a filter nobody designed. So the finding stands and does not close. The Admiralty owes an account of whether diet contributes at all or merely contributes invisibly under blackout conditions that swamp it; the older doctrine owes an account of why its predictions worked as often as they did, if the thing it named was never the thing it measured; and until one of those debts is discharged, the trimmer on the collier stays where he was, unable to find the ladder for reasons neither party has yet earned the right to name.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) how a measurement replaced an old doctrine without yet earning the explanation each side owes.
+(B) how wartime hospitals filtered which injured seamen ever reached the Admiralty's adaptometer at all.
+(C) how instruments always beat character judgements whenever officers assess the fitness of individual seamen.
+(D) how carefully assembled institutional evidence eventually vindicated the dietary account of night blindness at sea.
+
+Q2. Which one of the following, if true, would most call into question the claim that watch rotation and recent light exposure, rather than diet, govern a seaman's dark adaptation?
+(A) Some lookouts in convoy collisions had eaten fresh provisions ashore only a fortnight earlier.
+(B) The 1943 subjects were tested days after torpedoing, while burned, dehydrated and badly sleep-deprived.
+(C) Board of Trade circulars had described night blindness as afflicting a certain class of man.
+(D) Among unsunk convoy crewmen, thresholds tracked provisioning records closely once alleyway lighting was held constant.
+
+Q3. The author cites the comparison group of unsunk crews, the age adjustment, and the repeated thresholds primarily in order to:
+(A) expose the investigators as having smuggled their preferred conclusion past an inadequate control.
+(B) credit the investigators with real methodological work while leaving the deeper question standing.
+(C) establish that the study has now disposed of the dietary explanation as a scientific matter.
+(D) show that survivors tested three days off a raft were unfit subjects for measurement.
+
+Q4. In context, the claim that the tables 'list what passed the counter, not what the ship carried' most nearly means that:
+(A) the recorded thresholds were transcribed inaccurately by clerks working under wartime documentary pressure.
+(B) the sample records only men whom vessel type and hospital admission happened to select.
+(C) the investigators concealed unfavourable measurements that would have revived the dietary explanation instead.
+(D) the study's corrections for age and prior lookout duty were applied to the wrong variables.
+
+Q5. The central idea of the passage would be undermined if:
+(A) the older doctrine's predictive record proved wholly explicable by light exposure differences it unknowingly indexed.
+(B) the Admiralty's adaptometers were later found to drift slightly across long testing sessions.
+(C) Board of Trade circulars had been drafted by physicians rather than by administrative officers.
+(D) shipowners and insurers had privately doubted the individual-fitness proposition well before the war.
+
+Q6. Regarding the corrected figures reported in the third paragraph, the author asserts that:
+(A) diet retained a measurable but small role once watch rotation had been properly controlled.
+(B) age proved to be the strongest single predictor once light exposure was adjusted for.
+(C) the older doctrine tracked nothing whatever, its predictive successes being purely coincidental.
+(D) a darkness-acclimatised older man outperformed a younger man fresh from a lit alleyway.
+
+Q7. Which one of the following positions is described in the passage but not endorsed by the author?
+(A) Placing thresholds on an instrument removed the question from officers' estimates of character.
+(B) Night vision is a fitness resident in the individual seaman, carried aboard with his kit.
+(C) The 1943 finding stands while still failing to settle whether diet contributes invisibly.
+(D) The men reaching the adaptometer were shaped by filters that nobody had deliberately designed.
+
+Q8. 'So the finding stands and does not close.' We can infer from this statement that the author is being:
+(A) vindicated — noting that the instrument has at last confirmed what the anecdote suggested.
+(B) dismissive — treating the 1943 measurements as too compromised to support any conclusion.
+(C) conciliatory — awarding each side a portion of the truth to avoid choosing between them.
+(D) exacting — accepting a result while refusing the closure its presentation invited.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — It holds paragraph 1's doctrine, paragraph 2-3's instrument and corrections, and paragraph 4's outstanding debts together as one movement.
+  (B) scope_inflation — The admission filter is one paragraph-4 limitation, not the concern organising the whole passage.
+  (C) moderate_extremism — The passage credits the instrument narrowly, then immediately says it answered less than its write-up implied.
+  (D) premature_closure — Paragraph 1 lists the diet doctrine's reach only to set it up; paragraph 3 reports that diet fell away.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — It attacks the corrected finding on its own comparison group and with the light confound removed, restoring diet as a live cause.
+  (A) adjacent_answer — This is the trimmer-style anecdote that already tells against diet, so it strengthens rather than weakens the claim.
+  (B) stage_misattribution — This is paragraph 2's doubt about testing conditions, which the paragraph-3 corrections already address; it does not touch the corrected result.
+  (C) prior_belief — Restating the old doctrine's phrasing supplies no new evidence against the corrected figures of paragraph 3.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — Paragraph 3 praises these moves ('more than their predecessors managed') yet paragraph 4 keeps the finding open, so the evidence licenses partial trust only.
+  (A) stance_misread — The author praises these controls; the criticism in paragraph 4 concerns who reached the counter, not the adjustments.
+  (C) premature_closure — Paragraph 4 says the finding 'stands and does not close' and still asks whether diet contributes invisibly.
+  (D) stage_misattribution — That is paragraph 2's objection; the paragraph-3 list is the investigators' response to it, not a restatement of it.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The customs image is immediately unpacked by the two selection facts: one class of vessel, and undesigned wartime admission filters.
+  (A) phrase_misuse — The metaphor concerns which cases entered the sample, not clerical fidelity in copying numbers.
+  (C) stance_misread — Paragraph 4 attributes an undesigned filter to wartime admission, not deliberate suppression by the investigators.
+  (D) level_confusion — Confuses sample composition with the adjustment procedure, which paragraph 3 presents approvingly.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — Paragraph 4 rests its aperture on the doctrine's unexplained successes; discharging that debt would close the openness the passage insists upon.
+  (B) adjacent_answer — Instrument drift complicates a detail; the passage's argument about doctrine and selection survives it intact.
+  (C) category_slip — Authorship of the circulars is irrelevant to whether the doctrine named what it measured.
+  (D) half_truth — Paragraph 3 says these parties leaned on the proposition, but their private doubts leave the evidential argument untouched.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 states exactly this comparison, in which the alleyway man adapts worse despite the other's age disadvantage.
+  (A) half_truth — The passage says diet 'fell away'; its possible invisible contribution is raised later as an unpaid debt.
+  (B) causal_inversion — Watch rotation and recent light exposure dominated; age was an adjustment variable, not the leading predictor.
+  (C) moderate_extremism — The passage says the doctrine tracks something, though nobody could yet say what.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — Paragraph 1 reports this doctrine and paragraph 3 names the parties who leaned on it; the author treats it as displaced, not held.
+  (A) stance_misread — The author explicitly calls this progress: 'That much was progress.'
+  (C) stance_misread — This is the author's own paragraph-4 position, stated as the finding that 'stands and does not close'.
+  (D) stance_misread — The author asserts this selection point directly in the final paragraph.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — The sentence pairs endorsement with denial of finality, matching the passage's pattern of crediting progress then naming unpaid debts.
+  (A) premature_closure — The trimmer remains unexplained in paragraph 4, 'for reasons neither party has yet earned the right to name'.
+  (B) stance_misread — The author says the finding stands and credits the corrections as real work.
+  (C) false_symmetry — Both sides are assigned debts, not portions of truth; the passage does not balance their claims.
+
+[Inspired by: "Love Transcripts: The Hidden Lesbian Love Letters of Dr Kathleen Lynn", https://nursingclio.org/2026/06/10/love-transcripts-the-hidden-lesbian-love-letters-of-dr-kathleen-lynn/]

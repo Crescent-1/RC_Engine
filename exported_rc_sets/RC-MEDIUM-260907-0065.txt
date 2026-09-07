@@ -1,0 +1,114 @@
+RC ID: RC-MEDIUM-260907-0065 | Tier: medium | Score: 7.6 | Status: needs_review | Compliance F1: 0.89 | Novelty: 0.557 | Screen: green | Generated: 2026-09-07T15:06:04.753382+00:00
+======================================================================
+
+[PASSAGE]
+
+The short diagnostic in fractions descends, more or less directly, from the item-analysis habits American testing acquired in the 1920s: eight questions, a key, and a decision at the end. It is a good little machine. It sorts. When the results come back weak, the repairs on offer are the familiar ones, and I want to grant them their best day. Extra worksheets do produce practice, and practice is not nothing. Timed fluency drills do build the automaticity that frees a child's attention for harder work. Taking away the calculator does expose whether a student can subtract at all. My complaint is not that these things fail — half the time they help — but that each of them arrives after the diagnostic has already told the teacher what kind of error it was, and the diagnostic is very sure. I said "after," which is too tidy. The trouble is not the sequence but the description the sequence inherits: a child who writes 1/3 + 1/4 = 2/7 has been coded as inattentive, so she gets more of what she already does fluently, and the belief that adding across is legal survives every worksheet handed to her.
+
+Consider what converges at that eight-question script. The child has spent two years cutting paper strips and shading rectangles, and has now been handed compressed symbols that behave nothing like the objects. Eight questions cannot sample many forms of reasoning. Thirty scripts must be sorted tonight. The key rewards correctness and has no column for the route. So the failure sits at the moment of coding — not in the child's effort, and not, whatever the strips and rectangles suggest, in abstraction itself, since abstraction would defeat the diagnostic equally if the key recorded reasoning.
+
+Now, the word "careless." Teachers who use it are not lazy and not contemptuous; the label is logistics. It protects fifteen minutes of conference time for the child who needs it most, it spares this child a verdict about her mind, and it turns an untidy pile into three workable groups. So the motive is decent, and the label is still doing damage, because it is no longer a shorthand for a busy Tuesday — it travels. It appears in the parent email, then in next year's handover note, then in the placement meeting, then in the child's own account of herself. That is a larger audience than it once had. What began as a provisional description of one script has quietly become a claim about what sort of learner she is.
+
+The repair is small and it holds. Before any remedy is assigned, ask the child to place the disputed fraction on a number line and talk through the comparison while the teacher writes down the steps rather than the verdict — so that the girl who wrote 2/7, asked where her answer sits relative to 1/3, hears herself say it is smaller, and the whole misconception surfaces in the thirty seconds the old procedure never had, provided someone is writing.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) Abstraction itself defeats young learners who have spent two years shading rectangles and cutting paper strips instead.
+(B) Teachers who call a child careless are being contemptuous, and better professional attitudes would resolve the problem.
+(C) Remedies misfire because the diagnostic codes errors without recording reasoning, so provisional labels harden into identities.
+(D) Worksheets, timed drills, and calculator bans are conventional classroom remedies that simply do not work for struggling children.
+
+Q2. Based on the passage, we can infer that a key with a column for the route would most likely:
+(A) still fail, since the leap from paper strips to compressed symbols alone dooms the child.
+(B) lengthen the eight-question script so that many more forms of reasoning get sampled.
+(C) remove the need for worksheets, drills, and other remedies the author has described.
+(D) leave the child's misconception visible even under the same crowded scoring conditions.
+
+Q3. "the label is logistics" most nearly means:
+(A) the word functions as a triage device for managing an impossible workload.
+(B) the word reflects an administrative policy imposed on teachers by placement meetings.
+(C) the word is an innocent shorthand and so does the child no lasting harm.
+(D) the word encodes a considered professional judgment about the child's habits of mind.
+
+Q4. What is the purpose of the example of the child who writes 1/3 + 1/4 = 2/7?
+(A) It illustrates the historical descent of the diagnostic from item-analysis habits of the 1920s.
+(B) It proves that children handed compressed symbols cannot reason about fractions at all.
+(C) It demonstrates that worksheets are useless and should be withdrawn from classroom practice.
+(D) It shows how a mistaken coding routes a child toward practice that leaves her belief untouched.
+
+Q5. Which one of the following, if true, would most call into question the claim that the label travels and becomes a claim about the learner?
+(A) Timed fluency drills build automaticity that frees attention for genuinely harder work.
+(B) Eight-question diagnostics descend from item-analysis habits acquired in the 1920s classroom.
+(C) Handover notes and placement files are cleared of provisional error codes each year by policy.
+(D) Many teachers privately doubt the accuracy of the labels they record on scripts.
+
+Q6. Which one of the following situations is most analogous to the mechanism described in the passage?
+(A) A hospital discovers that a widely used drug helps only about half of the patients receiving it.
+(B) A patient distrusts modern equipment and prefers a physician who examines her by hand instead.
+(C) A triage form logs only symptoms, so a mislabelled patient repeatedly receives the treatment she least requires.
+(D) A clinic hires more staff so that each patient receives a longer and more careful consultation.
+
+Q7. Which one of the following research findings would most strengthen the author's conclusion about the proposed repair?
+(A) Students given additional worksheets after a weak diagnostic complete arithmetic exercises noticeably faster within four weeks.
+(B) Classes where teachers wrote down a child's spoken steps before assigning remedies showed durable gains over classes that scored only answers.
+(C) Teachers report that sorting thirty scripts into three groups each evening feels far less burdensome than before.
+(D) Children who spend two years cutting paper strips later recognise compressed fraction symbols more quickly than peers.
+
+Q8. Regarding the eight-question diagnostic described in the passage, the author asserts that:
+(A) its key rewards correctness and provides no place to record the route taken.
+(B) its historical descent from the 1920s makes it useless as a sorting device.
+(C) its questions were designed to sample many distinct forms of student reasoning.
+(D) its brevity is the single condition responsible for the failure of coding.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates paragraph 1's concession to remedies, paragraph 2's location of failure at coding, and paragraph 3's travelling label.
+  (A) straw_version — Paragraph 2 denies this: abstraction would defeat the diagnostic equally if the key recorded reasoning.
+  (B) stance_misread — Paragraph 3 insists such teachers are neither lazy nor contemptuous and that the motive is decent.
+  (D) category_slip — The author explicitly grants these remedies their best day and says half the time they help; the complaint is about coding.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — Paragraph 2 says abstraction would defeat the diagnostic equally if the key recorded reasoning, locating the failure in coding.
+  (A) missing_link — Converging conditions are listed, but paragraph 2 explicitly denies that abstraction is where the failure sits.
+  (B) adjacent_answer — Sampling breadth is a listed condition, not the fix; the author's repair is small and diagnostic in nature.
+  (C) scope_inflation — The author concedes remedies often help; nothing suggests recording reasoning makes them unnecessary.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — Paragraph 3 explains the label protects conference time, spares a verdict, and sorts a pile into workable groups.
+  (B) level_confusion — Placement meetings are where the label travels to, not the source of the teacher's shorthand.
+  (C) category_slip — The passage grants the decent motive but insists the label is still doing damage because it travels.
+  (D) terminological_twin — The passage says the label spares this child a verdict about her mind; it is provisional, not a judgment.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — Paragraph 1 uses the example to show that coding her as inattentive gives her fluent practice while the adding-across belief survives.
+  (A) stage_misattribution — The 1920s lineage is established before the example, which does other work entirely.
+  (B) scope_inflation — The final paragraph shows she can reason about magnitude once asked, so the example proves no such incapacity.
+  (C) category_slip — The author concedes worksheets produce practice; the example targets the description, not the worksheet.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — The claim's load-bearing move is transmission across audiences; erasing the record at each handover breaks that chain.
+  (A) adjacent_answer — This restates a concession the author already grants and leaves the travelling-label claim intact.
+  (B) stage_misattribution — Origins of the instrument say nothing about whether the label spreads to later audiences.
+  (D) missing_link — Private doubt does not stop the label from circulating through emails, notes, and meetings.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — Reproduces the mechanism: a recording instrument with no field for reasoning fixes a wrong description that then directs the remedy.
+  (A) category_slip — This mirrors the concession that remedies half the time help, not the coding failure the author isolates.
+  (B) framework_import — Distrust of abstraction or instruments is not the mechanism; the author denies abstraction is the culprit.
+  (D) adjacent_answer — Time pressure is one converging condition, but the author locates failure in the coding, not in scarcity alone.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — Directly supports the final paragraph's claim that recording steps rather than the verdict surfaces the misconception and holds.
+  (A) half_truth — Speed gains from practice are conceded in paragraph 1 and leave the misconception, and the conclusion, untested.
+  (C) level_confusion — Teacher convenience is the logistics the author already grants; it does not test the repair's effect on misconceptions.
+  (D) adjacent_answer — Concrete materials are background in paragraph 2, not the repair whose value the conclusion asserts.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — Paragraph 2 states plainly that the key rewards correctness and has no column for the route.
+  (B) stance_misread — The author calls it a good little machine that sorts, despite its 1920s lineage.
+  (C) half_truth — Paragraph 2 says eight questions cannot sample many forms of reasoning at all.
+  (D) nec_suff_swap — Brevity is one of several converging conditions listed in paragraph 2, not the sole cause.
+
+[Inspired by: "Improving middle school math may mean learning from elementary schools", https://kappanonline.org/improving-middle-school-math-may-mean-learning-from-elementary-schools/]
