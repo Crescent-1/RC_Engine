@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260905-0075 | Tier: elite | Score: 9.2 | Status: approved | Compliance F1: 0.871 | Novelty: 0.451 | Screen: red | Generated: 2026-09-05T03:54:45.461644+00:00
+======================================================================
+
+[PASSAGE]
+
+Which came first in Gaza after October 2023 — the dying or the ruin of the work? The standard telling is careful, and I want to grant it what it deserves. Casualty tallies were compiled under conditions that made compilation itself dangerous: killed, wounded, displaced, structures destroyed, each figure hedged and revised. Alongside those tallies, in a smaller register, ran an economic footnote — that the Strip's modest outsourced software sector, a few hundred people writing code for European and Gulf clients, had ceased to exist. Reported side by side, the two facts assumed an order. First the killing and the flight; then, downstream, some months later, the accounting of lost livelihoods. The arrow ran one way, from bodies to income, and nobody had to argue for it.
+
+The arrow does not survive contact with the timeline. Consider a small development team of the kind that existed there in numbers — described to me in the flat sequential manner such people use when reconstructing an outage. The power went. The backup generators had fuel for days, not weeks. Within roughly a week the clients were unreachable, the repository unreachable, the shared channel dark, and the delivery deadlines that sustained a decade of contracts had already been missed — before most of the team had been killed, and before most had been displaced. That order matters beyond Gaza now, because the same fragile arrangement — remote labour reaching wealthy clients through a single contested cable — is how a growing share of the world's poorest skilled workers eat.
+
+So the two destructions share a mechanism. The team's economic existence had always rested on uptime. Uninterrupted uptime. Nothing else held a Rotterdam client for eleven years. But the wires that carried that uptime ran through the same infrastructure that made a neighbourhood addressable, powered, lit, locatable. I am not claiming anyone intended the sector's death, and I am not claiming the counters were indifferent. The claim is narrower and stranger: the network that made these people employable was the network that made them findable, and its severing was, in the same hours, the end of the work and a precondition of the danger. One act. Two ruins. No sequence between them.
+
+Any count must choose a unit. Person, household, structure — these are the available shapes, and each can be verified by someone standing in front of it. None of them is a decade-old client relationship with a firm in Rotterdam. None is a repository three people edited together at two in the morning across two neighbourhoods. That object cannot be killed, because it was never alive; it cannot be displaced, because it had no location; it cannot be wounded. It simply stops appearing. I have no better metric to offer, and I distrust the impulse to supply one, because the trouble is not that the instrument is coarse. A life and a working professional world are not two magnitudes of one quantity. Summing the first with perfect accuracy tells you nothing whatever about the second — the aggregation is not incomplete, it is orthogonal. Every emergency count is built to answer the question standing in front of it. Which leaves open what such an instrument, honestly and precisely operated, is doing to the questions nobody thought to put to it.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) recommending a supplementary metric capable of recording professional relationships that emergency instruments built for bodies inevitably omit.
+(B) showing that a single severance ended the work and endangered the workers simultaneously, which ordinary counting units cannot register.
+(C) tracing how the killing and displacement of skilled workers eventually produced the documented collapse of an outsourced software sector.
+(D) arguing that casualty tallies compiled in wartime were hedged, revised, and therefore unreliable about both deaths and lost livelihoods.
+
+Q2. Which one of the following is most strongly implied by the way the passage ends?
+(A) Losses that cannot be photographed or verified in place are for that reason less grave than the deaths that were counted.
+(B) Instruments operated honestly can still leave whole classes of loss outside the range of anything they were built to ask.
+(C) The counters, by choosing units they could verify, quietly made themselves complicit in erasing the sector's destruction from record.
+(D) Emergency counting should be suspended until units are devised that can register relationships as well as persons and structures.
+
+Q3. What is the purpose of the small development team's account of the outage in the second paragraph?
+(A) To demonstrate that better generator capacity and redundant cabling would have preserved the sector through the first weeks.
+(B) To illustrate that remote labour worldwide now depends on arrangements as fragile as the one Gaza's coders relied upon.
+(C) To prove that the software sector's losses were larger in economic terms than the casualty tallies had suggested.
+(D) To establish that the work had ended before most of the team was killed or displaced, reversing the assumed order.
+
+Q4. Which one of the following, if established, would most damage the author's central claim?
+(A) Casualty tallies were revised upward substantially after the first year, making the reported figures considerably less final.
+(B) The Rotterdam client had been considering relocating its development contract to a cheaper supplier in another country.
+(C) The coders' client contracts had been terminated months earlier, and the network cut merely confirmed an already-completed commercial collapse.
+(D) Several of the sector's firms had used satellite links that were unaffected by the destruction of the terrestrial cable.
+
+Q5. The passage supports all of the following statements about the counting of losses EXCEPT:
+(A) A repository edited jointly across two neighbourhoods cannot be described as displaced.
+(B) Each emergency count is designed to answer the question immediately confronting it.
+(C) Every available counting unit can be verified by someone physically standing in front of it.
+(D) The instrument's coarseness is what prevents the professional world's destruction from entering the record.
+
+Q6. Regarding the shared mechanism described in the third paragraph, the author asserts that:
+(A) the eleven-year Rotterdam relationship survived because the team maintained backup generators and redundant delivery channels.
+(B) the infrastructure carrying the team's uptime was the same infrastructure that rendered a neighbourhood addressable and locatable.
+(C) the network's severing was intended by someone to destroy the sector's clients along with the neighbourhood's residents.
+(D) the severing of the network first ended the work and then, some hours later, produced the danger.
+
+Q7. Which one of the following positions is described in the passage but not endorsed by the author?
+(A) Figures gathered under wartime conditions were hedged and revised, and gathering them was itself dangerous work.
+(B) Remote labour reaching wealthy clients through one contested cable feeds many of the world's poorest skilled workers.
+(C) Lost livelihoods form a downstream accounting that follows the killing and the flight by some months.
+(D) A working professional world and a human life are not two magnitudes of a single quantity.
+
+Q8. The passage most directly corrects which one of the following impressions?
+(A) That an emergency instrument can be honestly operated and still produce numbers worth using.
+(B) That software work in Gaza was too small a sector to merit inclusion in wartime reporting.
+(C) That the economic footnote records a later consequence of the deaths and displacements reported above it.
+(D) That casualty compilers were indifferent to the livelihoods vanishing alongside the bodies they tallied.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — Integrates the timeline reversal of paragraph 2, the shared-mechanism claim of paragraph 3, and the orthogonality of units in paragraph 4.
+  (A) premature_closure — Paragraph 4 states plainly that the author has no better metric and distrusts the impulse to supply one.
+  (C) overqualification — This is the standard chronology the author explicitly grants and then dismantles in paragraph 2's timeline of the outage.
+  (D) stance_misread — The author repeatedly credits the counters' accuracy; the trouble is orthogonality, not coarseness or unreliability of the tallies.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — The closing sentence widens from this count to what any precise instrument does to unasked questions, without impugning the operators.
+  (A) false_symmetry — Paragraph 4 denies the two are magnitudes of one quantity, so no ranking of gravity is available.
+  (C) moderate_extremism — The author disclaims indifference and intent in paragraph 3; the claim is about categories, not complicity of counters.
+  (D) premature_closure — The author offers no reform and defends each count as built to answer the question in front of it.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The example is introduced immediately after "The arrow does not survive contact with the timeline," and its function is to break the sequence.
+  (A) premature_closure — No remedy is proposed; the fuel and cable details describe fragility, not a fix the author endorses.
+  (B) example_promotion — That generalisation is a consequence the author draws afterward, not the work the example is doing at that point.
+  (C) level_confusion — The passage never compares magnitudes; paragraph 4 insists the two are not quantities of one kind.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — The load-bearing move is that one severance simultaneously ended the work and created the danger; a prior collapse restores a sequence and dissolves the simultaneity.
+  (A) scope_inflation — Revised body counts concern the tallies' precision, which the author already grants and treats as beside the point.
+  (B) half_truth — A contemplated future move does not disturb the claim that the actual severing ended work and enabled danger at once.
+  (D) adjacent_answer — Exceptions in some firms leave intact the described team's simultaneity of ruin, which is what the argument rests on.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — Paragraph 4 explicitly rejects coarseness as the trouble: the aggregation is orthogonal, not incomplete, so the diagnosis here misstates the level of the failure.
+  (A) passage_supported — Paragraph 4 states the object cannot be displaced because it had no location, and cannot be wounded.
+  (B) passage_supported — Paragraph 4 closes with "Every emergency count is built to answer the question standing in front of it."
+  (C) passage_supported — Paragraph 4: person, household, structure are "the available shapes, and each can be verified by someone standing in front of it."
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — Paragraph 3 states the wires carrying uptime ran through the infrastructure making a neighbourhood addressable, powered, lit, locatable — a single network with two effects.
+  (A) phrase_misuse — Paragraph 3 says nothing but uninterrupted uptime held that client; generators had fuel for days only.
+  (C) stance_misread — The author expressly disclaims any claim about intent: "I am not claiming anyone intended the sector's death."
+  (D) causal_inversion — Paragraph 3 insists on "One act. Two ruins. No sequence between them," denying any interval between the two.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — This is the "standard telling" staged in paragraph 1 and then rejected in paragraph 2, where the arrow fails to survive the timeline.
+  (A) stance_misread — The author reports this approvingly, granting the standard telling what it deserves rather than distancing from it.
+  (B) adjacent_answer — The author asserts this directly at the close of paragraph 2 as the reason the ordering matters beyond Gaza.
+  (D) category_slip — This is the author's own claim in paragraph 4, stated flatly and without attribution to anyone else.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — Paragraph 1 plants exactly this side-by-side ordering, and paragraph 2's outage timeline shows the work ended before most killing and flight.
+  (A) level_confusion — The author affirms honest, precise operation; what is questioned is the range of questions such instruments address.
+  (B) scope_inflation — Paragraph 1 notes the sector was reported, in a smaller register; its inclusion is not in dispute.
+  (D) straw_version — The author never attributes indifference and explicitly denies it, so this is not the impression being corrected.
+
+[Inspired by: "Muhammad Shehada: ‘I would never release him’", https://www.lrb.co.uk/the-paper/v48/n12/muhammad-shehada/i-would-never-release-him]

@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260905-0080 | Tier: elite | Score: 0.0 | Status: solver_dispute | Compliance F1: 0.804 | Novelty: 0.542 | Screen: green | Generated: 2026-09-05T11:34:07.329674+00:00
+======================================================================
+
+[PASSAGE]
+
+A stroller stops before a Berlin shop window and lets the passing crowd go ahead. Such a pause belongs readily to the world of Franz Hessel’s Walking in Berlin, published in 1929. It also supplies an accusation. Unemployment, police violence and nationalist mobilisation were transforming the city; Hessel lingered over courtyards, faded façades and unhurried acquaintances. We can distinguish three uses of urban description. Reportage connects a street to an event. Social observation connects its ordinary uses to the people who command them. Reverie releases it into private association. Each has a recognisable operation. A reporter names the confrontation, locates its participants and establishes what happened. A social observer follows someone through an entrance, notices who passes unchallenged and discovers how apparently common space is apportioned. A reverist allows a doorway to summon childhood. The brass plate beside that doorway need not interest all three equally. These distinctions give the charge against Hessel considerable force. His composure, on the evidence of his preferred scenes, looks cultivated rather than compulsory. He has time. The practice of strolling had travelled, through nineteenth-century Parisian writing, from leisurely streetgoing into an art of reading metropolitan life; transplanted to Berlin, its cultivated detachment could look like an inherited exemption from urgency. Call the opposing interpreters the accusers and the defenders: these are positions, not organised schools. The accusers find protected leisure where the defenders find a city becoming less shareable. Yet a remembered courtyard can accommodate reverie and social observation simultaneously: remembering former encounters may reveal that their setting no longer admits them. Nor does every account of an entrance establish who was refused. The three compartments cease to hold their contents apart. Agreement about Hessel’s leisurely manner would therefore settle little; the contested object becomes the relation between his walker’s freedom and the freedoms available around him.
+
+The accusers want the lens turned towards Blutmai, joblessness, the republic’s approaching collapse. The defenders inspect its field of vision: who can loiter, enter, remember, feel at home. One demands an identifiable subject; the other notices the limits of the frame. Granted, the latter makes political attention a matter of altered access rather than topical declaration, without making the missing subjects disappear. A wider field is not necessarily a sufficiently exposed picture.
+
+“Political” consequently names either avowed comment on collective events or sensory and social arrangements that disclose unequal possession of a city. This difference generates much of the disagreement about the same mild sentences. Definitions can make the quarrel look soluble by stipulation. Hessel’s adequacy, however, depends—by the stronger test—on the social range his walker permits, not merely on our ability to give his quietness a political name. Some exclusions may remain comfortably unseen.
+
+Walking in Berlin matters most as an education of urban readers, teaching perception of fragile continuities while perhaps leaving their destruction recognisable too late; as Hessel’s scattered newspaper pieces become more fully available and catalogued, their immediate occasions will require comparison with the book’s slower invitations. The consequential object is how these public forms distribute attention under pressure, since an education in noticing may disclose its limits only when circumstances change.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) Hessel’s sensitivity to altered urban access resolves the accusation of detachment by establishing the political adequacy of his leisurely descriptions.
+(B) Hessel’s political significance turns on how his writing educates attention to urban freedoms and exclusions under changing pressures.
+(C) Hessel’s omission of Berlin’s major crises establishes his cultivated strolling as an apolitical aesthetic retreat from the city’s historical responsibilities.
+(D) Hessel’s achievement principally consists in combining reportage, social observation and reverie into a unified descriptive method for reading metropolitan life.
+
+Q2. In context, the claim that “A wider field is not necessarily a sufficiently exposed picture” most nearly means that:
+(A) Attention to urban access can broaden political perception without adequately revealing the exclusions and pressures shaping the city.
+(B) Attention to urban access requires explicit accounts of collective events before its descriptions can acquire a recognisably political character.
+(C) Attention to urban access makes unequal possession the principal explanation for the historical crises omitted from Hessel’s leisurely descriptions.
+(D) Attention to streets and access establishes political adequacy because it reveals arrangements that topical declarations might otherwise leave obscure.
+
+Q3. Which view does the author report or steelman rather than adopt as the passage’s own position?
+(A) Calling Hessel’s quietness political does not settle his adequacy, which requires attention to the social range available through his walker.
+(B) The disagreement over political definitions makes the historical stakes of urban exclusion and privilege a verbal rather than substantive matter.
+(C) A remembered courtyard can combine private association with social observation when its former encounters reveal a present restriction on access.
+(D) Hessel’s preferred scenes make his composure look like protected leisure when contemporary crises demand a more directly topical lens.
+
+Q4. Which one of the following best explains the primary purpose of the discussion of reportage, social observation and reverie?
+(A) The discussion explains how reportage identifies events, social observation traces access, and reverie connects urban places with private personal associations.
+(B) The discussion encourages readers to rank social observation above reportage and reverie as the most adequate response to metropolitan political crisis.
+(C) The discussion supplies an initial classification that becomes unstable before the passage turns towards the relation between different urban freedoms.
+(D) The discussion invites readers to test whether descriptive manner is a reliable basis for judging the politics of urban attention.
+
+Q5. According to the passage, why can remembering a courtyard’s former encounters constitute social observation as well as reverie?
+(A) Remembering former encounters can reveal that the courtyard no longer permits the social interactions it previously accommodated.
+(B) Remembering former encounters can establish that the walker’s continuing access reflects the courtyard’s availability to its earlier social users.
+(C) Remembering former encounters can identify the particular authorities whose decisions caused the courtyard to become less socially accessible.
+(D) Remembering former encounters can transform private associations into an account of the collective events responsible for metropolitan exclusion.
+
+Q6. The passage supports all of the following statements about the evaluation of Hessel’s urban writing EXCEPT:
+(A) Treating altered access as political attention does not remove the importance of the collective events missing from Hessel’s chosen subjects.
+(B) The immediate occasions of Hessel’s newspaper pieces will require comparison with the slower invitations extended by Walking in Berlin itself.
+(C) Recognising unequal urban possession in Hessel’s quiet descriptions satisfies the stronger test of his adequacy as a political observer.
+(D) Agreement about Hessel’s leisurely manner would leave unresolved the relation between his walker’s freedom and the freedoms available around him.
+
+Q7. Which one of the following research findings would most weaken the final paragraph’s suggestion that Hessel’s education in perception might make destruction recognisable too late?
+(A) Contemporary reading diaries consistently show that Hessel’s descriptions helped readers identify threatened social encounters before those encounters became impossible.
+(B) Contemporary newspaper archives show that reports of police violence reached many Berlin readers before Hessel’s book became available to them.
+(C) Contemporary correspondence suggests that some readers valued Hessel’s leisurely manner more highly after rapid political changes transformed their familiar surroundings.
+(D) Contemporary property records show that several courtyards described by Hessel remained physically intact well beyond the republic’s eventual political collapse.
+
+Q8. Which one of the following, if established, would most damage the author’s central claim?
+(A) Across newly catalogued newspaper pieces, Hessel addressed collective confrontations more explicitly than expected; their topical engagement substantially exceeded that found in his Berlin book.
+(B) Across neighbourhoods and occupations, Hessel’s recorded walks favoured socially privileged acquaintances; several excluded groups received substantially less descriptive attention than his defenders had assumed.
+(C) Across contemporary reviews and memoirs, Hessel’s cultivated detachment was frequently admired by nationalist readers; admirers interpreted his leisurely scenes as affirmations of inherited privilege.
+(D) Across readerships and crises, Hessel’s invitations to notice urban details produced no discernible perceptual learning; readers’ insights derived instead from explicit topical commentary.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — The passage moves from accusations of detachment through competing definitions of political attention to its stronger test: social range and perceptual adequacy under pressure.
+  (A) premature_closure — Paragraphs two and three distinguish political legibility from adequacy, while the ending keeps the education’s limits open.
+  (C) missing_link — This adopts the opening accusation without following the bridge from omitted events to attention, access, and changing circumstances.
+  (D) category_slip — The opening categories become unstable; their overlap is not the final evaluative concern about distributed attention under pressure.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The photographic metaphor qualifies the defenders’ expansion of political attention: including access does not establish sufficient disclosure of inequality.
+  (B) premature_closure — Paragraph two grants political character to altered access without making explicit topical declaration a prerequisite.
+  (C) scope_inflation — The passage expands what political attention can notice; it does not make urban access the principal cause of omitted crises.
+  (D) category_slip — The metaphor distinguishes a recognisably political field of attention from an adequately revealing one, rather than equating them.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — This is the accusers’ case, granted force in paragraph one and specified in paragraph two. The author subsequently tests a broader conception of attention.
+  (A) category_slip — Paragraph three explicitly advances this stronger test as the author’s evaluative position.
+  (B) category_slip — Paragraph three mentions apparent definitional resolution only to reject its sufficiency; neither camp is assigned this dismissal of historical stakes.
+  (C) category_slip — Paragraph one supplies this as the author’s own qualification of the initial descriptive compartments, not merely an attributed camp position.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — The distinctions first lend force to the accusation, then break down. This invites reassessment of manner as a basis for political judgment.
+  (A) category_slip — This accurately summarises the opening distinctions but does not explain why the author establishes and then unsettles them.
+  (B) premature_closure — The categories overlap rather than form a hierarchy, and the later social-range test leaves social observation’s adequacy unsettled.
+  (C) category_slip — This accurately describes the discussion’s structural sequence rather than its purpose in changing the reader’s basis of judgment.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — The courtyard example links recollection to altered access: private remembrance can disclose a change in the space’s social availability.
+  (B) category_slip — The courtyard example distinguishes the walker’s freedom from surrounding freedoms; his access cannot establish other users’ continued admission.
+  (C) missing_link — The example establishes possible recognition of lost access, not identification of the authorities responsible for it.
+  (D) scope_inflation — Paragraph one concerns a setting’s changed availability, not an explanatory account of collective events across the metropolis.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — This substitutes classification as political for the stronger evaluative test. Paragraph three requires scrutiny of social range, including exclusions that remain unseen.
+  (A) passage_supported — Paragraph two grants attention to altered access political status 'without making the missing subjects disappear.'
+  (B) passage_supported — The final paragraph says the newspaper pieces’ 'immediate occasions will require comparison with the book’s slower invitations.'
+  (D) passage_supported — Paragraph one states that agreement about his leisurely manner would settle little and identifies the relation between freedoms as the contested object.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — This directly challenges the proposed temporal limitation by showing that the book’s perceptual education enabled recognition before destruction.
+  (B) category_slip — Earlier receipt of topical reports does not establish when Hessel’s education enabled recognition of threatened urban continuities.
+  (C) premature_closure — Retrospective appreciation after transformation does not demonstrate timely recognition and may coexist with the suggested delay.
+  (D) category_slip — Physical survival does not establish survival of the encounters and access constituting the fragile continuities in the final paragraph.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — The passage ultimately locates Hessel’s importance in educating urban attention. This finding removes that educative contribution rather than merely exposing limits the argument already anticipates.
+  (A) category_slip — Explicit engagement in another public form motivates the final paragraph’s proposed comparison rather than invalidating its attention-based inquiry.
+  (B) premature_closure — Limited social range could lower Hessel’s assessed adequacy while reinforcing the author’s proposed test and warning about comfortably unseen exclusions.
+  (C) scope_inflation — One constituency’s appropriation does not establish the work’s overall perceptual operation and could exemplify the limits the author asks readers to examine.
+
+[Inspired by: "The Blinkered Flâneur: Walking with Franz Hessel in 1920s Berlin", https://publicdomainreview.org/essay/the-blinkered-flaneur]

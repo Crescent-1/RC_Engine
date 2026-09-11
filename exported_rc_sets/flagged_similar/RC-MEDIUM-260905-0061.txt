@@ -1,0 +1,114 @@
+RC ID: RC-MEDIUM-260905-0061 | Tier: medium | Score: 8.8 | Status: approved | Compliance F1: 0.836 | Novelty: 0.48 | Screen: red | Generated: 2026-09-05T03:50:22.845809+00:00
+======================================================================
+
+[PASSAGE]
+
+The doctrine that yellow fever rose from rotting matter in warm cities is older than the U.S. Army's medical department, and it was inherited, not invented. Vector transmission means something narrower than what that doctrine allowed. It means the passage of an infectious agent from one host to another through the body of an intermediary organism, in which the agent spends time. Not proximity. Not season. Not the smell of a wharf in August. The older account was not stupidity; it was faithful bookkeeping of what officers could see. Fever came in hot months, near standing water, in filthy districts, and left when frost arrived. Every association held. What the associations concealed was the animal doing the carrying.
+
+Set the sequence out plainly: a man with fever in his blood, a mosquito that bites him, a wait of some days while the agent matures inside the insect, and then a second man, not immune, bitten. The insect is not a symptom of bad conditions the way a stench is; here the parallel breaks, because a stench cannot be caught, counted, bred in a jar, or withheld. What changed the Army's mind was not the fashion for germs — half the officers had accepted germs for a decade and still blamed the air — but the conversion of a loose pattern into a chain each link of which could be gripped separately and pulled apart.
+
+Havana in 1900 is where the definition earns its keep. Reed's commission did not go looking for a general correlation; it built a hut, screened it, and asked what a man would catch there. Lazear and Carroll took bites deliberately; Lazear died. Volunteers slept in bedding fouled by fever patients and stayed well, which no theory of contaminated air survives. Others, kept in clean quarters and protected from every filthy influence except one screened mosquito, sickened on schedule. Think of a house with a dozen doors and a thief who keeps getting in. Bolt them one at a time. Filth, bolted: he still enters. Foul air, bolted: he still enters. Bolt the insect, and the thefts stop. That is the whole method, and the city then supplied the confirmation at scale. Gorgas's crews poured oil on cisterns, screened barrels, drained puddles; fever fell away in districts whose garbage nobody had touched. Streets stayed dirty. Transmission ended anyway. The old explanation could not tell you why one filthy block emptied of fever while its equally filthy neighbour did too, once both had lost their breeding water.
+
+So I refuse the tidy compromise that both accounts were partly right and therefore equally causal. They were not equally anything. Miasma described the setting in which mosquitoes flourish — warmth, water, crowding — and described it accurately; it never named the mechanism, and a description that names no mechanism buys you nothing at the moment you must decide what to do on Tuesday morning. The Army did not adopt the mosquito because it was elegant. It adopted it because it told a quartermaster what to purchase: wire mesh, kerosene, and lids for the water barrels behind the barracks kitchen.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) defining disease transmission as any illness reliably linked to heat, water and filthy surroundings
+(B) arguing that a named, interruptible transmission chain displaced a merely descriptive account of disease
+(C) recovering the neglected accuracy of miasmatic reasoning about warmth, crowding and urban water supply
+(D) documenting the personal courage of army physicians who accepted infection to advance medical knowledge
+
+Q2. The passage stops where it does in order to:
+(A) suggest that elegance of theory finally persuaded army officers to abandon older doctrine
+(B) leave open whether sanitation campaigns in Havana could be repeated in other tropical cities
+(C) anchor the argument in what a mechanism lets someone actually buy and do
+(D) concede that the mosquito and the miasma accounts were roughly equally serviceable explanations
+
+Q3. Regarding the Havana experiments described in the passage, the author asserts that:
+(A) men sleeping in soiled bedding from fever patients did not fall ill
+(B) men in clean quarters sickened only after repeated bites from screened mosquitoes
+(C) both Lazear and Carroll died after deliberately submitting themselves to infected bites
+(D) the commission began by seeking a general correlation between filth and fever
+
+Q4. The central idea of the passage would be undermined if:
+(A) yellow fever also declined in cool northern cities that had never been oiled
+(B) garbage removal in Havana had quietly begun in a few wealthier districts
+(C) some officers in the Army had accepted germ theory well before the Havana work
+(D) districts with breeding water removed and mosquitoes gone still had fever spreading
+
+Q5. The author's position on why the Army abandoned the older doctrine is best characterised as:
+(A) amusement at the naivety of officers who trusted their own uncorrected observations
+(B) reluctant admission that both accounts carried causal weight in roughly equal measure
+(C) acceptance that the spread of germ theory made the older doctrine seem outdated
+(D) insistence that a graspable, breakable chain, not intellectual fashion, forced the change
+
+Q6. We can infer that the image of bolting a dozen doors one at a time refers to:
+(A) accumulating many correlations until their combined weight compels belief
+(B) eliminating candidate routes singly until only the operative route remains
+(C) restricting every environmental condition in which mosquitoes are known to flourish
+(D) sealing a hut so thoroughly that no infectious agent could possibly enter
+
+Q7. The passage as a whole is best understood as an attempt to:
+(A) establish that mosquitoes, not filth, transmit yellow fever between human hosts
+(B) move from a definition through experiment to a refusal of easy compromise
+(C) defend a strict standard of explanation by which mechanism outranks description
+(D) narrate how Reed's commission and Gorgas's crews ended fever in Havana
+
+Q8. Which one of the following situations is most analogous to the mechanism described in the passage?
+(A) Economists find two rival models of inflation each explain part of the recorded data
+(B) Analysts note factory accidents cluster in months of heat, humidity and long shifts
+(C) Engineers halt bridge failures by replacing one bolt type, though rust remains everywhere
+(D) A hospital lowers infection rates by improving cleanliness across all its wards
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — Integrates the definition (para 1), the chain metaphor (para 2), the Havana bolting experiments (para 3) and the refusal of compromise (para 4).
+  (A) straw_version — Paragraph one explicitly denies that vector transmission means proximity, season or environmental stench.
+  (C) stance_misread — The author grants miasma descriptive accuracy only to deny it causal standing in paragraph four.
+  (D) example_promotion — Lazear and Carroll are one illustration inside paragraph three, not the passage's organising claim.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The final clause about mesh, kerosene and barrel lids delivers the essay's criterion: mechanisms decide Tuesday morning action.
+  (A) causal_inversion — The closing lines deny elegance was the reason, citing purchasable supplies instead.
+  (B) scope_inflation — No question of replication elsewhere is raised; the ending narrows to procurement, not geography.
+  (D) straw_version — The fourth paragraph opens by explicitly refusing that tidy compromise between the two accounts.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — Paragraph three states volunteers slept in fouled bedding and stayed well, which no air-contamination theory survives.
+  (B) half_truth — The passage says one screened mosquito sufficed and they sickened on schedule, not after repetition.
+  (C) phrase_misuse — The passage records that both took bites, but says only Lazear died.
+  (D) causal_inversion — The text says Reed's commission did not go looking for a general correlation at all.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — The argument rests on interruption: bolting the insect stops transmission. Fever persisting after that bolt breaks the load-bearing link.
+  (A) missing_link — Frost already explains northern decline in paragraph one; this contradicts no link in the chain.
+  (B) half_truth — A minor sanitation detail does not touch the screened-hut isolation of the mosquito as mechanism.
+  (C) adjacent_answer — The passage already states half the officers accepted germs for a decade and still blamed air.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — Paragraph two explicitly rejects the germ-fashion explanation and credits the conversion of pattern into separable links.
+  (A) stance_misread — Paragraph one calls the older account faithful bookkeeping rather than stupidity.
+  (B) false_symmetry — Paragraph four refuses this compromise outright, saying the accounts were not equally anything.
+  (C) stance_misread — Paragraph two denies fashion for germs was decisive, noting germ-believing officers still blamed air.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — The thief image glosses the Havana design: filth and foul air were excluded, exposure to the insect was not, and only that stopped it.
+  (A) straw_version — The passage contrasts this loose-pattern reasoning with the separable chain it endorses.
+  (C) level_confusion — The image tests routes of entry, not the setting conditions miasma described in paragraph four.
+  (D) scope_inflation — The hut was screened selectively; total sealing would defeat the experiment's discriminating purpose.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — The historical material serves the author's evaluative purpose: only named, interruptible mechanisms count as explanations that guide action.
+  (A) scope_inflation — The entomological fact is assumed as the vehicle for a broader claim about explanation.
+  (B) category_slip — This describes the structural sequence rather than why the author assembled the material.
+  (D) level_confusion — This summarises paragraph three's content but mistakes the illustration for the passage's purpose.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — Reproduces the structure: the correlated condition persists untouched while removal of a single isolated link ends the outcome.
+  (A) false_symmetry — The passage refuses precisely this partly-right compromise in its fourth paragraph.
+  (B) straw_version — This is exactly the loose seasonal correlation the passage says explains nothing actionable.
+  (D) adjacent_answer — General sanitation is the miasmatic style of remedy, not the isolation of one link.
+
+[Inspired by: "When an American Airplane Crashed Into a School in 1944, an English Village Lost Almost All of Its Youngest Children. Why Has WWII's Worst Civilian Aviation Accident Been Forgotten?", https://www.smithsonianmag.com/history/when-american-airplane-crashed-into-school-1944-english-village-lost-almost-all-of-its-youngest-children-why-has-wwii-worst-civilian-aviation-accident-been-forgotten-180989341/]

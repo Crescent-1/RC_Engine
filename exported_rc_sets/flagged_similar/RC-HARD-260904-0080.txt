@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260904-0080 | Tier: hard | Score: 8.4 | Status: needs_review | Compliance F1: 0.737 | Novelty: 0.581 | Screen: red | Generated: 2026-09-04T20:21:46.535955+00:00
+======================================================================
+
+[PASSAGE]
+
+A category, in the trade sense that governs a review page, is not a description of a book but a promise about what the reading will do to a child. On that understanding, the picture book in question — some forty pages, perhaps a hundred and twenty words in total, following a bloom of moon jellyfish as it fills a bay between dusk and the following dusk — belongs to none of the three categories a reviewer has ready. This is regularly reported as a defect of the book, and the language of the reporting is instructive: it is called hard to place, or unhelpfully quiet, or lacking a clear hook. The vocabulary is commercial and the fault is assigned to the object. But the surface phenomenon of unplaceability has a cause underneath it, and the cause sits on the shelf rather than in the book. The categories were built to sort narratives of blame and rescue. A bloom is neither, and so the sorting apparatus reports an error where none has occurred.
+
+One might suppose this is merely sloppiness of the ordinary kind: a publisher who declined to pick a lane, an editor who let ambiguity pass for depth, a marketing department that could have fixed the whole matter with a subtitle. Assign the book a firmer badge and the trouble evaporates. The supposition is tidy. It is also wrong, and wrong in a way the pages themselves settle. Nothing here is undecided. The bloom arrives, thickens, disperses. The book knows exactly what it is doing at every spread; what it declines to do is supply the reader with a party to hold responsible.
+
+Two categories present themselves with the confidence of old family friends. The warm bay and the too-still water invite ecological warning; the shimmering column of bells under moonlight invites wonder. Both readings have grown more urgent as blooms have become an economic fact for fishing fleets and coastal power stations, which is precisely why reviewers reach for them. But these are not two moods along one spectrum. Warning requires a cause and a threatened party; wonder requires a beholder whose amazement is the point. The book supplies neither. It is like a summons issued with no defendant named and no offence recited — correctly formatted, ceremonially delivered, and legally empty. The reader who mistakes the two categories for near-synonyms will not notice that the book has evaded each on separate grounds.
+
+The third category fits closest, and closeness is the trap. Blooms are widely tied to the removal of predators, so a cautionary tale about overfishing seems built for this book. The term has travelled: from moral fable, to conservation pamphlet, to the classroom nature unit, to the review column, shedding at each stage a little of what a tale requires. Here it fails on its own terms. No trawler appears. No absence is dramatized. No comeuppance arrives. The jellyfish surge because conditions permit, and disperse when conditions change, and nobody is punished.
+
+So the failure is not the book's. It has found something the categories were never constructed to hold: abundance at population scale, indifferent, with no villain and no victim to award. The price of saying so is that the review page must now justify its own three boxes rather than the book its refusal of them, and that burden falls on whoever next writes the phrase hard to place.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) showing how a picture book was mishandled by a marketing apparatus that failed to give it a saleable label.
+(B) demonstrating that jellyfish blooms have become economically consequential enough to deserve serious literary treatment.
+(C) defending quiet, unhooked children's books against reviewers who prefer narratives with clearer dramatic incident.
+(D) arguing that a reviewing system built around blame and rescue fails a book depicting indifferent abundance.
+
+Q2. We can infer from the passage that the comparison to "a summons issued with no defendant named and no offence recited" refers to:
+(A) the closeness between warning and wonder, two overlapping registers of awe the book gestures at simultaneously.
+(B) the book's competent execution of forms that nonetheless carry none of the content those categories require.
+(C) the reviewers' habit of delivering verdicts on books without first reading them attentively enough.
+(D) the publisher's decision to release the book without a subtitle clarifying its intended audience and theme.
+
+Q3. Which one of the following views does the author report or steelman rather than endorse?
+(A) The term 'tale' has shed requirements as it travelled from moral fable to review column.
+(B) The book proceeds with full deliberateness: the bloom arrives, thickens, and then disperses.
+(C) Because blooms follow predator removal, the book works as a cautionary tale about overfishing.
+(D) The categories on the review page were built to sort narratives of blame and rescue.
+
+Q4. The primary purpose of the passage is to:
+(A) relocate a reported flaw from the reviewed object to the classifying scheme that reported it.
+(B) persuade publishers to invest in books that resist the commercial vocabulary of hooks and lanes.
+(C) summarize how a wordless-seeming picture book follows a jellyfish bloom across one full day.
+(D) introduce a case, dismiss an easy explanation, and then test three candidate classifications.
+
+Q5. According to the text, the growing urgency of the ecological-warning and wonder readings is explained by:
+(A) the reviewers' commercial vocabulary, which assigns any classification difficulty to the object.
+(B) the shimmering column of bells under moonlight, which makes the wonder reading irresistible.
+(C) the steady removal of predators, which has tied blooms to the overfishing narrative.
+(D) blooms having turned into an economic fact for fishing fleets and coastal power stations.
+
+Q6. The passage supports all of the following statements about the book EXCEPT:
+(A) It runs to roughly forty pages and contains something like a hundred and twenty words.
+(B) It has been described on review pages as quiet in an unhelpful way.
+(C) Its refusal to name a responsible party leaves several of its spreads deliberately ambiguous.
+(D) It dramatizes no absence and stages no comeuppance for anyone within its pages.
+
+Q7. Which one of the following findings would most complicate the author's account of why the wonder category fails to fit the book?
+(A) Moon jellyfish blooms are considered by marine biologists to be genuinely beautiful phenomena.
+(B) The final spreads position a watching child on the shore whose astonishment structures the sequence.
+(C) Reviewers who praised the artwork frequently described feeling amazement while reading the book.
+(D) The book's illustrator has previously produced several successful works in the wonder tradition.
+
+Q8. The central idea of the passage would be most undermined if:
+(A) most children's picture books published each year concern human characters rather than natural populations.
+(B) review pages routinely place books about blameless natural abundance using an established fourth category.
+(C) the book eventually sold well after its publisher added a subtitle naming the bay and the season.
+(D) several reviewers who called the book hard to place later praised its restraint in follow-up columns.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — Only by tracking the sequence — unplaceability reported, sloppiness rejected, each of the three categories eliminated on distinct grounds — does the closing claim that the fault sits on the shelf emerge as the thesis.
+  (A) phrase_misuse — Paragraph 2 explicitly rejects the labeling fix; 'hard to place' names a structural limit of the categories, not a packaging error.
+  (B) scope_inflation — The economic fact about fleets and power stations is a passing explanation of reviewer reflexes, not the passage's subject.
+  (C) adjacent_answer — The author's claim concerns the categories' inability to hold blameless abundance, not a general preference for quietness over incident.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — The simile follows the statement that warning needs a cause and threatened party and wonder needs a beholder; the book is 'correctly formatted' yet supplies neither, so the form is intact and empty.
+  (A) terminological_twin — Paragraph 3 insists these are not two moods on one spectrum; the book evades each on separate grounds, not by blending them.
+  (C) stage_misattribution — The legal image describes the book's relation to the categories, not the reviewers' procedural carelessness in judging it.
+  (D) phrase_misuse — The subtitle idea belongs to the supposition paragraph 2 calls tidy and wrong, not to this simile's argument.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — Paragraph 4 presents this as the closest-fitting reading and then dismantles it: no trawler, no dramatized absence, no comeuppance, so the author reports it only to defeat it.
+  (A) stance_misread — The genealogy of the term is the author's argument for why the third category fits only loosely.
+  (B) stance_misread — Paragraph 2 offers this as the author's counter-evidence against the sloppiness hypothesis, not as a reported view.
+  (D) stance_misread — This is the author's own diagnostic claim in paragraph 1, stated without attribution to anyone else.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — The whole movement — surface phenomenon, rejected alternative explanation, three categories eliminated — exists to shift the burden onto the review page, as the last paragraph states.
+  (B) scope_inflation — No recommendation to publishers appears; the burden the closing paragraph assigns falls on reviewers, not on investment decisions.
+  (C) level_confusion — This is accurate summary of the book's content, but the passage's purpose is argumentative rather than descriptive.
+  (D) level_confusion — This correctly names the passage's structure while missing why the author built that structure.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 states directly that both readings have grown more urgent as blooms became an economic fact for fleets and power stations, which is why reviewers reach for them.
+  (A) stage_misattribution — The commercial vocabulary explains how the fault gets assigned, not why warning and wonder feel urgent.
+  (B) half_truth — The moonlit column is said to invite wonder, but the passage attributes the readings' growing urgency to economic consequences.
+  (C) category_slip — Predator removal is offered in paragraph 4 to explain the third category's apparent fit, not the urgency of the first two.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — Paragraph 2 states 'Nothing here is undecided' and that the book knows exactly what it is doing at every spread; the option wrongly converts withheld blame into formal ambiguity, a level confusion.
+  (A) passage_supported — Paragraph 1 gives these figures directly in describing the picture book in question.
+  (B) passage_supported — Paragraph 1 reports the book being called hard to place, unhelpfully quiet, or lacking a clear hook.
+  (D) passage_supported — Paragraph 4 states that no trawler appears, no absence is dramatized, and no comeuppance arrives.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — The author excludes wonder specifically because the book supplies no beholder whose amazement is the point; a structuring astonished observer restores exactly that missing requirement.
+  (A) adjacent_answer — The beauty of the subject is conceded when the passage says moonlit bells invite wonder; that never settled the category question.
+  (C) level_confusion — Readers' amazement is an effect on the audience; the author's test concerns whether the book itself installs a beholder.
+  (D) stage_misattribution — The illustrator's past output says nothing about whether this book's pages supply the beholder wonder requires.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — The thesis holds that the categories were never constructed to hold indifferent abundance; an established, routinely used category for exactly that removes the shelf's incapacity and returns the difficulty to this book.
+  (A) missing_link — Rarity of such books explains why categories lag but does nothing to show the categories could hold them.
+  (C) adjacent_answer — Commercial recovery through labeling addresses sales, not the author's claim that the sorting apparatus lacks the relevant box.
+  (D) half_truth — Revised individual verdicts leave intact the claim that the three available categories cannot accommodate blameless abundance.
+
+[Inspired by: "Little Books with Big Subjects", https://hakaimagazine.com/features/little-books-with-big-subjects/]

@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260905-0081 | Tier: hard | Score: 7.8 | Status: needs_review | Compliance F1: 0.862 | Novelty: 0.524 | Screen: red | Generated: 2026-09-05T03:51:37.188666+00:00
+======================================================================
+
+[PASSAGE]
+
+An instrument records what it was built to record, and its silences are rarely accidental. When a planning department in a mid-sized city commissioned an audit of its derelict properties — the trigger was a partial wall collapse at the old gasworks, and the department's counsel wanted a defensible order of operations — the brief specified three scored columns: structural hazard, soil contamination, demolition cost. Twelve sites were surveyed over four months. The audit behaved like an insurance adjuster walking a fire-damaged house: it priced the joists, tested the flue, noted the cracked lintel, and reported faithfully on everything an adjuster is trained to see. An adjuster does not ask whether the family still eats in the kitchen. That is not negligence. It is the shape of the form. And a form, once approved, tends to be mistaken for the world it was drawn from.
+
+The numbers were real. Gasworks: hazard 8.4, sealing cost $310,000. The old rail cooperage: 6.1, $88,000. Engineers called the instrument sound. A neighbourhood association chair told the council the audit "measured the buildings and called that the site" — a sentence worth keeping, though not quite as she meant it.
+
+She meant the audit had asked too narrow a question. The record supports something earlier than that. The design phase was not where the failure occurred; the columns were competently specified for the assumption they served, which was that a derelict property is a property in zero current use. Derelict described the roofs. It was silently extended to the people. And there the parallel breaks: a collapsing wall and an unoccupied lot are not two readings of the same emptiness, since one is a fact about masonry and the other a claim about human beings that nobody had gone to check. Scores of them used the cooperage yard weekly. The audit had no column that could have held them, because the officials who wrote the brief had already settled what use meant before an engineer set foot on gravel.
+
+The department proposed a comment period. Notice, thirty days, a hearing. Comment periods reward the organised. The families who bring folding chairs on Sunday mornings do not file letters, do not attend, and leave nothing a clerk could later cite — which is precisely the form of use the audit had erased.
+
+That the hearing fix fails is not evidence that informal use resists counting. It counts easily; it simply requires being present when it happens. A graduate researcher, working alone with a clipboard, visited eight of the twelve sites at hours the engineers had no reason to keep — half past seven on Saturdays, dusk on weekdays — and logged what she found: a table assembled from pallet wood, a clearing swept with a shop broom, a hopscotch grid chalked on the cooperage slab and re-chalked after rain. Grant the engineers everything. Their hazard figures were accurate and their cost estimates held. The temptation is to say both instruments were partly right and should be averaged, and that verdict should be refused, because an average of a correct measurement and an absent one is simply the correct measurement with the absence hidden inside it. What closes the gap is the visit. Eleven people at the cooperage, 7:40 a.m., one thermos.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) how a definition settled before measurement began determined what the instrument could ever record.
+(B) how a technical oversight in the audit's column design left informal community use unrecorded and unpriced.
+(C) how public consultation procedures systematically favour organised groups over families who use derelict sites informally.
+(D) how engineering measurement and community testimony must both be weighed before any demolition priority list is settled.
+
+Q2. In the context of the passage, the sentence "What closes the gap is the visit" is best understood as:
+(A) a recommendation that engineers be retrained to notice social uses alongside their structural readings.
+(B) a concession that informal use resists documentation and no available method can reliably register it.
+(C) an assertion that the missing information was obtainable by simply being there at the right hours.
+(D) a proposal that hearings be relocated to weekends so that folding-chair families can attend them.
+
+Q3. Which one of the following positions is described in the passage but not endorsed by the author?
+(A) The audit asked a question that was drawn too narrowly around the buildings themselves.
+(B) The hazard scores and sealing costs the survey produced were accurate as far as they went.
+(C) Averaging a correct measurement against an absent one merely conceals the absence inside it.
+(D) A comment period would not surface the users who gather at the cooperage on Sunday mornings.
+
+Q4. Which one of the following situations is most analogous to the mechanism described in the passage?
+(A) A hospital's staffing model, built on a prior decision that unpaid family attendants are not caregivers, records no ward labour they perform.
+(B) A library's circulation software is poorly coded and drops roughly one in twelve loan records, so annual borrowing totals come out lower than reality.
+(C) A school weighs test scores and teacher assessments equally, so that a pupil strong on one measure and weak on the other receives a middling final rank.
+(D) A city surveys commuters at railway stations and, receiving replies mainly from season-ticket holders, publishes conclusions that overstate satisfaction with the service.
+
+Q5. Which one of the following is suggested by the sentence "a collapsing wall and an unoccupied lot are not two readings of the same emptiness"?
+(A) Both descriptions were false, since the cooperage yard was used weekly and its masonry proved sound.
+(B) Structural hazard and vacancy should be scored on separate columns rather than combined into one derelict rating.
+(C) One term names an observed physical condition; the other asserts something about people that went unverified.
+(D) The engineers overstated the emptiness of the cooperage because they surveyed it only during standard working hours.
+
+Q6. Which one of the following is most strongly implied by the way the passage ends?
+(A) Quantitative instruments generally miss the human meaning that only sustained qualitative fieldwork can supply.
+(B) The researcher's findings will be enough to reverse the department's demolition priorities for the cooperage.
+(C) A single dated observation can register what an approved instrument was structurally unable to hold.
+(D) Future audits should add a fourth scored column recording the number of informal users per site.
+
+Q7. Which one of the following best describes the role played by the fourth paragraph, on the proposed comment period?
+(A) It concedes that some forms of use genuinely leave no record and therefore cannot be counted.
+(B) It supplies the empirical detail about Sunday gatherings that the earlier paragraphs had merely asserted.
+(C) It documents the department's evasiveness, showing officials preferred consultation theatre to correcting their brief.
+(D) It tests a plausible remedy and shows it reproduces the very omission it was meant to repair.
+
+Q8. According to the text, the graduate researcher's fieldwork is described as:
+(A) conducted across all twelve sites, using the same four-month window as the original survey.
+(B) conducted alone at eight of the sites, at hours engineers had no reason to keep.
+(C) commissioned by the department as a supplement to the three scored columns of its brief.
+(D) presented to the council by the association chair as evidence against the audit's findings.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — The passage moves from the form's shape, through the association chair's partial diagnosis, to the claim that officials fixed the meaning of 'use' before any surveying, and closes by showing the omission was curable by presence.
+  (B) stage_misattribution — Paragraph 3 states the design phase was not where the failure occurred; the columns were competently specified for their assumption.
+  (C) example_promotion — The comment-period passage in paragraph 4 is one illustration of the erasure, not the passage's governing claim.
+  (D) false_symmetry — Paragraph 5 explicitly refuses averaging two instruments, calling that the correct measurement with the absence hidden inside.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — It follows the refusal of averaging and the researcher's dawn and dusk logs, naming presence as the operative remedy rather than a procedural or analytic one.
+  (A) stage_misattribution — Paragraph 5 grants the engineers everything; the fault lies with the brief's prior definition, not engineering competence.
+  (B) level_confusion — Paragraph 5 opens by denying exactly this: informal use 'counts easily; it simply requires being present when it happens.'
+  (D) adjacent_answer — The passage rejects the hearing remedy in paragraph 4 rather than rescheduling it to a different hour.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — Paragraph 3 attributes this reading to the association chair and then says the record supports 'something earlier than that,' placing the fault before the question was drawn.
+  (B) level_confusion — The author endorses this directly in paragraph 5: 'Grant the engineers everything. Their hazard figures were accurate.'
+  (C) stance_misread — Paragraph 5 states this as the author's own verdict against splitting the difference.
+  (D) half_truth — Paragraph 4 is the author's own analysis of why comment periods reward the organised.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — It reproduces the passage's structure: a category fixed before measurement, competently applied, which therefore has no slot for real activity that is nonetheless observable.
+  (B) stage_misattribution — This is a technical defect in execution, whereas the passage locates the failure in an assumption fixed before the instrument was built.
+  (C) false_symmetry — This is the averaging move the passage explicitly refuses in paragraph 5, not the mechanism it describes.
+  (D) adjacent_answer — This mirrors only the comment-period point about organised respondents, not the prior definitional erasure the passage foregrounds.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — The clause immediately following distinguishes 'a fact about masonry' from 'a claim about human beings that nobody had gone to check,' which is the asymmetry the sentence marks.
+  (A) half_truth — The passage affirms the structural findings; only the vacancy claim is challenged, and the masonry was not vindicated.
+  (B) category_slip — The sentence concerns the evidential status of two claims, not how many scoring columns the brief should have carried.
+  (D) stage_misattribution — The timing point belongs to paragraph 5's researcher; here the fault is the brief's prior extension of 'derelict' to people.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The closing tally — eleven people, 7:40 a.m., one thermos — is offered without commentary as the countable thing the audit's columns had no place for, widening from the case to the method.
+  (A) framework_import — Paragraph 5 insists informal use 'counts easily,' so the point is timing of presence, not a limit on quantification.
+  (B) scope_inflation — No claim is made about the council's decisions; the passage stops at what was observed, not what follows administratively.
+  (D) premature_closure — The ending gestures at presence as method; it stops short of prescribing a revised scoring form.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The paragraph is positioned between the diagnosis and the researcher's visit, ruling out the procedural fix so that presence remains as the answer; its closing clause names the erased form of use.
+  (A) level_confusion — Paragraph 5 opens by denying that this failure shows informal use resists counting.
+  (B) example_promotion — The paragraph's function is to eliminate a candidate remedy, not to furnish evidence for the weekly use already stated.
+  (C) stance_misread — The passage attributes no bad faith; it says earlier that the omission 'is not negligence' but the shape of the form.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — Paragraph 5 specifies she worked alone with a clipboard, visited eight of the twelve sites, and chose Saturday mornings and weekday dusk.
+  (A) half_truth — The text says eight of the twelve sites; the four-month period belongs to the engineers' survey, not hers.
+  (C) category_slip — She is described as working alone; nothing in the text places her under the department's commission.
+  (D) adjacent_answer — The chair's remark to the council appears in paragraph 2, well before the researcher's logs are introduced.
+
+[Inspired by: "Unusual Picnic Places Around the World", https://www.atlasobscura.com/articles/unusual-picnic-places-around-the-world]

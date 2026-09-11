@@ -1,0 +1,114 @@
+RC ID: RC-HARD-260904-0078 | Tier: hard | Score: 0.0 | Status: solver_dispute | Compliance F1: 0.81 | Novelty: 0.563 | Screen: red | Generated: 2026-09-04T19:39:35.698931+00:00
+======================================================================
+
+[PASSAGE]
+
+The empathy account of contagious yawning was consolidated in the 1990s and early 2000s, when researchers began sorting yawn responses by the observer's relationship to the yawner. The gradient was orderly. Kin yawned back most, then friends, then acquaintances, then strangers, with the effect thinning as social distance widened. Around the same time the mirror-neuron literature was expanding to cover emotional contagion generally, and the yawn slotted in neatly: a small involuntary rehearsal of another body's state, low-cost, unwilled, and therefore taken as evidence that fellow-feeling runs below deliberation. On this reading, closeness supplied the necessary condition. People who did not yawn back were understood to be people who had not, in the relevant sense, registered the other person at all — and autism and psychopathy research was recruited to firm up the inference.
+
+A quieter tradition treated the same gradient as noise. On this account yawn contagion is a perceptual-motor reflex: a conspicuous facial motion enters the visual system and triggers a matching motor program, in the way a sudden gape or a stretch does, with no representation of the other's inner state involved anywhere. The social gradient survives, but as a by-product of viewing conditions. One looks longer, and more directly, at a spouse across a table than at a stranger on a platform, so the stimulus is delivered more reliably to the people one is close to. Closeness produces looking; looking produces the yawn. Nothing about what the yawn means enters the chain, and the correlation that seemed to license a theory of mind is instead a fact about who shares a room with whom.
+
+Then someone measured the looking. The design was plain. Participants watched short videos — yawns, and control clips of the same faces performing non-yawn mouth movements — while an eye-tracker logged fixation durations region by region, eyes against mouth. Contagion was scored afterward from the participants' own behaviour on tape. The result did not sort the way either camp had prepared for. Time on the mouth predicted subsequent yawning; time on the eyes did not, or did so more weakly. The reflex theorists might claim this, but only by forgetting that their motion-trigger story was indifferent to region, and the empathy theorists had assumed the eyes, being where the state is read, would carry the effect. Both had staked something on gaze landing where their signal lived.
+
+What both had assumed, and neither had examined, is that contagion is caused by taking in a signal about the yawn — its emotional freight or its automatic imitability. Fixation data point instead at something duller: exposure to the motion, unaccompanied by any construal of it, in a region of the face that carries very little social information and a great deal of movement. The gradient can stay; it costs nothing to grant that intimates yawn at each other more. Granting it also concedes that fifty years of sorting subjects by relationship measured the wrong variable, and that the question with a future in it is not what passes between two people when one yawns but why the visual system rates an opening mouth as a category of motion worth copying at all — as it rates a nine-centimetre gape above a chewing jaw filmed from the identical angle.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) The reflex tradition has been vindicated, because fixation on the mouth shows that motion alone, without construal, drives the yawning response reliably.
+(B) Eye-tracking evidence embarrasses both accounts of yawn contagion, suggesting that the field's organising variable should be motion rather than relationship.
+(C) Since closeness is required for contagious yawning to occur, relationship remains the variable that any future account of the phenomenon must explain.
+(D) Empathy research went wrong by recruiting autism and psychopathy findings, a move that inflated a modest correlation into a claim about fellow-feeling.
+
+Q2. Which one of the following best describes the role played by the second paragraph?
+(A) It concedes the empathy account's data while raising the possibility that eye-tracking will eventually settle the dispute between the two traditions.
+(B) It presents a rival explanation on which the social gradient is preserved but stripped of any role for reading another's state.
+(C) It introduces an objection the author endorses, thereby preparing the reader to accept the reflex reading of the later fixation results.
+(D) It corrects the empathy account by reversing the direction of causation, showing that looking produces closeness rather than closeness producing looking.
+
+Q3. Which one of the following situations is most analogous to the mechanism the passage finally proposes?
+(A) Commuters recall billboards near their own homes better than distant ones, because familiar routes are travelled more often and attended to more closely.
+(B) A drug outperforms placebo in trials, which is taken as sufficient proof that the proposed biochemical pathway underlying the illness is correct.
+(C) Shoppers pause at a stall because a rotating sign catches peripheral vision, though surveys credited the stall's reputation for the extra footfall.
+(D) A jury finds a witness credible after tracking her eyes, since the eyes are where sincerity is read and inner states become legible.
+
+Q4. According to the text, the experiment's control clips are described as:
+(A) recordings of participants' own yawning behaviour scored afterward from tape.
+(B) footage of a chewing jaw filmed from an angle identical to the gape.
+(C) videos of unfamiliar faces held still while the eye-tracker logged fixation.
+(D) videos of the same faces making mouth movements that were not yawns.
+
+Q5. Which one of the following research findings would most weaken the author's conclusion in the final paragraph?
+(A) Eye fixation predicts yawning weakly but reliably across several samples of adult participants.
+(B) Mouth fixation predicts yawning only when viewers can identify the face as a person's, not a mannequin's.
+(C) Psychopathy scores correlate poorly with contagion rates in a large replication using video stimuli.
+(D) Kin still yawn back more often than strangers do, even after fixation durations are statistically controlled.
+
+Q6. Which one of the following research findings would most strengthen the author's concluding position?
+(A) Yawns filmed from behind, with the mouth invisible, still produce contagion in a majority of viewers tested.
+(B) Participants who report closer relationships with the filmed yawners also show longer total fixation on those faces.
+(C) Autistic participants show reduced contagion alongside reduced fixation on the eye region of yawning faces.
+(D) Wide mouth openings in animated abstract shapes elicit yawns at rates matching those from filmed human faces.
+
+Q7. Based on the passage, we can infer that a researcher who accepted that 'both had staked something on gaze landing where their signal lived' would most likely:
+(A) treat the fixation result as exposing a premise the two camps quietly shared rather than as arbitrating between them.
+(B) read the mouth data as settling the dispute in favour of the reflex account's indifference to facial region.
+(C) argue that gaze measurement is too coarse to adjudicate theories built on unwilled and low-cost responses.
+(D) conclude that the empathy camp erred by locating fellow-feeling in the eyes rather than in the mouth region.
+
+Q8. Which one of the following best describes the author's posture towards the empathy and reflex traditions?
+(A) Neutral between them, holding that the fixation evidence is too preliminary to disturb either camp's central commitments.
+(B) Sympathetic to the reflex tradition, whose deflationary instinct the fixation data are taken to have substantially vindicated.
+(C) Even-handedly unimpressed: each is credited with a coherent prediction, and each is shown to have bet on the wrong premise.
+(D) Dismissive of both, treating fifty years of relationship-sorting as work that produced no usable finding whatsoever.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — Integrates the two rival traditions (paras 1-2), the fixation result that fits neither (para 3), and the closing reframing toward why an opening mouth is copied at all (para 4).
+  (A) premature_closure — Para 3 notes reflex theorists can claim this only by forgetting their story was indifferent to facial region.
+  (C) nec_suff_swap — The passage reports closeness as a correlated gradient, not a necessary condition, and para 4 says relationship was the wrong variable.
+  (D) example_promotion — That recruitment is one detail in para 1, not the passage's central complaint about the measured variable.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — Para 2 keeps the gradient intact while relocating its source to viewing conditions, setting up the shared assumption both camps will later be shown to hold.
+  (A) stage_misattribution — The eye-tracking prospect belongs to para 3; para 2 offers no such anticipation of measurement.
+  (C) stance_misread — The author treats the reflex account as equally embarrassed by the fixation data in paras 3 and 4.
+  (D) causal_inversion — The paragraph states the opposite order — closeness produces looking, looking produces the yawn — and does not claim this reversal is the key contribution.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — Matches the closing move: an effect credited to a social or relational variable turns out to track a low-information but high-motion stimulus feature.
+  (A) half_truth — This reproduces the exposure-via-proximity story of para 2, which the fixation data unsettle rather than confirm.
+  (B) nec_suff_swap — Treats one predictive result as confirming a mechanism, the error para 3 warns against regarding mouth fixation.
+  (D) framework_import — This imports the empathy camp's assumption that the eyes carry the signal, which para 3 reports the data did not support.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — Para 3 states control clips showed the same faces performing non-yawn mouth movements.
+  (A) category_slip — Confuses the control stimulus with how contagion was scored, a separate step described in para 3.
+  (B) stage_misattribution — The chewing-jaw comparison appears in para 4 as illustration, not as the study's control condition.
+  (C) half_truth — The control clips involved movement by the same faces, not stillness by unfamiliar ones, per para 3.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The closing claim is that exposure to motion works unaccompanied by construal; a person-identification requirement reinstates construal at the load-bearing point.
+  (A) half_truth — Para 3 already allows that eyes predicted more weakly, so this confirms rather than threatens the reported result.
+  (C) stage_misattribution — This bears on the empathy literature of para 1, not on the author's motion-exposure conclusion.
+  (D) adjacent_answer — The author explicitly grants the gradient in para 4; leaving it standing damages nothing in the conclusion.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — Strips away social information and relationship entirely while preserving the gape, supporting the claim that the visual system rates an opening mouth as copiable motion.
+  (A) causal_inversion — Contagion without visible mouth motion would undercut, not support, the author's motion-exposure account.
+  (B) half_truth — This supports para 2's viewing-conditions story, which para 4 identifies as still measuring the wrong variable.
+  (C) framework_import — It routes the effect through the eyes, the region para 3 reports did not carry the predictive weight.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — Para 3's line names a symmetry of commitment, and para 4 identifies the shared premise — that contagion follows uptake of a signal about the yawn.
+  (B) nec_suff_swap — Para 3 says reflex theorists could claim this only by forgetting their own story was region-indifferent.
+  (C) straw_version — The author treats the eye-tracking as informative, not as an instrument too blunt for the question.
+  (D) level_confusion — The point concerns where each theory expected its signal, not a better anatomical address for empathy.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — Paras 3-4 fault both camps symmetrically for assuming contagion follows uptake of a signal, while acknowledging each had a definite expectation.
+  (A) false_symmetry — The author treats the result as disturbing both camps, not as too thin to matter.
+  (B) stance_misread — Para 3 blocks this, noting the reflex story was indifferent to region and so cannot claim the result.
+  (D) moderate_extremism — Para 4 grants the gradient stands; the charge is wrong variable, not worthless data.
+
+[Inspired by: "The Rise & Fall Of Liberal Democracy’s Shared Fiction", https://www.noemamag.com/the-rise-and-fall-of-liberal-democracys-shared-fiction]

@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260905-0077 | Tier: elite | Score: 8.6 | Status: approved | Compliance F1: 0.784 | Novelty: 0.545 | Screen: red | Generated: 2026-09-05T10:10:35.784176+00:00
+======================================================================
+
+[PASSAGE]
+
+Precision is especially persuasive when it promises to spare an expensive disturbance. For a utility short of money, magnetic acoustic loggers attached to fittings, and correlators connected at hydrants, offer an extraordinary bargain: long runs examined without opening the street. Escaping water produces vibrations; software compares their arrival times at separated sensors and places a probable source on a map. Manufacturer manuals call the crucial interval the “time delay”; with pipe length and sound velocity supplied, it becomes distance. We can admire the economy. Another crew might enclose the same run within a district, meter its inflow overnight, subtract expected legitimate demand, then close branch valves successively to see where unexplained flow falls. Both seek escaping water. One offers a point, the other an implicated stretch; a dramatic rupture may make their answers coincide almost exactly.
+
+Around these practices stands something like a classroom in which several pupils approach the same problem from different desks. Pressure transients—brief changes travelling through the main—supply one solution; hydraulic models relating supply, pressure and billed consumption offer another. Satellite moisture imagery contributes a sketch, while crews listen directly at valves. Each pupil has different working. Models inherit uncertain pipe histories; satellites see irrigation and rain as well as leakage; listeners return when traffic subsides, lifting the same stubborn triangular valve cover before dawn. The listening school favours a located sound over a district’s unexplained flow; the balance school favours missing volume over a convincing sound. Neither lacks reasons. At the classroom board, their differing answers seem capable of correcting one another, especially when several approaches indicate the same street.
+
+On plastic mains, however, a substantial leak can lose much of its audible character before reaching a sensor; beside a busy road, vibration can resemble leakage; among properties with ageing customer meters, under-registration can resemble water escaping underground. A quiet trace excludes a detectable source under the listening conditions, an apparently reassuring clearance. It excludes nothing quieter. Consider a district whose overnight excess persists after legitimate night use has been checked, and falls when a plastic branch is isolated, although repeated acoustic visits mark that branch as quiet. The disagreement survives competent work. Sound has travelled poorly; water has continued travelling. Nor do additional maps necessarily supply independent witnesses: shared assumptions about routes, demand and pipe material can align their errors, giving network noise an impressively precise address without identifying its cause.
+
+Acoustic ingenuity earns its place as triage, but the district test must govern the next excavation in that case. Its answer concerns disappearing volume, not an inferior approximation to a sound’s location. District metering carries the older practice of balancing supply against consumption from the whole undertaking into bounded neighbourhoods; sequential valve closure carries it down to individual branches. The gain costs night shifts, service interruptions, working boundary valves and sometimes a trench that settles nothing immediately. Crews still have to dig. Even “loss” changes on this journey from accounts to street: imperfect meters, estimated demand and authorised but unrecorded uses enter a quantity spoken of as escaped water. District testing remains the necessary expense, though the balance it tests cannot be cleaner than the allowances from which it is made.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) Acoustic precision remains useful, but persistent, branch-sensitive volume loss should govern excavation despite acoustic silence, while accounting allowances still qualify what counts as loss.
+(B) District testing should replace acoustic investigation as the utility's standard detection method because its measurement of missing volume avoids the uncertainties inherent in locating sounds.
+(C) Acoustic and district methods offer equally authoritative perspectives on leakage, so their disagreements should be resolved through mutual correction rather than priority for either approach.
+(D) Acoustic correlation directly observes a leak and therefore supplies location evidence independent of utility records or assumptions, making it preferable to indirect district water balances.
+
+Q2. According to the text, agreement among several detection maps is described as:
+(A) Their agreement supplies independent corroboration because combining different detection technologies cancels each method's weaknesses and separates genuine leakage from misleading signs across the network.
+(B) Their agreement can reflect shared assumptions about routes, demand and pipe material, producing aligned errors rather than independent evidence of a leak's cause.
+(C) Their agreement justifies excavation when several approaches indicate the same street, although each individual technology remains subject to its own distinct sources of uncertainty.
+(D) Their agreement can locate probable leakage through acoustic timing, provided pipe length and sound velocity are supplied for the conversion from delay into distance.
+
+Q3. Which one of the following replacements would most change the passage's justification for giving district testing priority in the case described?
+(A) Replacing the branch-sensitive excess with excess explained by legitimate use would remove the volume evidence that warrants acting despite repeated acoustic silence.
+(B) Replacing repeated acoustic silence with omitted acoustic visits would remove the reliable clearance that otherwise establishes the plastic branch as free from leakage.
+(C) Replacing the classroom metaphor with a comparison of instruments would remove the evidential basis for ranking district balances above acoustic locations during disagreement.
+(D) Replacing the triangular valve cover with a circular cover would remove the practical obstacle that makes district testing necessary despite its operational costs.
+
+Q4. The central idea of the passage would be most undermined if:
+(A) A municipal audit found that district testing required longer night shifts and caused more service interruptions than utilities had anticipated when they first purchased the equipment.
+(B) A field survey found that satellite moisture maps and acoustic location maps often agreed because both contractors used the same outdated records of buried pipe routes.
+(C) Independent calibrated measurements showed that the cited district's excess was legitimate consumption and its apparent decline during branch isolation resulted from a meter response artefact.
+(D) A utility trial found that acoustic correlation located most metal-main ruptures more cheaply than district testing, even after the costs of occasional mistaken excavations were included.
+
+Q5. The primary purpose of the passage is to:
+(A) The author moves from an attractive technical procedure through apparent methodological convergence and unresolved disagreement to a qualified recommendation about the next investigative step.
+(B) The author seeks to challenge precision's authority in excavation decisions and justify costly volume testing without treating its accounting categories as transparent descriptions.
+(C) The author seeks to establish district water balances as the preferred basis for utility management across routine monitoring, network planning and all excavation decisions.
+(D) The author describes several leakage detection methods, their contrasting evidential outputs, their practical limitations, and the accounting allowances involved in identifying missing water underground.
+
+Q6. A pharmaceutical plant's camera systems report no spilled powder. A checked material balance still shows a deficit, which disappears when one enclosed conveyor is stopped. Three camera systems share training images containing no airborne dust. Which reading of this scenario best follows the passage's reasoning?
+(A) The conveyor warrants physical investigation because the checked deficit tracks its operation, while shared visual blind spots undermine the cameras' apparent corroboration of clearance.
+(B) The plant should investigate every conveyor through material balances before consulting cameras, since hidden dust makes visual inspection subordinate across the entire production process.
+(C) The cameras should govern investigation because their precise coverage identifies where spills would appear, whereas the material balance supplies only an indirect estimate of loss.
+(D) The conveyor deficit establishes escaped powder as the loss category, so investigators can defer checking recorded transfers and authorised sampling when deciding where material went.
+
+Q7. In the context of the passage, “an inferior approximation to a sound’s location” is best understood as:
+(A) The phrase suggests that district testing offers a provisional answer whose authority probably depends on reducing accounting uncertainty below the uncertainty affecting acoustic measurements.
+(B) The phrase identifies district testing's accepted limitation: its broad spatial answer becomes useful chiefly when acoustic instruments subsequently refine it into an excavation point.
+(C) The phrase describes the technical uncertainty introduced when assumed sound velocity converts a measured time delay into an estimated distance along a buried pipe.
+(D) The phrase names a rejected hierarchy in which district evidence counts merely as a less precise version of the answer acoustic detection provides.
+
+Q8. We can infer from the passage that “the balance it tests cannot be cleaner than the allowances from which it is made” refers to:
+(A) The tested residual becomes a direct measure of escaped water once sequential valve closure assigns the unexplained district flow to a particular branch underground.
+(B) The tested residual remains too uncertain to govern excavation until legitimate demand and metering errors have been independently measured with greater accuracy than acoustic locations.
+(C) The tested residual inherits uncertainty from estimated consumption and recording practices, so narrowing its physical location does not settle how much represents escaped water.
+(D) The tested residual inherits the physical limitations of boundary valves, so improving valve maintenance and district isolation directly resolves uncertainty about the quantity of leakage.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — The passage moves from precision's attraction through unresolved disagreement to a conditional priority for district testing. Its ending qualifies the volume balance without withdrawing that priority.
+  (B) scope_inflation — Paragraph 4 grants district testing priority in that case, retains acoustic triage, and acknowledges uncertainties within the volume balance itself.
+  (C) false_symmetry — Paragraph 2's apparent classroom symmetry is superseded by paragraph 4's explicit priority for district testing in the described disagreement.
+  (D) half_truth — Paragraph 1 describes calculated probable locations, while paragraph 3 exposes dependence on assumptions; the option turns indirect precision into independent observation.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — Paragraph 3 revisits the apparent corroboration in paragraph 2: additional maps may inherit the same assumptions, so agreement need not provide independent witnesses.
+  (A) false_symmetry — Paragraph 3 explicitly denies that technological plurality guarantees independent witnesses or compensates for shared assumptions.
+  (C) half_truth — Paragraph 2 presents convergence as promising; paragraph 3 blocks the inference that convergence itself justifies excavation.
+  (D) adjacent_answer — Paragraph 1 explains acoustic correlation's calculation, not paragraph 3's claim about agreement among multiple detection maps.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — The branch-isolation example supplies the bridge from limitations of acoustic detection to priority for district testing. Removing unexplained, branch-sensitive loss removes that case-specific warrant.
+  (B) half_truth — Paragraph 3 says silence excludes only detectable sources under those conditions, not leakage; the proposed structural effect assumes the rejected clearance.
+  (C) adjacent_answer — Paragraph 2's metaphor stages apparent comparability; paragraph 3's branch evidence, not that presentation, grounds the ranking.
+  (D) adjacent_answer — Paragraph 2's cover supplies practical texture; paragraph 4's necessity follows from disappearing volume rather than the cover's shape.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — This new finding destroys the evidential basis for treating the district result as disappearing volume requiring excavation. It attacks the passage's decisive case rather than merely adding another operational cost.
+  (A) half_truth — Paragraph 4 already accepts operational expense; higher costs do not invalidate the volume evidence governing the described excavation.
+  (B) half_truth — This appears damaging to detection practice but reinforces paragraph 3's warning about correlated errors rather than undermining the argument.
+  (D) scope_inflation — Results for metal-main ruptures do not defeat paragraph 4's priority in a plastic-branch case with persistent, independently implicated excess.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The purpose is evaluative: to change how competing evidence governs action. Both the late priority judgment and the final qualification constrain that intervention.
+  (A) adjacent_answer — This accurately describes the passage's sequence but substitutes structural arrangement for the evaluative purpose that arrangement serves.
+  (C) scope_inflation — Paragraph 4's case-specific excavation judgment does not establish a general management programme or displace acoustic triage.
+  (D) adjacent_answer — This accurately inventories the material but misses the author's purpose in using it to challenge precision's authority over excavation decisions.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The operationally localised deficit parallels branch-sensitive excess, while invisible airborne dust parallels poorly transmitted leak sound. Shared training data also reproduces the passage's warning about aligned errors.
+  (B) scope_inflation — Paragraph 4 prioritises balance testing in the specified disagreement while retaining acoustic triage; it does not prescribe universal methodological subordination.
+  (C) half_truth — Like the acoustic priority rejected in paragraphs 3–4, this privileges precise observation despite a detection blind spot and contrary balance evidence.
+  (D) scope_inflation — The final paragraph distinguishes a balance deficit from escaped material and retains the need to examine accounting allowances.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The author denies that district testing attempts the same task less accurately. Its disappearing-volume evidence can govern action precisely because it answers a different question.
+  (A) half_truth — Paragraph 4 qualifies accounting quality but does not make district priority depend on a comparative uncertainty threshold.
+  (B) half_truth — Paragraph 1 distinguishes point from stretch, but paragraph 4 rejects making district evidence's value dependent on subsequent acoustic refinement.
+  (C) adjacent_answer — This borrows paragraph 1's acoustic calculation but misses paragraph 4's rejection of a hierarchy between different evidential questions.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — The ending connects the movement from undertaking-wide accounts to individual branches with the changing meaning of loss. Better localisation cannot by itself purify the accounting components of the residual.
+  (A) half_truth — Paragraph 4 grants localisation practical authority but explicitly retains imperfect meters, estimated demand and unrecorded uses within the residual.
+  (B) scope_inflation — The final qualification does not revoke district testing's stated priority or impose comparison with acoustic accuracy as a prerequisite.
+  (D) adjacent_answer — Working valves are operational requirements in paragraph 4; the quoted limitation concerns accounting allowances, which better valve maintenance cannot resolve.
+
+[Inspired by: "Theory of Fluids Enters the 21st Century", https://www.quantamagazine.org/theory-of-fluids-enters-the-21st-century-20260817/]

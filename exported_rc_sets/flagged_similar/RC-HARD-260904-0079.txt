@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260904-0079 | Tier: hard | Score: 6.0 | Status: needs_review | Compliance F1: 0.806 | Novelty: 0.514 | Screen: red | Generated: 2026-09-04T20:19:20.225558+00:00
+======================================================================
+
+[PASSAGE]
+
+A record is a machine for producing a certain kind of silence. The Naturalization Act of 1906 built one: a printed federal petition, identical in Boston and in Butte, with fixed fields for name, age, occupation, port of arrival, vessel, date of landing, the names of two witnesses, and the renunciation of allegiance to a named sovereign. Before it, thousands of courts had improvised their own paperwork and kept it, or did not. The argument that followed was usually staged as one about honesty — whether the new form would catch cheats the old ones let through. That framing mistook the instrument for a filter. The form was not primarily an obstacle placed in the path of the fraudulent; it was a device for producing a national quantity where none had existed, and the quantity, once produced, began to be read as a description of something.
+
+The data came out clean. By the 1910s a federal officer could tabulate, by year and by county, exactly how many people had become citizens — a precision the reformers of the period, and the statistical bureaus that consumed their output, treated as civic hygiene made visible. The archivists who later processed these files were less certain. What the form counted, they noticed, was completed petitions. The two are not the same population.
+
+The reform did correct genuine abuses, and this should be said at length. Judges in some jurisdictions had naturalized men in batches in the weeks before elections, minutes apiece, witnesses supplied by the party clerk at the door. Residency requirements were checked with an indulgence that varied by courtroom and by nationality. After 1906 the same claim had to be made twice, years apart, in writing, before a witness who could be recalled. That is a real improvement in the honesty of the record. It is not, however, an improvement in the record's coverage. The instrument became more truthful about what it recorded without becoming more capacious about what it recorded — and the second property, not the first, is what determines whether a count can stand in for a population.
+
+The form imposed a sequence: a declaration of intention, then a waiting period, then a petition for final admission. Missing the second step reads, in the ledger, as an unfinished process. That reading is too quick. The gap was not an interval of becoming; it was an interval in which nothing was asked. Petitioners moved counties, missed hearings, let declarations expire, and no field existed in which a clerk might record why.
+
+One file from a midwestern county court runs this way: a declaration filed, a petition lapsed, a gap of nine years, a second declaration, a petition granted. Between the two dates the man paid monthly dues to a mutual aid society, sent three children to English-language night school, and was vouched for at his hearing by neighbors who described him as having been part of the town for as long as they could remember. None of that has a column. The files are now read by demographers, by genealogists, by algorithms trained to reconstruct migration flows — more readers, and more consequential ones, than the clerk who filed them ever imagined. A count is honest about its own procedure and mute about everything the procedure declined to ask; this one is mute for exactly nine years, between a stamped lapse and a stamped grant.
+
+[QUESTIONS]
+
+Q1. The passage as a whole is best understood as an attempt to:
+(A) expose the electoral fraud that improvised county paperwork permitted before the federal petition imposed a uniform national standard on courts
+(B) argue that standardized federal record-keeping was a democratic advance whose statistical yield made civic participation visible and measurable at last
+(C) show that a record's growing accuracy about its own procedure leaves untouched the separate question of what it never asked
+(D) warn that demographers and algorithms now misuse historical files by reading them without the training that archivists and clerks once possessed
+
+Q2. Regarding the reforms that followed the 1906 Act, the author asserts that:
+(A) they were designed chiefly as an obstacle to fraud, and succeeded in that narrow aim while creating fresh burdens
+(B) they made the record more truthful about what it recorded without widening what the record recorded
+(C) they resolved the question of the ledger's adequacy by removing the batch naturalizations that had corrupted earlier counts
+(D) they failed to curb the pre-election batch naturalizations that judges in some jurisdictions had conducted in minutes apiece
+
+Q3. 'The gap was not an interval of becoming; it was an interval in which nothing was asked' most nearly means:
+(A) the years between filings record the form's silence rather than any measured stage of the petitioner's transformation
+(B) the years between filings reveal administrative negligence, as clerks possessed the means to record reasons but declined to do so
+(C) the years between filings capture a petitioner still moving incompletely toward citizenship, a process the ledger honestly registers as unfinished
+(D) the years between filings show that petitioners generally abandoned their intentions, since no clerk followed up on lapsed declarations
+
+Q4. Which one of the following findings would most complicate the author's account of what the post-1906 files can and cannot tell us?
+(A) Modern demographers openly acknowledge that completed petitions undercount the immigrant population of any given county
+(B) Clerks routinely appended free-text remarks explaining lapses, and these annotations survive attached to most gapped files
+(C) Mutual aid society ledgers from the period have been digitized and are now searchable alongside the federal petition files
+(D) Some county courts continued naturalizing men in batches for a decade after the federal petition form was introduced
+
+Q5. Which one of the following situations is most analogous to the mechanism the passage describes?
+(A) A hospital tightens its coding rules, so recorded diagnoses become reliable, while patients who never reach a clinic remain outside the totals
+(B) A library digitizes its catalogue, and researchers unfamiliar with its shelving conventions draw mistaken conclusions from the newly available holdings
+(C) A hospital adopts stricter admission audits, catching physicians who had been inflating patient counts to secure larger annual departmental budgets
+(D) A census bureau adds new questionnaire categories, and the resulting figures show groups that earlier tabulations had folded together invisibly
+
+Q6. Which one of the following is suggested by the sentence 'What the form counted, they noticed, was completed petitions'?
+(A) Completed petitions were rare enough that the resulting national quantity was too small to support any county-level annual tabulation
+(B) The tabulations produced by federal officers contained arithmetical errors that later archival processing was eventually able to detect and correct
+(C) A figure precise about its own procedure can still be a poor proxy for the population it is taken to describe
+(D) Archivists possessed interpretive expertise that federal statistical bureaus of the period had deliberately chosen to exclude from their procedures
+
+Q7. Which one of the following best describes the role played by the third paragraph, which begins 'The reform did correct genuine abuses'?
+(A) It qualifies the earlier criticism so heavily that the author's objection is left as a matter of degree rather than kind
+(B) It grants the reform its strongest defence in full, then relocates the dispute onto a property that defence does not touch
+(C) It supplies documentary evidence of electoral corruption in order to justify the federal government's decision to standardize naturalization paperwork nationally
+(D) It contrasts the indulgence of individual courtrooms with the uniformity of the printed form to explain why improvisation ended
+
+Q8. What does the passage's final sentence accomplish?
+(A) It concludes that the naturalization files should be withdrawn from demographers and algorithms until their procedural gaps are properly documented
+(B) It restates the earlier concession that the post-1906 record was more honest, thereby ending the argument on a conciliatory note
+(C) It identifies the mutual aid dues and night school as the evidence a properly designed federal petition form ought to have collected
+(D) It converts a general claim about counts into a datable silence, so the reader sees the omission located in one file
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — The passage tracks the form from its creation through the honesty concession to the nine-year silence, insisting throughout that truthfulness and coverage are different properties.
+  (A) example_promotion — Promotes the third paragraph's conceded abuses into the passage's purpose, though the author explicitly sets that improvement aside.
+  (B) phrase_misuse — Reverses the author's stance by treating 'civic hygiene made visible' as endorsement rather than as the reformers' reported view.
+  (D) scope_inflation — Inflates a closing observation about new readers into a thesis about their incompetence, which the passage never asserts.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — Paragraph three states the improvement is in honesty, not coverage, and names coverage as the property that governs whether a count represents a population.
+  (A) stance_misread — Paragraph one denies the form was primarily an obstacle to the fraudulent, calling that framing a mistake about the instrument.
+  (C) terminological_twin — Treats the honesty concession as settling adequacy, precisely the substitution the author blocks by distinguishing truthfulness from capaciousness.
+  (D) half_truth — Contradicts paragraph three, which credits the reform with correcting genuine abuses including those hurried courtroom sessions.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — The sentence redescribes the gap as an absence in the instrument, not a phase in a person, which the following clause about missing fields confirms.
+  (B) causal_inversion — Blames clerks, though the passage says no field existed in which a reason might be recorded.
+  (C) terminological_twin — Adopts the 'unfinished process' reading the author calls too quick, treating first and final papers as measured stages.
+  (D) adjacent_answer — Converts an absence of questions into a claim about petitioners' abandonment, which the midwestern file directly disproves.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The argument's load-bearing move is that the procedure asked nothing about the interval; surviving explanatory annotations would mean the record was capacious after all.
+  (A) level_confusion — Concedes the author's point at the level of user awareness rather than challenging what the instrument recorded.
+  (C) missing_link — Supplements the federal record from outside it without showing the petition form itself asked anything more.
+  (D) adjacent_answer — Damages the conceded honesty gains, not the coverage argument the author treats as the decisive property.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — It reproduces the exact split: increased fidelity about what the instrument captures, with no change in whom the instrument ever encounters.
+  (B) category_slip — Locates the problem in readers' ignorance rather than in what the recording procedure declined to ask.
+  (C) phrase_misuse — Casts the instrument as a fraud filter, the framing paragraph one identifies as mistaking the instrument for something else.
+  (D) causal_inversion — Depicts expanded coverage, the opposite of the passage's case where capaciousness stayed fixed while honesty rose.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The archivists' observation sits against the officer's tabulated precision, establishing the passage's distinction between an exact count and a described population.
+  (A) half_truth — Invents scarcity; the passage says officers could tabulate by year and county with notable precision.
+  (B) category_slip — Turns a conceptual mismatch between count and population into a claim about arithmetic mistakes never alleged.
+  (D) scope_inflation — Reads institutional intent into a contrast the passage draws merely between confident consumers and later, less certain processors.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — The paragraph concedes honesty at length and then names capaciousness as the property that decides whether a count can stand for a population.
+  (A) stance_misread — Misreads the concession's function; the paragraph sharpens rather than softens by naming a different property entirely.
+  (C) stage_misattribution — Treats the concession as the passage's justification of the Act, though paragraph one already rejected the fraud framing.
+  (D) level_confusion — Describes local content accurately but assigns the paragraph an explanatory role in place of its conceding one.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — The sentence states the principle about honesty and muteness, then pins it to the nine years between the stamped lapse and the stamped grant.
+  (A) moderate_extremism — Prescribes withdrawal; the passage notes new readers with concern but issues no such recommendation.
+  (B) premature_closure — Reads the ending as reconciliation, though the sentence stresses muteness rather than the honesty already granted.
+  (C) example_promotion — Promotes illustrative details into a design proposal; the passage names them as things without a column, not required fields.
+
+[Inspired by: "Memories of Arrival", https://www.commonwealmagazine.org/granfield-patrick-ethnic-memories-maga-trump-ice]

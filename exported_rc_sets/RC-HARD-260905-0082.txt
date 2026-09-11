@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260905-0082 | Tier: hard | Score: 8.4 | Status: needs_review | Compliance F1: 0.85 | Novelty: 0.533 | Screen: green | Generated: 2026-09-05T03:53:30.399052+00:00
+======================================================================
+
+[PASSAGE]
+
+An old man in Redruth, recorded on cassette in the summer of 1987, stopped mid-sentence to knock twice on the arm of his chair before naming a level in Dolcoath where three men had died. He was ninety-one. He had not been underground since 1938. I have listened to that tape perhaps forty times, and for most of my working life I heard in it what my teachers taught me to hear: that the knockers — the small subterranean folk who tapped in the workings, who resented whistling, who were owed a corner of the miner's pasty — were a working occupational safety system in narrative dress. Superstition doing engineering. Not comfort. Not morale. That distinction matters more than I once allowed, and I want to be plain about which side of it I am on. Charming falsehood is easy to defend. What those of us trained in the seventies actually believed was harder: that the lore was instruction, that it transmitted hazard knowledge across generations of men who could not read, and that it worked.
+
+The argument was never that miners believed in fairies and were therefore lucky. It was that the taboo structure encoded pattern. Whistling was forbidden where the ear was the only instrument for judging bad air and moving ground; a man listening cannot be a man whistling. Crumbs left for the knockers imposed a stop. The variance across setts is real, the transcripts are thin in places, the 1987 incident logs cover only four operating and eleven closed workings — and every one of those limits narrows what the correlation could be caused by rather than weakening it. The question is not whether tinners were credulous. It is what a credulous story was carrying.
+
+Consider how a house settles. Cracks appear where the ground gives, not where the plaster is thinnest, and a builder reading the cracks reads the ground. Knocker accounts distribute the same way. They cluster. They cluster where men died. The flat, dry, shallow workings of the eastern moors produced almost no knocker testimony at all, and produced correspondingly few crush and gas fatalities; the deep, wet, unstable setts west of Camborne produced both in quantity. Lore was not evenly spread superstition thinning at the edges. It was thickest exactly where the ground was worst, calibrated sett by sett, level by level, the way a family's warnings about its own staircase are.
+
+The rival account — that all of this came from Cornwall's Germanic mining contacts, knockers being cousins of the kobold, imported wholesale with the technique — is not foolish, and it explains the vocabulary well. It explains the naming. It explains the pasty-corner. It does not explain Dolcoath. If migration carried the belief, the belief should trace migration; instead it tracks fatality geography with an indifference to trade routes that no diffusion model survives. Not that the German connection is fabricated; rather that origin is not function, and the shape of the thing here is Cornish.
+
+So the claim sharpens. Lore did not accompany the knowledge. It was the only channel the knowledge had. Which leaves the thing I cannot yet settle: whether that channel could carry anything a foreman's written notice could not, or whether it was simply what men used because nobody had given them the notice.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) questioning whether oral tradition can transmit technical safety information as reliably as written instruction issued by a mine's foreman
+(B) establishing that Cornish mining lore was locally generated rather than imported, since kobold ancestry cannot account for its Cornish shape
+(C) showing that belief in the knockers gave illiterate miners the comfort and shared morale needed to keep working dangerous and unstable ground
+(D) arguing that Cornish knocker lore was the actual channel through which hazard knowledge travelled, its distribution tracking danger rather than culture
+
+Q2. The central idea of the passage would be undermined if:
+(A) the Redruth informant were shown to have worked a shallow sett rather than the deep Dolcoath level he named on the tape
+(B) knocker testimony were found to be equally dense in the dry eastern moor workings, which recorded almost no crush or gas deaths
+(C) the 1987 incident logs were shown to cover fewer workings than the author reports, weakening the sample behind the correlation drawn
+(D) several Cornish taboo terms were traced conclusively to Germanic mining vocabulary carried into the county by imported technique
+
+Q3. Which one of the following findings would most complicate the author's account of the whistling taboo?
+(A) Whistling prohibitions were recorded most strictly in noisy stamping sheds above ground, where hearing played no part in judging conditions
+(B) German mining regions enforced comparable whistling taboos, suggesting the prohibition may have entered Cornwall along with imported extraction technique
+(C) Some deep western setts left no surviving transcripts describing whistling prohibitions, though fatality records from those workings are unusually complete
+(D) Cornish miners often described the knockers as resenting whistling for reasons of temperament rather than for any reason involving safety underground
+
+Q4. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) A mountain community credits an ancestral spirit with its low avalanche toll, and villagers report that the belief sustains their courage in winter
+(B) A forestry crew's superstition about naming trees is traced to settlers from a region with identical customs, and the wording matches theirs closely
+(C) Fishing villages tell of a sea-spirit demanding silence, and the tale is densest in hamlets facing the reefs where most boats were lost
+(D) A textile town's ghost stories are collected by folklorists who find them uniformly spread across every street and workshop in the old quarter
+
+Q5. Which one of the following best explains the primary purpose of the discussion of how a house settles?
+(A) To suggest that ordinary domestic knowledge and specialised mining knowledge are transmitted by the same familial mechanisms of warning
+(B) To describe how cracks in plaster appear at the points where the ground beneath a building gives way rather than where material is thinnest
+(C) To provide a transition from the passage's methodological concessions into the geographical evidence assembled in the third paragraph
+(D) To give the reader an intuitive rule for reading distribution as evidence of underlying structure before the fatality data arrives
+
+Q6. The author faults the migration-origin account of knocker belief for all of the following reasons, EXCEPT:
+(A) It cannot account for the Dolcoath testimony, which the author names as the case the imported-belief explanation leaves untouched
+(B) It predicts that belief should follow migration, whereas the belief in fact follows the geography of fatalities instead
+(C) It confuses the question of where the lore came from with the separate question of what the lore was doing
+(D) It rests on transcripts too thin and too regionally uneven to support any conclusion about where the belief began
+
+Q7. What does the passage's final sentence accomplish?
+(A) It marks the one question the sharpened claim leaves open, without loosening the claim the passage has just made
+(B) It concedes that written safety notices would in practice have served illiterate miners considerably better than any inherited oral tradition
+(C) It signals that the diffusion debate from the previous paragraph must be resolved before the functional argument can proceed further
+(D) It withdraws the strong functional claim by admitting the author cannot demonstrate that lore transmitted hazard knowledge at all
+
+Q8. According to the passage, why did the flat eastern moor workings generate almost no knocker testimony?
+(A) Their workings lay beyond the trade routes along which Germanic mining contacts carried the vocabulary
+(B) Their ground was shallow and dry, and they produced correspondingly few crush and gas fatalities
+(C) Their miners had access to written safety notices and so needed no narrative form of instruction
+(D) Their surviving transcripts are thin, and the 1987 incident logs covered only four operating workings
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — Integrates paragraph 2's 'taboo structure encoded pattern', paragraph 3's fatality-clustering evidence, and paragraph 5's sharpened claim that lore was the only channel the knowledge had.
+  (A) stage_misattribution — That question surfaces only in the closing sentence as unresolved residue, not as the passage's organising concern.
+  (B) example_promotion — The diffusion rebuttal in paragraph 4 is one supporting move, not the passage's governing claim about function.
+  (C) moderate_extremism — Paragraph 1 explicitly rejects the softened reading: 'Not comfort. Not morale' — the claim is instruction, not reassurance.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — The load-bearing move is that lore clusters where ground was worst; even distribution across safe and dangerous setts collapses the calibration argument entirely.
+  (A) example_promotion — The opening anecdote is illustrative framing, not evidence load-bearing for the distribution argument in paragraph 3.
+  (C) overqualification — Paragraph 2 already concedes the thin sample and argues such limits narrow causation rather than weaken the correlation.
+  (D) adjacent_answer — Paragraph 4 grants the vocabulary point outright; the author separates origin from function, so this leaves the thesis intact.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — The taboo's evidential force rests on paragraph 2's functional link—'a man listening cannot be a man whistling'—which surface-level enforcement in irrelevant settings directly disrupts.
+  (B) overqualification — Paragraph 4 already allows Germanic contribution to vocabulary while insisting origin is not function, so the taboo's use stands.
+  (C) half_truth — Paragraph 2 concedes thin transcripts and treats such gaps as limits on causal attribution, not on the pattern itself.
+  (D) level_confusion — The author's claim concerns what the story carried, not what miners consciously said the story meant.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — Reproduces the passage's core mechanism: an apparently supernatural taboo whose density is calibrated to the local distribution of actual fatal hazard.
+  (A) moderate_extremism — This is the comfort-and-morale reading the author disavows in paragraph 1, not lore functioning as encoded hazard instruction.
+  (B) framework_import — This illustrates the diffusion model paragraph 4 rejects as explaining vocabulary while failing to explain functional distribution.
+  (D) category_slip — Even spread is precisely what paragraph 3 contrasts with clustering—'superstition thinning at the edges' is the pattern the author denies.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The analogy is placed at the head of paragraph 3 to install the interpretive principle—cracks follow the ground—that the sett-by-sett clustering evidence then applies.
+  (A) adjacent_answer — The staircase comparison closing paragraph 3 makes that point; the settling-house image is about reading distribution.
+  (B) level_confusion — This summarises the analogy's content accurately but says nothing about why the author placed it in the argument.
+  (C) stage_misattribution — This names the structural role the analogy plays rather than the authorial purpose behind including it at all.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — Thin transcripts and regional variance are conceded in paragraph 2 as limits on the author's own correlational claim; they are never turned against the diffusion account, which is faulted on distribution, not evidence quality.
+  (A) passage_supported — Paragraph 4 states plainly: 'It does not explain Dolcoath.'
+  (B) passage_supported — Paragraph 4: 'the belief should trace migration; instead it tracks fatality geography.'
+  (C) passage_supported — Paragraph 4 concludes 'origin is not function, and the shape of the thing here is Cornish.'
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — Paragraph 5 first tightens the thesis ('It was the only channel'), then isolates a residual uncertainty about the channel's distinctive capacity—an aperture that narrows rather than retracts.
+  (B) stance_misread — The sentence poses the comparison as unsettled; it does not award the advantage to written notices.
+  (C) stage_misattribution — Paragraph 4 closes the diffusion question; the final sentence raises a new issue about channels, not origins.
+  (D) moderate_extremism — The transmission claim is asserted immediately before; what remains open is only whether lore carried something notices could not.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — Paragraph 3 pairs the absence of testimony directly with the absence of deaths, establishing that lore thickened where the ground itself was worst.
+  (A) framework_import — The passage rejects trade-route explanation of distribution in paragraph 4; it never applies diffusion to the eastern moors.
+  (C) missing_link — Written notices appear only in the closing sentence as a hypothetical alternative, never as an eastern-moor fact.
+  (D) half_truth — These sample limits are stated in paragraph 2 generally, not offered as the reason eastern testimony is sparse.
+
+[Inspired by: "Letters", https://www.lrb.co.uk/the-paper/v48/n14/letters]

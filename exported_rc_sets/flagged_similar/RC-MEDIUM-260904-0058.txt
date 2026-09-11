@@ -1,0 +1,114 @@
+RC ID: RC-MEDIUM-260904-0058 | Tier: medium | Score: 8.8 | Status: needs_review | Compliance F1: 0.89 | Novelty: 0.585 | Screen: red | Generated: 2026-09-04T20:16:30.962029+00:00
+======================================================================
+
+[PASSAGE]
+
+A service can be dismantled without anyone deciding to dismantle it. Marlowe's 2022 move of school-meal assistance onto an online renewal portal was read, at the time, as a decision with intent behind it. Renewal deadlines passed. Children queued with no credit on their accounts. The commentary arrived quickly. The portal was described as an austerity device wearing a user interface, or a surveillance apparatus harvesting household detail, or a vendor's exclusion machine sold to a city that wanted fewer claimants and knew how to get them. Each account had the virtue of naming somebody. Each assumed that a system which sheds families must have been built to shed them.
+
+The records, read in sequence, tell a duller story. A household files a renewal; the address on the form is the new flat, the address on the tax record is the old one; the match fails and the case is routed to manual review. A payslip is photographed at an angle, uploaded, and placed in a verification queue behind several hundred others. A warning notice is generated and sent to the email account the household abandoned two years earlier when the previous caseworker set it up. Nothing here is a glitch, though it is tempting to file it as one — the point is not that each step malfunctioned but that each step worked exactly as specified while passing the case to the next queue. The office holding that queue is staffed for a volume it stopped receiving in 2019. Cases accumulate at the narrowest section of the pipe. By the time a human opens the file, the school term has started.
+
+What the portal did was not digitise a service. It rearranged the order of operations. Verification that once happened after enrolment now happens before it. Uncertainty that a clerk once absorbed is now held by the household, and the household cannot resolve it, because resolution sits in another office's queue. So the delay is not the sum of the errors. It is the shape of the sequence. Every small ambiguity waits on a body of work no one has been given time to do, and waiting is what the design turned into a rule.
+
+Against this it can be objected that one district in Marlowe kept its meal enrolments almost flat through the same period, on the same portal, with the same vendor — which looks like proof that the software was never the problem. It is not. That district retained two clerks with standing authority to accept a mismatched address on the strength of a school register, and it kept a paper route open through the front office. The portal there was one channel among several, not the only aperture. Reproducing that across the city would mean staffed help desks, discretion written into the caseworker's authority rather than into the matching rule, paper preserved as an equal path, and success measured by enrolments completed rather than by transactions processed per hour. All of that is available and none of it is cheap. A better system would not remove the work; it would only relocate the place where a person has to sit and absorb the doubt, and the city adopted this one precisely because it appeared to have abolished that person.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) The portal's harmful effects show that officials deliberately designed it to exclude poor families.
+(B) The portal's problems arose because one district alone retained clerks with discretionary authority.
+(C) The portal caused exclusion by resequencing verification, not by hostile design.
+(D) The portal failed because its software contained defects that nobody had properly tested.
+
+Q2. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) A clinic hires more receptionists and keeps a paper booking route open, so patients rarely miss their scheduled appointment slots.
+(B) A clinic loses patient records because its database corrupts files at random, and technicians cannot reproduce the isolated faults involved.
+(C) A clinic quietly narrows eligibility rules so that fewer patients qualify, then blames the resulting shortfall on its booking software.
+(D) A clinic requires insurance checks before booking; each check clears correctly but sits in one understaffed office's queue until appointments lapse.
+
+Q3. The central idea of the passage would be undermined if:
+(A) the vendor were found to have marketed the portal to several cities that openly wanted fewer claimants.
+(B) a newer, more intelligent matching system were shown to reduce address mismatches in several comparable cities.
+(C) the district that kept enrolments flat were found to have slightly wealthier households than the city average.
+(D) records showed enrolment losses were concentrated where staffing was ample and queues cleared within a day.
+
+Q4. What does the passage's final sentence accomplish?
+(A) It relocates the argument's target from software to the person whose absorbing labour the city believed it had eliminated.
+(B) It confirms the opening claim that the city knowingly built a machine intended to reduce the number of claimants.
+(C) It summarises the district counterexample by listing the staffing conditions that kept its meal enrolments almost flat.
+(D) It concedes that better systems are unaffordable, and so recommends restoring the original paper process citywide.
+
+Q5. Based on information provided in the passage, all of the following are true, EXCEPT:
+(A) Households now hold uncertainty that a clerk once absorbed, and cannot themselves resolve it.
+(B) The office holding the verification queue was reduced in staff after demand rose sharply in 2019.
+(C) The portal changed when verification occurred relative to enrolment rather than merely digitising an existing service.
+(D) One district maintained a paper route through its front office alongside the portal channel.
+
+Q6. According to the text, the warning notice sent to a household is described as:
+(A) being written in language that households found too technical to act upon quickly.
+(B) going to an email address the household stopped using after a caseworker created it.
+(C) arriving after the school term began because verification queues had already grown long.
+(D) failing to generate at all because the matching rule had routed the case elsewhere.
+
+Q7. Which one of the following best explains the primary purpose of the discussion of the district that kept enrolments flat?
+(A) To report that one district on the same portal and vendor held its meal enrolments almost flat.
+(B) To demonstrate that decentralised districts consistently outperform centralised ones in administering welfare benefits.
+(C) To provide a counterexample that functions as a transition into the passage's closing recommendations.
+(D) To pre-empt an objection by showing what conditions, not what software, produced that district's result.
+
+Q8. Which one of the following research findings would most strengthen the author's conclusion?
+(A) Cities adopting newer matching algorithms recorded fewer address mismatches during the first year of use.
+(B) The vendor's internal documents recorded an explicit goal of reducing the number of successful claimants.
+(C) Districts granting clerks authority to override mismatches lost fewer enrolments than districts with identical software.
+(D) Households reported high frustration with the portal's interface and described its instructions as confusing to follow.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates paragraphs 2-4: each step works as specified, yet moving verification before enrolment shifts unresolvable uncertainty onto households.
+  (A) category_slip — Paragraph 1 explicitly rejects the inference from shedding families to being built to shed them.
+  (B) example_promotion — The district in paragraph 4 is a counter-objection answered, not the cause of citywide delay.
+  (D) half_truth — Paragraph 2 insists nothing is a glitch; each step worked exactly as specified.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — Mirrors the passage's mechanism: correct steps, verification moved ahead of service, accumulation at the narrowest section of the pipe.
+  (A) adjacent_answer — Describes the remedy of paragraph 4 rather than a case the author's causal account explains.
+  (B) missing_link — Treats outcomes as isolated technical glitches, which paragraph 2 explicitly refuses as the explanation.
+  (C) category_slip — Reintroduces intentional exclusion, the reading paragraph 1 sets aside as a too-quick attribution of motive.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The argument's load-bearing move is that delay accumulates at understaffed queues created by resequencing; losses without queueing breaks it.
+  (A) stance_misread — Vendor motive concerns paragraph 1's rival accounts; the author's sequencing argument survives regardless of intent.
+  (B) category_slip — Fewer mismatches leave intact the claim that verification's placement relocates rather than removes absorbing work.
+  (C) adjacent_answer — Demographics of the counterexample district do not touch the claim that delay is the shape of the sequence.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — The closing clause displaces attention from the portal onto the abolished absorber of doubt, explaining the city's adoption motive.
+  (B) category_slip — Paragraph 1 presents that as commentary the records complicate, not as the author's own settled conclusion.
+  (C) level_confusion — Those conditions appear earlier in paragraph 4; the final sentence performs a different, displacing move.
+  (D) scope_inflation — The passage says remedies are available but not cheap; it recommends no wholesale return to paper.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The passage says the office is staffed for a volume it stopped receiving in 2019 — demand fell, and no staff cut is described.
+  (A) passage_supported — Paragraph 3 says resolution sits in another office's queue, beyond the household.
+  (C) passage_supported — Paragraph 3 states verification that once happened after enrolment now happens before it.
+  (D) passage_supported — Paragraph 4 says it kept a paper route open through the front office.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — Paragraph 2 says the notice reached the account abandoned two years earlier when the previous caseworker set it up.
+  (A) framework_import — No claim about the notice's wording appears; the failure described is the defunct address.
+  (C) stage_misattribution — Term-start lateness describes when a human opens the file, not the dispatch of the warning notice.
+  (D) half_truth — The notice is generated and sent; routing to manual review concerns the address mismatch, a separate step.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The author raises the objection to answer it, attributing the outcome to clerks, discretion and paper rather than to the portal.
+  (A) level_confusion — This is a correct summary of the content, not the reason the author included it.
+  (B) scope_inflation — The passage makes no general claim about decentralisation; it isolates staffing, discretion and channels.
+  (C) category_slip — This names structural role rather than authorial purpose, which is rebuttal of the software-innocent inference.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — Holds software constant and varies where discretion sits, supporting the claim that placement of absorbing work drives outcomes.
+  (A) missing_link — Fewer mismatches say nothing about queue accumulation or the relocation of absorbed uncertainty.
+  (B) category_slip — Supports the intentional-exclusion account paragraph 1 sets aside rather than the author's structural explanation.
+  (D) adjacent_answer — Usability complaints do not test the sequencing claim, which concerns where verification and discretion are located.
+
+[Inspired by: "When The AI Says To Kill", https://www.noemamag.com/when-the-ai-says-to-kill]

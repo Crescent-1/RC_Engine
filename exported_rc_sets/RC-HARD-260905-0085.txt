@@ -1,0 +1,114 @@
+RC ID: RC-HARD-260905-0085 | Tier: hard | Score: 6.6 | Status: needs_review | Compliance F1: 0.766 | Novelty: 0.539 | Screen: green | Generated: 2026-09-05T10:34:39.859619+00:00
+======================================================================
+
+[PASSAGE]
+
+After pandemic restrictions closed dining rooms, the fortunes of two imagined noodle restaurants pose a puzzle about what allows an old business to survive a new interruption. Set them in former mining towns, each with a century of family ownership, inexpensive meals and customers drawn chiefly from nearby streets. Both lose their tables. Both keep their stoves. Both offer takeaway. By spring 2021, one has enough dependable trade to continue, while the other has exhausted its cash and closed. The survivor also attracts warmer praise for dishes associated with its founders’ home province, praise that becomes more conspicuous as satisfied customers rally around the remaining restaurant. Yet in both kitchens the emergency bestsellers are familiar American-Chinese noodle plates, not the dishes that reviewers single out. Their cooks are feeding much the same appetite. This comparison does not require identical businesses, only enough shared circumstances to make their different fortunes informative. Rent, family savings and illness could overwhelm any advantage described here; hold those roughly equal too. Even then, the closure need not strike two apparently similar local clienteles in the same way, or leave their purchases equally easy to resume once eating together is forbidden.
+
+At the surviving restaurant, orders begin arriving through a practice older than takeaway: the owner’s handwritten tabs for mine-shift workers and retired regulars. A pencil stub stays tucked into the book’s broken spine. During the closure, the owner phones those households, gathers weekly orders and sends meals along routes already used for occasional deliveries. Payment can wait until payday or the next pension deposit. At the other restaurant, every meal has always ended with immediate payment; its new website accepts orders efficiently but encounters each buyer afresh. The tabs keep purchases moving when cash stops moving predictably. This is not affection rescuing a beloved kitchen; it is reciprocal credit giving regulars room to buy, and giving the owner some grounds for expecting them to pay.
+
+Names and addresses appear to furnish the surviving kitchen with a ready delivery network, since the book lets the owner connect a meal to a household without waiting for that household to discover a website. A delivery network is too quick a description: those entries become useful together with the driver’s knowledge of shift changes, the owner’s judgment about whose payment can wait, and the small outstanding balances that customers still expect to settle. Some meals go to work. Others must reach a house before a retired customer’s daughter leaves for her evening job. As disrupted wages stretch into another month, these arrangements sustain not just restaurant sales but workers’ access to meals between shifts; an app could carry their orders without supplying the relations that make them dependable.
+
+The survivor’s better online ratings and newer kitchen may help later, but neither explains why its earliest dependable orders come from people already in the paper books. Within this pair, inherited dealings explain the divergence better than culinary authenticity does. These cases support that judgment, not a general promise about old restaurants: extending it to businesses without the same knowledge of their customers would discard the condition that makes it persuasive here.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) Within this comparison, dependable takeaway sales enable the surviving restaurant to preserve inherited credit arrangements, which become the principal benefit of its continued commercial viability.
+(B) Within this comparison, inherited customer relations sustain dependable purchases during disruption, explaining survival better than culinary authenticity without establishing a general rule.
+(C) Within this comparison, customers’ preference for one restaurant’s more authentic noodle dishes sustains its trade during disruption, accounting for the restaurants’ different fortunes.
+(D) The comparison shows that inherited customer relations give established restaurants a durable advantage during disruption, making their survival prospects stronger than those of newer competitors.
+
+Q2. We can infer from the passage that “some grounds for expecting them to pay” refers to which one of the following?
+(A) The owner’s expectations may rest on the restaurant’s continuing survival, which allows customers to acquire obligations and establish dependable payment habits.
+(B) The owner’s expectations concern knowing when particular households can receive deliveries, allowing meals to arrive despite complicated work and family schedules.
+(C) The owner’s expectations rest on established dealings and customers’ continuing obligations, which make delayed payment workable despite disrupted household income.
+(D) The owner’s experience establishes that offering customers credit secures a restaurant’s survival during disruption, since delayed payment preserves its trade.
+
+Q3. According to the text, the surviving restaurant’s handwritten book is described as doing which one of the following?
+(A) The book supplies names and addresses that are sufficient to create a successful delivery network, independently of the owner’s and driver’s knowledge.
+(B) The book illustrates a delivery resource available to longstanding restaurants generally, whose accumulated customer records offer comparable knowledge of households and payment circumstances.
+(C) The book acquires its useful household information from the dependable takeaway orders generated during closure, recording relationships newly formed through successful meal deliveries.
+(D) The book supplies household information that becomes useful alongside practical scheduling knowledge, judgments about deferred payment, and customers’ acknowledged outstanding balances.
+
+Q4. Which one of the following, if true, would most support the third paragraph’s claim that household entries became effective through practical knowledge and ongoing obligations rather than constituting a ready delivery network?
+(A) The surviving restaurant received substantially more favourable reviews of its provincial specialities after reopening, particularly from visitors unfamiliar with either restaurant’s earlier payment practices.
+(B) The surviving restaurant’s newer kitchen reduced fuel expenditure during closure, leaving the owner more money to maintain equipment and replenish ingredients for takeaway meals.
+(C) Customers who had previously paid immediately praised the surviving restaurant’s new ordering interface for making their takeaway purchases easier during the dining restrictions.
+(D) The same households ordered less reliably when replacement staff used the recorded addresses but lacked the established scheduling knowledge and payment discretion.
+
+Q5. Had the author omitted the third paragraph, how would the passage’s central claim be affected?
+(A) The claim would retain its credit explanation but lose its account of how customer knowledge coordinates deliveries and sustains workers’ access to meals.
+(B) The claim would shift towards treating the inherited tabs as a result of commercial resilience, since the missing paragraph establishes that credit preceded dependable orders.
+(C) The claim would become a general explanation of established restaurants’ survival, since the remaining paragraphs would extend the comparison beyond businesses with known local customers.
+(D) The claim would retain its credit explanation but lose the comparison showing that customers at both restaurants bought similar dishes rather than distinctive provincial specialities.
+
+Q6. The author uses the phrase “feeding much the same appetite” to mean which one of the following?
+(A) The phrase describes the delivery arrangements supporting workers’ access to meals, locating the restaurants’ importance in maintaining daily nourishment rather than simply generating owners’ sales.
+(B) The phrase suggests comparable purchasing capacity among both restaurants’ customers, making their shared local tastes a basis for expecting similar spending patterns during the interruption.
+(C) The phrase identifies shared demand for familiar dishes, separating the restaurants’ contrasting commercial fortunes from the survivor’s more conspicuous reputation for culinary authenticity.
+(D) The phrase identifies a shared demand increasingly shaped by the survivor’s authentic provincial menu, explaining why its favourable reviews translated into more dependable emergency sales.
+
+Q7. Which one of the following best identifies the author’s primary purpose in presenting this comparison?
+(A) The author seeks to redirect explanations of business survival from culinary reputation towards inherited commercial relationships, while specifying the conditions that justify that redirection.
+(B) The author moves from a controlled comparison through an explanation and its elaboration to a concluding qualification about extending the account beyond the cases examined.
+(C) The author describes two restaurants with contrasting outcomes during closure, detailing how credit, delivery knowledge, and continuing customer obligations supported the one that survived.
+(D) The author seeks to establish inherited commercial relationships as the preferred model for restaurant resilience, using the paired cases to guide established businesses through future interruptions.
+
+Q8. Which one of the following is most strongly implied by the way the passage ends?
+(A) Further comparisons must establish comparable customer knowledge before extending the explanation; the passage closes by bounding its causal judgment, not by weakening that judgment.
+(B) Further comparisons should treat longstanding family ownership as the relevant common condition, since the ending presents inherited dealings as a broadly transferable consequence of business age.
+(C) Further comparisons must settle the relative value of inherited dealings and authenticity within this pair, since the restricted scope leaves that local causal judgment unresolved.
+(D) Further comparisons should investigate whether ratings and kitchen improvements explain later performance, since the ending leaves those possible advantages for a subsequent stage of the inquiry.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — The opening weakens the authenticity explanation, the middle establishes how inherited relationships sustain purchases, and the ending limits that explanation to comparable circumstances.
+  (A) causal_inversion — It reverses paragraph 2’s explanation: inherited credit arrangements enable dependable purchases rather than emerging as a benefit of commercial survival.
+  (C) causal_inversion — It makes conspicuous praise the cause of survival, although paragraph 1 identifies shared bestsellers and paragraph 4 rejects authenticity as the better explanation.
+  (D) scope_inflation — It converts the bounded comparison into an advantage for established restaurants generally, discarding paragraph 4’s condition of specific customer knowledge.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — Paragraph 2 connects reciprocal credit with expected repayment; paragraph 3 specifies the outstanding balances customers still recognise as obligations.
+  (A) causal_inversion — It makes survival generate dependable obligations, whereas paragraphs 2–3 make inherited obligations part of what sustains purchases.
+  (B) adjacent_answer — It substitutes paragraph 3’s delivery-timing knowledge for paragraph 2’s grounds for expecting repayment.
+  (D) nec_suff_swap — It turns a conditional advantage into sufficient protection for any restaurant, ignoring paragraph 1’s competing risks and paragraph 4’s customer-knowledge condition.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 qualifies its initial description of a ready network by connecting recorded information to practical knowledge, payment judgments, and continuing obligations.
+  (A) nec_suff_swap — It treats recorded entries as sufficient, precisely the description paragraph 3 corrects by adding scheduling knowledge, credit judgment, and outstanding obligations.
+  (B) scope_inflation — It generalises this restaurant’s detailed knowledge to longstanding restaurants generally, contrary to the explicit restriction in paragraph 4.
+  (C) causal_inversion — It makes emergency orders generate the recorded relationships, whereas paragraph 2 says those older relationships provide the route through which orders arrive.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — Holding the household records constant while removing the surrounding knowledge and discretion isolates the contribution that paragraph 3 attributes to relationships rather than entries.
+  (A) adjacent_answer — It concerns later culinary reputation, which paragraph 4 distinguishes from the explanation of early dependable orders.
+  (B) adjacent_answer — It supplies a separate financial advantage without testing paragraph 3’s distinction between recorded addresses and the relationships making them useful.
+  (C) adjacent_answer — It supports ordering convenience, not paragraph 3’s claim that practical knowledge and obligations make recorded households a dependable network.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — Paragraph 2 already establishes reciprocal credit as the explanation. Paragraph 3 elaborates its practical operation and extends its significance from restaurant sales to workers’ meals.
+  (B) causal_inversion — It reverses the causal account despite paragraph 2, which would still identify older tabs as the source of dependable emergency orders.
+  (C) scope_inflation — It overlooks paragraph 4’s surviving restriction, which would still prevent generalisation to businesses lacking comparable customer knowledge.
+  (D) adjacent_answer — It assigns paragraph 1’s shared-bestseller comparison to the omitted paragraph; that evidence against the authenticity explanation would remain.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The shared bestsellers counter the tempting explanation supplied by the survivor’s provincial reputation, preparing the turn towards inherited dealings.
+  (A) adjacent_answer — It imports paragraph 3’s account of workers’ access into a paragraph 1 phrase comparing the dishes customers wanted.
+  (B) scope_inflation — It expands similarity of food preferences into similarity of purchasing capacity, which paragraph 1 explicitly leaves open to differing disruption.
+  (D) causal_inversion — It makes provincial reputation generate emergency demand, although paragraph 1 distinguishes the praised dishes from the familiar plates actually sustaining orders.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — The author unsettles an attractive explanation, develops a relational alternative, and protects that alternative from unwarranted generalisation. This identifies the intended explanatory intervention.
+  (B) adjacent_answer — It accurately describes the passage’s organisation rather than the authorial purpose served by that organisation.
+  (C) adjacent_answer — It accurately summarises the material but does not identify why the author uses it to redirect explanation and delimit that redirection.
+  (D) scope_inflation — It turns the bounded explanatory comparison into a transferable business prescription, exceeding the limitation expressly maintained in paragraph 4.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — The ending affirms inherited dealings as the better explanation within the pair while making comparable customer knowledge a condition for extending it.
+  (B) scope_inflation — It substitutes age for demonstrated customer knowledge, extending the explanation on a condition paragraph 4 does not endorse.
+  (C) scope_inflation — It expands the restriction on generalisation into uncertainty about the pair-specific judgment that paragraph 4 explicitly affirms.
+  (D) adjacent_answer — It promotes an acknowledged possibility about later advantages into the ending’s implied agenda, overlooking the final restriction on explanatory transfer.
+
+[Inspired by: "Must-Try Spots For Noodle Lovers", https://www.atlasobscura.com/articles/spots-for-noodle-lovers-around-the-world]

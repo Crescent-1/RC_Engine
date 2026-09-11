@@ -1,0 +1,118 @@
+RC ID: RC-ELITE-260905-0076 | Tier: elite | Score: 6.8 | Status: needs_review | Compliance F1: 0.862 | Novelty: 0.457 | Screen: green | Generated: 2026-09-05T03:55:44.765410+00:00
+======================================================================
+
+[PASSAGE]
+
+The Society for Mutual Aid Among the Blind of St Petersburg dated its founding to 1881, and its expulsion rules to a revision of 1894. On 14 March 1902, in the Society's rooms on Gorokhovaya Street, its committee voted seven to three to strike the clerk Iosif Gurvich from the rolls. The stated ground was unauthorised publication. No minutes survive. Six accounts do, none written that year, the last given nine years later.
+
+The chairman wrote to a benefactor in 1903. He described the bylaw as a hull, and the Society as a small vessel that must not be holed by any single passenger's enthusiasm. He had regretted the vote; he had followed the rule. The word he used for the offence, *samovol'stvo*, self-will, had come into charitable statutes from military discipline, where it named a soldier acting without orders; the almshouses of the 1860s borrowed it to describe inmates who left grounds unpermitted. In his letter it means publishing a pamphlet.
+
+A committee member who resigned in 1904 wrote his own version the following year, and it is the only one that describes the hour before the vote: the chairman moving along the corridor, asking each man in turn how he would go, a hand on a sleeve. Twice, this account says, Gurvich rose to answer the charge and was ruled out of order. The document is a private memorandum, addressed to nobody, found among papers the writer kept after leaving the Society.
+
+Gurvich published in an émigré paper in 1907. The pamphlet, he wrote, had concerned wages paid in the Society's brush and basket workshops, and everything that followed was retaliation dressed as procedure. He quoted two sentences spoken at an earlier meeting which, he argued, showed the outcome already settled. He conceded, without being pressed, that the bylaw did exist, that he had not sought committee approval, and that he had walked out before the vote was formally read aloud.
+
+A seamstress from the workshop, blind since childhood, attended as an observer and set down her memory in 1909. She says almost nothing about procedure. What she recalls is the silence after — long, and then the scrape of chairs. She names three committee members with confidence and cannot place the rest. Her three do not match the chairman's list of speakers, nor Gurvich's, nor the resigned member's; one of hers is a man the other accounts put elsewhere that week. Her disinterest buys her no better access to the room.
+
+The porter was asked in 1911, and his answer concerns the cold, the samovar not lit, and eleven candles, which he counted because he had been sent for more. Then, near the end, he says that Gurvich shook the chairman's hand on the way out. It is tempting to call this the detail that undoes the other five — but it does not undo them; it simply cannot be fitted to any of them, and none of the five would be false if it were true. Nobody asked him what the handshake meant. He died the next spring, and the eleven candles remain the only figure in the whole record that two witnesses agree on, because only one witness ever mentioned them.
+
+[QUESTIONS]
+
+Q1. The passage as a whole is best understood as an attempt to:
+(A) reconstruct, from imperfect testimony, the sequence of events preceding the committee's decisive vote
+(B) establish the chairman's contemporaneous letter as the factual baseline for judging later accounts
+(C) show how six later tellings of one meeting fail to converge into a recoverable event
+(D) expose the Society's expulsion bylaw as a device for silencing inconvenient workshop complaints
+
+Q2. According to the text, the seamstress's 1909 recollection is described as:
+(A) vivid about the aftermath, and naming three members whose identities match no other list
+(B) neutral in interest and therefore the most trustworthy of the six surviving accounts
+(C) silent on procedure because she had been excluded from the room during deliberations
+(D) confirmed on one point by the porter, who also placed a man elsewhere that week
+
+Q3. The author of the passage is likely to disagree with which one of the following statements?
+(A) The chairman regretted the vote while regarding himself as bound by the bylaw
+(B) The word samovol'stvo carried, before 1902, senses drawn from military and almshouse discipline
+(C) The porter's handshake cannot be reconciled with the other five surviving accounts
+(D) Gurvich's account, being fullest in motive and detail, settles what happened in the room
+
+Q4. Which one of the following, if true, would most support the claim made about the porter's testimony in the final paragraph?
+(A) The porter's memory for numbers was tested in 1911 and found unusually accurate for his age
+(B) Two of the six accounts explicitly deny that any cordial gesture passed between the two men
+(C) Every other account ends its narrative before anyone had begun leaving the committee room
+(D) Gurvich had privately told a friend that he bore the chairman no personal ill will whatever
+
+Q5. Which one of the following, if established, would most damage the author's central claim?
+(A) Gurvich's pamphlet on workshop wages was later shown to be accurate in its financial figures
+(B) The chairman's 1903 letter to the benefactor was drafted with a lawyer's assistance throughout
+(C) The seamstress and the porter were, unknown to the interviewers, related by marriage in 1906
+(D) The 1902 committee minutes were recovered in 1998, complete and signed by all attending members
+
+Q6. What is the structural function of the chairman's image of the bylaw as a hull and the Society as a small vessel?
+(A) It supplies a self-justifying frame the passage will later show competing tellings quietly dissolving
+(B) It provides the technical definition of samovol'stvo that the following sentence traces historically
+(C) It illustrates the author's view that charitable societies of the era required rigid procedural discipline
+(D) It anticipates the porter's handshake by hinting the chairman felt genuine warmth toward Gurvich
+
+Q7. In the context of the passage, "retaliation dressed as procedure" is best understood as:
+(A) the resigned member's suggestion that the chairman canvassed votes along the corridor beforehand
+(B) a claim that the committee invented the charge of unauthorised publication after the vote
+(C) the author's judgement that the expulsion bylaw had no standing in the Society's statutes
+(D) Gurvich's charge that a valid rule was invoked to punish an unwelcome disclosure
+
+Q8. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) A tribunal overturns a dismissal after finding that the employer's stated ground was a pretext
+(B) Three witnesses to a road accident agree on the car's colour but disagree sharply about its speed
+(C) Five survivors of a factory fire each name a different exit door; a sixth recalls only the heat
+(D) An archivist dates a disputed letter by its watermark, settling a long quarrel among rival scholars
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — The whole movement — six accounts, each with a different partiality, ending on a figure only one witness gives — exists to demonstrate non-convergence, not to adjudicate.
+  (A) level_confusion — The passage refuses reconstruction; only the resigned member describes the hour before, and the author does not endorse it.
+  (B) half_truth — The chairman's letter is presented as one partial telling with its own euphemism (samovol'stvo), never as a measuring standard.
+  (D) scope_inflation — That charge belongs to Gurvich's 1907 pamphlet, which the author reports and immediately qualifies with his three concessions.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Paragraph 5 gives exactly this: silence, scraping chairs, three confidently named men, none matching the chairman's, Gurvich's, or the resigned member's lists.
+  (B) scope_inflation — The passage's closing line on her says disinterest buys no better access, denying the inference from neutrality to reliability.
+  (C) adjacent_answer — She attended as an observer; her silence on procedure is a feature of her memory, not of exclusion.
+  (D) false_symmetry — No account corroborates another; the porter's candles are noted as unmentioned by any second witness.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The author reports Gurvich's claims and then immediately lists three concessions that puncture his authority, treating him as one partial teller among six.
+  (A) stage_misattribution — Paragraph 2 reports precisely this posture, which the author records without visible objection.
+  (B) stance_misread — The author states this etymology directly in paragraph 2 and would not dispute it.
+  (C) half_truth — Paragraph 6 says exactly this: the detail cannot be fitted to any of them, though it undoes none.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — The claim is that the handshake cannot be fitted to the other five without falsifying them; a shared narrative cut-off before the exit explains exactly that non-fittability.
+  (A) adjacent_answer — Accuracy about candles supports the counting detail, not the claim that the handshake resists integration with the five.
+  (B) causal_inversion — Explicit denial would make the accounts contradict the porter, which is precisely what the author says does not happen.
+  (D) missing_link — This makes the handshake plausible but does nothing to explain why it fits none of the five accounts.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The claim rests on the absence of any record capable of arbitrating among six partial tellings; a complete signed minute restores the recoverable event the passage says is gone.
+  (A) half_truth — The pamphlet's accuracy concerns wages, not what occurred in the room, which is what the argument is about.
+  (B) premature_closure — Impeaching one teller's motives strengthens rather than weakens the argument that no account can be trusted as a baseline.
+  (C) scope_inflation — A family tie between two witnesses touches motive, not the availability of a decidable account of the meeting.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The metaphor is introduced early as the chairman's own framing of duty; the subsequent accounts (corridor canvassing, rulings out of order) erode it without the author refuting it directly.
+  (B) category_slip — The metaphor concerns the bylaw's protective role; the etymology of samovol'stvo is a separate, adjacent move.
+  (C) stance_misread — The image is the chairman's defence, reported by the author, not a position the author advances about such societies.
+  (D) adjacent_answer — The vessel image concerns institutional risk, not personal feeling, and no line connects it to the 1911 handshake.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — He concedes the bylaw existed and that he sought no approval; his claim is therefore about the motive behind the rule's use, not its validity.
+  (A) stage_misattribution — The corridor canvassing belongs to the 1905 private memorandum, not to Gurvich's 1907 pamphlet.
+  (B) phrase_misuse — Gurvich admits he published without seeking approval, so the charge was not invented after the fact.
+  (C) stance_misread — The phrase is Gurvich's, and he himself concedes the bylaw existed; the author endorses no such judgement.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — This reproduces the passage's structure exactly: multiple partial tellings that fail to converge, with one witness supplying an unshared detail rather than a corroboration.
+  (A) premature_closure — The passage reaches no verdict on pretext; it leaves Gurvich's retaliation charge standing beside his own concessions.
+  (B) false_symmetry — Agreement on a shared point is precisely what the passage denies exists; only one witness ever counted the candles.
+  (D) level_confusion — A decisive physical datum resolves the case, whereas the passage's point is that no such arbitrating record survives.
+
+[Inspired by: "Peter Kropotkin’s Memoirs of a Revolutionist (1899)", https://publicdomainreview.org/collection/kropotkin-memoirs]

@@ -1,0 +1,116 @@
+RC ID: RC-MEDIUM-260904-0060 | Tier: medium | Score: 7.8 | Status: needs_review | Compliance F1: 0.847 | Novelty: 0.536 | Screen: red | Generated: 2026-09-04T20:18:45.542931+00:00
+======================================================================
+
+[PASSAGE]
+
+How did roughly seven hundred people, most of whom could not have seen a gunboat before that morning, come to be standing on the mudbanks of the Combahee at the moment three Union vessels rounded the bends and put out their small boats? The question is not rhetorical. Confederate pickets watched that river; torpedoes had been sunk in it; the tide there is unforgiving. Colonel James Montgomery's report of the raid is brief and pleased with itself, a soldier's document that records burned rice mills and contraband taken aboard. Later recollections, including those Tubman gave to the friends who wrote her life down, give different numbers and a different sequence. The counts do not agree. It is easy, reading the dispatches alone, to take the whole affair as a well-run expedition whose success needs no further explanation than the boats themselves.
+
+That reading answers a question nobody in the mud was asking. The dispatches settle whether the operation was militarily competent; they cannot settle how the operation and the flight became the same event. Tubman's warning about the sunken torpedoes is real and was decisive for the vessels. It explains why the Harriet A. Weed and the John Adams got upriver. It does not explain why anyone was waiting.
+
+Not that the boats were incidental — without them the people on the bank would have been recaptured by evening. But the sequence recorded is odd for a surprise. Gunboats on a narrow tidal river are visible for a long time before they are useful; the pilots needed the channel described to them in advance; and the fugitives came in numbers, with children and cooking pots, from places at some distance from the landings. People carrying a rice pot do not sprint half a mile on an impulse. Whatever moved them had moved before the whistles blew. The discrepancies between Montgomery's tally and Tubman's, and between both and what the surrounding plantations later claimed to have lost, point to the same thing: a distribution of knowledge along the river that no command structure had built and no report could measure.
+
+Something like that knowledge plainly existed. Word travelled between Combahee plantations already, along the paths that carried news of Port Royal and of the Union foothold at Beaufort; the shoreline was worked, not merely inhabited. Yet the raid was one morning. Networks that had circulated news for eighteen months without producing a mass departure produced one within an hour of the vessels' arrival, which is precisely what a standing readiness, by itself, cannot account for.
+
+So the verdict is narrow and, we think, secure: Tubman's intelligence mattered as the hinge between two things that were each insufficient — a naval force that could reach the landings, and a population that already knew the ground and wanted to go. Neither was cause; the fit between them was. What cannot be recovered is the fit's making: who was told, in what words, how many days before; whether the scouts she sent moved among the quarters or only along the banks; what a woman with a pot decided when she first heard the engines. The record keeps the outcome and loses the arrangement, which leaves us asking not whether the raid was planned but how far down the river the planning reached, and by whom it was carried the last mile.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) Tubman's intelligence joined a capable naval force to a ready population, and that fit, not either part, produced the mass flight.
+(B) The Combahee raid is best understood as a competent Union expedition whose outcome the gunboats and their officers sufficiently explain on their own.
+(C) Tubman's warning about the sunken torpedoes was the decisive factor that allowed the vessels and the fugitives alike to succeed that morning.
+(D) Existing plantation communication networks along the shoreline had made a mass departure inevitable well before any Union vessel ever appeared.
+
+Q2. The passage stops where it does in order to:
+(A) mark the boundary between a secure conclusion and the arrangement the surviving record cannot recover
+(B) establish that Tubman's warning about the river torpedoes fully accounts for the operation's success
+(C) concede that the conflicting tallies make any conclusion about the raid impossible to defend
+(D) introduce the last-mile carriers of the plan as the subject of a subsequent argument
+
+Q3. Which one of the following positions is described in the passage but not endorsed by the author?
+(A) Knowledge along the river was distributed in ways no command structure had built or measured
+(B) Word about Beaufort and Port Royal had already been circulating along the worked Combahee shoreline
+(C) Without the vessels the people gathered on the bank would have been retaken before nightfall
+(D) The success of the raid requires no explanation beyond the arrival and handling of the boats themselves
+
+Q4. 'So the verdict is narrow and, we think, secure.' We can infer from this statement that the author is being:
+(A) dismissive of military documentation as a source that historians should largely set aside
+(B) provisional in tone because further archival discoveries are expected to settle the question
+(C) tentative about the conclusion because the surviving tallies flatly contradict each other
+(D) confident about a limited claim while refusing to extend it past the evidence
+
+Q5. Which one of the following statements, if true, would best invalidate the main argument of the passage?
+(A) Records show the seven hundred had gathered at the landings for unrelated reasons days before any vessel was expected
+(B) Montgomery's own report understated the number of rice mills burned during the morning's operation along the river
+(C) Some plantations later inflated their claimed losses in order to obtain compensation from Confederate authorities
+(D) The Harriet A. Weed had a pilot who already knew the Combahee channel from earlier peacetime service
+
+Q6. Which one of the following best describes the role played by the fourth paragraph?
+(A) It supplies background about Beaufort and Port Royal that contextualises the Union foothold in the region
+(B) It demonstrates that plantation networks were the true cause and the vessels merely a convenient occasion
+(C) It grants the strongest rival explanation its due and then shows it cannot explain the timing
+(D) It abandons the earlier claim about distributed knowledge in favour of a purely naval explanation
+
+Q7. Which one of the following would best license the inference the author draws from the manner in which the fugitives arrived?
+(A) Overseers on nearby estates reported that fugitives had frequently carried cooking pots on earlier individual escapes
+(B) Historians agree that tidal rivers made surprise approaches unusually difficult for Union gunboats in that theatre
+(C) Naval logs confirm the small boats reached the mudbanks within minutes of the vessels rounding the bends
+(D) Interviews record that families packed provisions the previous night after a stranger passed word through the quarters
+
+Q8. Regarding the disagreements among the various tallies, the author asserts that:
+(A) they arise because later recollections were written down by friends long after the raid
+(B) they converge on the presence of knowledge along the river that no report could measure
+(C) they make the number of people on the mudbanks that morning impossible to estimate
+(D) they show Montgomery's report to be the least reliable of the surviving accounts of the morning
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Integrates paragraph two's reframing and paragraph five's explicit verdict that neither element was cause and the fit between them was.
+  (B) adjacent_answer — This is the dispatch-only reading the author rejects in paragraph two as answering a question nobody was asking.
+  (C) half_truth — Paragraph two grants the warning explained the boats' passage but denies it explains why people were waiting.
+  (D) causal_inversion — Paragraph four says eighteen months of such networks produced no departure, so readiness alone cannot account for it.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The final paragraph states the verdict is narrow and secure, then names precisely what cannot be recovered, widening rather than closing.
+  (B) half_truth — Paragraph two explicitly limits the warning's explanatory reach to the vessels getting upriver, not to the flight.
+  (C) moderate_extremism — The author calls the verdict secure; the discrepancies point to something rather than dissolving conclusions.
+  (D) adjacent_answer — The closing question is posed as irrecoverable from the record, not as a thesis the passage will next prove.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — Paragraph one presents this as the easy reading of the dispatches; paragraph two immediately rejects it as answering the wrong question.
+  (A) passage_supported — Paragraph three states this directly as the author's own inference from the discrepancies.
+  (B) passage_supported — Paragraph four asserts this in the author's own voice as a claim he affirms.
+  (C) passage_supported — Paragraph three concedes this explicitly in the author's voice, not as a reported view.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — The sentence pairs a firm conclusion with deliberate narrowness, matching the paragraph's subsequent list of what cannot be recovered.
+  (A) scope_inflation — Montgomery's report is said to settle competence; the author limits it rather than discarding it.
+  (B) adjacent_answer — The final paragraph says the arrangement cannot be recovered, not that better records may arrive.
+  (C) stance_misread — The author calls the verdict secure and treats the discrepancies as evidence, not as grounds for doubt.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — The thesis rests on prior coordinated readiness produced by transmitted intelligence; accidental prior assembly removes the fit Tubman is said to have made.
+  (B) half_truth — A tally error about property damage touches a decorative detail, not the argument about coordinated flight.
+  (C) missing_link — Paragraph three uses the discrepancy itself, and inflated claims would not remove the unmeasured knowledge it indicates.
+  (D) adjacent_answer — This weakens only the navigational half already conceded as insufficient, leaving the fit argument intact.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The paragraph affirms pre-existing networks, then notes eighteen months without departure against one hour with it, isolating what readiness alone cannot do.
+  (A) level_confusion — That is the paragraph's content, not its argumentative role of testing and limiting a rival account.
+  (B) half_truth — The paragraph's whole point is that such networks by themselves cannot account for the sudden departure.
+  (D) stance_misread — The paragraph opens by affirming that such knowledge plainly existed rather than retracting the claim.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The inference is that something moved people before the whistles; advance word reaching households directly supplies the prior arrangement claimed.
+  (A) half_truth — This weakens the pot detail's force rather than licensing the inference of coordinated advance movement.
+  (B) level_confusion — This concerns visibility of the vessels, not the separate question of why people were already waiting.
+  (C) adjacent_answer — Speed of the landing supports naval competence, not the claim that people had been moved beforehand.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — Paragraph three says the discrepancies among Montgomery, Tubman and the plantations point to the same thing: an unmeasured distribution of knowledge.
+  (A) adjacent_answer — The passage notes the friends wrote her life down but does not explain the discrepancies by that fact.
+  (C) half_truth — The opening states roughly seven hundred people, so the counts are treated as usable despite disagreement.
+  (D) scope_inflation — The passage calls his report brief and self-pleased but never ranks it below the other tallies.
+
+[Inspired by: "Juliane Kokott", https://verfassungsblog.de/outstanding-women-09-26/]

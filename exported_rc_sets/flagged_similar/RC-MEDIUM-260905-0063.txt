@@ -1,0 +1,114 @@
+RC ID: RC-MEDIUM-260905-0063 | Tier: medium | Score: 8.2 | Status: needs_review | Compliance F1: 0.875 | Novelty: 0.508 | Screen: red | Generated: 2026-09-05T10:30:55.189389+00:00
+======================================================================
+
+[PASSAGE]
+
+Can a public service become more efficient by appearing only when someone needs it? Macon-Bibb County’s objection to the old downtown loop was precise: buses were circling through thin ridership, consuming fuel and driver hours for seats left empty. Demand-responsive service promised a vehicle shaped by actual use, rather than by inherited lines on a map.
+
+Demand advocates and route loyalists consequently described the county’s choice in opposite terms. The former saw an advance-booked shuttle as a correction to waste in a city of dispersed neighborhoods and limited funds; the latter saw the fixed loop as a public presence whose value could not be read from full seats alone. County officials answered that the new arrangement still connected south Macon, downtown offices and medical buildings, but by a sequence more exacting than a timetable: a passenger booked, received confirmation, waited for pickup, then transferred when a vehicle’s route required it. The figures that favored the shuttle seemed to settle the practical dispute.
+
+In October, Laverne Cole, seventy-two, booked a morning ride from her apartment in south Macon to a downtown cardiology appointment. Her confirmation gave an 8:15 pickup and a 9:00 arrival, leaving twenty minutes for the clinic’s check-in window. At 8:07, the first van was reassigned to a rider whose wheelchair could not be secured in the smaller vehicle nearby. A replacement was sent from another run. Similar adjustments filled the dispatcher’s morning: a late grocery pickup, a driver waiting for an address correction, a passenger cancelling after the vehicle had turned toward her street. Cole’s van reached her at 8:42. It arrived downtown after 9:20. The clinic marked her late and offered a later opening. The delays looked separate because each had a local explanation. They shared a cause, though: every promised movement depended on a fresh alignment of vehicle, driver, passenger and destination.
+
+The printed trip log, assembled after Cole asked for it, gives the day a peculiar density. At 7:31 her booking entered the system; at 7:33 confirmation went out; at 8:06 the assigned van changed; at 8:39 an automated estimate stated that it was six minutes away. On the dispatcher’s screen, Cole was a blue marker that shifted from “scheduled” to “delayed” and then to “onboard.” At the clinic, she was a late arrival whose slot had passed. Between those descriptions lay three unanswered calls from her phone, two periods of hold music, and a return request placed after the later appointment could no longer be guaranteed. No driver refused her. No dispatcher invented the delay. The shuttle performed its instructions with the small deviations that such instructions continually produce. What was the shuttle actually transporting—the passenger, or the proof that her need was legitimate? Vehicle efficiency counts one kind of distance, while transit may be better measured by the waiting and uncertainty it asks a passenger to absorb.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) Demand-responsive transit can shift burdens of waiting and uncertainty onto riders even when it reduces operational waste.
+(B) Demand-responsive transit is generally superior to fixed routes because it eliminates empty seats and unnecessary circulation across public systems.
+(C) Fixed routes remain generally preferable because scheduled buses prevent the ordinary disruptions described in the shuttle system.
+(D) County officials inadequately explained how shuttles would preserve links between south Macon and downtown institutions for regular riders.
+
+Q2. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) A mobile repair service saves fuel because its drivers serve only customers who request appointments in advance.
+(B) A mobile repair service misses one visit after a dispatcher sends its van to the wrong address.
+(C) A mobile repair service confirms visit times, yet routine cancellations and reroutings repeatedly make customers miss work appointments.
+(D) A mobile repair service adds vans, allowing every confirmed visit to occur exactly at its promised time.
+
+Q3. Which one of the following, if established, would most damage the author's central claim?
+(A) Some fixed-route buses also arrive late when traffic slows travel through downtown streets.
+(B) Most shuttle passengers report that confirmations make them feel more informed about their trips overall.
+(C) Across comparable trips, booked shuttles produce no more waiting uncertainty or missed appointments than fixed buses.
+(D) The county's shuttle program saves more fuel per rider than the former downtown loop did.
+
+Q4. Which one of the following is most strongly implied by the way the passage ends?
+(A) The county should return immediately to the old loop because shuttle delays cannot be corrected.
+(B) Transit evaluation should include burdens imposed on passengers, rather than treating vehicle efficiency as decisive.
+(C) Dispatchers need greater authority to refuse bookings that create inconvenient routing conflicts.
+(D) Cole's clinic should revise its late-arrival policy more flexibly for transit-dependent patients.
+
+Q5. All of the following are true of Laverne Cole, EXCEPT:
+(A) Her assigned van was changed after another rider required a vehicle suitable for a wheelchair.
+(B) Her confirmation guaranteed that the clinic would preserve her original appointment despite any transport delay.
+(C) Her status on the dispatcher screen moved from scheduled to delayed and then to onboard.
+(D) Her confirmation specified an 8:15 pickup and a 9:00 arrival for that morning trip.
+
+Q6. Regarding the delays described in the passage, the author asserts that:
+(A) The separate delays shared a systemic cause: each movement required a fresh alignment of several participants.
+(B) The delays were caused chiefly by a dispatcher who ignored Cole's unanswered calls.
+(C) The replacement van arrived late because the driver deliberately departed after the scheduled pickup.
+(D) The clinic's refusal to preserve Cole's slot initiated the sequence of transportation delays.
+
+Q7. Why does the author include the discussion of Cole's trip log and missed appointment?
+(A) To recount the sequence through which Cole reached her cardiology appointment late that morning.
+(B) To make riders' temporal and emotional costs visible alongside the system's recorded operational efficiency.
+(C) To move the narrative from officials' claims toward a final contrast between two measurement systems.
+(D) To determine whether budget savings and average ridership justified replacing the downtown bus loop.
+
+Q8. Which one of the following research findings would most strengthen the author's conclusion?
+(A) Passengers using demand-responsive services report significantly more uncertainty and missed time than comparable fixed-route users.
+(B) Most dispatchers report that software makes vehicle assignments easier to revise during busy periods.
+(C) Fixed-route riders say published timetables are useful even when buses occasionally arrive later than scheduled.
+(D) Demand-responsive vehicles complete more trips daily after operators reduce their fuel consumption per mile.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — The passage moves from the shuttle's efficiency rationale to Cole's experience, showing that operational savings can conceal passenger-borne costs.
+  (B) stance_misread — This mistakes the initial efficiency rationale for the author's final position, which questions efficiency as the sole measure.
+  (C) scope_inflation — The passage exposes a demand-responsive vulnerability but does not establish that fixed routes prevent comparable disruptions.
+  (D) adjacent_answer — Officials did describe continuing connections; the passage instead scrutinises the uncertainty involved in delivering them.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — This reproduces the passage's mechanism: individually ordinary adjustments accumulate because each promised trip requires renewed coordination.
+  (A) half_truth — This captures the efficiency rationale in paragraph one but omits the passage's concern about riders' uncertainty.
+  (B) level_confusion — This treats failure as an isolated staff error, whereas the passage locates Cole's delay in a recurring system sequence.
+  (D) framework_import — This imagines a remedy not supplied by the passage and does not illustrate its account of cascading coordination problems.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — The central claim depends on demand-responsive coordination imposing distinctive burdens that efficiency figures fail to register.
+  (A) false_symmetry — Occasional fixed-route delays do not negate the passage's claim about repeated alignment demands in the shuttle system.
+  (B) missing_link — Feeling informed does not show that riders face less waiting uncertainty or avoid consequential delays.
+  (D) half_truth — This reinforces the operational benefit already acknowledged and leaves the rider-cost argument intact.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The closing contrast explicitly displaces vehicle-centred measurement with attention to waiting and uncertainty absorbed by riders.
+  (A) premature_closure — The ending questions the measure of efficiency without prescribing restoration of the former route.
+  (C) framework_import — The passage identifies a systemic problem but does not advocate restricting access through dispatcher discretion.
+  (D) adjacent_answer — The clinic illustrates the consequence of delay, not the institutional reform implied by the ending.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — A confirmation specified projected travel times, but it did not guarantee the clinic's response once she arrived late.
+  (A) passage_supported — Paragraph three says the first van was reassigned because another rider's wheelchair could not be secured nearby.
+  (C) passage_supported — Paragraph four explicitly describes those three successive status labels on the dispatcher's screen.
+  (D) passage_supported — Paragraph three states that her confirmation gave an 8:15 pickup and a 9:00 arrival.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The author distinguishes local explanations for each disruption from their common dependence on continuous coordination.
+  (B) causal_inversion — The unanswered calls followed the delay, and the passage says no dispatcher invented it.
+  (C) straw_version — The passage attributes the replacement to accumulated adjustments and explicitly absolves the driver of refusal.
+  (D) stage_misattribution — The clinic response occurred after the van arrived late, not before the transportation disruptions.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — The episode gives concrete force to the author's concern that official metrics omit waiting, uncertainty, and procedural vulnerability.
+  (A) summary — This accurately summarises the episode but does not state why the author uses it.
+  (C) level_confusion — This describes the passage's structural role rather than the authorial purpose of making rider costs perceptible.
+  (D) level_confusion — Those figures frame the policy dispute, while Cole's case redirects attention to costs borne by an individual rider.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — This directly supports the conclusion that vehicle efficiency can be purchased through burdens shifted onto passengers.
+  (B) missing_link — Easier revisions do not show whether those revisions reduce the uncertainty experienced by passengers.
+  (C) false_symmetry — Timetable usefulness does not establish that demand-responsive riders bear greater uncertainty or missed time.
+  (D) half_truth — This strengthens the efficiency case already conceded, not the conclusion about passenger uncertainty.
+
+[Inspired by: "The backlash against screens in schools is escalating", https://www.scientificamerican.com/article/the-backlash-against-screens-in-schools-is-escalating/]

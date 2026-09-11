@@ -1,0 +1,116 @@
+RC ID: RC-MEDIUM-260905-0062 | Tier: medium | Score: 0.0 | Status: solver_dispute | Compliance F1: 0.79 | Novelty: 0.561 | Screen: red | Generated: 2026-09-05T03:49:19.283264+00:00
+======================================================================
+
+[PASSAGE]
+
+Since the postwar decades, when development economists began recommending cadastral surveys to newly independent states, the title deed has been imagined as a key. My own instinct is to distrust that image, and I should say plainly that the instinct is partly nostalgia for older forms of holding land, which I will try not to let do my arguing for me. Formalisation, strictly, means a state-issued and state-registered record of a specific parcel, mapped, indexed, transferable, enforceable in a court that will hear the case. It is not a chief's acknowledgement. It is not a receipt of purchase, nor a lineage's long memory of who planted which hedge. Those are ownership; they are not registration. The distinction now carries more weight than it did in 1960, because far more parties — banks, agencies, buyers from outside the district, wives claiming against husbands — must read the same claim without knowing the village.
+
+The alleged sequence runs as follows. Registration fixes the boundary; a fixed boundary lengthens the farmer's horizon; a long horizon makes terracing and tree planting worth the labour; and a document a lender can seize converts land into collateral, so credit widens. I have stated that too smoothly. The chain has four links, and only the first is performed by the registrar; each of the others requires someone else to act — a farmer with spare labour, a bank with a branch and an appetite for foreclosure on a smallholding it cannot easily resell. Formalisation is not investment. It is not credit. It is the precondition that its advocates have persistently mistaken for the thing itself.
+
+The Kenyan study did not simply compare titled and untitled districts, which would have told us mainly which districts get titled. Rather, villages were assigned different registration dates. Plots were visited before and after. Loan ledgers at local lenders were checked; terraces and bunds were counted on the ground; households were surveyed on disputes, and women were interviewed separately from husbands.
+
+The instances test the definition rather than flattering it. Boundary markers multiplied — stones, planted sisal, cut lines. Terracing rose, modestly. Dispute claims fell, but chiefly where the map had settled a contested edge, not where the quarrel was about inheritance among brothers. Formal borrowing barely moved. Women's recorded rights improved more clearly than any household's income did, and those two findings should not be read as one finding. A farmer who builds a terrace because he is no longer afraid of losing the slope has gained something real. He has not thereby become richer in any measure the survey could find within four years.
+
+So the key opened a gate at the edge of the field, not a vault. That is a smaller claim than sixty years of policy has wanted, and I hold to it: registration is defensibility made legible, and legibility is worth having on its own terms — for the widow especially — but it does not manufacture the lender, the market, or the surplus labour that the older argument quietly assumed. Longer follow-up may yet find credit effects that four years hid. Other credit conditions would have to change first. I am willing to be shown wrong on the timing and not, I think, on the mechanism. A key is only as useful as whatever stands behind the door, and in most of these villages what stands behind it is a field.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) The Kenyan evidence shows that longer follow-up periods would eventually reveal the credit and income effects that advocates predicted.
+(B) Land registration reliably delivers legibility and defensibility, but not the investment or credit its advocates assumed would follow.
+(C) Land registration fails on its own terms and should be abandoned in favour of the older forms of holding land.
+(D) Customary acknowledgement by chiefs, lineages, or receipts of purchase serves as formalisation wherever local parties accept the boundary claim.
+
+Q2. The author of the passage is likely to disagree with which one of the following statements?
+(A) Improved recording of women's rights and unchanged household income are two distinct findings, not one finding.
+(B) A farmer who terraces a slope without fear of losing it has gained something the author counts as real.
+(C) Once a farmer holds a registered title, that title becomes productive investment and available credit for him.
+(D) Registration is a state-issued record of a mapped parcel, enforceable in a court that will hear the case.
+
+Q3. The author faults the standard case for land titling for all of the following reasons, EXCEPT:
+(A) It quietly assumes lenders, markets, and spare labour that the villages in question lack.
+(B) It presents a four-link chain as though the registrar performed all of the links.
+(C) It treats a precondition for investment and credit as though it were the outcome itself.
+(D) It relies on comparisons of titled and untitled districts that reveal only which districts get titled.
+
+Q4. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) In a titled Bolivian valley, hedges are relocated less often and fewer edge quarrels arise, yet bank lending stays flat.
+(B) In a titled Bolivian valley, a village council's long memory of planting is accepted by outside banks as a registered claim.
+(C) In a titled Bolivian valley, inheritance quarrels among brothers subside because the registry has mapped each household's outer edge.
+(D) In a titled Bolivian valley, fewer edge quarrels and more terraces together demonstrate that titling has broadly raised village prosperity.
+
+Q5. Which one of the following, if true, would most call into question the claim that registration does not by itself widen credit?
+(A) Women in the surveyed villages reported far stronger control over parcels than the initial interviews had recorded.
+(B) In neighbouring districts, banks opened new branches and afterwards began lending against titles held by smallholding farmers.
+(C) Terracing in the surveyed villages continued rising for a decade after the four-year survey window had closed.
+(D) In the same villages, lenders extended smallholder loans against new titles within months, with no other credit conditions altered.
+
+Q6. Regarding the decline in dispute claims described in the passage, the author asserts that:
+(A) it was smaller than the corresponding rise in terracing, which the ground counts recorded as substantial.
+(B) it appeared mainly where mapping resolved a contested edge, and not where inheritance was the quarrel.
+(C) it appeared across dispute types, since registered boundaries gave every claimant a common document to read.
+(D) it followed from women being interviewed separately, which surfaced quarrels households had earlier suppressed.
+
+Q7. The passage stops where it does in order to:
+(A) recommend that governments pause cadastral programmes until lenders and markets are established in the villages.
+(B) restate the author's opening nostalgia for older forms of holding land as the settled conclusion.
+(C) concede that timing may be revised while refusing to concede the mechanism, leaving the smaller claim standing.
+(D) suspend judgement until longer follow-up studies determine whether the credit effects were merely hidden.
+
+Q8. The Kenyan study mentioned in the passage functions to:
+(A) test the author's narrow definition of formalisation rather than confirm the advocates' fuller sequence.
+(B) illustrate how staggered registration dates can substitute for comparisons across already titled districts.
+(C) establish that women's recorded rights and household income move together once boundaries are fixed.
+(D) prove that registration produces no benefits whatever for the smallholding households that receive it.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — Integrates the four-link chain critique in paragraph 2 with the mixed Kenyan findings and the closing gate-not-vault image.
+  (A) premature_closure — The author concedes only possible timing revision and holds firmly to the mechanism claim in the final paragraph.
+  (C) stance_misread — The author warns against letting nostalgia argue and insists legibility is worth having on its own terms.
+  (D) category_slip — Paragraph 1 explicitly denies that customary acknowledgement counts as registration, calling it ownership rather than registration.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — Paragraph 2 states flatly that formalisation is not investment and not credit, only a precondition mistaken for the thing.
+  (A) adjacent_answer — The author insists these two findings should not be read as one finding.
+  (B) stance_misread — Paragraph 4 says exactly this: he has gained something real, though not measurable income.
+  (D) half_truth — This restates the author's own definition of formalisation given in the first paragraph.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — That methodological complaint is aimed at a study design the Kenyan work avoided, not at the advocates' argument; it is a level confusion.
+  (A) passage_supported — The final paragraph says registration does not manufacture the lender, market, or surplus labour assumed.
+  (B) passage_supported — Paragraph 2 notes only the first link is done by the registrar; others need farmers and banks.
+  (C) passage_supported — Paragraph 2 says advocates persistently mistook the precondition for the thing itself.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Matches the passage's pattern exactly: boundary and dispute gains, no movement in formal borrowing.
+  (B) category_slip — Lineage memory is ownership, not registration, by the definition set out in paragraph one.
+  (C) missing_link — Disputes fell where maps settled contested edges, not where quarrels concerned inheritance among brothers.
+  (D) category_slip — Paragraph 4 refuses to read boundary and terracing gains as gains in measurable income or wealth.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — It shows the title alone producing credit, striking the author's load-bearing claim that other conditions must change first.
+  (A) level_confusion — Strengthened women's rights concern legibility, which the author already affirms, not lending.
+  (B) missing_link — The added branches are precisely the other condition the author says must change first.
+  (C) adjacent_answer — Terracing is investment, not credit; the author already grants modest terracing gains.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — Paragraph 4 states disputes fell chiefly where the map settled a contested edge, not in inheritance quarrels.
+  (A) half_truth — Terracing rose only modestly, and no such comparison of magnitudes is made anywhere.
+  (C) scope_inflation — The passage restricts the fall to edge disputes, expressly excluding inheritance quarrels among brothers.
+  (D) stage_misattribution — Separate interviewing was a method of the study, not a cause of falling dispute claims.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — The final paragraph explicitly separates willingness to be shown wrong on timing from firmness on mechanism.
+  (A) scope_inflation — No policy recommendation is offered; legibility is affirmed as worth having on its own terms.
+  (B) stance_misread — The author warned at the outset against letting that nostalgia do his arguing for him.
+  (D) premature_closure — The author does not suspend judgement; he holds to the mechanism claim regardless of later timing findings.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — Paragraph 4 opens by saying the instances test the definition rather than flattering it, and the results split accordingly.
+  (B) level_confusion — The staggered design is a method note, not the evidentiary work the study performs in the argument.
+  (C) category_slip — The author insists those two findings should not be read as a single finding.
+  (D) moderate_extremism — The study records real gains in markers, terraces, and women's recorded rights.
+
+[Inspired by: "The entrepreneurial state", https://worksinprogress.co/issue/the-entrepreneurial-state/]

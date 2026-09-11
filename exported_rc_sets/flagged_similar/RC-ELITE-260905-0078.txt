@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260905-0078 | Tier: elite | Score: 8.8 | Status: needs_review | Compliance F1: 0.822 | Novelty: 0.443 | Screen: red | Generated: 2026-09-05T10:37:46.581222+00:00
+======================================================================
+
+[PASSAGE]
+
+I wonder what survives of ecological resilience in an imagined council leaflet promising swift recovery after floods, whose opening lake diagram recalls the postwar ecology formalised by C. S. Holling in 1973: recovery mattered, but resilience concerned how much disturbance a lake could absorb before feedbacks sustained a turbid rather than clear regime, not the moral toughness of its inhabitants.
+
+The leaflet’s headings could almost supply a travel itinerary: disaster preparedness, adaptable buildings, business continuity, resilient neighbourhoods. As the term passed through disaster planning, architecture and corporate management into municipal strategy, the ecological threshold faded; firms and families acquired the same encouraging adjective. I once liked that capaciousness. Under its cover, checklists replace calculations, slogans occupy the space of spare capacity, and recovery stories conceal unequal exposure. Yet the leaflet’s admission that protection was already incomplete explains the word’s welcome. A firm reopening and a tenant returning to a damp flat are parallel successes only in the reassuring grammar that joins them.
+
+Walls deflect water. Pumps need power. Neighbours knock. In the leaflet’s flood section, that last action feels most persuasive: residents know who cannot manage stairs, who keeps medicines refrigerated, whose silence warrants another visit. My former enthusiasm comes back here, briefly. The adaptation camp can read these pages as practical fellowship; the prevention camp can read the same pages as an invitation to endure official failure. Both find support in the leaflet’s crowded margin, where volunteering receives more space than drainage. River walls can send water elsewhere, duplicate pumps and generators cost money while standing idle, and appeals to courage can make the injured responsible for recovery. Still, the leaflet places maintenance, cooling centres, local knowledge and rapid repair together. Its loosened word earns its keep where that civic conjunction meets the lake’s conditional stability: not in a promise of universal return, but in making dependencies and breaking points discussable through what has to remain usable.
+
+I would once have called that conjunction a remedy. I now call it a useful description of repair, unless the leaflet’s promises have material backing. Flood control, sound housing and emissions reduction retain their separate work; asking flooded tenants to adapt to avoidable damage offers preparedness chiefly at their expense. Nor does the margin’s little drawing of a backup pump establish that duplication settles anything. Suppose the second pump stands beside the first in the same basement, with both sockets below the flood line: the caretaker’s red extension lead, coiled on a hook above them, cannot supply electricity when the street goes dark. Two pumps can fail together. That case presses against my old faith in having more, without making mutual aid an alternative to machinery. A city cannot afford a second version of every bridge, clinic and electrical line; the leaflet becomes credible only where public expenditure supplies spare capacity to services whose loss disables others, pays for rehearsing repairs, and protects residents with little capacity to absorb another loss. Preparation matters, then: here the banality means support arranged beforehand, rather than recovery bought by those hit first and hardest. My verdict is not a compromise between engineering and encouragement: only materially supported, selective resilience deserves the leaflet’s promise.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) Civic resilience should recover its original ecological precision, making threshold calculations rather than inclusive language the principal basis for renewed municipal preparedness and public protection.
+(B) Ecological resilience means rapid return to the original state, and its civic usefulness depends on extending that recovery standard across institutions and vulnerable households.
+(C) Ecological resilience can inform civic repair, but its promise is warranted only by selective material provision addressing dependencies, breaking points, and unequal vulnerability.
+(D) Resilience earns its civic legitimacy by joining engineering and encouragement, allowing public authorities to balance material protection against residents' existing capacities for practical mutual assistance.
+
+Q2. The passage stops where it does in order to:
+(A) The ending establishes a general prescription for urban resilience, leaving each essential service to receive its own duplicate infrastructure before disaster.
+(B) The ending identifies resilience's adoption in public planning as the cause of neglected prevention and infrastructure, making conceptual correction urgent.
+(C) The ending settles the competing camps' disagreement through a balanced allocation between technical prevention and voluntary adaptation within municipal strategy.
+(D) The ending restricts legitimate resilience to advance public support, leaving particular investments to be judged by dependency and distributive consequences.
+
+Q3. Which one of the following best distinguishes the author's own position from the readings attributed to the adaptation and prevention camps?
+(A) Community mutual aid is sufficient to make a city resilient, regardless of public systems and material resources available before the next flood.
+(B) Community knowledge contributes to resilience when joined to usable public systems; neither fellowship nor criticism of official failure settles the issue.
+(C) Neighbourly assistance chiefly legitimises official failure; the prevention camp therefore supplies the author's settled judgement on the leaflet's invitation to civic participation.
+(D) Practical fellowship and resistance to official failure are equally adequate civic responses; the author therefore keeps their competing interpretations unresolved throughout his final assessment.
+
+Q4. Which one of the following best describes the author's posture towards resilience as a principle of municipal planning?
+(A) He remains sympathetic to resilience's inclusive vocabulary, treating its ability to connect disparate activities as sufficient justification for its municipal use.
+(B) He approaches civic resilience as a conceptual error, regarding its departure from ecological precision as grounds for withdrawing the term from planning.
+(C) He provisionally accepts resilience as a negotiated settlement, suggesting that modest public investment may be balanced against greater expectations of voluntary neighbourhood effort.
+(D) He revises his earlier enthusiasm into conditional endorsement, preserving resilience's descriptive usefulness while demanding material support for its promise of protection.
+
+Q5. The central idea of the passage would be most undermined if:
+(A) Across comparable cities, neighbourhood volunteers reached isolated residents sooner than municipal crews, even where publicly maintained warning systems and emergency transport supported their work.
+(B) Across comparable cities, equal resilience budgets protected essential functions and vulnerable residents better through untargeted distribution than through dependency mapping and selective reinforcement.
+(C) Across comparable cities, larger resilience budgets were associated with greater flood losses because the most exposed municipalities had secured the largest advance protection grants.
+(D) Across comparable cities, flood barriers redirected some water towards neighbouring districts, increasing their repair costs despite reducing damage within the districts those barriers protected.
+
+Q6. Which one of the following best describes the role played by the basement pump example in the final paragraph?
+(A) It shifts the burden of recovery from technical systems to neighbourhood action, preparing the conclusion's endorsement of civic resourcefulness over expensive material provision.
+(B) It identifies duplication as the source of infrastructural fragility, explaining why adding equipment can itself generate the breakdowns that resilience policies anticipate.
+(C) It exposes the difference between numerical duplication and usable spare capacity, sharpening the later demand for selective investment in interdependent services.
+(D) It suggests that independently powered duplicates would probably settle the leaflet's credibility, making equipment configuration the decisive test of the city's resilience promise.
+
+Q7. Which one of the following, if true, would most support the final paragraph's claim that spare capacity should target services whose loss disables others?
+(A) A city's emergency communications reserve restored its own service faster than its predecessor, although clinic dispatch and water repairs remained interrupted for similar periods.
+(B) A city's independently powered communications reserve preserved clinic dispatch and water repairs during outages, preventing cascading failures that equally costly isolated facility backups missed.
+(C) A city's additional hospital oxygen tanks sustained intensive care during shortages, although their concentration in one building left district clinics dependent on interrupted deliveries.
+(D) A city's comprehensive duplication of bridges, clinics, and electrical lines reduced outage losses, after exceptional national grants removed the budget constraints governing ordinary municipal expenditure.
+
+Q8. Regarding the leaflet's grouping of maintenance, cooling centres, local knowledge, and rapid repair, the author asserts that:
+(A) The grouping earns its usefulness by making dependencies and breaking points discussable through what must remain usable, rather than by guaranteeing return.
+(B) The grouping earns its usefulness by establishing material backing for the leaflet's promises, since maintenance and cooling centres appear alongside local knowledge and repair.
+(C) The grouping may earn its usefulness by identifying which municipal services reproduce lake feedbacks, provided their original operating states can subsequently be restored.
+(D) The grouping earns its usefulness by combining equally protective activities, allowing investment in public infrastructure to be offset by stronger neighbourhood knowledge and participation.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — The passage moves from ecological thresholds through the attractions and dangers of civic resilience to a conditional endorsement. The ending makes selective material provision, rather than recovery rhetoric or indiscriminate duplication, the condition of credibility.
+  (A) stance_misread — Paragraphs 3–4 retain the loosened term's descriptive usefulness; the final requirement is material backing, not restoration of terminological precision.
+  (B) nec_suff_swap — It substitutes rapid recovery for resilience's threshold condition in paragraph 1, then extends the mistaken definition into civic policy.
+  (D) stance_misread — The final paragraph rejects this compromise: encouragement and mutual assistance cannot substitute for the required material protection.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — The verdict converts the preceding examples into a restrictive criterion rather than a compromise. Any subsequent policy judgement must ask which capacities need advance support and whose losses that support prevents.
+  (A) scope_inflation — Paragraph 4 rules out duplicating every service and directs spare capacity selectively towards services whose loss disables others.
+  (B) causal_inversion — Paragraph 2 says incomplete protection explains the term's welcome; the ending does not establish that adopting the term caused infrastructural neglect.
+  (C) stance_misread — The closing sentence explicitly rejects a compromise between engineering and encouragement, imposing material conditions instead.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — Paragraph 3 gives both camps textual support before locating value in the conjunction of civic activities and conditional stability. Paragraph 4 then requires material backing without displacing mutual aid.
+  (A) nec_suff_swap — It turns the briefly persuasive neighbourly action in paragraph 3 into sufficient protection, contrary to paragraph 4's material requirements.
+  (C) stance_misread — It promotes the prevention camp's reported reading into the author's conclusion, overlooking his subsequent preservation of mutual aid's practical value.
+  (D) stance_misread — Both readings receive support in paragraph 3, but the final paragraph supplies a material criterion rather than leaving their adequacy unresolved.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — The author's initial attraction returns briefly with neighbourly assistance but is revised again by the distinction between describing repair and delivering protection. His final endorsement depends on selective, publicly supported preparation.
+  (A) nec_suff_swap — Paragraph 4 makes the useful civic conjunction insufficient to warrant promises without material backing.
+  (B) stance_misread — Paragraph 3 explicitly allows the loosened word to earn its keep, and paragraph 4 retains a qualified version.
+  (C) stance_misread — The final verdict rejects balancing engineering against encouragement and warns against transferring preparedness costs to vulnerable residents.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — This comparison directly challenges the ending's load-bearing move from unaffordable universal duplication to dependency-sensitive selection. It makes the recommended allocation method inferior on both functional protection and vulnerability under equal budgets.
+  (A) nec_suff_swap — Faster volunteer response does not establish independence from public support; paragraphs 3–4 already defend their conjunction.
+  (C) causal_inversion — Exposure explains both spending and losses; reversing that direction would falsely challenge paragraph 4's case for advance public support.
+  (D) scope_inflation — One intervention's displaced costs do not undermine selective material provision; paragraph 3 already recognises this limitation of river walls.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The shared exposure and power dependency defeat the author's former faith in simply having more. This prepares the move towards functional, selectively funded spare capacity without making mutual aid a replacement for machinery.
+  (A) stance_misread — The sentence following the example explicitly refuses to make mutual aid an alternative to machinery.
+  (B) causal_inversion — The pumps fail because of shared flood and electricity exposure, not because duplication creates those vulnerabilities.
+  (D) nec_suff_swap — Removing one shared dependency would not satisfy paragraph 4's additional requirements concerning selective expenditure, repair rehearsal, and vulnerable residents.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — The new case connects functional independence with protection of dependent services. Its equal-cost comparison supports the passage's preference for dependency-sensitive selection rather than merely accumulating backups.
+  (A) scope_inflation — Improved recovery within one service does not establish the cross-service protection underlying the final paragraph's selection criterion.
+  (C) scope_inflation — Protection of one facility demonstrates local backup value, not the dependency-sensitive protection of other services specified in paragraph 4.
+  (D) scope_inflation — Success under exceptional funding does not support selective allocation under the municipal resource constraint that motivates paragraph 4.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — Paragraph 3 links the civic conjunction to the lake's conditional stability through usability, dependencies, and breaking points. Paragraph 4 preserves this descriptive value while separately demanding material backing for promises.
+  (B) nec_suff_swap — Listing activities supplies a useful description, not evidence of funding; paragraph 4 explicitly separates the conjunction from materially backed promises.
+  (C) scope_inflation — Paragraph 3 draws a connection through conditional usability, not a requirement that municipal services reproduce ecological feedbacks or regain original states.
+  (D) stance_misread — Paragraphs 3–4 join distinct contributions without treating them as interchangeable; mutual aid cannot replace machinery or material protection.
+
+[Inspired by: "Subjective Perspective Makes Objective Reality ‘Everywhere Whole’", https://www.noemamag.com/subjective-perspective-makes-objective-reality-everywhere-whole]

@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260904-0074 | Tier: elite | Score: 8.4 | Status: approved | Compliance F1: 0.862 | Novelty: 0.505 | Screen: green | Generated: 2026-09-04T20:25:26.510217+00:00
+======================================================================
+
+[PASSAGE]
+
+The attribution dates from an 1893 museum catalogue, which took a single line in a surviving Cremonese account book — a payment recorded in 1721 to the workshop associated with Carlo Bergonzi — and converted it into a sentence about authorship. The instrument sits behind glass: a small viol, worn at the ribs, its neck joined to the body by a graft anyone can see from a metre away. The label calls it rebuilt. Two claims are stacked there as if they were one. That a payment was made in 1721 is documented; that the graft in front of the visitor is what the payment bought is not, and the catalogue never distinguished between them.
+
+Cremonese workshop books of the period logged commissions, not craftsmen. An entry names the person paying and the sum owed, sometimes the instrument, rarely the hand that did the work. The vocabulary is thinner still. *Racconciatura* — refitting — covers a run of jobs whose only common feature is that a customer wanted an instrument playable again: new gut, a replacement peg, a bridge cut down, a soundpost reset, and, at the far end, a neck opened and re-seated. Reading such a book is like auditing a merchant's accounts where every disbursement is entered as "expenses." The total is honest. The apportionment is missing, and cannot be recovered from the ledger by any amount of squinting at it. What one can recover is the sum. The 1721 payment is small — comparable, in the same book, to entries for stringing and adjustment, and well under what the same workshop charged elsewhere for structural work. A drama is available in the word *refitting*. It is not funded by the number beside it.
+
+Around 1720 pitch standards across northern Italy were unsettled; Venetian and Roman practice diverged enough that an instrument travelling between cities needed restringing and often a bridge and nut recut. The Cremona viol shows exactly that kind of adjustment. Wood is the awkward part. Dendrochronological dating of the neck's spruce places its felling decades before the ledger entry — evidence read one way by conservators who date structural interventions from material, and another by archival historians who prefer the written record and treat wood dates as terminus post quem and nothing more. The disagreement is not decorative. Provenance now sets insurance value, loan conditions, and which instruments get played. A graft attributed to Bergonzi's shop carries a price; a graft of unknown date carries a caution.
+
+The label is unchanged. So is the viol. What the 1721 line documents is a bill. One conservator, examining the joint in 2011, described the graft's tool marks as inconsistent with the workshop's late practice and recorded the observation without further claim — a properly small statement about a properly small thing. The catalogue made a larger one for it. The invoice was for adjusting the instrument to a pitch it had to meet; the graft it was thought to prove predates the invoice. What survives is a record of maintenance, and the more interesting question is not who rebuilt the viol but why a museum needed it rebuilt at all — since a document that records only what was paid will, if pressed hard enough, appear to say who made the thing.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) Conservators and archival historians read the dendrochronological evidence differently, and this professional disagreement is what determines an instrument's insurance value and loan terms.
+(B) A ledger record of a small payment for adjustment was silently converted into an attribution of structural work, and the evidence available cannot support that conversion.
+(C) The attribution of the viol's neck graft to Bergonzi's workshop rests on documentation that later specialists have merely refined, extended, and made more precise over time.
+(D) Because period workshop books recorded commissions rather than craftsmen, no instrument from Cremona can now be reliably assigned to any particular maker or hand.
+
+Q2. Which one of the following best describes the role played by the second paragraph in the passage's argument?
+(A) It demonstrates that the total recorded in Cremonese books is unreliable, so no figure in the 1721 entry can bear any interpretive weight at all.
+(B) It shows that the ledger's language cannot distinguish minor adjustment from rebuilding, then uses the payment's size to indicate which end was likelier.
+(C) It concedes that since refitting can denote structural rebuilding, the entry plausibly records a rebuild, a reading that suits the instrument's dramatic history well.
+(D) It replaces documentary evidence with accounting analogy, arguing that merchant records of the period are a better guide than surviving instrument workshop books.
+
+Q3. The passage stops where it does in order to:
+(A) redirect attention from the disputed maker to the institutional appetite that makes a bill read like a statement of authorship
+(B) leave the identity of the graft's maker open, since the tool-mark observation of 2011 has not yet been tested by other specialists
+(C) suggest that the dendrochronological result supplies the confirming detail the workshop attribution had always needed from independent material evidence
+(D) summarise the professional dispute between conservators and archivists, so that readers can weigh the two evidentiary standards for themselves
+
+Q4. The central idea of the passage would be undermined if:
+(A) the 1893 cataloguer had personally examined the viol's joint before composing the entry that named Bergonzi's workshop
+(B) the conservator who examined the tool marks in 2011 had limited experience with viols of this particular regional pattern
+(C) other northern Italian workshops of the period used a vocabulary for repairs even less differentiated than Cremona's
+(D) the same Cremonese book recorded structural neck work elsewhere at sums close to the 1721 entry's modest figure
+
+Q5. We can infer from the passage that "Two claims are stacked there as if they were one" refers to:
+(A) the documented fact of a 1721 payment and the undocumented supposition that this payment purchased the visible neck graft
+(B) the assertion that the instrument was rebuilt and the further assertion that Bergonzi himself performed the rebuilding
+(C) the museum's dating of the graft and the dendrochronological dating of the spruce from which the neck was cut
+(D) the ledger's naming of a payer and its silence about the craftsman whose hand actually carried out the work
+
+Q6. Regarding the 1721 payment described in the passage, the author asserts that:
+(A) it was made to Bergonzi's workshop for adjusting the viol to Venetian pitch after the instrument travelled from Rome.
+(B) it is small, resembling other entries for stringing and adjustment in the same book, and below that workshop's charges for structural work.
+(C) it cannot be located precisely within the book, so the sum recorded beside it remains unavailable for any comparative interpretive use.
+(D) it exceeded contemporary charges for stringing but fell short of what a full neck graft would have cost in that period.
+
+Q7. Which one of the following best describes the author's posture towards the disagreement between conservators and archival historians?
+(A) The author treats both camps as equally distorted by professional interest, since each defends a standard that happens to favour its own practice.
+(B) The author regards the dispute as a specialists' quarrel of little practical consequence beside the larger institutional question raised in the closing paragraph.
+(C) The author reports both readings as genuine and consequential, while treating the dispute as evidence that the attribution was never secured.
+(D) The author endorses the conservators' method of dating structural interventions from material, since the spruce felling date settles the graft's true age.
+
+Q8. The author of the passage is likely to disagree with which one of the following statements?
+(A) The 2011 tool-mark observation gives grounds for reassigning the graft to a workshop other than Bergonzi's.
+(B) An entry in a workshop book of this period may name a payer while leaving the working hand unrecorded.
+(C) Around 1720 an instrument moving between Italian cities could require restringing and a recut bridge and nut.
+(D) Whether a graft's date is known can affect an instrument's insurance value and its conditions of loan.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — Integrates the 1893 catalogue's stacking of two claims, the ledger's vocabulary and small sum, the pitch-adjustment context, and the wood dating that all pull against attributed rebuilding.
+  (A) half_truth — Promotes the paragraph-three disagreement to the passage's main point, when it is one strand supporting the larger claim about attribution.
+  (C) premature_closure — Treats the attribution as settled and merely elaborated, but paragraph one shows the catalogue stacked an undocumented claim onto a documented one.
+  (D) scope_inflation — Inflates a point about one entry's ambiguity into a blanket verdict on all Cremonese attribution, which the passage never asserts.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — The paragraph first establishes the vocabulary's undifferentiated range (the 'expenses' analogy) and then supplies the one recoverable datum, the small sum, that narrows the reading.
+  (A) straw_version — The passage says the opposite: 'The total is honest,' and the sum is precisely what can be recovered and used.
+  (C) half_truth — Takes the range of meanings as licensing the dramatic reading, which the paragraph explicitly refuses: the drama 'is not funded by the number beside it'.
+  (D) category_slip — The merchant-accounts comparison is an illustrative analogy about apportionment, not a proposal to substitute one class of record for another.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — The final sentence explicitly shifts the 'more interesting question' from who rebuilt the viol to why a museum needed it rebuilt, and names the mechanism of pressure on documents.
+  (B) premature_closure — The ending does not rest on awaiting further tests; the conservator's restraint is praised as final, not provisional.
+  (C) half_truth — The wood dating precedes the ledger entry and undercuts the attribution; paragraph three presents it as the awkward, not the confirming, part.
+  (D) stage_misattribution — That summary belongs to paragraph three; the closing paragraph moves past it to institutional motive rather than restating it.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — The argument's load-bearing move is that the small sum, read against comparable entries, excludes structural work; equalising those prices removes the only recoverable discriminator.
+  (A) missing_link — Inspection of the joint would not supply the missing link between the payment and the graft, which is the argument's actual gap.
+  (B) half_truth — The 2011 observation is a supporting detail the author calls properly small; the argument does not rest on it.
+  (C) adjacent_answer — This strengthens rather than damages the point about ledger vocabulary being too thin to apportion work.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — The following sentence spells out exactly this pairing: the payment is documented, its connection to the graft is not, and the catalogue never separated them.
+  (B) adjacent_answer — The passage's split is between payment and graft, not between rebuilding and personal authorship by Bergonzi.
+  (C) stage_misattribution — The wood dating appears only in paragraph three and is not what the first paragraph's stacked claims describe.
+  (D) level_confusion — That distinction belongs to paragraph two's account of what such books log, not to the catalogue's conflation.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — Paragraph two states the sum is comparable to stringing and adjustment entries and well under what the same workshop charged elsewhere for structural jobs.
+  (A) scope_inflation — The passage offers unsettled pitch standards as the kind of adjustment shown, without specifying a Rome-to-Venice journey.
+  (C) straw_version — The passage says the sum is exactly what can be recovered from the ledger, unlike the apportionment.
+  (D) half_truth — The passage calls the sum comparable to stringing entries, not above them; the intermediate position is invented.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — Paragraph three presents both readings without adjudicating, calls the disagreement 'not decorative' because of its material stakes, and folds it into the case against the catalogue's claim.
+  (A) false_symmetry — No imputation of professional self-interest is made to either camp; the symmetry of motive is imported by the reader.
+  (B) half_truth — Contradicted by the explicit statement that the disagreement is not decorative, given its effect on value, loans, and playing.
+  (D) stance_misread — The author never adopts the conservators' inference; the passage records their reading alongside the archivists' terminus post quem caution.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — The author praises the conservator for recording the observation 'without further claim' as a properly small statement, and objects precisely to enlarging small observations into attributions.
+  (B) passage_supported — Paragraph two states entries name the payer and sum, rarely the hand that did the work.
+  (C) passage_supported — Paragraph three states this directly about diverging Venetian and Roman pitch practice.
+  (D) passage_supported — Paragraph three says provenance now sets insurance value and loan conditions, contrasting an attributed graft with an undated one.
+
+[Inspired by: "Henri Rivière’s Thirty-Six Views of the Eiffel Tower (1888–1902)", https://publicdomainreview.org/collection/36-views-of-the-eiffel-tower]

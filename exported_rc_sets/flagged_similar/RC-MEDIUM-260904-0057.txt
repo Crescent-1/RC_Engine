@@ -1,0 +1,116 @@
+RC ID: RC-MEDIUM-260904-0057 | Tier: medium | Score: 9.0 | Status: needs_review | Compliance F1: 0.537 | Novelty: 0.524 | Screen: red | Generated: 2026-09-04T19:36:22.286563+00:00
+======================================================================
+
+[PASSAGE]
+
+The defect account came out of the mid-century reliability engineering that treated a failed part as a flawed part. Something got in. A metal fleck. A void in the coating. A nick in the separator. Find the intruder and you have found the cause. Battery manufacturers inherited that habit whole, and it still explains a great deal: contamination that seeds a short, an electrode film laid unevenly by a coating head running slightly out of true, a separator pierced during winding, an isolated cell that runs away thermally while its neighbours sit cool. The account has the virtue of locality. It puts the fault somewhere, at a moment, on a line, in a shift log.
+
+What unsettles it is a pair of cells drawn from a single batch, put through the same fast-charging regime, and later opened up: one had vented and blackened its jelly roll, the other had merely aged, and yet their construction, their initial measured capacity to within a fraction of a percent, and — this is the awkward part — their final micro-CT scans showed nothing that would let an inspector say which was which without the labels. Identical end-state structure cannot explain divergent outcomes. Two ruins, similarly collapsed, tell you little about which building shook first. And more parties now need the answer than once did: not only cell makers but grid operators, insurers, airport handlers, anyone who charges fast.
+
+So the newer work stopped inspecting corpses. Matched cells were synchronised through repeated cycles until their voltage traces overlaid. Thermocouples and pressure transducers went in at the tab and the can wall. Thermal cameras filmed the surface. Operando X-ray measurement watched the anode while current flowed. Then cells were pulled off the rig at staggered moments — cycle four, cycle eleven, cycle thirty — and sectioned for micro-CT and microscopy.
+
+Read quickly, that is a very expensive search for a hidden speck. It is not. The staggering is the whole design: each sacrificed cell is a stratum, and the stack of them is a sequence, not a snapshot. What the instruments track is amplification — whether a patch of slightly higher local resistance warms, whether the warmth invites plating, whether the plated lithium raises resistance again. The excavator's discipline applies. You do not date a site from its top layer. I said the work stopped inspecting corpses; that is too strong, since the sectioning is still autopsy. What changed is that each autopsy carries a timestamp.
+
+The failing cell, on this record, began with a small difference in lithium distribution well inside the tolerance any factory would pass — not a flaw, a fluctuation. Under fast charge it fed itself. The surviving cell met the same disturbance and spread it out. Nothing in the finished object marked the difference; only the time-resolved record did, which is the vantage this entire reconstruction was written from. The verdict is a history-dependent electrochemical one, and it holds. It does not retire the coating head or the metal fleck; defects remain real causes, and this result still wants replication across batches, chemistries, charge rates. What it does is change what one asks of two cells that came off the same line: not which of them was already spoiled, but which of them, on the eleventh charge, quietly stopped sharing.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) defending the familiar view that a discrete manufacturing defect best explains why cells fail
+(B) showing why battery failure is better read as a self-amplifying history than a hidden flaw
+(C) documenting the imaging instruments that finally revealed the speck earlier inspectors had missed
+(D) arguing that post-mortem sectioning of failed cells should be abandoned by manufacturers and their insurers
+
+Q2. What does the passage's final sentence accomplish?
+(A) It replaces the diagnostic question with one about when two cells stopped behaving alike
+(B) It concedes that the defect account remains the more useful guide for factory inspectors
+(C) It calls for replication of the finding across batches, chemistries and several charge rates
+(D) It concludes that the hidden physical flaw has at last been located inside the failing cell
+
+Q3. Which one of the following findings would most weaken the author's conclusion in the final paragraph?
+(A) Operando X-ray equipment is too costly for most cell makers to install on production lines
+(B) Some cells vent thermally even when charged slowly and stored at moderate ambient temperature
+(C) Manufacturing defects still account for the majority of field failures reported by grid operators
+(D) Time-resolved records of matched cells show divergence only where micro-CT later reveals a coating void
+
+Q4. According to the passage, why did the two cells from a single batch pose a problem for the defect account?
+(A) Their final scans showed nothing that would let an inspector tell the two apart
+(B) Both cells vented and blackened, so no contrast in outcome remained to be explained
+(C) Their fast-charging regimes differed, which made any comparison of the two cells unreliable
+(D) Their initial capacities differed enough to suggest a coating head running slightly out of true
+
+Q5. Which one of the following statements, if true, would best invalidate the main argument of the passage?
+(A) Micro-CT scanning at cycle thirty is less precise than the same scanning performed after venting
+(B) Insurers and airport handlers rarely consult time-resolved cycling records when assessing a battery incident
+(C) Lithium plating raises local resistance more slowly than the passage's account of feedback suggests
+(D) Cells whose lithium distribution is perfectly uniform at cycle one still diverge under identical fast charge
+
+Q6. Why does the author include the remark about not dating a site from its top layer?
+(A) To suggest that battery science should borrow its inspection standards from field archaeology
+(B) To justify why cells must be sacrificed at staggered cycles rather than only at failure
+(C) To mark the transition from the defect account into the description of the newer method
+(D) To describe how archaeologists establish chronology by reading successive strata at a dig
+
+Q7. Which view does the author report rather than personally endorse as sufficient?
+(A) That defects remain real causes and the new result still wants wider replication
+(B) That finding the intruding fleck, void or nick locates the cause of a failure
+(C) That identical end-state structure cannot by itself explain why two outcomes diverged
+(D) That the staggered sacrifice of cells yields a sequence rather than a single snapshot
+
+Q8. In the context of the passage, 'not a flaw, a fluctuation' is best understood as:
+(A) a defect small enough that existing micro-CT scanning equipment could not resolve it
+(B) a change in charging conditions that both cells encountered at the eleventh cycle
+(C) a random measurement error introduced by thermocouples placed at the tab and can wall
+(D) a variation any factory would accept, which fast charging then made consequential
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — It tracks the whole movement: defect account, the identical-scan anomaly, the time-staggered method, and the history-dependent verdict.
+  (A) prior_belief — The passage keeps defects as real causes but explicitly displaces them as the explanation of the divergence.
+  (C) framework_import — Paragraph four denies this reading: the instrumentation reconstructs a sequence, not a hidden speck.
+  (D) straw_version — The author retracts 'stopped inspecting corpses' as too strong; sectioning continues, now timestamped.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The close displaces the old question ('which was spoiled') with a time-indexed one, matching the passage's history-dependent verdict.
+  (B) prior_belief — Defects stay real but the closing question is deliberately reframed away from prior spoilage.
+  (C) adjacent_answer — Replication is mentioned in the preceding sentence, not the function of the final one.
+  (D) framework_import — The failing cell began with a fluctuation within tolerance, not a flaw the scans could locate.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — It re-anchors divergence to a detectable manufacturing defect, dissolving the fluctuation-amplification account the last paragraph rests on.
+  (A) level_confusion — Cost of instrumentation is practical, not evidential; it does not touch the causal conclusion drawn.
+  (B) scope_inflation — The argument concerns fast-charge divergence between matched cells, not the full range of venting causes.
+  (C) prior_belief — The author already grants defects remain real causes; prevalence leaves the divergence claim standing.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Paragraph two rests the anomaly precisely on indistinguishable end-state structure despite divergent outcomes.
+  (B) phrase_misuse — Only one vented; the other had merely aged, which is what makes the contrast interesting.
+  (C) causal_inversion — The cells were put through the same regime; sameness of treatment is what sharpens the puzzle.
+  (D) half_truth — Initial capacities matched to within a fraction of a percent; no coating fault was implicated.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The thesis needs an initial in-tolerance fluctuation to be amplified; divergence without any such difference removes the load-bearing mechanism.
+  (A) adjacent_answer — Instrument precision at one stratum does not unseat the staggered-sequence logic the argument depends on.
+  (B) level_confusion — Who uses the record is a matter of practice, not evidence against the causal reconstruction offered.
+  (C) moderate_extremism — A slower feedback loop still amplifies; rate alone leaves the history-dependent explanation intact.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — The excavation analogy exists to license the staggering design as evidence about sequence, which is the author's purpose there.
+  (A) framework_import — The analogy illustrates a reasoning discipline; no importation of archaeological standards is proposed.
+  (C) stage_misattribution — This names a structural role; the transition occurred earlier, and purpose is not position.
+  (D) level_confusion — That is an accurate summary of the analogy's content, not the reason the author deploys it.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — Paragraph one presents the inherited reliability-engineering habit as an account with virtues, which paragraph two then unsettles.
+  (A) stance_misread — The final paragraph offers this as the author's own qualification of his conclusion.
+  (C) stance_misread — This is the author's own assertion in paragraph two, stated flatly and never distanced.
+  (D) stance_misread — Paragraph four states this in the author's own voice as the design's whole point.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — The phrase distinguishes an in-tolerance difference from a defect, and the next sentence has it feed itself under fast charge.
+  (A) terminological_twin — The passage denies it was a defect at all; it lay inside tolerance rather than below detection.
+  (B) phrase_misuse — The fluctuation is an initial internal difference, not an external change in the charging regime.
+  (C) category_slip — It describes a physical difference in lithium distribution, not noise in the instrumentation.
+
+[Inspired by: "A New Framework for How the Brain Compresses Our Noisy World", https://www.quantamagazine.org/a-new-framework-for-how-the-brain-compresses-our-noisy-world-20260824/]

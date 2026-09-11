@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260905-0084 | Tier: hard | Score: 6.8 | Status: needs_review | Compliance F1: 0.839 | Novelty: 0.565 | Screen: red | Generated: 2026-09-05T10:07:48.199678+00:00
+======================================================================
+
+[PASSAGE]
+
+Longevity becomes intelligible when duration can be translated into a sequence of biological events. For students of deep-water black corals, the annual-band assumption has offered that translation: successive increments of skeleton become successive years, allowing a living colony to be assigned an age otherwise inaccessible to ordinary observation. The undertaking concerns survival across centuries, sometimes millennia. Or, more carefully, it concerns the conversion by which a claim about survival acquires its numerical scale. Where marine ecology sees endurance under a sparse and intermittent food supply, palaeoclimatology sees a possible succession of past ocean conditions preserved in skeletal material. Both have reason to consult the skeleton's calendar, though they seek different entries. A long-lived colony might preserve changes that no instrument was present to witness; its continued growth might also reveal how animal life persists where meals arrive from far above. A direct test can be considered through a hypothetical calibration study, whose field arrangements and laboratory results are specified here rather than attributed to an actual expedition. Its starting point is living growth under continuing observation.
+
+Divers fix numbered tags and small settlement plates beside twelve colonies at a Hawaiian observatory 320 metres down, leaving current meters, thermistors and sediment traps operating through fourteen years of service visits. Calling this merely a prolonged census mistakes the design: the instruments follow water, temperature and falling food while the tagged colonies supply a common interval of exposure.
+
+In the laboratory, narrow radial wafers come from naturally shed branch tips and two permitted biopsy cores. Researchers polish these pages flat. Reflected and transmitted light photograph the script. Three readers count its density transitions, blind to recovery dates. Like annual entries awaiting translation, the marks retain their order while their dates remain concealed from the readers.
+
+The fourteen known years contain nineteen to twenty-seven single dark-pale transitions. Paired transitions align more closely with recurring late-summer pulses in trapped organic particles. This does not abolish the skeleton's calendar; it locates its uncertain units in the microscopic lines themselves. A seasonal supply of food can leave recurrent marks without making every visible division an anniversary.
+
+The interval is known. The lines exceed it. Pairing changes the fit. Any age or environmental history constructed by carrying the single-line conversion backwards now loses its assumed yearly spacing. A long chronology could contract; a supposed winter signal could move into another season. Yet those consequences attach to a conversion, not indiscriminately to black corals. Where the band reader works outward through successive skeletal additions, isotope dating approaches elapsed time through a different physical process; dates from other sites may still sustain substantial ages. Nor does this interval establish that another species cannot deposit annual bands. The sediment-trap material provides a third comparison, between food arrival and growth, but its closer alignment with paired transitions does not license replacing one universal counting rule with another. For this species at this depth, one visible band cannot presently stand for one year, and ages obtained solely by that multiplication are uncalibrated. The admissible inquiry is how elapsed time maps onto growth within that restricted case, beginning with the nineteen to twenty-seven transitions in these wafers.
+
+[QUESTIONS]
+
+Q1. The primary purpose of the passage is to:
+(A) To move from ecological and palaeoclimatic interests through a hypothetical monitoring study to laboratory findings and a restriction on their implications.
+(B) To report that fourteen observed years contain excess transitions, paired marks track food pulses better, and independent dating remains potentially informative.
+(C) To test whether deep-water black corals can actually survive for thousands of years by comparing observed growth with established skeletal chronologies.
+(D) To show why a skeletal calendar requires local calibration before its markings can support claims about longevity or past environments.
+
+Q2. We can infer from the passage that the calendar's 'uncertain units' refers to which of the following?
+(A) It denotes the uncertain length of the observation period, whose reconstruction depends on matching skeletal divisions with recurring changes in the recorded environment.
+(B) It denotes the seasonal pulses of falling organic material, whose closer correspondence with paired transitions provides an additional comparison between food and skeletal growth.
+(C) It denotes the annual increments represented by carefully counted microscopic transitions, whose conventional interpretation supplies the chronological meaning of an otherwise undated skeletal sequence.
+(D) It denotes the unresolved amount of elapsed time represented by each visible division, despite the divisions' countable order within a known observation interval.
+
+Q3. The author uses the word 'uncalibrated' in the final paragraph to mean which of the following?
+(A) Such ages require the same paired-transition correction across black-coral species and depths, since seasonal feeding supplies the common basis for interpreting visible skeletal marks.
+(B) Such ages lack a validated conversion from visible bands to elapsed years for the studied species and depth, rather than necessarily exaggerating longevity.
+(C) The findings invalidate every age estimate and environmental record derived from black-coral skeletons, because their apparent temporal precision rests on an unreliable biological calendar.
+(D) Such ages remain reliable estimates of elapsed years because conventional band counting establishes the relevant scale even when individual transitions vary within seasons.
+
+Q4. Which one of the following, if true, would most support the final paragraph's claim that one visible band cannot presently stand for one year in the studied case?
+(A) Independent chemical markers placed exactly one year apart repeatedly enclose multiple single transitions in newly deposited skeleton from the same colonies.
+(B) Repeated microscopic readings produce identical transition counts in archived wafers, confirming that trained readers can reliably distinguish the recorded changes in skeletal density.
+(C) Independent isotope measurements assign exceptionally old ages to nearby colonies, extending the evidence that black corals survive under the observatory's sparse food supply.
+(D) Seasonal organic particle pulses recur at several deeper sites, suggesting that the environmental rhythm associated with paired transitions extends beyond the monitored colonies.
+
+Q5. A reader who concluded that the study disproves millennial longevity in deep-water black corals would have misread the passage because:
+(A) The study investigates skeletal environmental records rather than colony ages; its findings therefore concern seasonal placement without affecting estimates of elapsed biological time.
+(B) The study tests a local time-to-growth conversion; its result leaves substantial ages supported by a different physical dating process available for consideration.
+(C) The study follows colonies for only fourteen years; its observation period therefore limits conclusions about band formation to corals of approximately that age.
+(D) The study challenges longevity estimates only provisionally; closer agreement with food pulses may yet establish paired transitions as the calendar for black corals generally.
+
+Q6. Which one of the following best explains the primary purpose of the discussion of isotope dating within the passage as a whole?
+(A) The discussion places an alternative dating method between the consequences of rejecting single-line chronology and the subsequent qualifications concerning species differences and food comparisons.
+(B) The discussion prevents criticism of one skeletal conversion from becoming a verdict on longevity claims supported through an independent route to elapsed time.
+(C) The discussion recommends isotope dating as the preferred replacement for skeletal chronologies when researchers reconstruct seasonal ocean conditions from the growth of deep-water black corals.
+(D) The discussion explains that isotope dating uses a different physical process from band reading and that other sites may still support substantial colony ages.
+
+Q7. According to the passage, why does calling the field study 'merely a prolonged census' mischaracterize its design?
+(A) The instruments document environmental conditions across the black corals' depth range while tagged colonies supply growth records, enabling researchers to compare calendars across habitats.
+(B) The instruments identify the cause of each skeletal transition while the settlement plates record growth, enabling researchers to assign individual bands to seasonal meals.
+(C) The instruments track environmental conditions and falling food while the tagged colonies share a known exposure interval, enabling comparison between growth and surroundings.
+(D) The instruments establish each colony's complete lifespan while the numbered tags distinguish individuals, enabling researchers to compare mortality histories with local environmental fluctuations.
+
+Q8. If paragraph four instead reported exactly fourteen single transitions in each fourteen-year sample, with pairing worsening the temporal fit, which change to the argument would follow most directly?
+(A) The local objection to annual single-line counting would lose its evidential basis, although wider applications of that counting rule would still require justification.
+(B) The study would establish millennial survival among the monitored colonies, because a validated annual counting rule would supply the long lifespans motivating the investigation.
+(C) The study would establish annual single-line counting across black corals, because agreement with the observation interval would remove the need for species-specific chronological calibration.
+(D) The study would retain its objection to annual single-line counting, because the ecological variability documented by the instruments would outweigh agreement with the observation interval.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — The passage moves from the uses of skeletal chronologies through a hypothetical calibration failure to a restricted methodological conclusion. Its purpose is to examine the conversion supporting those uses, not to settle black-coral longevity.
+  (A) adjacent_answer — This describes the passage's organizational sequence rather than the authorial purpose served by that sequence.
+  (B) adjacent_answer — This accurately summarizes later findings but does not explain why the author stages the investigation and restricts its implications.
+  (C) framework_import — This imports the opening longevity question as the study's objective, overlooking the final distinction between testing a conversion and judging longevity.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — The known fourteen-year interval and excess transitions separate countable markings from validated temporal units. What remains uncertain is the mapping from a division to elapsed time.
+  (A) framework_import — This reverses the calibration design: paragraphs two and five establish the observation interval independently rather than reconstructing it from bands.
+  (B) adjacent_answer — This describes the environmental comparison in paragraph four, not the temporal units whose uncertainty that comparison helps expose.
+  (C) prior_belief — This treats conventional annual interpretation as validation, precisely what the excess transitions in paragraph four call into question.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The term applies specifically to ages obtained by multiplying visible bands by one year. The distinction between band counting and isotope dating prevents that methodological defect from becoming a verdict on all substantial ages.
+  (A) scope_inflation — This universalizes the paired-transition comparison, despite the final paragraph's explicit refusal to substitute another universal counting rule.
+  (C) framework_import — This converts the final paragraph's restricted criticism of single-line conversion into rejection of all skeletal ages and environmental records.
+  (D) prior_belief — This preserves annual counting through convention, although paragraphs four and five explicitly withdraw its assumed yearly spacing.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — These markers independently fix annual boundaries and show multiple transitions inside them. They directly reinforce the load-bearing mismatch between elapsed years and single-line counts.
+  (B) adjacent_answer — This supports counting repeatability in paragraph three but supplies no independent temporal boundaries, making it weaker than direct annual marking.
+  (C) framework_import — This strengthens longevity evidence, which the final paragraph distinguishes from validation of the local band-to-year conversion.
+  (D) scope_inflation — This extends an environmental pattern beyond the site without establishing how single transitions map onto years in the studied colonies.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The opening makes longevity salient, but the findings concern the conversion assigning its numerical scale. The final paragraph explicitly preserves the relevance of independently obtained dates.
+  (A) framework_import — This substitutes an exclusively palaeoclimatic objective, ignoring paragraph five's explicit consequences for both age estimates and seasonal reconstruction.
+  (C) framework_import — This confuses the common exposure interval in paragraph two with the colonies' total ages, which the monitoring design does not establish.
+  (D) scope_inflation — This offers universal paired counting as the escape, although the final paragraph expressly refuses that inference.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — Isotope dating limits the reach of the calibration failure. It connects the passage's initial interest in longevity with its eventual insistence that the objection targets a conversion rather than black corals indiscriminately.
+  (A) adjacent_answer — This correctly identifies the discussion's structural position, not the authorial purpose of introducing the alternative dating process.
+  (C) framework_import — This imports a methodological recommendation; the final paragraph preserves independent age evidence without endorsing isotope dating for seasonal reconstruction.
+  (D) adjacent_answer — This correctly summarizes the isotope sentences but stops short of explaining why that distinction matters to the passage's argument.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — Paragraph two explicitly combines environmental monitoring with a common exposure interval. That combination supplies the comparison subsequently used to interpret skeletal transitions.
+  (A) scope_inflation — This expands the single observatory at 320 metres into a cross-habitat design, contradicting paragraph two's specified field arrangements.
+  (B) framework_import — This converts environmental tracking into transition-specific causal identification, exceeding the closer alignment reported in paragraphs four and five.
+  (D) framework_import — This treats the monitored interval as a complete lifespan, whereas paragraph two describes continuing observation of living colonies.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — The actual objection depends on excess single transitions within a known interval. Reversing that result removes the local mismatch without establishing validity across other species, depths, or periods.
+  (B) framework_import — This confuses validating a short interval's conversion with measuring entire colony lifespans, reviving the opening longevity decoy.
+  (C) scope_inflation — This promotes local agreement into universal validation, bypassing the final paragraph's restrictions on species and depth.
+  (D) framework_import — This substitutes environmental variability for the numerical mismatch that actually supports the objection in paragraphs four and five.
+
+[Inspired by: "Where to Find the Oldest Living Things in the World", https://www.atlasobscura.com/articles/where-to-find-the-oldest-living-things-in-the-world]

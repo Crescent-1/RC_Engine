@@ -1,0 +1,116 @@
+RC ID: RC-ELITE-260904-0073 | Tier: elite | Score: 8.4 | Status: needs_review | Compliance F1: 0.761 | Novelty: 0.555 | Screen: green | Generated: 2026-09-04T20:22:40.243073+00:00
+======================================================================
+
+[PASSAGE]
+
+A loss recorded is not the same as a loss suffered, and the two rarely balance. The steward's account of the night of the fire at the Rocchetta Mattei survives in correspondence and in a working ledger, and it reads like what it is: the paperwork of a building site. Fire in the unfinished domed hall, after dark. Workmen roused. Water carried from the cistern. The flames confined to the timber scaffolding and the panelling on the eastern arc, and the masonry, being masonry, unharmed. The Count arrived at first light and walked the room. He gave instructions. Labour was shifted to the west wing, replacement timber was ordered, and the campaign resumed within the week. Read the documents in sequence and the fire behaves like a bad debt in an otherwise solvent enterprise — an entry that must be carried forward, paid down over several seasons, and eventually retired without altering the character of the business. A building of that size runs on such entries. Roofs fail. Suppliers default. Money is owed to a mason in Riola and settled late. The archive that records a fire is the same archive that records a delayed shipment of lime, and it records both in the same hand, at the same width of margin, with the same absence of adjectives. That flatness is precisely what makes the account persuasive: it looks like the version that was not composed for anyone.
+
+Not that the rival account is folklore and can be set aside on that ground; rather that it comes to us by a different route and asks to be weighed differently. Later visitors to the Rocchetta, and the local memory they drew on, transmit a Count who stood before the smoking hall in open distress, who said the fire was a judgment on what the room had been intended for, and who sent for his closest medical confidants before the ashes were cold. That version now bears more weight than it once did, because the Rocchetta is visited, restored, and interpreted, and every guide who describes the mosque-hall is choosing a creditor for the night's loss.
+
+Against the general picture of unsentimental continuity, one entry presses hard: the steward's precise tally of scorched cedar panelling ordered for replacement, quantities exact, delivery dated. Composure, here, means brevity in a ledger. It is administrative, not emotional. The record shows a man giving orders promptly; it cannot show what he felt while giving them.
+
+The oral tradition presses its own detail: that the rebuilt dome carried a new astrological motif. Mattei's medicine borrowed its vocabulary from alchemy, which had borrowed from astrology, which had once been surveying the sky for kings; the word travels down through the centuries and arrives on a ceiling in the Apennines, and the tradition holds that the fire is what put it there.
+
+Both accounts agree on one thing. The dome as built departs from the surviving drawings. The ledger reads that departure as a revision in materials. The tradition reads it as a change of mind. The stone cannot say which, and the temptation to make it say is the error — a fact both parties claim is not evidence for either, only the point where their claims touch: the eight-pointed figure over the west arc.
+
+[QUESTIONS]
+
+Q1. The primary purpose of the passage is to:
+(A) argue that the oral tradition, being emotionally richer, recovers what an administrative archive is structurally unable to record
+(B) trace how astrological vocabulary descended through alchemy into Mattei's medicine and finally onto an Apennine ceiling
+(C) establish that the steward's documentary ledger is authoritative and expose the visitors' account as folklore
+(D) hold two rival records of one night in unresolved balance, showing where their claims merely touch
+
+Q2. According to the passage, why does the steward's exact tally of scorched cedar panelling fail to settle the question of the Count's state of mind?
+(A) Because the steward writing it had reason to compose a version flattering to the Count's household
+(B) Because the brevity it displays is a feature of ledger-keeping, and records orders given rather than feelings held
+(C) Because the composure it displays matches the calm temperament attributed to Mattei by his other biographers
+(D) Because the quantities and delivery dates it records were entered by the steward well after the night itself
+
+Q3. The passage supports all of the following statements about the night of the fire and its records EXCEPT:
+(A) The dome as actually built differs from the drawings that have survived from the design
+(B) Work on the building resumed within a week, with labour redirected toward the west wing
+(C) The oral tradition's account of the Count's distress was transmitted by workmen present at the fire itself
+(D) The masonry of the domed hall survived the fire, which was confined to timber and panelling
+
+Q4. The eight-pointed figure over the west arc functions in the passage to:
+(A) mark the single fact each account claims, while remaining evidence for neither reading of it
+(B) supply the decisive detail that finally tips the weighing in favour of the oral tradition
+(C) illustrate the long descent of astrological vocabulary from royal sky-surveying into Mattei's therapeutic system
+(D) demonstrate that surviving architectural drawings are unreliable guides to what builders actually executed
+
+Q5. Which one of the following, if true, would most call into question the claim that the ledger's flatness is what makes its account persuasive?
+(A) Stewards of the period were instructed to keep uninflected registers usable in litigation over a patron's conduct
+(B) Several other entries in the same ledger contain arithmetical mistakes in the sums owed to suppliers
+(C) The mason in Riola was in fact paid on time, contrary to what the surviving correspondence suggests
+(D) Later visitors to the Rocchetta consistently reported that the Count spoke of the fire as a judgment
+
+Q6. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) A monastery's granary book, written in one unvarying hand across four decades, is preferred by historians to the abbot's letters
+(B) A hospital audit and an inspector's report on one ward disagree about staffing figures, and a later census settles which of the two was accurate
+(C) A shipyard's daily log lists a foreman's death among routine stoppages; the port's songs call it the wreck that ended his line
+(D) A village's account of a flood is shown to have absorbed a much older story about a river god from the neighbouring valley
+
+Q7. The author of the passage is likely to disagree with which one of the following statements?
+(A) The altered dome shows that the fire changed the Count's intentions for the room
+(B) Large building projects routinely absorb setbacks without any change to their character
+(C) The rival account gains weight today because the Rocchetta is visited and interpreted
+(D) A record made for no reader carries a kind of credibility a composed one lacks
+
+Q8. Which one of the following findings would most strengthen the author's conclusion about the departure of the dome from the drawings?
+(A) The eight-pointed figure appears in several other rooms at the Rocchetta that were never damaged by any fire
+(B) Contemporary masons commonly introduced new decorative figures both when substituting materials and when patrons revised a room's purpose
+(C) Replacement cedar of the ordered dimensions could not have been fitted to the panel scheme shown in the drawings
+(D) The surviving drawings were preliminary sketches that builders of the period departed from as a matter of course
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — The passage weighs ledger and oral tradition, grants each its own route of transmission, and ends by refusing to let the shared architectural fact decide between them.
+  (A) stance_misread — The author notes the ledger 'cannot show what he felt' without endorsing the tradition's filling of that gap.
+  (B) example_promotion — That genealogy occupies one paragraph as illustration of the tradition's detail, not the passage's governing aim.
+  (C) phrase_misuse — Paragraph two explicitly refuses this move: the rival account is 'not folklore to be set aside' but a differently transmitted claim.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — Paragraph three states that composure here 'means brevity in a ledger,' is 'administrative, not emotional,' and shows prompt orders while unable to show feeling.
+  (A) stance_misread — The author says the flatness makes it persuasive precisely because it 'looks like the version not composed for anyone.'
+  (C) terminological_twin — The passage restricts 'composure' to ledger brevity and never corroborates it with any biographical account of temperament.
+  (D) half_truth — The passage dates deliveries but never claims the entries were made belatedly or that lateness undermines them.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — The passage attributes the rival version to 'later visitors to the Rocchetta, and the local memory they drew on' — a different route entirely, not eyewitness workmen.
+  (A) passage_supported — Paragraph five opens by noting both accounts agree the dome as built departs from the surviving drawings.
+  (B) passage_supported — Paragraph one records labour shifted to the west wing and the campaign resuming within the week.
+  (D) passage_supported — Paragraph one states the flames were confined to scaffolding and eastern-arc panelling, 'the masonry, being masonry, unharmed.'
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — The closing sentence names it as 'the point where their claims touch,' explicitly denying it evidentiary force for either side.
+  (B) phrase_misuse — The passage says the stone cannot say which reading is right and calls the temptation to make it say the error.
+  (C) adjacent_answer — That descent is traced in paragraph four; the figure appears in paragraph five as the disputed shared fact.
+  (D) scope_inflation — The departure from drawings is a shared premise, not a general lesson about the reliability of building drawings.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — This converts the absence of adjectives from an artefact of nobody's audience into a deliberate response to an audience, dissolving the 'not composed for anyone' inference.
+  (B) adjacent_answer — Arithmetic error touches accuracy of figures, not the argument that unadorned uniformity signals an uncomposed record.
+  (C) level_confusion — A single mistaken detail among routine entries does not disturb the claim about the register's persuasive flatness.
+  (D) false_symmetry — Corroborating the rival account leaves untouched the separate claim about why the ledger's manner reads as credible.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — Two differently transmitted records of one event, one administratively flat and one memorial, with the passage's refusal to let either subordinate the other.
+  (A) phrase_misuse — Preferring the flat record because it is flat is exactly the move paragraph two declines to make.
+  (B) premature_closure — The passage's structure denies any settling third fact; the disputed detail is what both parties claim, not a tiebreaker.
+  (D) straw_version — Debunking oral memory as borrowed legend is the dismissal the author explicitly refuses at the opening of paragraph two.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — The author reports this as the tradition's reading and then insists the stone cannot say which reading is right; asserting it as shown is the named error.
+  (B) half_truth — Paragraph one affirms this: roofs fail, suppliers default, and such entries are simply carried forward.
+  (C) stance_misread — Paragraph two states this directly: guides describing the mosque-hall are choosing a creditor for the loss.
+  (D) adjacent_answer — The author endorses this in paragraph one, calling the flatness persuasive because unaddressed to anyone.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — If the same alteration follows equally from material substitution and from changed intention, the built dome genuinely cannot adjudicate between the two readings.
+  (A) causal_inversion — This would weigh against the tradition's causal story rather than sustain the author's refusal to decide.
+  (C) adjacent_answer — This favours the ledger's materials explanation, which is the closure the author's conclusion declines to make.
+  (D) level_confusion — This dissolves the shared fact both accounts rest on instead of supporting its status as undecidable.
+
+[Inspired by: "A Thousand and One Nights in Italy: The Moorish Fantasias of Cesare Mattei and Ferdinando Panciatichi", https://publicdomainreview.org/essay/a-thousand-and-one-nights-in-italy]
