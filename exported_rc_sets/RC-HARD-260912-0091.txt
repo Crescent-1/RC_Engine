@@ -1,0 +1,114 @@
+RC ID: RC-HARD-260912-0091 | Tier: hard | Score: 8.6 | Status: approved | Compliance F1: 0.831 | Novelty: 0.557 | Screen: green | Generated: 2026-09-12T18:58:37.354807+00:00
+======================================================================
+
+[PASSAGE]
+
+A single natural event, counted twice by different apparatus, can return two figures that refuse to be reconciled, and the refusal is sometimes the most informative part of the record. Off one stretch of the Aberdeenshire coast in the summer of 1868, the same herring shoal was assigned two tonnages that stood far apart. The landing men worked from the net-haul tally entered at the curing yards as the boats came back — barrels counted, crews paid against them, a figure built out of what had actually been lifted from the water. The watching men worked from the harbourmaster's silvering log, kept from the cliff path in the hours before any boat put out, in which the sea's surface change of colour over a stretch of water was read off against landmarks and converted to bulk. Each camp held the other's number to be loose work.
+
+The watching men's central claim can be granted more or less whole. A shoal shears, sounds, splits and drifts, and much of that motion happens before a net touches it; silvering registered mass that the tonnage books, by their construction, could never register, since those books opened only at the moment of landing. The colour on the water was evidence, and evidence of something. Yet the quarrel was not, at bottom, about which instrument held the shoal more faithfully in its grip, because the two records were never reaching for the same object. One recorded a catch — a quantity delimited by boats, gear, weather and the hours men could work. The other recorded an episode of massing, of which any catch is a sample taken under constraint.
+
+Nineteenth-century Scottish fishery board returns of the period tend to print such divergent figures in adjacent columns, entered without annotation and without any attempt at reconciliation, the discrepancy treated as an ordinary feature of the season rather than as a scandal requiring inquiry — which is intelligible once it is seen that counting a shoal by its landings resembles counting a crowd by the gate receipts of the hall it later filled: the receipts are exact, auditable, and drawn around a boundary the hall's builders chose, not one the crowd ever had; people turned away at the door, people who drifted off down the street, people who were never going to enter but were unmistakably part of the gathering, all fall outside the count without falsifying it. The gap is not error. It is the width of the doorway.
+
+Both numbers survived because each fed an administration with its own appetite. The curing yards needed tonnage for wages, cooperage and export duty; the harbour board needed early warning to allocate boats and berths across a short season. Under most configurations of this kind, a figure endures as long as something is downstream of it. And what kept the gap open was less the instruments than the clerks — no office in the chain was ever obliged to hold the two columns against each other, so nobody did, and the discrepancy sat in the ledgers as a feature of the paperwork rather than a problem in the world. A shoal, on this showing, was probably never one thing waiting to be measured twice, but two purposes each precipitating an object out of the same water.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) The silvering log, being taken before any boat sailed, captured mass that landings missed and therefore recorded the shoal's size more truthfully.
+(B) Nineteenth-century fishery clerks failed in their duty by printing divergent columns without reconciliation, and that negligence corrupted the official returns of the season.
+(C) The two tonnages diverged because each apparatus precipitated a different object from the same water, and administrative appetites kept both figures alive.
+(D) The quarrel over the shoal was ultimately about which of the two camps had executed its counting technique with greater care and rigour.
+
+Q2. Regarding the watching men's silvering log described in the passage, the author asserts that:
+(A) its central claim can be largely granted, since it registered mass the landing books were built never to record.
+(B) its readings were loose work, because converting surface colour to bulk from a cliff path admits large error.
+(C) its figures were kept for warning alone and were therefore never entered into the fishery board's printed returns.
+(D) its readings were vindicated over the yards' tally, since the shoal's motion occurred before any net was cast.
+
+Q3. In the context of the passage, "a figure endures as long as something is downstream of it" is best understood as:
+(A) a number survives only where its accuracy has been independently confirmed by a later office.
+(B) a number survives while some office still consumes it for its own operational work.
+(C) the administrative motive behind each figure is the passage's final and decisive explanation.
+(D) figures accumulate distortion as they pass through successive offices of a long chain.
+
+Q4. Which one of the following findings would most complicate the author's account of why the two figures persisted side by side?
+(A) Several harbour boards abandoned silvering logs entirely once steam boats shortened the interval between sighting and landing.
+(B) Some curing yards occasionally revised their barrel tallies downward after export duty had already been assessed on them.
+(C) Silvering readings taken from the cliff path varied by up to a third between two observers on the same morning.
+(D) A harbour clerk was required each season to enter both columns on one reconciliation sheet, and the gap persisted regardless.
+
+Q5. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) A city's rough sleepers are put at 900 by a shelter-bed intake and 3,000 by a night street survey, and both counts are filed yearly by separate departments.
+(B) Two survey teams count the same flock of geese from the same hide and differ by a hundred birds, prompting a review of both teams' field training methods.
+(C) A census bureau discovers its tabulating machine dropped every tenth household, and issues a corrected population figure after the error is traced through the chain.
+(D) A museum reports lower visitor numbers than a tourist board, and an inquiry finds the museum had quietly excluded schoolchildren from its published attendance totals.
+
+Q6. In context, the claim that "the gap is not error. It is the width of the doorway" most nearly means that:
+(A) the shortfall measures the boundary that the counting apparatus imposed, not a failure of counting.
+(B) the shortfall would close if the counting boundary were drawn more generously by the yards.
+(C) the shortfall measures how much of the shoal escaped through gaps left by imperfect nets.
+(D) the shortfall shows that auditable figures are less trustworthy than figures taken in the field.
+
+Q7. Which one of the following best describes the role played by the third paragraph in the passage's argument?
+(A) It summarises how Scottish fishery boards of the period recorded tonnage figures and handled discrepancies in their seasonal returns.
+(B) It offers an analogy that converts the archival calm about divergent columns into evidence for the author's position.
+(C) It supplies documentary proof that nineteenth-century clerks were indifferent to reconciling the two columns of figures.
+(D) It introduces a contemporary parallel in order to concede that the landing men's figures were narrower than admitted.
+
+Q8. If the passage continued, which one of the following would it most likely discuss next?
+(A) The economic consequences for Aberdeenshire crews of being paid against barrels rather than against sighted mass.
+(B) Evidence that herring shoals of the 1868 season were substantially larger than either surviving column suggests.
+(C) Other domains in which rival bureaucratic purposes carve distinct countable objects out of one underlying event.
+(D) Improved nineteenth-century techniques by which silvering estimates could finally be calibrated against landed tonnage.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates the paragraph-2 claim that the records were never reaching for the same object with the paragraph-4 account of why both survived, and the closing reformulation.
+  (A) stance_misread — The author grants silvering registered unlanded mass but refuses to rank it as the truer measure of a single shoal.
+  (B) stance_misread — Paragraph 3 treats the unannotated columns as intelligible, not scandalous; the author says the gap is not error.
+  (D) straw_version — Paragraph 2 explicitly denies that the quarrel was about which instrument held the shoal more faithfully; it was about differing objects.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Paragraph 2 opens by granting the claim 'more or less whole' and explains the tonnage books opened only at landing.
+  (B) straw_version — 'Loose work' is what each camp said of the other, not the author's verdict on the silvering log.
+  (C) half_truth — Paragraph 3 says the board's returns printed such divergent figures in adjacent columns, contradicting the exclusion.
+  (D) stance_misread — Granting the claim is not siding with the watching men; paragraph 2 refuses the contest of fidelity between instruments.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The sentence generalises the preceding examples—wages, cooperage, duty, berth allocation—into a rule about continuing use sustaining a figure.
+  (A) terminological_twin — 'Downstream' means subsequent use, not verification; paragraph 4 stresses that no office ever checked the columns.
+  (C) straw_version — The following sentences relocate the weight onto the clerks' indifference, calling instruments and appetites insufficient.
+  (D) framework_import — Imports a corruption-in-transmission idea absent here; the passage says both figures were exact for their own purposes.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — Paragraph 4 rests the persistence on nobody ever being obliged to hold the columns against each other; a standing obligation with an unchanged gap breaks that load-bearing move.
+  (A) scope_inflation — Later abandonment of one method says nothing about why both figures coexisted unreconciled in 1868 ledgers.
+  (B) adjacent_answer — Revising tonnage within the landing system touches a decorative detail, not the claim about unreconciled parallel columns.
+  (C) straw_version — Attacks the silvering method's precision, which the author never rested on; his case survives loose instruments.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — Two apparatus delimit different objects—those admitted under constraint versus those massing—and separate downstream users keep both alive unreconciled, exactly the passage's mechanism.
+  (B) straw_version — This is a dispute about careful execution of one technique, the very framing paragraph 2 sets aside.
+  (C) category_slip — An identified and corrected error is precisely what the author says the gap is not.
+  (D) premature_closure — Frames the divergence as concealment requiring inquiry, whereas the passage treats such gaps as ordinary features.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The hall analogy makes receipts exact within a boundary the builders chose; the gap therefore records the constraint, not inaccuracy.
+  (B) missing_link — The analogy says the boundary is constitutive of that count; widening it would produce a different object, not reconciliation.
+  (C) level_confusion — Converts a claim about the counting boundary into a claim about physical gear performance at sea.
+  (D) stance_misread — The passage calls the receipts exact and auditable; it ranks neither record above the other.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — The paragraph uses the unannotated returns plus the crowd-and-gate-receipts comparison to make the author's 'different objects' thesis first visible and intelligible.
+  (A) level_confusion — Accurate as summary of content, but names what the paragraph says rather than the argumentative work it performs.
+  (C) stage_misattribution — The clerks' indifference is introduced as the operative cause only in paragraph 4, not established here.
+  (D) stage_misattribution — The concession to the watching men occurs in paragraph 2; paragraph 3 dissolves the contest rather than conceding.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — The closing sentence displaces the topic from herring to the general claim about purposes precipitating objects, inviting extension to further cases.
+  (A) adjacent_answer — Wage practice is mentioned only as one downstream appetite; it is not where the final sentence points.
+  (B) category_slip — Treats the shoal as one thing awaiting true measurement, which the final sentence explicitly declines to assume.
+  (D) premature_closure — The ending abandons reconciliation as the wrong project; calibration restores the contest the author dissolved.
+
+[Inspired by: "Why you should try living without free will for two weeks", https://psyche.co/ideas/why-you-should-try-living-without-free-will-for-two-weeks]

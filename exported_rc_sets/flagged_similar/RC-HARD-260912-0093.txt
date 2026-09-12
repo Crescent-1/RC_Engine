@@ -1,0 +1,114 @@
+RC ID: RC-HARD-260912-0093 | Tier: hard | Score: 7.4 | Status: needs_review | Compliance F1: 0.767 | Novelty: 0.535 | Screen: red | Generated: 2026-09-12T19:01:00.077349+00:00
+======================================================================
+
+[PASSAGE]
+
+When private boatbuilders were licensed to work outside the Arsenale's naval discipline in the sixteenth century, the squeri that spread along Venice's smaller canals inherited, or are generally said to have inherited, a body of rules so stable that the gondola is now described in guild literature and tourist copy alike as eight centuries transmitted intact.
+
+What we can observe at the bench is narrower. A gondola is built crooked on purpose: the hull swells to the right so that a single oar, worked on one side, drives it straight. That much is fixed. The rest is not. The squerarolo working a hull for its second or third life strips back the damaged strakes, decides plank by plank which will take steam and which are past it, and then — this is the part no brochure records — re-establishes the curve by eye, sighting down the length, shaving, sighting again. No template is consulted. The pitch goes on when the humidity and the tide permit, not when the schedule does.
+
+This is where the parallel with Venice's other named heritage crafts fails. Murano glass has recipes: proportions of silica and soda, timings, colours reproducible across generations because the formula is the thing transmitted. A gondola's asymmetry has no such formula, or none that survives contact with a particular boat, because the quantity being reproduced is a balance between a hull, a stretch of water, and one man's weight and stroke — and that balance is not a number anyone has succeeded in writing down. The squerarolo who has worked forty years does not know the correct offset; he knows how to find the correct offset for this boatman, which is a different kind of knowing, and which must be found again when the boatman ages or the boat changes hands. What the label calls tradition maintained is, on the evidence of the bench, judgement re-performed. The rule was never the thing passed on. What was passed on was the capacity to reach a result no rule specifies, under conditions that shift between one restoration and the next.
+
+The squeraroli interviewed in the Venetian craft ethnographies of the last several decades tend to describe the forcola — the carved oarlock, cut to a particular rower — in terms like reading the water off a man's shoulders. It is a good phrase, and it is also a practitioner's account of his own work, which is a weaker sort of evidence than watching him cut. Take the instrument analogy seriously and it cuts in an awkward direction. A violin is tuned to a pitch that exists independently of the tuner. Here there is no reference tone. The craftsman tunes toward a pitch he establishes in the tuning, and the next hull will require a different one, and nothing in the workshop can adjudicate between them except the boat's behaviour on the water afterwards. That is a real achievement and it is not the achievement being advertised. Whether it deserves the word tradition is a question our own instruments handle badly: we have been using continuity of rules as the measure, and this craft does not store its content in rules, so our measure reports an absence where something demonstrably persists — and reports it at the cost of missing what the persistence actually consists of.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) demonstrating that Venice's heritage crafts share a common transmission problem that recipes and formulae cannot solve.
+(B) confirming that the gondola's construction rules have indeed been handed down essentially unchanged across eight centuries of practice.
+(C) arguing that what persists in gondola-making is a transmitted capacity for judgement rather than a fixed body of rules.
+(D) showing that the squerarolo's own account of reading water off a man's shoulders best captures the nature of his skill.
+
+Q2. According to the passage, why is a gondola's hull built asymmetrically?
+(A) So that the hull can compensate for the particular weight and stroke of the boatman who commissions it.
+(B) So that a single oar worked on one side of the boat drives it forward in a straight line.
+(C) So that the craftsman can reproduce a precise offset specified by rules inherited from the Arsenale's naval discipline.
+(D) So that damaged strakes can be stripped and re-steamed plank by plank during a second or third restoration.
+
+Q3. Had the author omitted the comparison with Murano glass, the passage's central claim would:
+(A) collapse entirely, since the whole argument depends on Venice's crafts sharing a single transmission method.
+(B) become an unqualified endorsement of the squerarolo's own poetic description of how he reads a rower.
+(C) lose the contrast case that shows what rule-based transmission looks like when it actually works.
+(D) shift toward the position that no Venetian craft has ever stored its content in written recipes.
+
+Q4. Which one of the following, if established, would most damage the author's central claim?
+(A) Murano glasshouses often adjust published recipes by eye when furnace conditions differ from the stated assumptions.
+(B) A surviving squero manual specifies offsets as a calculable function of rower weight, height and stroke length.
+(C) Some gondolas are now fitted with hulls whose rightward swell is machined to an industry-standard tolerance abroad.
+(D) Several squeraroli today consult printed drawings when replacing strakes damaged below the waterline of older hulls.
+
+Q5. Which one of the following best explains the primary purpose of the discussion of the violin and its tuning?
+(A) To provide a transition from practitioner testimony toward the closing reflection on our measures of tradition.
+(B) To restate the squeraroli's own comparison of their work to musicianship in more precise technical language.
+(C) To show that instrument-making and boatbuilding both tune an object toward a rower or player.
+(D) To expose that the craft lacks any external standard against which a finished hull could be judged.
+
+Q6. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) A restorer explains her varnish choices in vivid metaphors that colleagues find evocative but hard to verify.
+(B) A tailor measures each client carefully and then cuts strictly to the house pattern inherited from his master.
+(C) A bell foundry preserves alloy proportions and cooling times, so its bells ring at identical pitches across centuries.
+(D) A prosthetist fits each walker a socket by repeated trial, since comfort has no measure outside that walker's gait.
+
+Q7. In the context of the passage, "judgement re-performed" is best understood as:
+(A) a skill that must be exercised afresh on each hull because its outcome is nowhere recorded.
+(B) a ritual repetition of inherited procedures whose original rationale the workshop has long since forgotten.
+(C) an evaluation performed by the boatman on the water after each restoration has been completed.
+(D) a craftsman's practised conviction that his forty years at the bench have given him the offset.
+
+Q8. We can infer from the passage that "our own instruments handle badly" refers to:
+(A) the ethnographic interviews that record what squeraroli say instead of watching what they do.
+(B) the templates and measuring tools that a modern squero can no longer afford to maintain.
+(C) the conceptual criteria by which we decide whether something counts as a transmitted tradition.
+(D) the tourist literature and guild copy that advertise eight centuries of intact transmission.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates the bench observation (P2), the Murano contrast (P3), and the closing claim that the craft stores content in judgement, not rules.
+  (A) false_symmetry — Murano glass is introduced precisely as the contrasting case where formulae do transmit successfully.
+  (B) prior_belief — The passage opens by flagging that claim as guild and tourist framing, then spends three paragraphs dismantling it.
+  (D) stance_misread — Paragraph four calls the practitioner's self-account 'a weaker sort of evidence than watching him cut.'
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — Paragraph two states the hull swells to the right so one oar, worked on one side, drives it straight.
+  (A) half_truth — Weight and stroke figure in the balance being reproduced, but the asymmetry itself is explained by single-side oaring.
+  (C) framework_import — The passage insists no offset is written down and that the squerarolo re-establishes the curve by eye, without templates.
+  (D) stage_misattribution — Stripping and steaming describe the restoration procedure, not the reason the hull is built crooked.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — Murano supplies the positive instance of formula-carried transmission against which the gondola's formula-less balance is defined.
+  (A) moderate_extremism — The bench evidence in paragraph two already carries the claim; Murano sharpens the contrast rather than founding it.
+  (B) prior_belief — The author's scepticism about practitioner self-report is stated in paragraph four and is independent of the Murano material.
+  (D) scope_inflation — The passage affirms that Murano's recipes are real and reproducible; removing the case would not generate that denial.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The load-bearing move is that the balance is not a number anyone has written down; a working formula restores rule-transmission.
+  (A) false_symmetry — Weakening the contrast case leaves the gondola argument, which rests on bench observation, entirely intact.
+  (C) level_confusion — Industrial replication elsewhere says nothing about whether the traditional craft transmits rules or judgement.
+  (D) adjacent_answer — Drawings for plank replacement do not touch the claim about the unwritten asymmetry tuned to a particular rower.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The analogy is introduced so the author can show it 'cuts in an awkward direction': unlike pitch, there is no independent reference tone.
+  (A) stage_misattribution — This names the passage's structural role accurately but not the author's reason for choosing this particular analogy.
+  (B) stance_misread — The author takes the analogy seriously in order to turn it against the romantic reading, not to refine it.
+  (C) half_truth — A correct summary of the surface parallel that misses the disanalogy — the absent reference tone — the passage presses.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — Reproduces the structure: a result specified by no rule, found afresh for each person, adjudicated only by performance afterwards.
+  (A) stance_misread — Practitioner eloquence is treated in paragraph four as weak evidence, not as an instance of the mechanism itself.
+  (B) framework_import — Custom measurement executed through a fixed template is precisely the rule-governed model the passage denies.
+  (C) false_symmetry — This is the Murano case — content stored in a transmissible formula — which the author contrasts with the gondola.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — It names the alternative to 'tradition maintained': what persists is the capacity to reach a result no rule specifies, redone each time.
+  (B) phrase_misuse — 'Re-performed' denotes fresh exercise of discrimination, not the unreflective repetition of procedures the passage rejects.
+  (C) stage_misattribution — Behaviour on the water adjudicates the result; the judgement in question is the craftsman's at the bench.
+  (D) straw_version — The passage explicitly says the veteran does not know the correct offset, only how to find it.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — The final sentence identifies the instrument as 'continuity of rules as the measure', a criterion that misreports this craft.
+  (A) adjacent_answer — Interview evidence is criticised earlier, but the closing 'instruments' are the criteria of continuity themselves.
+  (B) category_slip — 'Instruments' is used for our analytic measures, not for workshop equipment; no such shortage is mentioned.
+  (D) level_confusion — The brochures are the object criticised, whereas 'our instruments' names the author's own analytic apparatus.
+
+[Inspired by: "Tea and Salamanders", https://therevelator.org/tea-and-salamanders/]

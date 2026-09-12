@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260912-0092 | Tier: hard | Score: 8.6 | Status: needs_review | Compliance F1: 0.869 | Novelty: 0.58 | Screen: red | Generated: 2026-09-12T19:00:35.322124+00:00
+======================================================================
+
+[PASSAGE]
+
+Every price index rests on a quiet assumption: that the unit in which prices are quoted is stable enough for a change in the number to mean a change in the thing. Carli's eighteenth-century procedure makes the assumption operational in a way anyone can follow. Take a basket of goods — grain, oil, wine. For each good, find its price in the local unit at two dates, compute the percent change, then average those percent changes across the basket. Quote the same goods in bullion — so many grains of silver — and repeat. To a first approximation the two series will run alongside each other, because the coin is the bullion, minted and stamped. Where they part, they part slightly, and the gap can be set aside. That is why the method appears to be a general technique: nothing in the arithmetic announces the conditions under which it holds.
+
+Currencies nominally backed by specie do drift from it. Heavy note issue widens the gap; war widens it faster. But the drift ordinarily stays small — a few percent, a premium a merchant absorbs into his margin. Roughly speaking, the index swallows it as noise. Nominal price still tracks value, and the assumption goes on looking settled.
+
+The Richmond newspapers of the war years, the Whig and the Examiner among them, carried gold-premium tables the way they carried shipping notices: a routine column, updated as the brokers reported. By early 1864 those columns quoted twenty Confederate paper dollars to the gold dollar, then forty, then upward of fifty, while flour in the same city climbed past two hundred paper dollars a barrel. Contemporaries reached, again and again, for a formulation that the price quotations themselves could not express — that prices were not really rising at all, that it was the money that was going. Read charitably, that phrasing is not rhetorical excess but a report of something structural. Ordinary specie drift is the same phenomenon at higher magnitude; here the reference point and the medium being priced had ceased to move together in any respect, so the failure was in the assumption rather than in the numbers the assumption produced.
+
+Which leaves a narrower question, and a harder one. Was there a ratio — ten to one, twenty to one, some figure a bookkeeper could have circled at the time — at which depreciation became collapse? The tables are continuous. They record every intermediate value, and mark none of them.
+
+We are not, now, in the position of a Richmond bookkeeper reconciling two columns for his own account. Consumer price indices set Social Security adjustments, bracket thresholds, and the escalation clauses in wage contracts covering tens of millions of people; a threshold that cannot be seen in advance would not remain a historian's curiosity if a modern currency approached one. What the surviving evidence supports — the broker tables, the merchants' letters, the Treasury's own record of notes issued against redemption it could not promise — is a break locatable only afterward, in the collapse of confidence rather than at any ratio. So the familiar observation that an index measures prices in money is not quite the platitude it sounds like: it is the statement of a condition that the Confederate columns, quietly and for four years, record the exhaustion of.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) Modern indices governing Social Security and wage escalation should be rebuilt to include an explicit gold-premium correction column.
+(B) Price indices work only while money stays stable, a condition the Confederate collapse exhausted without marking any threshold.
+(C) Carli's averaging of percent changes across a basket remains a portable technique for comparing prices under any monetary regime.
+(D) Confederate inflation shows that wartime note issue, rather than the structure of indices, is what drives prices in any paper currency.
+
+Q2. Regarding the question of when depreciation became collapse, the author asserts that:
+(A) the ratio was known to Richmond bookkeepers who could reconcile their two columns accordingly.
+(B) the question of a threshold is rhetorical excess rather than a report of something structural.
+(C) the broker tables record every intermediate value while marking none of them as decisive.
+(D) the twenty-to-one quotation of early 1864 marks the point at which depreciation became collapse.
+
+Q3. The passage supports all of the following statements about ordinary currency drift from specie EXCEPT:
+(A) it is a difference in kind from the Confederate case rather than in magnitude.
+(B) heavy note issue widens the gap between paper and specie, and war widens it faster.
+(C) a merchant can absorb a premium of a few percent into his own margin.
+(D) the index treats such drift as noise, so nominal price still tracks value.
+
+Q4. What purpose is served by the Richmond gold-premium tables in the passage?
+(A) They offer an especially dramatic instance of the ordinary depreciation already described in the preceding paragraph.
+(B) They establish that newspaper brokers understood depreciation better than the Treasury officials issuing the notes.
+(C) They demonstrate that flour prices in Richmond rose faster than the gold premium over the same period.
+(D) They show the index's founding assumption failing outright, not merely being strained by unusually large numbers.
+
+Q5. Which one of the following findings would most weaken the author's conclusion in the final paragraph?
+(A) Several Richmond merchants privately kept a second ledger converting paper quotations into bullion equivalents each week.
+(B) Treasury correspondence shows officials identifying a specific ratio in advance, after which confidence measurably collapsed.
+(C) Modern indices already carry statistical adjustments for volatility that far exceed anything the Confederate brokers reported.
+(D) The Whig and the Examiner sometimes disagreed by several points on the same day's quoted gold premium.
+
+Q6. Based only on the information in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) A statistics office revises its basket after discovering that oil and grain weights no longer reflect what households actually purchase.
+(B) A finance ministry announces that its index will thereafter be computed in bullion units, and merchants adopt the new quotations willingly.
+(C) A central bank tolerates a four percent premium on its notes and finds merchants quietly pricing that premium into their margins.
+(D) A national statistics office keeps publishing a basket index while its currency ceases bearing any stable relation to traded goods.
+
+Q7. Which one of the following positions is described in the passage but not endorsed by the author?
+(A) The remark that an index measures prices in money is a platitude scarcely worth stating.
+(B) Modern index thresholds would cease being a historian's curiosity if a currency approached one.
+(C) Contemporaries' claim that money was going rather than prices rising reports something structural.
+(D) Ordinary drift from specie is the same phenomenon as the Confederate case at lower magnitude.
+
+Q8. Which one of the following would best license the inference the author draws from the surviving Confederate evidence?
+(A) Confederate note issue outpaced Treasury redemption promises by a margin larger than historians previously estimated.
+(B) The Whig and the Examiner both drew their gold quotations from the same small group of Richmond brokers.
+(C) Studies of other hyperinflations find breaks identified only retrospectively, never at any ratio contemporaries flagged.
+(D) Wage contracts in several modern economies now index escalation clauses directly to a published consumer measure.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — Integrates Carli's hidden assumption (P1), ordinary drift absorbed as noise (P2), the Richmond breakdown of the assumption itself (P3), the unlocatable threshold (P4), and the closing restatement of the condition.
+  (A) framework_import — The final paragraph raises modern stakes but recommends no methodological reform, since the break is 'locatable only afterward'.
+  (C) scope_inflation — Inverts the opening warning that 'nothing in the arithmetic announces the conditions under which it holds'; the method is contingent, not general.
+  (D) example_promotion — Promotes the Richmond case into the passage's subject; the case is evidence about the index assumption, not about wartime causes of inflation.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — Paragraph four states the tables are continuous, recording every intermediate value and marking none — the point is the absence of any registered threshold.
+  (A) stage_misattribution — The bookkeeper reconciling two columns is a contrast for modern stakes, not someone credited with locating a ratio.
+  (B) phrase_misuse — 'Rhetorical excess' is the reading the author rejects for contemporaries' phrasing, not a verdict on the threshold question.
+  (D) scope_inflation — Treats the probe as quantitatively resolved; the twenty-to-one figure is a reported quotation, not an identified threshold.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — Paragraph three states explicitly that ordinary specie drift is 'the same phenomenon at higher magnitude', so a difference in kind is precisely what the passage denies.
+  (B) passage_supported — Directly stated: 'Heavy note issue widens the gap; war widens it faster.'
+  (C) passage_supported — Paragraph two describes the small drift as 'a premium a merchant absorbs into his margin'.
+  (D) passage_supported — Paragraph two: 'the index swallows it as noise. Nominal price still tracks value.'
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — Paragraph three says reference point and medium 'ceased to move together in any respect, so the failure was in the assumption rather than in the numbers'.
+  (A) example_promotion — Reduces the case to magnitude, though the paragraph locates the failure in the assumption rather than in the quoted numbers.
+  (B) stage_misattribution — The tables are cited as routine columns and surviving evidence, not as proof of superior broker understanding.
+  (C) level_confusion — Flour and gold figures illustrate the scale of the break, not a comparative rate claim the author advances.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The final paragraph's load-bearing claim is that the break is 'locatable only afterward'; a ratio identified in advance and followed by collapse directly contradicts it.
+  (A) adjacent_answer — Private bullion ledgers are ordinary Carli-style practice and leave the claim about unlocatable thresholds untouched.
+  (C) framework_import — Volatility adjustments address magnitude, not the assumption's exhaustion, so the author's conclusion still stands.
+  (D) half_truth — Minor discrepancies between papers weaken the tables' precision, not the argument that no threshold was marked.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — This reproduces the structural failure: the arithmetic continues untouched while the condition that makes its numbers meaningful has been exhausted.
+  (A) category_slip — Basket composition is a measurement choice; the passage's failure concerns the unit prices are quoted in.
+  (B) scope_inflation — Adopting bullion quotation is Carli's comparison working normally, not the breakdown the passage describes.
+  (C) half_truth — This is the ordinary drift paragraph two says the index swallows as noise, not the assumption's exhaustion.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — The closing sentence reports this familiar view precisely in order to deny it: the observation 'is not quite the platitude it sounds like'.
+  (B) stance_misread — The final paragraph advances this stake in the author's own voice about Social Security and wage contracts.
+  (C) stance_misread — The author explicitly endorses this reading, calling the phrasing 'not rhetorical excess but a report of something structural'.
+  (D) stance_misread — This is the author's own analytic claim in paragraph three, not a reported opinion held at a distance.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — The author generalises from one archive to a structural claim about unlocatable thresholds; parallel cases supply the missing bridge from instance to condition.
+  (A) example_promotion — Sharper figures on note issue deepen the single case without supporting the general claim about thresholds.
+  (B) half_truth — Shared sourcing bears on the tables' independence, not on whether a threshold existed to be marked.
+  (D) framework_import — This restates the modern stakes already granted rather than licensing the inference from historical evidence.
+
+[Inspired by: "Where inflation comes from", https://worksinprogress.co/issue/where-inflation-comes-from/]

@@ -1,0 +1,114 @@
+RC ID: RC-HARD-260912-0094 | Tier: hard | Score: 8.8 | Status: approved | Compliance F1: 0.921 | Novelty: 0.492 | Screen: green | Generated: 2026-09-12T19:03:00.366763+00:00
+======================================================================
+
+[PASSAGE]
+
+The account I learned came from Mincer and Polachek in the 1970s and after, and it was elegant. A woman expects to leave the labour force for children. Anticipating that, she picks work where absence costs less: fields with slower skill obsolescence, lower returns to continuous tenure, flatter wage paths. Then she leaves, and while she is gone the human capital she has accumulated depreciates — training goes stale, firm-specific knowledge dissolves, the network thins. She returns behind where she stopped. The wage gap after a birth is that depreciation, visible on a payslip. And because skills rebuild, the gap should narrow with each year back at work. I taught this. I believed it had the shape of the world in it.
+
+What the account was really pointing at, I came to think, was not the leave at all but the shadow it cast backward: choices made at twenty-three about a child not yet conceived. That mattered more as the policy landscape changed. Denmark, Sweden, Germany and eventually much of the OECD expanded leave entitlements and subsidised childcare precisely to shorten the interruption; if depreciation drove the penalty, the penalty should have shrunk. It didn't much. And somewhere in those years I noticed something I had been looking past: the earnings series after a birth had no recovery segment in it. None. It fell and then it simply ran level, year after year, which is not what depreciating capital does.
+
+Credit where it is owed — and it is owed to the very work that undid me. The Danish study by Kleven, Landais and Søgaard, drawing on tax and employment registers covering essentially the entire population, did what survey data never could: it tracked the same women through the years surrounding a first birth, with childless women of similar age and earnings as the comparison, so that the timing of the child rather than the type of woman was doing the identifying. The design was scrupulous about confounds I had waved at. It could see gradual recovery if gradual recovery existed. That is exactly why its finding carried.
+
+Run the same event study on Danish registers, on American, British and Austrian data, and the picture repeats with a monotony that is hard to argue with: earnings drop by something on the order of a fifth to a third at the birth of a first child, and then hold there — five years out, ten, twenty — never bending back toward the trajectory of women who had no children. The parallel I had assumed was false. Depreciation and permanent reallocation both produce a drop; only one of them produces a drop that heals. What the registers show is women moving into smaller and lower-paying firms, into fewer contracted hours, into occupations with accommodating schedules and low ceilings, and staying. Nothing depreciates because nothing was lost; something was traded. I still think the anticipation story was true — girls do plan around futures they have not chosen yet — but it was a precondition mistaken for an engine. What the reallocation account cannot yet tell us is why the trade falls where it does, since fathers in the same registers, facing the same children, show essentially no penalty at all.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) Expanded parental leave and subsidised childcare across the OECD have failed because they were designed around the wrong measured outcome.
+(B) Human capital depreciation during maternity leave remains the best available explanation of the persistent wage gap that follows a first birth.
+(C) Administrative register data outperform survey data, and that methodological advance is what finally settled the debate about motherhood penalties.
+(D) The flat post-birth earnings path indicates a durable reallocation of work, not skills decaying during an interruption.
+
+Q2. The author cites the choices made "at twenty-three about a child not yet conceived" primarily in order to:
+(A) argue that the depreciation account was wrong from the start and never had any explanatory content.
+(B) identify a real precondition that the field had established but wrongly treated as the driving mechanism.
+(C) show that early occupational anticipation by itself accounts for the whole of the observed post-birth earnings gap.
+(D) demonstrate that leave policy should target adolescent career guidance rather than the length of the interruption.
+
+Q3. The passage most directly corrects which one of the following impressions?
+(A) That the Danish register study's careful design served to vindicate the human capital account the author taught.
+(B) That expanded leave entitlements across the OECD shortened interruptions without any measurable effect on employment.
+(C) That register data covering whole populations can still be distorted by unobserved differences between mothers and childless women.
+(D) That fathers in the same administrative registers show earnings penalties closely comparable in size to those of mothers.
+
+Q4. In the context of the passage, "the shadow it cast backward" is best understood as:
+(A) the lasting damage done to a career by an extended absence from the labour force.
+(B) the way a birth retrospectively revalues the skills a woman had already accumulated in training.
+(C) the influence an expected future birth exerts on occupational choices made years earlier.
+(D) the tendency of earlier cohorts of women to shape the expectations of those following them.
+
+Q5. Which one of the following, if true, would most call into question the claim that the post-birth earnings drop reflects permanent reallocation rather than depreciation?
+(A) In registers followed long enough, mothers' earnings climb steadily back toward childless women's path after year twelve.
+(B) Leave entitlements in Austria expanded later than in Denmark, yet the event studies still look alike.
+(C) Fathers taking long leave in Sweden also show flat earnings paths relative to childless men afterwards.
+(D) Some mothers in the registers move to smaller firms yet keep their previous contracted weekly hours.
+
+Q6. Which one of the following is suggested by the sentence "Nothing depreciates because nothing was lost; something was traded"?
+(A) Employers, not mothers, make the trade by assigning returning women to firms with lower ceilings.
+(B) The depreciation account failed mainly because it measured skills rather than measuring actual hours worked.
+(C) Mothers' earnings fall because they exchange pay for job features they value, not because capability erodes.
+(D) Mothers retain their skills fully, so any observed earnings drop must be temporary and eventually self-correcting.
+
+Q7. Which one of the following research findings would most strengthen the author's conclusion about what drives the post-birth gap?
+(A) Surveys find that most women underestimate how much their earnings will fall after a first birth.
+(B) Countries with the longest statutory leave entitlements record the largest first-birth earnings drops of all.
+(C) Women in occupations with flatter wage paths report higher satisfaction with their schedules than other women do.
+(D) Mothers who never left work at all after a birth still show the same immediate and permanent earnings drop.
+
+Q8. According to the passage, why did the Danish study's finding of no recovery carry particular weight?
+(A) It relied on survey responses gathered repeatedly from the same women across two decades of work.
+(B) It showed that leave entitlements in Denmark had been expanded faster than elsewhere in the OECD.
+(C) Its design was capable of detecting gradual recovery, so its failure to find any was telling.
+(D) It compared mothers with childless women of different ages, which sharpened the contrast in earnings paths.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — It integrates the missing recovery segment (para 2), the cross-country event studies (para 4) and the author's replacement of depreciation with permanent reallocation.
+  (A) scope_inflation — Policy expansion is evidence against depreciation in paragraph 2, not the passage's central claim about policy design failure.
+  (B) causal_inversion — Paragraph 1 presents the depreciation account sympathetically only to have paragraphs 2 to 4 dismantle it.
+  (C) level_confusion — Register quality in paragraph 3 licenses the finding; the passage's point is substantive, not a claim about data sources.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — Paragraph 4 states the anticipation story was true but was "a precondition mistaken for an engine," which is exactly the work this citation does.
+  (A) straw_version — The author says he still thinks the anticipation story was true, so the account is refined rather than voided.
+  (C) nec_suff_swap — The passage calls anticipation a precondition, not an engine; treating it as sufficient inverts paragraph 4's explicit qualification.
+  (D) scope_inflation — No policy prescription about guidance appears; paragraph 2 uses policy only as a test of the depreciation prediction.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — Paragraph 3 credits "the very work that undid me": the design's rigour is what made its non-recovery finding fatal to depreciation.
+  (B) half_truth — Paragraph 2 says the penalty did not shrink much; it makes no claim about employment effects of leave.
+  (C) adjacent_answer — The passage praises the design for handling confounds; correcting a confounding worry is not the impression it targets.
+  (D) false_symmetry — Paragraph 4 states fathers show essentially no penalty, but this is an open puzzle, not a corrected early impression.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — The phrase is immediately glossed as "choices made at twenty-three about a child not yet conceived," i.e. anticipation shaping earlier decisions.
+  (A) causal_inversion — That is the depreciation story the passage rejects; the shadow runs backward in time, not forward from leave.
+  (B) terminological_twin — This imports the depreciation vocabulary the author is abandoning; the shadow concerns prior choices, not revalued stock.
+  (D) category_slip — The passage describes an individual's anticipation of her own future, not intergenerational transmission between cohorts.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — The author's load-bearing contrast is that depreciation heals while reallocation does not; a delayed recovery segment restores the healing pattern.
+  (B) adjacent_answer — Cross-country similarity despite policy differences supports the author's paragraph 2 argument instead of undermining it.
+  (C) false_symmetry — This would extend reallocation to some fathers rather than damage it; it addresses the open puzzle, not the mechanism.
+  (D) half_truth — Paragraph 4 lists several reallocation margins; one margin failing for some women leaves the flat-earnings finding intact.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The sentence caps paragraph 4's catalogue of moves into accommodating, lower-ceiling work, recasting the drop as an exchange rather than an erosion.
+  (A) causal_inversion — The passage describes women moving into such work; it does not attribute the reallocation to employer assignment.
+  (B) level_confusion — Hours are one reallocation margin, not the diagnosis; the failure was the absent recovery segment in paragraph 2.
+  (D) causal_inversion — Retained skills are precisely why the drop persists here; inferring self-correction reinstates the recovery the registers deny.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — If the penalty appears without any interruption, depreciation cannot be operating, while reallocation of job type remains fully available as the cause.
+  (A) level_confusion — Misperception concerns expectations, not the mechanism generating the flat path the registers document.
+  (B) causal_inversion — Linking penalty size to leave length points back toward interruption effects, which is the account the author rejects.
+  (C) adjacent_answer — Satisfaction data describe the accommodating jobs of paragraph 4 without testing why earnings never bend back upward.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — Paragraph 3 states explicitly that the study "could see gradual recovery if gradual recovery existed. That is exactly why its finding carried."
+  (A) terminological_twin — Paragraph 3 says the registers did what survey data never could, so the source is administrative, not survey-based.
+  (B) stage_misattribution — Policy expansion belongs to paragraph 2's separate argument and is not what the Danish study is credited with showing.
+  (D) phrase_misuse — Paragraph 3 specifies comparison women of similar age and earnings, not different ages, so this distorts the design.
+
+[Inspired by: "Fertility on demand", https://worksinprogress.co/issue/fertility-on-demand/]
