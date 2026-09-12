@@ -4,7 +4,7 @@ Production implementation of the architecture in `ARCHITECTURE_REDESIGN.md`.
 Legacy `RC_PIPELINE.py` is untouched and still works; both write to the same
 `rc_pipeline.db` (the engine adds its own tables and keeps `rc_sets` compatible).
 
-## Voice planning and review (2026-09-12)
+## Voice planning and observational review (updated 2026-09-13)
 
 New blueprints carry `voice_plan_version=2026-09-12`. After source-shape selection,
 the composer chooses an eligible reasoning schema before selecting the family
@@ -13,6 +13,9 @@ beat allocation. A non-bipolar `content_frame` survives into rendering. Endings,
 closing beats and surface registers are sampled together for compatibility.
 `rc_engine/voice_plan.py` records the eligibility rules; existing novelty caps
 and tier restrictions still apply. Legacy saved blueprints remain resumable.
+If refinement supplies both content fields, two-pole topic shapes retain their
+tension system and use the frame as supporting material. Non-bipolar shapes
+use the frame; legacy plans without a topic shape retain existing poles.
 
 Schema recency pressure now uses **realized primary schemas** from shipped
 passages, scoped to the client, with a softer other-client pressure. Unknown
@@ -22,29 +25,46 @@ shipped frequencies equal the reference distribution. F30 and F37 remain in
 the library but have no compatible fit among the current eight schemas.
 
 After questions, a separate `voice_review_status` / `voice_review_json` records
-schema, opening, closing, body-plan and commitment deviations. A high aggregate
-compliance or judge score cannot hide a voice flag: the set becomes
-`needs_review`, while a solver dispute keeps its own status. Missing move/schema
-reads are reviewable unknowns. This adds no extraction calls or automatic
-re-renders. These flags may increase review volume; they are model evidence
-for a human decision, not proof that a passage is bad. Reasons appear in the
-console, library detail and subsequent text exports.
+schema, opening, closing, body-plan and commitment deviations. During this
+observational launch, these reasons do **not** change the set's approval status.
+The existing compliance, novelty, length and question-quality checks still apply.
+Missing move/schema reads remain visible as unknowns. This adds no extraction
+calls or automatic re-renders. `review` means observations were recorded, not
+that the set must become `needs_review`; `clear` is not a human quality approval.
+Reasons appear internally in the console and library detail, never in exported
+client text. Export does not read or parse the voice-review JSON.
+
+This supersedes the initial 2026-09-12 status gate: the user's read-only replay
+reported flags on all 30 recent AA ships, including all five approved sets.
+The old-plan cohort cannot establish new-plan precision, but it is sufficient
+reason not to use these rules as an additional approval gate yet.
 
 The reader screen selects up to the existing `compare_n` reference count from
 recent sets, older structural neighbours, and completed-batch siblings. It
 uses a fixed per-client snapshot and saves reference IDs with each result.
 For large batches it selects the closest siblings rather than testing every
 pair. The screen retains its existing red-to-flagged-folder routing and budget.
+Reciprocal sibling reds are listed once as a pair for review. Compare both and
+retain the stronger usable set when appropriate; repetition alone does not
+justify dropping both. No set is automatically selected, deleted or regraded.
 
 `python -m rc_engine.cli health --client AA` separates legacy/new plan cohorts and shows
 measured counts and primary/secondary schema and beat agreement. Blank review
-fields on old sets mean unreviewed, not clear. No historical production records
+fields on old sets mean unreviewed, not clear. It also reports observed voice
+flags with checked/unreviewed counts. No historical production records
 are backfilled by this change. `pytest` isolates legacy default-DB tests in a
 temporary database before collection.
 
 Validation uses mocked model calls. A blinded, matched-seed pilot remains
 necessary to establish whether the passages actually sound more varied without
 reducing readability or question quality; no paid pilot has been run.
+For the first explicitly requested paid pilot, save pre/post health snapshots,
+inspect flagged and unflagged prose, and compare schema/beat obedience,
+unplanned moves, readability, question validity, novelty rejection rate and
+cost per usable set. Do not recalibrate novelty caps from that small batch alone.
+The S3 schema still supplies its own stance and S8 still uses RS09. These narrow
+pools are a known diversity constraint; expanding them requires compatible
+stance designs and evaluation, rather than silently relaxing their restrictions.
 
 ## Commands (run from the project folder)
 

@@ -1033,6 +1033,9 @@ def cmd_health(args) -> int:
 
     for version, v in history.voice_health(window).items():
         print(f"  voice plan {version}: {v['ships']} ships (blind model reads)")
+        print(f"    observational voice flags {v['voice_flagged']}/{v['voice_observed']} "
+              f"checked; {v['ships'] - v['voice_observed']} unreviewed "
+              "(voice observations do not change approval status)")
         print(f"    schema measured {v['schema_measured']}/{v['schema_planned']} planned; "
               f"primary matches {v['primary_matches']}/{v['schema_measured']}, "
               f"primary or secondary {v['either_matches']}/{v['schema_measured']}")
@@ -1195,8 +1198,7 @@ def cmd_export(args) -> int:
     # into another client's folder.
     q = ("SELECT rc_id, tier, rc_text, average_score, status, created_at, "
          "compliance_f1, novelty_composite, "
-         "COALESCE(similarity_verdict, ''), COALESCE(voice_review_status, ''), "
-         "COALESCE(voice_review_json, '[]') FROM rc_sets "
+         "COALESCE(similarity_verdict, '') FROM rc_sets "
          "WHERE rc_text IS NOT NULL AND client_id = ?")
     params: list = [history.client_id]
     if args.status:
@@ -1207,7 +1209,7 @@ def cmd_export(args) -> int:
     os.makedirs(out, exist_ok=True)
     flagged_dir = getattr(args, "flagged_out", None) or _flagged_dir(history.client_id, out)
     n_ok = n_red = 0
-    for rc_id, tier, rc_text, avg, status, created, f1, nov, verdict, voice, reasons_json in rows:
+    for rc_id, tier, rc_text, avg, status, created, f1, nov, verdict in rows:
         # A red verdict routes the file; it never changes the set's status or
         # withholds it. The reviewer decides what a flagged set is worth.
         red = (verdict == "red")
@@ -1217,10 +1219,6 @@ def cmd_export(args) -> int:
         header = (f"RC ID: {rc_id} | Tier: {tier} | Score: {avg} | Status: {status} | "
                   f"Compliance F1: {f1} | Novelty: {nov}{screen_line} | "
                   f"Generated: {created}\n" + "=" * 70 + "\n\n")
-        if voice:
-            reasons = json.loads(reasons_json)
-            header += f"Voice review: {voice}\n"
-            header += "".join(f"- {reason}\n" for reason in reasons) + "\n"
         with open(os.path.join(dest, f"{rc_id}.txt"), "w", encoding="utf-8") as f:
             f.write(header + rc_text)
         n_red += red

@@ -597,14 +597,16 @@ class HistoryStore:
         get attributed to the new planner. These are model reads, not gold labels.
         """
         rows = self.conn.execute(
-            """SELECT b.blueprint_json, rp.realized_json FROM blueprints b
+            """SELECT b.blueprint_json, rp.realized_json, r.voice_review_status
+               FROM blueprints b
                LEFT JOIN rendered_passages rp ON rp.blueprint_id = b.blueprint_id
                    AND rp.client_id = b.client_id
+               LEFT JOIN rc_sets r ON r.rc_id = b.rc_id AND r.client_id = b.client_id
                WHERE b.client_id = ? AND b.status = 'shipped'
                ORDER BY b.created_at DESC, b.rowid DESC LIMIT ?""",
             (self.client_id, window))
         cohorts = {}
-        for bp_raw, read_raw in rows:
+        for bp_raw, read_raw, voice_status in rows:
             try:
                 bp, read = json.loads(bp_raw or '{}'), json.loads(read_raw or '{}')
                 if not isinstance(bp, dict) or not isinstance(read, dict):
@@ -615,8 +617,10 @@ class HistoryStore:
             c = cohorts.setdefault(version, dict(ships=0, schema_planned=0,
                 schema_measured=0, primary_matches=0, either_matches=0,
                 moves_planned=0, moves_measured=0, opening_matches=0,
-                closing_matches=0, middle_matches=0))
+                closing_matches=0, middle_matches=0, voice_observed=0, voice_flagged=0))
             c['ships'] += 1
+            c['voice_observed'] += voice_status in ('review', 'clear')
+            c['voice_flagged'] += voice_status == 'review'
             planned = bp.get('argument_schema_id')
             if planned:
                 c['schema_planned'] += 1
@@ -666,18 +670,17 @@ class HistoryStore:
         return out
 
     def record_voice_review(self, rc_id: str, reasons: list[str]):
-        """Persist evidence for this client without overriding solver disputes.
+        """Observe voice deviations without changing this client's ship status.
 
-        A voice flag is independent of aggregate compliance/judge scores. No
-        re-render is triggered; a reviewer decides whether the deviation works.
+        2026-09-13: the user's replay flagged 30/30 historical ships. Until a
+        real pilot calibrates these signals, they are telemetry, not a gate.
+        Existing compliance, novelty and question-quality checks still apply.
         """
         self.conn.execute(
-            """UPDATE rc_sets SET voice_review_status = ?, voice_review_json = ?,
-                   status = CASE WHEN ? AND status = 'approved'
-                                 THEN 'needs_review' ELSE status END
+            """UPDATE rc_sets SET voice_review_status = ?, voice_review_json = ?
                WHERE rc_id = ? AND client_id = ?""",
             ("review" if reasons else "clear", json.dumps(reasons, ensure_ascii=False),
-             bool(reasons), rc_id, self.client_id))
+             rc_id, self.client_id))
         self.conn.commit()
 
     # ------------------------------------------------------ rendered passages

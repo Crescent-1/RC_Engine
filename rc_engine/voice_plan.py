@@ -172,10 +172,11 @@ def plan_violations(bp, registry):
 
 
 def review_reasons(bp, realized):
-    """Independent voice-review result. Unknown extraction is never a pass.
+    """Observational voice-review reasons, including missing extraction.
 
     This does not request a re-render or change a novelty cap. The reviewer
-    gets the evidence even when unrelated compliance points are high.
+    gets the evidence even when unrelated compliance points are high. Reasons
+    alone do not change approval status during the observational launch.
     """
     reasons = []
     if bp.move_plan:

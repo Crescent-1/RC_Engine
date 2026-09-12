@@ -201,9 +201,15 @@ class PassageRenderer:
 
         forbidden = config.GLOBAL_FORBIDDEN_TICS + persona.get("extra_forbidden", [])
         ts = bp.tension_system or {}
-        primary = ts.get("primary", {})
-        secondary = ts.get("secondary", {})
-        if ts.get("content_frame"):
+        primary = ts.get("primary") or {}
+        secondary = ts.get("secondary") or {}
+        # The declared topic shape decides which material is authoritative.
+        # A stray content_frame must not erase a two-pole plan; legacy plans
+        # without a shape preserve an existing tension system as well.
+        shape = (self.registry.get("topic_shape", bp.topic_shape_id)
+                 if bp.topic_shape_id else {})
+        requires_tension = shape.get("requires_tension", bool(primary))
+        if ts.get("content_frame") and not requires_tension:
             material_block = (f"CONTENT FRAME:\n{ts['content_frame']}\n"
                               "Use this material to carry the reasoning. No opposing "
                               "positions are required unless the plan names them.")
@@ -215,6 +221,8 @@ class PassageRenderer:
                 f"SECONDARY TENSION: {secondary.get('axis', 'n/a')} "
                 f"(fate: {secondary.get('fate', 'n/a')})\n"
                 f"INTERACTION: {ts.get('interaction', 'n/a')}")
+            if ts.get("content_frame"):
+                material_block += f"\nSUPPORTING MATERIAL: {ts['content_frame']}"
         # Ask undershooting providers for a higher number than the band that
         # validates — see config.PROVIDER_WORD_TARGET_OFFSET.
         _off = config.PROVIDER_WORD_TARGET_OFFSET.get(config.ACTIVE_PROVIDER, 0)
