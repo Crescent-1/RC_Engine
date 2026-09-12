@@ -11,9 +11,10 @@ from .registry import ComponentRegistry
 
 NL = chr(10)
 
-RENDER_SYSTEM = """You are a writer producing intellectually serious long-form prose
-(Aeon / LRB / Boston Review register) that will later be adapted into a CAT VARC
-reading-comprehension passage.
+RENDER_SYSTEM = """You are a writer producing intellectually serious prose that will
+later be adapted into a CAT VARC reading-comprehension passage. Use the source
+genre and assigned persona to set the register: explanation, history, criticism
+and practical description need different sentence behaviour.
 
 You will receive a STRUCTURAL CONTRACT: an authorial persona, a paragraph-by-paragraph
 movement plan, a thesis-revelation schedule, reader-trap directives, and an ending
@@ -79,9 +80,9 @@ HARD RULES:
    ARCHITECTURE INVISIBILITY rule above; corrected to 11 in the same edit.)
 
 11. HUMAN TEXTURE (a touch only — keep the intellect; break factory polish):
-   - Plant one concrete, slightly stubborn particular that is not immediately cashed
-     out as a system-metaphor (a room, job title, tool, dated practice, named place,
-     small physical action). It must earn its place in the argument.
+   - Use concrete particulars where they advance this argument, rather than adding
+     a decorative detail to every passage. A detail added for texture must earn
+     its place instead of becoming a system-metaphor.
      It belongs in the BODY: not the opening sentence, not the closing one.
      Measured 2026-08-29: this instruction alone put a concrete particular in
      sentence 1 of six of nine consecutive passages, none of which planned it.
@@ -202,6 +203,18 @@ class PassageRenderer:
         ts = bp.tension_system or {}
         primary = ts.get("primary", {})
         secondary = ts.get("secondary", {})
+        if ts.get("content_frame"):
+            material_block = (f"CONTENT FRAME:\n{ts['content_frame']}\n"
+                              "Use this material to carry the reasoning. No opposing "
+                              "positions are required unless the plan names them.")
+        else:
+            material_block = (
+                f"PRIMARY TENSION: {primary.get('axis', 'n/a')} "
+                f"(poles: {', '.join(primary.get('poles', []))}; "
+                f"fate by the end: {primary.get('fate', 'n/a')})\n"
+                f"SECONDARY TENSION: {secondary.get('axis', 'n/a')} "
+                f"(fate: {secondary.get('fate', 'n/a')})\n"
+                f"INTERACTION: {ts.get('interaction', 'n/a')}")
         # Ask undershooting providers for a higher number than the band that
         # validates — see config.PROVIDER_WORD_TARGET_OFFSET.
         _off = config.PROVIDER_WORD_TARGET_OFFSET.get(config.ACTIVE_PROVIDER, 0)
@@ -271,8 +284,8 @@ class PassageRenderer:
         stance_block = ""
         if stance:
             stance_block = (
-                f"WRITING STANCE (this governs the SHAPE of the whole piece — obey it "
-                f"even where it makes the movement plan harder to satisfy):{NL}"
+                f"WRITING STANCE (the way this argument is developed within "
+                f"the paragraph plan):{NL}"
                 f"  {stance['name']}: {stance['frame']}{NL}"
                 f"  Arc constraint: {stance['arc_constraint']}{NL}{NL}")
 
@@ -292,14 +305,14 @@ class PassageRenderer:
 
         return f"""STRUCTURAL CONTRACT
 
-{stance_block}{schema_block}TOPIC: {bp.topic}
+{schema_block}{stance_block}The schema is the primary reasoning purpose. Paragraph roles and beats
+develop that argument; keep the content briefs consistent with it.
+TOPIC: {bp.topic}
+SOURCE GENRE: {bp.seed_genre or 'unspecified'}
 TIER: {bp.tier} — {config.TIER_DIFFICULTY_CHARACTER.get(bp.tier, '')}
 ARGUMENT FAMILY: {family['name']} — {family['core']}
 
-PRIMARY TENSION: {primary.get('axis', 'n/a')} (poles: {', '.join(primary.get('poles', []))};
-fate by the end: {primary.get('fate', 'n/a')})
-SECONDARY TENSION: {secondary.get('axis', 'n/a')} (fate: {secondary.get('fate', 'n/a')})
-INTERACTION: {ts.get('interaction', 'n/a')}
+{material_block}
 INSTABILITY DEGREE: {bp.instability} (0 = neat closure, 1 = fully suspended; this governs
 how contested the MIDDLE of the passage feels — the ENDING's stance is governed by the
 closing posture directive below, not by this number)
@@ -311,9 +324,8 @@ AUTHORIAL PERSONA: {persona['name']}
   Characteristic moves: {'; '.join(persona['signature_moves'])}
   Pronoun posture: {persona.get('pronoun_posture', 'neutral')}
   Metaphor domains to draw from: {', '.join(persona.get('metaphor_domains', []))}
-  Texture: invent one small voice tell unique to THIS passage (a concrete detail
-  habit, a self-correction tic, or a slightly plainer register dip) so it does not
-  read as the generator's default house polish.
+  Texture: let this subject and persona determine the sentence detail. Perform
+  self-correction when the plan calls for it, rather than adding a recurring tic.
 
 TOTAL LENGTH (hard requirement): {band_lo}-{band_hi} words. Anything outside that
 range is rejected. The per-paragraph targets below are sized to land inside it —

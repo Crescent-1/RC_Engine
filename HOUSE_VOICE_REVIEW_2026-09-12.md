@@ -119,3 +119,31 @@ Research supports keeping lexical, syntactic, and semantic diversity distinct ([
 ## Verification limits
 
 The review used saved annotations and direct prompt reconstruction, not fresh paid extraction. The reference-exam proportions are the values recorded in config; the underlying 124 reference passages and their annotations were not independently re-audited here. Recent cohorts are small, and changes in prompts, source selection, and providers overlap. The evidence establishes concrete control-path defects and persistent repetition signals; it does not establish the causal contribution of each previous intervention.
+
+## Implementation follow-up — 2026-09-12
+
+The pre-change work was checkpointed as `cede664` (code/sites/review) and
+`e63b9c5` (exports and delivery records). The house-voice changes then added
+schema-first compatible composition, schema/beat instructions in refinement,
+content-frame preservation, compatible closing plans, realized-schema feedback,
+independent persisted voice review, and a bounded screen shortlist covering
+older structural neighbours and completed-batch siblings. Health output now
+separates new and legacy plan cohorts. Existing novelty caps were unchanged.
+
+A read-only SQLite source was backed up to a temporary database for 126 mocked
+composition trials: three draws for every combination of 14 topic shapes and
+three difficulty tiers. All 126 produced valid plans against the frozen corpus
+state, with $0 spend. This checks availability under existing recency constraints;
+it does not simulate 126 newly shipped passages or measure prose quality.
+The new health query reproduced the latest eleven's 1 primary-schema match,
+4 primary-or-secondary matches, 10 opening matches, 6 closing matches and zero
+passing middle-beat checks. Production data and existing exports were untouched.
+
+The end-to-end selftest passed, including questions-fail/resume. The test suite
+passed 275 tests with two skips; three pre-existing RAG tests remain blocked by
+the runtime's missing `feedparser` dependency. Fifteen new tests cover planning,
+prompt flow, client-scoped feedback, unknown measurements, high-score review
+routing, legacy loading, health cohorts and screen reference selection.
+JavaScript syntax validation also passed. These are implementation checks;
+the blinded human pilot and a fixed human-labelled evaluation set remain future
+work requiring real outputs and reviewer labels.

@@ -1031,6 +1031,15 @@ def cmd_health(args) -> int:
         if cold:
             print(f"    under-used (<10%): {', '.join(cold)}")
 
+    for version, v in history.voice_health(window).items():
+        print(f"  voice plan {version}: {v['ships']} ships (blind model reads)")
+        print(f"    schema measured {v['schema_measured']}/{v['schema_planned']} planned; "
+              f"primary matches {v['primary_matches']}/{v['schema_measured']}, "
+              f"primary or secondary {v['either_matches']}/{v['schema_measured']}")
+        print(f"    moves measured {v['moves_measured']}/{v['moves_planned']} planned; "
+              f"opening/closing/body pass {v['opening_matches']}/"
+              f"{v['closing_matches']}/{v['middle_matches']} of {v['moves_measured']}")
+
     # ---- seed genre + topic shape ------------------------------------------
     # The last layer the house voice was hiding in: every feed was one genre and
     # the refine schema made every topic bipolar, so 14 of ~60 stored topics
@@ -1186,7 +1195,8 @@ def cmd_export(args) -> int:
     # into another client's folder.
     q = ("SELECT rc_id, tier, rc_text, average_score, status, created_at, "
          "compliance_f1, novelty_composite, "
-         "COALESCE(similarity_verdict, '') FROM rc_sets "
+         "COALESCE(similarity_verdict, ''), COALESCE(voice_review_status, ''), "
+         "COALESCE(voice_review_json, '[]') FROM rc_sets "
          "WHERE rc_text IS NOT NULL AND client_id = ?")
     params: list = [history.client_id]
     if args.status:
@@ -1197,7 +1207,7 @@ def cmd_export(args) -> int:
     os.makedirs(out, exist_ok=True)
     flagged_dir = getattr(args, "flagged_out", None) or _flagged_dir(history.client_id, out)
     n_ok = n_red = 0
-    for rc_id, tier, rc_text, avg, status, created, f1, nov, verdict in rows:
+    for rc_id, tier, rc_text, avg, status, created, f1, nov, verdict, voice, reasons_json in rows:
         # A red verdict routes the file; it never changes the set's status or
         # withholds it. The reviewer decides what a flagged set is worth.
         red = (verdict == "red")
@@ -1207,6 +1217,10 @@ def cmd_export(args) -> int:
         header = (f"RC ID: {rc_id} | Tier: {tier} | Score: {avg} | Status: {status} | "
                   f"Compliance F1: {f1} | Novelty: {nov}{screen_line} | "
                   f"Generated: {created}\n" + "=" * 70 + "\n\n")
+        if voice:
+            reasons = json.loads(reasons_json)
+            header += f"Voice review: {voice}\n"
+            header += "".join(f"- {reason}\n" for reason in reasons) + "\n"
         with open(os.path.join(dest, f"{rc_id}.txt"), "w", encoding="utf-8") as f:
             f.write(header + rc_text)
         n_red += red

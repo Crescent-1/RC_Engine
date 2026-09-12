@@ -4,6 +4,48 @@ Production implementation of the architecture in `ARCHITECTURE_REDESIGN.md`.
 Legacy `RC_PIPELINE.py` is untouched and still works; both write to the same
 `rc_pipeline.db` (the engine adds its own tables and keeps `rc_sets` compatible).
 
+## Voice planning and review (2026-09-12)
+
+New blueprints carry `voice_plan_version=2026-09-12`. After source-shape selection,
+the composer chooses an eligible reasoning schema before selecting the family
+and stance. Refinement and rendering both receive that schema and the paragraph
+beat allocation. A non-bipolar `content_frame` survives into rendering. Endings,
+closing beats and surface registers are sampled together for compatibility.
+`rc_engine/voice_plan.py` records the eligibility rules; existing novelty caps
+and tier restrictions still apply. Legacy saved blueprints remain resumable.
+
+Schema recency pressure now uses **realized primary schemas** from shipped
+passages, scoped to the client, with a softer other-client pressure. Unknown
+reads do not count as successful execution of the plan. Compatibility and
+recency condition the configured exam weights: they do not guarantee that
+shipped frequencies equal the reference distribution. F30 and F37 remain in
+the library but have no compatible fit among the current eight schemas.
+
+After questions, a separate `voice_review_status` / `voice_review_json` records
+schema, opening, closing, body-plan and commitment deviations. A high aggregate
+compliance or judge score cannot hide a voice flag: the set becomes
+`needs_review`, while a solver dispute keeps its own status. Missing move/schema
+reads are reviewable unknowns. This adds no extraction calls or automatic
+re-renders. These flags may increase review volume; they are model evidence
+for a human decision, not proof that a passage is bad. Reasons appear in the
+console, library detail and subsequent text exports.
+
+The reader screen selects up to the existing `compare_n` reference count from
+recent sets, older structural neighbours, and completed-batch siblings. It
+uses a fixed per-client snapshot and saves reference IDs with each result.
+For large batches it selects the closest siblings rather than testing every
+pair. The screen retains its existing red-to-flagged-folder routing and budget.
+
+`python -m rc_engine.cli health --client AA` separates legacy/new plan cohorts and shows
+measured counts and primary/secondary schema and beat agreement. Blank review
+fields on old sets mean unreviewed, not clear. No historical production records
+are backfilled by this change. `pytest` isolates legacy default-DB tests in a
+temporary database before collection.
+
+Validation uses mocked model calls. A blinded, matched-seed pilot remains
+necessary to establish whether the passages actually sound more varied without
+reducing readability or question quality; no paid pilot has been run.
+
 ## Commands (run from the project folder)
 
 ```bash

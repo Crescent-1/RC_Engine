@@ -1805,10 +1805,9 @@ def test_screen_spend_is_returned_not_just_printed():
     assert "screen_cost_usd" in src, "per-set attribution must be persisted"
 
 
-def test_screen_cost_column_exists():
-    from rc_engine import config
+def test_screen_cost_column_exists(tmp_path):
     from rc_engine.history import HistoryStore
-    h = HistoryStore(config.DB_PATH)
+    h = HistoryStore(str(tmp_path / "screen.db"))
     try:
         cols = [c[1] for c in h.conn.execute("PRAGMA table_info(rc_sets)")]
         assert "screen_cost_usd" in cols

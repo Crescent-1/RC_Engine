@@ -191,6 +191,8 @@ class HistoryStore:
         self._ensure_column("rc_sets", "screen_cost_usd", "REAL DEFAULT 0")
         self._ensure_column("rc_sets", "similarity_verdict", "TEXT DEFAULT ''")
         self._ensure_column("rc_sets", "similarity_note", "TEXT DEFAULT ''")
+        self._ensure_column("rc_sets", "voice_review_status", "TEXT DEFAULT ''")
+        self._ensure_column("rc_sets", "voice_review_json", "TEXT DEFAULT '[]'")
         self._ensure_column("fingerprints", "move_signature", "TEXT DEFAULT ''")
         # Excluded from the novelty baseline, never deleted. See fingerprint_window.
         self._ensure_column("fingerprints", "quarantined", "INTEGER DEFAULT 0")
@@ -563,6 +565,120 @@ class HistoryStore:
             """SELECT rc_id, rc_text FROM rc_sets
                WHERE rc_text IS NOT NULL AND client_id = ?
                ORDER BY created_at DESC""", (self.client_id,))
+
+    def argument_schema_counts(self, window: int, scope: str = "client") -> dict[str, int]:
+        """Realized primary schemas of recent ships, scoped explicitly.
+
+        Plans are not evidence of what readers received. Missing/invalid reads
+        occupy a window position but never get replaced with the planned label.
+        """
+        predicate, params = self._scope(scope, "b.client_id")
+        rows = self.conn.execute(
+            f"""SELECT rp.realized_json FROM blueprints b
+                LEFT JOIN rendered_passages rp ON rp.blueprint_id = b.blueprint_id
+                    AND rp.client_id = b.client_id
+                WHERE b.status = 'shipped' AND {predicate}
+                ORDER BY b.created_at DESC, b.rowid DESC LIMIT ?""",
+            (*params, window))
+        counts: dict[str, int] = {}
+        for (raw,) in rows:
+            try:
+                schema = json.loads(raw or "{}").get("argument_schema")
+            except (ValueError, AttributeError):
+                continue
+            if isinstance(schema, str) and schema in config.ARGUMENT_SCHEMAS:
+                counts[schema] = counts.get(schema, 0) + 1
+        return counts
+
+    def voice_health(self, window: int) -> dict[str, dict]:
+        """Plan obedience for this client's recent ships, split by plan version.
+
+        Unknown measurements have separate denominators; legacy plans do not
+        get attributed to the new planner. These are model reads, not gold labels.
+        """
+        rows = self.conn.execute(
+            """SELECT b.blueprint_json, rp.realized_json FROM blueprints b
+               LEFT JOIN rendered_passages rp ON rp.blueprint_id = b.blueprint_id
+                   AND rp.client_id = b.client_id
+               WHERE b.client_id = ? AND b.status = 'shipped'
+               ORDER BY b.created_at DESC, b.rowid DESC LIMIT ?""",
+            (self.client_id, window))
+        cohorts = {}
+        for bp_raw, read_raw in rows:
+            try:
+                bp, read = json.loads(bp_raw or '{}'), json.loads(read_raw or '{}')
+                if not isinstance(bp, dict) or not isinstance(read, dict):
+                    continue
+            except ValueError:
+                continue
+            version = bp.get('voice_plan_version') or 'legacy'
+            c = cohorts.setdefault(version, dict(ships=0, schema_planned=0,
+                schema_measured=0, primary_matches=0, either_matches=0,
+                moves_planned=0, moves_measured=0, opening_matches=0,
+                closing_matches=0, middle_matches=0))
+            c['ships'] += 1
+            planned = bp.get('argument_schema_id')
+            if planned:
+                c['schema_planned'] += 1
+                measured = read.get('argument_schema')
+                if isinstance(measured, str) and measured in config.ARGUMENT_SCHEMAS:
+                    c['schema_measured'] += 1
+                    c['primary_matches'] += measured == planned
+                    c['either_matches'] += planned in (measured, read.get('argument_schema_secondary'))
+            if bp.get('move_plan'):
+                c['moves_planned'] += 1
+                if read.get('rhetorical_moves'):
+                    c['moves_measured'] += 1
+                    for name, key in [('opening_matches', 'opening_beat_ok'),
+                                      ('closing_matches', 'closing_beat_ok'),
+                                      ('middle_matches', 'middle_beats_ok')]:
+                        c[name] += read.get(key) is True
+        return cohorts
+
+    def voice_reference_pool(self) -> list[dict]:
+        """All shipped texts for this client, with blind structural labels.
+
+        Retrieval scans the corpus locally; only a bounded shortlist is sent
+        to the reader screen. Include review/dispute rows because they can be
+        batch siblings requiring a human decision, not just approved examples.
+        """
+        statuses = tuple(config.SHIPPING_STATUSES)
+        marks = ','.join('?' for _ in statuses)
+        rows = self.conn.execute(
+            f"""SELECT r.rc_id, r.rc_text, rp.realized_json
+                FROM rc_sets r LEFT JOIN rendered_passages rp
+                  ON rp.blueprint_id = r.blueprint_id AND rp.client_id = r.client_id
+                WHERE r.client_id = ? AND r.status IN ({marks})
+                  AND r.rc_text IS NOT NULL
+                ORDER BY r.created_at DESC, r.rowid DESC""",
+            (self.client_id, *statuses))
+        out = []
+        for rc_id, rc_text, raw in rows:
+            try:
+                realized = json.loads(raw or '{}')
+                if not isinstance(realized, dict):
+                    realized = {}
+            except ValueError:
+                realized = {}
+            out.append({'rc_id': rc_id, 'rc_text': rc_text,
+                        'moves': realized.get('rhetorical_moves') or [],
+                        'schema': realized.get('argument_schema') or ''})
+        return out
+
+    def record_voice_review(self, rc_id: str, reasons: list[str]):
+        """Persist evidence for this client without overriding solver disputes.
+
+        A voice flag is independent of aggregate compliance/judge scores. No
+        re-render is triggered; a reviewer decides whether the deviation works.
+        """
+        self.conn.execute(
+            """UPDATE rc_sets SET voice_review_status = ?, voice_review_json = ?,
+                   status = CASE WHEN ? AND status = 'approved'
+                                 THEN 'needs_review' ELSE status END
+               WHERE rc_id = ? AND client_id = ?""",
+            ("review" if reasons else "clear", json.dumps(reasons, ensure_ascii=False),
+             bool(reasons), rc_id, self.client_id))
+        self.conn.commit()
 
     # ------------------------------------------------------ rendered passages
 
