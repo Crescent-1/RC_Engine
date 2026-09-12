@@ -103,6 +103,42 @@ backs the DB up (SQLite online-backup API + `PRAGMA integrity_check`) to a
 local non-synced folder — default `%USERPROFILE%\rc_data\backups\`, override
 with `RC_ENGINE_BACKUP_DIR`; the newest 10 are kept.
 
+## Clients (added 2026-09-12)
+
+One DB serves every client. Sets, blueprints, fingerprints, rendered passages,
+attempts and health snapshots each carry a `client_id`. Everything that existed
+before 2026-09-12 belongs to the founding client **AA**: the column default
+migrated it on first open, and a pre-migration copy is in the backups folder as
+`pre-multiclient-rc_pipeline-*.db`.
+
+| Scope | What |
+|---|---|
+| **Per client** (a new client starts fresh) | novelty window and every gate channel, exclusion windows, usage decay, posture runs, move saturation, seed-genre saturation, seed ancestry, topic precheck, similarity screen, in-flight holds, resume queue, attempts/yield, `health` |
+| **Global** (structural exclusivity) | shipped argument skeletons (`combo_hash`; the `ux_shipped_combo` unique index refuses a second ship), seed essays (RAG `used` flag plus a ship-time check against other clients), rc ids, the ship lock |
+| **Soft global term** | components and rhetorical moves recently given to *other* clients get a gentle pull-away (`GLOBAL_*` in `config.py`). An exact no-op while one client exists |
+
+```bash
+python -m rc_engine.cli client add BB --name "Second institute"
+python -m rc_engine.cli client list
+python -m rc_engine.cli generate --client BB --hard 4
+python -m rc_engine.cli health --client BB --all        # + cross-client exclusivity audit
+python -m rc_engine.cli export --client BB --status approved   # -> exported_rc_sets/BB/
+```
+
+- `--client` works on `generate`, `retry-questions`, `health`, `export`, `avoid`, `vet`,
+  `backfill` and `move-audit`. The default is `AA`, or `RC_ENGINE_CLIENT` if set. An
+  unknown client is an error, never an empty corpus: an empty window auto-passes
+  novelty.
+- Dry runs use `rc_engine_dryrun.db`, so add the client there too:
+  `client add BB --db rc_engine_dryrun.db`.
+- For clients other than AA, `backfill` and `move-audit` have no default `--from-txt`,
+  because the defaults are AA's delivery folders. Pass the new client's own folders
+  explicitly.
+- AA keeps the top-level `exported_rc_sets/` layout. The trackers (`build_tracker.py`,
+  `build_shipping_tracker.py`) cover AA only.
+- The legacy `RC_PIPELINE.py` does not know about clients; its rows default to AA.
+- GUI: the sidebar client picker scopes every page, job and export.
+
 ## What each stage does
 
 | Stage | Model (elite) | Purpose |

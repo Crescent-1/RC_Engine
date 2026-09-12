@@ -73,7 +73,8 @@ class _Prefixed:
         return getattr(self._s, name)
 
 
-def _worker_init(db: str, provider: str, dry_run: bool, embed: bool) -> None:
+def _worker_init(db: str, provider: str, dry_run: bool, embed: bool,
+                 client_id: str | None = None) -> None:
     global _PIPE, _WORKER_ID
     _WORKER_ID = f"w{os.getpid()}"
     for stream in (sys.stdout, sys.stderr):
@@ -93,7 +94,7 @@ def _worker_init(db: str, provider: str, dry_run: bool, embed: bool) -> None:
     else:
         from .providers import RoutedClient, make_client
         llm = RoutedClient(make_client(provider))
-    _PIPE = RCPipeline(HistoryStore(db), llm, embed=embed,
+    _PIPE = RCPipeline(HistoryStore(db, client_id), llm, embed=embed,
                        parallel=True, worker_id=_WORKER_ID)
 
 
@@ -146,13 +147,16 @@ def _worker_slot(tier: str, slot_no: int, count: int, seeds: list,
 def run_parallel(history, tier_counts: dict[str, int], workers: int, *,
                  db: str, provider: str, dry_run: bool, embed: bool,
                  seed_provider=None, max_usd: float | None = None,
-                 only_posture: str | None = None) -> list[RCResult]:
+                 only_posture: str | None = None,
+                 client_id: str | None = None) -> list[RCResult]:
     """Parallel counterpart of pipeline.run_batch with the same contract:
     returns every RCResult, records every attempt, prints the same summary.
-    `history` is the parent's store (attempts table + seed callbacks)."""
+    `history` is the parent's store (attempts table + seed callbacks).
+    Workers run for the parent's client unless client_id says otherwise."""
     from .pipeline import summarize_batch
     from .registry import ComponentRegistry
 
+    client_id = client_id or getattr(history, "client_id", None)
     workers = max(1, min(int(workers), config.BATCH_WORKERS_MAX))
     if max_usd is None:
         max_usd = 1.25 * sum(config.TIER_BUDGET_USD[t] * n for t, n in tier_counts.items())
@@ -240,7 +244,7 @@ def run_parallel(history, tier_counts: dict[str, int], workers: int, *,
     stop = False
     pending: dict = {}
     with ProcessPoolExecutor(max_workers=workers, initializer=_worker_init,
-                             initargs=(db, provider, dry_run, embed)) as ex:
+                             initargs=(db, provider, dry_run, embed, client_id)) as ex:
         while slots or pending:
             while slots and len(pending) < workers and not stop:
                 if spent() >= max_usd:

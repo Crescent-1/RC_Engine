@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import subprocess
 import sys
 import uuid
@@ -35,6 +36,19 @@ def _cli(*args: str) -> list[str]:
     return [PY, "-m", "rc_engine.cli", *args]
 
 
+_CLIENT_SLUG = re.compile(r"^[A-Za-z0-9][A-Za-z0-9_-]{0,31}$")
+
+
+def _client_args(client: str | None) -> list[str]:
+    """--client for a CLI call (2026-09-12). The CLI rejects an unknown client
+    itself; this only keeps malformed input out of argv."""
+    if not client:
+        return []
+    if not _CLIENT_SLUG.match(client):
+        raise HTTPException(400, "invalid client")
+    return ["--client", client]
+
+
 def _run_sync(argv: list[str], timeout: int = 120) -> dict:
     env = {**os.environ, "PYTHONIOENCODING": "utf-8"}
     try:
@@ -57,9 +71,14 @@ def _start_job(kind: str, argv: list[str]) -> JSONResponse:
 
 # ------------------------------------------------------------------- reads
 
+@app.get("/api/clients")
+def api_clients():
+    return db.clients()
+
+
 @app.get("/api/dashboard")
-def api_dashboard():
-    data = db.dashboard()
+def api_dashboard(client: str | None = None):
+    data = db.dashboard(client)
     data["last_job"] = MANAGER.last_finished()
     cur = MANAGER.busy()
     data["running_job"] = cur.meta() if cur else None
@@ -68,8 +87,8 @@ def api_dashboard():
 
 @app.get("/api/rcs")
 def api_rcs(status: str | None = None, tier: str | None = None,
-            limit: int = 50, offset: int = 0):
-    return db.rc_list(status, tier, min(limit, 200), max(offset, 0))
+            limit: int = 50, offset: int = 0, client: str | None = None):
+    return db.rc_list(status, tier, min(limit, 200), max(offset, 0), client)
 
 
 @app.get("/api/rcs/{rc_id}")
@@ -81,13 +100,13 @@ def api_rc_detail(rc_id: str):
 
 
 @app.get("/api/resumable")
-def api_resumable():
-    return db.resumable()
+def api_resumable(client: str | None = None):
+    return db.resumable(client)
 
 
 @app.get("/api/health")
-def api_health():
-    return {"history": db.health_history()}
+def api_health(client: str | None = None):
+    return {"history": db.health_history(client=client)}
 
 
 @app.get("/api/settings")
@@ -124,10 +143,11 @@ def api_estimate(provider: str = "claude"):
     return _run_sync(_cli("estimate", "--provider", provider), timeout=60)
 
 
-def _avoid_line(n: int) -> tuple[str, str]:
+def _avoid_line(n: int, client: str | None = None) -> tuple[str, str]:
     """(avoid_line, full_avoid_output). avoid_line is the single paste-ready
     'AVOID (from my recent sets): …' line, empty if none."""
-    res = _run_sync(_cli("avoid", "--n", str(max(1, min(n, 20)))), timeout=60)
+    res = _run_sync(_cli("avoid", "--n", str(max(1, min(n, 20))),
+                         *_client_args(client)), timeout=60)
     line = ""
     for raw in res["output"].splitlines():
         if raw.strip().startswith("AVOID"):
@@ -137,15 +157,16 @@ def _avoid_line(n: int) -> tuple[str, str]:
 
 
 @app.get("/api/avoid")
-def api_avoid(n: int = 4):
-    return _run_sync(_cli("avoid", "--n", str(max(1, min(n, 20)))), timeout=60)
+def api_avoid(n: int = 4, client: str | None = None):
+    return _run_sync(_cli("avoid", "--n", str(max(1, min(n, 20))),
+                          *_client_args(client)), timeout=60)
 
 
 MANUAL_PROMPT_PATH = os.path.join(PROJECT_ROOT, "MANUAL_GENERATION_PROMPT.md")
 
 
 @app.get("/api/manual-prompt")
-def api_manual_prompt(n: int = 4, tier: str = "elite"):
+def api_manual_prompt(n: int = 4, tier: str = "elite", client: str | None = None):
     """The full manual-generation prompt (the block between the START/END
     markers) plus a ready-to-send first message with the current AVOID line
     injected for the chosen tier."""
@@ -164,7 +185,7 @@ def api_manual_prompt(n: int = 4, tier: str = "elite"):
         raise HTTPException(500, "prompt markers not found in the file")
     block = text[i + len(start_marker):j].strip()
 
-    avoid_line, avoid_note = _avoid_line(n)
+    avoid_line, avoid_note = _avoid_line(n, client)
     first_message = f"TIER: {tier}"
     if avoid_line:
         first_message += "\n" + avoid_line
@@ -205,6 +226,7 @@ class GenerateBody(BaseModel):
     no_seed: bool = False
     no_embed: bool = False
     workers: int = 1
+    client: str | None = None
 
 
 @app.post("/api/jobs/generate")
@@ -213,7 +235,7 @@ def api_generate(body: GenerateBody):
         raise HTTPException(400, "unknown provider")
     if body.medium + body.hard + body.elite <= 0:
         raise HTTPException(400, "nothing to generate")
-    argv = _cli("generate", "--provider", body.provider)
+    argv = _cli("generate", "--provider", body.provider, *_client_args(body.client))
     for tier in ("medium", "hard", "elite"):
         n = getattr(body, tier)
         if n > 0:
@@ -237,6 +259,7 @@ class RetryBody(BaseModel):
     note: str | None = None
     provider: str = "claude"
     dry_run: bool = False
+    client: str | None = None
 
 
 @app.post("/api/jobs/retry")
@@ -245,7 +268,8 @@ def api_retry(body: RetryBody):
         raise HTTPException(400, "unknown provider")
     if not body.blueprint and not body.all:
         raise HTTPException(400, "blueprint or all required")
-    argv = _cli("retry-questions", "--provider", body.provider)
+    argv = _cli("retry-questions", "--provider", body.provider,
+                *_client_args(body.client))
     if body.all:
         argv.append("--all")
     elif body.blueprint:
@@ -263,13 +287,13 @@ def api_rag_sync():
 
 
 @app.post("/api/jobs/backfill")
-def api_backfill():
-    return _start_job("backfill", _cli("backfill"))
+def api_backfill(client: str | None = None):
+    return _start_job("backfill", _cli("backfill", *_client_args(client)))
 
 
 @app.post("/api/jobs/health-snapshot")
-def api_health_snapshot():
-    return _start_job("health", _cli("health"))
+def api_health_snapshot(client: str | None = None):
+    return _start_job("health", _cli("health", "--all", *_client_args(client)))
 
 
 @app.get("/api/jobs")
@@ -305,11 +329,12 @@ def api_job_kill(job_id: str):
 
 class ExportBody(BaseModel):
     status: str | None = None
+    client: str | None = None
 
 
 @app.post("/api/export")
 def api_export(body: ExportBody):
-    argv = _cli("export")
+    argv = _cli("export", *_client_args(body.client))
     if body.status:
         argv += ["--status", body.status]
     return _run_sync(argv, timeout=120)
@@ -327,7 +352,8 @@ async def api_vet(text: str | None = Form(None),
                   tier: str | None = Form(None),
                   ingest: bool = Form(False),
                   force: bool = Form(False),
-                  no_embed: bool = Form(True)):
+                  no_embed: bool = Form(True),
+                  client: str | None = Form(None)):
     if MANAGER.busy():
         raise HTTPException(409, "a job is running — vet writes to the DB on "
                                  "ingest, try again when it finishes")
@@ -341,7 +367,7 @@ async def api_vet(text: str | None = Form(None),
     with open(tmp, "w", encoding="utf-8") as f:
         f.write(content)
     try:
-        argv = _cli("vet", tmp)
+        argv = _cli("vet", tmp, *_client_args(client))
         if tier in ("medium", "hard", "elite"):
             argv += ["--tier", tier]
         if ingest:

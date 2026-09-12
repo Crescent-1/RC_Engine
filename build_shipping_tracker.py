@@ -1,9 +1,24 @@
 """Rebuilds RC_Shipping_Tracker.xlsx: what has gone to the institute, and what
 is still on the bench. Re-run any time; it only reads its sources.
 
-Ground truth for "shipped" is the week folders under the RC delivery root
-(decided with Ansh 2026-09-07: "consider the folder as main source -- whatever
-is gone in week 5 or 6 is what's gone"). The old RC_Tracker_new.xlsx is used
+"Shipped" is the UNION of two sources: sent_index.json (what was actually
+emailed, indexed by build_sent_index.py -- run that first) and the week folders
+under the RC delivery root. A set in EITHER place is spoken for and never
+returns to the bench; the Delivery column says which it was. Ansh chose the
+union on 2026-09-12 after the Week 4 drift, so that nothing can fall between
+the two records again.
+
+The client-facing list (build_client_tracker.py) stays EMAIL-ONLY on purpose:
+a staged set was never in the client's hands and must not appear there.
+
+It used to be the week folders under the RC delivery root (agreed with Ansh
+2026-09-07: "consider the folder as main source"). That was wrong, and on
+2026-09-12 it cost a duplicate the client caught: Week 4's email carried 10
+sets against the folder's 12, and the two it never filed came back round as
+bench stock. A week with no entry in sent_index.json still falls back to its
+folder, which is correct for one staged but not yet mailed.
+
+The old RC_Tracker_new.xlsx is used
 only for its RC_ID/Sent_id mapping and its remarks, both carried over; its
 forward *allocations* are not trusted, because the rows it wrote on 2026-07-26
 for Week_5/Week_6 were plans that the 2026-08-22 house-voice re-cut replaced.
@@ -30,6 +45,7 @@ MANUAL = os.path.join(PROJ, "manual_rc_sets", "used")
 OLD_TRACKER = os.path.join(PROJ, "RC_Tracker_new.xlsx")
 DB = os.path.join(PROJ, "rc_pipeline.db")
 GENRES = os.path.join(PROJ, "rc_genres.json")
+SENT_INDEX = os.path.join(PROJ, "sent_index.json")
 OUT = os.path.join(PROJ, "RC_Shipping_Tracker.xlsx")
 
 # Notes and manifests that live alongside the sets but are not sets.
@@ -196,10 +212,9 @@ pool = dict(exported)
 for rc, rec in manual.items():
     pool.setdefault(rc, rec)
 
-shipped_files = {}
-for wk in sorted(os.listdir(SHIP)):
-    if not wk.startswith("Week_"):
-        continue
+def scan_week_folder(wk):
+    """The week folder's own contents: sent_id -> {passage, nq, paths}."""
+    out = {}
     for dirpath, _dirs, files in os.walk(os.path.join(SHIP, wk)):
         for fn in sorted(files):
             if not fn.lower().endswith((".txt", ".docx")) or fn.startswith("~$"):
@@ -208,24 +223,110 @@ for wk in sorted(os.listdir(SHIP)):
             sent = os.path.splitext(fn)[0]
             raw = read_any(p)
             psg = split_passage(raw)
-            r = shipped_files.setdefault((wk, sent),
-                                         {"week": wk, "sent_id": sent, "paths": [],
-                                          "passage": psg, "nq": count_questions(raw)})
+            r = out.setdefault(sent, {"passage": psg, "nq": count_questions(raw),
+                                      "paths": []})
             r["nq"] = max(r["nq"], count_questions(raw))
             r["paths"].append(os.path.relpath(p, SHIP).replace("\\", "/"))
             if len(psg) > len(r["passage"]):          # .txt and .docx of one set
                 r["passage"] = psg
-for r in shipped_files.values():
-    r["paths"].sort()
+    for r in out.values():
+        r["paths"].sort()
+    return out
+
+
+# What actually went out. sent_index.json (written by build_sent_index.py from
+# the downloaded Sent attachments) is the authority; a week folder is only the
+# fallback for a week staged but not yet emailed.
+#
+# The folders were the authority until 2026-09-12, when the client spotted
+# "In a converted stockroom" repeating in Week 8 and was right. Week 4's email
+# carried 10 sets, the folder holds 12, and only 7 are common: two emailed sets
+# were never filed, so the tracker had been offering them as bench stock.
+# Weeks 1-3 and 5-7 reconcile exactly, but nothing below assumes that.
+sent_index = {}
+if os.path.exists(SENT_INDEX):
+    sent_index = json.load(open(SENT_INDEX, encoding="utf-8"))
+
+week_dirs = {}
+for _wk in sorted(os.listdir(SHIP)):
+    # directories only: a mailed week also leaves a Week_8_12_09.zip beside its
+    # folder, and sorted() puts the zip second, so it silently won and the whole
+    # week vanished from the tracker (2026-09-12).
+    _m = re.match(r"Week_(\d+)_", _wk)
+    if _m and os.path.isdir(os.path.join(SHIP, _wk)):
+        week_dirs[int(_m.group(1))] = _wk
+
+shipped_files = {}
+reconcile_rows = []
+for num in sorted(set(week_dirs) | {int(k[1:]) for k in sent_index}):
+    wk = week_dirs.get(num, "Week_%d_unfiled" % num)
+    folder = scan_week_folder(wk) if num in week_dirs else {}
+    rows = sent_index.get("W%02d" % num)
+
+    def put(sent_id, rec):
+        """Week 4 emailed one passage and staged another under the SAME name
+        (RC_MEDIUM_260815_02), so a collision here is real data, not a bug."""
+        key = (wk, sent_id)
+        if key in shipped_files:
+            key = (wk, sent_id + " [staged]")
+        shipped_files[key] = rec
+
+    if rows is None:
+        # not emailed yet (or no archive for it): the folder is all there is
+        for sent, r in sorted(folder.items()):
+            put(sent, {"week": wk, "sent_id": sent, "paths": r["paths"],
+                       "passage": r["passage"], "nq": r["nq"],
+                       "delivery": "staged, not yet emailed"})
+        continue
+
+    # UNION of the mail and the folder (Ansh, 2026-09-12: "take union of both
+    # ... so this doesn't happen in the future"). A set present in EITHER place
+    # counts as spoken for, so the bench can never offer it again. The Delivery
+    # column says which, so a staged-only set can still be reused deliberately.
+    matched_folder = set()
+    for row in rows:
+        # a folder file whose passage matches is the same set, whatever it is named
+        hit = max(((sim(norm(row["passage"]), norm(v["passage"])), k)
+                   for k, v in folder.items()), default=(0.0, None))
+        ok = hit[0] >= 0.90
+        if ok:
+            matched_folder.add(hit[1])
+        put(row["sent_as"], {
+            "week": wk, "sent_id": row["sent_as"],
+            "paths": folder[hit[1]]["paths"] if ok else [],
+            "passage": row["passage"], "nq": row["nq"],
+            "delivery": "emailed" if ok else "emailed, never filed in the folder",
+        })
+        if not ok:
+            reconcile_rows.append({"Week": wk, "Issue": "emailed, not in the folder",
+                                   "Sent_as": row["sent_as"],
+                                   "RC_ID": row["rc_id"] or "(unresolved)",
+                                   "Detail": "closest folder file %s at %.2f"
+                                             % (hit[1] or "-", hit[0])})
+    for k, v in sorted(folder.items()):
+        if k in matched_folder:
+            continue
+        put(k, {"week": wk, "sent_id": k, "paths": v["paths"],
+                "passage": v["passage"], "nq": v["nq"],
+                "delivery": "staged, never emailed"})
+        reconcile_rows.append({"Week": wk, "Issue": "in the folder, never emailed",
+                               "Sent_as": k, "RC_ID": "",
+                               "Detail": "counted as spoken for; reuse only deliberately"})
 
 # Live DB status beats the snapshot frozen into an export file's header.
 db = {}
 if os.path.exists(DB):
     conn = sqlite3.connect(DB)
     cols = ("rc_id", "tier", "status", "score", "f1", "novelty", "created", "domain")
+    # Founding client only (2026-09-12): the "Available" sheet must never offer
+    # another client's sets as shippable to this one. No client_id column means
+    # the engine has not migrated the DB yet, and every row is the founding
+    # client's.
+    has_client = "client_id" in [r[1] for r in conn.execute("PRAGMA table_info(rc_sets)")]
     for row in conn.execute("""SELECT rc_id, tier, status, average_score, compliance_f1,
                                       novelty_composite, created_at, domain
-                               FROM rc_sets"""):
+                               FROM rc_sets"""
+                            + (" WHERE client_id = 'AA'" if has_client else "")):
         db[row[0]] = dict(zip(cols, row))
     conn.close()
 
@@ -295,7 +396,9 @@ for (wk, sent), s in sorted(shipped_files.items(),
         "Send_Date": week_date(wk),
         "Sent_id": sent,
         "Qs": s["nq"],
-        "Genre": genre_by_canon.get(canon(rc), ""),
+        # an emailed set with no export resolves to no RC_ID; key it by the
+        # delivered name instead so it is not left blank (RC_MEDIUM_260815_02)
+        "Genre": genre_by_canon.get(canon(rc)) or genre_by_canon.get(canon(sent), ""),
         "RC_ID": rc,
         # the delivered name is authoritative for tier: it is how the set was sold
         "Tier": ((meta.get("tier") or "").lower() or tier_from(sent, src.get("tier", ""))),
@@ -308,6 +411,7 @@ for (wk, sent), s in sorted(shipped_files.items(),
         "Export_File": variants[0] if variants else "",
         "Delivered_Files": " | ".join(s["paths"]),
         "Old_Tracker_ID": tracked,
+        "Delivery": s.get("delivery", "emailed"),
         "Notes": "; ".join(note) or remarks.get(canon(rc), "")[:200],
     })
 
@@ -428,9 +532,9 @@ def sheet(wb, title, rows, cols, widths, status_col=None, flag_col=None, first=F
 wb = Workbook()
 sheet(wb, "Shipped", shipped,
       ["Week", "Send_Date", "Sent_id", "Qs", "RC_ID", "Tier", "Genre", "Origin",
-       "Status", "Score", "Match", "Export_File", "Delivered_Files",
+       "Status", "Score", "Match", "Delivery", "Export_File", "Delivered_Files",
        "Old_Tracker_ID", "Notes"],
-      [15, 12, 24, 5, 24, 8, 26, 10, 15, 7, 18, 44, 60, 22, 46],
+      [15, 12, 24, 5, 24, 8, 26, 10, 15, 7, 18, 34, 44, 60, 22, 46],
       status_col="Status", first=True)
 
 # Most useful first: what you can send today, then the best of the review queue.
@@ -501,6 +605,11 @@ sheet(wb, "Genre Mix", gmix,
        "Bench_Medium", "Share_Shipped"],
       [28, 9, 10, 12, 12, 11, 13, 14])
 
+# Where the delivery folders disagree with the mail. Empty is the healthy state.
+sheet(wb, "Folder vs Sent", reconcile_rows,
+      ["Week", "Issue", "Sent_as", "RC_ID", "Detail"],
+      [16, 30, 26, 24, 52])
+
 sheet(wb, "Reconciliation", reconcile,
       ["Old_RC_ID", "Old_Sent_id", "Old_Level", "Old_is_sent", "Old_send_period",
        "Resolution", "Old_Remarks"],
@@ -550,6 +659,14 @@ lines = [
      round((ready + av.get("needs_review", 0)) / 10.0, 1)),
     ("", ""),
     ("Old tracker rows with no delivered file", len(reconcile)),
+    ("Folder-vs-mail discrepancies", len(reconcile_rows)),
+    ("  emailed", sum(1 for r in shipped if r["Delivery"] == "emailed")),
+    ("  emailed, never filed", sum(1 for r in shipped
+                                   if r["Delivery"] == "emailed, never filed in the folder")),
+    ("  staged, never emailed", sum(1 for r in shipped
+                                    if r["Delivery"] == "staged, never emailed")),
+    ("  staged, not yet emailed", sum(1 for r in shipped
+                                      if r["Delivery"] == "staged, not yet emailed")),
 ]
 for i, (label, val) in enumerate(lines, start=4):
     ws.cell(row=i, column=1, value=label).font = BODY

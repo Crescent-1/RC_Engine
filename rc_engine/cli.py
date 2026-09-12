@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import random
 import re
 import sys
 
@@ -282,6 +283,11 @@ def _report_all_in(results, screen_usd: float) -> None:
           + (f" | ${total / n:.4f} per shipped set" if n else ""))
 
 
+# Module-level so the share ceiling is a stable stream across a batch rather
+# than reseeded per call.
+_SEED_RNG = random.Random()
+
+
 def _make_seed_provider():
     try:
         from RAG import get_db, get_unused_essay, mark_essay_used  # noqa: legacy module
@@ -291,15 +297,29 @@ def _make_seed_provider():
     db = get_db()
 
     def provider(tier: str | None = None, exclude_ids=None, avoid_kinds=None):
-        # Hard/elite: random draw inside CAT_SEED_GENRES only (strict by default).
-        # Medium: any unused genre at random. exclude_ids = batch-slot rotations.
+        # Hard/elite: random draw inside the tier's pool only (strict by
+        # default). Medium: any unused genre. exclude_ids = batch-slot rotations.
         preferred = config.TIER_SEED_GENRES.get(tier) if tier else None
+        # Hold each capped kind to its exact share by steering BOTH ways: on a
+        # winning flip restrict TO it, on a losing flip restrict AWAY. A
+        # permit-only flip would multiply the flip by the kind's base rate in
+        # the pool and land under the ceiling — see SEED_KIND_MAX_SHARE.
+        only_kinds = None
+        steer_away: list[str] = []
+        for kind, cap in getattr(config, "SEED_KIND_MAX_SHARE", {}).items():
+            if _SEED_RNG.random() < cap:
+                only_kinds = [kind]
+            else:
+                steer_away.append(kind)
+        avoid = sorted(set(avoid_kinds or ()) | set(steer_away)) or None
         essay = get_unused_essay(db, genre=preferred, exclude_ids=exclude_ids,
-                                 randomize=True, avoid_kinds=avoid_kinds)
+                                 randomize=True, avoid_kinds=avoid,
+                                 only_kinds=only_kinds)
         strict = getattr(config, "TIER_SEED_STRICT", True)
         if essay is None and preferred is not None and not strict:
             essay = get_unused_essay(db, genre=None, exclude_ids=exclude_ids,
-                                     randomize=True, avoid_kinds=avoid_kinds)
+                                     randomize=True, avoid_kinds=avoid,
+                                     only_kinds=only_kinds)
             if essay is not None:
                 print(f"[seeds] preferred pool empty for '{tier}' - "
                       f"fallback any genre (TIER_SEED_STRICT=False)")
@@ -367,6 +387,51 @@ def _setup_provider(args) -> tuple[object | None, int]:
     return RoutedClient(make_client(provider)), 0
 
 
+# ---------------------------------------------------------------------------
+# clients (2026-09-12) — one DB, a novelty window per client
+# ---------------------------------------------------------------------------
+
+# The --from-txt defaults are the founding client's delivery folders. For any
+# other client they would pull the founding client's sets into a corpus that
+# is meant to start empty, so other clients get no default at all.
+_BACKFILL_TXT_DIRS = ["exported_rc_sets", "approved_rc_sets - Copy"]
+_MOVE_AUDIT_TXT_DIRS = ["exported_rc_sets", "approved_rc_sets - Copy", "manual_rc_sets"]
+
+
+def _open_store(args, db: str | None = None):
+    """HistoryStore for this command's --client, or None (after saying why)
+    when the client is unknown. Never silently falls back to another client."""
+    from .history import UnknownClientError
+    try:
+        return HistoryStore(db or args.db, getattr(args, "client", None))
+    except UnknownClientError as e:
+        print(f"[client] {e}")
+        return None
+
+
+def _export_dir(client_id: str | None, dry_run: bool) -> str:
+    """The founding client keeps the folder layout its deliveries and trackers
+    already use; every other client gets its own subfolder. Nothing existing
+    is moved."""
+    root = "exported_rc_sets_dryrun" if dry_run else "exported_rc_sets"
+    client_id = client_id or config.DEFAULT_CLIENT_ID
+    if client_id == config.FOUNDING_CLIENT_ID:
+        return root
+    return os.path.join(root, client_id)
+
+
+def _flagged_dir(client_id: str | None, out: str) -> str:
+    if (client_id or config.DEFAULT_CLIENT_ID) == config.FOUNDING_CLIENT_ID:
+        return config.FLAGGED_EXPORT_DIR
+    return os.path.join(out, "flagged_similar")
+
+
+def _txt_dirs(given: list[str] | None, client_id: str, founding_defaults: list[str]) -> list[str]:
+    if given is not None:
+        return given
+    return list(founding_defaults) if client_id == config.FOUNDING_CLIENT_ID else []
+
+
 def cmd_generate(args) -> int:
     tier_counts = {t: getattr(args, t) for t in ("medium", "hard", "elite")
                    if getattr(args, t) > 0}
@@ -382,7 +447,11 @@ def cmd_generate(args) -> int:
             args.db = "rc_engine_dryrun.db"   # never pollute the production DB with mock RCs
         print(f"[dry-run] Using MockLLMClient - $0, no API calls. DB: {args.db}")
 
-    history = HistoryStore(args.db)
+    history = _open_store(args)
+    if history is None:
+        return 2
+    print(f"[client] {history.client_id} - novelty window and exports are this "
+          f"client's; skeletons and seed essays are exclusive across clients")
     # dry-run passages are canned filler text — the embedding channel would
     # (correctly) reject them as duplicates, which only confuses a $0 test
     embed = not (args.no_embed or args.dry_run)
@@ -398,7 +467,8 @@ def cmd_generate(args) -> int:
                                db=args.db, provider=args.provider,
                                dry_run=bool(args.dry_run), embed=embed,
                                seed_provider=provider, max_usd=args.max_usd,
-                               only_posture=getattr(args, "only_posture", None))
+                               only_posture=getattr(args, "only_posture", None),
+                               client_id=history.client_id)
     else:
         results = run_batch(pipe, tier_counts, provider, max_usd=args.max_usd,
                             only_posture=getattr(args, "only_posture", None))
@@ -406,15 +476,20 @@ def cmd_generate(args) -> int:
     # The similarity screen runs after generation and before export, so a set
     # that reads like the last ten lands in a different folder rather than
     # quietly joining the batch. See rc_engine/similarity_screen.py.
-    shipped_ids = [r.rc_id for r in results if r.rc_id]
+    # "has an rc_id" is not "shipped": a set rejected at the parallel ship lock
+    # has both an id and an rc_sets row. Screening those spends money on work
+    # that will never be exported and writes a verdict onto a dead row.
+    shipped_ids = [r.rc_id for r in results
+                   if r.rc_id and r.status in config.SHIPPING_STATUSES]
     if shipped_ids and not args.dry_run and not args.no_screen:
         from .similarity_screen import screen_batch
         _, screen_usd = screen_batch(history, shipped_ids)
         _report_all_in(results, screen_usd)
 
     if not args.no_export:
-        out_dir = "exported_rc_sets_dryrun" if args.dry_run else "exported_rc_sets"
-        cmd_export(argparse.Namespace(db=args.db, status=None, out=out_dir))
+        out_dir = _export_dir(history.client_id, args.dry_run)
+        cmd_export(argparse.Namespace(db=args.db, status=None, out=out_dir,
+                                      client=history.client_id))
     if not args.dry_run:
         history.backup_to()
     history.close()
@@ -438,7 +513,9 @@ def cmd_retry_questions(args) -> int:
         config.set_provider(getattr(args, "provider", "claude"))
         llm = None                      # list mode is free — no client needed
 
-    history = HistoryStore(args.db)
+    history = _open_store(args)
+    if history is None:
+        return 2
     rows = history.load_resumable_passages()
 
     if not args.blueprint and not args.all:
@@ -475,7 +552,7 @@ def cmd_retry_questions(args) -> int:
               f"new spend ${res.cost_usd:.4f}")
         for n in res.notes:
             print(f"     {n}")
-        if res.rc_id:
+        if res.rc_id and res.status in config.SHIPPING_STATUSES:
             shipped += 1
             shipped_ids.append(res.rc_id)
     if shipped_ids:
@@ -483,8 +560,9 @@ def cmd_retry_questions(args) -> int:
             from .similarity_screen import screen_batch
             _, screen_usd = screen_batch(history, shipped_ids)
             _report_all_in(results, screen_usd)
-        out_dir = "exported_rc_sets_dryrun" if args.dry_run else "exported_rc_sets"
-        cmd_export(argparse.Namespace(db=args.db, status=None, out=out_dir))
+        out_dir = _export_dir(history.client_id, args.dry_run)
+        cmd_export(argparse.Namespace(db=args.db, status=None, out=out_dir,
+                                      client=history.client_id))
     history.close()
     return 0 if shipped else 1
 
@@ -554,16 +632,20 @@ def cmd_move_audit(args) -> int:
     from .registry import ComponentRegistry
 
     config.set_provider(getattr(args, "provider", None) or "claude")
-    history = HistoryStore(args.db)
+    history = _open_store(args)
+    if history is None:
+        return 2
+    cid = history.client_id
     rows = history.conn.execute(
-        """SELECT rc_id, move_signature FROM fingerprints
-           ORDER BY created_at ASC""").fetchall()
+        """SELECT rc_id, move_signature FROM fingerprints WHERE client_id = ?
+           ORDER BY created_at ASC""", (cid,)).fetchall()
     if getattr(args, "reextract", False):
         # The move vocabulary is versioned by meaning, not by name: narrowing a
         # label (LEVEL_RELOCATION, 2026-08-22) makes every stored signature a
         # mix of old and new definitions, and saturation figures computed across
         # that mix are not comparable. Clear and re-read rather than top up.
-        history.conn.execute("UPDATE fingerprints SET move_signature = ''")
+        history.conn.execute("UPDATE fingerprints SET move_signature = '' "
+                             "WHERE client_id = ?", (cid,))
         history.conn.commit()
         rows = [(r[0], "") for r in rows]
         print("[move-audit] --reextract: cleared stored signatures")
@@ -571,7 +653,8 @@ def cmd_move_audit(args) -> int:
     print(f"[move-audit] {len(rows)} fingerprints, {len(todo)} without a signature")
 
     if todo and not args.report_only:
-        passages = _passage_sources(history, args.from_txt or [])
+        passages = _passage_sources(
+            history, _txt_dirs(args.from_txt, cid, _MOVE_AUDIT_TXT_DIRS))
         llm = MockLLMClient() if args.dry_run else LLMClient()
         auditor = ComplianceAuditor(llm, ComponentRegistry())
         ledger = CostLedger(budget_usd=args.max_usd)
@@ -600,7 +683,8 @@ def cmd_move_audit(args) -> int:
     sigs = {r[0]: (r[1] or "").split("|")
             for r in history.conn.execute(
                 """SELECT rc_id, move_signature FROM fingerprints
-                   WHERE move_signature IS NOT NULL AND move_signature != ''""")}
+                   WHERE move_signature IS NOT NULL AND move_signature != ''
+                     AND client_id = ?""", (cid,))}
     if not sigs:
         print("[move-audit] no signatures on record yet")
         history.close()
@@ -654,7 +738,8 @@ def _quarantine_redundant(history, sigs: dict, freq: dict, cap: float) -> int:
     window and hide the rest. Nothing is deleted; `quarantined` only filters
     HistoryStore.fingerprint_window."""
     order = [r[0] for r in history.conn.execute(
-        "SELECT rc_id FROM fingerprints ORDER BY created_at ASC") if r[0] in sigs]
+        "SELECT rc_id FROM fingerprints WHERE client_id = ? ORDER BY created_at ASC",
+        (history.client_id,)) if r[0] in sigs]
     kept: list[str] = []
     drop: list[str] = []
     for rc_id in order:
@@ -671,14 +756,22 @@ def _quarantine_redundant(history, sigs: dict, freq: dict, cap: float) -> int:
 
 
 def cmd_backfill(args) -> int:
-    history = HistoryStore(args.db)
+    history = _open_store(args)
+    if history is None:
+        return 2
+    cid = history.client_id
+    dirs = _txt_dirs(args.from_txt, cid, _BACKFILL_TXT_DIRS)
+    # GLOBAL on purpose: rc_id is the fingerprint's primary key, so a file whose
+    # id another client already holds must be skipped, not re-recorded (which
+    # would move that fingerprint into this client's corpus).
     existing = {r[0] for r in history.conn.execute("SELECT rc_id FROM fingerprints")}
     n = 0
 
     # 1) rows already in the DB
     rows = history.conn.execute(
         """SELECT rc_id, rc_text, passage_embedding FROM rc_sets
-           WHERE rc_id IS NOT NULL AND rc_text IS NOT NULL""").fetchall()
+           WHERE rc_id IS NOT NULL AND rc_text IS NOT NULL AND client_id = ?""",
+        (cid,)).fetchall()
     for rc_id, rc_text, emb_json in rows:
         if rc_id in existing:
             continue
@@ -687,7 +780,7 @@ def cmd_backfill(args) -> int:
         n += 1
 
     # 2) exported .txt corpora (for DBs that were reset but whose RCs shipped)
-    for d in (args.from_txt or []):
+    for d in dirs:
         if not os.path.isdir(d):
             print(f"[backfill] skipping missing dir: {d}")
             continue
@@ -711,16 +804,17 @@ def cmd_backfill(args) -> int:
     retagged = history.conn.execute(
         """UPDATE fingerprints SET source='legacy'
            WHERE (blueprint_id IS NULL OR blueprint_id='')
-             AND COALESCE(source, 'engine') = 'engine'""").rowcount
+             AND COALESCE(source, 'engine') = 'engine' AND client_id = ?""",
+        (cid,)).rowcount
     refilled = 0
     for rc_id, old in history.conn.execute(
             "SELECT rc_id, letter_sequence FROM fingerprints "
-            "WHERE length(letter_sequence) < 6").fetchall():
+            "WHERE length(letter_sequence) < 6 AND client_id = ?", (cid,)).fetchall():
         row = history.conn.execute(
             "SELECT rc_text FROM rc_sets WHERE rc_id = ?", (rc_id,)).fetchone()
         text = row[0] if row and row[0] else None
         if not text:
-            for d in (args.from_txt or []):
+            for d in dirs:
                 p = os.path.join(d, f"{rc_id}.txt")
                 if os.path.isfile(p):
                     with open(p, encoding="utf-8", errors="replace") as f:
@@ -737,8 +831,8 @@ def cmd_backfill(args) -> int:
         print(f"[backfill] maintenance: {retagged} fingerprint(s) retagged 'legacy', "
               f"{refilled} empty letter sequence(s) filled")
 
-    print(f"Backfilled {n} legacy fingerprint(s); {len(existing)} total in store. "
-          f"New generations now audit against them.")
+    print(f"Backfilled {n} legacy fingerprint(s) for client {cid}; {len(existing)} "
+          f"total in store. New generations for {cid} now audit against them.")
     history.close()
     return 0
 
@@ -809,7 +903,10 @@ def cmd_topo_report(args) -> int:
 
 def cmd_health(args) -> int:
     reg = ComponentRegistry()
-    history = HistoryStore(args.db)
+    history = _open_store(args)
+    if history is None:
+        return 2
+    cid = history.client_id
     window = 100
     fam_counts = history.usage_counts_trailing("family", window)
     topo_counts = history.usage_counts_trailing("topology", window)
@@ -867,7 +964,7 @@ def cmd_health(args) -> int:
     # reads slightly low for those; it self-corrects as the window rolls over.
     lb_rate = (lb_mean / config.QUESTIONS_PER_SET) if lb_mean is not None else None
 
-    print(f"Corpus health (trailing {window} shipped):")
+    print(f"Corpus health for client {cid} (trailing {window} shipped):")
     print(f"  family KL vs design uniform:   {fam_kl:.3f}  (alarm > 0.15 once corpus > 100)")
     print(f"  topology KL vs design uniform: {topo_kl:.3f}")
     print(f"  ARC-SHAPE KL vs design uniform: {shape_kl:.3f}  "
@@ -898,7 +995,8 @@ def cmd_health(args) -> int:
     print(f"  family usage: {dict(sorted(fam_counts.items()))}")
     print(f"  closing postures (realized): {dict(sorted(posture_counts.items()))}")
     src_counts = dict(history.conn.execute(
-        "SELECT COALESCE(source, 'engine'), COUNT(*) FROM fingerprints GROUP BY 1"))
+        "SELECT COALESCE(source, 'engine'), COUNT(*) FROM fingerprints "
+        "WHERE client_id = ? GROUP BY 1", (cid,)))
     print(f"  fingerprints by source:        {src_counts}")
     n_fp_total = sum(src_counts.values())
     if n_fp_total < config.CURVE_CAP_MIN_CORPUS:
@@ -941,8 +1039,8 @@ def cmd_health(args) -> int:
     for label, col in (("seed genres", "seed_genre"), ("topic shapes", "topic_shape")):
         rows = history.conn.execute(
             f"""SELECT {col}, COUNT(*) FROM rc_sets
-                WHERE {col} IS NOT NULL AND {col} != ''
-                GROUP BY 1 ORDER BY 2 DESC""").fetchall()
+                WHERE {col} IS NOT NULL AND {col} != '' AND client_id = ?
+                GROUP BY 1 ORDER BY 2 DESC""", (cid,)).fetchall()
         if rows:
             total = sum(n for _, n in rows)
             top = ", ".join(f"{k} {n}" for k, n in rows[:6])
@@ -964,7 +1062,7 @@ def cmd_health(args) -> int:
     rows = history.conn.execute(
         """SELECT r.tier, b.blueprint_json, r.average_score
            FROM rc_sets r JOIN blueprints b ON b.blueprint_id = r.blueprint_id
-           WHERE r.average_score > 0""").fetchall()
+           WHERE r.average_score > 0 AND r.client_id = ?""", (cid,)).fetchall()
     if rows:
         import json as _json
         buckets: dict = {}
@@ -1022,9 +1120,58 @@ def cmd_health(args) -> int:
         print("  recent batches                 none recorded yet "
               "(attempts table fills from the next generate run)")
 
+    if getattr(args, "all", False):
+        _print_cross_client(history)
+
     history.record_health(window, fam_kl, topo_kl, [], chi2)
     history.close()
     return 0
+
+
+def _print_cross_client(history) -> None:
+    """`health --all`: every client, the exclusivity certificate, and the global
+    house-voice pressure this client's draws currently feel."""
+    print(f"{NL}Cross-client view ({history._db_path}):")
+    for c in history.list_clients():
+        mark = "  <- this report" if c["client_id"] == history.client_id else ""
+        print(f"  {c['client_id']:12s} {c['shipped']:4d} shipped / {c['sets']:4d} sets | "
+              f"last {(c['last_set_at'] or 'never')[:16]} | {c['display_name']}{mark}")
+    audit = history.exclusivity_audit()
+    ok = not audit["shared_combo_hashes"] and not audit["shared_seeds"]
+    print(f"  exclusivity: {'OK' if ok else 'BREACHED'} - argument skeletons shared "
+          f"across clients: {len(audit['shared_combo_hashes'])}, seed essays shared "
+          f"across clients: {len(audit['shared_seeds'])}")
+    for h, clients in audit["shared_combo_hashes"][:10]:
+        print(f"    skeleton {h[:16]} -> {clients}")
+    for d, clients in audit["shared_seeds"][:10]:
+        print(f"    seed {d} -> {clients}")
+    print(f"  unique index ux_shipped_combo: "
+          f"{'present' if audit['unique_index'] else 'MISSING'} "
+          f"(duplicate shipped combo hashes in DB: {audit['duplicate_shipped_combo_hashes']})")
+
+    fams = history.usage_counts_other_clients("family", config.GLOBAL_USAGE_WINDOW)
+    sigs = [w.move_signature.split("|")
+            for w in history.fingerprint_window_other_clients(config.GLOBAL_MOVE_WINDOW)
+            if w.move_signature]
+    if not fams and not sigs:
+        print(f"  global house-voice pressure on {history.client_id}: inactive "
+              f"(no other client has shipped)")
+        return
+    print(f"  global house-voice pressure on {history.client_id} "
+          f"(other clients pooled; decay {config.GLOBAL_DECAY_LAMBDA}, "
+          f"move power {config.GLOBAL_MOVE_RARITY_POWER}):")
+    if fams:
+        top = sorted(fams.items(), key=lambda kv: -kv[1])[:8]
+        print(f"    family use, trailing {config.GLOBAL_USAGE_WINDOW}: {dict(top)}")
+    if sigs:
+        mfreq: dict[str, int] = {}
+        for moves in sigs:
+            for m in set(moves):
+                mfreq[m] = mfreq.get(m, 0) + 1
+        hot = sorted(((m, n / len(sigs)) for m, n in mfreq.items()
+                      if n / len(sigs) > config.MOVE_SATURATION_WARN), key=lambda kv: -kv[1])
+        print(f"    moves above {config.MOVE_SATURATION_WARN:.0%} across {len(sigs)} "
+              f"keyed sets: " + (", ".join(f"{m} {s:.0%}" for m, s in hot) or "none"))
 
 
 # ---------------------------------------------------------------------------
@@ -1032,23 +1179,29 @@ def cmd_health(args) -> int:
 # ---------------------------------------------------------------------------
 
 def cmd_export(args) -> int:
-    history = HistoryStore(args.db)
+    history = _open_store(args)
+    if history is None:
+        return 2
+    # Only this client's sets: a set shipped to one client is never exported
+    # into another client's folder.
     q = ("SELECT rc_id, tier, rc_text, average_score, status, created_at, "
          "compliance_f1, novelty_composite, "
-         "COALESCE(similarity_verdict, '') FROM rc_sets WHERE rc_text IS NOT NULL")
-    params: list = []
+         "COALESCE(similarity_verdict, '') FROM rc_sets "
+         "WHERE rc_text IS NOT NULL AND client_id = ?")
+    params: list = [history.client_id]
     if args.status:
         q += " AND status = ?"
         params.append(args.status)
     rows = history.conn.execute(q, params).fetchall()
-    os.makedirs(args.out, exist_ok=True)
-    flagged_dir = getattr(args, "flagged_out", None) or config.FLAGGED_EXPORT_DIR
+    out = getattr(args, "out", None) or _export_dir(history.client_id, False)
+    os.makedirs(out, exist_ok=True)
+    flagged_dir = getattr(args, "flagged_out", None) or _flagged_dir(history.client_id, out)
     n_ok = n_red = 0
     for rc_id, tier, rc_text, avg, status, created, f1, nov, verdict in rows:
         # A red verdict routes the file; it never changes the set's status or
         # withholds it. The reviewer decides what a flagged set is worth.
         red = (verdict == "red")
-        dest = flagged_dir if red else args.out
+        dest = flagged_dir if red else out
         os.makedirs(dest, exist_ok=True)
         screen_line = f" | Screen: {verdict}" if verdict else ""
         header = (f"RC ID: {rc_id} | Tier: {tier} | Score: {avg} | Status: {status} | "
@@ -1058,7 +1211,7 @@ def cmd_export(args) -> int:
             f.write(header + rc_text)
         n_red += red
         n_ok += (not red)
-    print(f"Exported {n_ok} set(s) to '{args.out}/'")
+    print(f"Exported {n_ok} set(s) for client {history.client_id} to '{out}/'")
     if n_red:
         print(f"Exported {n_red} similarity-flagged set(s) to '{flagged_dir}/' "
               f"- these read like recent sets and want a human look")
@@ -1262,7 +1415,9 @@ def cmd_vet(args) -> int:
         warnings += [f"length bias: {w}" for w in lb["warnings"]]
 
     # -- novelty vs corpus (channels available without a compliance audit) ---
-    history = HistoryStore(args.db)
+    history = _open_store(args)
+    if history is None:
+        return 2
     fp = Fingerprint(
         rc_id=rc_id, blueprint_id="", persona_id="",
         movement_string="MANUAL_UNKNOWN", commitment_curve=[0.0, 0.0, 0.0],
@@ -1321,11 +1476,11 @@ def cmd_vet(args) -> int:
 
 def cmd_avoid(args) -> int:
     reg = ComponentRegistry()
-    history = HistoryStore(args.db)
-    rows = history.conn.execute(
-        """SELECT rc_id, family_id, blueprint_json FROM blueprints
-           WHERE status = 'shipped' ORDER BY created_at DESC LIMIT ?""",
-        (args.n,)).fetchall()
+    history = _open_store(args)
+    if history is None:
+        return 2
+    rows = [(rc_id, fam, bpj) for _bp, rc_id, fam, bpj
+            in history.shipped_blueprint_rows(args.n)]
     if not rows:
         print("No shipped engine sets in this DB yet - build the AVOID line "
               "from RC_Tracker.xlsx instead.")
@@ -1374,6 +1529,40 @@ def cmd_avoid(args) -> int:
 
 
 # ---------------------------------------------------------------------------
+# client — add / list
+# ---------------------------------------------------------------------------
+
+def cmd_client(args) -> int:
+    """Clients share one DB. A new client starts with an empty novelty window;
+    argument skeletons, seed essays and rc ids stay exclusive across all."""
+    # Opened as the founding client, which always exists, so this works even
+    # when RC_ENGINE_CLIENT names a client that has not been added yet.
+    history = HistoryStore(args.db, config.FOUNDING_CLIENT_ID)
+    try:
+        if args.client_cmd == "add":
+            try:
+                history.add_client(args.slug, args.name)
+            except ValueError as e:
+                print(f"[client] {e}")
+                return 2
+            print(f"Added client '{args.slug}' to {args.db}. Its novelty window is empty; "
+                  f"exports go to '{_export_dir(args.slug, False)}/'.")
+            print(f"Try it at $0 first:  python -m rc_engine.cli generate --dry-run "
+                  f"--client {args.slug} --hard 2   (dry-run uses rc_engine_dryrun.db, "
+                  f"so add the client there too)")
+            return 0
+        rows = history.list_clients()
+        print(f"{'client':12s} {'shipped':>7s} {'sets':>5s}  {'last set':16s}  name")
+        for c in rows:
+            default = "  (default)" if c["client_id"] == config.DEFAULT_CLIENT_ID else ""
+            print(f"{c['client_id']:12s} {c['shipped']:7d} {c['sets']:5d}  "
+                  f"{(c['last_set_at'] or 'never')[:16]:16s}  {c['display_name']}{default}")
+        return 0
+    finally:
+        history.close()
+
+
+# ---------------------------------------------------------------------------
 
 def _make_stdout_unicode_safe() -> None:
     """Never let a print() kill a paid batch.
@@ -1397,6 +1586,11 @@ def main(argv=None) -> int:
     p = argparse.ArgumentParser(prog="rc_engine", description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
+
+    def _client_opt(sp):
+        sp.add_argument("--client", default=None,
+                        help=f"client slug (default {config.DEFAULT_CLIENT_ID}; "
+                             f"see `client list`)")
 
     est = sub.add_parser("estimate", help="print per-tier cost table ($0)")
     est.add_argument("--provider", choices=list(config.PROVIDERS), default="claude",
@@ -1424,6 +1618,7 @@ def main(argv=None) -> int:
     g.add_argument("--workers", type=int, default=config.BATCH_WORKERS_DEFAULT,
                    help=f"parallel worker processes, 1-{config.BATCH_WORKERS_MAX} "
                         f"(default {config.BATCH_WORKERS_DEFAULT}); see rc_engine/workers.py")
+    _client_opt(g)
 
     r = sub.add_parser("retry-questions",
                        help="regenerate questions on a persisted passage whose "
@@ -1441,16 +1636,17 @@ def main(argv=None) -> int:
     r.add_argument("--no-embed", action="store_true", help="disable embedding channel")
     r.add_argument("--no-screen", action="store_true",
                    help="skip the pre-export similarity screen")
+    _client_opt(r)
 
     ma = sub.add_parser("move-audit",
                         help="extract blind rhetorical-move signatures and report "
                              "how much of the corpus shares a grammar")
     ma.add_argument("--db", default=config.DB_PATH)
     ma.add_argument("--provider", choices=list(config.PROVIDERS), default="claude")
-    ma.add_argument("--from-txt", nargs="*",
-                    default=["exported_rc_sets", "approved_rc_sets - Copy",
-                             "manual_rc_sets"],
-                    help="dirs to source passages from for rows with no rc_text")
+    ma.add_argument("--from-txt", nargs="*", default=None,
+                    help="dirs to source passages from for rows with no rc_text "
+                         f"(founding client default: {_MOVE_AUDIT_TXT_DIRS}; "
+                         "other clients: none)")
     ma.add_argument("--reextract", action="store_true",
                     help="clear every stored signature and read them all again "
                          "(needed after the move vocabulary changes meaning)")
@@ -1464,14 +1660,21 @@ def main(argv=None) -> int:
     ma.add_argument("--quarantine", action="store_true",
                     help="exclude redundant sets from the novelty baseline "
                          "(keeps one per cluster; deletes nothing)")
+    _client_opt(ma)
 
     b = sub.add_parser("backfill", help="fingerprint legacy rc_sets rows and/or exported txt ($0)")
     b.add_argument("--db", default=config.DB_PATH)
-    b.add_argument("--from-txt", nargs="*", default=["exported_rc_sets", "approved_rc_sets - Copy"],
-                   help="directories of exported RC .txt files to fingerprint")
+    b.add_argument("--from-txt", nargs="*", default=None,
+                   help="directories of exported RC .txt files to fingerprint "
+                        f"(founding client default: {_BACKFILL_TXT_DIRS}; other clients: none)")
+    _client_opt(b)
 
     h = sub.add_parser("health", help="corpus health snapshot ($0)")
     h.add_argument("--db", default=config.DB_PATH)
+    h.add_argument("--all", action="store_true",
+                   help="append the cross-client view: every client, the exclusivity "
+                        "audit, and the global house-voice pressure")
+    _client_opt(h)
 
     tr = sub.add_parser("topo-report",
                         help="question blueprint library audit: tier pools, "
@@ -1481,15 +1684,20 @@ def main(argv=None) -> int:
     e = sub.add_parser("export", help="export rc_sets to txt")
     e.add_argument("--db", default=config.DB_PATH)
     e.add_argument("--status", default=None)
-    e.add_argument("--out", default="exported_rc_sets")
+    e.add_argument("--out", default=None,
+                   help="default: exported_rc_sets for the founding client, "
+                        "exported_rc_sets/<client> for any other")
     e.add_argument("--flagged-out", default=None,
                    help=f"where similarity-flagged sets go "
-                        f"(default {config.FLAGGED_EXPORT_DIR})")
+                        f"(default {config.FLAGGED_EXPORT_DIR}, or <out>/flagged_similar "
+                        f"for other clients)")
+    _client_opt(e)
 
     a = sub.add_parser("avoid", help="AVOID line for the manual prompt ($0)")
     a.add_argument("--db", default=config.DB_PATH)
     a.add_argument("--n", type=int, default=4,
                    help="how many recent shipped sets to include")
+    _client_opt(a)
 
     v = sub.add_parser("vet", help="run the free gates on a manual RC .txt ($0)")
     v.add_argument("file", help="RC .txt in the manual prompt's output format")
@@ -1507,6 +1715,17 @@ def main(argv=None) -> int:
                    help="ingest even with breaches/warnings")
     v.add_argument("--no-embed", action="store_true",
                    help="skip the embedding channel (faster)")
+    _client_opt(v)
+
+    cl = sub.add_parser("client", help="add or list clients ($0)")
+    cl_sub = cl.add_subparsers(dest="client_cmd", required=True)
+    cl_add = cl_sub.add_parser("add", help="register a client (starts with an empty "
+                                           "novelty window)")
+    cl_add.add_argument("slug", help="short id, e.g. AA; becomes the export subfolder")
+    cl_add.add_argument("--name", default="", help="display name")
+    cl_add.add_argument("--db", default=config.DB_PATH)
+    cl_list = cl_sub.add_parser("list", help="clients with shipped counts")
+    cl_list.add_argument("--db", default=config.DB_PATH)
 
     args = p.parse_args(argv)
     return {"estimate": cmd_estimate, "selftest": cmd_selftest,
@@ -1514,7 +1733,7 @@ def main(argv=None) -> int:
             "health": cmd_health, "export": cmd_export,
             "avoid": cmd_avoid, "vet": cmd_vet, "topo-report": cmd_topo_report,
             "retry-questions": cmd_retry_questions,
-            "move-audit": cmd_move_audit}[args.cmd](args)
+            "move-audit": cmd_move_audit, "client": cmd_client}[args.cmd](args)
 
 
 if __name__ == "__main__":

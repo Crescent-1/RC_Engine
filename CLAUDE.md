@@ -33,6 +33,8 @@ python -m rc_engine.cli generate --dry-run --hard 4 --workers 2   # parallel, st
 python -m rc_engine.cli health                     # corpus drift, window mix, batch yield
 python -m rc_engine.cli estimate                   # per-tier cost table
 python -m rc_engine.cli export --status approved
+python -m rc_engine.cli client list                # clients; `client add BB` for a new one
+python -m rc_engine.cli health --client BB --all   # per-client health + exclusivity audit
 python -m gui                                      # web console on :8730
 ```
 
@@ -62,6 +64,10 @@ or a component library. Add a test for every behaviour change; the suite in
 - Files are LF (`.gitattributes`). Commit engine changes and export batches
   separately.
 - Branch off `master`; `master` is what the client-facing batches ship from.
+- Clients (2026-09-12): one DB, `client_id` on every corpus table, founding
+  client `AA` is the default. Novelty windows are per client; shipped combo
+  hashes, seed essays and rc ids are global (exclusivity). Any new corpus
+  query in `history.py` must say which scope it is — see `HistoryStore._scope`.
 - Statuses: `approved` / `needs_review` / `solver_dispute` are shipped;
   `rejected_*` and `failed_*` are not. `solver_dispute` and `rejected_novelty`
   sets are hidden from the novelty window (`NOVELTY_WINDOW_EXCLUDE_STATUSES`).

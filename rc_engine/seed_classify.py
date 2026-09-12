@@ -102,16 +102,14 @@ def classify_seed(seed, llm, ledger: CostLedger | None = None,
 def genre_shares(history, window: int | None = None) -> tuple[dict, int]:
     """Trailing share of each seed genre across recently shipped sets."""
     window = window or config.SEED_GENRE_WINDOW
-    rows = history.conn.execute(
-        """SELECT seed_genre FROM rc_sets
-           WHERE seed_genre IS NOT NULL AND seed_genre != ''
-           ORDER BY created_at DESC LIMIT ?""", (window,)).fetchall()
-    if not rows:
+    # This client's sets only (2026-09-12): genre saturation is a per-client lever.
+    genres = history.recent_seed_genres(window)
+    if not genres:
         return {}, 0
     counts: dict[str, int] = {}
-    for (g,) in rows:
+    for g in genres:
         counts[g] = counts.get(g, 0) + 1
-    return {g: n / len(rows) for g, n in counts.items()}, len(rows)
+    return {g: n / len(genres) for g, n in counts.items()}, len(genres)
 
 
 def genre_is_saturated(history, genre: str) -> float | None:

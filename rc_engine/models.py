@@ -55,6 +55,11 @@ class Blueprint:
     closing_register: str = ""   # id from config.CLOSING_REGISTERS
     render_stance_id: str = ""   # id from components/render_stances.json
     topic_shape_id: str = ""     # id from components/topic_shapes.json
+    # What the argument DOES, one level above the rhetorical moves and
+    # independent of subject. Key into config.ARGUMENT_SCHEMAS. Deliberately
+    # NOT in component_ids: that property feeds combo_hash, and adding a key
+    # would invalidate every stored hash at once.
+    argument_schema_id: str = ""
     seed_genre: str = ""         # from seed_classify; "" = never classified
     # Prescribed rhetorical beats (labels from config.RHETORICAL_MOVES), in
     # order. A PLAN, not a ban list — see BlueprintComposer._sample_move_plan.
@@ -126,6 +131,10 @@ class RealizedStructure:
     f1: float = 0.0
     directives: list[str] = field(default_factory=list)
     closing_posture_guess: str = ""            # blind classifier output ("" = unusable)
+    # Blind read of what the argument DOES, against bp.argument_schema_id.
+    # "" means the read failed, which is "unknown" — never "repeated".
+    argument_schema: str = ""
+    argument_schema_secondary: str = ""
     final_line_is_aphorism: bool | None = None  # None = classifier gave no usable answer
     rhetorical_moves: list[str] = field(default_factory=list)
     # Did the prose open and close on the beats the plan prescribed? Membership
@@ -189,6 +198,10 @@ class CostLine:
     input_tokens: int
     output_tokens: int
     cost_usd: float
+    # Of input_tokens, how many were served from the provider's prompt cache
+    # and therefore billed at config.MODEL_RATES_CACHED_IN. Defaulted so the
+    # Anthropic and Gemini paths, which do not report it, are unaffected.
+    cached_input_tokens: int = 0
 
 
 @dataclass

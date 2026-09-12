@@ -124,11 +124,23 @@ class CostLedger:
         if self.spent_usd + worst > self.budget_usd * (1.0 + slack):
             raise BudgetExceeded(stage, worst, self.spent_usd, self.budget_usd)
 
-    def record(self, stage: str, model: str, in_tok: int, out_tok: int) -> float:
+    def record(self, stage: str, model: str, in_tok: int, out_tok: int,
+               cached_in_tok: int = 0) -> float:
+        """Book one call. `cached_in_tok` is the part of `in_tok` served from
+        the provider's prompt cache, billed at a tenth of the usual input rate
+        (see config.MODEL_RATES_CACHED_IN).
+
+        Not modelling this over-recorded the 2026-09-05 Astra batch by 3.7x —
+        $0.9671 booked against ~$0.26 billed — which is not a harmless
+        conservatism: the tier caps are sized against these numbers, so an
+        inflated ledger buys fewer real retries than the cap advertises."""
         rate_in, rate_out = config.MODEL_RATES[model]
-        cost = (in_tok / 1e6) * rate_in + (out_tok / 1e6) * rate_out
+        cached_rate = config.MODEL_RATES_CACHED_IN.get(model)
+        cached = min(max(cached_in_tok, 0), in_tok) if cached_rate else 0
+        cost = ((in_tok - cached) / 1e6) * rate_in + (cached / 1e6) * cached_rate             if cached else (in_tok / 1e6) * rate_in
+        cost += (out_tok / 1e6) * rate_out
         self.spent_usd += cost
-        self.lines.append(CostLine(stage, model, in_tok, out_tok, cost))
+        self.lines.append(CostLine(stage, model, in_tok, out_tok, cost, cached))
         return cost
 
 
