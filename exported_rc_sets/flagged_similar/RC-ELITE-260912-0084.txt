@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260912-0084 | Tier: elite | Score: 8.4 | Status: needs_review | Compliance F1: 0.831 | Novelty: 0.554 | Screen: red | Generated: 2026-09-12T10:27:05.728914+00:00
+======================================================================
+
+[PASSAGE]
+
+The practice of issuing bronze citizenship diplomas to discharged auxiliaries seems to begin under Claudius, in the middle of the first century, and it hardened fast. Batches were the thing. An emperor issued a constitutio covering named units in a named province; scribes copied the master text onto paired bronze leaves; the veteran carried his tablet home and, with luck, buried it somewhere a farmer would later strike with a plough. From Britain to Syria the interval reads the same: twenty-five years, then citizenship, then conubium. Hundreds of tablets, one number. Historians reached for coinage as the comparison, and the comparison holds better than most — a denarius struck at Lugdunum and one struck at Rome pass at the same weight because a distant machinery of assay and blank and die keeps them equal, and equality across distance is the only proof of the machinery anyone gets. The diplomas looked like that. Same fineness, same alloy, minted at the edges of a world that had no reason to agree with itself. I should sharpen that. The uniformity was not itself the accomplishment being commemorated; the tablets commemorate individual service, and the flatness of the number across three continents is simply the residue a functioning apparatus leaves behind. Still, it is the flatness historians came to lean on. Twenty-five became a load-bearing fact.
+
+Then a diploma turned up in Egypt, a fragment naming what reads as Cohors I Thebaeorum, granting citizenship after sixteen years. The consular date is worn down the right edge; the unit abbreviation admits at least two expansions; and the first response among papyrologists was that it had to be a fake or a bad reading, which is the response the corpus taught them to give. It is tempting to say the gap was simply too large to credit. But a three-year discrepancy would have been dismissed just as briskly, and a twelve-year one no more so — the scale of the anomaly was doing no work. What did the work was absence. Nothing in the corpus had ever recorded an early grant of any size, and a thing with no comparanda cannot be graded as mildly or wildly improbable. It can only be doubted entire.
+
+The fragment survived checking. An independent roster placed the unit where the tablet places it, and a second fragment carried a matching batch-number, which is not the sort of coincidence a forger manufactures. So the rule held and the rule was broken, and the two facts do not cancel. What had looked like a contest between a rigid norm and a rogue document was never that. The norm was law; the exception was an emperor's authority operating on law without repealing it — a distinction the corpus, being made of outcomes rather than deliberations, is very nearly built to hide. Everything drawn from the tablets about how Rome managed its non-citizens now inherits that hidden layer.
+
+The occasion was plague. A cohort emptied by the Antonine sickness was discharged early so it could be rebuilt, citizenship offered as inducement and recorded as reward. The cost is legible in what we know: that cohort has a history only because a catastrophe was violent enough to break the rule that dissolved everyone else into a number. Anomalies preserve; regularity forgets — though it would be rash to say the archive was designed that way.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) explaining how the Antonine plague reshaped Roman recruitment policy toward auxiliaries across provinces from Britain to Syria
+(B) demonstrating that the diploma corpus is unreliable because forgeries and misread abbreviations have long distorted its numbers
+(C) arguing that the uniform twenty-five-year term was the genuine administrative achievement that the bronze tablets were struck to commemorate
+(D) showing that a single anomaly exposes a hidden layer of imperial authority operating above the recorded rule
+
+Q2. What does the passage's final sentence accomplish?
+(A) It suggests the Roman archive was deliberately constructed so that ordinary careers would leave no trace.
+(B) It resolves the earlier tension by confirming that plague fully accounts for the anomalous sixteen-year grant.
+(C) It states the archive's selective bias while withholding any claim that the bias was intended.
+(D) It concedes that the suspicion of forgery arose because the sixteen-year gap was implausibly large.
+
+Q3. "So the rule held and the rule was broken, and the two facts do not cancel" most nearly means:
+(A) the twenty-five-year norm remained binding law even as an imperial act overrode it in one case
+(B) the norm was suspended for sufficient cause, so the sixteen-year grant ceases to count as genuinely exceptional
+(C) the conflicting evidence must be weighed until one of the two competing readings is eventually discarded
+(D) the surviving corpus preserves both regular and irregular grants in roughly equal and comparable proportion
+
+Q4. According to the passage, why did papyrologists initially treat the Egyptian fragment as a fake or a bad reading?
+(A) Because a discrepancy of nine full years exceeded the tolerance that the tablets elsewhere permit.
+(B) Because forged bronze diplomas circulated widely enough to make Egyptian finds routinely suspect.
+(C) Because nothing in the corpus recorded any early grant, an unparalleled item could only be doubted entire.
+(D) Because the consular date was worn and the unit abbreviation admitted at least two expansions.
+
+Q5. The author of the passage is likely to disagree with which one of the following statements?
+(A) A matching batch-number on a second fragment counts as evidence against deliberate forgery.
+(B) Conclusions drawn from the tablets about Rome's non-citizens now carry an undisclosed further layer.
+(C) Consistency across provinces is sufficient evidence that an administrative apparatus was functioning well.
+(D) Coinage is a serviceable analogy for the diplomas, since equality across distance indicates hidden machinery.
+
+Q6. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) A monastery's book list names one unique manuscript, which later collation proves to be a nineteenth-century forgery sold to collectors.
+(B) A guild's apprenticeship records show uniform seven-year terms; one shortened term survives because a fire forced an emergency licensing decree.
+(C) A tax register shows identical assessments everywhere, and scholars conclude that a central bureau must have enforced the rates rigidly.
+(D) A shipping ledger shows varying freight rates, and a historian argues that no central authority ever regulated maritime commerce at all.
+
+Q7. Which one of the following best describes the role played by the coinage comparison in the first paragraph?
+(A) It establishes that Roman minting and Roman discharge procedures were administered by one shared imperial bureaucracy.
+(B) It explains why the twenty-five-year interval was chosen by Claudius and afterwards maintained by his successors.
+(C) It anticipates the forgery objection by showing that standardized objects are easy for skilled craftsmen to counterfeit.
+(D) It supplies a model of distant uniformity that the author then partly retracts before the anomaly arrives.
+
+Q8. Which one of the following would best license the inference the author draws from the Egyptian fragment about hidden imperial authority?
+(A) Mortality figures show that Antonine plague losses in Egyptian garrisons exceeded losses recorded in other eastern provinces.
+(B) A surviving imperial rescript orders early discharge for a named cohort while affirming the standing twenty-five-year requirement.
+(C) Several further Egyptian fragments record sixteen-year grants issued to different cohorts during the same plague years.
+(D) Metallurgical analysis confirms that the fragment's alloy matches bronze used in securely dated second-century diplomas.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — Only by holding the corpus-uniformity opening, the anomaly, its verification, and the paragraph-4 claim that the exception was authority working on law does the reader reach this integration.
+  (A) scope_inflation — The plague explains one cohort's early discharge in paragraph four, not an empire-wide reshaping of recruitment policy.
+  (B) straw_version — The fragment survived checking; the author never impugns the corpus as unreliable, only as built from outcomes rather than deliberations.
+  (C) nec_suff_swap — The author explicitly sharpens this away: uniformity was residue of a working apparatus, not the accomplishment commemorated by the tablets.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — 'Anomalies preserve; regularity forgets' asserts the pattern, and the trailing clause narrows it by refusing the stronger claim of design.
+  (A) moderate_extremism — The closing clause explicitly calls it rash to say the archive was designed that way.
+  (B) premature_closure — The plague is given in paragraph four as occasion, not as a resolution of the rule-and-exception tension held open before it.
+  (D) causal_inversion — Paragraph two denies this: the scale did no work, and doubt flowed from the corpus-wide absence of comparanda.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — The next sentences gloss the phrase: the norm was law, the exception was authority operating on law without repealing it.
+  (B) causal_inversion — The passage keeps the exception exceptional; overriding without repeal is not suspension that dissolves the anomaly.
+  (C) false_symmetry — The author denies this was ever a contest between rigid norm and rogue document, so no discarding is contemplated.
+  (D) category_slip — This reads a statement about legal status as a statement about survival rates, which the final paragraph contradicts.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — Paragraph two names absence, not magnitude, as what did the work: a thing with no comparanda cannot be graded as improbable.
+  (A) causal_inversion — The passage states the scale of the anomaly was doing no work; three or twelve years would have been dismissed alike.
+  (B) framework_import — No claim about circulating forgeries appears; the passage says only that a forger would not manufacture matching batch-numbers.
+  (D) half_truth — These damaged features are reported, but the author names corpus-wide absence, not the damage, as the operative cause.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — The author's self-correction makes flatness the residue a functioning apparatus leaves, evidence of it rather than proof establishing it.
+  (A) stance_misread — Paragraph three offers exactly this as verification: not the sort of coincidence a forger manufactures.
+  (B) stance_misread — The author asserts precisely this at the close of paragraph three about everything drawn from the tablets.
+  (D) stance_misread — The author endorses this, saying the comparison holds better than most and that equality is the only proof available.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — It reproduces the structure: binding norm, an overriding authority acting in crisis without repeal, and survival of the record owing to the break.
+  (A) adjacent_answer — The passage's fragment survived checking; a confirmed forgery drops the very feature that makes the case instructive.
+  (C) nec_suff_swap — This treats uniformity as establishing the apparatus, the inference the author sharpens away in paragraph one.
+  (D) category_slip — Variation absent authority inverts the passage's case, where a firm norm coexists with an authorized override.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The analogy is introduced, endorsed, then immediately qualified by 'I should sharpen that,' preparing the reader for the reversal in paragraph two.
+  (A) level_confusion — The coins are offered as analogy, not as a claim that the same office produced coins and diplomas.
+  (B) stage_misattribution — The analogy concerns how uniformity is read as evidence; the passage never explains the term's origin.
+  (C) missing_link — Forgery enters only in paragraph two, and the coinage passage says nothing about counterfeiting or craft imitation.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — It supplies the deliberation the outcome-only corpus hides, showing authority acting on law without repealing it.
+  (A) half_truth — This deepens the occasion for early discharge without addressing whether the norm remained binding law throughout.
+  (C) scope_inflation — More instances make the shortened term look like a policy, weakening rather than licensing the override reading.
+  (D) adjacent_answer — Authenticity was already settled by the roster and batch-number; this supports genuineness, not the claim about authority.
+
+[Inspired by: "Michael Kulikowski: Polar Bears in Rome", https://www.lrb.co.uk/the-paper/v48/n14/michael-kulikowski/polar-bears-in-rome]

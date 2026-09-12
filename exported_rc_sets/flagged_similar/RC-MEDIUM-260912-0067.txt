@@ -1,0 +1,116 @@
+RC ID: RC-MEDIUM-260912-0067 | Tier: medium | Score: 7.8 | Status: needs_review | Compliance F1: 0.829 | Novelty: 0.471 | Screen: red | Generated: 2026-09-12T10:14:45.701753+00:00
+======================================================================
+
+[PASSAGE]
+
+Why did two libraries of comparable ambition, digitising comparable holdings in the same decade, end up giving the public such different things? Both the New York Public Library and the British Library launched major public digital collections in the mid-2000s. Both had prestige, scanning capacity, and deep stacks: maps, playbills, manuscripts, photographs, sound. From the outside the projects looked like siblings. Within a few years they were not behaving alike. One collection kept being picked up, copied, reused by strangers; the other kept growing and staying put. I suspect the difference was already present in how each library described what it held.
+
+Through the 2010s the gap widened. New York released images at high resolution. It published its data. It built small tools that let outsiders pull records out in bulk. The British Library digitised at enormous scale and made much of it viewable, but viewing is not the same as taking. Interfaces changed on both sides, repeatedly, and I confess I first assumed the interface was the story — the cleaner site winning. It wasn't. A well-designed viewing window is still a window.
+
+Copyright and money are the usual explanations, and they are not wrong so much as insufficient; the British Library's holdings carry heavier rights encumbrances, its funding has been squeezed harder, and both facts genuinely narrowed what its staff could do. But constraints shape the expression of a policy, not its premise. The premise lay in the catalogue. The word itself migrated from the bookseller's list to the card drawer to the library record to, finally, the machine-readable file — and at each stage it could be treated either as a finding aid pointing at a finished collection or as an open layer of description through which outsiders make associations the cataloguer never anticipated. New York, gradually and unevenly, chose the second.
+
+The consequence now falls on people who never enter either building. A scan online is not yet public. What is noticeable, combinable, citable is set by the description wrapped around it. A teacher searching for a street name finds nothing if the street was never indexed. A historian cannot aggregate what cannot be exported. An artist cannot remix a file she may only look at. Communities whose photographs sit in either collection find them either working as evidence or held as institutional property with a public-facing shopfront.
+
+The awkward case is the British Library's own crowdsourced tagging work, where volunteers enriched descriptions of illustrations and the collection did become generative — which shows the divergence was never a fixed institutional character, and that my account has to be narrower than openness-versus-closure. Both libraries have since revised metadata, lost and rebuilt platforms, changed licences. Ranking them now would be premature; their standards are still moving, and the cyber-attack that crippled British Library services showed how fragile any such judgement is. That unfinished state does not leave the causal question open. Description that stays revisable, and that invites revision from outside, is what produced the divergence — not scanning volume, not copyright alone. I hold to that, and holding to it costs me the conclusion I would have preferred: that the older, more careful custodial tradition I was trained to admire was doing something other than quietly deciding, on the public's behalf, what the public would be allowed to notice.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) arguing that how each library treated description, rather than scale or law, drove their divergence
+(B) establishing that the New York Public Library should now be ranked above the British Library in openness
+(C) tracing how the meaning of the word catalogue shifted from bookseller lists to modern machine-readable library files
+(D) showing that legal restrictions and shrinking budgets had no real bearing on either library's public output
+
+Q2. In the context of the passage, "viewing is not the same as taking" is best understood as:
+(A) criticising the British Library for the poor visual design of its public viewing interfaces
+(B) suggesting that users of digital collections rarely bother to download the material available
+(C) distinguishing permission to look at a file from the ability to extract and reuse it
+(D) leaving open whether display or export better explains the divergence between the two collections
+
+Q3. The author of the passage is likely to disagree with which one of the following statements?
+(A) A digitised image placed online is not thereby made meaningfully available to the public
+(B) The divergence between the two libraries was not a fixed feature of either institution
+(C) Rights encumbrances and tight funding genuinely narrowed what British Library staff could attempt
+(D) New York's collection spread because it scanned more material on a more advanced platform
+
+Q4. Which one of the following situations is most analogous to the mechanism described in the passage?
+(A) A university redesigns its search page attractively while a rival keeps an older and clumsier layout
+(B) A city posts transit data with open fields that riders extend, while a neighbour posts fixed timetables
+(C) A newspaper scans its entire back archive while a rival newspaper scans only its most famous editions
+(D) A museum raises its ticket price while a rival museum abolishes admission charges for local school groups
+
+Q5. Which one of the following is suggested by the sentence "A teacher searching for a street name finds nothing if the street was never indexed"?
+(A) Digitisation projects usually fail because their scanning equipment cannot capture small textual detail
+(B) Teachers usually lack the research training needed to search large digital library collections well
+(C) Libraries should hire additional cataloguers in order to index every street name in their holdings
+(D) Description determines what can be found, so unindexed content is effectively absent from the collection
+
+Q6. Which one of the following is most strongly implied by the way the passage ends?
+(A) The author keeps a causal conclusion that discredits a custodial tradition he was trained to admire
+(B) The author expects the cyber-attack to reverse the divergence he has spent the passage explaining
+(C) The author now suspends judgement on what caused the divergence until both libraries' standards settle
+(D) The author concludes that careful custodial traditions preserve collections better than open descriptive practice
+
+Q7. The British Library's crowdsourced tagging work is introduced primarily to:
+(A) demonstrate that volunteer labour can substitute for professional cataloguing in large research libraries
+(B) illustrate how repeated platform changes and licence revisions damaged both collections over time
+(C) narrow the author's claim by showing the divergence was not a fixed institutional trait
+(D) concede that the British Library eventually overtook New York in openness of description
+
+Q8. According to the passage, why does a historian find some digitised material unusable?
+(A) Material scanned at low resolution loses the detail research work requires
+(B) Material stored on platforms that repeatedly change becomes impossible to cite
+(C) Material that cannot be exported in bulk cannot be aggregated for study
+(D) Material held under heavy copyright is removed from public view entirely
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Integrates the opening puzzle, the rejection of interface and copyright as sufficient, and the closing insistence on revisable description.
+  (B) premature_closure — The final paragraph explicitly calls ranking them premature because standards are still moving.
+  (C) level_confusion — The etymology in paragraph three is a supporting device, not the passage's governing concern.
+  (D) stance_misread — Paragraph three calls those explanations insufficient, not wrong, and grants they genuinely narrowed staff options.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The phrase sits against New York's bulk-export tools and is glossed later by the artist who may only look.
+  (A) level_confusion — Paragraph two explicitly abandons interface quality as the story after first assuming it.
+  (B) adjacent_answer — The claim concerns what institutions permit, not what habits users happen to display.
+  (D) stance_misread — The author affirms description as the causal account; nothing is left suspended between rival explanations.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The author rejects both scanning volume and interface quality as causes, naming description instead.
+  (A) passage_supported — Paragraph four states plainly that a scan online is not yet public.
+  (B) passage_supported — The crowdsourced tagging case is offered precisely to show the divergence was not fixed.
+  (C) half_truth — Paragraph three concedes exactly this, calling such constraints real but insufficient as explanation.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — Reproduces the contrast between description treated as an open, externally revisable layer and description treated as a finished finding aid.
+  (A) adjacent_answer — Interface quality is the explanation the author explicitly tried and then abandoned in paragraph two.
+  (C) scope_inflation — Volume of digitisation is precisely what the author rejects as the explanatory factor.
+  (D) level_confusion — This concerns cost of access, not the descriptive architecture the passage identifies as causal.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — It illustrates the paragraph's claim that noticeability is set by the description wrapped around a scan.
+  (A) level_confusion — The failure described is descriptive, not technical; capture quality is nowhere at issue here.
+  (B) straw_version — The example indicts the catalogue's coverage, not the searcher's competence or training.
+  (C) scope_inflation — The passage urges revisable, outside-invited description, not exhaustive indexing by staff.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The ending affirms the description thesis while conceding it costs the author his preferred conclusion about custodianship.
+  (B) example_promotion — The attack illustrates the fragility of ranking judgements, not a reversal of the causal account.
+  (C) stance_misread — He says the unfinished state does not leave the causal question open; he holds to it.
+  (D) causal_inversion — The custodial tradition is what the ending reluctantly indicts, not what it vindicates.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — The passage calls it the awkward case and says it forces the account to be narrower than openness-versus-closure.
+  (A) scope_inflation — The passage makes no claim about volunteers replacing professional staff anywhere in the argument.
+  (B) adjacent_answer — Platform loss and licence change are listed separately; the tagging case does different structural work.
+  (D) premature_closure — Ranking the two is explicitly called premature in the very same paragraph.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — Paragraph four states directly that a historian cannot aggregate what cannot be exported.
+  (A) adjacent_answer — Resolution is mentioned as a New York practice, not as a cause of historians' difficulty.
+  (B) level_confusion — Platform churn is raised about judging the libraries, not about the historian's aggregation problem.
+  (D) half_truth — Rights encumbrances are said to narrow staff options, not to strip material from public view.
+
+[Inspired by: "It’s the Oligarchy, Stupid!", https://verfassungsblog.de/palantir-techoligarchie/]

@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260912-0089 | Tier: hard | Score: 7.8 | Status: needs_review | Compliance F1: 0.786 | Novelty: 0.481 | Screen: red | Generated: 2026-09-12T10:24:36.687162+00:00
+======================================================================
+
+[PASSAGE]
+
+What does it mean for an animal to stop existing when nobody was trying to make it stop? The question sat unasked for most of a century because the case that best posed it was misfiled as something else. Melanoplus spretus, the Rocky Mountain locust, produced the largest insect aggregations ever measured by anyone with an interest in measuring them — the swarm crossing Nebraska in June 1875 was estimated by Albert Child, working from telegraph reports of its width and the time it took to pass, at something on the order of a hundred and twenty billion insects. Then the swarms thinned through the 1880s. The last living specimens were collected in 1902. Not reduced, not scattered into pockets, not surviving in some unsurveyed valley: gone as a taxon, and never seen alive again. That the vanishing followed hard upon the plague years is the first thing anyone notices about it, and the least useful.
+
+The explanation offered at the time was sober and, by the standards of the field, well grounded. Locusts are phase-shifting animals. Crowded, they turn gregarious — darker, longer-winged, migratory; sparse, they revert to a solitary form so unlike the swarming one that early workers classed the two as separate species. Every other locust of consequence, the desert locust above all, had been observed to sink into recession for decades and then return. Spretus, it was assumed, had done the same, retiring to its Rocky Mountain refuges to wait. The parallel was clean. It was also false, because recession requires a place to recede to, and nobody had asked where that place was.
+
+Jeffrey Lockwood's soil cores, taken through the 1980s and after, located it: narrow strips of moist, sandy alluvium along river valleys in the northern Rockies, where the species bred permanently rather than opportunistically. The desert locust recedes across millions of square kilometres of arid ground; spretus recessed onto a handful of riverbank acres. Treat the two as the same animal in different moods and the analogy holds. Treat the ground beneath them and it collapses — one had a continent to hide in, the other had a corridor. Homesteaders plowed and irrigated those exact valleys, because those were the only soils worth farming. The refuge and the farmland were the same dirt.
+
+So the insect was exterminated by the people it ruined, without their knowing they were doing it. That is the usual formulation, and it flatters everyone involved by making the outcome sound like a moral irony rather than a technical one. What the farmers lacked was not conscience but a concept: obligate breeding habitat did not exist as an idea until decades later. No survey existed. No one had reason to think a plague could have an address. The precedent is invoked now in arguments about whether narrowly breeding pests might be deliberately eliminated — or are being eliminated already, unnoticed.
+
+Whether the soil chemistry of those valleys can be reconstructed finely enough to predict which insects sit on similarly thin ground is not a question historical entomology can answer, and I take it that the paleoentomologists working glacier-preserved specimens and the soil scientists reading old alluvium are the ones who should have it. Handing it over costs the historical account its authority over its own best case.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) The Rocky Mountain locust produced the largest insect aggregations ever measured and then disappeared outright, which makes it the most dramatic extinction in the entomological record.
+(B) Farmers who were ruined by the swarms destroyed the insect without intending to, an irony that should govern how we judge the moral record of settlement.
+(C) Locusts shift between solitary and gregarious phases, and spretus was wrongly thought to have entered a long recession of the kind the desert locust regularly displays.
+(D) The locust vanished because its narrow obligate breeding ground happened to be the only farmable soil, a technical fact long hidden by a false analogy with other locusts.
+
+Q2. Which one of the following is most strongly implied by the way the passage ends?
+(A) The recession hypothesis remains a live possibility for spretus and can only be settled once soil chemistry from those northern valleys is reconstructed in finer detail.
+(B) The next question about thin-ground species belongs to soil scientists and paleoentomologists, and historical entomology loses its standing over its own best case by conceding it.
+(C) Glacier-preserved specimens and old alluvium have already yielded enough evidence to identify the modern pest species that sit on comparably narrow breeding ground.
+(D) Historical entomology should extend its methods into soil chemistry so that it can retain authority over the prediction of which insects occupy similarly narrow ground.
+
+Q3. Jeffrey Lockwood's soil cores function in the passage to:
+(A) illustrate how modern field techniques can recover data that nineteenth-century observers had neither the instruments nor the inclination to collect.
+(B) confirm the long-standing view that spretus had retired into Rocky Mountain refuges of the kind other phase-shifting locusts are known to use.
+(C) raise a doubt about whether destruction of breeding habitat can really be established as the cause, given how much the later paragraphs qualify the claim.
+(D) supply the missing physical fact — an address for the refuge — that turns a plausible analogy with other locusts into a demonstrably broken one.
+
+Q4. The central idea of the passage would be undermined if:
+(A) soil cores showed the species also bred permanently across wide uplands that homesteaders never plowed or irrigated at any point.
+(B) the desert locust were found to recede into far smaller arid tracts than the millions of square kilometres the passage attributes to it.
+(C) a handful of settlers had in fact suspected that riverbank cultivation was harming the insect and recorded their suspicion in local newspapers.
+(D) Albert Child's hundred-and-twenty-billion estimate proved to be inflated by a considerable margin because telegraph reports overstated the swarm's true width.
+
+Q5. All of the following are supported by the passage EXCEPT:
+(A) the valleys that served as permanent breeding ground were also the soils homesteaders found most worth farming.
+(B) the precedent of this extinction now enters debates about deliberately eliminating pests that breed in narrow habitats.
+(C) the last spretus specimens were collected from unsurveyed valleys that later proved to hold surviving pockets of the species.
+(D) early workers treated the solitary and gregarious forms of locusts as though they belonged to two separate species.
+
+Q6. According to the passage, why did the recession explanation for the disappearance of spretus fail?
+(A) Spretus was later shown not to shift phases at all, so the solitary form assumed by the explanation had never existed in nature.
+(B) Recession presupposes a refuge large enough to shelter in, and nobody had established where the refuge of spretus actually lay.
+(C) Observers had confused a genuine recession with extermination, since the swarms thinned gradually across the 1880s rather than ending abruptly.
+(D) The desert locust was found to return from recession only after intervals far longer than the two decades observers were prepared to wait.
+
+Q7. Which one of the following views does the author report or steelman rather than hold?
+(A) That the coincidence of refuge and farmland explains the disappearance more adequately than any account resting on phase behaviour.
+(B) That the farmers were missing a concept rather than a conscience, since obligate breeding habitat was not yet an available idea.
+(C) That predicting which insects occupy similarly thin ground falls outside what historical entomology can properly undertake.
+(D) That the insect's fate is best understood as a moral irony, the swarm destroyed by the very people its plagues had ruined.
+
+Q8. Which one of the following best explains why the impression created early in the passage does not survive the argument?
+(A) The early account of Child's telegraph estimate proves unreliable, so the passage must abandon its opening figures before it can build any explanation at all.
+(B) The early stress on swarm size and sudden vanishing invites a story about scale, but the explanation finally turns on a few acres of riverbank soil.
+(C) The early description of homesteaders ruined by swarms sets up a tale of just deserts, which the closing handover to soil scientists quietly renders unnecessary.
+(D) The early phase-shift material suggests two species where there was one, and the passage corrects this taxonomic confusion in its later paragraphs.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — Integrates the phenomenon (para 1), the discredited recession explanation (para 2), Lockwood's soil finding (para 3), and the reframing of the outcome as technical rather than moral (para 4).
+  (A) moderate_extremism — Takes para 1's framing of the phenomenon as the thesis, though the author calls that observation the least useful thing about the case.
+  (B) half_truth — Para 4 explicitly rejects the moral-irony framing, insisting the farmers lacked a concept rather than a conscience.
+  (C) stage_misattribution — Restates the superseded explanation of para 2, which para 3 displaces by showing spretus had only a corridor to recede into.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — The final paragraph explicitly hands the predictive question to other disciplines and states the cost to the historical account's authority.
+  (A) moderate_extremism — Para 3 already settles the recession account against spretus; the open question concerns other species, not this one.
+  (C) premature_closure — The closing sentence poses this as an unanswered question, not as work already delivering results.
+  (D) stance_misread — The author hands the question away rather than proposing that historical entomology annex it.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — Para 2 ends by noting nobody asked where the refuge was; para 3 opens with the cores locating it and collapsing the desert-locust parallel.
+  (A) level_confusion — This describes a methodological byproduct; the cores' argumentative work is locating the refuge that breaks the analogy.
+  (B) stage_misattribution — The cores overturn that view by showing the refuge was a corridor of acres, not a continental hiding place.
+  (C) overqualification — Para 4's qualifications concern the case's moral and policy implications, not the truth of the habitat explanation.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — The argument's load-bearing move is that the obligate breeding ground was narrow and coincided exactly with farmable soil; broad untouched breeding ground dissolves that coincidence.
+  (B) false_symmetry — Shrinking the comparison case slightly leaves intact the decisive point that spretus recessed onto a few riverbank acres.
+  (C) adjacent_answer — Scattered suspicion touches the claim about missing concepts, not the habitat mechanism the argument rests on.
+  (D) example_promotion — The swarm figure is decorative scale-setting; para 1 calls the plague-then-vanishing sequence the least useful observation.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — Para 1 states the opposite: not surviving in some unsurveyed valley, gone as a taxon and never seen alive again.
+  (A) passage_supported — Para 3 states homesteaders plowed those exact valleys because they were the only soils worth farming.
+  (B) passage_supported — Para 4 states the precedent is invoked in arguments about whether narrowly breeding pests might be deliberately eliminated.
+  (D) passage_supported — Para 2 states the forms were so unlike that early workers classed the two as separate species.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — Para 2's closing sentence gives exactly this reason: recession requires a place to recede to, and the question went unasked.
+  (A) straw_version — The passage treats spretus as a phase-shifting locust; the failure lies in the size of its refuge, not in phase shifting.
+  (C) causal_inversion — This reverses the finding; para 1 insists the taxon was gone, not merely recessed and misread.
+  (D) terminological_twin — The passage cites decade-long recessions in other locusts as the accepted pattern, not as a mistimed expectation.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — Para 4 names this as the usual formulation and immediately rejects it, calling the outcome technical rather than moral.
+  (A) stance_misread — This is the author's own conclusion, established through Lockwood's cores in para 3.
+  (B) stance_misread — Para 4 states this in the author's own voice as a correction of the received formulation.
+  (C) stance_misread — The final paragraph asserts this directly as the author's position, not as a reported claim.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — Para 1 itself flags the plague-then-vanishing sequence as the least useful observation, and para 3 relocates the causal weight onto a narrow corridor.
+  (A) example_promotion — The passage never questions Child's method; it questions the relevance of scale, not the accuracy of the count.
+  (C) adjacent_answer — The ruined-farmer framing appears in para 4, not early, and is dismissed there rather than by the closing handover.
+  (D) category_slip — The two-species error is attributed to early workers as background; the passage's correction concerns refuge size, not taxonomy.
+
+[Inspired by: "How Alberta eradicated rats", https://worksinprogress.co/issue/albertas-war-on-rats/]

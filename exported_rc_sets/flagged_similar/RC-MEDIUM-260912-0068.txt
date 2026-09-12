@@ -1,0 +1,116 @@
+RC ID: RC-MEDIUM-260912-0068 | Tier: medium | Score: 8.4 | Status: approved | Compliance F1: 0.765 | Novelty: 0.523 | Screen: red | Generated: 2026-09-12T10:18:07.436892+00:00
+======================================================================
+
+[PASSAGE]
+
+The practice of opening a working craft floor to visitors comes to puppetry late, borrowed from glassblowing sheds and print shops that had been charging admission for a century; when the Queens workshop, after decades of locked doors and signed suppliers' agreements, began admitting the public on scheduled mornings, the first thing most visitors saw was a child on a stool being shown how to run her arm inside a live-hand puppet, her fingers finding the seam where the sleeve becomes a glove, and the phrase that circulated afterwards, in the memos and the tour scripts, was "the public hand."
+
+Consider what actually followed. A family tour ran forty minutes late because a costume seam had split and the demonstration piece was the only one dressed. A visiting school group, delightedly, absorbed an entire hour meant to serve four groups, and the three that followed got a talk instead of a table. An apprentice sewing a foam skull was asked, eleven times in an afternoon, what the foam was. Each of these is called an interruption, and they are not the same kind of thing. The first is scheduling. The second is rationing. The third is a transfer of the apprentice's afternoon to the visitors' education. To argue about whether the tours "work" is to argue about the wrong unit; the tours work, differently, on whoever is paying for them.
+
+I grant the tactile case fully. A live-hand puppet on television is a face; in the hand it is weight, balance, a wrist that tires. No screen delivers that. Two views of this benefit circulate among the staff. The demonstration people hold that the encounter is the point and that its depth is beside the point. The fabricators hold that an encounter which stops at the first correct gesture teaches a person mainly that puppetry is easy. Both are right about what they see, because the benefit is largest at the very beginning and flattens fast. The visitor who learns most is the visitor who knew nothing, and that visitor learns something real and small.
+
+A veteran fabricator I spoke with, who had spent years building for one shop and then years explaining that work in a museum gallery, put it plainly: demonstrating is its own trade, and nobody is good at both on the same morning. What makes the access look effortless is the rescheduling, the rehearsed patter, the simplified version of a joining technique that would take three days to do properly, the spare dressed puppet kept on the rack for exactly this. That is the labour the phrase names. "The public hand" is not the visitor's hand at all; it is the workshop's own hand, turned outward, doing work that nobody sees and that comes off the production week.
+
+So the verdict narrows. The opening has made the shop's gestures publicly legible, and it has given some number of first-time visitors a genuine encounter with material resistance, which is more than the finished characters ever gave them. It has not distributed the craft, and it has not changed who can be hired to do it. I would keep the tours; the price is a fabricator's Tuesday, spent teaching foam rather than cutting it, and that hour does not come back.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) Because demonstrating is a separate trade, workshops should hire dedicated guides and keep fabricators entirely away from all visiting groups.
+(B) The dispute between demonstration staff and fabricators cannot be settled, since each faction sees only the portion of the encounter it happens to supervise.
+(C) The workshop's opening is chiefly a story of children gaining genuine creative authority over the puppets and the characters they animate.
+(D) Public access delivers a small real benefit while quietly shifting workshop labour outward, so the author accepts it as a paid-for trade.
+
+Q2. Which one of the following is most strongly implied by the way the passage ends?
+(A) The tours should continue only if the workshop finds some way of recovering the fabricator's lost hour later.
+(B) Since many visitors now handle puppets competently, practical expertise has already passed from the professionals to the public.
+(C) The author expects the workshop to abandon scheduled openings once the accumulated production losses are finally tallied honestly.
+(D) Endorsing the tours is compatible with admitting that their cost falls on production time that is never recovered.
+
+Q3. Which one of the following, if true, would most call into question the claim that the benefit of tactile access is largest at the beginning and flattens fast?
+(A) Television close-ups of live-hand puppets have improved enough to show the operator's wrist in convincing detail.
+(B) The author's concession that touch matters shows the opening genuinely democratised the making of puppets for ordinary people.
+(C) Visitors returning for a fourth session report learning markedly more about balance and weight than they did initially.
+(D) Some first-time visitors leave without touching any puppet at all and remember only the guide's spoken explanation.
+
+Q4. According to the passage, why does the author say the three groups following the school group got a talk instead of a table?
+(A) Demonstration staff believed the encounter mattered more than the depth of that encounter.
+(B) A finite demonstration resource was consumed by one group, so the remainder were rationed.
+(C) The apprentice's afternoon had been transferred to visitor education rather than to fabrication.
+(D) A costume seam had split and the only dressed demonstration piece was unavailable then.
+
+Q5. Which one of the following, if established, would most damage the author's central claim?
+(A) Glassblowing sheds and print shops began charging visitors for access much earlier than puppetry workshops did.
+(B) The Queens workshop keeps two spare dressed puppets on the rack rather than only the single one.
+(C) Workshops that opened their floors now recruit a third of their fabricators from former visitors.
+(D) Most visitors say afterwards that handling a live-hand puppet was the most memorable part of the morning.
+
+Q6. Which one of the following best explains the primary purpose of the discussion of the three 'interruptions' in the second paragraph?
+(A) To recount three occasions on which visiting groups disrupted the workshop's scheduled morning.
+(B) To show that a single word hides distinct costs borne by different parties.
+(C) To demonstrate that scheduled public mornings should be restricted to far smaller visiting parties.
+(D) To supply concrete illustration before the essay advances to its evaluative middle section.
+
+Q7. Which one of the following positions is described in the passage but not endorsed by the author?
+(A) Demonstrating is a distinct trade that no one performs well alongside fabrication work.
+(B) No screen can convey the weight and balance that a live-hand puppet has in the hand.
+(C) The visitor who learns most from the opening is the visitor who arrived knowing nothing.
+(D) An encounter ending at the first correct gesture mainly teaches that puppetry is easy.
+
+Q8. The author uses the phrase 'the public hand' to mean:
+(A) A public entitlement to enter craft floors that glassblowers established a century earlier.
+(B) The workshop's own labour turned outward, unseen and charged to the production week.
+(C) The visitor's hand entering the puppet's sleeve and finding the glove seam.
+(D) The simplified demonstration version of a joining technique done properly in three days.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — Integrates the cost accounting of paragraph 2, the flattening benefit of paragraph 3, the hidden labour of paragraph 4, and the narrowed verdict.
+  (A) scope_inflation — The veteran's remark describes the difficulty; the author draws no staffing prescription from it.
+  (B) adjacent_answer — The author does settle it in paragraph 3: both are right because the benefit is largest at the start and flattens.
+  (C) half_truth — The child on the stool is an opening image, not the claim; the passage denies the craft was distributed.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — The closing 'I would keep the tours; the price is a fabricator's Tuesday... does not come back' pairs approval with an irrecoverable cost.
+  (A) nec_suff_swap — The lost hour is stated as an accepted price, not as a condition attached to continuing.
+  (B) adjacent_answer — The passage states flatly that the opening has not distributed the craft nor changed who can be hired.
+  (C) premature_closure — The author would keep the tours; no prediction of abandonment appears anywhere in the closing paragraph.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — Repeated visits yielding increasing learning directly contradicts the flattening curve that reconciles the two staff positions.
+  (A) category_slip — The passage's point is weight felt in the hand; better images do not touch the curve of tactile learning.
+  (B) half_truth — This restates a misreading of the concession rather than supplying a fact; the author denies distribution of the craft.
+  (D) adjacent_answer — This concerns who receives the benefit, not whether the benefit diminishes across further exposure.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — Paragraph 2 explicitly labels the second episode 'rationing' — one group absorbed an hour meant for four.
+  (A) framework_import — That staff view appears in paragraph 3 and explains nothing about the schedule collapsing.
+  (C) stage_misattribution — The transfer describes the third episode, the foam-skull questions, not the delayed groups.
+  (D) adjacent_answer — That is the first episode, which the passage calls scheduling, not the school group's case.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — The verdict rests on 'it has not changed who can be hired'; a documented hiring pipeline strikes that load-bearing claim.
+  (A) adjacent_answer — This confirms a decorative historical detail in the opening sentence and leaves the verdict intact.
+  (B) level_confusion — Rack inventory is an operational detail; the hidden preparatory labour and its cost remain unchanged.
+  (D) half_truth — The author already grants the tactile encounter is real; memorability does not touch distribution or hiring.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — The paragraph's purpose is to break 'interruption' apart so the closing line about who pays can land.
+  (A) level_confusion — This is an accurate summary of the content but names no authorial purpose.
+  (C) scope_inflation — No recommendation about group size appears; the author keeps the tours as they stand.
+  (D) category_slip — This describes the structural role of the paragraph rather than why the author included it.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — This is the fabricators' position, reported in paragraph 3 and then absorbed into the author's own flattening account.
+  (A) adjacent_answer — Though voiced by the veteran, the author adopts it as the basis of the paragraph's argument.
+  (B) stance_misread — The author asserts this directly: 'I grant the tactile case fully. No screen delivers that.'
+  (C) half_truth — This is the author's own reconciliation of the two staff views, stated in his voice.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — Paragraph 4 states explicitly that the phrase names not the visitor's hand but the workshop's, doing invisible work.
+  (A) framework_import — The precedent of glass sheds explains the practice's origin, not what the phrase names.
+  (C) phrase_misuse — This is the literal image the memos took the phrase from, which the author corrects.
+  (D) adjacent_answer — That simplification is one item in the list of hidden labour, not the phrase's referent.
+
+[Inspired by: "A Peek Inside Jim Henson's Creature Shop, Where 'Sesame Street' Characters and Other Whimsical Puppets Are Designed", https://www.smithsonianmag.com/travel/a-peek-inside-jim-hensons-creature-shop-where-sesame-street-characters-and-other-whimsical-puppets-are-designed-180989051/]

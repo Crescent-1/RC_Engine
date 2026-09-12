@@ -1,0 +1,116 @@
+RC ID: RC-ELITE-260912-0085 | Tier: elite | Score: 8.2 | Status: needs_review | Compliance F1: 0.765 | Novelty: 0.495 | Screen: green | Generated: 2026-09-12T10:31:23.147962+00:00
+======================================================================
+
+[PASSAGE]
+
+Tuning, in bell-founding, does not mean what it means for a string. A string is tuned after it exists; a bell is tuned before it does, in clay, by a man with a board. The founder came to the town with a mule, a bag of tallow, and a pattern of profiles, dug a pit beside the church deep enough to swallow a man standing, and began the core: brick laid dry in a beehive, packed and smeared with loam, then shaved down as it dried by a wooden sweep-board pivoting on an iron spindle set in the pit's floor. Theophilus, in the twelfth-century treatise on the various arts, describes the spindle and the board plainly, as though nothing about them required argument.
+
+Over the finished core came the false bell. Wax and tallow in warm layers, built up by hand and then cut back by a second sweep-board whose edge carried the outer profile, so that what lay between the two boards was not a bell but the future thickness of one. Letters were pressed into the wax while it stayed workable — the founder's name, a saint's, the year — along with relief bands at the shoulder and waist. These read as ornament, and they were ornament. They were also metal that would be there, at that thickness, at that height, and thickness at height is what a bell's tone is. Nothing about the pitch was decided after this stage. It was decided here, in grease.
+
+Then the cope: loam troweled over the wax in coats, dried between each, bound with iron bands. Fire under the whole assembly. The wax ran out through channels cut for it and was caught in pans. What remained was a cavity. Not a mould waiting to be adjusted — the adjustment had already happened, above ground, in daylight, with a board. The cavity was a decision already made, now buried.
+
+The pour took a quarter of an hour. The furnace was tapped, and bronze ran down clay gutters into the pit in one motion, and the founder judged when to open it by the colour of the metal and the way it moved — too cold and it would freeze short of the crown, too hot and it would eat the loam. Nineteenth-century metallurgists writing about bell alloys treated this as guesswork to be replaced by the pyrometer; the surviving founding families treated it as the trade itself, and refused to write it down. Both camps agreed on the word: the founder was said to *know his metal*, a phrase that travelled out of the pits into the glass-houses and then into iron, where it kept the same meaning and lost the mule.
+
+Consider what had to be true for a bell to ring in tune. Every dimension governing its pitch was fixed underground, in wax and loam, before any sound existed to check against. Strike-note, hum, the tierce — all of it settled by hand and eye in a pit. One might want to say the risk was shared evenly between the shaping and the pour. It was not. A bad pour wasted metal; a bad profile wasted metal, wax, loam, iron, weeks, and the pit. And this stayed true until a bell could be cast thick and then cut thinner on a lathe — after which the tuner worked in the light, shaving bronze off the inside of a finished bell, listening.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) arguing that the pour was the moment of greatest hazard, since molten bronze could not be recalled
+(B) tracing how metallurgical instruments gradually displaced the inherited hand skills of founding families
+(C) describing how founders added lettering and relief bands to bells as a decorative signature
+(D) showing that a bell's tone was committed irreversibly at the modelling stage, long before metal
+
+Q2. In context, the claim that the cavity was "a decision already made, now buried" most nearly means that:
+(A) the cope merely preserved dimensions settled earlier in wax, offering no further chance to alter them
+(B) burning out the wax and pouring the bronze were equally revisable steps, each correctable by recasting
+(C) the founder deliberately concealed his tonal calculations from apprentices by sealing them underground
+(D) the mould's shape could still be judged by eye once the iron bands were tightened
+
+Q3. "Know his metal" most nearly means:
+(A) having a decorative knack for timing, refining a process otherwise governed by settled rules
+(B) possessing an unwritten judgment of heat and flow on which the whole cast rested
+(C) mastering the pyrometer readings that nineteenth-century metallurgists recommended for consistent pours
+(D) knowing the alloy's composition precisely enough to predict the finished bell's strike-note
+
+Q4. Which one of the following research findings would most strengthen the author's conclusion about where a bell's risk lay?
+(A) Metallurgical analysis reveals that medieval bell bronze varied widely in tin content across different European founding regions
+(B) Excavated casting pits near churches consistently contain iron spindles matching the dimensions described by Theophilus
+(C) Inscriptions on surviving medieval bells name founders more often than they name saints or the year of casting
+(D) Surviving workshop accounts show profile errors forced founders to rebuild the pit, while failed pours were recast within days
+
+Q5. The passage most directly corrects which one of the following impressions?
+(A) That the founder's mule and tallow mattered less to the trade than his inherited pattern of profiles
+(B) That medieval founders worked without any written record of their methods or their equipment
+(C) That tuning a finished bell on a lathe was impossible before the nineteenth century arrived
+(D) That the wax layer chiefly carried inscriptions and bands, its tonal role being incidental to its ornament
+
+Q6. Which one of the following best explains the primary purpose of the discussion of the nineteenth-century metallurgists and the founding families?
+(A) To introduce a historical contrast that sets up the passage's later comparison of shaping and pouring
+(B) To record that metallurgists favoured the pyrometer while founding families refused to write their practice down
+(C) To show that rival parties disagreed about the pour's nature yet both named it a form of knowledge
+(D) To argue that instrumentation eventually proved superior to the inherited judgment of the founding families
+
+Q7. Regarding the making of the false bell, the author asserts that:
+(A) the relief bands at the shoulder and waist were added after the cope was bound
+(B) what lay between the two sweep-boards was the future thickness of the bell
+(C) the wax was built up by hand and then shaved by the same board used for the core
+(D) the lettering was pressed into the loam cope once it had dried between the coats
+
+Q8. Which one of the following passages, if replaced with unrelated material, would most change the argument?
+(A) The fifth paragraph, which weighs the cost of a bad profile against the cost of a bad pour
+(B) The third paragraph, which describes loam coats, iron bands, and wax running out through channels
+(C) The first paragraph, which describes the core built of dry brick and shaved by a sweep-board
+(D) The fourth paragraph, which reports the dispute between metallurgists and the surviving founding families
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — Integrates the wax paragraph ('Nothing about the pitch was decided after this stage'), the buried-cavity paragraph, and the fifth paragraph's explicit asymmetry of risk between profile and pour.
+  (A) stage_misattribution — The fifth paragraph explicitly denies this: a bad pour wasted only metal, while a bad profile wasted everything.
+  (B) scope_inflation — The pyrometer dispute is one paragraph's illustration, not the passage's governing concern about pre-fixed dimensions.
+  (C) half_truth — Takes the inscriptions as ornament only, ignoring that the passage calls them metal fixing thickness at height, hence tone.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The sentence follows 'Not a mould waiting to be adjusted — the adjustment had already happened, above ground,' making the cavity a record rather than an instrument.
+  (B) false_symmetry — The passage separates the stages sharply; only the pour wasted metal alone, and no stage after wax touched pitch.
+  (C) framework_import — Secrecy belongs to the later paragraph on founding families refusing to write things down, not to the cope.
+  (D) stage_misattribution — Binding with iron bands precedes firing; the text insists adjustment had already happened above ground in daylight.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The phrase names what the founding families called 'the trade itself' — the uninsured reading of colour and movement that decided when to tap the furnace.
+  (A) half_truth — Reduces the founder's judgment to flourish, though the passage makes the pour hinge entirely on that reading.
+  (C) stance_misread — The pyrometer was the metallurgists' proposed replacement for this knowledge, not its content.
+  (D) terminological_twin — Confuses alloy chemistry with judging molten metal by colour and motion at the moment of tapping.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — Directly evidences the fifth paragraph's asymmetry: a bad pour cost metal, a bad profile cost metal, wax, loam, iron, weeks and the pit.
+  (A) missing_link — Alloy variation says nothing about whether shaping or pouring carried the heavier cost of error.
+  (B) adjacent_answer — Corroborates Theophilus's description of equipment without addressing the distribution of risk between stages.
+  (C) example_promotion — Turns an incidental detail about lettering into evidence, though it bears nothing on risk asymmetry.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The second paragraph concedes the ornament reading and then overturns it: the relief was 'also metal that would be there, at that thickness, at that height,' which is tone.
+  (A) category_slip — The mule and tallow are scene-setting inventory; no comparative claim about them is offered or corrected.
+  (B) half_truth — Theophilus is cited as describing the spindle and board plainly, so the passage never invites this impression.
+  (C) scope_inflation — The closing sentence notes lathe tuning as a later development without dating it or denying it.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The author's point is that the shared phrase 'know his metal' survives the dispute, which is why it travels into glass and iron; both camps are cited to establish agreement beneath disagreement.
+  (A) level_confusion — Names a structural role rather than authorial purpose, and the risk comparison does not depend on this contrast.
+  (B) level_confusion — An accurate summary of the sentence's content rather than an account of why the author included it.
+  (D) stance_misread — The author takes no side on the pyrometer; the paragraph stresses the surviving phrase, not a verdict.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — Stated directly: the second board carried the outer profile, 'so that what lay between the two boards was not a bell but the future thickness of one.'
+  (A) stage_misattribution — Bands belong to the wax stage; binding with iron bands happens in the following paragraph.
+  (C) half_truth — The text specifies a second sweep-board carrying the outer profile, distinct from the core's board.
+  (D) stage_misattribution — Letters were pressed into the wax 'while it stayed workable,' before the cope was troweled on.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — That paragraph carries the thesis, explicitly rejecting shared risk and stating what a bad profile destroyed; without it the asymmetry is never argued.
+  (B) example_promotion — Its key claim is restated in the fifth paragraph's insistence that every pitch dimension was fixed underground.
+  (C) adjacent_answer — Removing the core description costs procedural detail but leaves the risk asymmetry stated and defended elsewhere.
+  (D) false_symmetry — Treats an illustrative episode as load-bearing; the argument about pre-fixed dimensions survives its removal intact.
+
+[Inspired by: "Artificial Intelligence: Ars Notoria and the Promise of Instant Knowledge", https://publicdomainreview.org/essay/ars-notoria]
