@@ -50,33 +50,64 @@ def _provider_col(conn) -> str:
     return "provider" if "provider" in cols else "NULL AS provider"
 
 
-def dashboard() -> dict:
+def _client_filter(conn, client: str | None, alias: str = "") -> tuple[str, list]:
+    """(predicate, params) for one client. Empty on a DB the engine has not
+    migrated yet (no client_id column): everything there is the founding
+    client's anyway."""
+    if not client:
+        return "", []
+    cols = [r[1] for r in conn.execute("PRAGMA table_info(rc_sets)")]
+    if "client_id" not in cols:
+        return "", []
+    return f"{alias}client_id = ?", [client]
+
+
+def clients() -> list[dict]:
+    """Clients for the sidebar picker, founding client first."""
+    try:
+        conn = _connect()
+    except FileNotFoundError:
+        return []
+    try:
+        if not _table_exists(conn, "clients"):
+            return [{"client_id": "AA", "display_name": "Founding client"}]
+        return _rows(conn, "SELECT client_id, display_name FROM clients "
+                           "WHERE active = 1 ORDER BY created_at")
+    finally:
+        conn.close()
+
+
+def dashboard(client: str | None = None) -> dict:
     try:
         conn = _connect()
     except FileNotFoundError:
         return {"available": False, "reason": "database not found",
                 "db_path": db_path()}
     try:
-        out: dict = {"available": True, "db_path": db_path()}
+        out: dict = {"available": True, "db_path": db_path(), "client": client}
+        pred, p = _client_filter(conn, client)
+        where = f"WHERE {pred}" if pred else ""
+        also = f"AND {pred}" if pred else ""
         out["by_status"] = {r["status"]: r["n"] for r in _rows(
-            conn, "SELECT status, COUNT(*) n FROM rc_sets GROUP BY status")}
+            conn, f"SELECT status, COUNT(*) n FROM rc_sets {where} GROUP BY status", p)}
         out["by_tier"] = {r["tier"]: r["n"] for r in _rows(
-            conn, "SELECT tier, COUNT(*) n FROM rc_sets GROUP BY tier")}
+            conn, f"SELECT tier, COUNT(*) n FROM rc_sets {where} GROUP BY tier", p)}
         out["total"] = sum(out["by_status"].values())
         out["total_spend"] = conn.execute(
-            "SELECT COALESCE(SUM(total_cost_usd), 0) FROM rc_sets").fetchone()[0]
+            f"SELECT COALESCE(SUM(total_cost_usd), 0) FROM rc_sets {where}", p).fetchone()[0]
         out["recent"] = _rows(conn, f"""
             SELECT rc_id, tier, status, average_score, compliance_f1,
                    novelty_composite, total_cost_usd, {_provider_col(conn)}, created_at
-            FROM rc_sets ORDER BY created_at DESC LIMIT 10""")
+            FROM rc_sets {where} ORDER BY created_at DESC LIMIT 10""", p)
         out["resumable"] = 0
         if _table_exists(conn, "rendered_passages"):
             out["resumable"] = conn.execute(
-                "SELECT COUNT(*) FROM rendered_passages WHERE status='questions_failed'"
-            ).fetchone()[0]
+                f"SELECT COUNT(*) FROM rendered_passages WHERE status='questions_failed' {also}",
+                p).fetchone()[0]
         out["health"] = None
         if _table_exists(conn, "corpus_health"):
-            rows = _rows(conn, "SELECT * FROM corpus_health ORDER BY created_at DESC LIMIT 1")
+            rows = _rows(conn, f"SELECT * FROM corpus_health {where} "
+                               f"ORDER BY created_at DESC LIMIT 1", p)
             out["health"] = rows[0] if rows else None
         return out
     finally:
@@ -84,10 +115,14 @@ def dashboard() -> dict:
 
 
 def rc_list(status: str | None, tier: str | None,
-            limit: int = 50, offset: int = 0) -> dict:
+            limit: int = 50, offset: int = 0, client: str | None = None) -> dict:
     conn = _connect()
     try:
         where, params = [], []
+        pred, p = _client_filter(conn, client)
+        if pred:
+            where.append(pred)
+            params.extend(p)
         if status:
             where.append("status = ?")
             params.append(status)
@@ -122,18 +157,20 @@ def rc_detail(rc_id: str) -> dict | None:
         conn.close()
 
 
-def resumable() -> list[dict]:
+def resumable(client: str | None = None) -> list[dict]:
     conn = _connect()
     try:
         if not _table_exists(conn, "rendered_passages"):
             return []
-        rows = _rows(conn, """
+        pred, p = _client_filter(conn, client, "rp.")
+        also = f"AND {pred}" if pred else ""
+        rows = _rows(conn, f"""
             SELECT rp.blueprint_id, rp.tier, rp.compliance_f1, rp.spent_usd,
                    rp.fail_notes, rp.created_at, rp.seed_title, b.blueprint_json
             FROM rendered_passages rp
             JOIN blueprints b ON b.blueprint_id = rp.blueprint_id
-            WHERE rp.status = 'questions_failed'
-            ORDER BY rp.created_at DESC""")
+            WHERE rp.status = 'questions_failed' {also}
+            ORDER BY rp.created_at DESC""", p)
         for r in rows:
             try:
                 r["topic"] = json.loads(r.pop("blueprint_json")).get("topic", "")
@@ -145,15 +182,17 @@ def resumable() -> list[dict]:
         conn.close()
 
 
-def health_history(limit: int = 60) -> list[dict]:
+def health_history(limit: int = 60, client: str | None = None) -> list[dict]:
     conn = _connect()
     try:
         if not _table_exists(conn, "corpus_health"):
             return []
-        rows = _rows(conn, """
+        pred, p = _client_filter(conn, client)
+        where = f"WHERE {pred}" if pred else ""
+        rows = _rows(conn, f"""
             SELECT window_size, family_kl, topology_kl, slot_chi2_flags,
                    letter_runs_p, created_at
-            FROM corpus_health ORDER BY created_at DESC LIMIT ?""", (limit,))
+            FROM corpus_health {where} ORDER BY created_at DESC LIMIT ?""", (*p, limit))
         rows.reverse()  # chronological for sparklines
         return rows
     finally:

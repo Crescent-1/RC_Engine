@@ -54,7 +54,7 @@ Starts **Dec 1 regardless of how the exam felt** — perceived CAT performance p
 **February–March 2027**
 
 - Sign the best offer (**target ₹25–40 LPA = ₹2.1–3.3L/mo**) or, if remote contracting is converting faster, stack contracts to the same number.
-- **Mar 31 gate for Blueprint Psychometrics:** ≥₹75k/mo across clients → keep it alive on ≤5 hrs/week (delivery is automated). Below that → park it, keep the single best client, revisit in 12 months from financial safety. It remains the best portfolio asset you own either way.
+- **Mar 31 gate for Passage Works:** ≥₹75k/mo across clients → keep it alive on ≤5 hrs/week (delivery is automated). Below that → park it, keep the single best client, revisit in 12 months from financial safety. It remains the best portfolio asset you own either way.
 
 **The MBA decision, if it arrives (Mar–Apr):** top-5 MBA ≈ ₹25–35L fees + 2 years of forgone ₹30 LPA income ≈ **₹85L–1Cr real cost**. Worth it for a deliberate pivot into consulting/finance/leadership; not obviously worth it to earn what the AI market will already pay you. Decide with offers on the table.
 

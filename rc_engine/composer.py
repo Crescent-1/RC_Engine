@@ -98,6 +98,10 @@ class BlueprintComposer:
         want = [i for i in pool if in_cohort(i) == allow]
         return want or pool
 
+    # Set by RCPipeline when running under workers.py; "" means sequential, and
+    # every in-flight lookup below is skipped.
+    inflight_worker: str = ""
+
     def _eligible(self, ctype: str, tier: str,
                   ban_families: set[str] | None = None) -> list[str]:
         ids = self.registry.ids(ctype)
@@ -168,6 +172,20 @@ class BlueprintComposer:
         # say so, rather than returning an empty pool.
         window = config.EXCLUSION_WINDOWS[ctype]
         positions = self.history.component_positions(ctype)
+        # A component a live sibling is holding has effectively just been used;
+        # it simply is not in the shipped history yet. Folding it in at position
+        # 0 reuses the whole window mechanism — including the never-empty-pool
+        # fallback below — instead of adding a parallel ban path. Without this a
+        # parallel batch loses every exclusion window except family, which is
+        # what let two workers take topology QT08 on 2026-09-05 and discover it
+        # only after $0.18 of questions.
+        if self.inflight_worker:
+            try:
+                held = self.history.inflight_components(self.inflight_worker)
+                for cid in held.get(ctype, ()):
+                    positions[cid] = 0
+            except Exception:                                # noqa: BLE001
+                pass
         fresh = [i for i in ids if positions.get(i, 10**9) >= window]
         if fresh:
             if ctype == "family":
@@ -310,10 +328,52 @@ class BlueprintComposer:
             kept.add(survivor)
         return [i for i in ids if i in kept]
 
+    def _other_client_counts(self, ctype: str, window: int) -> dict[str, int]:
+        """Trailing usage by every OTHER client — the global house-voice term
+        (config.GLOBAL_DECAY_LAMBDA). {} while only one client exists, and for
+        test doubles that predate clients; either way the term is skipped."""
+        fn = getattr(self.history, "usage_counts_other_clients", None)
+        if fn is None:
+            return {}
+        try:
+            return fn(ctype, window) or {}
+        except Exception:                                    # noqa: BLE001
+            return {}
+
+    def _other_client_move_shares(self) -> dict[str, float]:
+        """Share of each rhetorical move across other clients' recent sets."""
+        fn = getattr(self.history, "fingerprint_window_other_clients", None)
+        if fn is None:
+            return {}
+        try:
+            window = fn(config.GLOBAL_MOVE_WINDOW)
+        except Exception:                                    # noqa: BLE001
+            return {}
+        sigs = [w.move_signature.split("|") for w in window if w.move_signature]
+        if not sigs:
+            return {}
+        counts: dict[str, int] = {}
+        for moves in sigs:
+            for m in set(moves):
+                counts[m] = counts.get(m, 0) + 1
+        return {m: n / len(sigs) for m, n in counts.items()}
+
+    def _global_pressure(self, ctype: str, ids: list[str],
+                         weights: list[float]) -> list[float]:
+        other = self._other_client_counts(ctype, config.GLOBAL_USAGE_WINDOW)
+        if not other:
+            return weights
+        return [w * config.GLOBAL_DECAY_LAMBDA ** other.get(i, 0)
+                for w, i in zip(weights, ids)]
+
     def _weighted_pick(self, ctype: str, ids: list[str],
                        tier: str | None = None) -> str:
         counts = self.history.usage_counts_trailing(ctype, 100)
         weights = [config.DECAY_LAMBDA ** counts.get(i, 0) for i in ids]
+        # Global house-voice pressure (2026-09-12): what other clients were
+        # recently given is a slightly rarer draw here. Per-client recency above
+        # still decides; see config.GLOBAL_DECAY_LAMBDA.
+        weights = self._global_pressure(ctype, ids, weights)
         if ctype == "family":
             # Shape pressure (2026-08-22). Without this the 32 legacy families
             # outvote the 14 new shapes 32:14 on every draw, and since all 32
@@ -424,9 +484,11 @@ class BlueprintComposer:
             return worst, worst_id
         return None
 
-    def _sample_move_plan_checked(self, stance: dict | None) -> list[str]:
+    def _sample_move_plan_checked(self, stance: dict | None,
+                                  tier: str | None = None,
+                                  movement=None) -> list[str]:
         """Draw a move plan that does not already collide with the corpus."""
-        plan = self._sample_move_plan(stance)
+        plan = self._sample_move_plan(stance, tier, movement)
         for attempt in range(1, config.MOVE_PLAN_PRECHECK_TRIES):
             hit = self._plan_collides(plan)
             if hit is None:
@@ -434,10 +496,90 @@ class BlueprintComposer:
             worst, rc_id = hit
             print(f"  [move-plan] planned grammar near {rc_id} @ {worst:.2f} "
                   f"- resampling {attempt}/{config.MOVE_PLAN_PRECHECK_TRIES - 1} ($0)")
-            plan = self._sample_move_plan(stance)
+            plan = self._sample_move_plan(stance, tier, movement)
         return plan
 
-    def _sample_move_plan(self, stance: dict | None) -> list[str]:
+    def _plan_length(self, tier: str | None, movement) -> int:
+        """How many beats this passage can carry.
+
+        Two bounds. The tier sets the ambition (config.MOVE_PLAN_LEN_BY_TIER);
+        the passage's own word budget sets the ceiling, because a beat needs
+        room to happen. Measured 2026-09-05: real exam passages give a move ~62
+        words and ours were giving 52, which is the crowding that made the
+        renderer drop half its planned middle beats.
+        """
+        lo, hi = config.MOVE_PLAN_LEN_BY_TIER.get(
+            tier or "", config.MOVE_PLAN_LEN)
+        want = self.rng.randint(lo, hi)
+        words = sum(p.len_words[1] for p in movement) if movement else 0
+        if words:
+            ceiling = max(3, int(words // config.MIN_WORDS_PER_BEAT))
+            want = min(want, ceiling)
+        return max(3, want)
+
+    @staticmethod
+    def allocate_beats(move_plan: list[str], movement) -> list[list[str]]:
+        """Assign each beat to a paragraph, in order, PROPORTIONAL to that
+        paragraph's word budget.
+
+        Every other constraint in the render contract carries an address -- the
+        word target, the paragraph role, the thesis paragraph, the trap anchor --
+        and every one of them is obeyed. The beat plan was the only instruction
+        with no location ("each beat may span or share paragraphs"), and it was
+        obeyed 51% of the time. The two beats that DID get addresses, the first
+        and last sentence, went from 2/9 to 5/5 the moment they got them.
+
+        Proportional rather than uniform because the rhythm library already
+        varies paragraph length hard (T02 Staircase runs S,M,L,XL; T03 runs the
+        reverse), and real exam passages are back-loaded -- last paragraph 3.4
+        beats against a 2.5-beat opener, 7 of 10 passages carrying their heaviest
+        load last. Riding the rhythm reproduces that where the rhythm calls for
+        it, and front-loads where it does not, without a new component or a
+        fixed rule.
+
+        A paragraph under config.SINGLE_BEAT_PARA_WORDS carries at most one
+        beat, so an S-class paragraph is never handed three operations.
+        """
+        n = len(movement or [])
+        if not move_plan or n == 0:
+            return [list(move_plan or [])]
+        if n == 1:
+            return [list(move_plan)]
+        words = [max(1, p.len_words[1]) for p in movement]
+        total_w = sum(words)
+        # Largest-remainder apportionment, so the beats always sum to the plan.
+        exact = [w * len(move_plan) / total_w for w in words]
+        take = [int(x) for x in exact]
+        for i in sorted(range(n), key=lambda i: exact[i] - take[i], reverse=True):
+            if sum(take) >= len(move_plan):
+                break
+            take[i] += 1
+        # short paragraphs cannot be overloaded; spill into the roomiest one
+        for i in range(n):
+            if words[i] < config.SINGLE_BEAT_PARA_WORDS and take[i] > 1:
+                spill = take[i] - 1
+                take[i] = 1
+                j = max(range(n), key=lambda k: words[k] - take[k] * 40)
+                take[j] += spill
+        # the opening beat belongs to paragraph 1 and the closing to the last
+        take[0] = max(1, take[0])
+        take[-1] = max(1, take[-1])
+        while sum(take) > len(move_plan):
+            j = max((k for k in range(n) if take[k] > 1),
+                    key=lambda k: take[k], default=None)
+            if j is None:
+                break
+            take[j] -= 1
+        out, cur = [], 0
+        for k in take:
+            out.append(move_plan[cur:cur + k])
+            cur += k
+        if cur < len(move_plan):          # rounding leftovers ride the last para
+            out[-1].extend(move_plan[cur:])
+        return out
+
+    def _sample_move_plan(self, stance: dict | None,
+                          tier: str | None = None, movement=None) -> list[str]:
         """Prescribe the passage's rhetorical beats, rarest-first.
 
         Replaces the ban list that shipped on 2026-08-21 and did not work. The
@@ -454,6 +596,7 @@ class BlueprintComposer:
         ones — they can still appear when a passage genuinely wants them.
         """
         shares, n = self._move_frequencies()
+        other_shares = self._other_client_move_shares()
         banned = set((stance or {}).get("forbidden_beats", []))
 
         def pick(pool: list[str], k: int, taken: set[str]) -> list[str]:
@@ -464,13 +607,18 @@ class BlueprintComposer:
                     cands = [m for m in pool if m not in taken] or list(pool)
                 weights = [max(0.01, (1.0 - shares.get(m, 0.0))
                                ** config.MOVE_PLAN_RARITY_POWER) for m in cands]
+                if other_shares:
+                    # The house voice is one voice across every client: a beat
+                    # other clients' passages lean on is a softer rarity here.
+                    weights = [w * max(0.01, 1.0 - other_shares.get(m, 0.0))
+                               ** config.GLOBAL_MOVE_RARITY_POWER
+                               for w, m in zip(weights, cands)]
                 choice = self.rng.choices(cands, weights=weights, k=1)[0]
                 out.append(choice)
                 taken.add(choice)
             return out
 
-        lo, hi = config.MOVE_PLAN_LEN
-        total = self.rng.randint(lo, hi)
+        total = self._plan_length(tier, movement)
         taken: set[str] = set()
         opening = pick(config.MOVE_GROUPS["opening"], 1, taken)
         closing = pick(config.MOVE_GROUPS["closing"], 1, taken)
@@ -710,14 +858,55 @@ class BlueprintComposer:
         info["saturated"] = genre_is_saturated(self.history, info["genre"])
 
         eligible = eligible_topic_shapes(self.registry, info)
+        # Ceiling on groups of shapes that ask the same question, BEFORE the
+        # inverse-frequency draw below. It has to come first: the decay weight
+        # is a soft preference, and two shapes that are each individually rare
+        # can still be the same passage three times running -- which is exactly
+        # what TS06/TS12 did (see config.TOPIC_SHAPE_COHORT_MAX_SHARE).
+        #
+        # Bidirectional, like every other share ceiling here: restrict TO the
+        # cohort on a winning flip and AWAY from it on a losing one. A
+        # permit-only flip multiplies two probabilities and under-binds; that
+        # is how FIRST_PERSON_MAX_SHARE realised 4-5% against a 20% ceiling.
+        for cohort, cap in getattr(config, 'TOPIC_SHAPE_COHORT_MAX_SHARE', []):
+            eligible = self._steer_share(
+                eligible, self.rng.random() < cap, lambda i, c=cohort: i in c)
         # Same inverse-frequency logic the move plan and arc shapes use: a
         # shape the recent corpus leans on becomes a rare draw rather than a
         # banned one.
         counts = self.history.usage_counts_trailing("topic_shape", 30) \
             if hasattr(self.history, "usage_counts_trailing") else {}
         weights = [config.DECAY_LAMBDA ** counts.get(i, 0) for i in eligible]
+        weights = self._global_pressure("topic_shape", eligible, weights)
         shape_id = self.rng.choices(eligible, weights=weights, k=1)[0]
         return info, shape_id
+
+    def sample_argument_schema(self) -> str:
+        """Draw what the argument will DO, weighted to the exam's measured
+        distribution and damped by recent use.
+
+        Weighted to the EXAM, not to uniform: the exam runs S4 at 30.6% and
+        S2 at 25.8%, and flattening those would be as wrong as the
+        monoculture this replaces. The engine's own last 32 sets ran S1 at
+        46.9% against the exam's 12.9%, while never once producing S5 or S8.
+
+        Damping is multiplicative on top of the exam weight rather than a
+        hard exclusion window, for the same reason: a window would force
+        uniformity on a distribution that is deliberately uneven.
+        """
+        ids = list(config.ARGUMENT_SCHEMAS)
+        try:
+            counts = self.history.usage_counts_trailing(
+                'argument_schema', config.ARGUMENT_SCHEMA_WINDOW)
+        except Exception:                                    # noqa: BLE001
+            counts = {}
+        lam = config.ARGUMENT_SCHEMA_DECAY_LAMBDA
+        weights = [config.ARGUMENT_SCHEMAS[i]['exam_share'] * lam ** counts.get(i, 0)
+                   for i in ids]
+        weights = self._global_pressure("argument_schema", ids, weights)
+        if not any(weights):          # every schema saturated: fall back flat
+            weights = [1.0] * len(ids)
+        return self.rng.choices(ids, weights=weights, k=1)[0]
 
     def compose(self, tier: str, seed: SeedEssay, ledger: CostLedger,
                 ban_families: set[str] | None = None,
@@ -746,10 +935,12 @@ class BlueprintComposer:
             distractor_profile_id=ids["distractor_profile"], topology_id=ids["topology"],
             render_stance_id=ids.get("render_stance", ""),
             topic_shape_id=topic_shape_id,
+            argument_schema_id=self.sample_argument_schema(),
             seed_genre=(seed_info or {}).get("genre", ""),
             move_plan=self._sample_move_plan_checked(
                 self.registry.get("render_stance", ids["render_stance"])
-                if ids.get("render_stance") else None),
+                if ids.get("render_stance") else None,
+                tier, movement),
             instability=round(self.rng.uniform(lo, hi), 2),
             aperture=ending["aperture"], movement=movement,
             letter_plan=self._letter_plan(),

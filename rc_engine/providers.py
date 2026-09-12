@@ -167,16 +167,26 @@ class OpenAIClient:
         # default is what broke the first live batch — see OPENAI_STAGE_EFFORT.
         bp = (context or {}).get("blueprint")
         tier = getattr(bp, "tier", None)
-        effort = (resolve_effort(stage, context)
+        # Model overrides come FIRST: they exist to say "this model needs
+        # different treatment", which is exactly what the tier and stage tables
+        # below cannot express (see config.OPENAI_MODEL_STAGE_EFFORT).
+        effort = (config.OPENAI_MODEL_STAGE_EFFORT.get(model, {}).get(stage)
+                  or resolve_effort(stage, context)
                   or config.OPENAI_TIER_STAGE_EFFORT.get(tier, {}).get(stage)
                   or config.OPENAI_STAGE_EFFORT.get(stage,
                                                     config.OPENAI_DEFAULT_EFFORT))
-        if effort in ("xhigh", "max") and not model.startswith("gpt-5.6"):
-            effort = "high"
-        # "max" exists only on Sol; Terra and Luna return HTTP 400 for it.
         # Clamp rather than fail: an unsupported effort must never cost a run.
-        if effort == "max" and not model.endswith("-sol"):
-            effort = "xhigh"
+        # This was two hand-written string tests (startswith gpt-5.6, endswith
+        # -sol) that encoded the 5.6 family's capabilities inline. GPT-6 Astra
+        # broke both: it is not "gpt-5.6*" so xhigh was being downgraded to high
+        # for no reason, and it accepts NEITHER none nor max, which no
+        # name-shaped test predicts. config.clamp_effort reads a probed
+        # per-model table instead, so a new model is a data change.
+        asked = effort
+        effort = config.clamp_effort(model, effort)
+        if effort != asked:
+            print(f"  [openai] {stage}: {model} does not accept effort "
+                  f"{asked!r} - clamped to {effort!r}")
 
         ceiling = max_tokens
         for attempt in (1, 2):
@@ -199,8 +209,10 @@ class OpenAIClient:
                                      if isinstance(e, openai.APIStatusError) else None),
                 label="openai")
             choice = resp.choices[0]
+            _det = getattr(resp.usage, "prompt_tokens_details", None)
             ledger.record(stage, model, resp.usage.prompt_tokens,
-                          resp.usage.completion_tokens)
+                          resp.usage.completion_tokens,
+                          getattr(_det, "cached_tokens", 0) or 0)
             if choice.message.content or attempt == 2:
                 break
             if choice.finish_reason != "length":

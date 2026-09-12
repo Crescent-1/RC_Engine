@@ -73,6 +73,8 @@ class RCPipeline:
         self.worker_id = worker_id
         rules = CompatibilityRules(self.registry)
         self.composer = BlueprintComposer(self.registry, history, rules, llm, rng)
+        if parallel:
+            self.composer.inflight_worker = worker_id
         self.renderer = PassageRenderer(self.registry, llm)
         self.auditor = ComplianceAuditor(llm, self.registry)
         self.qengine = QuestionEngine(self.registry, llm)
@@ -289,6 +291,25 @@ class RCPipeline:
             for w in texture_report(passage)["warnings"]:
                 notes.append(f"texture: {w}")
                 print(f"  [texture] {w}")
+
+            # What the argument actually DID, read blind, against what the
+            # blueprint asked for. Reported, not gated: the planned->realised
+            # agreement rate has never been measured, and gating on a number
+            # nobody has seen is how the TS06/TS12 ceiling ended up worth one
+            # point of a twelve-point gap. Measure first, then decide.
+            sch_primary, sch_secondary = self.auditor.argument_schema(
+                passage, ledger, tier)
+            realized.argument_schema = sch_primary
+            realized.argument_schema_secondary = sch_secondary
+            if sch_primary:
+                hit = sch_primary == bp.argument_schema_id
+                notes.append(f"argument_schema planned={bp.argument_schema_id} "
+                             f"realized={sch_primary}"
+                             f"{'/' + sch_secondary if sch_secondary else ''}")
+                print(f"  [arg-schema] planned {bp.argument_schema_id} -> "
+                      f"realized {sch_primary}"
+                      f"{' + ' + sch_secondary if sch_secondary else ''}"
+                      f"  {'HIT' if hit else 'MISS'}")
 
             # realized.rhetorical_moves was filled by the blind read inside the
             # render loop above, before compliance scored the beat plan.
@@ -570,6 +591,26 @@ class RCPipeline:
                     return self._reject_full(bp, rc_id, passage, qdata, realized, fp,
                                              late, ledger, seed, notes, _spent,
                                              "late sibling novelty")
+            # Cross-client exclusivity (2026-09-12). The composer already
+            # skipped every shipped combo hash, and the RAG store never hands
+            # out a used seed, but both were decided before this set's render:
+            # a concurrent batch can have shipped the same skeleton or seed
+            # since. Under workers this check is atomic (ship lock). A
+            # sequential run stays unlocked — see
+            # test_ship_lock_is_only_armed_in_parallel_mode — and the
+            # millisecond race left there is backstopped by ux_shipped_combo,
+            # which refuses a second ship of the same skeleton outright.
+            taken = []
+            if self.history.combo_hash_taken(bp.combo_hash, bp.blueprint_id):
+                taken.append("combo_hash_taken")
+            if self.history.seed_shipped_to_other_client(seed.doc_id):
+                taken.append("seed_taken_by_other_client")
+            if taken:
+                print(f"  [ship-lock] exclusivity: {taken}")
+                report.breached = list(report.breached or []) + taken
+                return self._reject_full(bp, rc_id, passage, qdata, realized, fp,
+                                         report, ledger, seed, notes, _spent,
+                                         "exclusivity")
             self.history.insert_rc_set(
                 rc_id=rc_id, tier=tier, rc_text=rc_text, status=status, judge=judge,
                 solver=solver, avg=avg, blueprint_id=bp.blueprint_id,
@@ -847,11 +888,8 @@ class RCPipeline:
         # attempt a permanent obstacle to the next one — see the note above
         # TOPIC_PRECHECK_ENABLED in config.py. Rejected topics still steer the
         # refine prompt for free through history.recent_topics().
-        rows = self.history.conn.execute(
-            """SELECT blueprint_id, blueprint_json FROM blueprints
-               WHERE status = 'shipped'
-               ORDER BY created_at DESC LIMIT ?""",
-            (config.FINGERPRINT_WINDOW,)).fetchall()
+        rows = [(bpid, bj) for bpid, _rc, _fam, bj
+                in self.history.shipped_blueprint_rows(config.FINGERPRINT_WINDOW)]
         for bpid, bj in rows:
             if bpid == bp.blueprint_id:
                 continue
@@ -896,12 +934,7 @@ class RCPipeline:
 
     def _blueprint_sims(self, bp: Blueprint) -> dict[str, float]:
         """rc_id -> categorical blueprint similarity for shipped RCs."""
-        rows = self.history.conn.execute(
-            """SELECT rc_id, family_id, persona_id, ending_id, rhythm_id, revelation_id,
-                      distractor_profile_id, topology_id
-               FROM blueprints WHERE status = 'shipped' AND rc_id IS NOT NULL
-               ORDER BY created_at DESC LIMIT ?""",
-            (config.FINGERPRINT_WINDOW,)).fetchall()
+        rows = self.history.shipped_blueprint_components(config.FINGERPRINT_WINDOW)
         mine = bp.component_ids
         out = {}
         keys = ["family", "persona", "ending", "rhythm", "revelation",
@@ -1023,11 +1056,7 @@ def _seed_ancestry_collision(pipeline: RCPipeline, seed: SeedEssay,
     """Compare this seed against the SEEDS of recently shipped sets. $0 — the
     seed embeddings are already in the vector store."""
     try:
-        rows = pipeline.history.conn.execute(
-            """SELECT rc_id, essay_doc_id FROM rc_sets
-               WHERE essay_doc_id IS NOT NULL AND essay_doc_id != ''
-               ORDER BY created_at DESC LIMIT ?""",
-            (config.SEED_ANCESTRY_WINDOW,)).fetchall()
+        rows = pipeline.history.recent_seed_ids(config.SEED_ANCESTRY_WINDOW)
     except Exception:
         return None
     recent_ids = [(rc, doc) for rc, doc in rows if doc and doc != seed.doc_id]

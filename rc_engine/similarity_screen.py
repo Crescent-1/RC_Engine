@@ -147,13 +147,13 @@ def screen_passage(new_id: str, new_passage: str,
 
 
 def recent_passages(history, exclude: set[str], limit: int) -> list[tuple[str, str]]:
-    """The last `limit` shipped passages, newest first, excluding this batch."""
+    """The last `limit` passages of this client, newest first, excluding this
+    batch. Per client (2026-09-12): the screen asks whether a set reads like
+    what this client already has."""
     from .cli import _parse_rc_txt
 
     out: list[tuple[str, str]] = []
-    for rc_id, rc_text in history.conn.execute(
-            """SELECT rc_id, rc_text FROM rc_sets
-               WHERE rc_text IS NOT NULL ORDER BY created_at DESC"""):
+    for rc_id, rc_text in history.recent_rc_texts():
         if rc_id in exclude:
             continue
         passage = _parse_rc_txt(rc_text)["passage"]

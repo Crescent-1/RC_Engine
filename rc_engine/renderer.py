@@ -58,7 +58,27 @@ HARD RULES:
    - When a beat plan asks you to quote an authority, satisfy it with a real
      source, a described-but-unnamed one, or a document the passage itself
      characterises — never with a plausible-sounding invention.
-8. HUMAN TEXTURE (a touch only — keep the intellect; break factory polish):
+10. SUBJECT REGISTER — write about the thing, not the apparatus around it.
+   Measured 2026-09-05 against 124 real CAT/XAT/GMAT passages: they use the
+   vocabulary of measurement, procedure, records, categories and classification
+   at 3.4 occurrences per 1000 words. This engine's passages use it at 10.0 —
+   nearly three times as often — and the seeds it works from sit at 2.2, BELOW
+   the exam. The register is being added here, not inherited.
+   - When the topic is a phenomenon, explain the phenomenon. Real exam prose
+     spends its length on how a thing works, what happened, why it changed.
+   - Critiquing how something is known, counted or sorted is a legitimate
+     subject when the topic is genuinely about that. It is not the default
+     subject, and it is where this engine goes when it is not thinking.
+   - Test the finished paragraph on its concrete nouns. If they are mostly the
+     machinery around the subject rather than the people, objects, places and
+     processes the passage is supposed to be about, rewrite toward the latter.
+   No example phrases are quoted here deliberately. "no: more precisely" was
+   given as an illustration in rule 11 below until 2026-08-22 and was copied
+   verbatim into four passages; naming a pattern in this prompt reproduces it.
+   (Numbered 10 because HUMAN TEXTURE below was mis-numbered 8, duplicating the
+   ARCHITECTURE INVISIBILITY rule above; corrected to 11 in the same edit.)
+
+11. HUMAN TEXTURE (a touch only — keep the intellect; break factory polish):
    - Plant one concrete, slightly stubborn particular that is not immediately cashed
      out as a system-metaphor (a room, job title, tool, dated practice, named place,
      small physical action). It must earn its place in the argument.
@@ -152,13 +172,26 @@ class PassageRenderer:
         stance = (self.registry.get("render_stance", bp.render_stance_id)
                   if bp.render_stance_id else None)
 
+        # The rhetorical beats are folded INTO the paragraph plan rather than
+        # listed separately. Two parallel plans that never referenced each other
+        # left the model to reconcile 8 beats against 5 paragraphs itself, and
+        # the beat list was the only instruction in the whole contract with no
+        # address. Measured 2026-09-05: every located constraint (word target,
+        # role, thesis paragraph, trap anchor, first/last sentence) is obeyed;
+        # the one unlocated instruction was obeyed 51% of the time.
+        from .composer import BlueprintComposer
+        alloc = BlueprintComposer.allocate_beats(bp.move_plan, bp.movement)             if bp.move_plan else [[] for _ in bp.movement]
         movement_lines = []
-        for p in bp.movement:
+        for i, p in enumerate(bp.movement):
             fn_human = p.function.replace("_", " ").lower()
+            beats = alloc[i] if i < len(alloc) else []
             movement_lines.append(
                 f"  Paragraph {p.para} (~{p.words_label} words, "
                 f"cadence: {p.cadence.replace('_', ' ')}): role = {fn_human}."
                 + (f" Content brief: {p.gist}" if p.gist else ""))
+            for m in beats:
+                movement_lines.append(
+                    f"       BEAT: {m} — {config.RHETORICAL_MOVES.get(m, '')}")
 
         trap_lines = [
             f"  {t['trap_id']} (paragraph {t['anchor_para']}): invite the misreading that "
@@ -227,12 +260,13 @@ class PassageRenderer:
                 f"easy reading of it. If you feel that shape arriving and the "
                 f"plan below did not ask for it, it is displacing a beat you "
                 f"owe.{NL}{NL}"
-                f"RHETORICAL BEAT PLAN (hard requirement — this is the "
-                f"passage's argumentative shape, in order. Each beat may span "
-                f"or share paragraphs. Together they account for the whole "
-                f"argument: if you find yourself performing an operation that "
-                f"is not on this list, the beat it displaced is the one you "
-                f"still owe):{NL}{lines}{NL}{NL}")
+                f"RHETORICAL BEAT PLAN — {len(bp.move_plan)} beats, and they "
+                f"are assigned to specific paragraphs in the PARAGRAPH "
+                f"MOVEMENT PLAN below. Perform each one where it is assigned. "
+                f"Together they are the whole argument: if you find yourself "
+                f"performing an operation that is not on this list, the beat it "
+                f"displaced is the one you still owe. The full list, in "
+                f"order:{NL}{lines}{NL}{NL}")
 
         stance_block = ""
         if stance:
@@ -242,9 +276,23 @@ class PassageRenderer:
                 f"  {stance['name']}: {stance['frame']}{NL}"
                 f"  Arc constraint: {stance['arc_constraint']}{NL}{NL}")
 
+        # Positive prescription, deliberately. The render prompt already told
+        # the model that critiquing how things are known "is not the default
+        # subject", and 47% of the last 32 sets did it anyway — against 12.9%
+        # of real exam passages. Everything this session actually moved was
+        # moved by prescribing a thing, not by forbidding one (the opening beat
+        # went 2/9 to 5/5 the moment it was stated positionally).
+        schema = config.ARGUMENT_SCHEMAS.get(bp.argument_schema_id or "")
+        schema_block = ""
+        if schema:
+            schema_block = (
+                f"WHAT THE ARGUMENT DOES (the shape of the reasoning itself — this "
+                f"is not the topic and not the family arc; it is what the passage "
+                f"is FOR):{NL}  {schema['directive']}{NL}{NL}")
+
         return f"""STRUCTURAL CONTRACT
 
-{stance_block}TOPIC: {bp.topic}
+{stance_block}{schema_block}TOPIC: {bp.topic}
 TIER: {bp.tier} — {config.TIER_DIFFICULTY_CHARACTER.get(bp.tier, '')}
 ARGUMENT FAMILY: {family['name']} — {family['core']}
 

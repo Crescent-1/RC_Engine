@@ -617,7 +617,10 @@ def test_per_tier_model_routing_for_openai():
             # Tier maps to MODEL on the GPT-5.6 family; which model sits at
             # elite has changed with the experiments, so pin the invariant
             # (elite is never weaker than hard) rather than a specific id.
-            rank = {"gpt-5.6-luna": 0, "gpt-5.6-terra": 1, "gpt-5.6-sol": 2}
+            rank = {"gpt-5.6-luna": 0, "gpt-5.6-terra": 1, "gpt-5.6-sol": 2,
+                    # 2026-09-05: GPT-6 Astra sits above the whole 5.6 family
+                    # on both capability and price ($10/$50 vs Sol's $4/$20).
+                    "gpt-6-astra": 3}
             assert rank[row["elite"]] >= rank[row["hard"]] >= rank[row["medium"]], row
             assert row["medium"] == "gpt-5.6-terra", (stage, row)
         # Effort is an operator dial and has ranged none..xhigh across the
@@ -648,14 +651,68 @@ def test_every_openai_tier_fits_its_budget():
         config.set_provider("claude")
 
 
-def test_effort_is_not_silently_downgraded_on_gpt56():
-    """GPT-5.6 accepts xhigh and max. The old blanket clamp to 'high' capped
-    exactly the stages that ask for the most reasoning."""
-    assert config.OPENAI_DEFAULT_EFFORT in (
-        "none", "low", "medium", "high", "xhigh", "max")
-    src = open("rc_engine/providers.py", encoding="utf-8").read()
-    assert 'not model.startswith("gpt-5.6")' in src, (
-        "the xhigh/max clamp must no longer apply to gpt-5.6")
+def test_effort_is_not_silently_downgraded_on_capable_models():
+    """GPT-5.6 accepts xhigh (and max on Sol). The original blanket clamp to
+    "high" capped exactly the stages that ask for the most reasoning.
+
+    Rewritten 2026-09-05: this asserted on a SOURCE STRING in providers.py, so
+    it failed the moment the clamp became a table lookup even though the
+    behaviour it names was preserved. It now tests the behaviour."""
+    assert config.OPENAI_DEFAULT_EFFORT in config.EFFORT_LADDER
+    for model in ("gpt-5.6-sol", "gpt-5.6-terra", "gpt-5.6-luna", "gpt-6-astra"):
+        assert config.clamp_effort(model, "xhigh") == "xhigh", model
+    assert config.clamp_effort("gpt-5.6-sol", "max") == "max"
+
+
+def test_clamp_effort_matches_what_the_api_accepts():
+    """Probed against the live API 2026-09-05. Astra refuses BOTH "none" and
+    "max" — no name-shaped test predicts that, which is why the per-model table
+    exists. The "none" case is the expensive one: OPENAI_STAGE_EFFORT pins
+    "questions" to none, so an unclamped Astra set would 400 at the questions
+    stage having already paid for its render."""
+    assert config.clamp_effort("gpt-6-astra", "none") == "low"
+    assert config.clamp_effort("gpt-6-astra", "max") == "xhigh"
+    for eff in ("low", "medium", "high", "xhigh"):
+        assert config.clamp_effort("gpt-6-astra", eff) == eff, eff
+    # clamping must never RAISE spend, the sole exception being "none" on a
+    # model with no "none" (above), where up is the only direction available.
+    for model, supported in config.OPENAI_EFFORT_SUPPORT.items():
+        for eff in config.EFFORT_LADDER:
+            got = config.clamp_effort(model, eff)
+            assert got in supported, (model, eff, got)
+            if eff != "none":
+                assert (config.EFFORT_LADDER.index(got)
+                        <= config.EFFORT_LADDER.index(eff)), (model, eff, got)
+    # pre-5.6 models still top out at high, as the old clamp did
+    assert config.clamp_effort("gpt-5.1", "max") == "high"
+
+
+def test_every_stage_effort_is_reachable_on_its_pinned_model():
+    """The guard for the failure above, applied across the whole stage table
+    rather than to one model: for every tier, whatever effort a stage asks for
+    must survive clamping onto the model that will actually run it, and the
+    ceiling must be sized for the clamped value, not the requested one."""
+    try:
+        config.set_provider("openai")
+        for stage, tiers in config.STAGE_CONFIG.items():
+            for tier, (model, ceiling) in tiers.items():
+                if model not in config.MODEL_RATES:
+                    continue
+                if not model.startswith(("gpt-5", "gpt-6")):
+                    continue
+                asked = (config.OPENAI_TIER_STAGE_EFFORT.get(tier, {}).get(stage)
+                         or (config.STAGE_EFFORT.get(stage, {}) or {}).get(tier)
+                         or config.OPENAI_STAGE_EFFORT.get(
+                             stage, config.OPENAI_DEFAULT_EFFORT))
+                real = config.clamp_effort(model, asked)
+                assert real in config.OPENAI_EFFORT_SUPPORT.get(
+                    model, config.OPENAI_EFFORT_SUPPORT_DEFAULT), (stage, tier)
+                head = config.REASONING_HEADROOM[real]
+                assert ceiling >= head, (
+                    f"{stage}/{tier} on {model}: ceiling {ceiling} is under the "
+                    f"{head}-token reasoning headroom for effort {real!r}")
+    finally:
+        config.set_provider("claude")
 
 
 # ---------------------------------------------------------------------------
@@ -723,23 +780,14 @@ def test_genre_saturation_needs_corpus_mass():
     corpus would each look like a saturated genre."""
     from rc_engine import seed_classify
 
-    class _Cur:
-        def __init__(self, n):
-            self.n = n
-
-        def fetchall(self):
-            return [("conceptual_essay",)] * self.n
-
-    class _Conn:
-        def __init__(self, n):
-            self.n = n
-
-        def execute(self, *a):
-            return _Cur(self.n)
-
+    # genre_shares reads the client-scoped HistoryStore.recent_seed_genres
+    # since 2026-09-12, not raw SQL.
     class _H:
         def __init__(self, n):
-            self.conn = _Conn(n)
+            self.n = n
+
+        def recent_seed_genres(self, limit):
+            return ["conceptual_essay"] * self.n
 
     assert seed_classify.genre_is_saturated(_H(3), "conceptual_essay") is None
     hot = seed_classify.genre_is_saturated(_H(20), "conceptual_essay")
@@ -1005,10 +1053,9 @@ def test_seed_ancestry_degrades_when_the_store_is_unavailable():
     from rc_engine import pipeline as pm
 
     class _H:
-        class conn:
-            @staticmethod
-            def execute(*a):
-                raise RuntimeError("no db")
+        @staticmethod
+        def recent_seed_ids(limit):
+            raise RuntimeError("no db")
     class _P:
         history = _H()
     assert pm._seed_ancestry_collision(_P(), object(), [0.1, 0.2]) is None
@@ -1291,13 +1338,9 @@ def test_seed_ancestry_handles_numpy_embeddings(monkeypatch):
         def get_db(): return _Store()
 
     class _Hist:
-        class conn:
-            @staticmethod
-            def execute(*a, **k):
-                class R:
-                    @staticmethod
-                    def fetchall(): return [("RC-X", "doc-1")]
-                return R
+        @staticmethod
+        def recent_seed_ids(limit):
+            return [("RC-X", "doc-1")]
     class _Pipe:
         history = _Hist()
 
@@ -1319,13 +1362,9 @@ def test_seed_ancestry_never_raises_out_of_a_batch(monkeypatch):
         def get_db(): raise RuntimeError("store gone")
 
     class _Hist:
-        class conn:
-            @staticmethod
-            def execute(*a, **k):
-                class R:
-                    @staticmethod
-                    def fetchall(): return [("RC-X", "doc-1")]
-                return R
+        @staticmethod
+        def recent_seed_ids(limit):
+            return [("RC-X", "doc-1")]
     class _Pipe:
         history = _Hist()
 
@@ -1784,3 +1823,524 @@ def test_both_screen_call_sites_fold_the_spend_in():
     assert src.count("_, screen_usd = screen_batch(") == 2, (
         "generate and retry-questions both screen; both must report it")
     assert src.count("_report_all_in(results, screen_usd)") == 2
+
+
+# ---------------------------------------------------------------------------
+# Genre -> topic-shape eligibility (2026-09-05).
+#
+# conceptual_essay was 53% of all classified seeds (and the FALLBACK genre, so
+# unparseable classifies landed there too) while reaching only 4 of 10 shapes.
+# 67% of shipped sets went into TS04+TS05+TS08 and TS10 was never used once.
+# The most common genre had the fewest outlets.
+# ---------------------------------------------------------------------------
+
+def _shape_reach():
+    from rc_engine.registry import ComponentRegistry
+    reg = ComponentRegistry()
+    out = {}
+    for g in config.SEED_GENRES:
+        if g == "unknown":
+            continue          # exempt by design in eligible_topic_shapes
+        out[g] = [s for s in reg.ids("topic_shape")
+                  if not ((reg.get("topic_shape", s).get("compatible_genres") or [])
+                          and g not in reg.get("topic_shape", s)["compatible_genres"])]
+    return out
+
+
+def test_every_genre_reaches_several_shapes():
+    reach = _shape_reach()
+    thin = {g: len(v) for g, v in reach.items() if len(v) < 3}
+    assert not thin, f"genres with almost no outlet: {thin}"
+
+
+def test_the_commonest_genre_is_not_the_most_constrained():
+    """conceptual_essay is the modal seed genre AND the fallback, so if it is
+    also the most restricted the whole corpus funnels through its few shapes."""
+    reach = _shape_reach()
+    n = len(reach["conceptual_essay"])
+    assert n >= 8, f"conceptual_essay reaches only {n} shapes"
+    assert n >= max(len(v) for v in reach.values()) - 2
+
+
+def test_no_shape_is_unreachable():
+    reach = _shape_reach()
+    reachable = {s for v in reach.values() for s in v}
+    from rc_engine.registry import ComponentRegistry
+    allshapes = set(ComponentRegistry().ids("topic_shape"))
+    assert allshapes == reachable, f"unreachable: {sorted(allshapes - reachable)}"
+
+
+def test_structural_exclusions_survive():
+    """The rule is 'exclude only when the genre structurally cannot supply the
+    material', not 'allow everything'. These two are the real exclusions and
+    they must not erode."""
+    from rc_engine.registry import ComponentRegistry
+    reg = ComponentRegistry()
+    # TS07 The Practice As Practised needs a practitioner account
+    assert "conceptual_essay" not in reg.get("topic_shape", "TS07")["compatible_genres"]
+    # TS03 How It Works, Where It Fails needs a mechanism
+    for g in ("criticism", "biography"):
+        assert g not in reg.get("topic_shape", "TS03")["compatible_genres"], g
+
+
+def test_new_shapes_cite_their_exam_source():
+    from rc_engine.registry import ComponentRegistry
+    reg = ComponentRegistry()
+    for sid in ("TS11", "TS12", "TS13", "TS14"):
+        sh = reg.get("topic_shape", sid)
+        assert "RC125" in sh.get("source_note", ""), sid
+        assert sh["topic_form"] and sh["content_frame"]
+
+
+def test_seed_kind_ceiling_steers_both_ways():
+    """A permit-only flip multiplies the flip probability by the kind's base
+    rate and under-binds — that is how the 20% first-person ceiling realised
+    4-5%. get_unused_essay must accept only_kinds as well as avoid_kinds."""
+    import inspect
+    import RAG
+    assert "only_kinds" in inspect.signature(RAG.get_unused_essay).parameters
+    src = inspect.getsource(RAG.get_unused_essay)
+    assert "only_kinds and not (avoid_kinds" in src, (
+        "avoid_kinds must win on conflict: it is a correctness constraint")
+    from rc_engine import cli
+    prov = inspect.getsource(cli._make_seed_provider)
+    assert "only_kinds = [kind]" in prov and "steer_away.append(kind)" in prov
+
+
+def test_elite_seed_pool_is_literary_but_not_one_kind():
+    """Elite's 174 documents were all idea_essay, which held its saturation gate
+    permanently disarmed. Widened with literary non-idea-essay sources only."""
+    elite = config.TIER_SEED_GENRES["elite"]
+    for g in ("Public Domain Review", "History Today", "Hakai"):
+        assert g in elite, g
+    # popular-register sources belong to hard, not elite
+    for g in ("Atlas Obscura", "Damn Interesting"):
+        assert g not in elite, f"{g} is popular register, not literary"
+        assert g in config.TIER_SEED_GENRES["hard"], g
+
+
+# ---------------------------------------------------------------------------
+# Beat density and paragraph-bound allocation (2026-09-05).
+#
+# Measured against 12 of the densest RC125 passages: a real hard exam passage
+# performs ~7.8 moves over 4.3 paragraphs, ~62 words per move. Ours performed
+# 10.2 in the same length -- 52 words per move, ~20% more crowded than the exam.
+# That crowding is why only ~51% of planned middle beats survived.
+#
+# Separately: the beat list was the ONLY instruction in the contract with no
+# address ("each beat may span or share paragraphs"). Every located constraint
+# -- word target, role, thesis paragraph, trap anchor, first/last sentence -- is
+# obeyed. The two beats that got addresses went 2/9 -> 5/5.
+# ---------------------------------------------------------------------------
+
+def _plan_movement(words):
+    from rc_engine.models import ParagraphPlan
+    return [ParagraphPlan(para=i, function=f"F{i}", len_words=(w, w),
+                          cadence="mixed") for i, w in enumerate(words, 1)]
+
+
+def test_beat_density_never_goes_below_the_exam_floor():
+    """Below ~62 words a beat the renderer stops writing and starts coping."""
+    from rc_engine.composer import BlueprintComposer as B
+    for tier, (lo, hi) in config.MOVE_PLAN_LEN_BY_TIER.items():
+        words = sum(config.TIER_PARAMS[tier]["passage_words"]) / 2
+        assert words / hi >= config.MIN_WORDS_PER_BEAT - 1, (
+            f"{tier}: {hi} beats in {words:.0f} words = "
+            f"{words / hi:.0f} w/beat, below the {config.MIN_WORDS_PER_BEAT} floor")
+
+
+def test_beats_are_a_tier_lever_now():
+    """Realised counts used to be flat: medium 10.3, hard 9.6, elite 10.8."""
+    m = config.MOVE_PLAN_LEN_BY_TIER
+    mean = {t: sum(v) / 2 for t, v in m.items()}
+    assert mean["medium"] < mean["hard"] < mean["elite"], mean
+    # the gradient is in the MEAN, not the ceiling: every tier's upper bound is
+    # pinned by MIN_WORDS_PER_BEAT, so elite and hard can share one
+    for t, (lo, hi) in m.items():
+        assert lo <= hi and lo >= 3, (t, lo, hi)
+
+
+def test_allocation_rides_the_rhythm_rather_than_being_uniform():
+    """Real exam passages are back-loaded -- last paragraph 3.4 beats against a
+    2.5-beat opener, 7 of 10 carrying their heaviest load last. The rhythm
+    library already varies paragraph length hard, so proportional allocation
+    reproduces that where the rhythm calls for it."""
+    from rc_engine.composer import BlueprintComposer as B
+    plan = ["OPEN", "M1", "M2", "M3", "M4", "M5", "CLOSE"]
+    back = [len(x) for x in B.allocate_beats(plan, _plan_movement([45, 85, 135, 185]))]
+    front = [len(x) for x in B.allocate_beats(plan, _plan_movement([185, 135, 85, 45]))]
+    assert back[-1] > back[0], f"Staircase should back-load, got {back}"
+    assert front[0] > front[-1], f"Inverted Staircase should front-load, got {front}"
+    assert back == list(reversed(front)), (back, front)
+
+
+def test_allocation_conserves_every_beat():
+    from rc_engine.composer import BlueprintComposer as B
+    plan = [f"M{i}" for i in range(9)]
+    for words in ([45, 85, 135, 185], [185, 50, 50, 50], [85] * 5, [120, 120, 120]):
+        alloc = B.allocate_beats(plan, _plan_movement(words))
+        flat = [m for a in alloc for m in a]
+        assert flat == plan, (words, flat)
+
+
+def test_short_paragraphs_are_never_overloaded():
+    """An S-class paragraph (30-60 words) asked to perform three operations is
+    how you get signposting -- prose that narrates its own scaffolding."""
+    from rc_engine.composer import BlueprintComposer as B
+    plan = [f"M{i}" for i in range(8)]
+    words = [40, 45, 50, 300]
+    alloc = B.allocate_beats(plan, _plan_movement(words))
+    for w, a in zip(words, alloc):
+        if w < config.SINGLE_BEAT_PARA_WORDS:
+            assert len(a) <= 1, f"{w}-word paragraph got {len(a)} beats"
+
+
+def test_first_and_last_paragraph_always_carry_a_beat():
+    from rc_engine.composer import BlueprintComposer as B
+    alloc = B.allocate_beats(["A", "B", "C"], _plan_movement([300, 40, 40]))
+    assert alloc[0] and alloc[-1], alloc
+
+
+def test_beats_are_located_in_the_contract():
+    """The beat list was the only unlocated instruction, and the only one
+    routinely dropped."""
+    from rc_engine.registry import ComponentRegistry
+    from rc_engine.renderer import PassageRenderer
+    bp = _mock_blueprint()
+    bp.move_plan = ["ABSTRACT_CLAIM_OPEN", "SYMMETRY_BROKEN", "BOUND_CONTINUATION"]
+    c = PassageRenderer(ComponentRegistry(), None)._contract(bp, [])
+    assert "BEAT: ABSTRACT_CLAIM_OPEN" in c
+    assert "assigned to specific paragraphs" in c
+    assert "may span or share paragraphs" not in c, "the old unlocated wording"
+    # each BEAT line must sit under a Paragraph line
+    body = c[c.index("PARAGRAPH MOVEMENT PLAN"):]
+    for line in body.splitlines():
+        if "BEAT:" in line:
+            assert line.startswith("       "), f"beat not indented under a para: {line}"
+
+
+# ---------------------------------------------------------------------------
+# In-flight reservations must cover every exclusion window (2026-09-05).
+#
+# Two workers both drew topology QT08 in one batch. topology's exclusion window
+# is 12, so sequentially that is impossible -- once the first shipped, the
+# second could not have drawn it. In parallel the window cannot see a sibling
+# that has not shipped, and the reservation covered only family, movement and
+# seed. Because topology is novelty-checked only with the question channels --
+# i.e. AFTER questions -- the collision stayed invisible until $0.18 of
+# questions, solver and judge had been bought. Sequential would have paid $0.
+# ---------------------------------------------------------------------------
+
+def test_reservation_covers_every_exclusion_window_component():
+    """Anything with a recency window is free for a sequential run to avoid and
+    must therefore be reserved in parallel."""
+    import inspect
+    from rc_engine.history import HistoryStore
+    src = inspect.getsource(HistoryStore.reserve_inflight)
+    assert "bp.component_ids" in src, (
+        "reserving only family/movement/seed loses eight of the nine windows")
+
+
+def test_inflight_components_are_treated_as_just_used():
+    import inspect
+    from rc_engine.composer import BlueprintComposer
+    src = inspect.getsource(BlueprintComposer._eligible)
+    assert "inflight_components" in src
+    assert "positions[cid] = 0" in src, (
+        "folding into the recency window reuses its never-empty-pool fallback")
+
+
+def test_inflight_lookup_is_off_when_sequential():
+    """A sequential run already sees every shipped set; the lookup would be
+    pure overhead and a needless DB read per component type."""
+    from rc_engine.composer import BlueprintComposer
+    assert BlueprintComposer.inflight_worker == ""
+
+
+def test_reserved_components_actually_leave_the_pool():
+    from rc_engine.composer import BlueprintComposer
+    from rc_engine.constraints import CompatibilityRules
+    from rc_engine.history import HistoryStore
+    from rc_engine.llm import MockLLMClient
+    from rc_engine.registry import ComponentRegistry
+    reg = ComponentRegistry()
+    hist = HistoryStore(config.DB_PATH)
+    try:
+        comp = BlueprintComposer(reg, hist, CompatibilityRules(reg), MockLLMClient())
+        before = comp._eligible("topology", "hard")
+        assert before, "premise: topologies are available"
+        victim = before[0]
+
+        class _Fake:
+            @staticmethod
+            def inflight_components(worker):
+                return {"topology": {victim}}
+        comp.inflight_worker = "wOTHER"
+        comp.history = _Fake()
+        comp.history.component_positions = lambda ctype: {}
+        comp.history.recent_shipped_blueprints = lambda n: []
+        after = comp._eligible("topology", "hard")
+        assert victim not in after or len(after) == len(before), (
+            "a held topology must drop out unless removing it would empty the pool")
+    finally:
+        hist.close()
+
+
+def test_screen_only_runs_on_sets_that_actually_ship():
+    """'Has an rc_id' is not 'shipped'. A set rejected at the parallel ship lock
+    has both an id and an rc_sets row: RC-MEDIUM-260904-0059 was screened,
+    charged $0.0019, and had a red verdict written onto a row that will never be
+    exported — which also inflated the batch's reported red count."""
+    import inspect
+    from rc_engine import cli
+    src = inspect.getsource(cli)
+    assert "if r.rc_id and r.status in config.SHIPPING_STATUSES" in src
+    assert src.count("res.status in config.SHIPPING_STATUSES") >= 1
+    assert "[r.rc_id for r in results if r.rc_id]" not in src, "old filter"
+    assert "rejected_novelty" not in config.SHIPPING_STATUSES
+    for s in ("approved", "needs_review", "solver_dispute"):
+        assert s in config.SHIPPING_STATUSES, s
+
+
+# ---------------------------------------------------------------------------
+# Subject-register bias (2026-09-05).
+#
+# Our passages carry measurement/procedure/classification vocabulary at 9.97 per
+# 1000 words against 3.41 in 124 real exam passages -- 2.9x. Traced with an
+# identical lexicon it is NOT the seeds (2.21, below the exam) and NOT the move
+# vocabulary (2.7); it is the topic-shape library at 19.0, concentrated in the
+# two measurement-named shapes, whose passages ran 14.15 against 8.56 for every
+# other shape.
+#
+# It does NOT separate red from green (9.62 vs 10.32), so this is a register
+# problem in its own right, not a fix for the similarity screen.
+# ---------------------------------------------------------------------------
+
+_REGISTER = __import__("re").compile(
+    r"\b(measur\w*|instrument\w*|metric\w*|categor\w*|classif\w*|proxy|proxies"
+    r"|apparatus|proced\w*|record\w*|count\w*|proto[ck]ol\w*|indicator\w*"
+    r"|standard\w*)\b", __import__("re").I)
+
+
+def _density(text):
+    w = len(text.split())
+    return len(_REGISTER.findall(text)) / w * 1000 if w else 0.0
+
+
+def test_topic_shape_library_is_not_a_measurement_manual():
+    """The shapes described themselves in the abstract apparatus nouns they
+    wanted the passage to be about, and the passage echoed the wording."""
+    import io
+    import json
+    d = json.load(io.open("rc_engine/components/topic_shapes.json", encoding="utf-8"))
+    blob = " ".join(x.get("topic_form", "") + " " + x.get("content_frame", "")
+                    for x in d["items"])
+    assert _density(blob) < 12.0, (
+        f"{_density(blob):.1f}/1000; it was 19.0 and the exam control is 3.4")
+
+
+def test_the_two_worst_shapes_were_rewritten():
+    from rc_engine.registry import ComponentRegistry
+    reg = ComponentRegistry()
+    for sid in ("TS03", "TS08"):
+        sh = reg.get("topic_shape", sid)
+        assert _density(sh["topic_form"] + " " + sh["content_frame"]) < 6.0, sid
+
+
+def test_register_rule_quotes_no_example_phrases():
+    """renderer.py records that 'no: more precisely' was given as an
+    illustration until 2026-08-22 and was then copied verbatim into four
+    passages. Naming a pattern in this prompt reproduces it."""
+    from rc_engine.renderer import RENDER_SYSTEM
+    assert "SUBJECT REGISTER" in RENDER_SYSTEM
+    assert "the instrument only tracks a proxy" not in RENDER_SYSTEM
+    assert "the record is silent about" not in RENDER_SYSTEM
+
+
+def test_render_system_rule_numbering_has_no_duplicates():
+    import re
+    from rc_engine.renderer import RENDER_SYSTEM
+    nums = re.findall(r"^(\d+)\.", RENDER_SYSTEM, re.M)
+    assert len(nums) == len(set(nums)), f"duplicate rule numbers: {nums}"
+
+
+# ---------------------------------------------------------------------------
+# Topic-shape cohort ceiling + cached-input accounting (2026-09-05)
+# ---------------------------------------------------------------------------
+
+def test_topic_shape_cohort_ceiling_binds_and_never_dead_ends():
+    """TS06 and TS12 ask the same question — an instrument accurate inside its
+    design and blind outside it — and three consecutive red sets turned out on
+    a read to be that one argument. The ceiling is bidirectional for the reason
+    recorded in config: a permit-only flip under-binds."""
+    import random
+    from rc_engine.composer import BlueprintComposer
+
+    cohort, cap = config.TOPIC_SHAPE_COHORT_MAX_SHARE[0]
+    assert cohort == {"TS06", "TS12"}
+    rng = random.Random(11)
+    pool = [f"TS{i:02d}" for i in range(1, 15)]
+    hits = 0
+    for _ in range(20000):
+        got = BlueprintComposer._steer_share(
+            list(pool), rng.random() < cap, lambda i: i in cohort)
+        hits += rng.choice(got) in cohort
+    share = hits / 20000
+    assert abs(share - cap) < 0.02, f"realised {share:.3f} against cap {cap}"
+
+    # a pool with no cohort member, and one with nothing else, must both
+    # survive: _steer_share returns the pool rather than an empty list
+    assert BlueprintComposer._steer_share(
+        ["TS01"], False, lambda i: i in cohort) == ["TS01"]
+    assert BlueprintComposer._steer_share(
+        ["TS06"], False, lambda i: i in cohort) == ["TS06"]
+
+
+def test_cached_input_is_billed_at_the_cached_rate():
+    """The ledger over-recorded the 2026-09-05 Astra batch 3.7x ($0.9671 booked,
+    ~$0.26 billed) by charging every input token the uncached rate. Measured
+    that day: a 2,614-token system prompt cached 100% from the second identical
+    call onward, and this engine repeats its system prompts constantly."""
+    from rc_engine.llm import CostLedger
+
+    rate_in, rate_out = config.MODEL_RATES["gpt-6-astra"]
+    cached_rate = config.MODEL_RATES_CACHED_IN["gpt-6-astra"]
+    assert cached_rate < rate_in
+
+    cold = CostLedger(budget_usd=10.0)
+    cold.record("render", "gpt-6-astra", 10_000, 1_000)
+    warm = CostLedger(budget_usd=10.0)
+    warm.record("render", "gpt-6-astra", 10_000, 1_000, 9_000)
+
+    assert warm.spent_usd < cold.spent_usd
+    expect = (1_000 / 1e6) * rate_in + (9_000 / 1e6) * cached_rate \
+        + (1_000 / 1e6) * rate_out
+    assert abs(warm.spent_usd - expect) < 1e-9
+    assert warm.lines[0].cached_input_tokens == 9_000
+    # a cached count larger than the input it came from must not pay negative
+    odd = CostLedger(budget_usd=10.0)
+    odd.record("render", "gpt-6-astra", 100, 10, 999)
+    assert odd.spent_usd > 0
+
+
+def test_guard_stays_uncached_and_pessimistic():
+    """record() got cheaper; guard() must not. Its job is to refuse a call whose
+    WORST case breaks the tier cap, and a cache hit is never guaranteed."""
+    from rc_engine.llm import CostLedger
+    led = CostLedger(budget_usd=10.0)
+    rate_in, _ = config.MODEL_RATES["gpt-6-astra"]
+    worst = led.worst_case(30_000, "gpt-6-astra", 1_000)
+    est_in = 30_000 // config.CHARS_PER_TOKEN_ESTIMATE
+    assert worst >= (est_in / 1e6) * rate_in
+
+
+def test_astra_generative_stages_do_not_run_at_the_clamped_floor():
+    """The 2026-09-05 batch cost $0.97 and taught us nothing: render and
+    questions are pinned to "none", Astra has no "none", and the clamp put both
+    on "low" — which the ablation in config records as the WORST rung
+    (f1 0.750, against 0.795 at none and 0.925 at medium)."""
+    for stage in ("render", "questions"):
+        eff = config.OPENAI_MODEL_STAGE_EFFORT["gpt-6-astra"][stage]
+        assert eff in config.OPENAI_EFFORT_SUPPORT["gpt-6-astra"], stage
+        assert config.clamp_effort("gpt-6-astra", eff) == eff, stage
+        assert eff != "low", f"{stage} is back on the clamped floor"
+
+
+# ---------------------------------------------------------------------------
+# Argument schema as a composed component (2026-09-05)
+#
+# Every other novelty channel already forced sets apart and the screen kept
+# calling them repeats anyway, because none of those channels encodes what the
+# argument DOES. Measured that day: S1_INSTRUMENT_BLIND was primary in 46.9% of
+# the last 32 shipped against 12.9% of 124 real exam passages, and present in
+# 72% against 18%.
+# ---------------------------------------------------------------------------
+
+def test_schema_weights_target_the_exam_not_uniform():
+    """The exam runs S4 at 30.6% and S2 at 25.8%. Flattening those would be as
+    wrong as the monoculture this replaces, so the weights are the exam's."""
+    shares = {k: v["exam_share"] for k, v in config.ARGUMENT_SCHEMAS.items()}
+    assert abs(sum(shares.values()) - 1.0) < 0.02, shares
+    assert max(shares, key=shares.get) == "S4_MECHANISM_TRACED"
+    assert shares["S1_INSTRUMENT_BLIND"] < 0.20, (
+        "S1 is the attractor; its planned share must sit near the exam's 12.9%")
+    for k, v in config.ARGUMENT_SCHEMAS.items():
+        assert v["description"] and v["directive"], k
+        # the directive is a PRESCRIPTION the renderer follows, not a label
+        assert len(v["directive"]) > 60, k
+
+
+def test_schema_draw_tracks_the_exam_and_damps_repeats():
+    import collections, random
+    from rc_engine.composer import BlueprintComposer
+
+    class _H:
+        def __init__(self): self.seen = []
+        def usage_counts_trailing(self, ctype, window):
+            return collections.Counter(self.seen[-window:])
+
+    c = BlueprintComposer.__new__(BlueprintComposer)
+    c.rng, c.history = random.Random(7), _H()
+    got = []
+    for _ in range(4000):
+        s = c.sample_argument_schema()
+        got.append(s); c.history.seen.append(s)
+
+    n = len(got)
+    cnt = collections.Counter(got)
+    assert set(cnt) == set(config.ARGUMENT_SCHEMAS), "every schema must be reachable"
+    # S1 near the exam rate, nowhere near the 46.9% it replaced
+    assert cnt["S1_INSTRUMENT_BLIND"] / n < 0.22
+    # recency damping actually bites: back-to-back repeats below the undamped rate
+    undamped = sum(v["exam_share"] ** 2 for v in config.ARGUMENT_SCHEMAS.values())
+    runs = sum(1 for a, b in zip(got, got[1:]) if a == b) / (n - 1)
+    assert runs < undamped, (runs, undamped)
+
+
+def test_schema_draw_survives_a_history_that_cannot_answer():
+    """Same never-dead-end contract every other draw has."""
+    import random
+    from rc_engine.composer import BlueprintComposer
+
+    class _Broken:
+        def usage_counts_trailing(self, *a): raise RuntimeError("no table")
+
+    c = BlueprintComposer.__new__(BlueprintComposer)
+    c.rng, c.history = random.Random(1), _Broken()
+    assert c.sample_argument_schema() in config.ARGUMENT_SCHEMAS
+
+
+def test_topic_shape_and_schema_usage_are_actually_recorded():
+    """Regression for a silent no-op found 2026-09-05.
+
+    topic_shape is a Blueprint field but NOT a member of component_ids, and
+    mark_shipped only ever inserted component_ids. So no topic_shape row was
+    ever written, usage_counts_trailing("topic_shape", 30) returned {} on every
+    call, every decay weight was 0.5**0 = 1.0, and the "inverse-frequency" draw
+    in classify_and_pick_shape was a uniform random pick from the day it
+    shipped. argument_schema would have inherited exactly the same bug."""
+    import tempfile, os, inspect
+    from rc_engine.history import HistoryStore
+
+    src = inspect.getsource(HistoryStore.mark_shipped)
+    assert "topic_shape" in src and "argument_schema" in src, (
+        "mark_shipped must record the Blueprint fields that are not in "
+        "component_ids, or their recency machinery is dead")
+
+    path = os.path.join(tempfile.mkdtemp(), "t.db")
+    h = HistoryStore(path)
+    bp = _mock_blueprint()
+    bp.topic_shape_id = "TS06"
+    bp.argument_schema_id = "S1_INSTRUMENT_BLIND"
+    h.record_blueprint(bp, "composed")
+    h.mark_shipped(bp, "RC-HARD-260905-9999")
+    assert h.usage_counts_trailing("topic_shape", 30).get("TS06") == 1
+    assert h.usage_counts_trailing(
+        "argument_schema", 30).get("S1_INSTRUMENT_BLIND") == 1
+
+
+def test_schema_directive_reaches_the_render_contract():
+    """A component the renderer never sees is a component that does nothing."""
+    src = open("rc_engine/renderer.py", encoding="utf-8").read()
+    assert "argument_schema_id" in src and "ARGUMENT_SCHEMAS" in src
+    assert "WHAT THE ARGUMENT DOES" in src

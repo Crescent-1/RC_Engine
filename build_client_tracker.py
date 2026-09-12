@@ -103,10 +103,29 @@ for rc, rec in pool.items():
         if v:
             key_index.setdefault(T.norm(v)[:300], rc)
 
-delivered = {}
+# What the client actually received. sent_index.json (build_sent_index.py) is
+# the authority, exactly as in build_shipping_tracker.py -- the week folders
+# drifted for Week 4 and listing them here would show the client two sets they
+# were never sent, and hide two they were.
+sent_index = {}
+if os.path.exists(T.SENT_INDEX):
+    sent_index = json.load(open(T.SENT_INDEX, encoding="utf-8"))
+
+week_dirs = {}
 for wk in sorted(os.listdir(T.SHIP)):
-    if not wk.startswith("Week_"):
-        continue                              # backup folders are not deliveries
+    m = re.match(r"Week_(\d+)_", wk)
+    if m and os.path.isdir(os.path.join(T.SHIP, wk)):   # not the mailed .zip
+        week_dirs[int(m.group(1))] = wk
+
+delivered = {}
+for num in sorted(set(week_dirs) | {int(k[1:]) for k in sent_index}):
+    wk = week_dirs.get(num, "Week_%d" % num)
+    rows = sent_index.get("W%02d" % num)
+    if rows is not None:
+        for row in rows:
+            delivered[(wk, row["sent_as"])] = {"week": wk, "sent_id": row["sent_as"],
+                                               "passage": row["passage"]}
+        continue
     for dirpath, _dirs, files in os.walk(os.path.join(T.SHIP, wk)):
         for fn in sorted(files):
             if not fn.lower().endswith((".txt", ".docx")) or fn.startswith("~$"):
@@ -127,7 +146,10 @@ for (wk, sent), r in sorted(delivered.items(),
         best = max(((T.sim(tgt, T.norm(v)), k) for k, rec in pool.items()
                     for v in rec["passages"].values() if v), default=(0.0, None))
         rc = best[1] if best[0] >= 0.55 else None
-    genre = genre_by_canon.get(T.canon(rc), "") if rc else ""
+    # an emailed set with no export resolves to no RC_ID; key it by the
+    # delivered name instead (RC_MEDIUM_260815_02, emailed in Week 4)
+    genre = ((genre_by_canon.get(T.canon(rc)) if rc else None)
+             or genre_by_canon.get(T.canon(sent), ""))
     if not genre:
         missing.append(sent)
     rows.append({"Week": week_label(wk), "RC ID": sent, "Genre": genre,

@@ -49,13 +49,38 @@ pure value capture — never discuss per-set cost with clients.
 
 ## Brand & pitch site
 
-- Business name: **Blueprint Psychometrics** (serious, method-derived; adopted 2026-07-07).
-  Use it consistently on emails, explainer PDF, MSA, invoices.
+- Business name: **Passage Works** (adopted 2026-09-03, replacing "Blueprint
+  Psychometrics" from 2026-07-07). Renamed because "psychometrics" reads as HR
+  personality testing in Indian business English — a VARC head skims the sender
+  domain and files us next to an assessment vendor — and because a method-announcing
+  name is a claim, where this playbook's whole wedge is evidence. "Passage Works"
+  is drawn from the buyer's own vocabulary and reads as a content house, not a
+  software vendor. Use it consistently on emails, explainer PDF, MSA, invoices.
 - Pitch website: deploy-ready standalone file at `website/index.html` (project root);
   also published as a Claude artifact for instant sharing. Sections: problem → method →
   9-channel audit table → gates → three tiers → blind audition → FAQ → contact.
-- Pending brand hygiene: register a domain (e.g. blueprintpsychometrics.in) + domain
-  email — the personal Gmail on the site is a placeholder and undermines premium pricing.
+- Brand hygiene: `passageworks.in` registered 2026-09-03, expires 2027-09-03, on GoDaddy
+  nameservers (ns67/ns68.domaincontrol.com). Diarise a renewal-price check before Aug 2027 —
+  the cheap first year is not the renewal rate. Mailbox `ansh@passageworks.in`: a human
+  first-name address, never `hello@`/`info@`, which get filtered as bulk and kill reply
+  rates. The site's mailto links already point there.
+- `clientHold` (registry refusing to publish the domain, so nothing resolved and no mail
+  could flow) blocked the domain 2026-09-03 to 2026-09-08; cleared by completing ICANN
+  registrant-email verification. If a future domain goes dark, check registry status first:
+  `curl -s https://rdap.org/domain/<domain> | grep "client hold"`.
+- Verified live 2026-09-12: MX → secureserver.net (GoDaddy Professional Email, not Google
+  Workspace); SPF `v=spf1 include:secureserver.net -all` present and strict. Two gaps remain
+  open — (a) **no DKIM**, probed across 17 common selectors, which is the weak half of email
+  auth and the half Gmail/Outlook weigh most for cold mail from an unknown domain; (b) DMARC
+  is `p=quarantine` but its `rua` reports to `dmarc_rua@onsecureserver.net`, i.e. GoDaddy,
+  so we never see our own authentication data. Fix both before outreach volume.
+- The domain currently serves GoDaddy's parked `/lander` page (A → 3.33.130.190). The built
+  site in `website/` is zero-dependency static and is not deployed. A prospect who gets the
+  cold email and types the domain lands on a registrar parking page — worse than no site at
+  all for a premium pitch. Deploy before the first send.
+- Before the first send: SPF + DKIM + DMARC (start p=none), verified by lookup rather than
+  by the provider's dashboard saying "done". At this funnel's ~1 email/day volume, skip
+  cold-email tooling and secondary sending domains entirely and send by hand.
 
 ## Engine features that double as sales weapons
 

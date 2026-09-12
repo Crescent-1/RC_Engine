@@ -84,6 +84,31 @@ provider identically.
 
 ---
 
+## 2b. Clients — a fresh start per institute (2026-09-12)
+
+Every existing set belongs to the founding client **AA**, which is the default.
+A new client gets its own novelty window: families, beats, movement, usage decay,
+seed genre and the similarity screen all start empty for it. Argument skeletons
+and seed essays stay **exclusive across clients**, so no two institutes ever
+receive the same structure.
+
+| You want… | Command |
+|---|---|
+| Add a client ($0) | `python -m rc_engine.cli client add BB --name "Second institute"` |
+| See clients and shipped counts ($0) | `python -m rc_engine.cli client list` |
+| Try the new client at $0 first | `python -m rc_engine.cli client add BB --db rc_engine_dryrun.db` then `python -m rc_engine.cli generate --dry-run --client BB --hard 2` |
+| Generate for a client | `python -m rc_engine.cli generate --client BB --hard 4` |
+| That client's health, plus the cross-client exclusivity audit ($0) | `python -m rc_engine.cli health --client BB --all` |
+| Export a client's sets (goes to `exported_rc_sets/BB/`) | `python -m rc_engine.cli export --client BB --status approved` |
+| Resume a client's stranded passages | `python -m rc_engine.cli retry-questions --client BB --all` |
+| AVOID line / vet a manual set for a client | add `--client BB` to `avoid` or `vet` |
+
+Leaving out `--client` means AA, so every command above behaves exactly as it did
+before. A typo in the slug stops the command; it never runs against an empty
+corpus. In the GUI, pick the client in the sidebar before doing anything else.
+
+---
+
 ## 3. Generate RC sets (legacy engine)
 
 Same tiers, simpler flags — no cost caps or novelty gates.

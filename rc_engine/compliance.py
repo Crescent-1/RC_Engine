@@ -57,6 +57,22 @@ Respond ONLY with valid JSON, no markdown fences:
 }"""
 
 
+ARGUMENT_SCHEMA_SYSTEM = """You classify the ARGUMENT SHAPE of a reading-
+comprehension passage: what the argument DOES, not what it is about.
+
+Rules:
+- Use ONLY labels from the vocabulary given. Never invent one.
+- Name a `primary`. Name a `secondary` ONLY if a second shape genuinely co-runs;
+  otherwise return null for it. Do not pad.
+- Judge the prose alone. You are shown no plan and there is no intended answer
+  to recover.
+- Two passages about completely different subjects can share a shape, and two
+  passages about the same subject can differ in it. Subject is not the question.
+
+Respond ONLY with valid JSON, no markdown fences:
+{"primary": "LABEL", "secondary": "LABEL or null", "why": "one short sentence"}"""
+
+
 MOVE_SIGNATURE_SYSTEM = """You read a finished essay passage and report the sequence of
 RHETORICAL MOVES it performs, in the order they occur.
 
@@ -206,6 +222,37 @@ class ComplianceAuditor:
         # never match another passage's and would silently inflate novelty
         return [m for m in (str(x).strip().upper() for x in moves)
                 if m in config.RHETORICAL_MOVES]
+
+    def argument_schema(self, passage: str, ledger: CostLedger,
+                        tier: str = "hard") -> tuple[str, str]:
+        """Blind read of what the passage's argument DOES. Returns
+        (primary, secondary); ("", "") on any failure.
+
+        Blind for the same reason move_signature is: an auditor handed the plan
+        first reports the plan back. This one is checked AGAINST the plan by the
+        caller, so letting it see the plan would make the check circular and the
+        agreement rate meaningless.
+
+        Never aborts a set — this costs about $0.0004 on the Luna pin, and a
+        missing schema means "unknown", never "repeated"."""
+        model, max_tokens = config.STAGE_CONFIG["move_signature"][tier]
+        nl = chr(10)
+        vocab = nl.join(f"  {k}: {v['description']}"
+                        for k, v in config.ARGUMENT_SCHEMAS.items())
+        user = f"VOCABULARY:{nl}{vocab}{nl}{nl}PASSAGE:{nl}{passage}"
+        try:
+            text, _ = self.llm.call(ledger, "move_signature", model, max_tokens,
+                                    ARGUMENT_SCHEMA_SYSTEM, user,
+                                    context={"passage": passage})
+            data = extract_json(text)
+        except Exception as e:                                   # noqa: BLE001
+            print(f"  [arg-schema] extraction failed ({type(e).__name__}: {e}) "
+                  f"- this passage will not be scored on argument shape")
+            return "", ""
+        def _clean(v):
+            v = str(v or "").strip().upper()
+            return v if v in config.ARGUMENT_SCHEMAS else ""
+        return _clean(data.get("primary")), _clean(data.get("secondary"))
 
     def _score(self, data: dict, passage: str, bp: Blueprint,
                realized_moves: list[str] | None = None) -> RealizedStructure:

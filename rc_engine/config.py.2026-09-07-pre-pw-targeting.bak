@@ -71,18 +71,6 @@ def shadowing_conflicts() -> list[str]:
     return sorted(DOTENV_SHADOWED)
 
 DB_PATH = os.environ.get("RC_ENGINE_DB", "rc_pipeline.db")
-
-# Clients (2026-09-12). Until this date every set in the DB was for one
-# institute and every novelty lever read all of it. Each client now gets its
-# own window (families, beats, movement, topology, usage decay, seed genre,
-# similarity screen); argument skeletons, seed essays and rc ids stay global so
-# no two clients ever receive the same structure — see history.py.
-#
-# FOUNDING_CLIENT_ID is a migration constant: it is the ADD COLUMN default that
-# assigned every pre-existing row to the founding client. Never change it.
-# DEFAULT_CLIENT_ID is what a command uses when --client is omitted.
-FOUNDING_CLIENT_ID = "AA"
-DEFAULT_CLIENT_ID = os.environ.get("RC_ENGINE_CLIENT") or FOUNDING_CLIENT_ID
 # The production DB lives inside a OneDrive-synced folder (sync + SQLite is a
 # known corruption risk), so write paths back it up to a local non-synced dir.
 DB_BACKUP_DIR = os.environ.get(
@@ -1890,27 +1878,6 @@ MOVE_SATURATION_BAN = 0.55     # trailing share above this -> banned in new cont
 MOVE_SATURATION_WARN = 0.40    # above this -> reported by `health`
 MOVE_SATURATION_WINDOW = 30    # trailing sets the share is computed over
 MOVE_SATURATION_MAX_BANS = 4   # never hand the renderer more than this many at once
-
-# Global house-voice pressure (2026-09-12). Every lever above is per client, so
-# a new client starts fresh — but the engine has one voice, and a student or a
-# faculty member who sees two institutes' mocks would still hear it. So the
-# components and moves recently given to OTHER clients get a gentle pull-away
-# on top of the per-client terms:
-#   component weight *= GLOBAL_DECAY_LAMBDA ** uses_by_other_clients (trailing)
-#   move weight      *= (1 - share_among_other_clients) ** GLOBAL_MOVE_RARITY_POWER
-# Softer than the per-client terms by design (0.85 vs DECAY_LAMBDA 0.5; power
-# 0.5 vs MOVE_PLAN_RARITY_POWER 1.0): a client's own recency decides, the
-# global term only tilts the draw.
-#
-# With one client, "other clients" is empty, every factor is exactly 1.0 and
-# the founding client's draws are bit-for-bit what they were (checked
-# 2026-09-12 with a seeded composer snapshot on a copy of the production DB).
-# These values are starting points, not calibrated: re-measure with
-# `health --all` once a second client has shipped ~30 sets.
-GLOBAL_DECAY_LAMBDA = 0.85
-GLOBAL_USAGE_WINDOW = 50       # other clients' trailing shipped blueprints, pooled
-GLOBAL_MOVE_WINDOW = 60        # other clients' trailing keyed fingerprints, pooled
-GLOBAL_MOVE_RARITY_POWER = 0.5
 
 
 # 2026-08-21 rebalance: blueprint 0.20->0.14 and movement 0.18->0.10, with the
