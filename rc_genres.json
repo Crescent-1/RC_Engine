@@ -1,5 +1,5 @@
 {
-  "_note": "Subject-matter genre per RC_ID, assigned 2026-09-07 by reading every passage opening (152 sets: 78 shipped + 74 on the bench). The engine's own 'genre' fields are not this: rc_sets.domain is a one-line topic, families.json is the rhetorical arc, and TIER_SEED_GENRES lists seed publications. This file is the subject bucket a CAT aspirant would recognise, used to keep a week's mix varied. Add a line when a new set is exported; build_shipping_tracker.py reports any RC_ID missing from here.",
+  "_note": "Subject-matter genre per RC_ID, assigned 2026-09-07 by reading every passage opening (152 sets: 78 shipped + 74 on the bench). The engine's own 'genre' fields are not this: rc_sets.domain is a one-line topic, families.json is the rhetorical arc, and TIER_SEED_GENRES lists seed publications. This file is the subject bucket a CAT aspirant would recognise, used to keep a week's mix varied. Add a line when a new set is exported; build_shipping_tracker.py reports any RC_ID missing from here. A key may also be a DELIVERED name (RC_MEDIUM_260815_02): that set was emailed in Week 4 and exists in no export, so it has no RC_ID to key on.",
   "_taxonomy": [
     "Philosophy & Ethics",
     "Psychology",
@@ -174,6 +174,7 @@
     "RC-HARD-260907-0086": "Science & Technology",
     "RC-HARD-260907-0087": "Arts, Music & Film",
     "RC-MEDIUM-260907-0065": "Education",
-    "RC-MEDIUM-260907-0066": "Politics, Law & Policy"
+    "RC-MEDIUM-260907-0066": "Politics, Law & Policy",
+    "RC_MEDIUM_260815_02": "Philosophy & Ethics"
   }
 }
