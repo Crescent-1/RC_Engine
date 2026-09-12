@@ -552,8 +552,6 @@ class RCPipeline:
         posture_run = any(f.startswith("posture run") for f in report.corpus_flags)
         if solver_dispute:
             status = "solver_dispute"
-        elif voice_reasons:
-            status = "needs_review"
         elif length_bias["biased"]:
             # systematic within-set length tell (correct is longest in >2/6, or the
             # thesis answer is longest) — never auto-approve; a human decides.

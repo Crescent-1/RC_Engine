@@ -147,3 +147,15 @@ routing, legacy loading, health cohorts and screen reference selection.
 JavaScript syntax validation also passed. These are implementation checks;
 the blinded human pilot and a fixed human-labelled evaluation set remain future
 work requiring real outputs and reviewer labels.
+
+## Correction after user review — 2026-09-13
+
+The user reported a read-only replay flagging 30/30 recent AA ships under the
+new review rules, including all five approved sets. This is old-plan evidence,
+but sufficient reason to soft-launch: voice reasons now remain observational
+and do not change approval status. Existing compliance and quality checks still
+apply. Internal voice notes no longer appear in client exports. Mixed content
+fields preserve required poles, and reciprocal sibling reds are presented as a
+pair for review. See `codex.md` for the change record and `RC_ENGINE_README.md`
+for current behavior. No paid pilot or human quality evaluation has run; the
+renderer prompt and narrow S3/S8 stance pools remain hypotheses to evaluate.

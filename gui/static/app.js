@@ -396,9 +396,14 @@ async function openRC(rcId) {
     let voiceReasons = [];
     try { voiceReasons = JSON.parse(r.voice_review_json || "[]"); } catch (_) {}
     const voiceNote = Array.isArray(voiceReasons) && voiceReasons.length
-      ? `Voice review:\n${voiceReasons.map(x => `• ${x}`).join("\n")}\n\n`
+      ? `Voice observations (informational):\n${voiceReasons.map(x => `• ${x}`).join("\n")}\n\n`
       : "";
-    $("#modal-body").textContent = voiceNote + (r.rc_text || "(no text)");
+    let screen = {};
+    try { screen = JSON.parse(r.similarity_note || "{}") || {}; } catch (_) {}
+    const pairNote = r.similarity_verdict === "red" && typeof screen.nearest === "string"
+      ? `Similarity review: compare with ${screen.nearest}. Retain the stronger usable set if appropriate; a mutual flag does not mean both should be discarded.\n\n`
+      : "";
+    $("#modal-body").textContent = voiceNote + pairNote + (r.rc_text || "(no text)");
     $("#modal").hidden = false;
   } catch (e) { toast(e.message, "bad"); }
 }

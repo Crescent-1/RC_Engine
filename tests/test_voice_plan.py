@@ -102,7 +102,7 @@ def insert_set(history, rc_id, bp, realized, status="approved"):
     history.record_blueprint(bp, "composed")
     history.record_rendered_passage(bp.blueprint_id, bp.tier, "Passage text.",
         realized.to_json(), realized.f1, None, None, None, 0)
-    history.insert_rc_set(rc_id, bp.tier, "Passage:\nPassage text.\n\nQ1. Question?",
+    history.insert_rc_set(rc_id, bp.tier, "Passage:\nPassage text.\n\nQuestions:\nQ1. Question?",
         status, {}, None, 5, bp.blueprint_id, realized.f1, 0, 0,
         None, None, None, None, 1)
     history.mark_shipped(bp, rc_id)
@@ -126,16 +126,15 @@ def test_feedback_counts_realized_schemas_and_respects_client_scope(setup):
     assert history.voice_reference_pool() == []
 
 
-@pytest.mark.parametrize("status,expected", [("approved", "needs_review"),
-                                             ("solver_dispute", "solver_dispute")])
-def test_persisted_voice_review_routes_without_overriding_disputes(setup, status, expected):
+@pytest.mark.parametrize("status", ["approved", "needs_review", "solver_dispute"])
+def test_persisted_voice_observations_never_change_ship_status(setup, status):
     _, history, composer = setup
     bp = compose(composer)
     insert_set(history, "one", bp, RealizedStructure(f1=1), status)
     reasons = ["schema was not measured"]
     history.record_voice_review("one", reasons)
     row = history.conn.execute("SELECT status, voice_review_status, voice_review_json FROM rc_sets").fetchone()
-    assert row[:2] == (expected, "review")
+    assert row[:2] == (status, "review")
     assert json.loads(row[2]) == reasons
     history.add_client("BB")
     history.client_id = "BB"
@@ -179,21 +178,25 @@ def test_health_separates_new_plans_and_missing_measurements(setup):
     read = RealizedStructure(argument_schema=bp.argument_schema_id,
                              rhetorical_moves=bp.move_plan, middle_beats_ok=False)
     insert_set(history, "new", bp, read)
+    history.record_voice_review("new", review_reasons(bp, read))
     legacy = compose(composer)
     legacy.voice_plan_version = ""
     insert_set(history, "old", legacy, RealizedStructure())
     health = history.voice_health(10)
     assert health[bp.voice_plan_version]['primary_matches'] == 1
     assert health[bp.voice_plan_version]['middle_matches'] == 0
+    assert health[bp.voice_plan_version]['voice_observed'] == 1
+    assert health[bp.voice_plan_version]['voice_flagged'] == 1
     assert health['legacy']['schema_planned'] == 1
     assert health['legacy']['schema_measured'] == 0
+    assert health['legacy']['voice_observed'] == 0
     history.add_client('BB')
     history.client_id = 'BB'
     assert history.voice_health(10) == {}
 
 
-@pytest.mark.parametrize("deviation", [False, True])
-def test_shipping_cannot_hide_voice_failure_behind_passing_scores(setup, monkeypatch, deviation):
+@pytest.mark.parametrize("deviation", [False, True, "unmeasured", "schema", "closing"])
+def test_shipping_records_voice_observations_without_an_extra_gate(setup, monkeypatch, deviation):
     from rc_engine.models import NoveltyReport
     from rc_engine.pipeline import RCPipeline
     registry, history, composer = setup
@@ -201,6 +204,15 @@ def test_shipping_cannot_hide_voice_failure_behind_passing_scores(setup, monkeyp
     history.record_blueprint(bp, 'composed')
     read = RealizedStructure(f1=1, argument_schema=bp.argument_schema_id,
                              rhetorical_moves=bp.move_plan, middle_beats_ok=not deviation)
+    if deviation == "unmeasured":
+        read = RealizedStructure(f1=1)
+    elif deviation == "schema":
+        read.middle_beats_ok = True
+        read.argument_schema = "S8_REMEDIES_WEIGHED"
+        assert read.argument_schema != bp.argument_schema_id
+    elif deviation == "closing":
+        read.middle_beats_ok = True
+        read.closing_beat_ok = False
     pipe = RCPipeline(history, MockLLMClient(), embed=False)
     monkeypatch.setattr(pipe.novelty, 'score', lambda *a, **kw: NoveltyReport('pass'))
     monkeypatch.setattr('rc_engine.pipeline.blind_solve', lambda *a: {'disputes': []})
@@ -211,7 +223,63 @@ def test_shipping_cannot_hide_voice_failure_behind_passing_scores(setup, monkeyp
              has_thesis_question=False, thesis_correct_longest=False))
     result = pipe._questions_and_ship(bp, ' '.join(['word'] * 525), read,
         CostLedger(10), [], SeedEssay(), {}, 'test-ship')
-    assert result.status == ('needs_review' if deviation else 'approved')
+    assert result.status == 'approved'
     assert history.conn.execute('SELECT voice_review_status FROM rc_sets').fetchone()[0] == (
         'review' if deviation else 'clear')
-    assert any('voice review:' in n for n in result.notes) == deviation
+    assert any('voice review:' in n for n in result.notes) == bool(deviation)
+
+
+@pytest.mark.parametrize("voice,raw", [
+    ("review", '["schema planned S4, realized S2"]'),
+    ("clear", "[]"), ("review", "{broken json"), ("review", "null"),
+])
+def test_client_export_ignores_internal_voice_data(setup, tmp_path, voice, raw):
+    from argparse import Namespace
+    from rc_engine.cli import cmd_export, _parse_rc_txt
+    _, history, composer = setup
+    insert_set(history, "export-one", compose(composer), RealizedStructure(f1=1))
+    history.conn.execute(
+        "UPDATE rc_sets SET voice_review_status = ?, voice_review_json = ?", (voice, raw))
+    history.conn.commit()
+    out = tmp_path / "exports"
+    assert cmd_export(Namespace(db=history._db_path, client=history.client_id,
+        status="approved", out=str(out), flagged_out=str(tmp_path / "flagged"))) == 0
+    exported = (out / "export-one.txt").read_text(encoding="utf-8")
+    assert "Voice review:" not in exported
+    assert "schema planned" not in exported
+    assert "broken json" not in exported
+    assert _parse_rc_txt(exported)['passage'] == 'Passage text.'
+
+
+@pytest.mark.parametrize("shape,keep_poles", [("TS01", True), ("TS03", False), ("", True)])
+def test_mixed_content_fields_follow_topic_shape_without_losing_poles(setup, shape, keep_poles):
+    registry, history, composer = setup
+    bp = compose(composer, shape=shape)
+    refined = dict(content_frame="How the repair guild kept its clocks running.",
+        tension_system=dict(primary=dict(axis="expertise and access",
+            poles=["trained guild members", "open apprenticeship"], fate="still contested")))
+    profile = registry.get("distractor_profile", bp.distractor_profile_id)
+    composer._apply_refined(bp, refined, [profile['primary'], profile['secondary']])
+    contract = PassageRenderer(registry, MockLLMClient())._contract(bp, [])
+    assert refined['content_frame'] in contract
+    assert ("PRIMARY TENSION:" in contract) == keep_poles
+    assert ("trained guild members, open apprenticeship" in contract) == keep_poles
+    if keep_poles:
+        assert "No opposing positions are required" not in contract
+
+
+def test_reciprocal_sibling_reds_produce_one_pair_review(setup, monkeypatch, capsys):
+    from rc_engine.similarity_screen import sibling_review_pairs
+    _, history, composer = setup
+    for rc_id in ("one", "two"):
+        insert_set(history, rc_id, compose(composer), RealizedStructure())
+    def screen(rc_id, passage, refs, ledger):
+        return dict(verdict="red", nearest=refs[0][0], shared=["same argument"], reason="repeated")
+    monkeypatch.setattr("rc_engine.similarity_screen.screen_passage", screen)
+    results, spent = screen_batch(history, ["two", "one"])
+    assert sibling_review_pairs(results) == [("one", "two")]
+    assert capsys.readouterr().out.count("[screen pair]") == 1
+    assert list(history.conn.execute("SELECT status, similarity_verdict FROM rc_sets")) == [
+        ("approved", "red"), ("approved", "red")]
+    assert spent == 0
+    assert sibling_review_pairs({"one": dict(verdict="red", nearest="prior-batch")}) == []

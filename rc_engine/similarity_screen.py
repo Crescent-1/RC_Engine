@@ -203,6 +203,19 @@ def select_references(candidate: dict, pool: list[dict], batch_ids: set[str],
     return [(r['rc_id'], r['passage']) for r in chosen[:limit]]
 
 
+def sibling_review_pairs(results: dict[str, dict]) -> list[tuple[str, str]]:
+    """One review item per flagged sibling pair, even for reciprocal reds.
+
+    A repeated pair is not two independently unusable passages. Reviewers can
+    retain the stronger member if it otherwise meets the quality requirements.
+    """
+    return sorted({tuple(sorted((rc_id, res['nearest'])))
+                   for rc_id, res in results.items()
+                   if res.get('verdict') == 'red'
+                   and isinstance(res.get('nearest'), str)
+                   and res['nearest'] != rc_id and res['nearest'] in results})
+
+
 def screen_batch(history, rc_ids: list[str]) -> tuple[dict[str, dict], float]:
     """Screen each set against a fixed snapshot including batch siblings.
 
@@ -258,6 +271,9 @@ def screen_batch(history, rc_ids: list[str]) -> tuple[dict[str, dict], float]:
         elif res["verdict"] == "unchecked":
             print(f"             {res['reason']}")
     history.conn.commit()
+    for left, right in sibling_review_pairs(results):
+        print(f"  [screen pair] {left} / {right}: review together; retain the stronger "
+              "usable set if appropriate. A mutual red is not a reason to discard both.")
     if ledger.spent_usd:
         print(f"  [screen] spend ${ledger.spent_usd:.4f}")
     return results, ledger.spent_usd
