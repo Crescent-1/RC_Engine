@@ -19,6 +19,8 @@ from .llm import BudgetExceeded, CostLedger, extract_json
 from .models import Blueprint, ParagraphPlan, SeedEssay
 from .fingerprints import move_signature_similarity
 from .registry import ComponentRegistry, posture_class
+from .voice_plan import (SCHEMA_FORMS, CLOSING_REGISTERS_BY_BEAT, closing_beats,
+                         FAMILY_FORBIDDEN_MOVES, plan_violations, schema_ids_for_shape)
 
 NL = chr(10)
 
@@ -52,6 +54,12 @@ not call for one, do NOT manufacture one, and do NOT phrase the topic as
 "whether X or Y" or "why X, and what it reveals about Y". Those two forms
 accounted for nearly half of this engine's back catalogue and are the single most
 recognisable thing about it.
+
+The ARGUMENT SCHEMA fixes what the reasoning must accomplish. The family,
+paragraph roles and beats are its implementation, not competing essay briefs.
+Give each paragraph a concrete content brief that performs its assigned beats
+and advances that schema. Do not invent an objection-and-rebuttal sequence
+unless this plan actually calls for one.
 
 Ground the topic in the SOURCE GENRE and the concrete particulars given. A
 technical piece should stay technical; a reconstructed episode should stay an
@@ -103,8 +111,15 @@ class BlueprintComposer:
     inflight_worker: str = ""
 
     def _eligible(self, ctype: str, tier: str,
-                  ban_families: set[str] | None = None) -> list[str]:
+                  ban_families: set[str] | None = None,
+                  allowed_ids: set[str] | None = None) -> list[str]:
         ids = self.registry.ids(ctype)
+        # Compatibility comes before recency: an exhausted recency window
+        # may fall back, but must never fall back to an incompatible form.
+        if allowed_ids is not None:
+            ids = [i for i in ids if i in allowed_ids]
+        if not ids:
+            return []
         if ctype == "family":
             floor = TIER_ORDER[tier]
             ids = [i for i in ids
@@ -486,9 +501,9 @@ class BlueprintComposer:
 
     def _sample_move_plan_checked(self, stance: dict | None,
                                   tier: str | None = None,
-                                  movement=None) -> list[str]:
+                                  movement=None, **voice) -> list[str]:
         """Draw a move plan that does not already collide with the corpus."""
-        plan = self._sample_move_plan(stance, tier, movement)
+        plan = self._sample_move_plan(stance, tier, movement, **voice)
         for attempt in range(1, config.MOVE_PLAN_PRECHECK_TRIES):
             hit = self._plan_collides(plan)
             if hit is None:
@@ -496,7 +511,7 @@ class BlueprintComposer:
             worst, rc_id = hit
             print(f"  [move-plan] planned grammar near {rc_id} @ {worst:.2f} "
                   f"- resampling {attempt}/{config.MOVE_PLAN_PRECHECK_TRIES - 1} ($0)")
-            plan = self._sample_move_plan(stance, tier, movement)
+            plan = self._sample_move_plan(stance, tier, movement, **voice)
         return plan
 
     def _plan_length(self, tier: str | None, movement) -> int:
@@ -579,7 +594,9 @@ class BlueprintComposer:
         return out
 
     def _sample_move_plan(self, stance: dict | None,
-                          tier: str | None = None, movement=None) -> list[str]:
+                          tier: str | None = None, movement=None,
+                          schema_id: str = "", ending_id: str = "",
+                          posture: str = "", family_id: str = "") -> list[str]:
         """Prescribe the passage's rhetorical beats, rarest-first.
 
         Replaces the ban list that shipped on 2026-08-21 and did not work. The
@@ -598,15 +615,24 @@ class BlueprintComposer:
         shares, n = self._move_frequencies()
         other_shares = self._other_client_move_shares()
         banned = set((stance or {}).get("forbidden_beats", []))
+        if schema_id:
+            banned.update(FAMILY_FORBIDDEN_MOVES.get(family_id, set()))
 
         def pick(pool: list[str], k: int, taken: set[str]) -> list[str]:
             out: list[str] = []
             for _ in range(k):
                 cands = [m for m in pool if m not in taken and m not in banned]
+                if not cands and schema_id:
+                    break  # fewer useful operations beats repeating or violating the stance
                 if not cands:
                     cands = [m for m in pool if m not in taken] or list(pool)
                 weights = [max(0.01, (1.0 - shares.get(m, 0.0))
                                ** config.MOVE_PLAN_RARITY_POWER) for m in cands]
+                if schema_id:
+                    # The reference distribution is uneven. Recency pressure
+                    # should not turn a rare stylistic trick into a duty.
+                    weights = [w * config.EXAM_MOVE_SHARES.get(m, 0.08)
+                               for w, m in zip(weights, cands)]
                 if other_shares:
                     # The house voice is one voice across every client: a beat
                     # other clients' passages lean on is a softer rarity here.
@@ -621,13 +647,28 @@ class BlueprintComposer:
         total = self._plan_length(tier, movement)
         taken: set[str] = set()
         opening = pick(config.MOVE_GROUPS["opening"], 1, taken)
-        closing = pick(config.MOVE_GROUPS["closing"], 1, taken)
-        middles = pick(config.MOVE_GROUPS["middle"], max(1, total - 2), taken)
+        close_pool = config.MOVE_GROUPS["closing"]
+        if schema_id:
+            close_pool = [m for m in close_pool
+                          if m in closing_beats(ending_id, posture, family_id) and m not in banned]
+            if not close_pool:
+                raise CompositionExhausted("ending and stance have no compatible closing beat")
+        closing = pick(close_pool, 1, taken)
+        required = list(SCHEMA_FORMS[schema_id]["required_middle"]) if schema_id else []
+        if banned & set(required):
+            raise CompositionExhausted("stance forbids a defining operation of the schema")
+        taken.update(required)
+        middle_pool = config.MOVE_GROUPS["middle"]
+        if schema_id:
+            from .voice_plan import middle_moves
+            middle_pool = [m for m in middle_pool if m in middle_moves(schema_id)]
+        middles = required + pick(middle_pool, max(0, total - 2 - len(required)), taken)
         return opening + middles + closing
 
     def sample_skeleton(self, tier: str,
                         ban_families: set[str] | None = None,
-                        ban_movements: set[str] | None = None) -> dict:
+                        ban_movements: set[str] | None = None,
+                        argument_schema_id: str = "") -> dict:
         """Returns {"family": ..., "persona": ..., ...} or raises.
 
         ban_families / ban_movements: slot-local bans from a prior movement
@@ -666,7 +707,21 @@ class BlueprintComposer:
             ids: dict[str, str] = {}
             ok = True
             for ctype in order:
-                pool = self._eligible(ctype, tier, ban_families=ban_f)
+                forms = SCHEMA_FORMS.get(argument_schema_id, {})
+                allowed = forms.get(ctype)
+                if ctype == "render_stance" and allowed == set():
+                    ids[ctype] = ""  # the schema itself supplies the writing stance
+                    continue
+                pool = self._eligible(ctype, tier, ban_families=ban_f,
+                                      allowed_ids=allowed)
+                if ctype == "render_stance" and argument_schema_id:
+                    required = set(forms["required_middle"])
+                    endings = closing_beats(ids["ending"], self.registry.posture_of(ids["family"]), ids["family"])
+                    pool = [i for i in pool
+                            if not required.intersection(self.registry.get(ctype, i)["forbidden_beats"])
+                            and endings.difference(self.registry.get(ctype, i)["forbidden_beats"])
+                            and (i != "RS04" or self.registry.get("persona", ids["persona"]).get(
+                                "pronoun_person") == "first_singular")]
                 # A share ceiling has to steer BOTH ways. Permitting a cohort
                 # on the winning flip and then letting it compete against the
                 # whole pool multiplies the two probabilities: measured
@@ -881,7 +936,7 @@ class BlueprintComposer:
         shape_id = self.rng.choices(eligible, weights=weights, k=1)[0]
         return info, shape_id
 
-    def sample_argument_schema(self) -> str:
+    def sample_argument_schema(self, eligible: list[str] | None = None) -> str:
         """Draw what the argument will DO, weighted to the exam's measured
         distribution and damped by recent use.
 
@@ -894,16 +949,26 @@ class BlueprintComposer:
         hard exclusion window, for the same reason: a window would force
         uniformity on a distribution that is deliberately uneven.
         """
-        ids = list(config.ARGUMENT_SCHEMAS)
+        ids = list(config.ARGUMENT_SCHEMAS) if eligible is None else list(eligible)
+        if not ids:
+            raise CompositionExhausted("no argument schema fits the source's topic shape")
         try:
-            counts = self.history.usage_counts_trailing(
-                'argument_schema', config.ARGUMENT_SCHEMA_WINDOW)
+            measured = getattr(self.history, "argument_schema_counts", None)
+            counts = (measured(config.ARGUMENT_SCHEMA_WINDOW) if measured else
+                      self.history.usage_counts_trailing(
+                          'argument_schema', config.ARGUMENT_SCHEMA_WINDOW))
         except Exception:                                    # noqa: BLE001
             counts = {}
         lam = config.ARGUMENT_SCHEMA_DECAY_LAMBDA
         weights = [config.ARGUMENT_SCHEMAS[i]['exam_share'] * lam ** counts.get(i, 0)
                    for i in ids]
-        weights = self._global_pressure("argument_schema", ids, weights)
+        measured = getattr(self.history, "argument_schema_counts", None)
+        if measured:
+            other = measured(config.GLOBAL_USAGE_WINDOW, scope="others")
+            weights = [w * config.GLOBAL_DECAY_LAMBDA ** other.get(i, 0)
+                       for i, w in zip(ids, weights)]
+        else:
+            weights = self._global_pressure("argument_schema", ids, weights)
         if not any(weights):          # every schema saturated: fall back flat
             weights = [1.0] * len(ids)
         return self.rng.choices(ids, weights=weights, k=1)[0]
@@ -913,8 +978,22 @@ class BlueprintComposer:
                 ban_movements: set[str] | None = None,
                 seed_info: dict | None = None,
                 topic_shape_id: str = "") -> Blueprint:
-        ids = self.sample_skeleton(tier, ban_families=ban_families,
-                                   ban_movements=ban_movements)
+        # 2026-09-12: choose the reasoning purpose before content exists.
+        # Retry incompatible/exhausted schemas locally, never after a paid
+        # refiner has already committed to a different argument.
+        schemas = schema_ids_for_shape(topic_shape_id)
+        ids = None
+        while schemas:
+            schema_id = self.sample_argument_schema(schemas)
+            try:
+                ids = self.sample_skeleton(tier, ban_families=ban_families,
+                                           ban_movements=ban_movements,
+                                           argument_schema_id=schema_id)
+                break
+            except CompositionExhausted:
+                schemas.remove(schema_id)
+        if ids is None:
+            raise CompositionExhausted("no compatible schema/family remains for this source and tier")
         family = self.registry.get("family", ids["family"])
         rhythm = self.registry.get("rhythm", ids["rhythm"])
         ending = self.registry.get("ending", ids["ending"])
@@ -923,8 +1002,14 @@ class BlueprintComposer:
 
         movement = self._scale_lengths(self._build_movement(family, rhythm), tier)
         lo, hi = config.TIER_PARAMS[tier]["instability_range"]
-        reg_ids = [r[0] for r in config.CLOSING_REGISTERS]
-        reg_wts = [r[1] for r in config.CLOSING_REGISTERS]
+        stance = self.registry.get("render_stance", ids["render_stance"]) if ids.get("render_stance") else None
+        move_plan = self._sample_move_plan_checked(
+            stance, tier, movement, schema_id=schema_id,
+            ending_id=ids["ending"], posture=family["closing_posture"], family_id=ids["family"])
+        registers = [r for r in config.CLOSING_REGISTERS
+                     if r[0] in CLOSING_REGISTERS_BY_BEAT[move_plan[-1]]]
+        reg_ids = [r[0] for r in registers]
+        reg_wts = [r[1] for r in registers]
         closing_register = self.rng.choices(reg_ids, weights=reg_wts, k=1)[0]
 
         bp = Blueprint(
@@ -935,12 +1020,10 @@ class BlueprintComposer:
             distractor_profile_id=ids["distractor_profile"], topology_id=ids["topology"],
             render_stance_id=ids.get("render_stance", ""),
             topic_shape_id=topic_shape_id,
-            argument_schema_id=self.sample_argument_schema(),
+            argument_schema_id=schema_id,
+            voice_plan_version="2026-09-12",
             seed_genre=(seed_info or {}).get("genre", ""),
-            move_plan=self._sample_move_plan_checked(
-                self.registry.get("render_stance", ids["render_stance"])
-                if ids.get("render_stance") else None,
-                tier, movement),
+            move_plan=move_plan,
             instability=round(self.rng.uniform(lo, hi), 2),
             aperture=ending["aperture"], movement=movement,
             letter_plan=self._letter_plan(),
@@ -950,6 +1033,10 @@ class BlueprintComposer:
             seed={"doc_id": seed.doc_id, "url": seed.url, "title": seed.title,
                   "domain_hint": seed.domain_hint},
         )
+
+        issues = plan_violations(bp, self.registry)
+        if issues:
+            raise CompositionExhausted("incompatible voice plan: " + "; ".join(issues))
 
         # ---- LLM refinement (fills content, never structure) ----
         model, max_tokens = config.STAGE_CONFIG["refine"][tier]
@@ -985,11 +1072,11 @@ class BlueprintComposer:
                        mechanisms: list[str]) -> Blueprint:
         bp.topic = refined.get("topic", "") or bp.topic
         bp.tension_system = refined.get("tension_system") or {}
-        if not bp.tension_system and refined.get("content_frame"):
+        if refined.get("content_frame"):
             # Shapes that do not run on two poles still need their material
             # fixed somewhere the renderer will read. tension_system is
             # consumed with `or {}` downstream, so an absent one is safe.
-            bp.tension_system = {"content_frame": str(refined["content_frame"])}
+            bp.tension_system["content_frame"] = str(refined["content_frame"])
         bp.trap_map = self._sanitize_traps(refined.get("trap_map", []), mechanisms,
                                            len(bp.movement))
         gists = {b.get("para"): b.get("gist", "") for b in refined.get("paragraph_briefs", [])}
@@ -1096,6 +1183,14 @@ class BlueprintComposer:
 
     def _refine_user_prompt(self, bp: Blueprint, family: dict, revelation: dict,
                             ending: dict, profile: dict, seed: SeedEssay) -> str:
+        schema = config.ARGUMENT_SCHEMAS.get(bp.argument_schema_id)
+        schema_part = (f"ARGUMENT SCHEMA: {bp.argument_schema_id}\n"
+                       f"  {schema['directive']}\n") if schema else ""
+        stance_part = ""
+        if bp.render_stance_id:
+            stance = self.registry.get("render_stance", bp.render_stance_id)
+            stance_part = f"WRITING STANCE: {stance['name']} — {stance['frame']}\n"
+        allocation = self.allocate_beats(bp.move_plan, bp.movement) if bp.move_plan else []
         shape_part = ""
         if bp.topic_shape_id:
             sh = self.registry.get("topic_shape", bp.topic_shape_id)
@@ -1126,7 +1221,10 @@ class BlueprintComposer:
         seed_part = shape_part + genre_part + seed_part
         movement_lines = "\n".join(
             f"  para {p.para}: {p.function} ({p.words_label} words)"
-            for p in bp.movement)
+            + ("; operations: " + "; ".join(
+                f"{m} — {config.RHETORICAL_MOVES[m]}" for m in allocation[i])
+               if i < len(allocation) and allocation[i] else "")
+            for i, p in enumerate(bp.movement))
         # topical divergence up front (~150 input tokens on the cheap refine
         # model) so passages stop colliding on the embedding channel AFTER the
         # expensive render call; includes recently rejected topics on purpose
@@ -1137,6 +1235,7 @@ class BlueprintComposer:
                           "something semantically distant from ALL of them:\n  - "
                           + "\n  - ".join(avoid) + "\n")
         return f"""STRUCTURAL BLUEPRINT (fixed — invent content for it):
+{schema_part}{stance_part}Build the paragraph briefs as ONE argument implementing this plan.
 ARGUMENT FAMILY: {family['name']} — {family['core']}
 Difficulty must come from: {family['difficulty_source']}
 PARAGRAPH MOVEMENT PLAN:

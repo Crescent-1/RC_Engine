@@ -60,6 +60,9 @@ class Blueprint:
     # NOT in component_ids: that property feeds combo_hash, and adding a key
     # would invalidate every stored hash at once.
     argument_schema_id: str = ""
+    # Empty on old plans. New coherent contracts can be distinguished from
+    # independently sampled pre-fix plans in before/after corpus reports.
+    voice_plan_version: str = ""
     seed_genre: str = ""         # from seed_classify; "" = never classified
     # Prescribed rhetorical beats (labels from config.RHETORICAL_MOVES), in
     # order. A PLAN, not a ban list — see BlueprintComposer._sample_move_plan.

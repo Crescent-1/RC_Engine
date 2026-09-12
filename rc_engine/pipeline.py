@@ -546,9 +546,14 @@ class RCPipeline:
             judge = {"scores": {}, "average": 0.0, "verdict": "skipped_budget"}
 
         avg = float(judge.get("average") or 0.0)
+        from .voice_plan import review_reasons
+        voice_reasons = review_reasons(bp, realized)
+        notes.extend(f"voice review: {reason}" for reason in voice_reasons)
         posture_run = any(f.startswith("posture run") for f in report.corpus_flags)
         if solver_dispute:
             status = "solver_dispute"
+        elif voice_reasons:
+            status = "needs_review"
         elif length_bias["biased"]:
             # systematic within-set length tell (correct is longest in >2/6, or the
             # thesis answer is longest) — never auto-approve; a human decides.
@@ -621,6 +626,7 @@ class RCPipeline:
                 "UPDATE rc_sets SET seed_genre = ?, topic_shape = ? WHERE rc_id = ?",
                 (bp.seed_genre or "", bp.topic_shape_id or "", rc_id))
             self.history.conn.commit()
+            self.history.record_voice_review(rc_id, voice_reasons)
             self.history.record_fingerprint(fp)
             self.history.mark_shipped(bp, rc_id)
             self.history.set_passage_status(bp.blueprint_id, "consumed")
@@ -674,6 +680,10 @@ class RCPipeline:
         f.stylometry["_closing_beat_ok"] = 1 if realized.closing_beat_ok else 0
         f.stylometry["_middle_retention"] = realized.middle_retention
         f.stylometry["_gratuitous_moves"] = len(realized.gratuitous_moves)
+        f.stylometry["_planned_schema"] = bp.argument_schema_id
+        f.stylometry["_argument_schema"] = realized.argument_schema
+        f.stylometry["_argument_schema_secondary"] = realized.argument_schema_secondary
+        f.stylometry["_voice_plan_version"] = bp.voice_plan_version
 
     def _pool_is_single_kind(self, tier: str) -> bool:
         """Can this tier's seed pool offer any alternative content kind?

@@ -393,7 +393,12 @@ async function openRC(rcId) {
        score ${num(r.average_score, 1)} · f1 ${num(r.compliance_f1, 2)} ·
        novelty ${num(r.novelty_composite, 2)} · ${usd(r.total_cost_usd)} ·
        ${esc(r.provider || "?")}`;
-    $("#modal-body").textContent = r.rc_text || "(no text)";
+    let voiceReasons = [];
+    try { voiceReasons = JSON.parse(r.voice_review_json || "[]"); } catch (_) {}
+    const voiceNote = Array.isArray(voiceReasons) && voiceReasons.length
+      ? `Voice review:\n${voiceReasons.map(x => `• ${x}`).join("\n")}\n\n`
+      : "";
+    $("#modal-body").textContent = voiceNote + (r.rc_text || "(no text)");
     $("#modal").hidden = false;
   } catch (e) { toast(e.message, "bad"); }
 }
