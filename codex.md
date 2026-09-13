@@ -5,6 +5,43 @@ go first; dates use Asia/Calcutta time. `AGENTS.md` instructs Codex to update th
 file whenever it changes project files. Entries are task summaries, not a record
 of every intermediate edit. Git remains the source for exact diffs.
 
+## 2026-09-13 — Validation, rollout and pilot preparation (plan sections 7–8), by Claude Code
+
+- `2026-09-13-cat-pyq-validation.md` records:
+  - what exists per plan section;
+  - the five required checks;
+  - a seeded five-policy simulation;
+  - rollout and rollback;
+  - the pilot protocol with a cost estimate;
+  - definition-of-done status.
+- `tools/cat_pyq/pilot_review_pack.py` builds the blinded review pack.
+  - It reads the DB read-only and refuses to write inside the repository.
+  - It mixes pilot and legacy sets of the same tiers, strips RC ids and source
+    lines, pre-lists negated questions in `review_sheet.csv`, and writes a
+    separate key.
+  - Tests: `tests/test_pilot_review_pack.py` (3).
+- `simulate_policies.py` accepts `legacy` as a policy name, since PowerShell drops
+  empty arguments; its default now covers all five policies.
+- README "Generation policies" covers s1/s2/f1 and the new tools. CLAUDE.md gains
+  the `policy-report` and opt-in commands, and the rule that medium/hard changes
+  go into a new policy version.
+- Validation:
+  - `python -m pytest tests -q`: 420 passed.
+  - `selftest`: passed.
+  - Isolated CLI dry runs of legacy, q1, s1, s2 and f1 (f1 with `--workers 2`)
+    into one scratch DB, reported by `policy-report`: all batches shipped.
+  - Simulation table in the validation doc.
+- Not done: the paid pilot, which needs explicit authorization, and the human
+  review it feeds. Every policy stays off by default until that review.
+- Known leftovers:
+  - `.git/worktrees/wt3` (a stale worktree I created for the section-3 commit
+    check) cannot be deleted from here: a sandbox ACL denies delete. Git warns on
+    commit, harmlessly. Remove it by hand.
+  - The pre-existing parallel sibling-topology race is flagged as a separate task.
+- `2026-09-13-cat-pyq-engine-analysis.md` and `2026-09-13-cat-pyq-findings-handoff.md`
+  stay uncommitted: they quote short PYQ fragments, and the plan keeps PYQ text out
+  of git. The baseline and labels files that superseded them are committed.
+
 ## 2026-09-13 — Source-supported facts `cat-pyq-f1` (plan section 6), by Claude Code
 
 - Registered policy `cat-pyq-f1`, cumulative on `s2`, medium and hard only,
