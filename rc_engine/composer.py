@@ -1130,8 +1130,8 @@ class BlueprintComposer:
         mechanisms = [profile["primary"], profile["secondary"]]
         base_user = self._refine_user_prompt(bp, family, revelation, ending, profile, seed)
         refined = self._refine_with_retry(bp, model, max_tokens, base_user,
-                                          mechanisms, ledger)
-        return self._apply_refined(bp, refined, mechanisms)
+                                          mechanisms, ledger, seed)
+        return self._apply_refined(bp, refined, mechanisms, seed)
 
     def refine_only(self, bp: Blueprint, seed: SeedEssay, ledger: CostLedger,
                     avoid_topics: list[str] | None = None) -> Blueprint:
@@ -1152,11 +1152,32 @@ class BlueprintComposer:
                      "domain, far from ALL of these:\n  - "
                      + "\n  - ".join(t for t in avoid_topics if t))
         refined = self._refine_with_retry(bp, model, max_tokens, user,
-                                          mechanisms, ledger)
-        return self._apply_refined(bp, refined, mechanisms)
+                                          mechanisms, ledger, seed)
+        return self._apply_refined(bp, refined, mechanisms, seed)
+
+    def _apply_facts(self, bp: Blueprint, refined: dict, seed) -> None:
+        """Section 6 (2026-09-13): keep the refiner's candidate facts that survive
+        structural validation, and swap planned beats the survivors cannot carry.
+        Only rejection REASONS are recorded; source text never reaches a log."""
+        from .source_facts import replace_unsupported_beats, validate
+        facts, reasons = validate(refined.get("source_facts") or [], seed)
+        bp.source_facts = facts
+        notes = [f"source facts: {len(facts)} kept"
+                 + (f", {len(reasons)} rejected ({'; '.join(sorted(set(reasons)))})"
+                    if reasons else "")]
+        if bp.move_plan:
+            policy = policy_for_blueprint(bp)
+            stance = (self.registry.get("render_stance", bp.render_stance_id)
+                      if bp.render_stance_id else {})
+            forbidden = (set(stance.get("forbidden_beats", []))
+                         | policy.family_forbidden_moves(bp.family_id))
+            bp.move_plan, swapped = replace_unsupported_beats(bp.move_plan, facts, forbidden)
+            notes.extend(swapped)
+        bp.source_fact_notes = notes
+        print(f"  [facts] {notes[0]}" + (f"; {'; '.join(notes[1:])}" if notes[1:] else ""))
 
     def _apply_refined(self, bp: Blueprint, refined: dict,
-                       mechanisms: list[str]) -> Blueprint:
+                       mechanisms: list[str], seed=None) -> Blueprint:
         bp.topic = refined.get("topic", "") or bp.topic
         bp.tension_system = refined.get("tension_system") or {}
         if refined.get("content_frame"):
@@ -1169,23 +1190,30 @@ class BlueprintComposer:
         gists = {b.get("para"): b.get("gist", "") for b in refined.get("paragraph_briefs", [])}
         for p in bp.movement:
             p.gist = gists.get(p.para, "")
+        if policy_for_blueprint(bp).source_facts:
+            self._apply_facts(bp, refined, seed)
         return bp
 
     def _refine_with_retry(self, bp: Blueprint, model: str, max_tokens: int,
                            base_user: str, mechanisms: list[str],
-                           ledger: CostLedger) -> dict:
+                           ledger: CostLedger, seed=None) -> dict:
         """One transient empty/truncated/unparseable refine response must never
         crash a batch. Retry with a nudge; if all attempts fail, fall back to a
         deterministic minimal plan so the blueprint is still renderable (the
         structure — the part that matters for novelty — is already fixed)."""
         last_err = "no response"
         user = base_user
-        system = policy_for_blueprint(bp).system_prompt("refine", REFINE_SYSTEM)
+        policy = policy_for_blueprint(bp)
+        system = policy.system_prompt("refine", REFINE_SYSTEM)
+        context = {"blueprint": bp, "mechanisms": mechanisms}
+        if policy.source_facts:
+            from .source_facts import retained_excerpt
+            context["seed_excerpt"] = retained_excerpt(getattr(seed, "text", "") if seed else "")
         for attempt in range(1, config.MAX_REFINE_ATTEMPTS + 1):
             try:
                 text, truncated = self.llm.call(
                     ledger, "refine", model, max_tokens, system, user,
-                    context={"blueprint": bp, "mechanisms": mechanisms})
+                    context=context)
             except BudgetExceeded:
                 raise
             except Exception as e:                       # API hiccup on this attempt

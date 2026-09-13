@@ -296,7 +296,7 @@ class MockLLMClient:
              "invited_misreading": "the ending resolves more than it does",
              "mechanism": mechs[0]},
         ]
-        return json.dumps({
+        out = {
             "topic": "the credibility of institutional expertise (mock topic)",
             "tension_system": {
                 "primary": {"axis": "expertise versus lived experience", "poles": ["expert", "practitioner"], "fate": "left_open"},
@@ -306,7 +306,15 @@ class MockLLMClient:
             "paragraph_briefs": briefs,
             "trap_map": traps,
             "title_hint": "Mock Essay on Expertise",
-        })
+        }
+        if "seed_excerpt" in ctx:
+            # Source-facts policies (2026-09-13): propose each short sentence of
+            # the excerpt as its own claim, so dry runs exercise validation.
+            sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", ctx["seed_excerpt"])
+                         if 3 <= len(s.split()) <= 40]
+            out["source_facts"] = [{"span": s, "claim": s, "attribution": "",
+                                    "qualification": ""} for s in sentences[:4]]
+        return json.dumps(out)
 
     def _render(self, ctx) -> str:
         bp = ctx["blueprint"]
@@ -342,6 +350,8 @@ class MockLLMClient:
             "closing_posture_guess": ctx.get("planned_posture", "resolution_qualified"),
             "final_line_is_aphorism": False,
             "notes": "mock compliance pass",
+            # the mock renderer invents no facts, so there is nothing to trace
+            **({"fact_trace": []} if "source_facts" in ctx else {}),
         })
 
     def _seed_classify(self, ctx) -> str:

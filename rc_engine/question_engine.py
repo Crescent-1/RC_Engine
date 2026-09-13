@@ -636,7 +636,8 @@ _SIGNPOST_PATTERNS = [
     (r"\bin (?:this|the) (?:passage|essay|piece)\b", "refers to itself as a text"),
 ]
 
-def texture_report(passage: str, permissions: list[str] | None = None) -> dict:
+def texture_report(passage: str, permissions: list[str] | None = None,
+                   supported_claims: list[str] | None = None) -> dict:
     """Free scan for architecture signposting and fabricated scholarly texture.
 
     Both are ways generated prose fakes the surface of serious writing: the
@@ -653,6 +654,11 @@ def texture_report(passage: str, permissions: list[str] | None = None) -> dict:
     a scope-setting plan may refer to its own inquiry, a content-enumerating
     plan may number the steps or problems of its subject, and devices used
     without a grant are reported too.
+
+    supported_claims: passage claims the auditor traced to source-supported
+    facts with a correct attribution (source_facts.supported_claims). A
+    fabrication warning is silenced only when its matched text sits inside one
+    of them — never because a number or surname appears in a whitelist.
     """
     import re as _re
 
@@ -673,8 +679,15 @@ def texture_report(passage: str, permissions: list[str] | None = None) -> dict:
     if permissions is not None:
         from .passage_permissions import texture_findings
         warnings.extend(f"signposting: {w}" for w in texture_findings(passage, list(grants)))
+    supported = [" ".join(c.lower().split()) for c in (supported_claims or []) if c]
     for pat, label in _FABRICATION_PATTERNS:
-        m = _re.search(pat, passage)
+        if supported:
+            # A supported match must not hide a LATER, unsupported one.
+            m = next((x for x in _re.finditer(pat, passage)
+                      if not any(" ".join(x.group(0).lower().split()) in c for c in supported)),
+                     None)
+        else:
+            m = _re.search(pat, passage)
         if m:
             warnings.append(
                 f"possible fabricated scholarship: {label} - {m.group(0)!r}")

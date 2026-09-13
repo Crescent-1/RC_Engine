@@ -133,13 +133,18 @@ class ComplianceAuditor:
             from .passage_permissions import grants_for, permissions_block
             context["permissions"] = grants_for(bp, self.registry)
             user = permissions_block(context["permissions"]) + "\n\n" + user
+        if policy.source_facts:
+            from .source_facts import facts_block
+            context["source_facts"] = [f["id"] for f in bp.source_facts]
+            user = facts_block(bp.source_facts) + "\n\n" + user
         user = policy.user_prompt("compliance", user)
         text, _ = self.llm.call(ledger, "compliance", model, max_tokens,
                                 policy.system_prompt("compliance", COMPLIANCE_SYSTEM), user,
                                 context=context)
         data = extract_json(text)
         return self._score(data, passage, bp, realized_moves or [],
-                           grants=context.get("permissions"))
+                           grants=context.get("permissions"),
+                           trace_facts=policy.source_facts)
 
     @staticmethod
     def _final_line_is_bound(passage: str) -> str | None:
@@ -277,7 +282,8 @@ class ComplianceAuditor:
 
     def _score(self, data: dict, passage: str, bp: Blueprint,
                realized_moves: list[str] | None = None,
-               grants: list[str] | None = None) -> RealizedStructure:
+               grants: list[str] | None = None,
+               trace_facts: bool = False) -> RealizedStructure:
         n = len(bp.movement)
         policy = policy_for_blueprint(bp)
         postures = policy.closing_postures(self.registry)
@@ -538,12 +544,29 @@ class ComplianceAuditor:
                     + (f" (it would need: {GRANT_TEXT[grant]})" if grant else
                        " — announcing the passage's own argumentative moves is never permitted"))
 
+        # ---- source-supported facts (2026-09-13, section 6) -------------------
+        # Every claim the prose presents as real is traced to fact ids by the
+        # auditor; what it cannot trace becomes a repair directive and routes
+        # the set to review. Well-known references stay allowed (rule 9).
+        trace: list[dict] = []
+        unsupported_claims: list[dict] = []
+        if trace_facts:
+            from .source_facts import unsupported
+            trace = [t for t in (data.get("fact_trace") or []) if isinstance(t, dict)][:20]
+            unsupported_claims = unsupported(trace, bp.source_facts)
+            for u in unsupported_claims[:4]:
+                directives.append(
+                    f"the passage presents \"{u['claim']}\" as real without support in "
+                    f"SOURCE-SUPPORTED FACTS: remove it, or restate it from a listed fact "
+                    f"with that fact's attribution and qualification")
+
         f1 = round(f1 - (0.0 if (register_ok and posture_ok) else 0.05)
                    - (0.0 if opening_ok else 0.04)
                    - (0.0 if closing_ok else 0.04)
                    - (0.0 if commitment_ok else 0.04)
                    - (0.0 if middle_ok else 0.06)
-                   - (0.04 if found else 0.0), 3)
+                   - (0.04 if found else 0.0)
+                   - (0.04 if unsupported_claims else 0.0), 3)
 
         return RealizedStructure(
             paragraph_functions=functions, matches=matches,
@@ -560,4 +583,6 @@ class ComplianceAuditor:
             middle_beats_ok=middle_ok,
             middle_retention=round(middle_retention, 3),
             gratuitous_moves=gratuitous,
-            unpermitted_devices=found)
+            unpermitted_devices=found,
+            fact_trace=trace,
+            unsupported_claims=unsupported_claims)

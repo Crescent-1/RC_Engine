@@ -5,6 +5,69 @@ go first; dates use Asia/Calcutta time. `AGENTS.md` instructs Codex to update th
 file whenever it changes project files. Entries are task summaries, not a record
 of every intermediate edit. Git remains the source for exact diffs.
 
+## 2026-09-13 — Source-supported facts `cat-pyq-f1` (plan section 6), by Claude Code
+
+- Registered policy `cat-pyq-f1`, cumulative on `s2`, medium and hard only,
+  not enabled by default.
+- `rc_engine/source_facts.py`:
+  - Refine proposes at most 8 facts from the same retained excerpt it already
+    reads (first 550 words). No wider scraping and no new model call.
+  - Each kept fact stores an id, source URL and doc id, the excerpt's SHA-256
+    digest, exact span offsets, span, claim, attribution and qualification.
+  - Structural rejection when:
+    - the span is not in the excerpt, or has fewer than 3 or more than 40
+      words;
+    - the claim adds a figure;
+    - the claim drops or inverts a negation (including "denied");
+    - the claim drops a hedge with no qualification;
+    - the claim names someone absent from span and attribution;
+    - the attribution is not near the span;
+    - a quotation is altered.
+- Fact beats NEWS_DATA_HOOK, STUDY_WALKTHROUGH, EXPERT_AS_SPINE and
+  QUOTE_CLOSE become plannable.
+  - A plan whose surviving facts cannot carry one swaps it for its
+    source-independent counterpart, or drops it if that would repeat a beat or
+    break the stance. Nothing is fabricated to complete a beat.
+- Renderer:
+  - SOURCE-SUPPORTED FACTS block in the contract.
+  - Rule 9 amended by a validated rewrite. Real-reference permissions are
+    kept; the block adds nothing beyond itself.
+- Compliance traces every factual claim to fact ids (source_fact /
+  common_knowledge / unsupported, plus attribution).
+  - Unsupported claims become repair directives, an f1 −0.04 and a
+    `needs_review` route.
+  - `texture_report` silences a fabrication warning only when that matched
+    text sits inside a traced, correctly attributed claim.
+  - Fixed during testing: a suppressed first match no longer hides a later
+    match of the same pattern.
+- Evidence lives on the stored blueprint for resume.
+  - Exports omit it.
+  - Logs and notes carry only counts and rejection reasons, never source
+    text.
+  - Elite receives no fields, no prompt text and no extra call.
+- Tests: `tests/test_source_facts.py` (19), using an invented excerpt.
+  - Adversarial fixtures from the plan: altered figure, accurate substring
+    used in a false claim, denied claim restated, qualification dropped,
+    misattributed quotation, altered quotation, invented span, unnamed
+    person; short and missing seeds; resumed plans.
+  - Beat fallback, trace handling, suppression, routing, and exports/elite.
+  - Elite golden with `f1` on the side. Mutation check: 7 breaks, all caught
+    after strengthening the routing test.
+- `simulate_policies.py --invented-seeds` feeds invented excerpts.
+  - 40 medium + 40 hard under f1: shipped 37/53 and 32/73, 4 facts per set,
+    fact-beat swaps 2 medium / 8 hard, 0 composition failures.
+  - Hard exam-form share was 0.406 on 32 ships, against the 35% draw
+    ceiling. Earlier runs gave 0.343 and 0.308, so this is within sampling
+    noise but should be watched.
+- Validation: `python -m pytest tests -q` 417 passed; `selftest` passed.
+- Limits:
+  - Entailment and attribution are semantic and rest on the compliance read;
+    no deterministic check can prove a claim true.
+  - The mock proposes unattributed facts, so attributed-fact beats were
+    exercised only in unit tests.
+  - Refine output grows (~60-80 tokens a fact) against unchanged max_tokens;
+    truncation is a pilot measurement.
+
 ## 2026-09-13 — Structure releases `cat-pyq-s1` / `cat-pyq-s2` (plan section 5), by Claude Code
 
 - Two registered policies, neither enabled by default. Both are cumulative on
