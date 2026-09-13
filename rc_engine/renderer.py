@@ -130,19 +130,27 @@ class PassageRenderer:
             raise TruncatedRender("render returned an empty response")
         return text.strip()
 
-    def _commitment_instruction(self, posture: str) -> str:
+    def _commitment_instruction(self, posture: str, policy=None) -> str:
         """Say where the passage should END on the commitment scale.
 
         The scale was measured and weighted but never targeted: across 74 real
         curves the planned posture moved the realised endpoint by a spread of
         just 0.20, and refusal_suspended ended at a median of 0.93. Naming the
         band is the cheap half of the fix; ComplianceAuditor audits it.
+
+        policy: bands come from the plan's policy (2026-09-13: the neutral
+        exposition is a policy posture); None = legacy.
         """
-        band = config.POSTURE_END_COMMITMENT.get(posture)
+        bands = policy.posture_end_commitment() if policy is not None else config.POSTURE_END_COMMITMENT
+        band = bands.get(posture)
         if not band:
             return ""
         lo, hi = band
-        if hi <= 0.5:
+        if posture.startswith("exposition"):
+            where = ("Close on the account itself — the classification, the process "
+                     "or the state of knowledge the passage set out — firmly held, "
+                     "but with no verdict on a dispute the passage never staged")
+        elif hi <= 0.5:
             where = ("The passage must NOT arrive at a settled answer to the "
                      "question it opened. Argue the refusal as the correct "
                      "verdict, but do not let the closing paragraph read as a "
@@ -307,6 +315,14 @@ class PassageRenderer:
         # of real exam passages. Everything this session actually moved was
         # moved by prescribing a thing, not by forbidding one (the opening beat
         # went 2/9 to 5/5 the moment it was stated positionally).
+        # Section 5.3 (2026-09-13): the plan's grants, stated once and in the
+        # same words the auditor and texture_report use. Empty for every plan
+        # whose policy does not use permissions, which leaves the prompt as it was.
+        permissions_part = ""
+        if policy.passage_permissions:
+            from .passage_permissions import grants_for, permissions_block
+            permissions_part = permissions_block(grants_for(bp, self.registry)) + NL
+
         schema = policy.argument_schemas().get(bp.argument_schema_id or "")
         schema_block = ""
         if schema:
@@ -354,10 +370,10 @@ READER TRAPS (build these into the prose):
 {chr(10).join(trap_lines)}
 
 ENDING DIRECTIVE: {ending['name']} — {ending['gesture']}. Aperture: {ending['aperture']}.
-CLOSING POSTURE (hard requirement): {self.registry.closing_postures[family['closing_posture']]}
-{self._commitment_instruction(family['closing_posture'])}
+CLOSING POSTURE (hard requirement): {policy.closing_postures(self.registry)[family['closing_posture']]}
+{self._commitment_instruction(family['closing_posture'], policy)}
 FINAL SENTENCE: {self._register_instruction(bp)}
-
+{permissions_part}
 FORBIDDEN WORDS/PHRASES (never use any of these): {', '.join(forbidden)}
 {("DIRECTIVES (hard requirements — satisfy every one):" + chr(10) + chr(10).join('  - ' + d for d in directives)) if directives else ''}
 BEFORE YOU RESPOND: count the words in the passage you have written. If the

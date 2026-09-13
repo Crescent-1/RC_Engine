@@ -124,6 +124,14 @@ def enable_medium_hard(patch, options):
                   {"medium": TEST_VERSION, "hard": TEST_VERSION, "elite": ""})
 
 
+def enable_policy(patch, options):
+    """options["policy"] for new medium/hard plans; elite stays legacy."""
+    from rc_engine import config
+    v = options["policy"]
+    patch.setattr(config, "GENERATION_POLICY_FOR_NEW_PLANS",
+                  {"medium": v, "hard": v, "elite": ""})
+
+
 def enable_cat_pyq_q1(patch, options):
     """The production question release, with the production libraries."""
     from rc_engine import config

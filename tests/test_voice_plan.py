@@ -36,7 +36,10 @@ def compose(composer, tier="hard", shape="TS09"):
 @pytest.mark.parametrize("tier", ["medium", "hard", "elite"])
 def test_every_source_shape_has_a_compatible_plan(setup, tier):
     registry, history, composer = setup
-    for shape in registry.ids("topic_shape"):
+    # Legacy plans' shapes (2026-09-13): TS15/TS16 belong to the section-5
+    # releases and compose under them (tests/test_structure_release.py).
+    from rc_engine.generation_policy import LEGACY_POLICY
+    for shape in LEGACY_POLICY.eligible_ids(registry, "topic_shape"):
         bp = compose(composer, tier, shape)
         assert bp.voice_plan_version
         assert plan_violations(bp, registry) == []

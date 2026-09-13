@@ -20,8 +20,7 @@ from .models import Blueprint, ParagraphPlan, SeedEssay
 from .fingerprints import move_signature_similarity
 from .generation_policy import LEGACY_POLICY, policy_for_blueprint, policy_for_new_plan
 from .registry import ComponentRegistry, posture_class
-from .voice_plan import (closing_beats, FAMILY_FORBIDDEN_MOVES, middle_moves,
-                         plan_violations, schema_ids_for_shape)
+from .voice_plan import middle_moves, plan_violations, schema_ids_for_shape
 
 NL = chr(10)
 
@@ -633,7 +632,7 @@ class BlueprintComposer:
         other_shares = self._other_client_move_shares()
         banned = set((stance or {}).get("forbidden_beats", []))
         if schema_id:
-            banned.update(FAMILY_FORBIDDEN_MOVES.get(family_id, set()))
+            banned.update(policy.family_forbidden_moves(family_id))
 
         def pick(pool: list[str], k: int, taken: set[str]) -> list[str]:
             out: list[str] = []
@@ -667,7 +666,8 @@ class BlueprintComposer:
         close_pool = groups["closing"]
         if schema_id:
             close_pool = [m for m in close_pool
-                          if m in closing_beats(ending_id, posture, family_id) and m not in banned]
+                          if m in policy.closing_beats(ending_id, posture, family_id)
+                          and m not in banned]
             if not close_pool:
                 raise CompositionExhausted("ending and stance have no compatible closing beat")
         closing = pick(close_pool, 1, taken)
@@ -686,7 +686,7 @@ class BlueprintComposer:
                         ban_families: set[str] | None = None,
                         ban_movements: set[str] | None = None,
                         argument_schema_id: str = "",
-                        policy=None) -> dict:
+                        policy=None, seed_genre: str = "") -> dict:
         """Returns {"family": ..., "persona": ..., ...} or raises.
 
         ban_families / ban_movements: slot-local bans from a prior movement
@@ -734,11 +734,34 @@ class BlueprintComposer:
                 if ctype == "render_stance" and allowed == set():
                     ids[ctype] = ""  # the schema itself supplies the writing stance
                     continue
+                if ctype == "revelation" and argument_schema_id:
+                    # Section 5.2 (2026-09-13): a revelation whose timing the
+                    # schema's directive contradicts is not eligible. Empty for
+                    # every policy without exclusions, which leaves this a no-op.
+                    excluded = policy.revelations_excluded_by(argument_schema_id)
+                    if excluded:
+                        allowed = {i for i in policy.eligible_ids(self.registry, ctype)
+                                   if i not in excluded}
                 pool = self._eligible(ctype, tier, ban_families=ban_f,
                                       allowed_ids=allowed, policy=policy)
+                bound = policy.family_bound_components.get(ctype)
+                if bound and "family" in ids:
+                    # e.g. E21 "The Scope Fixed" only closes F61 (2026-09-13);
+                    # a bound component never joins another family.
+                    pool = [i for i in pool if i not in bound or ids["family"] in bound[i]]
+                if ctype == "persona" and policy.genre_filtered_personas and seed_genre \
+                        and seed_genre != "unknown":
+                    # A persona that names the genres it can carry is drawn only
+                    # for those (section 5.3: P21-P23 need compatible material).
+                    # Never empties the pool.
+                    fits = [i for i in pool
+                            if seed_genre in (self.registry.get(ctype, i).get("compatible_genres")
+                                              or [seed_genre])]
+                    pool = fits or pool
                 if ctype == "render_stance" and argument_schema_id:
                     required = set(forms["required_middle"])
-                    endings = closing_beats(ids["ending"], self.registry.posture_of(ids["family"]), ids["family"])
+                    endings = policy.closing_beats(ids["ending"], self.registry.posture_of(ids["family"]),
+                                                   ids["family"])
                     pool = [i for i in pool
                             if not required.intersection(self.registry.get(ctype, i)["forbidden_beats"])
                             and endings.difference(self.registry.get(ctype, i)["forbidden_beats"])
@@ -838,6 +861,12 @@ class BlueprintComposer:
         functions = list(self.rng.choice(self._movement_sequences(family)))
         shape = list(rhythm["shape"])
         fillers = list(self.registry.generic_fillers)
+        if rhythm.get("exclude_fillers"):
+            # 2026-09-13 (T21/T22): a rhythm may refuse a filler. CONCESSION_TRAP
+            # pads a short family into the concede-then-pivot spine the beat
+            # plan is fighting; newsroom and explainer cadences do not want it.
+            # Legacy rhythms carry no such field, so their draws are unchanged.
+            fillers = [f for f in fillers if f not in rhythm["exclude_fillers"]] or fillers
         # align paragraph count: pad functions with generic fillers at interior
         # positions, or extend the shape by repeating its middle class
         while len(shape) < len(functions):
@@ -998,6 +1027,12 @@ class BlueprintComposer:
             weights = [1.0] * len(ids)
         return self.rng.choices(ids, weights=weights, k=1)[0]
 
+    def _fallback_topic_shape(self, seed_info, policy, tried: list[str]) -> str | None:
+        from .seed_classify import eligible_topic_shapes
+        options = [t for t in eligible_topic_shapes(self.registry, seed_info or {}, policy)
+                   if t not in tried and schema_ids_for_shape(t, policy)]
+        return self.rng.choice(options) if options else None
+
     def compose(self, tier: str, seed: SeedEssay, ledger: CostLedger,
                 ban_families: set[str] | None = None,
                 ban_movements: set[str] | None = None,
@@ -1011,16 +1046,37 @@ class BlueprintComposer:
         # refiner has already committed to a different argument.
         schemas = schema_ids_for_shape(topic_shape_id, policy)
         ids = None
-        while schemas:
-            schema_id = self.sample_argument_schema(schemas, policy)
-            try:
-                ids = self.sample_skeleton(tier, ban_families=ban_families,
-                                           ban_movements=ban_movements,
-                                           argument_schema_id=schema_id,
-                                           policy=policy)
+        tried_shapes = [topic_shape_id]
+        while True:
+            while schemas:
+                schema_id = self.sample_argument_schema(schemas, policy)
+                try:
+                    ids = self.sample_skeleton(tier, ban_families=ban_families,
+                                               ban_movements=ban_movements,
+                                               argument_schema_id=schema_id,
+                                               policy=policy,
+                                               seed_genre=(seed_info or {}).get("genre", ""))
+                    break
+                except CompositionExhausted:
+                    schemas.remove(schema_id)
+            if ids is not None or policy.is_legacy or not topic_shape_id:
                 break
-            except CompositionExhausted:
-                schemas.remove(schema_id)
+            # 2026-09-13 (measured in tools/cat_pyq/simulate_policies.py): a
+            # section-5 topic shape can lead to a single schema with a single
+            # family (TS15 -> S9 -> F60). Once that family's revelation and
+            # ending pairs sit in the recent-pair window every skeleton collides,
+            # and the attempt died as failed_composition — 10 of 80 hard attempts
+            # under cat-pyq-s1. A non-legacy plan instead falls back, at most
+            # twice, to another topic shape this seed can carry. Legacy plans
+            # keep failing exactly as before.
+            nxt = self._fallback_topic_shape(seed_info, policy, tried_shapes)
+            if nxt is None or len(tried_shapes) > 2:
+                break
+            print(f"  [composer] topic shape {topic_shape_id} exhausted for {tier} - "
+                  f"falling back to {nxt}")
+            topic_shape_id = nxt
+            tried_shapes.append(nxt)
+            schemas = schema_ids_for_shape(topic_shape_id, policy)
         if ids is None:
             raise CompositionExhausted("no compatible schema/family remains for this source and tier")
         family = self.registry.get("family", ids["family"])
@@ -1277,7 +1333,7 @@ PARAGRAPH MOVEMENT PLAN:
 THESIS REVELATION: {revelation['name']} — {revelation['mechanism']}
 (thesis first becomes visible around paragraph {bp.revelation_detail['planned_para']})
 ENDING: {ending['name']} — {ending['gesture']} (aperture: {ending['aperture']})
-REQUIRED CLOSING POSTURE: {family['closing_posture']} — {self.registry.closing_postures[family['closing_posture']]}
+REQUIRED CLOSING POSTURE: {family['closing_posture']} — {policy.closing_postures(self.registry)[family['closing_posture']]}
 (the 'fate' fields in tension_system must be consistent with this posture)
 INSTABILITY DEGREE: {bp.instability} (0 = neat closure, 1 = fully suspended; this governs how contested the middle feels — the ending's stance is governed by the closing posture above)
 ALLOWED TRAP MECHANISMS: {profile['primary']}, {profile['secondary']}

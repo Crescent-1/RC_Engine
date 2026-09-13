@@ -433,6 +433,100 @@
     "astonishing"
    ],
    "pronoun_person": "impersonal"
+  },
+  {
+   "id": "P21",
+   "name": "The Magazine Explainer",
+   "register": "compact and wry; explains a complicated thing to an intelligent non-specialist without condescending",
+   "sentence_profile": "short-to-medium sentences; the verdict arrives in a clause, not a paragraph",
+   "hedge_style": "hedges once, precisely, where the evidence is thin; otherwise plain",
+   "metaphor_domains": [
+    "kitchens",
+    "traffic",
+    "household repairs"
+   ],
+   "signature_moves": [
+    "one dry understatement per passage at most",
+    "a concrete instance before every abstraction it earns"
+   ],
+   "pronoun_posture": "impersonal; no first person",
+   "extra_forbidden": [
+    "game-changer",
+    "here's the thing"
+   ],
+   "pronoun_person": "impersonal",
+   "compatible_genres": [
+    "technical_explainer",
+    "reportage",
+    "analysis",
+    "practice_account",
+    "investigation"
+   ],
+   "policies": [
+    "cat-pyq-s1"
+   ]
+  },
+  {
+   "id": "P22",
+   "name": "The Reviewer",
+   "register": "fair-minded and exact; reports a work in its own terms before judging it",
+   "sentence_profile": "medium sentences that attribute carefully ('the book holds', 'on its account'); the judgement is shorter than the summary",
+   "hedge_style": "qualifies praise and blame in the same measure",
+   "metaphor_domains": [
+    "building",
+    "maps",
+    "bookkeeping"
+   ],
+   "signature_moves": [
+    "keeps the reported voice and the reviewing voice audibly apart",
+    "credits the strongest part of the work before the objection"
+   ],
+   "pronoun_posture": "mostly impersonal; an occasional first person singular for the verdict",
+   "extra_forbidden": [
+    "must-read",
+    "tour de force"
+   ],
+   "pronoun_person": "first_singular",
+   "compatible_genres": [
+    "criticism",
+    "conceptual_essay",
+    "biography",
+    "narrative_history"
+   ],
+   "policies": [
+    "cat-pyq-s1"
+   ]
+  },
+  {
+   "id": "P23",
+   "name": "The Advocate",
+   "register": "committed and direct; argues toward what should change, from the evidence the passage sets out",
+   "sentence_profile": "declarative sentences of varied length; claims before qualifications",
+   "hedge_style": "concedes the cost of its own proposal once, explicitly",
+   "metaphor_domains": [
+    "engineering",
+    "medicine",
+    "navigation"
+   ],
+   "signature_moves": [
+    "names the strongest objection in its own words before answering it",
+    "ends on what would have to be true for the proposal to fail"
+   ],
+   "pronoun_posture": "plain first person singular, used for positions, never for credentials",
+   "extra_forbidden": [
+    "as an expert",
+    "in my experience"
+   ],
+   "pronoun_person": "first_singular",
+   "compatible_genres": [
+    "conceptual_essay",
+    "analysis",
+    "legal_analysis",
+    "practice_account"
+   ],
+   "policies": [
+    "cat-pyq-s1"
+   ]
   }
  ]
 }

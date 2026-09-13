@@ -42,6 +42,10 @@
     {"id": "T19", "name": "Descent", "shape": ["L", "M", "M", "S"],
      "cadence_note": "abstract opening, each paragraph more concrete, ending on a single instance carrying the whole weight"},
     {"id": "T20", "name": "Ascent", "shape": ["S", "M", "L", "XL"],
-     "cadence_note": "concrete incident, each paragraph a level up in abstraction"}
+     "cadence_note": "concrete incident, each paragraph a level up in abstraction"},
+    {"id": "T21", "name": "Newsroom", "shape": ["M", "S", "M", "M", "S", "M"],
+     "cadence_note": "six working paragraphs, two of them a single sentence carrying a fact, a remark or the turn; the short ones carry substance, never flourishes", "exclude_fillers": ["CONCESSION_TRAP"], "policies": ["cat-pyq-s1"]},
+    {"id": "T22", "name": "Short Takes", "shape": ["S", "M", "M", "S", "M", "M", "S"],
+     "cadence_note": "seven compact paragraphs in an explainer register; each does one job and hands on", "exclude_fillers": ["CONCESSION_TRAP"], "policies": ["cat-pyq-s1"]}
   ]
 }

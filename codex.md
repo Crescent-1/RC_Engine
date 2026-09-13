@@ -5,6 +5,89 @@ go first; dates use Asia/Calcutta time. `AGENTS.md` instructs Codex to update th
 file whenever it changes project files. Entries are task summaries, not a record
 of every intermediate edit. Git remains the source for exact diffs.
 
+## 2026-09-13 — Structure releases `cat-pyq-s1` / `cat-pyq-s2` (plan section 5), by Claude Code
+
+- Two registered policies, neither enabled by default. Both are cumulative on
+  `cat-pyq-q1` and cover medium and hard only.
+  - `s1` plans the first five PYQ beats and recognises all ten.
+  - `s2` makes the other five plannable, so `s1` can be measured first.
+- Families F59–F62, tagged. Each ships with its schema reachability, topic
+  shapes, endings, revelations, closing beats and permissions:
+  - F59 Backfiring Remedy: reached through S4/S5. S8 was rejected because its
+    "each remedy" directive contradicts tracing one fix.
+  - F60 Typology: new S9 and TS15, closing posture `exposition_neutral`.
+  - F61 Framed Inquiry: hard only, new S10 and TS16, new ending E21 "The Scope
+    Fixed" (bound to F61).
+  - F62 Split Verdict: new S11, SPLIT_VERDICT close only.
+  - New arc shapes count toward the exam-form caps (medium 50%, hard 35%).
+- Closing semantics:
+  - Policy overlays for ending beats, posture limits, and family-only closing
+    beats (SPLIT_VERDICT only for F62/F53/F24).
+  - The neutral exposition has its own label, band and render instruction,
+    and is reported apart from refusal. Historical and elite passages are not
+    reclassified.
+- Revelations R21–R23 are tagged, and schema directives exclude contradicting
+  timings.
+  - The R01 audit is recorded in `families.json`: of the 16 R01-excluded
+    families only F01/F04 (R23), F13 (R22, R23) and F33 (R22) can take an
+    early thesis.
+  - Families that withhold their thesis exclude all three.
+- Rhythms T21/T22 exclude CONCESSION_TRAP padding; tested to fit 525 words.
+- Personas P21–P23 carry compatible genres, drawn only for those seed genres.
+  Pronouns are explicit (P22/P23 first person, within the 20% cohort), with no
+  invented credential.
+- Refusal objective of 14%, applied per posture category after normalising
+  within each category.
+  - The early-thesis timing objective is not activated: the section-2
+    baseline already exceeds 40%. This is recorded in `policy_catalog.py`.
+- Permissions (`passage_permissions.py`): one grant table from the plan and
+  family, used by all three readers:
+  - renderer: rules 7, 8 and 11 rewritten through validated anchors, plus a
+    PERMISSIONS block;
+  - compliance: the same block, `unpermitted_devices` turned into repair
+    directives and an f1 −0.04;
+  - `texture_report`: legacy scan unchanged when no grants are passed.
+- Composition fix found by simulation:
+  - TS15→S9→F60 exhausted its pair window and killed 10 of 80 hard attempts.
+  - Non-legacy plans now fall back to another seed-compatible topic shape
+    (at most two), bringing composition failures to 0. Legacy is unchanged.
+- `tools/cat_pyq/simulate_policies.py`: seeded sequential mock simulations
+  that ship into temporary history, reporting planned mix and yield.
+  - 40 medium + 40 hard per policy, `PYTHONHASHSEED=0`:
+
+    | Policy | Medium shipped | Hard shipped | Composition failures | Refusal (medium / hard) |
+    |---|---|---|---|---|
+    | legacy | 38/58 | 37/70 | — | 6/38, 8/37 |
+    | s1 | 37/55 | 35/73 | 0 | 3/37, 4/35 |
+    | s2 | 39/53 | 39/62 | 0 | 4/39, 3/39 |
+
+  - Neutral closes: 1–2 per tier.
+  - Exam-form share: s1 medium 0.459 / hard 0.343; s2 0.462 / 0.308.
+  - Every new component and beat shipped at least once across runs, except
+    FORECAST, which was plannable but not shipped in these 160 sets.
+- Tests:
+  - `tests/test_structure_release.py` (23): visibility, recognised-before-
+    plannable, reachability per tier (elite never), every topic shape
+    composes, closing beats, neutral plans with no rebuttal or open close,
+    the category maths, the R01 audit, schema exclusions, rhythm fit, persona
+    genres, the E21 binding, shared permissions across the three readers, the
+    fallback, and mock batches under both versions.
+  - Elite pre-policy golden tests with s1 and s2 running on the side.
+  - Legacy-view scoping for two older tests that iterated the whole library.
+- Mutation check: 10 deliberate breaks, 9 caught. The exposition-discard
+  mutant is equivalent on today's library (F60, the only neutral family,
+  carries its own closing-beat list).
+- Validation:
+  - `python -m pytest tests -q`: 397 passed.
+  - `selftest`: passed.
+  - Simulations as above.
+- Limits:
+  - Mock plans only; realised prose behaviour of the new families, beats and
+    permissions is unmeasured.
+  - Beat and planning weights are provisional.
+  - Refusal realised on ships sits below the 14% draw objective, because
+    posture runs and rejections still act after the draw.
+
 ## 2026-09-13 — Per-policy reporting and re-reads (plan 7.5; section 3 follow-up), by Claude Code
 
 - `policy-report` ($0): planned and realised metrics by client, tier and
