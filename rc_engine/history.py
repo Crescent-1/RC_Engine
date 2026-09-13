@@ -231,6 +231,10 @@ class HistoryStore:
             )""")
         # existing DBs predate `components`
         self._ensure_column("inflight", "components", "TEXT")
+        # Generation policy of every attempt (2026-09-13), so yield, rejections
+        # and cost can be reported per policy (plan 7.5) -- including attempts
+        # that died before a blueprint existed. Existing rows are legacy.
+        self._ensure_column("attempts", "generation_policy", "TEXT DEFAULT ''")
 
         c.execute("""
             CREATE TABLE IF NOT EXISTS novelty_audits (
@@ -384,6 +388,20 @@ class HistoryStore:
              bp.topology_id, bp.instability, bp.aperture, bp.combo_hash,
              json.dumps(bp.pair_hashes), bp.to_json(), status, _now(), self.client_id))
         self.conn.commit()
+
+    def policy_versions_by_rc_id(self) -> dict[str, str]:
+        """rc_id -> generation policy of the plan behind it, for this client's
+        shipped-or-rejected sets that carry an rc_id (2026-09-13). A plan with
+        no stored version maps to "" (legacy)."""
+        out: dict[str, str] = {}
+        for rc_id, raw in self.conn.execute(
+                "SELECT rc_id, blueprint_json FROM blueprints "
+                "WHERE client_id = ? AND rc_id IS NOT NULL", (self.client_id,)):
+            try:
+                out[rc_id] = json.loads(raw or "{}").get("generation_policy") or ""
+            except ValueError:
+                out[rc_id] = ""
+        return out
 
     def update_blueprint_json(self, bp: Blueprint):
         """Rewrite a stored plan's JSON in place (2026-09-13), leaving status,
@@ -1011,12 +1029,32 @@ class HistoryStore:
             """INSERT INTO attempts
                (batch_id, tier, slot, attempt_no, rc_id, blueprint_id, status,
                 cost_usd, novelty_composite, compliance_f1, reason, created_at,
-                client_id)
-               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
+                client_id, generation_policy)
+               VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)""",
             (batch_id, tier, slot, attempt_no, res.rc_id, res.blueprint_id or None,
              res.status, float(res.cost_usd or 0.0), res.novelty_composite,
-             res.compliance_f1, reason, _now(), self.client_id))
+             res.compliance_f1, reason, _now(), self.client_id,
+             self._attempt_policy(tier, res)))
         self.conn.commit()
+
+    def _attempt_policy(self, tier: str, res) -> str:
+        """The stored plan's policy when a blueprint exists; otherwise the policy
+        a new plan for this tier would have been composed under, which is the
+        one the failed attempt was using (same process, same configuration)."""
+        if res.blueprint_id:
+            row = self.conn.execute(
+                "SELECT blueprint_json FROM blueprints WHERE blueprint_id = ?",
+                (res.blueprint_id,)).fetchone()
+            if row:
+                try:
+                    return json.loads(row[0] or "{}").get("generation_policy") or ""
+                except ValueError:
+                    return ""
+        try:
+            from .generation_policy import policy_for_new_plan
+            return policy_for_new_plan(tier).version
+        except Exception:                                        # noqa: BLE001
+            return ""
 
     def attempt_summary(self, last_batches: int = 5,
                         paid_floor_usd: float = 0.02) -> list[dict]:

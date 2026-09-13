@@ -5,6 +5,24 @@ go first; dates use Asia/Calcutta time. `AGENTS.md` instructs Codex to update th
 file whenever it changes project files. Entries are task summaries, not a record
 of every intermediate edit. Git remains the source for exact diffs.
 
+## 2026-09-13 — Per-policy reporting and re-reads (plan 7.5; section 3 follow-up), by Claude Code
+
+- `policy-report` ($0): planned and realised metrics by client, tier and
+  generation policy. Policies and tiers are never pooled.
+  - Yield, composition failures, novelty rejections, question failures,
+    solver disputes, cost.
+  - Early thesis, planned and realised (realised read is plan-anchored).
+  - Closure as committed / neutral / refusal.
+  - Schema match; family and beat coverage.
+  - Planned negation by task and negated-stem share.
+  - Answerability flags.
+- `attempts.generation_policy` (additive column): every attempt records its
+  policy, including attempts that died before a blueprint existed.
+- Fingerprints of non-legacy sets record `_answerability_flags`.
+- `move-audit` re-reads each set with the vocabulary of the policy its plan
+  was composed under.
+- Tests: `tests/test_policy_reporting.py` (4).
+
 ## 2026-09-13 — Question release `cat-pyq-q1` (plan section 4), by Claude Code
 
 - Implemented section 4 as the first production generation policy,

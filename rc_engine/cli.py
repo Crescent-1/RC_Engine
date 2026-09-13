@@ -409,6 +409,22 @@ def _open_store(args, db: str | None = None):
         return None
 
 
+def cmd_policy_report(args) -> int:
+    """$0. Plan 7.5 metrics by client, tier and generation policy. Only SELECTs;
+    opening the store applies HistoryStore's usual additive migrations."""
+    from .policy_report import collect, format_rows
+    history = _open_store(args)
+    if history is None:
+        return 2
+    rows = collect(history, "all" if args.all_clients else "client")
+    history.close()
+    if args.json:
+        print(json.dumps(rows, indent=1))
+    else:
+        print(format_rows(rows) if rows else "[policy-report] no sets or attempts")
+    return 0
+
+
 def _export_dir(client_id: str | None, dry_run: bool) -> str:
     """The founding client keeps the folder layout its deliveries and trackers
     already use; every other client gets its own subfolder. Nothing existing
@@ -686,14 +702,26 @@ def cmd_move_audit(args) -> int:
         llm = MockLLMClient() if args.dry_run else LLMClient()
         auditor = ComplianceAuditor(llm, ComponentRegistry())
         ledger = CostLedger(budget_usd=args.max_usd)
-        done = missing = 0
+        # Each set is re-read with the closed vocabulary of the policy its plan
+        # was composed under (2026-09-13). A legacy re-read of a policy set would
+        # erase the beats only that policy can name. Sets with no stored plan
+        # (manual, legacy imports) read with the legacy vocabulary as before.
+        from .generation_policy import PolicyError, get_policy
+        versions = history.policy_versions_by_rc_id()
+        done = missing = skipped = 0
         for rc_id in todo:
             passage = passages.get(rc_id)
             if not passage or len(passage.split()) < 150:
                 missing += 1
                 continue
             try:
-                moves = auditor.move_signature(passage, ledger, "hard")
+                policy = get_policy(versions.get(rc_id, ""))
+            except PolicyError as e:
+                print(f"  [{rc_id}] skipped: {e}")
+                skipped += 1
+                continue
+            try:
+                moves = auditor.move_signature(passage, ledger, "hard", policy=policy)
             except Exception as e:
                 print(f"  [{rc_id}] extraction failed: {e}")
                 break
@@ -705,7 +733,7 @@ def cmd_move_audit(args) -> int:
             done += 1
         history.conn.commit()
         print(f"[move-audit] extracted {done}, no passage found for {missing}, "
-              f"spend ${ledger.spent_usd:.4f}")
+              f"unknown policy {skipped}, spend ${ledger.spent_usd:.4f}")
 
     # ---- report -----------------------------------------------------------
     sigs = {r[0]: (r[1] or "").split("|")
@@ -1665,6 +1693,15 @@ def main(argv=None) -> int:
                         "Default: config.GENERATION_POLICY_FOR_NEW_PLANS")
     _client_opt(g)
 
+    pr = sub.add_parser("policy-report",
+                        help="$0: planned and realised metrics by client, tier and "
+                             "generation policy (read-only)")
+    pr.add_argument("--db", default=config.DB_PATH)
+    pr.add_argument("--all-clients", action="store_true",
+                    help="every client, one row per client/tier/policy")
+    pr.add_argument("--json", action="store_true", help="print JSON instead of text")
+    _client_opt(pr)
+
     r = sub.add_parser("retry-questions",
                        help="regenerate questions on a persisted passage whose "
                             "questions failed (questions-stage cost only)")
@@ -1778,7 +1815,8 @@ def main(argv=None) -> int:
             "health": cmd_health, "export": cmd_export,
             "avoid": cmd_avoid, "vet": cmd_vet, "topo-report": cmd_topo_report,
             "retry-questions": cmd_retry_questions,
-            "move-audit": cmd_move_audit, "client": cmd_client}[args.cmd](args)
+            "move-audit": cmd_move_audit, "client": cmd_client,
+            "policy-report": cmd_policy_report}[args.cmd](args)
 
 
 if __name__ == "__main__":
