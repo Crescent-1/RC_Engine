@@ -179,7 +179,316 @@ CAT_PYQ_Q1_POLICY = GenerationPolicy(
     }),
 )
 
-PRODUCTION_POLICIES = (CAT_PYQ_Q1_POLICY,)
+# ---------------------------------------------------------------------------
+# cat-pyq-s1 / cat-pyq-s2 (2026-09-13) — section 5, passage structure and
+# rendering, cumulative on the question release. Medium and hard only.
+#
+# s1 releases F59-F62 with their schemas, topic shapes, endings, revelation
+# and stance choices, and closing semantics; the first five PYQ beats as
+# plannable (ENUMERATED_SET, HYPOTHETICAL_CASE, PRESCRIPTION_STATED, FORECAST,
+# SPLIT_VERDICT) with all ten recognised by the blind reader; R21-R23, T21-T22,
+# P21-P23; a neutral-exposition closing posture reported apart from refusal;
+# a 14% refusal objective applied per posture CATEGORY; and one permission
+# table shared by the renderer, the auditor and texture_report.
+#
+# s2 adds the second five beats as plannable (TERM_COINED, IRONY_NOTED,
+# OBJECTION_FORESTALLED, THEN_NOW_CONTRAST, REPORTED_POSITION). It is a
+# separate version so s1 can be measured before the vocabulary widens again.
+#
+# Deliberately NOT enabled here: an early-thesis timing objective. The section-2
+# baseline (2026-09-13-cat-pyq-baseline.md) found planned thesis-by-paragraph-2
+# already at 52.8% (medium) and 44.9% (hard) against the provisional 40%
+# objective, and a blind 12-set read found 10/12 early. The category mechanism
+# supports a timing objective; activating one would have to be a new version
+# justified by a new measurement.
+# ---------------------------------------------------------------------------
+
+import dataclasses  # noqa: E402
+
+CAT_PYQ_S1 = "cat-pyq-s1"
+CAT_PYQ_S2 = "cat-pyq-s2"
+
+_NEW_BEATS = {
+    "TERM_COINED": "introduces a short plain label for the thing under discussion and makes "
+                   "later sentences depend on it; the label names content, never the passage's "
+                   "own argumentative steps",
+    "ENUMERATED_SET": "announces a fixed number of reasons, factors, kinds or channels and works "
+                      "through them in order; the count is content, not a narration of the "
+                      "argument's own moves",
+    "IRONY_NOTED": "points to one specific fact in which an action, institution or product "
+                   "produces the opposite of what it was for, stated once without commentary on "
+                   "the irony",
+    "HYPOTHETICAL_CASE": "sets up an explicitly hypothetical case (\"suppose\", \"imagine\", "
+                         "\"consider a...\") detailed enough to test the claim on, and uses it; "
+                         "never presented as a real event",
+    "OBJECTION_FORESTALLED": "names a specific misreading or attack the claim invites from an "
+                             "identified audience and answers it before moving on; distinct from "
+                             "DISCLAIM_RESTATE, which corrects the passage's own wording",
+    "THEN_NOW_CONTRAST": "sets how the matter stood at a placed earlier time against how it "
+                         "stands now, and makes the difference carry the argument",
+    "REPORTED_POSITION": "opens by stating another writer's, work's or school's position in its "
+                         "own terms, before the passage's own view appears",
+    "PRESCRIPTION_STATED": "closes on what should be done or which norm should change, stated "
+                           "plainly and bounded by what the passage has shown; no exhortation "
+                           "or moral lecture",
+    "FORECAST": "closes by projecting one specific consequence the argument implies for the "
+                "near future, hedged no more than the evidence requires",
+    "SPLIT_VERDICT": "closes by saying in one movement where a reported or reviewed position is "
+                     "right and where it goes wrong",
+}
+# Conservative planning weights (they multiply the rarity term in
+# composer._sample_move_plan). Deliberately below the single-reader PYQ shares
+# in 2026-09-13-cat-pyq-engine-analysis.md (TERM_COINED 22%, ENUMERATED_SET 16%,
+# IRONY 12%, HYPOTHETICAL 12%, OBJECTION 9%, THEN/NOW 9%, PRESCRIPTION 9%,
+# SPLIT 7%, FORECAST 6%, REPORTED 6%): a new beat has no trailing usage, so its
+# rarity term starts at 1.0 and would otherwise be over-drawn while new.
+_NEW_BEAT_SHARES = {
+    "TERM_COINED": 0.10, "ENUMERATED_SET": 0.08, "IRONY_NOTED": 0.06,
+    "HYPOTHETICAL_CASE": 0.06, "OBJECTION_FORESTALLED": 0.05, "THEN_NOW_CONTRAST": 0.05,
+    "PRESCRIPTION_STATED": 0.05, "SPLIT_VERDICT": 0.04, "FORECAST": 0.04,
+    "REPORTED_POSITION": 0.04,
+}
+
+_NEW_SCHEMAS = {
+    "S9_TYPOLOGY_DRAWN": {
+        "description": "a phenomenon divided into kinds by stated features, each shown in a "
+                       "case, with a boundary case that qualifies the division",
+        "directive": "Fix the phenomenon, name the features that divide it, and give each kind "
+                     "its own case. Close on the case that sits across two kinds and say what "
+                     "it shows about the division. Explain; do not stage a dispute.",
+        "exam_share": 0.05},
+    "S10_FRAMED_INQUIRY": {
+        "description": "a field's usual framing of a subject, the difficulty it cannot absorb, "
+                       "and an approach defended and scoped",
+        "directive": "Set out how the field usually frames the subject, name the one difficulty "
+                     "that framing cannot absorb, state the approach that can, answer the "
+                     "misreading it invites, and fix what the inquiry covers.",
+        "exam_share": 0.05},
+    "S11_SPLIT_VERDICT_REVIEW": {
+        "description": "a work's claim reported in its own terms, weighed, and judged right in "
+                       "one respect and wrong in another",
+        "directive": "Report the work's central claim fairly in its own terms, press the "
+                     "strongest objection with a counter-case, and give a verdict that says "
+                     "where the work is right and where it goes wrong. Keep the reported voice "
+                     "and yours apart.",
+        "exam_share": 0.05},
+}
+
+_S1_SCHEMA_FORMS = {
+    "S4_MECHANISM_TRACED": {"family": ["F59"]},
+    "S5_PRACTICE_VS_THEORY": {"family": ["F59"]},
+    "S2_RECEIVED_ACCOUNT_REPLACED": {"topic_shape": ["TS16"]},
+    "S9_TYPOLOGY_DRAWN": {"topic_shape": ["TS15", "TS14"], "family": ["F60"],
+                          "render_stance": [], "required_middle": ["ENUMERATED_SET"]},
+    "S10_FRAMED_INQUIRY": {"topic_shape": ["TS16", "TS12"], "family": ["F61"],
+                           "render_stance": [], "required_middle": []},
+    "S11_SPLIT_VERDICT_REVIEW": {"topic_shape": ["TS04", "TS12"], "family": ["F62"],
+                                 "render_stance": ["RS03", "RS07"],
+                                 "required_middle": ["COUNTEREXAMPLE_PRESSED"]},
+}
+_S1_MIDDLE = {
+    "S1_INSTRUMENT_BLIND": ["HYPOTHETICAL_CASE"],
+    "S4_MECHANISM_TRACED": ["ENUMERATED_SET", "HYPOTHETICAL_CASE"],
+    "S7_CASE_AGAINST_RULE": ["HYPOTHETICAL_CASE"],
+    "S8_REMEDIES_WEIGHED": ["ENUMERATED_SET"],
+    "S9_TYPOLOGY_DRAWN": ["ENUMERATED_SET", "HYPOTHETICAL_CASE"],
+    "S10_FRAMED_INQUIRY": ["HYPOTHETICAL_CASE", "DISCLAIM_RESTATE"],
+    "S11_SPLIT_VERDICT_REVIEW": ["CONCESSION_GRANTED", "AUTHORITY_QUOTED"],
+}
+_S2_MIDDLE_ADD = {
+    "S1_INSTRUMENT_BLIND": ["TERM_COINED", "IRONY_NOTED"],
+    "S2_RECEIVED_ACCOUNT_REPLACED": ["TERM_COINED", "OBJECTION_FORESTALLED", "THEN_NOW_CONTRAST"],
+    "S4_MECHANISM_TRACED": ["TERM_COINED"],
+    "S5_PRACTICE_VS_THEORY": ["IRONY_NOTED", "THEN_NOW_CONTRAST"],
+    "S6_ORIGIN_AND_DRIFT": ["THEN_NOW_CONTRAST"],
+    "S7_CASE_AGAINST_RULE": ["IRONY_NOTED", "OBJECTION_FORESTALLED"],
+    "S8_REMEDIES_WEIGHED": ["IRONY_NOTED"],
+    "S9_TYPOLOGY_DRAWN": ["TERM_COINED"],
+    "S10_FRAMED_INQUIRY": ["TERM_COINED", "OBJECTION_FORESTALLED"],
+    "S11_SPLIT_VERDICT_REVIEW": ["OBJECTION_FORESTALLED", "IRONY_NOTED"],
+}
+
+_EXPOSITION = ("END by holding the account the passage has built — the classification, the "
+               "process or the state of knowledge — firmly and without a verdict on a dispute "
+               "the passage never staged. Do NOT manufacture a thesis, a rebuttal or an open "
+               "question at the close.")
+
+_RENDER_REWRITES = (
+    ("7. No moralizing, no policy prescriptions, no direct address to the reader.",
+     "7. No moralizing. No policy prescriptions and no direct address to the reader, EXCEPT "
+     "exactly what the PERMISSIONS block of the contract grants for this passage; with no "
+     "grant, both stay forbidden."),
+    ("exception is a genre that genuinely signposts (a formal review, a legal brief),\n"
+     "   and only where the persona already establishes that genre.",
+     "exception is a genre that genuinely signposts (a formal review, a legal brief),\n"
+     "   and only where the persona already establishes that genre, plus content\n"
+     "   enumeration or a statement of scope where the PERMISSIONS block grants it\n"
+     "   (counting the kinds, reasons or stages OF THE SUBJECT is content)."),
+    ("\"as someone who…\", reader address, moral lectures.",
+     "\"as someone who…\", reader address (beyond what the PERMISSIONS block grants),\n"
+     "     moral lectures."),
+)
+_COMPLIANCE_REWRITES = (
+    ("  \"notes\": \"max 30 words\"\n}",
+     "  \"unpermitted_devices\": [],\n  \"notes\": \"max 30 words\"\n}"),
+)
+_COMPLIANCE_PERMISSIONS = """PERMISSIONS: the input opens with the PERMISSIONS block the writer was given.
+In "unpermitted_devices" list each of these the passage performs WITHOUT a grant for it:
+  "prescription"     — says what should be done, or which norm should change
+  "reader_address"   — addresses the reader ("you", "imagine", "consider")
+  "hypothetical"     — sets up an explicitly hypothetical case
+  "enumeration"      — announces a count of kinds, reasons or stages and works through them
+  "scope_statement"  — says what the inquiry will or will not cover
+  "self_signposting" — announces its own argumentative moves ("the first objection",
+                       "having shown"); never granted
+A device the block grants is not reported. Report [] when there is none."""
+
+_REFINE_EXTENSION = ("SOURCES AND VOICES: a reviewed work, a reported writer or a school may be "
+                     "described in the paragraph briefs but not named, and invent no real "
+                     "study, statistic or quotation for it.")
+
+
+def _category_objective(ids, weights, category_of, objectives):
+    """Hold targeted categories at their objective share of this draw.
+
+    Weights are normalised WITHIN each category first, so a category's share does
+    not depend on how many components inhabit it (plan 5.2) — multiplying every
+    refusal family by 0.14 would make the outcome depend on the family count.
+    Untargeted categories share the remainder in proportion to their existing
+    total weight. A targeted category absent from the eligible pool is skipped;
+    compatibility filtering always happens before this.
+    """
+    cats: dict = {}
+    for i, w in zip(ids, weights):
+        cats.setdefault(category_of(i), []).append(w)
+    present = {c: sum(ws) for c, ws in cats.items()}
+    targeted = {c: s for c, s in objectives.items() if c in present and present[c] > 0}
+    rest = {c: m for c, m in present.items() if c not in targeted}
+    if not targeted or not rest or sum(rest.values()) <= 0:
+        return weights
+    remainder = max(0.0, 1.0 - sum(targeted.values()))
+    rest_total = sum(rest.values())
+    mass = {**targeted, **{c: remainder * m / rest_total for c, m in rest.items()}}
+    return [w / present[category_of(i)] * mass[category_of(i)] if present[category_of(i)] else 0.0
+            for i, w in zip(ids, weights)]
+
+
+def _posture_category(registry):
+    from .registry import posture_class
+
+    def category(fid):
+        cls = posture_class(registry.posture_of(fid))
+        return "refusal" if cls == "refusal" else ("neutral" if cls == "exposition" else "committed")
+    return category
+
+
+# Provisional planning objective (plan section 1): refusal closes 14% of
+# medium/hard plans. Baseline: planned refusal medium 16.7%, hard 30.6%
+# (2026-09-13-cat-pyq-baseline.md). Neutral exposition is its own category and
+# is not counted toward either side.
+REFUSAL_OBJECTIVE = 0.14
+
+
+def _structure_weights(ctype, ids, weights, registry):
+    if ctype == "family" and ids:
+        return _category_objective(ids, weights, _posture_category(registry),
+                                   {"refusal": REFUSAL_OBJECTIVE})
+    return weights
+
+
+_S1_FIELDS = dict(
+    description="section 5 stage 1: F59-F62, first five beats, R21-R23, T21-T22, P21-P23, "
+                "neutral exposition, refusal objective, shared permissions",
+    component_tags=frozenset({CAT_PYQ_Q1}),
+    extra_moves=_ro(_NEW_BEATS),
+    extra_move_groups=_ro({"middle": ["ENUMERATED_SET", "HYPOTHETICAL_CASE"],
+                           "closing": ["PRESCRIPTION_STATED", "FORECAST", "SPLIT_VERDICT"]}),
+    extra_exam_move_shares=_ro(_NEW_BEAT_SHARES),
+    extra_argument_schemas=_ro(_NEW_SCHEMAS),
+    extra_schema_forms=_ro(_S1_SCHEMA_FORMS),
+    extra_schema_middle_moves=_ro(_S1_MIDDLE),
+    extra_closing_registers_by_beat=_ro({
+        "PRESCRIPTION_STATED": {"bound_continuation", "quiet_qualification"},
+        "FORECAST": {"bound_continuation", "quiet_qualification"},
+        "SPLIT_VERDICT": {"bound_continuation", "quiet_qualification"},
+    }),
+    extra_exam_derived_shapes=frozenset({"backfiring_remedy", "typology_enumerated",
+                                         "scholarly_introduction", "split_verdict_review"}),
+    extra_closing_postures=_ro({"exposition_neutral": _EXPOSITION}),
+    extra_posture_end_commitment=_ro({"exposition_neutral": (0.40, 0.90)}),
+    extra_ending_beats=_ro({
+        "E04": {"PRESCRIPTION_STATED"}, "E06": {"PRESCRIPTION_STATED", "FORECAST"},
+        "E07": {"PRESCRIPTION_STATED", "SPLIT_VERDICT"},
+        "E09": {"PRESCRIPTION_STATED", "SPLIT_VERDICT"},
+        "E16": {"FORECAST"}, "E17": {"SPLIT_VERDICT"},
+        "E21": {"FORECAST"},
+    }),
+    closing_beat_postures=_ro({
+        "PRESCRIPTION_STATED": frozenset({"affirmation_endorsed", "resolution_costed",
+                                          "resolution_qualified"}),
+        "FORECAST": frozenset({"resolution_qualified", "resolution_costed",
+                               "affirmation_endorsed", "reframe_displace",
+                               "exposition_neutral"}),
+        "SPLIT_VERDICT": frozenset({"resolution_qualified", "resolution_costed"}),
+    }),
+    # A split verdict needs a reported or reviewed position to split.
+    closing_beat_families=_ro({"SPLIT_VERDICT": frozenset({"F62", "F53", "F24"})}),
+    posture_closing_discards=_ro({
+        "exposition": frozenset({"QUESTION_LEFT_OPEN", "CONCESSION_COSTED", "BOTHSIDES_REFUSED",
+                                 "HEDGED_APHORISM", "SPLIT_VERDICT", "PRESCRIPTION_STATED"}),
+    }),
+    family_closing_beats=_ro({
+        "F59": frozenset({"PRESCRIPTION_STATED", "CONCESSION_COSTED", "BOUND_CONTINUATION"}),
+        "F60": frozenset({"BOUND_CONTINUATION", "CONCRETE_RETURN"}),
+        "F61": frozenset({"BOUND_CONTINUATION", "FORECAST"}),
+        "F62": frozenset({"SPLIT_VERDICT"}),
+    }),
+    extra_family_forbidden_moves=_ro({
+        # neutral exposition: no invented rebuttal, no staged camps, no refusal
+        "F60": frozenset({"EASY_READING_DEMOLISHED", "TWO_CAMP_SPLIT", "LEVEL_RELOCATION",
+                          "BOTHSIDES_REFUSED", "CONCESSION_COSTED"}),
+        "F62": frozenset({"BOTHSIDES_REFUSED"}),
+    }),
+    revelation_schema_exclusions=_ro({
+        "S3_TWO_CAMPS_RELOCATED": frozenset({"R21", "R22", "R23"}),
+        "S5_PRACTICE_VS_THEORY": frozenset({"R21", "R23"}),
+        "S9_TYPOLOGY_DRAWN": frozenset({"R22", "R23"}),
+        "S10_FRAMED_INQUIRY": frozenset({"R22"}),
+        "S11_SPLIT_VERDICT_REVIEW": frozenset({"R21", "R22"}),
+    }),
+    genre_filtered_personas=True,
+    family_bound_components=_ro({"ending": {"E21": frozenset({"F61"})}}),
+    weight_adjuster=_structure_weights,
+    passage_permissions=True,
+    system_rewrites=_ro({"render": _RENDER_REWRITES, "compliance": _COMPLIANCE_REWRITES}),
+    prompt_extensions=_ro({"refine": _REFINE_EXTENSION}),
+    system_extensions=_ro({**CAT_PYQ_Q1_POLICY.system_extensions,
+                           "compliance": _COMPLIANCE_PERMISSIONS}),
+)
+
+CAT_PYQ_S1_POLICY = dataclasses.replace(CAT_PYQ_Q1_POLICY, version=CAT_PYQ_S1, **_S1_FIELDS)
+
+_S2_MIDDLE = {s: list(_S1_MIDDLE.get(s, [])) + list(_S2_MIDDLE_ADD.get(s, []))
+              for s in dict.fromkeys([*_S1_MIDDLE, *_S2_MIDDLE_ADD])}
+_S2_FORMS = {**_S1_SCHEMA_FORMS,
+             "S10_FRAMED_INQUIRY": {**_S1_SCHEMA_FORMS["S10_FRAMED_INQUIRY"],
+                                    "required_middle": ["OBJECTION_FORESTALLED"]}}
+
+CAT_PYQ_S2_POLICY = dataclasses.replace(
+    CAT_PYQ_S1_POLICY, version=CAT_PYQ_S2,
+    description="section 5 stage 2: stage 1 plus TERM_COINED, IRONY_NOTED, "
+                "OBJECTION_FORESTALLED, THEN_NOW_CONTRAST and REPORTED_POSITION as plannable",
+    component_tags=frozenset({CAT_PYQ_Q1, CAT_PYQ_S1}),
+    extra_move_groups=_ro({
+        "opening": ["REPORTED_POSITION"],
+        "middle": ["ENUMERATED_SET", "HYPOTHETICAL_CASE", "TERM_COINED", "IRONY_NOTED",
+                   "OBJECTION_FORESTALLED", "THEN_NOW_CONTRAST"],
+        "closing": ["PRESCRIPTION_STATED", "FORECAST", "SPLIT_VERDICT"]}),
+    extra_schema_forms=_ro(_S2_FORMS),
+    extra_schema_middle_moves=_ro(_S2_MIDDLE),
+)
+
+PRODUCTION_POLICIES = (CAT_PYQ_Q1_POLICY, CAT_PYQ_S1_POLICY, CAT_PYQ_S2_POLICY)
 
 # Covers `import rc_engine.policy_catalog` before generation_policy: the
 # registration generation_policy attempted at its own import found this module

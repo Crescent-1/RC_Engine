@@ -222,7 +222,18 @@ class ComponentRegistry:
                     errors.append(f"family:{cid} movement_variants[{k}] must "
                                   f"reorder the same functions, not introduce "
                                   f"new ones")
-            if fam.get("closing_posture") not in postures:
+            # A family tagged for generation policies may close on a posture
+            # every one of those policies defines (2026-09-13, e.g. the
+            # neutral exposition); untagged families stay on the library's own.
+            allowed_postures = postures
+            if fam.get("policies"):
+                from .generation_policy import registered
+                known = registered()
+                extras = [set(known[v].extra_closing_postures)
+                          for v in fam["policies"] if v in known]
+                if extras:
+                    allowed_postures = postures | set.intersection(*extras)
+            if fam.get("closing_posture") not in allowed_postures:
                 errors.append(f"family:{cid} unknown closing_posture "
                               f"{fam.get('closing_posture')!r}")
             for eid in fam.get("incompatible_endings", []):

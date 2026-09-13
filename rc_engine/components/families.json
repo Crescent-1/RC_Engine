@@ -34,7 +34,9 @@
    ],
    "incompatible_endings": [],
    "incompatible_revelations": [
-    "R01"
+    "R01",
+    "R21",
+    "R22"
    ],
    "arc_shape": "staged_turn_settled",
    "withholds_thesis": false
@@ -102,7 +104,9 @@
    ],
    "incompatible_endings": [],
    "incompatible_revelations": [
-    "R01"
+    "R01",
+    "R21",
+    "R22"
    ],
    "arc_shape": "staged_turn_settled",
    "withholds_thesis": false
@@ -151,7 +155,10 @@
    "incompatible_endings": [],
    "incompatible_revelations": [
     "R01",
-    "R02"
+    "R02",
+    "R21",
+    "R22",
+    "R23"
    ],
    "arc_shape": "staged_turn_settled",
    "withholds_thesis": false
@@ -178,7 +185,10 @@
     "E07"
    ],
    "incompatible_revelations": [
-    "R01"
+    "R01",
+    "R21",
+    "R22",
+    "R23"
    ],
    "arc_shape": "staged_turn_settled",
    "withholds_thesis": false,
@@ -325,7 +335,8 @@
    ],
    "incompatible_endings": [],
    "incompatible_revelations": [
-    "R01"
+    "R01",
+    "R21"
    ],
    "arc_shape": "staged_turn_settled",
    "withholds_thesis": false
@@ -466,7 +477,10 @@
     "E17"
    ],
    "incompatible_revelations": [
-    "R01"
+    "R01",
+    "R21",
+    "R22",
+    "R23"
    ],
    "arc_shape": "staged_turn_settled",
    "withholds_thesis": false
@@ -580,7 +594,10 @@
    ],
    "incompatible_endings": [],
    "incompatible_revelations": [
-    "R01"
+    "R01",
+    "R21",
+    "R22",
+    "R23"
    ],
    "arc_shape": "staged_turn_settled",
    "withholds_thesis": false
@@ -720,7 +737,10 @@
     "E07"
    ],
    "incompatible_revelations": [
-    "R01"
+    "R01",
+    "R21",
+    "R22",
+    "R23"
    ],
    "arc_shape": "staged_turn_settled",
    "withholds_thesis": false
@@ -744,7 +764,10 @@
    ],
    "incompatible_endings": [],
    "incompatible_revelations": [
-    "R01"
+    "R01",
+    "R21",
+    "R22",
+    "R23"
    ],
    "arc_shape": "staged_turn_settled",
    "withholds_thesis": false
@@ -793,7 +816,9 @@
    ],
    "incompatible_endings": [],
    "incompatible_revelations": [
-    "R01"
+    "R01",
+    "R21",
+    "R23"
    ],
    "withholds_thesis": false
   },
@@ -818,7 +843,11 @@
     "structural_function"
    ],
    "incompatible_endings": [],
-   "incompatible_revelations": [],
+   "incompatible_revelations": [
+    "R21",
+    "R22",
+    "R23"
+   ],
    "withholds_thesis": true,
    "withholds_thesis_reason": "observations set down without ranking or synthesis"
   },
@@ -915,7 +944,10 @@
    ],
    "incompatible_endings": [],
    "incompatible_revelations": [
-    "R01"
+    "R01",
+    "R21",
+    "R22",
+    "R23"
    ],
    "withholds_thesis": true,
    "withholds_thesis_reason": "two accounts developed in parallel and never reconciled",
@@ -950,7 +982,10 @@
    ],
    "incompatible_endings": [],
    "incompatible_revelations": [
-    "R01"
+    "R01",
+    "R21",
+    "R22",
+    "R23"
    ],
    "withholds_thesis": false
   },
@@ -999,7 +1034,10 @@
    "incompatible_endings": [],
    "incompatible_revelations": [
     "R01",
-    "R08"
+    "R08",
+    "R21",
+    "R22",
+    "R23"
    ],
    "withholds_thesis": true,
    "withholds_thesis_reason": "a sequence told with no evaluative paragraph anywhere",
@@ -1027,7 +1065,10 @@
    ],
    "incompatible_endings": [],
    "incompatible_revelations": [
-    "R01"
+    "R01",
+    "R21",
+    "R22",
+    "R23"
    ],
    "withholds_thesis": false
   },
@@ -1054,7 +1095,10 @@
    ],
    "incompatible_endings": [],
    "incompatible_revelations": [
-    "R01"
+    "R01",
+    "R21",
+    "R22",
+    "R23"
    ],
    "withholds_thesis": true,
    "withholds_thesis_reason": "six witness accounts with no narrator adjudicating"
@@ -1130,7 +1174,10 @@
    ],
    "incompatible_endings": [],
    "incompatible_revelations": [
-    "R01"
+    "R01",
+    "R21",
+    "R22",
+    "R23"
    ],
    "withholds_thesis": false
   },
@@ -1587,6 +1634,286 @@
    ],
    "incompatible_endings": [],
    "incompatible_revelations": []
+  },
+  {
+   "id": "F59",
+   "name": "The Backfiring Remedy",
+   "tier_floor": "medium",
+   "tier_max": "hard",
+   "closing_posture": "resolution_costed",
+   "arc_shape": "backfiring_remedy",
+   "withholds_thesis": false,
+   "core": "A real problem and the fix now widely prescribed for it are set out; the fix is followed into practice until its own mechanism reproduces, relocates or deepens the harm; the close says what a working fix would have to do differently.",
+   "difficulty_source": "the passage endorses the goal while faulting the fix, so options rejecting the goal and options endorsing the fix are both wrong; the backfire mechanism is stated once, mid-passage, and the closing condition is easy to overstate as a flat recommendation",
+   "movement": [
+    "PROBLEM_STATED",
+    "PRESCRIBED_FIX",
+    "FIX_IN_PRACTICE",
+    "BACKFIRE_MECHANISM",
+    "CONDITION_FOR_A_WORKING_FIX"
+   ],
+   "movement_variants": [
+    [
+     "PRESCRIBED_FIX",
+     "PROBLEM_STATED",
+     "FIX_IN_PRACTICE",
+     "BACKFIRE_MECHANISM",
+     "CONDITION_FOR_A_WORKING_FIX"
+    ]
+   ],
+   "question_affinities": [
+    "undermine_thesis",
+    "application",
+    "structural_function"
+   ],
+   "permits": [],
+   "source_note": "CAT RC 2017-24: 7 of 90 passages trace one fix into its backfire (2026-09-13-cat-pyq-labels.json, family backfiring_remedy).",
+   "policies": [
+    "cat-pyq-s1"
+   ],
+   "incompatible_endings": [
+    "E01",
+    "E02",
+    "E03",
+    "E05",
+    "E08",
+    "E10",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E16",
+    "E18",
+    "E19",
+    "E20",
+    "E21"
+   ],
+   "incompatible_revelations": [
+    "R03",
+    "R07",
+    "R15"
+   ]
+  },
+  {
+   "id": "F60",
+   "name": "The Typology",
+   "tier_floor": "medium",
+   "tier_max": "hard",
+   "closing_posture": "exposition_neutral",
+   "arc_shape": "typology_enumerated",
+   "withholds_thesis": false,
+   "core": "A concept or phenomenon is fixed in a sentence, divided into a stated number of kinds by named features, and each kind is given its own case; a last case sits across two kinds and qualifies the division without dissolving it.",
+   "difficulty_source": "the kinds look parallel but are defined by different features, so EXCEPT and detail questions turn on which feature belongs to which kind, and the crossing case is easy to misread as a further kind or as a refutation of the scheme",
+   "movement": [
+    "CONCEPT_FIXED",
+    "KINDS_ANNOUNCED",
+    "KIND_WITH_CASE",
+    "KIND_WITH_CASE",
+    "CROSSING_CASE_QUALIFIES"
+   ],
+   "question_affinities": [
+    "except_scan",
+    "detail_check",
+    "keyword_set"
+   ],
+   "permits": [
+    "content_enumeration"
+   ],
+   "source_note": "CAT RC 2017-24: 7 of 90 passages are typologies; most close neutrally rather than failing their own scheme.",
+   "policies": [
+    "cat-pyq-s1"
+   ],
+   "incompatible_endings": [
+    "E01",
+    "E03",
+    "E04",
+    "E05",
+    "E07",
+    "E08",
+    "E09",
+    "E10",
+    "E11",
+    "E12",
+    "E13",
+    "E15",
+    "E16",
+    "E18",
+    "E19",
+    "E21"
+   ],
+   "incompatible_revelations": [
+    "R01",
+    "R02",
+    "R03",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "R12",
+    "R13",
+    "R14",
+    "R15",
+    "R16",
+    "R17",
+    "R18",
+    "R19",
+    "R20",
+    "R22",
+    "R23"
+   ]
+  },
+  {
+   "id": "F61",
+   "name": "The Framed Inquiry",
+   "tier_floor": "hard",
+   "tier_max": "hard",
+   "closing_posture": "resolution_qualified",
+   "arc_shape": "scholarly_introduction",
+   "withholds_thesis": false,
+   "core": "The way a field usually frames a subject is set out, the difficulty that framing cannot absorb is named, the writer's own approach is stated and defended against the misreading it most invites, and the close fixes what the inquiry will cover and why.",
+   "difficulty_source": "the register is abstract and nominal, so questions turn on paraphrasing dense sentences; the forestalled misreading is stated in full and is the most attractive wrong option",
+   "movement": [
+    "PREVAILING_FRAME",
+    "FRAME_DIFFICULTY",
+    "APPROACH_STATED",
+    "MISREADING_FORESTALLED",
+    "SCOPE_FIXED"
+   ],
+   "movement_variants": [
+    [
+     "APPROACH_STATED",
+     "PREVAILING_FRAME",
+     "FRAME_DIFFICULTY",
+     "MISREADING_FORESTALLED",
+     "SCOPE_FIXED"
+    ]
+   ],
+   "question_affinities": [
+    "contextual_inference",
+    "author_vs_reported",
+    "primary_purpose"
+   ],
+   "permits": [
+    "scope_setting"
+   ],
+   "source_note": "CAT RC 2017-24: 7 of 90 passages are scholarly introductions that fix their own scope.",
+   "policies": [
+    "cat-pyq-s1"
+   ],
+   "incompatible_endings": [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E07",
+    "E08",
+    "E09",
+    "E10",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E17",
+    "E18",
+    "E20"
+   ],
+   "incompatible_revelations": [
+    "R01",
+    "R03",
+    "R04",
+    "R05",
+    "R06",
+    "R07",
+    "R08",
+    "R09",
+    "R11",
+    "R13",
+    "R15",
+    "R16",
+    "R18",
+    "R20",
+    "R22"
+   ]
+  },
+  {
+   "id": "F62",
+   "name": "The Split Verdict",
+   "tier_floor": "medium",
+   "tier_max": "hard",
+   "closing_posture": "resolution_qualified",
+   "arc_shape": "split_verdict_review",
+   "withholds_thesis": false,
+   "core": "A work's central claim is stated in its own terms and its case summarised fairly; two objections follow, the second pressed with a counter-case; the close says in one movement where the work is right and where it goes wrong.",
+   "difficulty_source": "the reviewed author's claims and the reviewer's run in the same prose for half the passage, and the verdict is split, so options that report the work's view as the reviewer's and options that make the reviewer wholly hostile are both wrong",
+   "movement": [
+    "WORK_CLAIM_IN_ITS_TERMS",
+    "CASE_SUMMARISED",
+    "FIRST_OBJECTION",
+    "COUNTER_CASE_PRESSED",
+    "VERDICT_SPLIT"
+   ],
+   "movement_variants": [
+    [
+     "WORK_CLAIM_IN_ITS_TERMS",
+     "FIRST_OBJECTION",
+     "CASE_SUMMARISED",
+     "COUNTER_CASE_PRESSED",
+     "VERDICT_SPLIT"
+    ]
+   ],
+   "question_affinities": [
+    "author_vs_reported",
+    "stance",
+    "author_would_endorse"
+   ],
+   "permits": [
+    "reported_voice"
+   ],
+   "source_note": "CAT RC 2017-24: 9 of 90 passages are reviews or retrospectives; several close on a split verdict.",
+   "policies": [
+    "cat-pyq-s1"
+   ],
+   "incompatible_endings": [
+    "E01",
+    "E02",
+    "E03",
+    "E04",
+    "E05",
+    "E06",
+    "E08",
+    "E10",
+    "E11",
+    "E12",
+    "E13",
+    "E14",
+    "E15",
+    "E16",
+    "E18",
+    "E19",
+    "E20",
+    "E21"
+   ],
+   "incompatible_revelations": [
+    "R01",
+    "R02",
+    "R03",
+    "R07",
+    "R08",
+    "R09",
+    "R10",
+    "R11",
+    "R15",
+    "R16",
+    "R17",
+    "R18",
+    "R19",
+    "R20",
+    "R21",
+    "R22"
+   ]
   }
  ]
 }

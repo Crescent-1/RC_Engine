@@ -296,7 +296,13 @@ class RCPipeline:
             for w in passage_word_report(passage)["warnings"]:
                 notes.append(f"prevalidate: {w}")
             from .question_engine import texture_report
-            for w in texture_report(passage)["warnings"]:
+            # Same grants the renderer and auditor were given (section 5.3);
+            # None keeps the legacy scan for every other plan.
+            grants = None
+            if policy.passage_permissions:
+                from .passage_permissions import grants_for
+                grants = grants_for(bp, self.registry)
+            for w in texture_report(passage, grants)["warnings"]:
                 notes.append(f"texture: {w}")
                 print(f"  [texture] {w}")
 

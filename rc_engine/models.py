@@ -162,6 +162,10 @@ class RealizedStructure:
     middle_beats_ok: bool = True
     middle_retention: float = 1.0
     gratuitous_moves: list[str] = field(default_factory=list)
+    # Devices the prose used that the plan's permissions do not grant
+    # (2026-09-13, passage_permissions.py). Always [] for plans without
+    # permissions.
+    unpermitted_devices: list[str] = field(default_factory=list)
 
     def movement_string(self) -> str:
         return "|".join(self.paragraph_functions)

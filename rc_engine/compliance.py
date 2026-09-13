@@ -116,21 +116,30 @@ class ComplianceAuditor:
         forbidden = ", ".join(config.GLOBAL_FORBIDDEN_TICS)
         # posture labels only — the PLANNED posture is deliberately withheld so
         # the classification stays blind and can detect renderer disobedience
+        policy = policy_for_blueprint(bp)
         posture_lines = "\n".join(
             f"  {name}: {desc}"
-            for name, desc in self.registry.closing_postures.items())
+            for name, desc in policy.closing_postures(self.registry).items())
         user = (f"PLAN:\n{plan_lines}\n\nPLANNED THESIS VISIBILITY: paragraph "
                 f"{bp.revelation_detail.get('planned_para')}\n\nPLANNED TRAPS:\n{trap_lines}\n\n"
                 f"FORBIDDEN PHRASES: {forbidden}\n\n"
                 f"CLOSING POSTURE LABELS:\n{posture_lines}\n\nPASSAGE:\n{passage}")
-        policy = policy_for_blueprint(bp)
+        context = {"blueprint": bp, "passage": passage,
+                   "planned_posture": self.registry.posture_of(bp.family_id)}
+        if policy.passage_permissions:
+            # The same grants the renderer was given (section 5.3), so the
+            # auditor never flags what the contract permitted, nor lets pass
+            # what it did not.
+            from .passage_permissions import grants_for, permissions_block
+            context["permissions"] = grants_for(bp, self.registry)
+            user = permissions_block(context["permissions"]) + "\n\n" + user
         user = policy.user_prompt("compliance", user)
         text, _ = self.llm.call(ledger, "compliance", model, max_tokens,
                                 policy.system_prompt("compliance", COMPLIANCE_SYSTEM), user,
-                                context={"blueprint": bp, "passage": passage,
-                                         "planned_posture": self.registry.posture_of(bp.family_id)})
+                                context=context)
         data = extract_json(text)
-        return self._score(data, passage, bp, realized_moves or [])
+        return self._score(data, passage, bp, realized_moves or [],
+                           grants=context.get("permissions"))
 
     @staticmethod
     def _final_line_is_bound(passage: str) -> str | None:
@@ -267,9 +276,11 @@ class ComplianceAuditor:
         return _clean(data.get("primary")), _clean(data.get("secondary"))
 
     def _score(self, data: dict, passage: str, bp: Blueprint,
-               realized_moves: list[str] | None = None) -> RealizedStructure:
+               realized_moves: list[str] | None = None,
+               grants: list[str] | None = None) -> RealizedStructure:
         n = len(bp.movement)
         policy = policy_for_blueprint(bp)
+        postures = policy.closing_postures(self.registry)
         vocab = policy.move_vocabulary()
         exam_shares = policy.exam_move_shares()
         paras_report = data.get("paragraphs", [])[:n]
@@ -392,7 +403,7 @@ class ComplianceAuditor:
                 f"a blind reading of it could not find: {named}")
 
         posture_guess = str(data.get("closing_posture_guess", "")).strip()
-        if posture_guess not in self.registry.closing_postures:
+        if posture_guess not in postures:
             posture_guess = ""   # junk -> unusable; downstream checks skip
         # An aphorism needs BOTH legs of the test. Before 2026-08-22 this was a
         # single "is it terse and quotable" judgement, and it over-fired badly:
@@ -438,7 +449,7 @@ class ComplianceAuditor:
             posture_ok = False
             directives.append(
                 f"the closing posture must be {planned_posture} "
-                f"({self.registry.closing_postures.get(planned_posture, '')}), "
+                f"({postures.get(planned_posture, '')}), "
                 f"not {posture_guess}")
         # NOT capped below the threshold, deliberately — reverted 2026-08-22.
         # Capping forced a dedicated re-render whenever the register was broken,
@@ -495,7 +506,7 @@ class ComplianceAuditor:
         # median of 0.93. Audited the same way the beats and the register are:
         # a directive that rides an existing retry, never a forced re-render.
         commitment_ok = True
-        band = config.POSTURE_END_COMMITMENT.get(planned_posture or "")
+        band = policy.posture_end_commitment().get(planned_posture or "")
         if band and curve:
             lo, hi = band
             tol = config.POSTURE_END_TOLERANCE
@@ -512,11 +523,27 @@ class ComplianceAuditor:
                        "question." if hi <= 0.5 else
                        "The final paragraph must actually land on a position."))
 
+        # ---- permissions (2026-09-13, section 5.3; permission plans only) ----
+        # The auditor reports devices the prose used; only those the plan's
+        # grants do not cover become repair directives, worded from the same
+        # table the renderer was given.
+        found: list[str] = []
+        if grants is not None:
+            from .passage_permissions import DEVICE_GRANT, GRANT_TEXT, unpermitted
+            found = unpermitted(data.get("unpermitted_devices") or [], grants)
+            for device in found:
+                grant = DEVICE_GRANT.get(device)
+                directives.append(
+                    f"remove the {device.replace('_', ' ')}: this plan does not grant it"
+                    + (f" (it would need: {GRANT_TEXT[grant]})" if grant else
+                       " — announcing the passage's own argumentative moves is never permitted"))
+
         f1 = round(f1 - (0.0 if (register_ok and posture_ok) else 0.05)
                    - (0.0 if opening_ok else 0.04)
                    - (0.0 if closing_ok else 0.04)
                    - (0.0 if commitment_ok else 0.04)
-                   - (0.0 if middle_ok else 0.06), 3)
+                   - (0.0 if middle_ok else 0.06)
+                   - (0.04 if found else 0.0), 3)
 
         return RealizedStructure(
             paragraph_functions=functions, matches=matches,
@@ -532,4 +559,5 @@ class ComplianceAuditor:
             commitment_in_band=commitment_ok,
             middle_beats_ok=middle_ok,
             middle_retention=round(middle_retention, 3),
-            gratuitous_moves=gratuitous)
+            gratuitous_moves=gratuitous,
+            unpermitted_devices=found)

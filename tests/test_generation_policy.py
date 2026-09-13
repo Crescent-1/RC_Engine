@@ -110,6 +110,24 @@ def test_elite_matches_pre_policy_golden_while_medium_hard_use_policy(tmp_path):
     assert any(s["question_slots"] == 8 for s in side), side
 
 
+@pytest.mark.parametrize("version", ["cat-pyq-s1", "cat-pyq-s2"])
+def test_elite_matches_pre_policy_golden_while_structure_release_runs(tmp_path, version):
+    """Section 5 releases (families, beats, revelations, rhythms, personas,
+    permissions, rewritten render rules) run between elite attempts; elite still
+    equals the pre-policy engine's output."""
+    report = tmp_path / "side.json"
+    result = run_in_subprocess(str(tmp_path / "scenario.json"), str(tmp_path), {
+        "sequence": SEQUENCE[:6] + ["elite"] * 4, "switch_at": 6, "resume_at": 6,
+        "probe_tiers": ["elite"],
+        "switch": "policy_fixtures:enable_policy", "policy": version,
+        "between": "policy_fixtures:run_side_attempt",
+        "workdir": str(tmp_path), "side_report": str(report)})
+    diff = first_difference(_golden(ELITE_GOLDEN), result)
+    assert diff is None, f"elite behaviour changed at {diff}"
+    side = json.loads(report.read_text(encoding="utf-8"))
+    assert all(s["generation_policy"] == version for s in side if s["family"])
+
+
 def test_elite_matches_pre_policy_golden_while_cat_pyq_q1_runs(tmp_path):
     """The same isolation check with the PRODUCTION question release: its
     contract slots, stem pools, QA extensions and QT25/QT26 run in the same
@@ -283,7 +301,9 @@ def test_legacy_pools_and_fallbacks_never_admit_tagged_components(env):
             reg.libraries["topic_shape"][tid]["compatible_genres"] = ["no-such-genre"]
     info = {"genre": "conceptual_essay", "bipolar_dispute_available": True}
     legacy = eligible_topic_shapes(reg, info)
-    assert pf.TAGGED["topic_shape"] not in legacy and len(legacy) == len(reg.ids("topic_shape")) - 1
+    untagged = [t for t in reg.ids("topic_shape")
+                if not reg.get("topic_shape", t).get("policies")]
+    assert pf.TAGGED["topic_shape"] not in legacy and legacy == untagged
     assert eligible_topic_shapes(reg, info, P) == [pf.TAGGED["topic_shape"]]
 
 

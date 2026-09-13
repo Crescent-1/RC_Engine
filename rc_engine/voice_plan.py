@@ -159,7 +159,7 @@ def plan_violations(bp, registry):
         if value and value not in forms[key]:
             issues.append(f"{key} {value} conflicts with {bp.argument_schema_id}")
     if bp.move_plan:
-        if FAMILY_FORBIDDEN_MOVES.get(bp.family_id, set()) & set(bp.move_plan):
+        if policy.family_forbidden_moves(bp.family_id) & set(bp.move_plan):
             issues.append("beat plan contradicts the family's arc")
         if set(bp.move_plan[1:-1]) - middle_moves(bp.argument_schema_id, policy):
             issues.append("body contains operations outside the chosen schema")
@@ -167,7 +167,8 @@ def plan_violations(bp, registry):
             if move not in bp.move_plan[1:-1]:
                 issues.append(f"schema requires {move} in the body")
         last = bp.move_plan[-1]
-        if last not in closing_beats(bp.ending_id, registry.posture_of(bp.family_id), bp.family_id):
+        if last not in policy.closing_beats(bp.ending_id, registry.posture_of(bp.family_id),
+                                            bp.family_id):
             issues.append(f"closing beat {last} conflicts with ending {bp.ending_id}")
         if bp.closing_register not in policy.closing_registers_by_beat().get(last, set()):
             issues.append(f"register {bp.closing_register} conflicts with closing beat {last}")

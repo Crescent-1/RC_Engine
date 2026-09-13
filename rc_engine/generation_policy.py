@@ -94,6 +94,38 @@ class GenerationPolicy:
     keyed_stem_forms: MappingProxyType = field(default_factory=lambda: _ro({}))
     # slot type -> variants resolved per plan (e.g. keyword_set: keywords, sequence)
     slot_variants: MappingProxyType = field(default_factory=lambda: _ro({}))
+    # -- passage structure (section 5) --
+    # Component tags this policy can see. Empty = just its own version. A later
+    # release lists the earlier versions whose components it keeps.
+    component_tags: frozenset = frozenset()
+    # closing posture label -> description (e.g. exposition_neutral)
+    extra_closing_postures: MappingProxyType = field(default_factory=lambda: _ro({}))
+    # closing posture -> (lo, hi) commitment band at the close
+    extra_posture_end_commitment: MappingProxyType = field(default_factory=lambda: _ro({}))
+    # ending id -> closing beats that ending can carry, added to the legacy map
+    extra_ending_beats: MappingProxyType = field(default_factory=lambda: _ro({}))
+    # new closing beat -> postures it may close (a beat absent here is not limited)
+    closing_beat_postures: MappingProxyType = field(default_factory=lambda: _ro({}))
+    # new closing beat -> the only families it may close (absent = any family)
+    closing_beat_families: MappingProxyType = field(default_factory=lambda: _ro({}))
+    # posture label prefix -> closing beats that posture can never carry
+    posture_closing_discards: MappingProxyType = field(default_factory=lambda: _ro({}))
+    # family id -> the only closing beats it may end on
+    family_closing_beats: MappingProxyType = field(default_factory=lambda: _ro({}))
+    # family id -> beats its arc contradicts, added to voice_plan's map
+    extra_family_forbidden_moves: MappingProxyType = field(default_factory=lambda: _ro({}))
+    # argument schema -> revelation ids its directive contradicts
+    revelation_schema_exclusions: MappingProxyType = field(default_factory=lambda: _ro({}))
+    # True: a component listing compatible_genres is only drawn for those seed genres
+    genre_filtered_personas: bool = False
+    # component type -> {component id -> the only families it may join}
+    family_bound_components: MappingProxyType = field(default_factory=lambda: _ro({}))
+    # stage -> ((exact old text, new text), ...) applied to the SYSTEM prompt
+    # before extensions. Each old text must occur exactly once (validated).
+    system_rewrites: MappingProxyType = field(default_factory=lambda: _ro({}))
+    # True: renderer, compliance and texture_report share per-plan permissions
+    # (passage_permissions.py). False = the house rules apply in full.
+    passage_permissions: bool = False
 
     # -- identity -------------------------------------------------------------
 
@@ -107,7 +139,9 @@ class GenerationPolicy:
         tags = item.get("policies")
         if not tags:
             return True
-        return (not self.is_legacy) and self.version in tags
+        if self.is_legacy:
+            return False
+        return bool(set(tags) & (set(self.component_tags) | {self.version}))
 
     def eligible_ids(self, registry, ctype: str, tier: str | None = None) -> list[str]:
         """tier: when given and the policy resolves question contracts, a
@@ -185,6 +219,47 @@ class GenerationPolicy:
             out[beat] = out.get(beat, set()) | set(regs)
         return out
 
+    def family_forbidden_moves(self, family_id: str) -> set:
+        from .voice_plan import FAMILY_FORBIDDEN_MOVES
+        base = FAMILY_FORBIDDEN_MOVES.get(family_id, set())
+        extra = self.extra_family_forbidden_moves.get(family_id)
+        return base | set(extra) if extra else base
+
+    def closing_beats(self, ending_id: str, posture: str, family_id: str = "") -> set:
+        """Closing beats this ending, posture and family can carry. Legacy is
+        voice_plan.closing_beats itself."""
+        from .voice_plan import closing_beats
+        base = closing_beats(ending_id, posture, family_id)
+        if (not self.extra_ending_beats and not self.family_closing_beats
+                and not self.posture_closing_discards and not self.extra_family_forbidden_moves):
+            return base
+        pool = set(base) | set(self.extra_ending_beats.get(ending_id, ()))
+        for beat, postures in self.closing_beat_postures.items():
+            if beat in pool and posture not in postures:
+                pool.discard(beat)
+        for beat, families in self.closing_beat_families.items():
+            if beat in pool and family_id not in families:
+                pool.discard(beat)
+        for prefix, beats in self.posture_closing_discards.items():
+            if posture.startswith(prefix):
+                pool -= set(beats)
+        if family_id in self.family_closing_beats:
+            pool &= set(self.family_closing_beats[family_id])
+        return pool - self.family_forbidden_moves(family_id)
+
+    def closing_postures(self, registry) -> dict:
+        if not self.extra_closing_postures:
+            return registry.closing_postures
+        return {**registry.closing_postures, **self.extra_closing_postures}
+
+    def posture_end_commitment(self) -> dict:
+        if not self.extra_posture_end_commitment:
+            return config.POSTURE_END_COMMITMENT
+        return {**config.POSTURE_END_COMMITMENT, **self.extra_posture_end_commitment}
+
+    def revelations_excluded_by(self, schema_id: str) -> set:
+        return set(self.revelation_schema_exclusions.get(schema_id, ()))
+
     # -- questions ------------------------------------------------------------
 
     def slot_type_definitions(self, registry) -> dict:
@@ -217,6 +292,8 @@ class GenerationPolicy:
         return f"{text}\n\n{ext}" if ext else text
 
     def system_prompt(self, stage: str, text: str) -> str:
+        for old, new in self.system_rewrites.get(stage, ()):
+            text = text.replace(old, new)
         ext = self.system_extensions.get(stage)
         return f"{text}\n\n{ext}" if ext else text
 
@@ -365,6 +442,55 @@ def validation_errors(registry) -> list[str]:
             errors.append(f"policy {version!r} must not admit elite")
         if p.question_contracts:
             errors.extend(_contract_errors(version, p, registry))
+        errors.extend(_structure_errors(version, p, registry))
+    return errors
+
+
+def _base_system_prompts() -> dict:
+    from .compliance import COMPLIANCE_SYSTEM
+    from .composer import REFINE_SYSTEM
+    from .question_engine import QUESTION_SYSTEM
+    from .renderer import RENDER_SYSTEM
+    return {"render": RENDER_SYSTEM, "compliance": COMPLIANCE_SYSTEM,
+            "questions": QUESTION_SYSTEM, "refine": REFINE_SYSTEM}
+
+
+def _structure_errors(version: str, p: GenerationPolicy, registry) -> list[str]:
+    """Section 5 fields (2026-09-13). A rewrite whose anchor drifted would
+    silently leave a rule unamended while the contract claims a permission, so
+    anchors must match exactly once."""
+    errors = []
+    if p.system_rewrites:
+        prompts = _base_system_prompts()
+        for stage, pairs in p.system_rewrites.items():
+            base = prompts.get(stage)
+            if base is None:
+                errors.append(f"policy {version!r} rewrites unknown stage {stage!r}")
+                continue
+            for old, _new in pairs:
+                if base.count(old) != 1:
+                    errors.append(f"policy {version!r} {stage} rewrite anchor found "
+                                  f"{base.count(old)} times: {old[:60]!r}")
+    for tag in p.component_tags:
+        if tag not in _POLICIES:
+            errors.append(f"policy {version!r} sees components of unknown policy {tag!r}")
+    closing = set(p.move_groups().get("closing", ()))
+    named = set()
+    for beats in p.extra_ending_beats.values():
+        named |= set(beats)
+    for beats in p.family_closing_beats.values():
+        named |= set(beats)
+    named |= set(p.closing_beat_postures) | set(p.closing_beat_families)
+    for beat in sorted(named - closing):
+        errors.append(f"policy {version!r} names closing beat {beat!r} it cannot plan")
+    families = set(registry.libraries["family"])
+    for fid in [*p.family_closing_beats, *p.extra_family_forbidden_moves]:
+        if fid not in families:
+            errors.append(f"policy {version!r} constrains unknown family {fid!r}")
+    postures = set(p.closing_postures(registry))
+    for label in p.extra_posture_end_commitment:
+        if label not in postures:
+            errors.append(f"policy {version!r} bands unknown posture {label!r}")
     return errors
 
 

@@ -636,7 +636,7 @@ _SIGNPOST_PATTERNS = [
     (r"\bin (?:this|the) (?:passage|essay|piece)\b", "refers to itself as a text"),
 ]
 
-def texture_report(passage: str) -> dict:
+def texture_report(passage: str, permissions: list[str] | None = None) -> dict:
     """Free scan for architecture signposting and fabricated scholarly texture.
 
     Both are ways generated prose fakes the surface of serious writing: the
@@ -647,14 +647,32 @@ def texture_report(passage: str) -> dict:
 
     Warnings only. Neither is grounds for rejection, and a real citation will
     sometimes trip the fabrication heuristics.
+
+    permissions: the plan's grants from passage_permissions (2026-09-13,
+    contract policies only). None is the legacy scan, unchanged. With grants,
+    a scope-setting plan may refer to its own inquiry, a content-enumerating
+    plan may number the steps or problems of its subject, and devices used
+    without a grant are reported too.
     """
     import re as _re
 
     warnings = []
+    grants = set(permissions or ())
     for pat, label in _SIGNPOST_PATTERNS:
         m = _re.search(pat, passage, _re.I)
         if m:
+            if permissions is not None:
+                text = m.group(0).lower()
+                if label == "refers to itself as a text" and "scope_setting" in grants:
+                    continue
+                if (label == "numbers its own argumentative moves"
+                        and "content_enumeration" in grants
+                        and _re.search(r"(?:problem|difficulty|step)$", text)):
+                    continue
             warnings.append(f"signposting: {label} - {m.group(0)!r}")
+    if permissions is not None:
+        from .passage_permissions import texture_findings
+        warnings.extend(f"signposting: {w}" for w in texture_findings(passage, list(grants)))
     for pat, label in _FABRICATION_PATTERNS:
         m = _re.search(pat, passage)
         if m:

@@ -41,6 +41,8 @@
     {"id": "E19", "name": "The Handover", "aperture": "displaces",
      "gesture": "passes the question to a different discipline or authority as more competent"},
     {"id": "E20", "name": "The Earned Banality", "aperture": "narrows",
-     "gesture": "arrives at a truism — and shows the truism now means something different"}
+     "gesture": "arrives at a truism — and shows the truism now means something different"},
+    {"id": "E21", "name": "The Scope Fixed", "aperture": "holds",
+     "gesture": "closes by fixing what the inquiry will and will not cover, and why that boundary follows from the difficulty named earlier", "policies": ["cat-pyq-s1"]}
   ]
 }

@@ -217,6 +217,42 @@
     "investigation"
    ],
    "source_note": "RC125 passage 13: deep-focus earthquakes; Wadati's P-S interval method, then the descending-plate mechanism."
+  },
+  {
+   "id": "TS15",
+   "name": "The Kinds Distinguished",
+   "topic_form": "One phenomenon divided into a small number of kinds by stated features, each kind shown in a case, and one case that sits across two kinds. The passage explains the division; it does not stage a dispute about it.",
+   "requires_tension": false,
+   "content_frame": "Name the phenomenon, the features that separate the kinds, one case for each kind, and the case that crosses two of them.",
+   "compatible_genres": [
+    "technical_explainer",
+    "analysis",
+    "conceptual_essay",
+    "narrative_history",
+    "practice_account"
+   ],
+   "note": "Added 2026-09-13 for F60 (cat-pyq-s1); typologies are 7 of 90 CAT RC passages.",
+   "policies": [
+    "cat-pyq-s1"
+   ]
+  },
+  {
+   "id": "TS16",
+   "name": "The Field's Frame",
+   "topic_form": "How a field usually frames a subject, the specific difficulty that framing cannot absorb, and the approach that can. The subject is the frame, not a quarrel between named camps.",
+   "requires_tension": false,
+   "content_frame": "Name the field, the prevailing frame, the case or observation it cannot absorb, and the approach proposed in its place.",
+   "compatible_genres": [
+    "conceptual_essay",
+    "analysis",
+    "criticism",
+    "legal_analysis",
+    "narrative_history"
+   ],
+   "note": "Added 2026-09-13 for F61 (cat-pyq-s1); scholarly introductions are 7 of 90.",
+   "policies": [
+    "cat-pyq-s1"
+   ]
   }
  ]
 }

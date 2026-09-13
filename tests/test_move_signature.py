@@ -922,8 +922,11 @@ def test_family_exclusion_window_cannot_erase_an_arc_shape():
     for tier in ("medium", "hard", "elite"):
         pool = comp._eligible("family", tier)
         shapes = {reg.shape_of(f) for f in pool}
+        # 2026-09-13: the legacy composer's view; families tagged for a
+        # generation policy are never legacy candidates.
+        from rc_engine.generation_policy import LEGACY_POLICY
         eligible_shapes = {
-            reg.shape_of(f) for f in reg.ids("family")
+            reg.shape_of(f) for f in LEGACY_POLICY.eligible_ids(reg, "family")
             if order[reg.get("family", f)["tier_floor"]] <= order[tier]
             # tier_max is a ceiling (2026-08-25): the exam-derived expository
             # families are deliberately unavailable above hard, so they are not
