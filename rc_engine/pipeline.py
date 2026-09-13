@@ -527,9 +527,14 @@ class RCPipeline:
             from .qa_checks import answerability_warnings, check_answerability
             rows = check_answerability(passage, qdata.get("questions", []),
                                        self.llm, ledger, bp.tier, policy=policy)
-            for w in answerability_warnings(rows):
+            flagged = answerability_warnings(rows)
+            for w in flagged:
                 notes.append(f"answerability: {w}")
                 print(f"  [answerability] {w}")
+            # Question ambiguity per policy (plan 7.5). Only non-legacy plans
+            # carry it, so legacy fingerprints stay as they were.
+            if bp.generation_policy and rows:
+                fp.stylometry["_answerability_flags"] = len(flagged)
         except BudgetExceeded:
             notes.append("answerability skipped: budget")
         except Exception as e:
