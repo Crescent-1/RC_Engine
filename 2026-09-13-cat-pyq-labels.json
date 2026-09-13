@@ -1,0 +1,2527 @@
+{
+ "source": "CAT RC 2017-2024, 90 passages; hand labels 2026-09-13; derived labels only",
+ "passages": [
+  {
+   "id": "17-1-1",
+   "topic": "map orientation",
+   "register": "reportage",
+   "open": "ABSTRACT",
+   "close": "BOUND",
+   "stance": "NEUTRAL",
+   "thesis": "mid",
+   "family": "F56",
+   "first_person": 0,
+   "words": 518,
+   "paragraphs": 5,
+   "para_words": [
+    94,
+    90,
+    128,
+    100,
+    106
+   ],
+   "question_types": [
+    "thesis_main_idea",
+    "except_or_not_scan",
+    "detail",
+    "inference",
+    "other",
+    "other"
+   ]
+  },
+  {
+   "id": "17-1-2",
+   "topic": "printing press vs iPhone",
+   "register": "op-ed",
+   "open": "SCENE",
+   "close": "APHORISTIC",
+   "stance": "COMMITTED",
+   "thesis": "late",
+   "family": "NEW:benchmark_comparison",
+   "first_person": 2,
+   "words": 541,
+   "paragraphs": 5,
+   "para_words": [
+    217,
+    132,
+    56,
+    43,
+    93
+   ],
+   "question_types": [
+    "detail",
+    "except_or_not_scan",
+    "other",
+    "purpose_of_part",
+    "detail",
+    "thesis_main_idea"
+   ]
+  },
+  {
+   "id": "17-1-3",
+   "topic": "malls as public square",
+   "register": "feature",
+   "open": "NEWS_DATA_HOOK",
+   "close": "QUOTE_CLOSE",
+   "stance": "COMMITTED",
+   "thesis": "mid",
+   "family": "NEW:elegy_for_a_function",
+   "first_person": 0,
+   "words": 510,
+   "paragraphs": 5,
+   "para_words": [
+    74,
+    99,
+    115,
+    6,
+    216
+   ],
+   "question_types": [
+    "thesis_main_idea",
+    "except_or_not_scan",
+    "meaning_paraphrase",
+    "detail",
+    "purpose_of_part",
+    "purpose_of_part"
+   ]
+  },
+  {
+   "id": "17-1-4",
+   "topic": "speciation debate",
+   "register": "science_history",
+   "open": "ABSTRACT",
+   "close": "BOUND",
+   "stance": "NEUTRAL",
+   "thesis": "mid",
+   "family": "F54",
+   "first_person": 0,
+   "words": 298,
+   "paragraphs": 3,
+   "para_words": [
+    92,
+    91,
+    115
+   ],
+   "question_types": [
+    "thesis_main_idea",
+    "except_or_not_scan",
+    "purpose_of_part"
+   ]
+  },
+  {
+   "id": "17-1-5",
+   "topic": "Olympic host cities",
+   "register": "op-ed",
+   "open": "QUESTION",
+   "close": "BOUND",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F35",
+   "first_person": 0,
+   "words": 340,
+   "paragraphs": 4,
+   "para_words": [
+    121,
+    100,
+    77,
+    42
+   ],
+   "question_types": [
+    "thesis_main_idea",
+    "except_or_not_scan",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "17-2-1",
+   "topic": "creativity and cities",
+   "register": "op-ed",
+   "open": "THESIS_FIRST",
+   "close": "PRESCRIPTION",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:diagnosis_oped",
+   "first_person": 2,
+   "words": 513,
+   "paragraphs": 7,
+   "para_words": [
+    106,
+    46,
+    48,
+    78,
+    64,
+    116,
+    55
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "purpose_of_part",
+    "thesis_main_idea",
+    "other",
+    "purpose_of_part",
+    "inference"
+   ]
+  },
+  {
+   "id": "17-2-2",
+   "topic": "subnivium",
+   "register": "science_explainer",
+   "open": "SCENE",
+   "close": "CONCRETE",
+   "stance": "NEUTRAL",
+   "thesis": "early",
+   "family": "F47",
+   "first_person": 0,
+   "words": 529,
+   "paragraphs": 6,
+   "para_words": [
+    80,
+    63,
+    48,
+    114,
+    128,
+    96
+   ],
+   "question_types": [
+    "purpose_of_part",
+    "except_or_not_scan",
+    "author_would_support",
+    "purpose_of_part",
+    "inference",
+    "purpose_of_part"
+   ]
+  },
+  {
+   "id": "17-2-3",
+   "topic": "electric cars",
+   "register": "editorial",
+   "open": "ABSTRACT",
+   "close": "APHORISTIC",
+   "stance": "COMMITTED",
+   "thesis": "late",
+   "family": "NEW:backfiring_remedy",
+   "first_person": 0,
+   "words": 522,
+   "paragraphs": 5,
+   "para_words": [
+    114,
+    132,
+    121,
+    53,
+    102
+   ],
+   "question_types": [
+    "thesis_main_idea",
+    "except_or_not_scan",
+    "detail",
+    "inference",
+    "purpose_of_part",
+    "purpose_of_part"
+   ]
+  },
+  {
+   "id": "17-2-4",
+   "topic": "typewriters",
+   "register": "editorial",
+   "open": "OTHER",
+   "close": "APHORISTIC",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F15",
+   "first_person": 0,
+   "words": 256,
+   "paragraphs": 1,
+   "para_words": [
+    256
+   ],
+   "question_types": [
+    "thesis_main_idea",
+    "detail",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "17-2-5",
+   "topic": "Viking traders",
+   "register": "science_news",
+   "open": "MISCONCEPTION",
+   "close": "BOUND",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F55",
+   "first_person": 0,
+   "words": 320,
+   "paragraphs": 2,
+   "para_words": [
+    192,
+    128
+   ],
+   "question_types": [
+    "purpose_of_part",
+    "purpose_of_part",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "18-1-1",
+   "topic": "elephant trauma",
+   "register": "science_feature",
+   "open": "QUOTE",
+   "close": "QUOTE_CLOSE",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F54",
+   "first_person": 0,
+   "words": 510,
+   "paragraphs": 6,
+   "para_words": [
+    63,
+    110,
+    102,
+    121,
+    73,
+    41
+   ],
+   "question_types": [
+    "thesis_main_idea",
+    "purpose_of_part",
+    "except_or_not_scan",
+    "author_would_support",
+    "meaning_paraphrase"
+   ]
+  },
+  {
+   "id": "18-1-2",
+   "topic": "India in WWII",
+   "register": "op-ed",
+   "open": "NEWS_DATA_HOOK",
+   "close": "PRESCRIPTION",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:omission_corrected",
+   "first_person": 0,
+   "words": 490,
+   "paragraphs": 8,
+   "para_words": [
+    89,
+    100,
+    51,
+    56,
+    36,
+    36,
+    80,
+    42
+   ],
+   "question_types": [
+    "stance_evaluation",
+    "except_or_not_scan",
+    "meaning_paraphrase",
+    "except_or_not_scan",
+    "detail"
+   ]
+  },
+  {
+   "id": "18-1-3",
+   "topic": "plastic blame",
+   "register": "op-ed",
+   "open": "APHORISM",
+   "close": "PRESCRIPTION",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:misdirection_exposed",
+   "first_person": 2,
+   "words": 511,
+   "paragraphs": 5,
+   "para_words": [
+    61,
+    122,
+    87,
+    137,
+    104
+   ],
+   "question_types": [
+    "author_would_support",
+    "except_or_not_scan",
+    "purpose_of_part",
+    "meaning_paraphrase",
+    "inference"
+   ]
+  },
+  {
+   "id": "18-1-4",
+   "topic": "quantified happiness",
+   "register": "op-ed",
+   "open": "HISTORICAL",
+   "close": "PRESCRIPTION",
+   "stance": "COMMITTED",
+   "thesis": "late",
+   "family": "F17",
+   "first_person": 0,
+   "words": 493,
+   "paragraphs": 6,
+   "para_words": [
+    90,
+    42,
+    91,
+    108,
+    56,
+    106
+   ],
+   "question_types": [
+    "detail",
+    "weaken_undermine",
+    "stance_evaluation",
+    "author_would_support",
+    "detail"
+   ]
+  },
+  {
+   "id": "18-1-5",
+   "topic": "epigenetic inheritance",
+   "register": "essay",
+   "open": "SCENE",
+   "close": "CONCRETE",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F56",
+   "first_person": 0,
+   "words": 519,
+   "paragraphs": 6,
+   "para_words": [
+    95,
+    78,
+    103,
+    43,
+    106,
+    94
+   ],
+   "question_types": [
+    "purpose_of_part",
+    "thesis_main_idea",
+    "other",
+    "weaken_undermine"
+   ]
+  },
+  {
+   "id": "18-2-1",
+   "topic": "meritocracy and diversity",
+   "register": "essay",
+   "open": "ABSTRACT",
+   "close": "APHORISTIC",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F36",
+   "first_person": 0,
+   "words": 501,
+   "paragraphs": 4,
+   "para_words": [
+    125,
+    176,
+    158,
+    42
+   ],
+   "question_types": [
+    "weaken_undermine",
+    "except_or_not_scan",
+    "weaken_undermine",
+    "application_scenario",
+    "purpose_of_part"
+   ]
+  },
+  {
+   "id": "18-2-2",
+   "topic": "grove snails",
+   "register": "science_news",
+   "open": "FINDING",
+   "close": "QUOTE_CLOSE",
+   "stance": "COMMITTED",
+   "thesis": "late",
+   "family": "F51",
+   "first_person": 0,
+   "words": 511,
+   "paragraphs": 5,
+   "para_words": [
+    113,
+    126,
+    87,
+    89,
+    96
+   ],
+   "question_types": [
+    "thesis_main_idea",
+    "strengthen_support",
+    "inference",
+    "detail"
+   ]
+  },
+  {
+   "id": "18-2-3",
+   "topic": "metric fixation",
+   "register": "book",
+   "open": "DEFINITION",
+   "close": "BOUND",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:typology",
+   "first_person": 0,
+   "words": 439,
+   "paragraphs": 4,
+   "para_words": [
+    79,
+    158,
+    125,
+    77
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "keyword_or_flow_set",
+    "purpose_of_part",
+    "except_or_not_scan",
+    "purpose_of_part"
+   ]
+  },
+  {
+   "id": "18-2-4",
+   "topic": "Saturn's rings",
+   "register": "science_news",
+   "open": "APHORISM",
+   "close": "BOUND",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F55",
+   "first_person": 0,
+   "words": 506,
+   "paragraphs": 5,
+   "para_words": [
+    52,
+    109,
+    154,
+    70,
+    121
+   ],
+   "question_types": [
+    "thesis_main_idea",
+    "inference",
+    "except_or_not_scan",
+    "meaning_paraphrase",
+    "other"
+   ]
+  },
+  {
+   "id": "18-2-5",
+   "topic": "e-governance",
+   "register": "op-ed",
+   "open": "QUESTION",
+   "close": "PRESCRIPTION",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:backfiring_remedy",
+   "first_person": 0,
+   "words": 512,
+   "paragraphs": 6,
+   "para_words": [
+    97,
+    107,
+    56,
+    85,
+    86,
+    81
+   ],
+   "question_types": [
+    "purpose_of_part",
+    "meaning_paraphrase",
+    "except_or_not_scan",
+    "detail",
+    "weaken_undermine"
+   ]
+  },
+  {
+   "id": "19-1-1",
+   "topic": "Aladdin's author",
+   "register": "news",
+   "open": "MISCONCEPTION",
+   "close": "QUOTE_CLOSE",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F54",
+   "first_person": 0,
+   "words": 505,
+   "paragraphs": 3,
+   "para_words": [
+    169,
+    165,
+    171
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "author_would_support",
+    "detail",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "19-1-2",
+   "topic": "choice fatigue",
+   "register": "essay",
+   "open": "ABSTRACT",
+   "close": "APHORISTIC",
+   "stance": "COMMITTED",
+   "thesis": "late",
+   "family": "NEW:backfiring_remedy",
+   "first_person": 0,
+   "words": 501,
+   "paragraphs": 3,
+   "para_words": [
+    154,
+    179,
+    168
+   ],
+   "question_types": [
+    "application_scenario",
+    "purpose_of_part",
+    "application_scenario",
+    "weaken_undermine",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "19-1-3",
+   "topic": "penguin plumage",
+   "register": "science_news",
+   "open": "FINDING",
+   "close": "CONCRETE",
+   "stance": "NEUTRAL",
+   "thesis": "early",
+   "family": "F47",
+   "first_person": 0,
+   "words": 493,
+   "paragraphs": 3,
+   "para_words": [
+    157,
+    186,
+    150
+   ],
+   "question_types": [
+    "meaning_paraphrase",
+    "purpose_of_part",
+    "weaken_undermine",
+    "other"
+   ]
+  },
+  {
+   "id": "19-1-4",
+   "topic": "British folk",
+   "register": "culture_essay",
+   "open": "QUOTE",
+   "close": "BOUND",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F17",
+   "first_person": 0,
+   "words": 499,
+   "paragraphs": 3,
+   "para_words": [
+    180,
+    187,
+    132
+   ],
+   "question_types": [
+    "detail",
+    "except_or_not_scan",
+    "application_scenario",
+    "purpose_of_part",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "19-1-5",
+   "topic": "topophilia",
+   "register": "encyclopedic",
+   "open": "DEFINITION",
+   "close": "BOUND",
+   "stance": "NEUTRAL",
+   "thesis": "early",
+   "family": "NEW:typology",
+   "first_person": 0,
+   "words": 505,
+   "paragraphs": 3,
+   "para_words": [
+    173,
+    173,
+    159
+   ],
+   "question_types": [
+    "other",
+    "purpose_of_part",
+    "meaning_paraphrase",
+    "application_scenario",
+    "weaken_undermine"
+   ]
+  },
+  {
+   "id": "19-2-1",
+   "topic": "dispersing capitals",
+   "register": "magazine_explainer",
+   "open": "NEWS_DATA_HOOK",
+   "close": "BOUND",
+   "stance": "COMMITTED",
+   "thesis": "mid",
+   "family": "NEW:stated_aims_audited",
+   "first_person": 0,
+   "words": 493,
+   "paragraphs": 7,
+   "para_words": [
+    90,
+    83,
+    44,
+    85,
+    103,
+    44,
+    44
+   ],
+   "question_types": [
+    "detail",
+    "purpose_of_part",
+    "author_would_support",
+    "inference",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "19-2-2",
+   "topic": "3D scans of heritage",
+   "register": "news",
+   "open": "NEWS_DATA_HOOK",
+   "close": "QUOTE_CLOSE",
+   "stance": "OPEN",
+   "thesis": "early",
+   "family": "NEW:reported_controversy",
+   "first_person": 0,
+   "words": 483,
+   "paragraphs": 7,
+   "para_words": [
+    38,
+    82,
+    67,
+    48,
+    118,
+    38,
+    92
+   ],
+   "question_types": [
+    "reported_view_vs_author",
+    "other",
+    "weaken_undermine",
+    "reported_view_vs_author",
+    "author_would_support"
+   ]
+  },
+  {
+   "id": "19-2-3",
+   "topic": "squatter cities",
+   "register": "book",
+   "open": "APHORISM",
+   "close": "APHORISTIC",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F15",
+   "first_person": 2,
+   "words": 494,
+   "paragraphs": 6,
+   "para_words": [
+    75,
+    103,
+    136,
+    53,
+    56,
+    71
+   ],
+   "question_types": [
+    "weaken_undermine",
+    "except_or_not_scan",
+    "inference",
+    "purpose_of_part",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "19-2-4",
+   "topic": "learning Arabic",
+   "register": "memoir_essay",
+   "open": "SCENE",
+   "close": "APHORISTIC",
+   "stance": "COMMITTED",
+   "thesis": "mid",
+   "family": "NEW:reply_to_critics",
+   "first_person": 2,
+   "words": 499,
+   "paragraphs": 5,
+   "para_words": [
+    122,
+    92,
+    152,
+    61,
+    72
+   ],
+   "question_types": [
+    "inference",
+    "application_scenario",
+    "reported_view_vs_author",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "19-2-5",
+   "topic": "colonial modernity",
+   "register": "academic",
+   "open": "HISTORICAL",
+   "close": "BOUND",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F02",
+   "first_person": 0,
+   "words": 511,
+   "paragraphs": 3,
+   "para_words": [
+    257,
+    192,
+    62
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "strengthen_support",
+    "except_or_not_scan",
+    "keyword_or_flow_set",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "20-1-1",
+   "topic": "anarchism",
+   "register": "encyclopedic",
+   "open": "HISTORICAL",
+   "close": "BOUND",
+   "stance": "NEUTRAL",
+   "thesis": "early",
+   "family": "NEW:typology",
+   "first_person": 0,
+   "words": 490,
+   "paragraphs": 6,
+   "para_words": [
+    88,
+    91,
+    86,
+    54,
+    98,
+    73
+   ],
+   "question_types": [
+    "other",
+    "except_or_not_scan",
+    "detail",
+    "except_or_not_scan",
+    "keyword_or_flow_set"
+   ]
+  },
+  {
+   "id": "20-1-2",
+   "topic": "elephant seal dialects",
+   "register": "science_journalism",
+   "open": "HISTORICAL",
+   "close": "BOUND",
+   "stance": "NEUTRAL",
+   "thesis": "late",
+   "family": "F50",
+   "first_person": 0,
+   "words": 504,
+   "paragraphs": 5,
+   "para_words": [
+    55,
+    77,
+    69,
+    134,
+    169
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "except_or_not_scan",
+    "thesis_main_idea",
+    "inference"
+   ]
+  },
+  {
+   "id": "20-1-3",
+   "topic": "Tang currency",
+   "register": "history",
+   "open": "MISCONCEPTION",
+   "close": "CONCRETE",
+   "stance": "NEUTRAL",
+   "thesis": "early",
+   "family": "NEW:comparative_ledger",
+   "first_person": 0,
+   "words": 486,
+   "paragraphs": 5,
+   "para_words": [
+    143,
+    102,
+    84,
+    77,
+    80
+   ],
+   "question_types": [
+    "inference",
+    "except_or_not_scan",
+    "except_or_not_scan",
+    "application_scenario"
+   ]
+  },
+  {
+   "id": "20-1-4",
+   "topic": "grammar",
+   "register": "craft_book",
+   "open": "OTHER",
+   "close": "APHORISTIC",
+   "stance": "COMMITTED",
+   "thesis": "mid",
+   "family": "NEW:rule_relaxed_reanchored",
+   "first_person": 2,
+   "words": 502,
+   "paragraphs": 5,
+   "para_words": [
+    84,
+    72,
+    94,
+    91,
+    161
+   ],
+   "question_types": [
+    "thesis_main_idea",
+    "negated_support_if_false",
+    "except_or_not_scan",
+    "application_scenario",
+    "author_would_support"
+   ]
+  },
+  {
+   "id": "20-2-1",
+   "topic": "visual culture studies",
+   "register": "academic",
+   "open": "METATEXT",
+   "close": "BOUND",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:scholarly_introduction",
+   "first_person": 0,
+   "words": 488,
+   "paragraphs": 6,
+   "para_words": [
+    74,
+    62,
+    181,
+    68,
+    86,
+    17
+   ],
+   "question_types": [
+    "meaning_paraphrase",
+    "except_or_not_scan",
+    "meaning_paraphrase",
+    "meaning_paraphrase",
+    "keyword_or_flow_set"
+   ]
+  },
+  {
+   "id": "20-2-2",
+   "topic": "piracy (review)",
+   "register": "review",
+   "open": "NEWS_DATA_HOOK",
+   "close": "BOUND",
+   "stance": "COMMITTED",
+   "thesis": "mid",
+   "family": "F53",
+   "first_person": 0,
+   "words": 505,
+   "paragraphs": 5,
+   "para_words": [
+    99,
+    89,
+    47,
+    194,
+    76
+   ],
+   "question_types": [
+    "inference",
+    "inference",
+    "stance_evaluation",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "20-2-3",
+   "topic": "renewables' costs",
+   "register": "academic",
+   "open": "ABSTRACT",
+   "close": "FORECAST",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:backfiring_remedy",
+   "first_person": 0,
+   "words": 484,
+   "paragraphs": 5,
+   "para_words": [
+    91,
+    58,
+    98,
+    70,
+    167
+   ],
+   "question_types": [
+    "strengthen_support",
+    "negated_support_if_false",
+    "inference",
+    "thesis_main_idea",
+    "author_would_support"
+   ]
+  },
+  {
+   "id": "20-2-4",
+   "topic": "aggression",
+   "register": "textbook",
+   "open": "DEFINITION",
+   "close": "BOUND",
+   "stance": "NEUTRAL",
+   "thesis": "early",
+   "family": "NEW:typology",
+   "first_person": 0,
+   "words": 503,
+   "paragraphs": 2,
+   "para_words": [
+    251,
+    252
+   ],
+   "question_types": [
+    "purpose_of_part",
+    "except_or_not_scan",
+    "detail",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "20-3-1",
+   "topic": "travel writing",
+   "register": "academic",
+   "open": "ABSTRACT",
+   "close": "BOUND",
+   "stance": "NEUTRAL",
+   "thesis": "early",
+   "family": "F48",
+   "first_person": 0,
+   "words": 514,
+   "paragraphs": 3,
+   "para_words": [
+    115,
+    205,
+    194
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "application_scenario",
+    "inference",
+    "other",
+    "detail"
+   ]
+  },
+  {
+   "id": "20-3-2",
+   "topic": "human nature (review)",
+   "register": "review",
+   "open": "ABSTRACT",
+   "close": "VERDICT_QUALIFIED",
+   "stance": "COMMITTED",
+   "thesis": "late",
+   "family": "F24",
+   "first_person": 0,
+   "words": 511,
+   "paragraphs": 6,
+   "para_words": [
+    97,
+    60,
+    72,
+    100,
+    81,
+    101
+   ],
+   "question_types": [
+    "reported_view_vs_author",
+    "detail",
+    "except_or_not_scan",
+    "detail"
+   ]
+  },
+  {
+   "id": "20-3-3",
+   "topic": "screen time and class",
+   "register": "op-ed",
+   "open": "THESIS_FIRST",
+   "close": "VERDICT_QUALIFIED",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F35",
+   "first_person": 0,
+   "words": 511,
+   "paragraphs": 7,
+   "para_words": [
+    43,
+    14,
+    96,
+    93,
+    109,
+    88,
+    68
+   ],
+   "question_types": [
+    "author_would_support",
+    "strengthen_support",
+    "author_would_support",
+    "detail"
+   ]
+  },
+  {
+   "id": "20-3-4",
+   "topic": "financial crisis (preface)",
+   "register": "preface",
+   "open": "OTHER",
+   "close": "FORECAST",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:scholarly_introduction",
+   "first_person": 2,
+   "words": 493,
+   "paragraphs": 2,
+   "para_words": [
+    390,
+    103
+   ],
+   "question_types": [
+    "negated_support_if_false",
+    "inference",
+    "thesis_main_idea",
+    "strengthen_support",
+    "author_would_support"
+   ]
+  },
+  {
+   "id": "21-1-1",
+   "topic": "tea (review)",
+   "register": "review",
+   "open": "REPORTED_POSITION",
+   "close": "AFFIRMATION",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F53",
+   "first_person": 1,
+   "words": 492,
+   "paragraphs": 5,
+   "para_words": [
+    101,
+    87,
+    111,
+    121,
+    72
+   ],
+   "question_types": [
+    "strengthen_support",
+    "reported_view_vs_author",
+    "except_or_not_scan",
+    "application_scenario"
+   ]
+  },
+  {
+   "id": "21-1-2",
+   "topic": "Maya personhood",
+   "register": "scholar_essay",
+   "open": "ABSTRACT",
+   "close": "VERDICT_QUALIFIED",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:alien_category_scheme",
+   "first_person": 2,
+   "words": 482,
+   "paragraphs": 3,
+   "para_words": [
+    208,
+    110,
+    164
+   ],
+   "question_types": [
+    "weaken_undermine",
+    "weaken_undermine",
+    "application_scenario",
+    "purpose_of_part"
+   ]
+  },
+  {
+   "id": "21-1-3",
+   "topic": "utopia and dystopia",
+   "register": "academic",
+   "open": "OTHER",
+   "close": "VERDICT_QUALIFIED",
+   "stance": "COMMITTED",
+   "thesis": "late",
+   "family": "NEW:bounded_hypothesis",
+   "first_person": 1,
+   "words": 494,
+   "paragraphs": 3,
+   "para_words": [
+    133,
+    200,
+    161
+   ],
+   "question_types": [
+    "other",
+    "keyword_or_flow_set",
+    "except_or_not_scan",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "21-1-4",
+   "topic": "cuttlefish self-control",
+   "register": "science_news",
+   "open": "OTHER",
+   "close": "QUESTION_OPEN",
+   "stance": "NEUTRAL",
+   "thesis": "early",
+   "family": "F55",
+   "first_person": 0,
+   "words": 503,
+   "paragraphs": 5,
+   "para_words": [
+    45,
+    204,
+    122,
+    63,
+    69
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "strengthen_support",
+    "application_scenario",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "21-2-1",
+   "topic": "scandal of knowledge",
+   "register": "essay",
+   "open": "QUOTE",
+   "close": "BOUND",
+   "stance": "COMMITTED",
+   "thesis": "mid",
+   "family": "NEW:scandal_deflated",
+   "first_person": 1,
+   "words": 523,
+   "paragraphs": 3,
+   "para_words": [
+    169,
+    169,
+    185
+   ],
+   "question_types": [
+    "author_would_support",
+    "except_or_not_scan",
+    "detail",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "21-2-2",
+   "topic": "endangered languages",
+   "register": "op-ed",
+   "open": "MISCONCEPTION",
+   "close": "APHORISTIC",
+   "stance": "COMMITTED",
+   "thesis": "late",
+   "family": "F15",
+   "first_person": 2,
+   "words": 511,
+   "paragraphs": 6,
+   "para_words": [
+    86,
+    118,
+    88,
+    58,
+    85,
+    76
+   ],
+   "question_types": [
+    "author_would_support",
+    "except_or_not_scan",
+    "purpose_of_part",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "21-2-3",
+   "topic": "nationalism's dichotomies",
+   "register": "academic",
+   "open": "METATEXT",
+   "close": "VERDICT_QUALIFIED",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:scholarly_introduction",
+   "first_person": 2,
+   "words": 500,
+   "paragraphs": 4,
+   "para_words": [
+    152,
+    144,
+    125,
+    79
+   ],
+   "question_types": [
+    "weaken_undermine",
+    "reported_view_vs_author",
+    "except_or_not_scan",
+    "weaken_undermine"
+   ]
+  },
+  {
+   "id": "21-2-4",
+   "topic": "fiction and power",
+   "register": "pop_intellectual",
+   "open": "MISCONCEPTION",
+   "close": "QUESTION_OPEN",
+   "stance": "OPEN",
+   "thesis": "early",
+   "family": "NEW:myth_busted_by_distinction",
+   "first_person": 0,
+   "words": 512,
+   "paragraphs": 4,
+   "para_words": [
+    47,
+    186,
+    192,
+    87
+   ],
+   "question_types": [
+    "other",
+    "thesis_main_idea",
+    "inference",
+    "author_would_support"
+   ]
+  },
+  {
+   "id": "21-3-1",
+   "topic": "the unconscious",
+   "register": "intellectual_history",
+   "open": "HISTORICAL",
+   "close": "VERDICT_QUALIFIED",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F17",
+   "first_person": 0,
+   "words": 508,
+   "paragraphs": 4,
+   "para_words": [
+    65,
+    222,
+    80,
+    141
+   ],
+   "question_types": [
+    "keyword_or_flow_set",
+    "thesis_main_idea",
+    "application_scenario",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "21-3-2",
+   "topic": "clocks and entropy",
+   "register": "science_news",
+   "open": "THESIS_FIRST",
+   "close": "FORECAST",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F47",
+   "first_person": 0,
+   "words": 522,
+   "paragraphs": 4,
+   "para_words": [
+    225,
+    69,
+    70,
+    158
+   ],
+   "question_types": [
+    "purpose_of_part",
+    "except_or_not_scan",
+    "keyword_or_flow_set",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "21-3-3",
+   "topic": "language instinct (review)",
+   "register": "review",
+   "open": "HISTORICAL",
+   "close": "AFFIRMATION",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F53",
+   "first_person": 0,
+   "words": 505,
+   "paragraphs": 4,
+   "para_words": [
+    138,
+    101,
+    99,
+    167
+   ],
+   "question_types": [
+    "thesis_main_idea",
+    "except_or_not_scan",
+    "except_or_not_scan",
+    "reported_view_vs_author"
+   ]
+  },
+  {
+   "id": "21-3-4",
+   "topic": "soft robots",
+   "register": "column",
+   "open": "SCENE",
+   "close": "CONCRETE",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:fiction_foreshadows_lab",
+   "first_person": 2,
+   "words": 514,
+   "paragraphs": 5,
+   "para_words": [
+    65,
+    133,
+    87,
+    103,
+    126
+   ],
+   "question_types": [
+    "thesis_main_idea",
+    "meaning_paraphrase",
+    "negated_support_if_false",
+    "inference"
+   ]
+  },
+  {
+   "id": "22-1-1",
+   "topic": "copies East and West",
+   "register": "essay",
+   "open": "DEFINITION",
+   "close": "QUOTE_CLOSE",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F26",
+   "first_person": 0,
+   "words": 482,
+   "paragraphs": 5,
+   "para_words": [
+    131,
+    49,
+    107,
+    91,
+    104
+   ],
+   "question_types": [
+    "application_scenario",
+    "except_or_not_scan",
+    "application_scenario",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "22-1-2",
+   "topic": "Stoics on emotion",
+   "register": "textbook",
+   "open": "HISTORICAL",
+   "close": "BOUND",
+   "stance": "NEUTRAL",
+   "thesis": "early",
+   "family": "F48",
+   "first_person": 0,
+   "words": 515,
+   "paragraphs": 4,
+   "para_words": [
+    195,
+    112,
+    65,
+    143
+   ],
+   "question_types": [
+    "inference",
+    "negated_support_if_false",
+    "tone_attitude",
+    "purpose_of_part"
+   ]
+  },
+  {
+   "id": "22-1-3",
+   "topic": "critical theory of technology",
+   "register": "academic",
+   "open": "DEFINITION",
+   "close": "VERDICT_QUALIFIED",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F43",
+   "first_person": 1,
+   "words": 523,
+   "paragraphs": 5,
+   "para_words": [
+    59,
+    107,
+    116,
+    92,
+    149
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "thesis_main_idea",
+    "weaken_undermine",
+    "strengthen_support"
+   ]
+  },
+  {
+   "id": "22-1-4",
+   "topic": "the Undead",
+   "register": "popular_history",
+   "open": "ABSTRACT",
+   "close": "CONCRETE",
+   "stance": "NEUTRAL",
+   "thesis": "early",
+   "family": "F50",
+   "first_person": 0,
+   "words": 505,
+   "paragraphs": 5,
+   "para_words": [
+    172,
+    94,
+    67,
+    133,
+    39
+   ],
+   "question_types": [
+    "thesis_main_idea",
+    "purpose_of_part",
+    "negated_support_if_false",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "22-2-1",
+   "topic": "cephalopod camouflage",
+   "register": "pop_science",
+   "open": "ABSTRACT",
+   "close": "BOUND",
+   "stance": "NEUTRAL",
+   "thesis": "early",
+   "family": "NEW:typology",
+   "first_person": 0,
+   "words": 498,
+   "paragraphs": 6,
+   "para_words": [
+    72,
+    69,
+    103,
+    86,
+    81,
+    87
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "weaken_undermine",
+    "inference",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "22-2-2",
+   "topic": "institutions",
+   "register": "academic",
+   "open": "METATEXT",
+   "close": "BOUND",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:scholarly_introduction",
+   "first_person": 1,
+   "words": 487,
+   "paragraphs": 3,
+   "para_words": [
+    249,
+    127,
+    111
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "except_or_not_scan",
+    "thesis_main_idea",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "22-2-3",
+   "topic": "engineering pedagogy",
+   "register": "op-ed",
+   "open": "ABSTRACT",
+   "close": "AFFIRMATION",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:neutral_technique_value_laden",
+   "first_person": 2,
+   "words": 507,
+   "paragraphs": 6,
+   "para_words": [
+    81,
+    125,
+    81,
+    66,
+    51,
+    103
+   ],
+   "question_types": [
+    "thesis_main_idea",
+    "except_or_not_scan",
+    "except_or_not_scan",
+    "author_would_support"
+   ]
+  },
+  {
+   "id": "22-2-4",
+   "topic": "musicking",
+   "register": "academic",
+   "open": "THESIS_FIRST",
+   "close": "BOUND",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:scholarly_introduction",
+   "first_person": 1,
+   "words": 508,
+   "paragraphs": 5,
+   "para_words": [
+    145,
+    109,
+    67,
+    150,
+    37
+   ],
+   "question_types": [
+    "keyword_or_flow_set",
+    "inference",
+    "meaning_paraphrase",
+    "weaken_undermine"
+   ]
+  },
+  {
+   "id": "22-3-1",
+   "topic": "automation and skill",
+   "register": "essay",
+   "open": "THESIS_FIRST",
+   "close": "AFFIRMATION",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F35",
+   "first_person": 0,
+   "words": 484,
+   "paragraphs": 6,
+   "para_words": [
+    39,
+    94,
+    87,
+    87,
+    109,
+    68
+   ],
+   "question_types": [
+    "stance_evaluation",
+    "inference",
+    "application_scenario",
+    "inference"
+   ]
+  },
+  {
+   "id": "22-3-2",
+   "topic": "bios and technos",
+   "register": "visionary_essay",
+   "open": "OTHER",
+   "close": "APHORISTIC",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:bidirectional_convergence",
+   "first_person": 0,
+   "words": 497,
+   "paragraphs": 6,
+   "para_words": [
+    47,
+    53,
+    98,
+    157,
+    48,
+    94
+   ],
+   "question_types": [
+    "meaning_paraphrase",
+    "keyword_or_flow_set",
+    "except_or_not_scan",
+    "meaning_paraphrase"
+   ]
+  },
+  {
+   "id": "22-3-3",
+   "topic": "Orientalist India",
+   "register": "academic",
+   "open": "ABSTRACT",
+   "close": "BOUND",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F17",
+   "first_person": 0,
+   "words": 492,
+   "paragraphs": 4,
+   "para_words": [
+    69,
+    260,
+    108,
+    55
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "strengthen_support",
+    "application_scenario",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "22-3-4",
+   "topic": "Chicago School",
+   "register": "textbook",
+   "open": "ABSTRACT",
+   "close": "BOUND",
+   "stance": "NEUTRAL",
+   "thesis": "early",
+   "family": "F49",
+   "first_person": 0,
+   "words": 504,
+   "paragraphs": 4,
+   "para_words": [
+    97,
+    213,
+    122,
+    72
+   ],
+   "question_types": [
+    "thesis_main_idea",
+    "weaken_undermine",
+    "except_or_not_scan",
+    "keyword_or_flow_set"
+   ]
+  },
+  {
+   "id": "23-1-1",
+   "topic": "geographic explanations",
+   "register": "essay",
+   "open": "ABSTRACT",
+   "close": "BOUND",
+   "stance": "COMMITTED",
+   "thesis": "mid",
+   "family": "NEW:why_a_field_resists",
+   "first_person": 0,
+   "words": 480,
+   "paragraphs": 6,
+   "para_words": [
+    73,
+    158,
+    62,
+    70,
+    82,
+    35
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "except_or_not_scan",
+    "purpose_of_part",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "23-1-2",
+   "topic": "Indian Ocean novels",
+   "register": "author_essay",
+   "open": "OTHER",
+   "close": "VERDICT_QUALIFIED",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:scholarly_introduction",
+   "first_person": 2,
+   "words": 506,
+   "paragraphs": 5,
+   "para_words": [
+    55,
+    136,
+    107,
+    104,
+    104
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "except_or_not_scan",
+    "keyword_or_flow_set",
+    "weaken_undermine"
+   ]
+  },
+  {
+   "id": "23-1-3",
+   "topic": "Sahlins at fifty",
+   "register": "retrospective_essay",
+   "open": "QUESTION",
+   "close": "VERDICT_QUALIFIED",
+   "stance": "COMMITTED",
+   "thesis": "mid",
+   "family": "F24",
+   "first_person": 0,
+   "words": 496,
+   "paragraphs": 5,
+   "para_words": [
+    138,
+    69,
+    64,
+    134,
+    91
+   ],
+   "question_types": [
+    "thesis_main_idea",
+    "purpose_of_part",
+    "reported_view_vs_author",
+    "purpose_of_part"
+   ]
+  },
+  {
+   "id": "23-1-4",
+   "topic": "wolves return",
+   "register": "magazine_explainer",
+   "open": "SCENE",
+   "close": "FORECAST",
+   "stance": "NEUTRAL",
+   "thesis": "mid",
+   "family": "F50",
+   "first_person": 0,
+   "words": 529,
+   "paragraphs": 4,
+   "para_words": [
+    117,
+    151,
+    194,
+    67
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "except_or_not_scan",
+    "other",
+    "weaken_undermine"
+   ]
+  },
+  {
+   "id": "23-2-1",
+   "topic": "second-hand fashion",
+   "register": "feature",
+   "open": "NEWS_DATA_HOOK",
+   "close": "QUOTE_CLOSE",
+   "stance": "COMMITTED",
+   "thesis": "mid",
+   "family": "NEW:backfiring_remedy",
+   "first_person": 0,
+   "words": 491,
+   "paragraphs": 6,
+   "para_words": [
+    63,
+    86,
+    81,
+    45,
+    106,
+    110
+   ],
+   "question_types": [
+    "weaken_undermine",
+    "detail",
+    "author_would_support",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "23-2-2",
+   "topic": "liberalism (review)",
+   "register": "review",
+   "open": "REPORTED_POSITION",
+   "close": "VERDICT_QUALIFIED",
+   "stance": "COMMITTED",
+   "thesis": "mid",
+   "family": "F53",
+   "first_person": 0,
+   "words": 505,
+   "paragraphs": 4,
+   "para_words": [
+    153,
+    115,
+    117,
+    120
+   ],
+   "question_types": [
+    "reported_view_vs_author",
+    "author_would_support",
+    "except_or_not_scan",
+    "purpose_of_part"
+   ]
+  },
+  {
+   "id": "23-2-3",
+   "topic": "historical facts",
+   "register": "classic_historiography",
+   "open": "REPORTED_POSITION",
+   "close": "APHORISTIC",
+   "stance": "COMMITTED",
+   "thesis": "mid",
+   "family": "F54",
+   "first_person": 0,
+   "words": 492,
+   "paragraphs": 3,
+   "para_words": [
+    122,
+    176,
+    194
+   ],
+   "question_types": [
+    "weaken_undermine",
+    "application_scenario",
+    "detail",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "23-2-4",
+   "topic": "Netflix and Europe",
+   "register": "magazine_explainer",
+   "open": "QUOTE",
+   "close": "APHORISTIC",
+   "stance": "COMMITTED",
+   "thesis": "late",
+   "family": "F15",
+   "first_person": 0,
+   "words": 506,
+   "paragraphs": 5,
+   "para_words": [
+    70,
+    78,
+    100,
+    118,
+    140
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "stance_evaluation",
+    "weaken_undermine",
+    "application_scenario"
+   ]
+  },
+  {
+   "id": "23-3-1",
+   "topic": "climate and colonialism (review)",
+   "register": "review",
+   "open": "REPORTED_POSITION",
+   "close": "BOUND",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F54",
+   "first_person": 1,
+   "words": 507,
+   "paragraphs": 2,
+   "para_words": [
+    315,
+    192
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "purpose_of_part",
+    "except_or_not_scan",
+    "weaken_undermine"
+   ]
+  },
+  {
+   "id": "23-3-2",
+   "topic": "rationality (review)",
+   "register": "review",
+   "open": "REPORTED_POSITION",
+   "close": "VERDICT_QUALIFIED",
+   "stance": "COMMITTED",
+   "thesis": "mid",
+   "family": "F24",
+   "first_person": 0,
+   "words": 497,
+   "paragraphs": 6,
+   "para_words": [
+    73,
+    90,
+    53,
+    70,
+    141,
+    70
+   ],
+   "question_types": [
+    "purpose_of_part",
+    "purpose_of_part",
+    "except_or_not_scan",
+    "author_would_support"
+   ]
+  },
+  {
+   "id": "23-3-3",
+   "topic": "cultural property laws",
+   "register": "op-ed",
+   "open": "NEWS_DATA_HOOK",
+   "close": "CONCRETE",
+   "stance": "COMMITTED",
+   "thesis": "mid",
+   "family": "NEW:backfiring_remedy",
+   "first_person": 2,
+   "words": 485,
+   "paragraphs": 6,
+   "para_words": [
+    125,
+    63,
+    69,
+    125,
+    63,
+    40
+   ],
+   "question_types": [
+    "author_would_support",
+    "inference",
+    "weaken_undermine",
+    "other"
+   ]
+  },
+  {
+   "id": "23-3-4",
+   "topic": "romantic aesthetics",
+   "register": "academic",
+   "open": "METATEXT",
+   "close": "BOUND",
+   "stance": "COMMITTED",
+   "thesis": "mid",
+   "family": "NEW:scholarly_introduction",
+   "first_person": 0,
+   "words": 522,
+   "paragraphs": 4,
+   "para_words": [
+    101,
+    179,
+    137,
+    105
+   ],
+   "question_types": [
+    "detail",
+    "except_or_not_scan",
+    "other",
+    "detail"
+   ]
+  },
+  {
+   "id": "24-1-1",
+   "topic": "bandicoots",
+   "register": "nature_feature",
+   "open": "SCENE",
+   "close": "CONCRETE",
+   "stance": "COMMITTED",
+   "thesis": "late",
+   "family": "F31",
+   "first_person": 0,
+   "words": 467,
+   "paragraphs": 8,
+   "para_words": [
+    45,
+    67,
+    82,
+    22,
+    74,
+    101,
+    59,
+    17
+   ],
+   "question_types": [
+    "detail",
+    "except_or_not_scan",
+    "detail",
+    "thesis_main_idea"
+   ]
+  },
+  {
+   "id": "24-1-2",
+   "topic": "economists and borders",
+   "register": "review",
+   "open": "APHORISM",
+   "close": "VERDICT_QUALIFIED",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F53",
+   "first_person": 0,
+   "words": 512,
+   "paragraphs": 6,
+   "para_words": [
+    132,
+    86,
+    59,
+    33,
+    98,
+    104
+   ],
+   "question_types": [
+    "other",
+    "tone_attitude",
+    "reported_view_vs_author",
+    "meaning_paraphrase"
+   ]
+  },
+  {
+   "id": "24-1-3",
+   "topic": "crafts and work",
+   "register": "magazine_explainer",
+   "open": "OTHER",
+   "close": "APHORISTIC",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F08",
+   "first_person": 0,
+   "words": 506,
+   "paragraphs": 6,
+   "para_words": [
+    54,
+    34,
+    168,
+    109,
+    65,
+    76
+   ],
+   "question_types": [
+    "inference",
+    "except_or_not_scan",
+    "detail",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "24-1-4",
+   "topic": "streaming and lost films",
+   "register": "culture_essay",
+   "open": "NEWS_DATA_HOOK",
+   "close": "APHORISTIC",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:backfiring_remedy",
+   "first_person": 0,
+   "words": 504,
+   "paragraphs": 5,
+   "para_words": [
+    93,
+    210,
+    66,
+    62,
+    73
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "purpose_of_part",
+    "weaken_undermine",
+    "meaning_paraphrase"
+   ]
+  },
+  {
+   "id": "24-2-1",
+   "topic": "peer review data",
+   "register": "opinion",
+   "open": "THESIS_FIRST",
+   "close": "PRESCRIPTION",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F35",
+   "first_person": 0,
+   "words": 488,
+   "paragraphs": 8,
+   "para_words": [
+    74,
+    41,
+    64,
+    58,
+    44,
+    72,
+    79,
+    56
+   ],
+   "question_types": [
+    "author_would_support",
+    "except_or_not_scan",
+    "except_or_not_scan",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "24-2-2",
+   "topic": "medieval spices",
+   "register": "history",
+   "open": "ABSTRACT",
+   "close": "CONCRETE",
+   "stance": "COMMITTED",
+   "thesis": "mid",
+   "family": "F54",
+   "first_person": 0,
+   "words": 501,
+   "paragraphs": 6,
+   "para_words": [
+    45,
+    64,
+    150,
+    58,
+    105,
+    79
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "except_or_not_scan",
+    "application_scenario",
+    "author_would_support"
+   ]
+  },
+  {
+   "id": "24-2-3",
+   "topic": "unintended consequences",
+   "register": "pop_history",
+   "open": "DEFINITION",
+   "close": "FORECAST",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:typology",
+   "first_person": 0,
+   "words": 502,
+   "paragraphs": 6,
+   "para_words": [
+    83,
+    83,
+    56,
+    163,
+    60,
+    57
+   ],
+   "question_types": [
+    "author_would_support",
+    "purpose_of_part",
+    "thesis_main_idea",
+    "except_or_not_scan"
+   ]
+  },
+  {
+   "id": "24-2-4",
+   "topic": "carnivore attacks",
+   "register": "science_journalism",
+   "open": "OTHER",
+   "close": "QUOTE_CLOSE",
+   "stance": "NEUTRAL",
+   "thesis": "early",
+   "family": "NEW:typology",
+   "first_person": 0,
+   "words": 512,
+   "paragraphs": 6,
+   "para_words": [
+    50,
+    125,
+    76,
+    43,
+    156,
+    62
+   ],
+   "question_types": [
+    "application_scenario",
+    "detail",
+    "negated_support_if_false",
+    "inference"
+   ]
+  },
+  {
+   "id": "24-3-1",
+   "topic": "planetary protection",
+   "register": "polemic",
+   "open": "OTHER",
+   "close": "PRESCRIPTION",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F36",
+   "first_person": 0,
+   "words": 496,
+   "paragraphs": 4,
+   "para_words": [
+    72,
+    198,
+    96,
+    130
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "stance_evaluation",
+    "author_would_support",
+    "other"
+   ]
+  },
+  {
+   "id": "24-3-2",
+   "topic": "languages and liberal arts",
+   "register": "op-ed",
+   "open": "ABSTRACT",
+   "close": "CONCRETE",
+   "stance": "COMMITTED",
+   "thesis": "mid",
+   "family": "NEW:our_field_contributes",
+   "first_person": 2,
+   "words": 508,
+   "paragraphs": 6,
+   "para_words": [
+    108,
+    66,
+    100,
+    75,
+    117,
+    42
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "except_or_not_scan",
+    "weaken_undermine",
+    "application_scenario"
+   ]
+  },
+  {
+   "id": "24-3-3",
+   "topic": "Moutai",
+   "register": "magazine_explainer",
+   "open": "NEWS_DATA_HOOK",
+   "close": "APHORISTIC",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "NEW:success_against_the_rules",
+   "first_person": 0,
+   "words": 491,
+   "paragraphs": 7,
+   "para_words": [
+    47,
+    51,
+    89,
+    81,
+    64,
+    105,
+    54
+   ],
+   "question_types": [
+    "detail",
+    "except_or_not_scan",
+    "detail",
+    "meaning_paraphrase"
+   ]
+  },
+  {
+   "id": "24-3-4",
+   "topic": "AI and language",
+   "register": "op-ed",
+   "open": "HISTORICAL",
+   "close": "PRESCRIPTION",
+   "stance": "COMMITTED",
+   "thesis": "early",
+   "family": "F35",
+   "first_person": 1,
+   "words": 509,
+   "paragraphs": 5,
+   "para_words": [
+    81,
+    156,
+    60,
+    89,
+    123
+   ],
+   "question_types": [
+    "except_or_not_scan",
+    "except_or_not_scan",
+    "stance_evaluation",
+    "author_would_support"
+   ]
+  }
+ ],
+ "beats": {
+  "TERM_COINED": [
+   "17-2-1",
+   "18-2-3",
+   "19-1-5",
+   "22-2-4",
+   "19-2-4",
+   "22-2-3",
+   "21-2-2",
+   "20-3-2",
+   "24-1-2",
+   "24-3-3",
+   "24-1-1",
+   "24-1-4",
+   "19-2-2",
+   "19-1-1",
+   "22-1-1",
+   "21-2-3",
+   "19-2-5",
+   "22-3-1",
+   "22-3-2",
+   "24-2-3"
+  ],
+  "ENUMERATED_SET": [
+   "17-1-5",
+   "18-2-3",
+   "19-1-5",
+   "19-2-1",
+   "20-2-1",
+   "21-2-4",
+   "22-2-1",
+   "23-1-1",
+   "23-2-3",
+   "23-3-1",
+   "24-1-3",
+   "24-2-3",
+   "24-2-4",
+   "24-3-3"
+  ],
+  "IRONY_NOTED": [
+   "17-1-3",
+   "17-2-1",
+   "17-2-3",
+   "20-3-3",
+   "23-2-2",
+   "23-2-4",
+   "24-3-1",
+   "23-2-1",
+   "19-1-2",
+   "20-3-4",
+   "24-3-3"
+  ],
+  "HYPOTHETICAL_CASE": [
+   "17-2-2",
+   "18-1-5",
+   "20-1-4",
+   "21-1-2",
+   "22-1-2",
+   "24-1-2",
+   "24-2-3",
+   "24-3-4",
+   "18-2-1",
+   "22-2-2",
+   "17-1-3"
+  ],
+  "STUDY_WALKTHROUGH": [
+   "17-2-5",
+   "18-2-2",
+   "18-2-4",
+   "19-1-3",
+   "20-1-2",
+   "21-1-4",
+   "21-3-2",
+   "23-3-3",
+   "18-1-5"
+  ],
+  "EXPERT_AS_SPINE": [
+   "17-1-1",
+   "18-1-1",
+   "18-2-2",
+   "20-1-2",
+   "21-1-4",
+   "21-3-2",
+   "24-1-1",
+   "24-2-4",
+   "23-1-4",
+   "19-2-2"
+  ],
+  "OBJECTION_FORESTALLED": [
+   "18-1-1",
+   "19-2-5",
+   "21-1-3",
+   "21-2-3",
+   "21-3-3",
+   "22-2-4",
+   "23-1-2",
+   "23-3-3"
+  ],
+  "THEN_NOW_CONTRAST": [
+   "18-1-4",
+   "19-1-4",
+   "20-3-3",
+   "21-3-1",
+   "21-3-3",
+   "24-1-2",
+   "24-1-4",
+   "24-3-4"
+  ],
+  "SPLIT_VERDICT": [
+   "20-2-2",
+   "20-3-2",
+   "23-2-2",
+   "23-3-2",
+   "24-1-2",
+   "23-1-3"
+  ],
+  "READER_ADDRESS": [
+   "17-1-3",
+   "17-2-2",
+   "18-1-5",
+   "20-1-4",
+   "21-1-2",
+   "23-2-1",
+   "24-1-2",
+   "24-2-3",
+   "24-3-4",
+   "18-2-1",
+   "22-2-2",
+   "17-1-2"
+  ],
+  "EASY_READING_DEMOLISHED": [
+   "17-1-1",
+   "17-2-2",
+   "17-2-5",
+   "18-1-3",
+   "18-2-5",
+   "19-1-1",
+   "20-2-3",
+   "21-2-2",
+   "21-2-4",
+   "22-2-3",
+   "23-2-3",
+   "24-2-2",
+   "24-3-4",
+   "17-1-2",
+   "18-1-5",
+   "23-1-1"
+  ],
+  "CONCESSION_GRANTED": [
+   "17-1-2",
+   "17-1-3",
+   "17-2-3",
+   "18-1-3",
+   "18-1-4",
+   "19-2-3",
+   "20-3-2",
+   "20-3-3",
+   "21-1-3",
+   "23-2-2",
+   "23-2-4",
+   "23-3-2",
+   "24-2-1",
+   "24-3-4",
+   "24-1-3"
+  ]
+ },
+ "question_classifier": "regex over stems, see 2026-09-13 report section 5; +/-3pp"
+}

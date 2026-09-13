@@ -5,6 +5,60 @@ go first; dates use Asia/Calcutta time. `AGENTS.md` instructs Codex to update th
 file whenever it changes project files. Entries are task summaries, not a record
 of every intermediate edit. Git remains the source for exact diffs.
 
+## 2026-09-13 — CAT PYQ evidence baseline (plan section 2), by Claude Code
+
+- Completed section 2 of `2026-09-13-cat-pyq-implementation-plan.md`.
+- Added `tools/cat_pyq/`:
+  - `parse_pyq.py`: page-aware parse; PYQ text written only outside the repo.
+  - `question_records.py`: task and polarity labelled independently; all 390
+    stems hand-reviewed; 73 recorded overrides.
+  - `engine_baseline.py`: read-only, `mode=ro`; per tier, planned vs realised;
+    shipped stems scanned with the same polarity rules.
+  - `build_baseline.py`: one thesis rubric applied to all 90 passages.
+- Outputs: `2026-09-13-cat-pyq-baseline.json` (text-free) and
+  `2026-09-13-cat-pyq-baseline.md`.
+- Added correction notices, without rewriting the earlier text, to
+  `2026-09-13-cat-pyq-engine-analysis.md` and
+  `2026-09-13-cat-pyq-findings-handoff.md`.
+- Corrected findings:
+  - 390 questions (per passage 4.8/4.8/4.8/4.5/4.0/4.0/4.0/4.0), not the
+    report's 6.3–4.3.
+  - Negation: 35.6% of stems, 41.5% in 2020–24; multiple negation 4.1%.
+  - Shipped engine stems ~7% negated (0.5 per set); the gap holds.
+  - Planned thesis by paragraph 2: medium 52.8%, hard 44.9%, against 74.4% of
+    thesis-bearing PYQs. The "10% early" claim was a label artefact.
+  - The stored compliance thesis read is plan-anchored (`compliance.py:121-122`).
+    A blind 12-set medium/hard check found 10/12 early, so do not activate
+    early-thesis weights yet.
+  - Planned refusal: medium 16.7%, hard 30.6%; realised closure uncertain.
+- Added `tests/test_cat_pyq_tools.py` to pin the classifier corrections.
+- Validation:
+  - `python -m pytest tests -q`: 299 passed (the earlier `feedparser` failures
+    no longer occur in this environment).
+  - Parser re-run is byte-identical; words and paragraph counts match the first
+    analysis on all 90 passages; JSON checked text-free.
+  - `selftest` not run: no engine config or library change.
+- Limits:
+  - Single reader for overrides, rubric and the 12-set check.
+  - Engine baseline is client AA as of this date at `23e3d49`.
+  - No paid extractor run. No engine code, production data or exports changed.
+- Changes are uncommitted.
+
+## 2026-09-13 — CAT PYQ implementation plan with elite preserved
+
+- Added `2026-09-13-cat-pyq-implementation-plan.md` for the requested medium/hard
+  implementation, incorporating the analysis review and the instruction that
+  elite stays unchanged. Staged evidence repair, policy isolation, question
+  contracts, passage compatibility/rendering, and source-supported facts.
+- Specified elite prompt/pool/RNG regression checks, legacy resume, rolling mock
+  validation, provisional calibration objectives, and a separately authorized
+  paid pilot. No engine code, production data, or exports changed.
+- Validation: inspected current composition, compatibility, question, extraction,
+  topology fallback and model contracts; checked documentation whitespace and
+  file readback. Documentation only; no engine tests or paid calls ran.
+- Limits: this is an implementation plan, not a completed implementation or a
+  verified CAT calibration. Changes are uncommitted.
+
 ## 2026-09-13 — Soft-launch voice observations after review
 
 - Corrected the earlier hard voice gate after the user reported that its rules
