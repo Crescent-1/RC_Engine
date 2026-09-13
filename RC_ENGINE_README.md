@@ -132,6 +132,34 @@ a version's content is fixed once plans can carry it.
   numbers. Uniqueness and key quality are NOT deterministic — they stay with
   answerability QA, the blind solver and human review.
 
+`cat-pyq-s1` / `cat-pyq-s2` — passage structure (§5), cumulative on q1:
+- families F59 Backfiring Remedy, F60 Typology (neutral exposition close), F61
+  Framed Inquiry (hard), F62 Split Verdict, with schemas S9–S11, topic shapes
+  TS15–TS16, ending E21, revelations R21–R23, rhythms T21–T22 and personas
+  P21–P23 (drawn only for their seed genres);
+- PYQ beats: s1 plans ENUMERATED_SET, HYPOTHETICAL_CASE, PRESCRIPTION_STATED,
+  FORECAST, SPLIT_VERDICT and recognises TERM_COINED, IRONY_NOTED,
+  OBJECTION_FORESTALLED, THEN_NOW_CONTRAST, REPORTED_POSITION, which s2 plans;
+- a 14% refusal objective per posture category; neutral exposition counted apart;
+- one permission table (bounded prescription, one hypothetical, content
+  enumeration, scope setting, reported voice) shared by the renderer, the
+  compliance auditor and texture checks.
+
+`cat-pyq-f1` — source-supported facts (§6), cumulative on s2: refine proposes at
+most 8 facts with exact spans from the retained seed excerpt; structural
+validation; NEWS_DATA_HOOK / STUDY_WALKTHROUGH / EXPERT_AS_SPINE / QUOTE_CLOSE
+fall back when facts cannot carry them; every factual claim in the passage is
+traced to fact ids, and untraced claims route the set to review. Evidence is
+never exported.
+
+```bash
+python -m rc_engine.cli policy-report                      # $0 metrics by tier and policy
+python tools/cat_pyq/simulate_policies.py --sets 40 --invented-seeds   # $0 seeded simulations
+python tools/cat_pyq/pilot_review_pack.py --db rc_pipeline.db --policy cat-pyq-f1 --out <private dir>
+```
+
+Validation, rollout, rollback and the pilot protocol: `2026-09-13-cat-pyq-validation.md`.
+
 ## Providers (one per run)
 
 The engine runs against **Claude (default), OpenAI, or Gemini** — pick one per

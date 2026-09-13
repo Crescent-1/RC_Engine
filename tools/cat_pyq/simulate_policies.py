@@ -124,14 +124,16 @@ def simulate(version: str, tiers: dict, seed: int, invented_seeds: bool = False)
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--sets", type=int, default=40, help="sets per tier per policy")
-    ap.add_argument("--policies", nargs="*", default=["", "cat-pyq-q1", "cat-pyq-s1", "cat-pyq-s2"])
+    ap.add_argument("--policies", nargs="*",
+                    default=["legacy", "cat-pyq-q1", "cat-pyq-s1", "cat-pyq-s2", "cat-pyq-f1"])
     ap.add_argument("--seed", type=int, default=20260913)
     ap.add_argument("--out", default=None)
     ap.add_argument("--invented-seeds", action="store_true",
                     help="feed invented source excerpts so source-facts policies extract facts")
     args = ap.parse_args(argv)
-    reports = [simulate(v, {"medium": args.sets, "hard": args.sets}, args.seed,
-                        args.invented_seeds) for v in args.policies]
+    # "legacy" names the "" policy (some shells drop empty arguments)
+    reports = [simulate("" if v == "legacy" else v, {"medium": args.sets, "hard": args.sets},
+                        args.seed, args.invented_seeds) for v in args.policies]
     text = json.dumps(reports, indent=1)
     if args.out:
         with open(args.out, "w", encoding="utf-8", newline="\n") as f:

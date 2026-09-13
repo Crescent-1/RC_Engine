@@ -35,6 +35,8 @@ python -m rc_engine.cli estimate                   # per-tier cost table
 python -m rc_engine.cli export --status approved
 python -m rc_engine.cli client list                # clients; `client add BB` for a new one
 python -m rc_engine.cli health --client BB --all   # per-client health + exclusivity audit
+python -m rc_engine.cli policy-report              # $0 metrics by tier and generation policy
+python -m rc_engine.cli generate --dry-run --hard 2 --generation-policy cat-pyq-f1  # opt a run into a policy
 python -m gui                                      # web console on :8730
 ```
 
@@ -68,6 +70,11 @@ or a component library. Add a test for every behaviour change; the suite in
   client `AA` is the default. Novelty windows are per client; shipped combo
   hashes, seed essays and rc ids are global (exclusivity). Any new corpus
   query in `history.py` must say which scope it is — see `HistoryStore._scope`.
+- Generation policies (2026-09-13): medium/hard changes go into a NEW version in
+  `rc_engine/policy_catalog.py` (never edit a registered version, and never
+  widen a shared library in place); elite always stays legacy, and the goldens in
+  `tests/test_generation_policy.py` must keep passing. See
+  `2026-09-13-cat-pyq-validation.md`.
 - Statuses: `approved` / `needs_review` / `solver_dispute` are shipped;
   `rejected_*` and `failed_*` are not. `solver_dispute` and `rejected_novelty`
   sets are hidden from the novelty window (`NOVELTY_WINDOW_EXCLUDE_STATUSES`).
