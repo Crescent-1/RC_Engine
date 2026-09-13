@@ -91,6 +91,16 @@ DB_BACKUP_KEEP = 10
 ENGINE_VERSION = "rc-engine-v2.0"
 BLUEPRINT_SCHEMA_VERSION = "2.0"
 
+# Generation policy for NEW blueprints, per tier (2026-09-13). "" is the legacy
+# policy: the engine as it stood before the CAT PYQ changes. See
+# rc_engine/generation_policy.py. Stored blueprints resume under the version
+# they carry, never under this map, so switching a tier back to "" disables a
+# policy for future plans without touching plans already made under it.
+# Elite is legacy by rule; generation_policy refuses anything else.
+# Every tier is legacy until section 4 of the implementation plan registers
+# the first CAT PYQ policy with its content fixed.
+GENERATION_POLICY_FOR_NEW_PLANS = {"medium": "", "hard": "", "elite": ""}
+
 # ---------------------------------------------------------------------------
 # Providers, models & pricing ($ per million tokens: input, output)
 # ---------------------------------------------------------------------------

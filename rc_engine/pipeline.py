@@ -27,6 +27,8 @@ from .composer import (BlueprintComposer, CompositionExhausted,
 from .constraints import CompatibilityRules
 from .fingerprints import (embed_text, extract_fingerprint, movement_similarity,
                            topology_similarity)
+from .generation_policy import (LEGACY_POLICY, PolicyError, policy_for_blueprint,
+                                policy_for_new_plan)
 from .history import HistoryStore
 from .llm import APIExhausted, BudgetExceeded, CostLedger
 from .models import Blueprint, RCResult, RealizedStructure, SeedEssay
@@ -113,8 +115,12 @@ class RCPipeline:
         # rather than being discovered after a $0.02 refine. Classified once
         # per RC, not once per movement retry: the seed does not change inside
         # that loop.
+        # One generation policy for this whole attempt (2026-09-13): every
+        # component draw, beat read and prompt below uses it, and the
+        # blueprint stores it for resume. Elite always resolves to legacy.
+        policy = policy_for_new_plan(tier)
         seed_info, topic_shape_id = self.composer.classify_and_pick_shape(
-            seed, ledger, tier)
+            seed, ledger, tier, policy=policy)
         # Seedless attempts have nothing to rotate TO: the pool check below asks
         # whether the RAG store holds another content kind, but rotation draws
         # from the batch's seed provider, and with --no-seed (or an exhausted
@@ -149,7 +155,8 @@ class RCPipeline:
                 bp = self.composer.compose(
                     tier, seed, ledger,
                     ban_families=ban_f, ban_movements=ban_m,
-                    seed_info=seed_info, topic_shape_id=topic_shape_id)
+                    seed_info=seed_info, topic_shape_id=topic_shape_id,
+                    policy=policy)
             except CompositionExhausted as e:
                 return RCResult(None, "", tier, "failed_composition", notes=[str(e)],
                                 ban_families=sorted(ban_f), ban_movements=sorted(ban_m))
@@ -218,7 +225,7 @@ class RCPipeline:
             # 2026-08-10 hard run that exhausted the pool in 3 recomposes; every
             # family it barred still had 3-4 free movement strings. The family is
             # only barred once all of them are gone.
-            exhausted = self.composer.family_movement_exhausted(bp.family_id, ban_m)
+            exhausted = self.composer.family_movement_exhausted(bp.family_id, ban_m, policy)
             if exhausted:
                 ban_f.add(bp.family_id)
             msg = (f"movement precheck: near {near} lev={lev:.2f} jac={jac:.2f} "
@@ -262,7 +269,8 @@ class RCPipeline:
                     # Blind beat read first: compliance scores the passage
                     # against bp.move_plan, and must not be the thing that
                     # produced the reading (see ComplianceAuditor.move_signature).
-                    cand_moves = self.auditor.move_signature(candidate, ledger, tier)
+                    cand_moves = self.auditor.move_signature(candidate, ledger, tier,
+                                                             policy=policy)
                     audit = self.auditor.audit(candidate, bp, ledger, cand_moves)
                 except TruncatedRender:
                     directives = ["previous attempt was cut off — tighten paragraph lengths"]
@@ -298,7 +306,7 @@ class RCPipeline:
             # nobody has seen is how the TS06/TS12 ceiling ended up worth one
             # point of a twelve-point gap. Measure first, then decide.
             sch_primary, sch_secondary = self.auditor.argument_schema(
-                passage, ledger, tier)
+                passage, ledger, tier, policy=policy)
             realized.argument_schema = sch_primary
             realized.argument_schema_secondary = sch_secondary
             if sch_primary:
@@ -368,6 +376,12 @@ class RCPipeline:
             return RCResult(None, blueprint_id, row["tier"], "failed_resume",
                             notes=[f"passage status is '{row['status']}', not resumable"])
         bp = Blueprint.from_json(row["blueprint_json"])
+        # Resume under the policy the plan was composed with (2026-09-13). An
+        # unregistered version is refused, never read as another policy.
+        try:
+            policy = policy_for_blueprint(bp)
+        except PolicyError as e:
+            return RCResult(None, blueprint_id, bp.tier, "failed_resume", notes=[str(e)])
         realized = RealizedStructure.from_json(row["realized_json"])
         passage = row["passage"]
         prior = float(row["spent_usd"] or 0.0)
@@ -384,7 +398,7 @@ class RCPipeline:
             # on the original run) — the read is sub-cent, so just redo it
             try:
                 realized.rhetorical_moves = self.auditor.move_signature(
-                    passage, ledger, bp.tier)
+                    passage, ledger, bp.tier, policy=policy)
             except BudgetExceeded:
                 realized.rhetorical_moves = []
         pre_fp = extract_fingerprint(rc_id, bp, passage, realized,
@@ -427,6 +441,13 @@ class RCPipeline:
             return ledger.spent_usd - cost_offset
 
         # ---- Stage 3: questions --------------------------------------------
+        # A non-legacy plan fixes its effective question slots before the first
+        # questions call (2026-09-13), so retries and resumes ask the same
+        # questions even if the libraries change in between. Legacy plans keep
+        # resolving them from the library, as they always have.
+        if bp.generation_policy and not bp.question_slots:
+            bp.question_slots = self.qengine.effective_slots(bp)
+            self.history.update_blueprint_json(bp)
         try:
             qdata = self.qengine.build(bp, passage, ledger,
                                        extra_guidance=extra_guidance)
@@ -682,6 +703,10 @@ class RCPipeline:
         f.stylometry["_argument_schema"] = realized.argument_schema
         f.stylometry["_argument_schema_secondary"] = realized.argument_schema_secondary
         f.stylometry["_voice_plan_version"] = bp.voice_plan_version
+        # Only non-legacy plans carry the key, so legacy fingerprints are
+        # byte-identical to what they were before policies existed.
+        if bp.generation_policy:
+            f.stylometry["_generation_policy"] = bp.generation_policy
 
     def _pool_is_single_kind(self, tier: str) -> bool:
         """Can this tier's seed pool offer any alternative content kind?
@@ -748,15 +773,19 @@ class RCPipeline:
         hits.sort(reverse=True)
         return hits
 
-    def _tier_topologies(self, tier: str) -> list[str]:
+    def _tier_topologies(self, tier: str, policy=None) -> list[str]:
         """The plans this tier may draw. Must match the composer's bar exactly —
         this re-pick runs after the composer has chosen, so a looser rule here
-        would quietly hand medium a plan the composer refused it."""
-        return [i for i in self.registry.ids("topology")
-                if self.composer._topology_allowed(i, tier)]
+        would quietly hand medium a plan the composer refused it.
+
+        policy: the blueprint's generation policy (2026-09-13), applied first
+        for the same reason; None = legacy."""
+        ids = (policy or LEGACY_POLICY).eligible_ids(self.registry, "topology")
+        return [i for i in ids if self.composer._topology_allowed(i, tier)]
 
     def _pick_clear_topology(self, bp: Blueprint) -> str | None:
-        ids = [i for i in self._tier_topologies(bp.tier) if i != bp.topology_id]
+        ids = [i for i in self._tier_topologies(bp.tier, policy_for_blueprint(bp))
+               if i != bp.topology_id]
         rng = getattr(self.composer, "rng", None) or random.Random()
         rng.shuffle(ids)
         for tid in ids:
@@ -800,7 +829,7 @@ class RCPipeline:
             sim0, near0 = hits[0]
         # No fully clear topology: pick the least-colliding allowed alternative.
         best_tid, best_sim, best_near = bp.topology_id, sim0, near0
-        for tid in self._tier_topologies(bp.tier):
+        for tid in self._tier_topologies(bp.tier, policy_for_blueprint(bp)):
             th = self._topology_collisions(tid)
             if not th:
                 best_tid, best_sim, best_near = tid, 0.0, ""

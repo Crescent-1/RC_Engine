@@ -15,6 +15,7 @@ from contextlib import contextmanager
 from datetime import datetime, timezone
 
 from . import config
+from .generation_policy import known_argument_schema_ids
 from .models import Blueprint, Fingerprint
 
 
@@ -384,6 +385,16 @@ class HistoryStore:
              json.dumps(bp.pair_hashes), bp.to_json(), status, _now(), self.client_id))
         self.conn.commit()
 
+    def update_blueprint_json(self, bp: Blueprint):
+        """Rewrite a stored plan's JSON in place (2026-09-13), leaving status,
+        created_at and rc_id alone. Used to persist resolved question slots,
+        which are not a component and do not move combo_hash. Scoped to this
+        client, like load_rendered_passage."""
+        self.conn.execute(
+            "UPDATE blueprints SET blueprint_json = ? WHERE blueprint_id = ? AND client_id = ?",
+            (bp.to_json(), bp.blueprint_id, self.client_id))
+        self.conn.commit()
+
     def set_blueprint_status(self, blueprint_id: str, status: str, rc_id: str | None = None):
         if rc_id:
             self.conn.execute("UPDATE blueprints SET status = ?, rc_id = ? WHERE blueprint_id = ?",
@@ -586,7 +597,9 @@ class HistoryStore:
                 schema = json.loads(raw or "{}").get("argument_schema")
             except (ValueError, AttributeError):
                 continue
-            if isinstance(schema, str) and schema in config.ARGUMENT_SCHEMAS:
+            # Any registered policy's schema counts (2026-09-13): a policy
+            # schema occupies window positions like a legacy one.
+            if isinstance(schema, str) and schema in known_argument_schema_ids():
                 counts[schema] = counts.get(schema, 0) + 1
         return counts
 
@@ -625,7 +638,7 @@ class HistoryStore:
             if planned:
                 c['schema_planned'] += 1
                 measured = read.get('argument_schema')
-                if isinstance(measured, str) and measured in config.ARGUMENT_SCHEMAS:
+                if isinstance(measured, str) and measured in known_argument_schema_ids():
                     c['schema_measured'] += 1
                     c['primary_matches'] += measured == planned
                     c['either_matches'] += planned in (measured, read.get('argument_schema_secondary'))

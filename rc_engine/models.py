@@ -63,6 +63,14 @@ class Blueprint:
     # Empty on old plans. New coherent contracts can be distinguished from
     # independently sampled pre-fix plans in before/after corpus reports.
     voice_plan_version: str = ""
+    # Generation policy the plan was composed under (2026-09-13); "" = legacy.
+    # Resume and question building resolve the policy from this, never from
+    # today's config. Not in component_ids, so combo_hash is unchanged.
+    generation_policy: str = ""
+    # Question slots resolved once for a non-legacy plan and reused on retry
+    # and resume, so a later library edit cannot reinterpret a stored plan.
+    # Empty for legacy plans, which resolve slots exactly as before.
+    question_slots: list[dict] = field(default_factory=list)
     seed_genre: str = ""         # from seed_classify; "" = never classified
     # Prescribed rhetorical beats (labels from config.RHETORICAL_MOVES), in
     # order. A PLAN, not a ban list — see BlueprintComposer._sample_move_plan.

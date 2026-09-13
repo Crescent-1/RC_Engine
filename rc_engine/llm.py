@@ -361,8 +361,10 @@ class MockLLMClient:
         # Deterministic per passage, but genuinely varied across passages —
         # a mock that returned one fixed signature would make every selftest
         # set breach the move_signature gate against its siblings.
+        # A non-legacy generation policy passes its own vocabulary (2026-09-13);
+        # without one the draw is exactly the legacy draw.
         from . import config
-        vocab = list(config.RHETORICAL_MOVES)
+        vocab = list(ctx.get("vocabulary") or config.RHETORICAL_MOVES)
         rng = random.Random(ctx.get("passage", "")[:400])
         k = rng.randint(5, 8)
         return json.dumps({"moves": rng.sample(vocab, k)})

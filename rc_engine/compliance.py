@@ -7,6 +7,7 @@ from __future__ import annotations
 import json
 
 from . import config
+from .generation_policy import LEGACY_POLICY, policy_for_blueprint
 from .llm import CostLedger, extract_json
 from .models import Blueprint, RealizedStructure
 
@@ -122,8 +123,10 @@ class ComplianceAuditor:
                 f"{bp.revelation_detail.get('planned_para')}\n\nPLANNED TRAPS:\n{trap_lines}\n\n"
                 f"FORBIDDEN PHRASES: {forbidden}\n\n"
                 f"CLOSING POSTURE LABELS:\n{posture_lines}\n\nPASSAGE:\n{passage}")
+        policy = policy_for_blueprint(bp)
+        user = policy.user_prompt("compliance", user)
         text, _ = self.llm.call(ledger, "compliance", model, max_tokens,
-                                COMPLIANCE_SYSTEM, user,
+                                policy.system_prompt("compliance", COMPLIANCE_SYSTEM), user,
                                 context={"blueprint": bp, "passage": passage,
                                          "planned_posture": self.registry.posture_of(bp.family_id)})
         data = extract_json(text)
@@ -190,22 +193,30 @@ class ComplianceAuditor:
         return config.CLOSING_REGISTERS[0][2]
 
     def move_signature(self, passage: str, ledger: CostLedger,
-                       tier: str = "hard") -> list[str]:
+                       tier: str = "hard", policy=None) -> list[str]:
         """Blind rhetorical-move read of the passage. Sees the prose and nothing
         else — no blueprint, no persona, no plan. That blindness is the whole
         point: `movement_string` became a near-duplicate of blueprint similarity
         precisely because its auditor was handed the plan first.
 
         Returns [] on any failure; a missing signature is treated downstream as
-        'unknown structure', never as 'similar structure'."""
+        'unknown structure', never as 'similar structure'.
+
+        policy: the generation policy of the plan being read (2026-09-13). The
+        read stays blind to the plan itself; only the closed vocabulary it may
+        answer from follows the policy. None = legacy vocabulary."""
         model, max_tokens = config.STAGE_CONFIG["move_signature"][tier]
         nl = chr(10)
-        vocab = nl.join(f"  {k}: {v}" for k, v in config.RHETORICAL_MOVES.items())
+        moves_vocab = (policy or LEGACY_POLICY).move_vocabulary()
+        vocab = nl.join(f"  {k}: {v}" for k, v in moves_vocab.items())
         user = f"VOCABULARY:{nl}{vocab}{nl}{nl}PASSAGE:{nl}{passage}"
+        context = {"passage": passage}
+        if moves_vocab is not config.RHETORICAL_MOVES:
+            context["vocabulary"] = list(moves_vocab)
         try:
             text, _ = self.llm.call(ledger, "move_signature", model, max_tokens,
                                     MOVE_SIGNATURE_SYSTEM, user,
-                                    context={"passage": passage})
+                                    context=context)
             data = extract_json(text)
         except Exception as e:
             # Never abort an RC over a sub-cent stage — but never fail quietly
@@ -221,10 +232,10 @@ class ComplianceAuditor:
         # drop anything outside the closed vocabulary — an invented label would
         # never match another passage's and would silently inflate novelty
         return [m for m in (str(x).strip().upper() for x in moves)
-                if m in config.RHETORICAL_MOVES]
+                if m in moves_vocab]
 
     def argument_schema(self, passage: str, ledger: CostLedger,
-                        tier: str = "hard") -> tuple[str, str]:
+                        tier: str = "hard", policy=None) -> tuple[str, str]:
         """Blind read of what the passage's argument DOES. Returns
         (primary, secondary); ("", "") on any failure.
 
@@ -237,8 +248,9 @@ class ComplianceAuditor:
         missing schema means "unknown", never "repeated"."""
         model, max_tokens = config.STAGE_CONFIG["move_signature"][tier]
         nl = chr(10)
+        schemas = (policy or LEGACY_POLICY).argument_schemas()
         vocab = nl.join(f"  {k}: {v['description']}"
-                        for k, v in config.ARGUMENT_SCHEMAS.items())
+                        for k, v in schemas.items())
         user = f"VOCABULARY:{nl}{vocab}{nl}{nl}PASSAGE:{nl}{passage}"
         try:
             text, _ = self.llm.call(ledger, "move_signature", model, max_tokens,
@@ -251,12 +263,15 @@ class ComplianceAuditor:
             return "", ""
         def _clean(v):
             v = str(v or "").strip().upper()
-            return v if v in config.ARGUMENT_SCHEMAS else ""
+            return v if v in schemas else ""
         return _clean(data.get("primary")), _clean(data.get("secondary"))
 
     def _score(self, data: dict, passage: str, bp: Blueprint,
                realized_moves: list[str] | None = None) -> RealizedStructure:
         n = len(bp.movement)
+        policy = policy_for_blueprint(bp)
+        vocab = policy.move_vocabulary()
+        exam_shares = policy.exam_move_shares()
         paras_report = data.get("paragraphs", [])[:n]
         real_paras = [p for p in passage.split("\n\n") if p.strip()]
 
@@ -330,7 +345,7 @@ class ComplianceAuditor:
             floor = config.UNPLANNED_MOVE_EXAM_FLOOR
             gratuitous = sorted(
                 m for m in (real_mid - planned_mid)
-                if config.EXAM_MOVE_SHARES.get(m, 0.0) < floor)
+                if exam_shares.get(m, 0.0) < floor)
 
         # weighted structural score
         fn_score = sum(matches) / n if n else 0.0
@@ -371,7 +386,7 @@ class ComplianceAuditor:
             directives.append(f"remove forbidden phrases: {', '.join(map(str, tics))}")
         if missing_beats and beat_score < config.MOVE_PLAN_MIN_REALIZED:
             named = "; ".join(
-                f"{m} ({config.RHETORICAL_MOVES.get(m, '')})" for m in missing_beats)
+                f"{m} ({vocab.get(m, '')})" for m in missing_beats)
             directives.append(
                 f"the passage must perform these planned rhetorical moves, which "
                 f"a blind reading of it could not find: {named}")
@@ -445,19 +460,19 @@ class ComplianceAuditor:
             want = bp.move_plan[0]
             directives.append(
                 f"the FIRST SENTENCE must perform {want} — "
-                f"{config.RHETORICAL_MOVES.get(want, '')}. "
+                f"{vocab.get(want, '')}. "
                 f"The passage opened on {realized_moves[0]} instead")
         if not closing_ok:
             want = bp.move_plan[-1]
             directives.append(
                 f"the FINAL SENTENCE must perform {want} — "
-                f"{config.RHETORICAL_MOVES.get(want, '')}. "
+                f"{vocab.get(want, '')}. "
                 f"The passage closed on {realized_moves[-1]} instead")
 
         middle_ok = True
         if middle_missing and middle_retention < config.MOVE_PLAN_MIN_MIDDLE_RETAINED:
             middle_ok = False
-            named = "; ".join(f"{m} ({config.RHETORICAL_MOVES.get(m, '')})"
+            named = "; ".join(f"{m} ({vocab.get(m, '')})"
                               for m in middle_missing)
             directives.append(
                 f"the BODY paragraphs dropped {len(middle_missing)} of "

@@ -115,7 +115,11 @@ SCHEMA_EXTRA_MOVES = {
 }
 
 
-def middle_moves(schema_id):
+def middle_moves(schema_id, policy=None):
+    """Body beats this schema may plan. A generation policy may widen the set
+    for its own plans (2026-09-13); the legacy result is unchanged."""
+    if policy is not None and not policy.is_legacy:
+        return policy.middle_moves(schema_id)
     return SUPPORTING_MOVES | SCHEMA_EXTRA_MOVES[schema_id]
 
 
@@ -126,8 +130,9 @@ FAMILY_FORBIDDEN_MOVES = {
 }
 
 
-def schema_ids_for_shape(shape_id):
-    return [s for s, forms in SCHEMA_FORMS.items()
+def schema_ids_for_shape(shape_id, policy=None):
+    forms_by_schema = policy.schema_forms() if policy is not None else SCHEMA_FORMS
+    return [s for s, forms in forms_by_schema.items()
             if not shape_id or shape_id in forms["topic_shape"]]
 
 
@@ -141,10 +146,13 @@ def closing_beats(ending_id, posture, family_id=""):
 
 
 def plan_violations(bp, registry):
-    """Validate the complete new contract; legacy blueprints remain resumable."""
+    """Validate the complete new contract; legacy blueprints remain resumable.
+    Checked under the policy the blueprint carries (2026-09-13)."""
     if not bp.argument_schema_id:
         return []
-    forms = SCHEMA_FORMS[bp.argument_schema_id]
+    from .generation_policy import policy_for_blueprint
+    policy = policy_for_blueprint(bp)
+    forms = policy.schema_forms()[bp.argument_schema_id]
     issues = []
     for key in ("family", "topic_shape", "render_stance"):
         value = getattr(bp, key + "_id")
@@ -153,7 +161,7 @@ def plan_violations(bp, registry):
     if bp.move_plan:
         if FAMILY_FORBIDDEN_MOVES.get(bp.family_id, set()) & set(bp.move_plan):
             issues.append("beat plan contradicts the family's arc")
-        if set(bp.move_plan[1:-1]) - middle_moves(bp.argument_schema_id):
+        if set(bp.move_plan[1:-1]) - middle_moves(bp.argument_schema_id, policy):
             issues.append("body contains operations outside the chosen schema")
         for move in forms["required_middle"]:
             if move not in bp.move_plan[1:-1]:
@@ -161,7 +169,7 @@ def plan_violations(bp, registry):
         last = bp.move_plan[-1]
         if last not in closing_beats(bp.ending_id, registry.posture_of(bp.family_id), bp.family_id):
             issues.append(f"closing beat {last} conflicts with ending {bp.ending_id}")
-        if bp.closing_register not in CLOSING_REGISTERS_BY_BEAT[last]:
+        if bp.closing_register not in policy.closing_registers_by_beat().get(last, set()):
             issues.append(f"register {bp.closing_register} conflicts with closing beat {last}")
     if bp.render_stance_id:
         stance = registry.get("render_stance", bp.render_stance_id)

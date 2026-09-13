@@ -2341,5 +2341,7 @@ def test_topic_shape_and_schema_usage_are_actually_recorded():
 def test_schema_directive_reaches_the_render_contract():
     """A component the renderer never sees is a component that does nothing."""
     src = open("rc_engine/renderer.py", encoding="utf-8").read()
-    assert "argument_schema_id" in src and "ARGUMENT_SCHEMAS" in src
+    # 2026-09-13: schemas are read through the blueprint's generation policy,
+    # which returns config.ARGUMENT_SCHEMAS itself for legacy plans.
+    assert "argument_schema_id" in src and "argument_schemas()" in src
     assert "WHAT THE ARGUMENT DOES" in src
