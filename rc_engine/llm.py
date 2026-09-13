@@ -388,6 +388,12 @@ class MockLLMClient:
         rng = random.Random(bp.blueprint_id + "q")
         questions = []
         for i, slot in enumerate(ctx["slots"], start=1):
+            if "contract" in slot:
+                # Contract slots (2026-09-13): a mock that satisfies every
+                # deterministic contract check, so dry runs exercise the path.
+                questions.append(self._contract_question(i, slot, bp, mechs))
+                rng.random()
+                continue
             # EXCEPT slots invert the contract: the wrong options are the
             # statements the passage supports (see question_engine._validate).
             is_except = slot["type"] == "except_scan"
@@ -415,6 +421,35 @@ class MockLLMClient:
             })
             rng.random()
         return json.dumps({"questions": questions})
+
+    @staticmethod
+    def _contract_question(i, slot, bp, mechs) -> dict:
+        name = slot["type"].replace("_", " ")
+        negative = slot["polarity"] == "negative"
+        trap = next((t for t in bp.trap_map if t["trap_id"] == slot.get("trap_id")), None)
+        if slot["type"] == "keyword_set":
+            sep = " → " if slot.get("variant") == "sequence" else ", "
+            texts = [sep.join(f"mock term {i}{k}{j}" for j in range(4)) for k in "abcd"]
+        else:
+            texts = [f"A mock option {k} for question {i}, phrased at matching register and length."
+                     for k in "abcd"]
+        wrong = []
+        for j in range(3):
+            if negative:
+                mech = slot["marker"]
+            elif j == 0 and trap:
+                mech = trap["mechanism"]
+            else:
+                mech = mechs[j % 2]
+            wrong.append({"text": texts[j + 1], "mechanism": mech,
+                          "why_wrong": f"{mech} — mock location for option {j + 1}."})
+        correct = {"text": texts[0], "why_right": "mock: names the precise bridge or failure."}
+        if negative:
+            correct["failure_mode"] = "scope"
+        stem = (f"Mock {name} question {i}: all of the following hold, EXCEPT:" if negative
+                else f"Mock {name} question {i} on the passage's {slot['target']} movement?")
+        return {"q": i, "slot_type": slot["type"], "stem": stem,
+                "correct": correct, "wrong": wrong}
 
     def _solver(self, ctx) -> str:
         key = ctx["letter_plan"]

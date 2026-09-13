@@ -26,11 +26,13 @@ So every such read goes through a policy:
     configuration, and an unknown version is an error rather than a fallback.
   - Elite always resolves to legacy, whatever config says.
 
-No non-legacy policy is registered in production yet: section 4 defines the
-first one when its content exists. Registering a version and later changing
-what it contains would reinterpret every plan already stored under it, so a
-version's content is fixed once plans can carry it; change means a new
-version. Tests register temporary policies with `temporary_policy`.
+Production policies live in policy_catalog.py and are registered at import
+(2026-09-13: `cat-pyq-q1`, the section 4 question release). Registering is not
+enabling: config.GENERATION_POLICY_FOR_NEW_PLANS decides which tiers compose
+under a policy. Registering a version and later changing what it contains would
+reinterpret every plan already stored under it, so a version's content is fixed
+once plans can carry it; change means a new version. Tests register temporary
+policies with `temporary_policy`.
 """
 from __future__ import annotations
 
@@ -80,6 +82,18 @@ class GenerationPolicy:
     system_extensions: MappingProxyType = field(default_factory=lambda: _ro({}))
     # callable(ctype, ids, weights, registry) -> weights; None = unchanged
     weight_adjuster: object = None
+    # -- question contracts (section 4; see question_contracts.py) --
+    # True: slots resolve to task/polarity/contract and generated questions are
+    # checked against them. False keeps a policy's questions on legacy rules.
+    question_contracts: bool = False
+    # released negative tasks this policy may plan ("support", "application")
+    negative_tasks: frozenset = frozenset()
+    # tier -> exact number of negative slots per set, pre-existing ones included
+    negative_slots_per_set: MappingProxyType = field(default_factory=lambda: _ro({}))
+    # stem-pool keys beyond plain slot types: "<type>/negative", "<type>/<variant>"
+    keyed_stem_forms: MappingProxyType = field(default_factory=lambda: _ro({}))
+    # slot type -> variants resolved per plan (e.g. keyword_set: keywords, sequence)
+    slot_variants: MappingProxyType = field(default_factory=lambda: _ro({}))
 
     # -- identity -------------------------------------------------------------
 
@@ -95,11 +109,19 @@ class GenerationPolicy:
             return True
         return (not self.is_legacy) and self.version in tags
 
-    def eligible_ids(self, registry, ctype: str) -> list[str]:
+    def eligible_ids(self, registry, ctype: str, tier: str | None = None) -> list[str]:
+        """tier: when given and the policy resolves question contracts, a
+        topology that cannot carry the tier's negative-slot target is not
+        eligible (section 4). Legacy ignores it."""
         ids = registry.ids(ctype)
         if self.is_legacy and not registry.has_policy_tags(ctype):
             return ids
-        return [i for i in ids if self.component_eligible(registry.get(ctype, i))]
+        ids = [i for i in ids if self.component_eligible(registry.get(ctype, i))]
+        if ctype == "topology" and self.question_contracts and tier:
+            from .question_contracts import topology_supports
+            ids = [i for i in ids
+                   if topology_supports(registry.get(ctype, i), self, tier)]
+        return ids
 
     def exam_derived_shapes(self):
         if not self.extra_exam_derived_shapes:
@@ -180,6 +202,14 @@ class GenerationPolicy:
             out[stype] = out.get(stype, []) + [f for f in forms if f not in out.get(stype, [])]
         return out
 
+    def stem_pool(self, registry) -> dict:
+        """Stem forms keyed as question_contracts.stem_key keys them. Without
+        keyed forms this is stem_forms() itself (legacy: the shared pool)."""
+        if not self.keyed_stem_forms:
+            return self.stem_forms(registry)
+        return {**self.stem_forms(registry),
+                **{k: list(v) for k, v in self.keyed_stem_forms.items()}}
+
     # -- prompts and weights --------------------------------------------------
 
     def user_prompt(self, stage: str, text: str) -> str:
@@ -201,6 +231,22 @@ LEGACY_POLICY = GenerationPolicy(
     description="the engine as it stood on 2026-09-13; missing version on a blueprint")
 
 _POLICIES: dict[str, GenerationPolicy] = {LEGACY: LEGACY_POLICY}
+
+
+def _register_catalog() -> None:
+    """Idempotent. When policy_catalog is imported first it is still mid-import
+    here, so this returns and the catalog calls it again once it is complete."""
+    try:
+        from .policy_catalog import PRODUCTION_POLICIES
+    except ImportError:
+        return
+    for p in PRODUCTION_POLICIES:
+        existing = _POLICIES.get(p.version)
+        if existing is p:
+            continue
+        if existing is not None:
+            raise PolicyError(f"policy {p.version!r} registered twice")
+        _POLICIES[p.version] = p
 
 
 def registered() -> dict[str, GenerationPolicy]:
@@ -317,5 +363,57 @@ def validation_errors(registry) -> list[str]:
                     errors.append(f"policy {version!r} plans beat {m!r} with no gloss")
         if "elite" in p.tiers and not p.is_legacy:
             errors.append(f"policy {version!r} must not admit elite")
+        if p.question_contracts:
+            errors.extend(_contract_errors(version, p, registry))
     return errors
 
+
+def _contract_errors(version: str, p: GenerationPolicy, registry) -> list[str]:
+    from .question_contracts import (NEGATIVE_CONTRACTS, TASK_OF_TYPE,
+                                     negation_count, topology_supports)
+    from .registry import MIN_STEM_FORMS
+    errors = []
+    pool = p.stem_pool(registry)
+    types = set(p.slot_type_definitions(registry))
+    for task in p.negative_tasks:
+        if task not in NEGATIVE_CONTRACTS:
+            errors.append(f"policy {version!r} enables unknown negative task {task!r}")
+        elif not NEGATIVE_CONTRACTS[task]["released"]:
+            errors.append(f"policy {version!r} enables unreleased negative task {task!r}")
+    for tier, n in p.negative_slots_per_set.items():
+        if tier not in p.tiers:
+            errors.append(f"policy {version!r} sets a negative target for {tier!r}, "
+                          f"which it does not admit")
+    for stype, task in TASK_OF_TYPE.items():
+        if task in p.negative_tasks and stype != "except_scan" and stype in types:
+            if len(pool.get(f"{stype}/negative", [])) < MIN_STEM_FORMS:
+                errors.append(f"policy {version!r} can negate {stype!r} but has fewer "
+                              f"than {MIN_STEM_FORMS} negative stem forms")
+    for stype, variants in p.slot_variants.items():
+        for v in variants:
+            if len(pool.get(f"{stype}/{v}", [])) < MIN_STEM_FORMS:
+                errors.append(f"policy {version!r} variant {stype}/{v} needs "
+                              f">= {MIN_STEM_FORMS} stem forms")
+    # A negative form must carry exactly one negation; every other form none.
+    # Otherwise a negative stem gets dealt to an affirmative contract.
+    for key, forms in pool.items():
+        negative = key.endswith("/negative") or key == "except_scan"
+        for form in forms:
+            n = negation_count(form)
+            if negative and n != 1:
+                errors.append(f"policy {version!r} stem {key!r} needs exactly one "
+                              f"negation: {form!r}")
+            elif not negative and n:
+                errors.append(f"policy {version!r} affirmative stem {key!r} is negated: {form!r}")
+    for tid in p.eligible_ids(registry, "topology"):
+        topo = registry.get("topology", tid)
+        if not topo.get("policies"):
+            continue
+        for tier in p.negative_slots_per_set:
+            if not topology_supports(topo, p, tier):
+                errors.append(f"topology:{tid} cannot carry policy {version!r}'s "
+                              f"{tier} negative-slot target")
+    return errors
+
+
+_register_catalog()

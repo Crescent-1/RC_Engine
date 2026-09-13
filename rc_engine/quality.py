@@ -37,8 +37,12 @@ def blind_solve(llm, ledger: CostLedger, bp: Blueprint, passage: str,
             lines.append(f"({letter}) {q['options'][letter]['text']}")
         lines.append("")
     user = "\n".join(lines)
+    # The plan's policy may note that negated stems ask for the failing option
+    # (2026-09-13). The solver stays blind to keys, traps and rationales.
+    from .generation_policy import policy_for_blueprint
+    system = policy_for_blueprint(bp).system_prompt("solver", SOLVER_SYSTEM)
     try:
-        text, _ = llm.call(ledger, "solver", model, max_tokens, SOLVER_SYSTEM, user,
+        text, _ = llm.call(ledger, "solver", model, max_tokens, system, user,
                            context={"letter_plan": qdata["letters"]})
         parsed = extract_json(text)
     except (ValueError, json.JSONDecodeError) as e:
@@ -155,6 +159,8 @@ def judge_rc(llm, ledger: CostLedger, bp: Blueprint, rc_text: str,
             f"{length_facts['correct_longest_count']} of the {n_q} questions"
             + (", including the thesis question"
                if length_facts.get("thesis_correct_longest") else "") + ".")
+    from .generation_policy import policy_for_blueprint
+    system = policy_for_blueprint(bp).system_prompt("judge", system)
 
     user = rc_text
     for attempt in range(config.MAX_JUDGE_ATTEMPTS):

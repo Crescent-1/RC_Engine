@@ -124,6 +124,13 @@ def enable_medium_hard(patch, options):
                   {"medium": TEST_VERSION, "hard": TEST_VERSION, "elite": ""})
 
 
+def enable_cat_pyq_q1(patch, options):
+    """The production question release, with the production libraries."""
+    from rc_engine import config
+    from rc_engine.policy_catalog import CAT_PYQ_Q1
+    patch.setattr(config, "GENERATION_POLICY_FOR_NEW_PLANS",
+                  {"medium": CAT_PYQ_Q1, "hard": CAT_PYQ_Q1, "elite": ""})
+
 
 _SIDE: dict = {}
 
@@ -167,9 +174,11 @@ def run_side_attempt(patch, options, i, tier):
         "SELECT blueprint_json FROM blueprints WHERE blueprint_id = ?",
         (res.blueprint_id,)).fetchone() if res.blueprint_id else None
     bp = json.loads(row[0]) if row else {}
+    slots = bp.get("question_slots") or []
     _SIDE["report"].append({"tier": side_tier, "status": res.status,
                             "generation_policy": bp.get("generation_policy"),
                             "family": bp.get("family_id"), "topology": bp.get("topology_id"),
-                            "question_slots": len(bp.get("question_slots") or [])})
+                            "question_slots": len(slots),
+                            "negatives": sum(1 for s in slots if s.get("polarity") == "negative")})
     with open(options["side_report"], "w", encoding="utf-8") as f:
         json.dump(_SIDE["report"], f, indent=1)

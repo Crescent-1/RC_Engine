@@ -90,6 +90,11 @@ python -m rc_engine.cli generate --elite 8 --max-usd 2.00   # explicit batch cap
 python -m rc_engine.cli generate --hard 4 --provider openai # non-Claude run
 python -m rc_engine.cli generate --hard 6 --elite 6 --workers 3 # parallel (2-3 is the useful range)
 
+# $0 — the CAT PYQ question release (policy cat-pyq-q1) on the mock. Opt-in per
+#      run; medium/hard only, elite always stays legacy. Not the default until
+#      a reviewed paid pilot (see "Generation policies" below).
+python -m rc_engine.cli generate --dry-run --medium 2 --hard 2 --generation-policy cat-pyq-q1
+
 # $0 — corpus health: family/topology drift, answer-letter chi-square
 python -m rc_engine.cli health
 
@@ -104,6 +109,28 @@ python -m rc_engine.cli avoid --n 4
 #      corpus stays in sync and manual sets stay filterable
 python -m rc_engine.cli vet manual_rc_sets/RC-MANUAL-260707-1.txt --tier elite --ingest
 ```
+
+## Generation policies (2026-09-13)
+
+A blueprint records the generation policy it was composed under
+(`generation_policy`; empty = legacy) and always resumes under it. Elite is
+legacy by rule. `config.GENERATION_POLICY_FOR_NEW_PLANS` sets the default for
+new medium/hard plans (legacy today); `generate --generation-policy VERSION` or
+`RC_ENGINE_NEW_PLAN_POLICY` opts one run in, workers included. Switching back
+never rewrites stored plans. Policies are defined in `rc_engine/policy_catalog.py`;
+a version's content is fixed once plans can carry it.
+
+`cat-pyq-q1` — the question release from `2026-09-13-cat-pyq-implementation-plan.md` §4:
+- exactly two negative questions per set (single negation; an existing EXCEPT
+  slot counts), resolved into a stored **contract** per slot: task, polarity and
+  what the three non-key options must establish. Released negatives: passage
+  support and application. Topologies that cannot carry two are not drawn;
+- new types `author_would_endorse` and `keyword_set` (keyword and sequence
+  variants) via topologies QT25/QT26, plus new stem variants for existing types;
+- deterministic checks with one corrective retry: contract markers, stem
+  polarity, failure mode, keyword-set format, exact quoted spans, paragraph
+  numbers. Uniqueness and key quality are NOT deterministic — they stay with
+  answerability QA, the blind solver and human review.
 
 ## Providers (one per run)
 

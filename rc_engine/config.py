@@ -97,9 +97,18 @@ BLUEPRINT_SCHEMA_VERSION = "2.0"
 # they carry, never under this map, so switching a tier back to "" disables a
 # policy for future plans without touching plans already made under it.
 # Elite is legacy by rule; generation_policy refuses anything else.
-# Every tier is legacy until section 4 of the implementation plan registers
-# the first CAT PYQ policy with its content fixed.
+#
+# 2026-09-13: `cat-pyq-q1` (the section 4 question release) is registered but
+# NOT the default. The plan requires a human-reviewed paid pilot before new
+# question forms reach client batches, so medium/hard stay legacy here and a
+# run opts in with `generate --generation-policy cat-pyq-q1` (or
+# RC_ENGINE_NEW_PLAN_POLICY, which parallel workers inherit). Set the two tiers
+# here only once the pilot has been reviewed.
 GENERATION_POLICY_FOR_NEW_PLANS = {"medium": "", "hard": "", "elite": ""}
+_new_plan_policy = os.environ.get("RC_ENGINE_NEW_PLAN_POLICY", "").strip()
+if _new_plan_policy:
+    GENERATION_POLICY_FOR_NEW_PLANS = {"medium": _new_plan_policy,
+                                       "hard": _new_plan_policy, "elite": ""}
 
 # ---------------------------------------------------------------------------
 # Providers, models & pricing ($ per million tokens: input, output)

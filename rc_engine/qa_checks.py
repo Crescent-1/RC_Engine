@@ -74,8 +74,15 @@ def _fmt_options(q: dict) -> str:
     return NL.join(out)
 
 
+def _system(policy, stage: str, text: str) -> str:
+    """The plan's policy may append to a QA system prompt (2026-09-13: negated
+    stems ask for the option that FAILS). None or legacy returns text itself."""
+    return policy.system_prompt(stage, text) if policy is not None else text
+
+
 def check_answerability(passage: str, questions: list[dict], llm,
-                        ledger: CostLedger, tier: str = "hard") -> list[dict]:
+                        ledger: CostLedger, tier: str = "hard",
+                        policy=None) -> list[dict]:
     """Per-question answerable/unique verdicts. [] when the check cannot run."""
     if not questions:
         return []
@@ -89,7 +96,7 @@ def check_answerability(passage: str, questions: list[dict], llm,
             + (NL + NL).join(blocks))
     try:
         text, _ = llm.call(ledger, "answerability", model, max_tokens,
-                           ANSWERABILITY_SYSTEM, user,
+                           _system(policy, "answerability", ANSWERABILITY_SYSTEM), user,
                            context={"passage": passage})
         data = extract_json(text)
     except Exception as e:
@@ -130,7 +137,7 @@ def answerability_warnings(rows: list[dict]) -> list[str]:
 
 
 def tiebreak(passage: str, question: dict, solver_answer: str, key_answer: str,
-             llm, ledger: CostLedger, tier: str = "hard") -> dict:
+             llm, ledger: CostLedger, tier: str = "hard", policy=None) -> dict:
     """Independent read of one disputed question.
 
     The two candidates are presented WITHOUT saying which is the key, so the
@@ -146,7 +153,8 @@ def tiebreak(passage: str, question: dict, solver_answer: str, key_answer: str,
             f"One reader answered ({first}). Another answered ({second}).")
     try:
         text, _ = llm.call(ledger, "solver_tiebreak", model, max_tokens,
-                           TIEBREAK_SYSTEM, user, context={"passage": passage})
+                           _system(policy, "solver_tiebreak", TIEBREAK_SYSTEM), user,
+                           context={"passage": passage})
         data = extract_json(text)
     except Exception as e:
         print(f"  [tiebreak] failed ({type(e).__name__}: {e})")
@@ -162,7 +170,8 @@ def tiebreak(passage: str, question: dict, solver_answer: str, key_answer: str,
 
 
 def tiebreak_disputes(passage: str, questions: list[dict], disputes: list[dict],
-                      llm, ledger: CostLedger, tier: str = "hard") -> list[dict]:
+                      llm, ledger: CostLedger, tier: str = "hard",
+                      policy=None) -> list[dict]:
     """Run the tiebreak over every dispute the solver raised."""
     out = []
     for d in disputes or []:
@@ -170,7 +179,7 @@ def tiebreak_disputes(passage: str, questions: list[dict], disputes: list[dict],
         if not isinstance(qno, int) or qno < 1 or qno > len(questions):
             continue
         res = tiebreak(passage, questions[qno - 1], d.get("solver", ""),
-                       d.get("key", ""), llm, ledger, tier)
+                       d.get("key", ""), llm, ledger, tier, policy=policy)
         res["q"] = qno
         res["solver"] = d.get("solver")
         res["key"] = d.get("key")
