@@ -275,7 +275,7 @@ def tier_view(result: dict, tier: str) -> dict:
 
 
 def run_in_subprocess(out_path: str, workdir: str, options: dict | None = None) -> dict:
-    env = dict(os.environ, PYTHONHASHSEED="0",
+    env = dict(os.environ, PYTHONHASHSEED="0", RC_ENGINE_NEW_PLAN_POLICY="",
                RC_ENGINE_DB=os.path.join(workdir, "default.db"))
     args = [sys.executable, os.path.join(REPO, "tests", "policy_harness.py"), out_path, workdir]
     if options is not None:

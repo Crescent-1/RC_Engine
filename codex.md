@@ -5,6 +5,119 @@ go first; dates use Asia/Calcutta time. `AGENTS.md` instructs Codex to update th
 file whenever it changes project files. Entries are task summaries, not a record
 of every intermediate edit. Git remains the source for exact diffs.
 
+## 2026-09-13 — Question release `cat-pyq-q1` (plan section 4), by Claude Code
+
+- Implemented section 4 as the first production generation policy,
+  `cat-pyq-q1`, for medium and hard only. It is registered in
+  `rc_engine/policy_catalog.py` but not enabled by default:
+  - `config.GENERATION_POLICY_FOR_NEW_PLANS` stays legacy.
+  - A run opts in with `generate --generation-policy cat-pyq-q1` or
+    `RC_ENGINE_NEW_PLAN_POLICY`, and parallel workers inherit it.
+  - Reason: the plan requires a human-reviewed paid pilot before new question
+    forms reach client batches.
+- `rc_engine/question_contracts.py`:
+  - Each slot resolves to task, polarity, contract and marker (plan 4.1 table).
+  - Only the support and application negatives are released. Strengthen,
+    weaken, reported-view and author-endorsement are specified but blocked by
+    validation. There is no double negation.
+  - Exactly two negative slots per set on both tiers. Existing EXCEPT and
+    authored negatives count. Negations are placed deterministically per
+    blueprint and never on Q1.
+  - A topology that cannot carry two is ineligible, in the composer and in the
+    pipeline re-pick, so no inversion is invented. On current libraries that
+    drops QT05 and QT19. Medium's pool stays at 18, the headroom floor.
+  - Deterministic checks: stem negation count, markers, `failure_mode` (never
+    "not mentioned"), `why_wrong` present, allowed mechanisms, keyword-set
+    format (4–5 items, variant separators, equal counts, no duplicates), exact
+    quoted spans (curly quotes, apostrophes, ellipses) and existing paragraph
+    numbers.
+- Question engine (contract plans only; legacy branches unchanged):
+  - Polarity is resolved before traps; negative slots take no trap.
+  - Stems deal from `<type>/negative` and `<type>/<variant>` pools.
+  - Per-slot contract lines are added to the question plan.
+  - Contract validation gets one corrective retry, then `failed_questions`
+    (resumable).
+  - Trap harvests are reported as `question contract:` notes.
+  - Markers are kept out of `trap_usage`.
+  - Questions record the planned slot type and polarity.
+- Policy content:
+  - New slot types `author_would_endorse` (4 forms) and `keyword_set` (3
+    keyword and 3 sequence forms). Negative forms for detail, inference and
+    application.
+  - New stem variants: word purpose, tone of a quoted sentence, reported
+    party vs author, similarity and difference, sense of a quoted sentence.
+    All forms are original paraphrased templates, not PYQ text.
+  - System extensions for questions, answerability, tiebreak, solver and
+    judge. The solver stays blind to keys, traps and rationales.
+- `topologies.json`: added QT25 "The Commitment Map" and QT26 "The Reported
+  Voices", tagged `cat-pyq-q1`.
+  - Each has two authored negatives; the analysis draft of QT26 had three and
+    used unreleased contracts, so it was revised.
+  - Both include `author_would_endorse` and `keyword_set`, and both are
+    medium-eligible.
+  - Maximum topology similarity to the library is 0.56 against the 0.75 cap.
+- Also changed:
+  - `GenerationPolicy` gained contract fields, tier-aware
+    `eligible_ids(..., tier)`, `stem_pool` and contract validation.
+    Registration handles either import order.
+  - Registry: tagged topologies may use their policy's slot types.
+  - Fingerprints of contract plans record `_negated_slots` and
+    `_negated_tasks`.
+  - The mock emits contract-conforming questions.
+  - `cli vet` excludes all contract markers from trap histograms.
+  - `tests/conftest.py` and the harness pin `RC_ENGINE_NEW_PLAN_POLICY=""`.
+  - README section "Generation policies".
+- Tests:
+  - Added `tests/test_question_contracts.py` (47 tests) and
+    `tests/fixtures/question_contracts.json`: an original passage with a valid
+    item per contract and new type, 17 structural counterexamples, and 3
+    semantic counterexamples recorded as NOT caught deterministically.
+  - The tests cover resolution for every eligible topology, capacity
+    refusal, traps, stem polarity, the histogram, a mock end to end, resume
+    under the stored policy after disabling it, retry-then-fail, validation,
+    the CLI opt-in and the env override.
+  - `tests/test_question_blueprint.py` invariants now run per view (legacy and
+    `cat-pyq-q1`), with a policy pool-starvation test.
+  - A new golden test runs the production policy between elite attempts; elite
+    still equals the pre-policy `23e3d49` output.
+  - Mutation check: 10 deliberate breaks, 9 caught. The one survivor only
+    differs when legacy data contains the new marker `rule_satisfied`, which
+    legacy sets never emit.
+- Validation:
+  - `python -m pytest tests -q`: 368 passed on two full runs. One other full
+    run failed `test_run_parallel_dry_run_ships_records_and_cleans_up` (4
+    `rc_sets` rows, not 3).
+    - Cause: two workers took the same topology (or a close rhythm), so a
+      sibling set was rejected at Gate C.
+    - It is pre-existing: the untouched `23e3d49` engine failed 4 of 60 probe
+      runs, the current tree 2 of 60, with the same failure types. It was not
+      fixed here and is flagged as a separate task (in-flight topology
+      reservation race).
+  - `python -m rc_engine.cli selftest`: passed.
+  - `generate --dry-run --hard 2`: legacy, ran.
+  - Isolated scratch-DB simulations:
+    - `--medium 12 --hard 12 --elite 4 --generation-policy cat-pyq-q1`: 28 of
+      36 attempts shipped; the 8 rejections were mock novelty.
+      - Every medium/hard set had exactly 2 negatives: 16 detail, 13
+        inference, 11 application, 8 EXCEPT across 24 sets.
+      - QT25/QT26 were drawn 3 times; elite stayed legacy with no extensions.
+    - `--medium 4 --hard 4 --workers 2` under the policy: 8 of 8 shipped,
+      each with 2 negatives.
+- Limits:
+  - Mock success is not prose or question quality. No paid run; the pilot is
+    pending authorization.
+  - The real-model retry rate from the stricter checks (quotes, allowed
+    mechanisms, `failure_mode`) is unmeasured and could raise question cost.
+  - The new types appear only through QT25/QT26: 3 of 24 simulated sets.
+  - Uniqueness of negated keys is semantic; there is no deterministic check.
+  - Family `question_affinities` is not read anywhere in the engine, so
+    "compatible family affinities" has no mechanism to attach to.
+  - Reporting negation by task in `health` is not built; the fingerprint
+    fields exist.
+  - The `move-audit` follow-up from section 3 is still open.
+- Changes are uncommitted. The plan asks for separate commits for the policy
+  boundary (section 3) and questions (section 4).
+
 ## 2026-09-13 — Generation-policy boundary (plan section 3), by Claude Code
 
 - Completed section 3 of `2026-09-13-cat-pyq-implementation-plan.md`. The

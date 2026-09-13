@@ -1,0 +1,119 @@
+{
+ "note": "Written 2026-09-13 for tests/test_question_contracts.py. The passage and questions are original (not CAT PYQ text). Each valid item has one defensible key, argued in why_right; each semantic counterexample shows a defect the deterministic checks cannot see, which is why answerability QA, the blind solver and human review stay in the loop.",
+ "passage": "For most of the nineteenth century the harbour at Kellmouth published official tide tables, printed each winter from readings taken at a single gauge near the customs house. The pilots who guided ships over the bar kept their own notes, and they did not always agree with the tables.\n\nThe disagreement was not about arithmetic. The gauge sat in still water behind the breakwater, while the bar lay in open water where wind could hold a tide back for an hour or push it in early. The tables recorded what the gauge saw; the notes recorded what the bar did.\n\nHarbour commissioners treated the notes as folklore. A pilot's record, one report complained, depends on the man who keeps it, and that was true: the notes varied from pilot to pilot. But the variation followed the weather each man had worked in, not his temperament.\n\nWhen a dredging survey in 1878 compared both sources against soundings taken on the bar itself, the pilots' notes were closer on nine days in ten. The survey did not conclude that the tables were wrong. It concluded that they answered a different question: how high the water stood in the harbour, not when a loaded ship could cross into it.\n\nThe commissioners kept printing the tables. They added a line advising masters to consult a pilot, which was, in effect, an admission that the official record had never been the record that mattered at the bar.",
+ "valid": [
+  {
+   "name": "support_negative on detail_check",
+   "slot": {"type": "detail_check", "target": "local", "difficulty": 0.6, "task": "support", "polarity": "negative", "contract": "support_negative", "marker": "passage_supported"},
+   "question": {
+    "stem": "According to the passage, all of the following are true of the pilots' notes, EXCEPT:",
+    "correct": {"text": "They were more accurate than the tables at the harbour gauge itself.", "why_right": "The survey compared both sources against soundings on the bar, not at the gauge; the claim moves the comparison to the wrong place.", "failure_mode": "scope"},
+    "wrong": [
+     {"text": "They differed from one pilot to another.", "mechanism": "passage_supported", "why_wrong": "Paragraph 3: the notes varied from pilot to pilot."},
+     {"text": "They recorded what happened on the bar, not behind the breakwater.", "mechanism": "passage_supported", "why_wrong": "Paragraph 2: the notes recorded what the bar did."},
+     {"text": "They matched bar soundings better than the tables on most surveyed days.", "mechanism": "passage_supported", "why_wrong": "Paragraph 4: closer on nine days in ten."}
+    ]
+   }
+  },
+  {
+   "name": "support_negative on contextual_inference",
+   "slot": {"type": "contextual_inference", "target": "local", "difficulty": 0.62, "task": "support", "polarity": "negative", "contract": "support_negative", "marker": "passage_supported"},
+   "question": {
+    "stem": "All of the following can be inferred from the passage, EXCEPT:",
+    "correct": {"text": "The commissioners stopped relying on the tables after the survey.", "why_right": "Paragraph 5 says the commissioners kept printing the tables; the inference contradicts the text.", "failure_mode": "contradiction"},
+    "wrong": [
+     {"text": "Wind could change when water reached the bar.", "mechanism": "passage_supported", "why_wrong": "Paragraph 2: wind could hold a tide back or push it in early."},
+     {"text": "The harbour gauge measured water in a sheltered spot.", "mechanism": "passage_supported", "why_wrong": "Paragraph 2: the gauge sat in still water behind the breakwater."},
+     {"text": "The survey did not treat the tables as mistaken.", "mechanism": "passage_supported", "why_wrong": "Paragraph 4: the survey did not conclude the tables were wrong."}
+    ]
+   }
+  },
+  {
+   "name": "application_negative",
+   "slot": {"type": "application", "target": "global", "difficulty": 0.66, "task": "application", "polarity": "negative", "contract": "application_negative", "marker": "rule_satisfied"},
+   "question": {
+    "stem": "Each of the following scenarios would fit the author's account of the tide tables, EXCEPT:",
+    "correct": {"text": "A greenhouse thermometer that misreads because its sensor is faulty.", "why_right": "The account is of an accurate record answering a different question; a faulty instrument is simply wrong, so the scenario fails the mechanism.", "failure_mode": "mechanism"},
+    "wrong": [
+     {"text": "An accurate roof rain gauge that says little about street flooding.", "mechanism": "rule_satisfied", "why_wrong": "Accurate where it stands, silent on the practical question: the tables' pattern."},
+     {"text": "A precise attendance register that records presence but not learning.", "mechanism": "rule_satisfied", "why_wrong": "Correct record of one thing, consulted for another: meets the rule."},
+     {"text": "A toll counter that counts cars correctly but not journey times.", "mechanism": "rule_satisfied", "why_wrong": "Accurate count that answers a different question than travellers ask."}
+    ]
+   }
+  },
+  {
+   "name": "author_would_endorse (affirmative)",
+   "slot": {"type": "author_would_endorse", "target": "global", "difficulty": 0.61, "task": "author_would_endorse", "polarity": "affirmative", "contract": "affirmative"},
+   "question": {
+    "stem": "Based on the passage, the author would be most supportive of which one of the following?",
+    "correct": {"text": "Publishing crossing guidance built from observations taken on the bar.", "why_right": "The author's commitment is that the record that matters is the one taken where ships cross."},
+    "wrong": [
+     {"text": "Replacing the harbour gauge because its readings were inaccurate.", "mechanism": "half_truth", "why_wrong": "The survey found the gauge accurate for its own question; paragraph 4."},
+     {"text": "Trusting pilots' notes over instruments in every setting.", "mechanism": "scope_inflation", "why_wrong": "The author's claim is about the bar, not every setting."},
+     {"text": "Leaving the tables alone, since masters can always hire pilots.", "mechanism": "premature_closure", "why_wrong": "Treats the commissioners' workaround as the author's endorsement; paragraph 5 calls it an admission."}
+    ]
+   }
+  },
+  {
+   "name": "keyword_set keywords",
+   "slot": {"type": "keyword_set", "target": "global", "difficulty": 0.57, "task": "keyword_set", "polarity": "affirmative", "contract": "affirmative", "variant": "keywords"},
+   "question": {
+    "stem": "Which one of the following sets of keywords best captures the argument of the passage?",
+    "correct": {"text": "tide tables, pilots' notes, bar soundings, different question", "why_right": "Names the two records, the test between them and the survey's conclusion."},
+    "wrong": [
+     {"text": "tide tables, folklore, dredging, winter printing", "mechanism": "example_promotion", "why_wrong": "Promotes incidental details over the argument's terms."},
+     {"text": "pilots' notes, temperament, customs house, masters", "mechanism": "example_promotion", "why_wrong": "Temperament is the view the passage rejects; peripheral terms."},
+     {"text": "harbour gauge, arithmetic error, faulty tables, reform", "mechanism": "half_truth", "why_wrong": "The passage denies an arithmetic error and never proposes reform."}
+    ]
+   }
+  },
+  {
+   "name": "keyword_set sequence",
+   "slot": {"type": "keyword_set", "target": "global", "difficulty": 0.6, "task": "keyword_set", "polarity": "affirmative", "contract": "affirmative", "variant": "sequence"},
+   "question": {
+    "stem": "Which one of the following sequences of words and phrases best captures the flow of the passage?",
+    "correct": {"text": "official tables → pilots' notes → survey on the bar → a different question", "why_right": "Follows paragraphs 1-4 in order."},
+    "wrong": [
+     {"text": "survey on the bar → official tables → pilots' notes → a different question", "mechanism": "stage_misattribution", "why_wrong": "The survey comes after the two records are set up."},
+     {"text": "official tables → folklore → dredging costs → winter printing", "mechanism": "example_promotion", "why_wrong": "Peripheral details, and dredging costs are never discussed."},
+     {"text": "pilots' notes → official tables → a different question → survey on the bar", "mechanism": "stage_misattribution", "why_wrong": "Puts the conclusion before the evidence."}
+    ]
+   }
+  },
+  {
+   "name": "contextual_inference with an exact quote (affirmative)",
+   "slot": {"type": "contextual_inference", "target": "local", "difficulty": 0.64, "task": "support", "polarity": "affirmative", "contract": "affirmative"},
+   "question": {
+    "stem": "Which one of the following best captures the sense of 'the official record had never been the record that mattered at the bar'?",
+    "correct": {"text": "The tables were accurate but did not answer the crossing question.", "why_right": "Paragraph 4's different-question conclusion, restated in paragraph 5."},
+    "wrong": [
+     {"text": "The tables had always contained errors about the bar.", "mechanism": "causal_inversion", "why_wrong": "The survey did not conclude the tables were wrong."},
+     {"text": "The commissioners privately preferred the pilots' notes.", "mechanism": "prior_belief", "why_wrong": "Nothing reports the commissioners' private view."},
+     {"text": "Only pilots were ever allowed to cross the bar.", "mechanism": "scope_inflation", "why_wrong": "Masters were advised to consult a pilot, not required to."}
+    ]
+   }
+  }
+ ],
+ "semantic_counterexamples": [
+  {
+   "base": "support_negative on detail_check",
+   "defect": "not unique: two options fail the support relation",
+   "replace_wrong": 0,
+   "with": {"text": "They were kept by the commissioners' clerks.", "mechanism": "passage_supported", "why_wrong": "claimed as supported"},
+   "why_undetectable": "markers, polarity and failure mode are all well formed; only a reader can see the passage never attributes the notes to clerks, so two options fail"
+  },
+  {
+   "base": "support_negative on detail_check",
+   "defect": "key fails only by absence: 'not mentioned' dressed as a scope failure",
+   "replace_correct": {"text": "They were written in a particular kind of ink.", "why_right": "scope", "failure_mode": "scope"},
+   "why_undetectable": "the failure mode is a permitted label; whether the option fails for a nameable reason or is merely unaddressed is semantic"
+  },
+  {
+   "base": "application_negative",
+   "defect": "a non-key scenario is a paraphrase of the passage, not a new case",
+   "replace_wrong": 0,
+   "with": {"text": "A harbour gauge that is accurate but says little about crossing a bar.", "mechanism": "rule_satisfied", "why_wrong": "claimed as a new scenario"},
+   "why_undetectable": "novelty of a scenario relative to the passage is a judgement, not a string property"
+  }
+ ]
+}

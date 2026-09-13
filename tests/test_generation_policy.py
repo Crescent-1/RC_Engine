@@ -110,6 +110,28 @@ def test_elite_matches_pre_policy_golden_while_medium_hard_use_policy(tmp_path):
     assert any(s["question_slots"] == 8 for s in side), side
 
 
+def test_elite_matches_pre_policy_golden_while_cat_pyq_q1_runs(tmp_path):
+    """The same isolation check with the PRODUCTION question release: its
+    contract slots, stem pools, QA extensions and QT25/QT26 run in the same
+    process between elite attempts, and elite still equals the pre-policy
+    engine's output."""
+    report = tmp_path / "side.json"
+    result = run_in_subprocess(str(tmp_path / "scenario.json"), str(tmp_path), {
+        "sequence": SEQUENCE[:6] + ["elite"] * 4, "switch_at": 6, "resume_at": 6,
+        "probe_tiers": ["elite"],
+        "switch": "policy_fixtures:enable_cat_pyq_q1",
+        "between": "policy_fixtures:run_side_attempt",
+        "workdir": str(tmp_path), "side_report": str(report)})
+    diff = first_difference(_golden(ELITE_GOLDEN), result)
+    assert diff is None, f"elite behaviour changed at {diff}"
+    side = json.loads(report.read_text(encoding="utf-8"))
+    assert len(side) == 4
+    assert all(s["generation_policy"] == "cat-pyq-q1" for s in side if s["family"])
+    shipped = [s for s in side if s["question_slots"]]
+    assert shipped and all(s["question_slots"] == 8 and s["negatives"] == 2
+                           for s in shipped), side
+
+
 # ---- in-process fixtures -----------------------------------------------------
 
 def _text_llm():
@@ -390,7 +412,13 @@ def test_legacy_accessors_return_the_shared_objects_themselves():
     assert L.adjust_weights("family", ["F01", "F02"], w, reg) is w
     assert L.user_prompt("render", "x") == "x" and L.system_prompt("render", "y") == "y"
     for ctype in reg.libraries:
-        assert L.eligible_ids(reg, ctype) == reg.ids(ctype)
+        # 2026-09-13: production topologies now include QT25/QT26, tagged for
+        # cat-pyq-q1; legacy sees the untagged library in its original order.
+        untagged = [i for i in reg.ids(ctype) if not reg.get(ctype, i).get("policies")]
+        assert L.eligible_ids(reg, ctype) == untagged
+        assert L.eligible_ids(reg, ctype, "hard") == untagged
+        if not reg.has_policy_tags(ctype):
+            assert L.eligible_ids(reg, ctype) is not None and untagged == reg.ids(ctype)
 
 
 def test_validation_names_policy_misconfiguration(tmp_path, monkeypatch):

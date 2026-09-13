@@ -118,8 +118,9 @@ class BlueprintComposer:
         policy = policy or LEGACY_POLICY
         # The generation-policy boundary comes first (2026-09-13): no recency,
         # posture or tier fallback below may re-admit a component that belongs
-        # to another policy.
-        ids = policy.eligible_ids(self.registry, ctype)
+        # to another policy. The tier lets a contract policy drop topologies
+        # that cannot carry its negative-slot target (section 4).
+        ids = policy.eligible_ids(self.registry, ctype, tier)
         # Compatibility comes before recency: an exhausted recency window
         # may fall back, but must never fall back to an incompatible form.
         if allowed_ids is not None:

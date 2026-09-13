@@ -13,6 +13,12 @@ slot type recapture a position, drops a type out of circulation, reintroduces th
 assumption question, or narrows a tier's pool to the point where it starves.
 
 Run: python -m pytest tests/test_question_blueprint.py -q
+
+2026-09-13: the library now holds topologies tagged for the `cat-pyq-q1`
+generation policy (QT25, QT26), whose slot types only that policy defines. So
+the vocabulary and positional invariants are checked per VIEW — what legacy
+plans can draw, and what cat-pyq-q1 plans can draw — and the novelty-collision
+and scaling invariants over the whole library.
 """
 
 import collections
@@ -27,6 +33,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from rc_engine import config
 from rc_engine.composer import BlueprintComposer
 from rc_engine.fingerprints import topology_similarity
+from rc_engine.generation_policy import LEGACY_POLICY, get_policy
+from rc_engine.policy_catalog import CAT_PYQ_Q1
 from rc_engine.models import Blueprint
 from rc_engine.pipeline import RCPipeline
 from rc_engine.question_engine import QuestionEngine, QuestionEngineError
@@ -54,6 +62,10 @@ POSITION_CAP = 6          # of 24 topologies, per position (positions 2..8)
 ONE_PER_SET_TYPES = {"thesis", "detail_check"}
 TYPE_CAP = 16             # of 192 slots (was 12 of 144 — same 8.3% share)
 MIN_TOPOLOGIES_PER_TYPE = 3
+# A type only a policy defines lives in that policy's own topologies. Two is
+# the floor: with one, the type vanishes whenever that plan is in the exclusion
+# window.
+MIN_TOPOLOGIES_PER_POLICY_TYPE = 2
 # A tier whose pool approaches EXCLUSION_WINDOWS["topology"] can be emptied by
 # the window alone, which dead-ends sample_skeleton. Keep real headroom.
 POOL_HEADROOM = 6
@@ -64,9 +76,22 @@ def registry():
     return ComponentRegistry()
 
 
+def _view(registry, policy):
+    return [registry.get("topology", tid) for tid in policy.eligible_ids(registry, "topology")]
+
+
 @pytest.fixture(scope="module")
 def topologies(registry):
+    """What legacy plans (every elite plan) can draw."""
+    return _view(registry, LEGACY_POLICY)
+
+
+@pytest.fixture(scope="module")
+def all_topologies(registry):
     return [registry.get("topology", tid) for tid in registry.ids("topology")]
+
+
+VIEWS = {"legacy": LEGACY_POLICY, CAT_PYQ_Q1: get_policy(CAT_PYQ_Q1)}
 
 
 @pytest.fixture(scope="module")
@@ -100,18 +125,24 @@ def test_cat_types_are_defined_and_used(registry, topologies, stype):
     assert used >= MIN_TOPOLOGIES_PER_TYPE, f"{stype} used by only {used} topologies"
 
 
-def test_every_declared_type_is_actually_reachable(registry, topologies):
+@pytest.mark.parametrize("view", VIEWS)
+def test_every_declared_type_is_actually_reachable(registry, view):
     """A type defined but never planned is dead vocabulary — it can never appear
-    in a set, so it silently narrows the real repertoire."""
-    planned = {s["type"] for t in topologies for s in t["slots"]}
-    assert planned == set(registry.slot_type_definitions)
+    in a set, so it silently narrows the real repertoire. Checked for each
+    policy against the topologies and definitions that policy actually has."""
+    policy = VIEWS[view]
+    planned = {s["type"] for t in _view(registry, policy) for s in t["slots"]}
+    assert planned == set(policy.slot_type_definitions(registry))
 
 
-def test_every_type_has_several_stem_forms(registry):
+@pytest.mark.parametrize("view", VIEWS)
+def test_every_type_has_several_stem_forms(registry, view):
     """One stem form means every set drawing that type words it identically —
     the surface half of the sameness complaint."""
-    for stype in registry.slot_type_definitions:
-        forms = registry.stem_forms.get(stype, [])
+    policy = VIEWS[view]
+    forms_by_type = policy.stem_forms(registry)
+    for stype in policy.slot_type_definitions(registry):
+        forms = forms_by_type.get(stype, [])
         assert len(forms) >= MIN_STEM_FORMS, f"{stype}: {len(forms)} stem forms"
         assert len(set(forms)) == len(forms), f"{stype} has duplicate stem forms"
 
@@ -119,25 +150,27 @@ def test_every_type_has_several_stem_forms(registry):
 # --------------------------------------------------------- positional balance
 
 
-def test_q1_is_always_thesis(topologies):
+def test_q1_is_always_thesis(all_topologies):
     """Client requirement: every set opens on the main-idea question. This is the
     one position a type is SUPPOSED to own, which is why it is exempt from
     POSITION_CAP below rather than silently raising the cap for everyone."""
-    for t in topologies:
+    for t in all_topologies:
         assert t["slots"][0]["type"] == "thesis", f"{t['id']} Q1 is not thesis"
 
 
-def test_q1_thesis_does_not_open_at_peak_difficulty(topologies):
+def test_q1_thesis_does_not_open_at_peak_difficulty(all_topologies):
     """Pinning an integrative question first must not make every set open hard.
     The band matches where Q1 sat before the pin (mean 0.58, thesis 0.55-0.75)."""
-    for t in topologies:
+    for t in all_topologies:
         d = t["slots"][0]["difficulty"]
         assert 0.50 <= d <= 0.75, f"{t['id']} Q1 difficulty {d} outside 0.50-0.75"
 
 
-def test_no_type_owns_a_position(topologies):
+@pytest.mark.parametrize("view", VIEWS)
+def test_no_type_owns_a_position(registry, view):
     """The direct regression test for "all the RCs have the same questions".
     Q1 is excluded: it is pinned by design and covered by test_q1_is_always_thesis."""
+    topologies = _view(registry, VIEWS[view])
     for i in range(config.QUESTIONS_PER_SET):
         if i in PINNED_POSITIONS:
             continue
@@ -148,8 +181,11 @@ def test_no_type_owns_a_position(topologies):
             f"(cap {POSITION_CAP}) — {counts.most_common(3)}")
 
 
-def test_no_type_dominates_the_library(topologies):
+@pytest.mark.parametrize("view", VIEWS)
+def test_no_type_dominates_the_library(registry, view):
+    topologies = _view(registry, VIEWS[view])
     counts = collections.Counter(s["type"] for t in topologies for s in t["slots"])
+    legacy_types = set(registry.slot_type_definitions)
     for stype, n in counts.items():
         if stype in ONE_PER_SET_TYPES:
             assert n == len(topologies), (
@@ -159,21 +195,24 @@ def test_no_type_dominates_the_library(topologies):
         assert n <= TYPE_CAP, f"{stype} fills {n} slots (cap {TYPE_CAP})"
     for stype, n in counts.items():
         ntop = sum(1 for t in topologies if any(s["type"] == stype for s in t["slots"]))
-        assert ntop >= MIN_TOPOLOGIES_PER_TYPE, (
+        floor = (MIN_TOPOLOGIES_PER_TYPE if stype in legacy_types
+                 else MIN_TOPOLOGIES_PER_POLICY_TYPE)
+        assert ntop >= floor, (
             f"{stype} appears in only {ntop} topologies — effectively unreachable")
 
 
-def test_every_topology_asks_about_the_whole_passage(topologies):
-    for t in topologies:
+def test_every_topology_asks_about_the_whole_passage(all_topologies):
+    for t in all_topologies:
         assert WHOLE_PASSAGE & {s["type"] for s in t["slots"]}, (
             f"{t['id']} has no whole-passage question")
 
 
-def test_no_two_topologies_can_collide_at_the_novelty_gate(topologies):
+def test_no_two_topologies_can_collide_at_the_novelty_gate(all_topologies):
     """Gate C rejects a set whose topology signature is too close to a recent
     one. If two library entries exceed the cap against each other, that rejection
     fires on distinct plans and burns a paid render — which is exactly why the
     cap could not previously be tightened."""
+    topologies = all_topologies
     cap = config.NOVELTY_CAPS["topology_similarity"]
     worst, pair = 0.0, None
     for i, a in enumerate(topologies):
@@ -187,16 +226,33 @@ def test_no_two_topologies_can_collide_at_the_novelty_gate(topologies):
 # ------------------------------------------------------------- tier behaviour
 
 
+def _policy_pool(composer, policy, tier):
+    """The pool a tier draws under a policy: policy eligibility (including
+    cat-pyq-q1's negative-slot capacity) and then the structural tier bar,
+    the same order as composer._eligible."""
+    return [t for t in policy.eligible_ids(composer.registry, "topology", tier)
+            if composer._topology_allowed(t, tier)]
+
+
 @pytest.mark.parametrize("tier", TIERS)
 def test_tier_pool_cannot_starve(composer, tier):
     """The failure the old hand-picked medium whitelist was already widened once
     to escape: a pool near the exclusion window empties, _eligible returns [] and
     sample_skeleton dead-ends."""
-    pool = _eligible(composer, tier)
+    pool = _policy_pool(composer, LEGACY_POLICY, tier)
     floor = config.EXCLUSION_WINDOWS["topology"] + POOL_HEADROOM
     assert len(pool) >= floor, (
         f"{tier} may draw {len(pool)} topologies; needs >= {floor} "
         f"(exclusion window {config.EXCLUSION_WINDOWS['topology']})")
+
+
+@pytest.mark.parametrize("tier", ["medium", "hard"])
+def test_policy_tier_pool_cannot_starve(composer, tier):
+    """cat-pyq-q1 drops plans that cannot carry two released negatives (QT05 and
+    QT19 on 2026-09-13) and adds QT25/QT26. The pool must keep the same headroom."""
+    pool = _policy_pool(composer, get_policy(CAT_PYQ_Q1), tier)
+    floor = config.EXCLUSION_WINDOWS["topology"] + POOL_HEADROOM
+    assert len(pool) >= floor, f"{CAT_PYQ_Q1} {tier} may draw {len(pool)} topologies"
 
 
 def test_medium_pool_is_wider_than_the_whitelist_it_replaced(composer):
@@ -223,15 +279,19 @@ def test_pipeline_repick_respects_the_same_bar_as_the_composer(registry, compose
     pipeline = RCPipeline.__new__(RCPipeline)
     pipeline.registry = registry
     pipeline.composer = composer
-    expected = [t for t in registry.ids("topology")
-                if composer._topology_allowed(t, tier)]
-    assert pipeline._tier_topologies(tier) == expected
+    assert pipeline._tier_topologies(tier) == _policy_pool(composer, LEGACY_POLICY, tier)
+    if tier != "elite":
+        policy = get_policy(CAT_PYQ_Q1)
+        assert (pipeline._tier_topologies(tier, policy)
+                == _policy_pool(composer, policy, tier))
 
 
-def test_medium_pool_is_not_itself_locked(composer, registry):
+@pytest.mark.parametrize("view", VIEWS)
+def test_medium_pool_is_not_itself_locked(composer, registry, view):
     """Medium can satisfy the library-wide positional caps and still be locked,
     because it sees a subset. Check the caps inside the subset it actually draws."""
-    pool = [registry.get("topology", t) for t in _eligible(composer, "medium")]
+    pool = [registry.get("topology", t)
+            for t in _policy_pool(composer, VIEWS[view], "medium")]
     for i in range(config.QUESTIONS_PER_SET):
         if i in PINNED_POSITIONS:
             continue
@@ -249,8 +309,8 @@ def _scaled(topo, tier):
 
 
 @pytest.mark.parametrize("tier", TIERS)
-def test_scaling_preserves_the_plan(topologies, tier):
-    for topo in topologies:
+def test_scaling_preserves_the_plan(all_topologies, tier):
+    for topo in all_topologies:
         before = copy.deepcopy(topo["slots"])
         out = _scaled(topo, tier)
         assert [s["type"] for s in out] == [s["type"] for s in before]
@@ -260,19 +320,19 @@ def test_scaling_preserves_the_plan(topologies, tier):
         assert topo["slots"] == before, f"{topo['id']}: _scale_slots mutated the library"
 
 
-def test_medium_is_easier_than_elite_on_every_plan(topologies):
+def test_medium_is_easier_than_elite_on_every_plan(all_topologies):
     """The whole point of moving difficulty off the pool and onto the plan: the
     same topology must ask easier questions at medium than at elite."""
-    for topo in topologies:
+    for topo in all_topologies:
         means = {t: sum(s["difficulty"] for s in _scaled(topo, t))
                  / config.QUESTIONS_PER_SET for t in TIERS}
         assert means["medium"] < means["hard"] <= means["elite"], (
             f"{topo['id']}: {means}")
 
 
-def test_medium_caps_difficulty_and_cross_paragraph_load(topologies):
+def test_medium_caps_difficulty_and_cross_paragraph_load(all_topologies):
     cap = config.TIER_SLOT_SCALING["medium"]["cap"]
-    for topo in topologies:
+    for topo in all_topologies:
         out = _scaled(topo, "medium")
         assert max(s["difficulty"] for s in out) <= cap, topo["id"]
         spans = sum(1 for s in out if s["target"] == "span")

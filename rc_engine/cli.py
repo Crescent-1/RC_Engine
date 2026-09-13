@@ -432,6 +432,27 @@ def _txt_dirs(given: list[str] | None, client_id: str, founding_defaults: list[s
     return list(founding_defaults) if client_id == config.FOUNDING_CLIENT_ID else []
 
 
+def _apply_generation_policy(version: str) -> int:
+    """Opt this run's new medium/hard plans into a registered policy (or back
+    to legacy with ''). Sets the environment too, so spawned workers, which
+    re-import config, compose under the same policy. Returns 0 or an exit code."""
+    from .generation_policy import PolicyError, get_policy
+    version = (version or "").strip()
+    try:
+        policy = get_policy(version)
+    except PolicyError as e:
+        print(f"[policy] {e}")
+        return 2
+    for tier in ("medium", "hard"):
+        if tier not in policy.tiers:
+            print(f"[policy] {version!r} does not admit {tier}")
+            return 2
+    os.environ["RC_ENGINE_NEW_PLAN_POLICY"] = version
+    config.GENERATION_POLICY_FOR_NEW_PLANS = {"medium": version, "hard": version,
+                                              "elite": ""}
+    return 0
+
+
 def cmd_generate(args) -> int:
     tier_counts = {t: getattr(args, t) for t in ("medium", "hard", "elite")
                    if getattr(args, t) > 0}
@@ -446,6 +467,13 @@ def cmd_generate(args) -> int:
         if args.db == config.DB_PATH:
             args.db = "rc_engine_dryrun.db"   # never pollute the production DB with mock RCs
         print(f"[dry-run] Using MockLLMClient - $0, no API calls. DB: {args.db}")
+    if getattr(args, "generation_policy", None) is not None:
+        err = _apply_generation_policy(args.generation_policy)
+        if err:
+            return err
+    print("[policy] new plans: " + ", ".join(
+        f"{t}={config.GENERATION_POLICY_FOR_NEW_PLANS.get(t) or 'legacy'}"
+        for t in tier_counts))
 
     history = _open_store(args)
     if history is None:
@@ -1349,13 +1377,14 @@ def _parse_rc_txt(text: str) -> dict:
     keyblock = body[key_start:] if heads["key"] else ""
 
     from .fingerprints import parse_answer_letters
-    from .question_engine import EXCEPT_MECHANISM
+    from .question_contracts import CONTRACT_MARKERS
     mechanisms: dict[str, int] = {}
     for _letter, mech in _MECH_LINE.findall(keyblock):
         # passage_supported marks the true statements in an EXCEPT question, not
         # a distractor mechanism — counting it would make manual and engine sets
-        # produce incomparable trap histograms.
-        if mech == EXCEPT_MECHANISM:
+        # produce incomparable trap histograms. 2026-09-13: the same for every
+        # negative-contract marker (rule_satisfied, ...), which includes it.
+        if mech in CONTRACT_MARKERS:
             continue
         mechanisms[mech] = mechanisms.get(mech, 0) + 1
     pm = re.search(r"Posture:\s*([a-z_]+)", keyblock)
@@ -1630,6 +1659,10 @@ def main(argv=None) -> int:
     g.add_argument("--workers", type=int, default=config.BATCH_WORKERS_DEFAULT,
                    help=f"parallel worker processes, 1-{config.BATCH_WORKERS_MAX} "
                         f"(default {config.BATCH_WORKERS_DEFAULT}); see rc_engine/workers.py")
+    g.add_argument("--generation-policy", default=None, metavar="VERSION",
+                   help="compose NEW medium/hard plans under this generation policy "
+                        "(e.g. cat-pyq-q1); elite always stays legacy; '' forces legacy. "
+                        "Default: config.GENERATION_POLICY_FOR_NEW_PLANS")
     _client_opt(g)
 
     r = sub.add_parser("retry-questions",

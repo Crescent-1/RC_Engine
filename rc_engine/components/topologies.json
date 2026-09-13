@@ -1266,6 +1266,111 @@
     }
    ],
    "style_note": "eight questions of identical moderate difficulty — no rhythm cue about where the danger is"
+  },
+  {
+   "id": "QT25",
+   "name": "The Commitment Map",
+   "curve": "flat_mid",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.62
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.58,
+     "polarity": "negative"
+    },
+    {
+     "type": "evidence_function",
+     "target": "local",
+     "difficulty": 0.63
+    },
+    {
+     "type": "author_would_endorse",
+     "target": "global",
+     "difficulty": 0.61
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.64
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.63,
+     "polarity": "negative"
+    },
+    {
+     "type": "weaken",
+     "target": "span",
+     "difficulty": 0.6
+    },
+    {
+     "type": "keyword_set",
+     "target": "global",
+     "difficulty": 0.57
+    }
+   ],
+   "style_note": "maps what the author is committed to from several sides: two negated checks, one endorsement, and a closing keyword map of the whole argument",
+   "policies": [
+    "cat-pyq-q1"
+   ]
+  },
+  {
+   "id": "QT26",
+   "name": "The Reported Voices",
+   "curve": "rising",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.58
+    },
+    {
+     "type": "except_scan",
+     "target": "span",
+     "difficulty": 0.55
+    },
+    {
+     "type": "author_vs_reported",
+     "target": "span",
+     "difficulty": 0.6
+    },
+    {
+     "type": "keyword_set",
+     "target": "global",
+     "difficulty": 0.62
+    },
+    {
+     "type": "strengthen",
+     "target": "span",
+     "difficulty": 0.66
+    },
+    {
+     "type": "author_would_endorse",
+     "target": "global",
+     "difficulty": 0.72
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.78,
+     "polarity": "negative"
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.84
+    }
+   ],
+   "style_note": "separates the author's commitments from the voices reported around them, then maps the argument; one EXCEPT scan and one negated application, difficulty climbing to the close",
+   "policies": [
+    "cat-pyq-q1"
+   ]
   }
  ]
 }

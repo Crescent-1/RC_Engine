@@ -445,10 +445,11 @@ class RCPipeline:
         # questions call (2026-09-13), so retries and resumes ask the same
         # questions even if the libraries change in between. Legacy plans keep
         # resolving them from the library, as they always have.
-        if bp.generation_policy and not bp.question_slots:
-            bp.question_slots = self.qengine.effective_slots(bp)
-            self.history.update_blueprint_json(bp)
+        policy = policy_for_blueprint(bp)
         try:
+            if bp.generation_policy and not bp.question_slots:
+                bp.question_slots = self.qengine.effective_slots(bp)
+                self.history.update_blueprint_json(bp)
             qdata = self.qengine.build(bp, passage, ledger,
                                        extra_guidance=extra_guidance)
         except BudgetExceeded as e:
@@ -469,6 +470,9 @@ class RCPipeline:
             return RCResult(None, bp.blueprint_id, tier, "failed_questions",
                             cost_usd=_spent(), cost_lines=ledger.lines,
                             notes=notes + [str(e)])
+        # Contract plans only (the key is absent otherwise): reported, not gated.
+        for w in qdata.get("contract_warnings", []):
+            notes.append(f"question contract: {w}")
         # Free, strict length-bias audit (no paid rewrite). First-pass questions
         # must satisfy the rule in the question prompt; if they don't, the set
         # routes to needs_review below — never auto-approved, never a second
@@ -522,7 +526,7 @@ class RCPipeline:
         try:
             from .qa_checks import answerability_warnings, check_answerability
             rows = check_answerability(passage, qdata.get("questions", []),
-                                       self.llm, ledger, bp.tier)
+                                       self.llm, ledger, bp.tier, policy=policy)
             for w in answerability_warnings(rows):
                 notes.append(f"answerability: {w}")
                 print(f"  [answerability] {w}")
@@ -545,7 +549,7 @@ class RCPipeline:
                 from .qa_checks import tiebreak_disputes
                 for t in tiebreak_disputes(passage, qdata.get("questions", []),
                                            solver.get("disputes"), self.llm,
-                                           ledger, bp.tier):
+                                           ledger, bp.tier, policy=policy):
                     line = (f"Q{t['q']}: solver said {t['solver']}, key says "
                             f"{t['key']}, independent read supports "
                             f"{t['supported']} ({t['agrees_with']})")
@@ -707,6 +711,12 @@ class RCPipeline:
         # byte-identical to what they were before policies existed.
         if bp.generation_policy:
             f.stylometry["_generation_policy"] = bp.generation_policy
+        # Planned negation, for per-policy reporting (plan 7.5). Stored slots
+        # exist only on non-legacy plans, so legacy fingerprints are unchanged.
+        if bp.question_slots and all("polarity" in s for s in bp.question_slots):
+            neg = [s for s in bp.question_slots if s["polarity"] == "negative"]
+            f.stylometry["_negated_slots"] = len(neg)
+            f.stylometry["_negated_tasks"] = "|".join(sorted(s["task"] for s in neg))
 
     def _pool_is_single_kind(self, tier: str) -> bool:
         """Can this tier's seed pool offer any alternative content kind?
@@ -780,7 +790,7 @@ class RCPipeline:
 
         policy: the blueprint's generation policy (2026-09-13), applied first
         for the same reason; None = legacy."""
-        ids = (policy or LEGACY_POLICY).eligible_ids(self.registry, "topology")
+        ids = (policy or LEGACY_POLICY).eligible_ids(self.registry, "topology", tier)
         return [i for i in ids if self.composer._topology_allowed(i, tier)]
 
     def _pick_clear_topology(self, bp: Blueprint) -> str | None:

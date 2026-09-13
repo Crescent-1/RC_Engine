@@ -16,6 +16,12 @@ from . import config
 from .generation_policy import LEGACY_POLICY, policy_for_blueprint
 from .llm import CostLedger, extract_json
 from .models import Blueprint
+from .question_contracts import (CONTRACT_MARKERS, FAILURE_MODES, NEGATIVE,
+                                 NEGATIVE_CONTRACTS, ContractError,
+                                 bad_paragraph_refs, is_negative,
+                                 keyword_set_problems, missing_quotes,
+                                 negation_count, paragraph_count, resolve_slots,
+                                 stem_key)
 
 # The EXCEPT slot type. Its wrong options are statements the passage supports,
 # so it takes no planted trap and its options carry a marker rather than a
@@ -152,6 +158,35 @@ class QuestionEngineError(RuntimeError):
     pass
 
 
+def _has_contracts(slots: list[dict] | None) -> bool:
+    return bool(slots) and all("contract" in s for s in slots)
+
+
+def _contract_lines(slot: dict, tier: str) -> str:
+    """Per-slot contract lines for the question plan (contract policies only)."""
+    if slot["polarity"] == NEGATIVE:
+        spec = NEGATIVE_CONTRACTS[slot["task"]]
+        out = (f"\n      polarity: NEGATIVE ({slot['contract']}) — the stem carries one "
+               f"negation. KEY: {spec['key']}. OTHER THREE: {spec['others']}; give each "
+               f"mechanism \"{slot['marker']}\". Set correct.failure_mode.")
+    else:
+        out = ("\n      polarity: affirmative — no NOT, EXCEPT, 'least', 'if false' or "
+               "'none of' in the stem (a lowercase 'not' inside a claim is fine).")
+    if slot["type"] == "keyword_set":
+        variant = slot.get("variant", "keywords")
+        out += (f"\n      variant: {variant} — "
+                + ("4-5 short terms per option, separated by commas."
+                   if variant == "keywords" else
+                   "4-5 phrases per option, separated by ' → ', in the passage's order."))
+    if slot["type"] == "application":
+        out += ("\n      scenarios: four close alternatives that differ in one attribute; "
+                "the key may rest on one passage constraint."
+                if tier == "medium" else
+                "\n      scenarios: four close alternatives that differ in one or two "
+                "attributes; the key needs two passage constraints combined.")
+    return out
+
+
 class QuestionEngine:
     def __init__(self, registry, llm):
         self.registry = registry
@@ -185,8 +220,11 @@ class QuestionEngine:
                          "mechanisms": [profile["primary"], profile["secondary"]]})
             try:
                 data = extract_json(text)
-                questions = self._validate(data, truncated, slots)
-                return self._letter_assign(questions, bp)
+                questions = self._validate(data, truncated, slots, passage=passage)
+                qdata = self._letter_assign(questions, bp, slots)
+                if _has_contracts(slots):
+                    qdata["contract_warnings"] = self._contract_warnings(questions, slots, bp)
+                return qdata
             except (ValueError, QuestionEngineError) as e:
                 last_err = e
                 user += ("\n\nYOUR PREVIOUS RESPONSE WAS INVALID: "
@@ -206,6 +244,15 @@ class QuestionEngine:
             return [dict(s) for s in bp.question_slots]
         topo = self.registry.get("topology", bp.topology_id)
         slots = self._retarget_thesis(topo["slots"], bp)
+        # Section 4 (2026-09-13): a contract policy resolves task and polarity
+        # BEFORE traps are attached, because a negative slot's wrong options
+        # meet the relation and can carry no planted misreading.
+        policy = policy_for_blueprint(bp)
+        if policy.question_contracts:
+            try:
+                slots = resolve_slots(slots, policy, bp.tier, bp.blueprint_id)
+            except ContractError as e:
+                raise QuestionEngineError(f"question contract: {e}") from e
         return self._scale_slots(self._assign_traps(slots, bp), bp.tier)
 
     # ------------------------------------------------------------- internals
@@ -234,7 +281,9 @@ class QuestionEngine:
 
         except_scan slots are skipped: a trap is a planted misreading offered as
         a wrong option, and that slot's wrong options are statements the passage
-        actually supports.
+        actually supports. 2026-09-13: so is every negative contract slot, for
+        the same reason (question_contracts.is_negative; a legacy slot is
+        negative only as except_scan, so legacy assignment is unchanged).
         """
         slots = [dict(s) for s in slots]
         harvest_pref = {
@@ -243,7 +292,7 @@ class QuestionEngine:
             "stance_misread": ["stance", "author_vs_reported"],
             "level_confusion": ["author_vs_reported", "stance", "primary_purpose"],
         }
-        trappable = [s for s in slots if s["type"] != TRAPLESS_SLOT]
+        trappable = [s for s in slots if not is_negative(s)]
         unassigned = list(bp.trap_map)
         for trap in list(unassigned):
             prefs = harvest_pref.get(trap["mechanism"], [])
@@ -303,19 +352,23 @@ class QuestionEngine:
 
         policy: the plan's generation policy; its extra forms are dealt from a
         copy, never added to the shared pool legacy plans read.
+
+        Contract slots deal from a pool keyed by type AND polarity (and
+        variant), so a negative stem is never paired with an affirmative
+        contract or the reverse. A legacy slot keys by type alone.
         """
         rng = random.Random(f"{bp.blueprint_id}:stems")
-        stem_forms = (policy or LEGACY_POLICY).stem_forms(self.registry)
+        stem_forms = (policy or LEGACY_POLICY).stem_pool(self.registry)
         pools: dict[str, list[str]] = {}
         shapes = []
         for s in slots:
-            stype = s["type"]
-            if stype not in stem_forms:
+            key = stem_key(s)
+            if key not in stem_forms:
                 shapes.append("")
                 continue
-            if not pools.get(stype):
-                pools[stype] = rng.sample(stem_forms[stype], len(stem_forms[stype]))
-            shapes.append(pools[stype].pop())
+            if not pools.get(key):
+                pools[key] = rng.sample(stem_forms[key], len(stem_forms[key]))
+            shapes.append(pools[key].pop())
         return shapes
 
     def _prompt(self, bp: Blueprint, passage: str, slots: list[dict],
@@ -327,6 +380,8 @@ class QuestionEngine:
         for i, s in enumerate(slots, start=1):
             line = (f"  Q{i}: type={s['type']} — {type_defs[s['type']]} | "
                     f"target={s['target']} | difficulty={s['difficulty']}")
+            if "contract" in s:
+                line += _contract_lines(s, bp.tier)
             if shapes[i - 1]:
                 line += f"\n      stem shape (adapt to this passage): \"{shapes[i - 1]}\""
             if "trap_id" in s:
@@ -366,7 +421,8 @@ clipped fragments.
 Write the {_N_Q} questions now as JSON."""
 
     def _validate(self, data: dict, truncated: bool,
-                  slots: list[dict] | None = None) -> list[dict]:
+                  slots: list[dict] | None = None,
+                  passage: str | None = None) -> list[dict]:
         if truncated:
             raise QuestionEngineError("output truncated at max_tokens")
         qs = data.get("questions", [])
@@ -394,13 +450,98 @@ Write the {_N_Q} questions now as JSON."""
                     f"Q{i + 1} is an {TRAPLESS_SLOT} slot: all three wrong options "
                     f"must be passage-supported statements with mechanism "
                     f"'{EXCEPT_MECHANISM}', got {bad}")
+        if _has_contracts(slots):
+            self._validate_contracts(qs, slots, passage)
         return qs
 
-    def _letter_assign(self, questions: list[dict], bp: Blueprint) -> dict:
-        """Deterministic letter placement from the blueprint's letter plan."""
+    def _validate_contracts(self, qs: list[dict], slots: list[dict],
+                            passage: str | None) -> None:
+        """Structural checks for contract slots (2026-09-13, plan section 4).
+
+        Everything here is deterministic: marker accounting, stem polarity,
+        failure mode, keyword-set format, quoted spans and paragraph numbers.
+        It cannot tell whether a key is unique or right — that is semantic and
+        stays with answerability QA, the blind solver and human review."""
+        allowed = set(self.registry.mechanisms)
+        for i, slot in enumerate(slots):
+            q, n = qs[i], i + 1
+            stem = q["stem"]
+            negations = negation_count(stem)
+            mechs = [str(w["mechanism"]).strip() for w in q["wrong"]]
+            if slot["polarity"] == NEGATIVE:
+                if negations != 1:
+                    raise QuestionEngineError(
+                        f"Q{n} is a negative {slot['contract']} slot: its stem needs "
+                        f"exactly one negation (NOT, EXCEPT or least), found {negations}")
+                bad = [m for m in mechs if m != slot["marker"]]
+                if bad:
+                    raise QuestionEngineError(
+                        f"Q{n} is a negative {slot['contract']} slot: all three wrong "
+                        f"options must meet the relation and carry mechanism "
+                        f"'{slot['marker']}', got {bad}")
+                if any(not str(w.get("why_wrong") or "").strip() for w in q["wrong"]):
+                    raise QuestionEngineError(
+                        f"Q{n}: each option that meets the relation needs a why_wrong "
+                        f"citing where it is met")
+                mode = str(q["correct"].get("failure_mode") or "").strip().lower()
+                if mode not in FAILURE_MODES:
+                    raise QuestionEngineError(
+                        f"Q{n} is a negative slot: correct.failure_mode must be one of "
+                        f"{'|'.join(FAILURE_MODES)}, got {mode or 'nothing'!r}")
+                if not str(q["correct"].get("why_right") or "").strip():
+                    raise QuestionEngineError(f"Q{n}: the key's why_right must name its failure")
+            else:
+                if negations:
+                    raise QuestionEngineError(
+                        f"Q{n} is an affirmative slot: its stem must not be negated")
+                marked = [m for m in mechs if m in CONTRACT_MARKERS]
+                if marked:
+                    raise QuestionEngineError(
+                        f"Q{n} is an affirmative slot but marks wrong options {marked}")
+                unknown = [m for m in mechs if m not in allowed]
+                if unknown:
+                    raise QuestionEngineError(
+                        f"Q{n} uses mechanisms outside the allowed list: {unknown}")
+            if slot["type"] == "keyword_set":
+                texts = [q["correct"]["text"]] + [w["text"] for w in q["wrong"]]
+                problems = keyword_set_problems(texts, slot.get("variant", "keywords"))
+                if problems:
+                    raise QuestionEngineError(f"Q{n} keyword_set: {problems[0]}")
+            if passage is not None:
+                missing = missing_quotes(stem, passage)
+                if missing:
+                    raise QuestionEngineError(
+                        f"Q{n} quotes words that are not in the passage: {missing[0]!r}")
+                refs = bad_paragraph_refs(stem, passage)
+                if refs:
+                    raise QuestionEngineError(
+                        f"Q{n} refers to paragraph {refs[0]}, but the passage has "
+                        f"{paragraph_count(passage)}")
+
+    def _contract_warnings(self, qs: list[dict], slots: list[dict],
+                           bp: Blueprint) -> list[str]:
+        """Reported, not enforced: a planned trap no wrong option harvests is a
+        weaker question, not a broken one."""
+        traps = {t["trap_id"]: t for t in bp.trap_map}
+        warnings = []
+        for i, slot in enumerate(slots):
+            trap = traps.get(slot.get("trap_id"))
+            if trap and not any(w["mechanism"] == trap["mechanism"] for w in qs[i]["wrong"]):
+                warnings.append(f"Q{i + 1} did not harvest {trap['trap_id']} "
+                                f"({trap['mechanism']})")
+        return warnings
+
+    def _letter_assign(self, questions: list[dict], bp: Blueprint,
+                       slots: list[dict] | None = None) -> dict:
+        """Deterministic letter placement from the blueprint's letter plan.
+
+        slots: when they carry contracts (2026-09-13), every contract marker is
+        kept out of the trap histogram, and each question records the PLANNED
+        slot type and polarity rather than the model's self-report."""
         rng = random.Random(bp.blueprint_id)
         out_questions = []
         trap_usage: dict[str, int] = {}
+        contracts = _has_contracts(slots)
         for i, q in enumerate(questions):
             correct_letter = bp.letter_plan[i]
             letters = ["A", "B", "C", "D"]
@@ -416,9 +557,19 @@ Write the {_N_Q} questions now as JSON."""
                 # passage_supported is not a distractor mechanism — it marks the
                 # true statements in an EXCEPT question. Counting it would put 3
                 # phantom traps per except-bearing set into trap_histogram and
-                # skew the distractor_jsd novelty channel.
-                if w["mechanism"] != EXCEPT_MECHANISM:
+                # skew the distractor_jsd novelty channel. The same holds for
+                # every contract marker.
+                if contracts:
+                    if w["mechanism"] not in CONTRACT_MARKERS:
+                        trap_usage[w["mechanism"]] = trap_usage.get(w["mechanism"], 0) + 1
+                elif w["mechanism"] != EXCEPT_MECHANISM:
                     trap_usage[w["mechanism"]] = trap_usage.get(w["mechanism"], 0) + 1
+            if contracts:
+                out_questions.append({
+                    "q": i + 1, "slot_type": slots[i]["type"],
+                    "polarity": slots[i]["polarity"], "contract": slots[i]["contract"],
+                    "stem": q["stem"], "options": options, "correct": correct_letter})
+                continue
             out_questions.append({
                 "q": i + 1, "slot_type": q.get("slot_type", ""),
                 "stem": q["stem"], "options": options, "correct": correct_letter})
