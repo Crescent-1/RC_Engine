@@ -1,777 +1,145 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#faf7f1" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#15130f" media="(prefers-color-scheme: dark)">
-  <meta name="description" content="Passage Works writes CAT-level reading comprehension for institutes that run their own mock series. Every passage is built to a different argumentative shape and checked against everything shipped before it, so repeat-takers cannot pattern-match your mocks.">
-  <meta name="author" content="Passage Works">
-  <meta property="og:title" content="Passage Works — RC your repeat-takers cannot pattern-match">
-  <meta property="og:description" content="CAT-level reading comprehension for institutes running their own mocks. A different argumentative shape every time, audited against your full history.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f7f2">
+  <meta name="description" content="Original CAT-style reading comprehension for coaching institutes, mock test creators and learning platforms. Eight questions per passage, explained answers and a varied difficulty mix. Meet Passage Works.">
+  <meta property="og:title" content="Passage Works — Make every passage count.">
+  <meta property="og:description" content="Your next great mock starts here. Reading comprehension content built around your students, your standards and your schedule.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://passageworks.in/">
+  <meta property="og:site_name" content="Passage Works">
+  <meta property="og:locale" content="en_IN">
+  <meta property="og:image" content="https://passageworks.in/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Passage Works: Make every passage count. Original CAT-style reading comprehension with 8 MCQs per set.">
   <meta name="twitter:card" content="summary_large_image">
-  <title>Passage Works — RC your repeat-takers cannot pattern-match</title>
-  <link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns=%22http://www.w3.org/2000/svg%22%20viewBox=%220%200%2032%2032%22%3E%3Crect%20width=%2232%22%20height=%2232%22%20fill=%22%23faf7f1%22/%3E%3Ctext%20x=%2216%22%20y=%2223%22%20font-family=%22Georgia,serif%22%20font-size=%2220%22%20text-anchor=%22middle%22%20fill=%22%231a1814%22%3EP%3C/text%3E%3Crect%20x=%226%22%20y=%2225%22%20width=%2220%22%20height=%222%22%20fill=%22%239a2b25%22/%3E%3C/svg%3E">
+  <meta name="twitter:title" content="Passage Works — Make every passage count.">
+  <meta name="twitter:description" content="Original CAT-style reading comprehension for coaching institutes and mock test series. 8 explained MCQs per set.">
+  <meta name="twitter:image" content="https://passageworks.in/assets/og-image.png">
+  <link rel="canonical" href="https://passageworks.in/">
+  <title>Passage Works — Reading comprehension for better mocks</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;450;500;550;600;650;700&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/main.css">
-  <script>
-    document.documentElement.classList.add("js");
-    try {
-      var t = localStorage.getItem("pw-theme");
-      if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-      document.documentElement.setAttribute("data-theme", t);
-    } catch (e) { document.documentElement.setAttribute("data-theme", "light"); }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "Passage Works",
-    "description": "CAT-level reading comprehension for test-prep institutes running their own mock series. Structurally audited against your full history.",
-    "email": "ansh@passageworks.in",
-    "founder": { "@type": "Person", "name": "Ansh Upadhyay" }
-  }
-  </script>
+  <script>(function(){var t=null;try{t=localStorage.getItem('pw-theme')}catch(e){}if(t!=='dark'&&t!=='light'){t=window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'}document.documentElement.dataset.theme=t})()</script>
+  <script src="js/app.js" defer></script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Passage Works","description":"CAT-style reading comprehension content for test-prep businesses.","url":"https://passageworks.in/","logo":"https://passageworks.in/assets/apple-touch-icon.png","image":"https://passageworks.in/assets/og-image.png","email":"ansh@passageworks.in","telephone":"+91-8319230930","contactPoint":{"@type":"ContactPoint","contactType":"sales","telephone":"+91-8319230930","email":"ansh@passageworks.in","areaServed":"IN","availableLanguage":["en","hi"]},"founder":{"@type":"Person","name":"Ansh Upadhyay"}}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="topbar">
-    <div class="topbar__in">
-      <a class="logo" href="#top" aria-label="Passage Works home">
-        <span class="logo__mark">Passage <span>Works</span></span>
-      </a>
-      <nav class="nav" aria-label="Primary">
-        <a class="nav__set" href="#voice">Voice</a>
-        <a class="nav__set" href="#specimen">A set</a>
-        <a class="nav__set" href="#audit">What we check</a>
-        <a class="nav__set" href="#keys">Answer keys</a>
-        <a class="nav__set" href="#pricing">Engagements</a>
-        <button class="iconbtn" id="theme" type="button" aria-label="Switch colour scheme" title="Switch colour scheme">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2v2.5M12 19.5V22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M2 12h2.5M19.5 12H22M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8"/></svg>
-        </button>
-        <a class="btn" href="mailto:ansh@passageworks.in?subject=Structural%20audit%20request">Free audit</a>
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#top" aria-label="Passage Works home"><span class="brand-mark" aria-hidden="true">P<span>·</span></span><span>passage<span class="brand-light">works</span></span></a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="navigation">Menu <span aria-hidden="true">☰</span></button>
+      <nav id="navigation" aria-label="Main navigation">
+        <a href="#approach">Our approach</a><a href="#sample">Try a sample</a><a href="#pricing">Engagements</a>
+        <button class="theme-toggle" id="theme" type="button" aria-label="Switch to dark theme" title="Switch colour theme"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M20.9 13A9 9 0 0 1 11 3.1 9 9 0 1 0 20.9 13Z"/></svg></button>
+        <a class="button button-small" href="#contact">Let’s talk <span aria-hidden="true">↗</span></a>
       </nav>
     </div>
   </header>
-
   <main id="main">
     <section class="hero wrap" id="top">
-      <p class="hero__kicker">
-        <span class="label">Reading comprehension for CAT-level mocks</span>
-        <span class="label">Delivered weekly</span>
-      </p>
-      <h1 class="hero__title">Every mock series develops a tell. <em>This one can&rsquo;t.</em></h1>
-      <p class="hero__sub">
-        We write reading comprehension for institutes that run their own mock series. Every passage
-        is built to a different argumentative shape &mdash; not just a different topic &mdash; and every
-        set is measured against everything we have shipped before it reaches you. A student who has
-        sat all your mocks still has nothing to pattern-match on the next one.
-      </p>
-      <p class="hero__cta">
-        <a class="btn btn--lg" href="mailto:ansh@passageworks.in?subject=Structural%20audit%20request">Audit my current mocks &mdash; free</a>
-        <a class="btn btn--ghost btn--lg" href="#specimen">See a set first</a>
-      </p>
-      <p class="hero__notes">
-        <span class="label">Every answer key blind-solved before delivery</span>
-        <span class="label">72-hour dispute turnaround</span>
-        <span class="label">One institute per category per city</span>
-      </p>
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="small-rule"></span> FOR THE PEOPLE BEHIND THE MOCKS</p>
+        <h1>Make every<br>passage <em>count.</em></h1>
+        <p class="hero-description">Original reading comprehension for ambitious test-prep brands. Thoughtful passages. Defensible questions. Content that keeps your students thinking.</p>
+        <div class="actions"><a class="button" href="#sample">Explore a sample <span aria-hidden="true">↗</span></a><a class="text-link" href="#contact">Build your next series <span aria-hidden="true">→</span></a></div>
+        <div class="hero-facts"><span>CAT-style RC</span><span>8 MCQs per set</span><span>Your faculty picks the best 4–5</span><span>Explained answer keys</span></div>
+      </div>
+      <div class="hero-visual" aria-label="Preview of a Passage Works reading comprehension set">
+        <div class="visual-top"><span>THE ANATOMY OF A GOOD RC</span><span>PW / 01</span></div>
+        <article class="specimen-paper">
+          <div class="paper-meta"><span>SOCIETY &amp; IDEAS</span><span>READING COMPREHENSION</span></div>
+          <h2>A city is more<br>than its map.</h2>
+          <p>A map of a city appears to offer a view from nowhere. Streets become lines, parks become green patches, and neighbourhoods acquire clean edges.</p>
+          <p>Yet every map begins with a decision about what deserves to be visible. <mark>The map is accurate within the terms it has chosen.</mark></p>
+          <div class="paper-rule"></div>
+          <div class="paper-question"><span>01</span><p>What does the author’s argument ask us to reconsider?</p></div>
+          <div class="paper-bottom"><span>ONE PASSAGE. EIGHT WAYS TO THINK.</span><span aria-hidden="true">↗</span></div>
+        </article>
+        <div class="visual-note"><span class="note-icon" aria-hidden="true">↳</span><span>Good questions begin<br>with a better passage.</span></div>
+      </div>
     </section>
+    <section class="audience" aria-label="Who we work with"><div class="wrap audience-inner"><span class="eyebrow">YOUR CONTENT PARTNER FOR</span><span>Coaching institutes</span><span>Mock test series</span><span>Learning platforms</span><span>Independent educators</span></div></section>
 
-    <section class="section" id="voice">
-      <div class="wrap spread">
-        <p class="spread__margin label" data-reveal>01 &mdash; Voice</p>
-        <div class="spread__body" data-reveal>
-          <h2 class="sec-title">How a passage gets its voice</h2>
-          <div class="sec-intro prose">
-            <p class="lead">
-              Every passage is written in a named authorial persona: a particular way of hedging, of
-              conceding ground, and of deciding how late to commit to a claim. The persona is fixed
-              before the writing starts, and it brings its own vocabulary of qualification with it.
-            </p>
-            <p>
-              Voice is the part students learn fastest, because it is the part that feels like a
-              person &mdash; the hedge that always lands in the same place, the concession that always
-              arrives one paragraph before the turn. So it is the part we vary hardest, and vary
-              consistently. Being different is not left to chance: each voice carries its own hedging
-              inventory and its own commitment curve, and no set ships until it has been measured for
-              authorial distance from the ones already delivered.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="wrap spread sec-body">
-        <p class="spread__margin label" data-reveal>When difference is not measured</p>
-        <div class="spread__wide" data-reveal>
-          <div class="fig">
-            <div class="fig__head">
-              <span class="label">Same series &middot; three different mocks</span>
-              <span class="label">what the student actually learns</span>
-            </div>
-            <div class="fig__body skel">
-              <div class="skel__col">
-                <span class="label">Mock 4 &middot; RC 2</span>
-                <h4>Coral reef restoration</h4>
-                <ul class="skel__moves">
-                  <li>framing</li><li>concession</li><li>rival view</li><li>the turn</li><li>reopened ending</li>
-                </ul>
-              </div>
-              <div class="skel__col">
-                <span class="label">Mock 6 &middot; RC 1</span>
-                <h4>Copyright and folk music</h4>
-                <ul class="skel__moves">
-                  <li>framing</li><li>concession</li><li>rival view</li><li>the turn</li><li>reopened ending</li>
-                </ul>
-              </div>
-              <div class="skel__col">
-                <span class="label">Mock 9 &middot; RC 3</span>
-                <h4>Medieval guild economics</h4>
-                <ul class="skel__moves">
-                  <li>framing</li><li>concession</li><li>rival view</li><li>the turn</li><li>reopened ending</li>
-                </ul>
-              </div>
-            </div>
-            <p class="fig__note">
-              Three unrelated topics. One skeleton. A similarity checker sees three total strangers,
-              because it compares meaning &mdash; and meaning is not what your repeat-takers are learning.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="wrap spread sec-body">
-        <p class="spread__margin label" data-reveal>Why it keeps happening</p>
-        <div class="spread__body" data-reveal>
-          <ul class="ruled">
-            <li>
-              <h3>A human writer</h3>
-              <p>Even excellent writers have one voice and one instinct for where an argument should
-                 turn. Fifteen passages in, the fingerprints are everywhere &mdash; and no writer can
-                 prove passage fifteen is structurally unlike passage one.</p>
-              <span class="label">Leak: house style</span>
-            </li>
-            <li>
-              <h3>A single AI prompt</h3>
-              <p>One prompt encodes one frozen essay shape: the same destabilised opening, the same
-                 corrective middle, the same artfully reopened ending. Every output is the same essay
-                 wearing a different topic.</p>
-              <span class="label">Leak: one skeleton, reprinted</span>
-            </li>
-            <li>
-              <h3>A similarity checker</h3>
-              <p>Embedding checks compare meaning. Two passages on unrelated topics can share an
-                 identical argumentative skeleton and still score as complete strangers. Students
-                 notice structural repetition long before any topic overlap exists.</p>
-              <span class="label">Leak: structure is invisible to it</span>
-            </li>
-          </ul>
-          <p class="pull">Nobody audits mock content for structural repetition. So we built the
-             instrument first, and the engine around it.</p>
-        </div>
+    <section class="section wrap" id="approach">
+      <div class="section-heading"><p class="eyebrow">01 / THE PASSAGE WORKS APPROACH</p><div class="heading-row"><h2>New topics are easy.<br><em>Fresh thinking takes work.</em></h2><p>Students should have to read the next passage carefully. We design for variety in the argument, the voice and the questions—not just the subject.</p></div></div>
+      <div class="benefit-grid">
+        <article class="benefit"><span class="benefit-number">01</span><h3>A different way<br>into every idea.</h3><p>Argument structure, paragraph rhythm and authorial stance are planned before writing. Your series gets a deliberate mix of reading experiences.</p><span class="benefit-label">VARIETY BY DESIGN</span></article>
+        <article class="benefit"><span class="benefit-number">02</span><h3>Eight questions.<br>Your faculty’s pick.</h3><p>Every passage comes with eight MCQs, so your faculty can keep the best four or five for their mock. Each carries the reasoning behind the key and the misreading behind every distractor.</p><span class="benefit-label">CHOICE, NOT JUST A KEY</span></article>
+        <article class="benefit"><span class="benefit-number">03</span><h3>Your series has<br>a memory.</h3><p>New content is checked against your delivery history for repetition in structure, language and question patterns.</p><span class="benefit-label">CHECKED IN CONTEXT</span></article>
       </div>
     </section>
 
-    <section class="section section--tint" id="specimen">
-      <div class="wrap spread">
-        <p class="spread__margin label" data-reveal>02 &mdash; A set, in the open</p>
-        <div class="spread__body" data-reveal>
-          <h2 class="sec-title">A set, with the working shown</h2>
-          <div class="sec-intro prose">
-            <p class="lead">
-              Before any claim about method, here is what your faculty would actually be marking.
-              This is one question from one set, alongside the design note that produced it.
-            </p>
-            <p>
-              The wrong options are not filler. Each one implements a named misreading, chosen
-              before the passage was written, and the answer key explains which. Select an option
-              to see the mechanism behind it.
-            </p>
+    <section class="sample-section" id="sample">
+      <div class="wrap">
+        <div class="section-heading"><p class="eyebrow">02 / TAKE A CLOSER READ</p><div class="heading-row"><h2>The proof is<br><em>in the passage.</em></h2><p>Read, choose an answer and explore the reasoning. This original website demonstration shows the format your faculty can evaluate.</p></div></div>
+        <div class="sample-workspace">
+          <article class="reading-panel" aria-labelledby="passage-title">
+            <div class="sample-toolbar"><span class="tag">SOCIETY &amp; IDEAS</span><span>DEMONSTRATION SET</span></div>
+            <h3 id="passage-title">What a map leaves out</h3>
+            <div class="passage-text">
+              <p>A map of a city appears to offer a view from nowhere. Streets become lines, parks become green patches, and neighbourhoods acquire clean edges. This abstraction is useful: a visitor can find a station without knowing the arguments that preceded its construction. Yet every map begins with a decision about what deserves to be visible. A transport map records routes and connections; it rarely records the cost of a fare or the unease a passenger might feel at an empty stop. The map is accurate within the terms it has chosen.</p>
+              <p>It is tempting, then, to demand a more complete map. Add rents, walking times, public toilets and the places where people gather, and the city seems to return to the page. But completeness is not simply a matter of accumulating detail. A place that offers welcome to one resident may suggest exclusion to another. Their accounts need not cancel each other out, yet they cannot always be reduced to a single symbol. Some differences are differences of experience, rather than gaps in a survey.</p>
+              <p>Community mapping projects respond by inviting residents to record what official maps omit. Their value is not that they finally produce a map without a point of view. The participants must still choose categories, resolve disagreements and decide which contributions to display. A meeting held on a weekday afternoon may exclude precisely the workers whose routes are least understood. Participation changes who can influence the map; it does not remove the need to ask who remains unheard.</p>
+              <p>A useful map, therefore, need not pretend to be the last word on a place. It can make its purpose visible, explain its limits and remain open to revision. This is more demanding than declaring all maps equally partial and therefore equally untrustworthy. A map that helps a wheelchair user identify an accessible route can be judged by whether that route is usable. Its incompleteness does not excuse a broken promise. The question is not whether a map leaves something out, but whether its omissions conceal a limitation that matters to the person relying on it.</p>
+            </div>
+            <div class="passage-foot"><span>Created for this website</span><span>Not taken from a client’s series</span></div>
+          </article>
+          <div class="question-panel">
+            <div class="question-top"><span class="eyebrow" id="question-type">MAIN IDEA</span><span id="question-count">01 / 08</span></div>
+            <div class="question-dots" id="question-dots" role="group" aria-label="Jump to a question"></div>
+            <div id="quiz"><fieldset><legend id="question-title">What is the central argument of the passage?</legend><div class="options" id="options"></div></fieldset></div>
+            <button class="button check-answer" id="check-answer" type="button" disabled>Check answer <span aria-hidden="true">↗</span></button>
+            <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+            <div class="question-navigation"><button id="previous-question" class="text-link" type="button" disabled>← Previous</button><span id="quiz-score">0 of 8 checked</span><button id="next-question" class="text-link" type="button">Next →</button></div>
+            <button id="reset-quiz" class="reset-link" type="button">Start again</button>
+            <noscript><p>This interactive sample needs JavaScript. The answer to the main-idea question is: maps should be judged by their stated purpose and by the practical consequences of their omissions.</p></noscript>
           </div>
         </div>
-      </div>
-
-      <div class="wrap spread sec-body">
-        <p class="spread__margin label" data-reveal>Design note &middot; written first</p>
-        <div class="spread__wide" data-reveal>
-          <div class="fig">
-            <div class="fig__head">
-              <span class="label">From the blueprint &middot; trap map</span>
-              <span class="label mono">TR2 &middot; anchored in &para;3</span>
-            </div>
-            <div class="fig__body">
-              <p class="prose">
-                &para;3 steelmans the psychometric case for &ldquo;attention&rdquo; as a stable, measurable
-                kind &mdash; so generously that a fast reader hears the author endorsing it.
-              </p>
-              <p class="prose faint" style="margin-top:.6rem">
-                <span class="mono">invited misreading &rarr; level confusion &middot; harvested by Q2</span>
-              </p>
-            </div>
-          </div>
-
-          <div class="fig" style="margin-top:1.5rem">
-            <div class="fig__head">
-              <span class="label">From the set &middot; Q2</span>
-              <span class="label">select an option</span>
-            </div>
-            <div class="fig__body qn">
-              <p class="qn__stem">The primary function of the third paragraph is to:</p>
-              <div class="qn__opts" id="opts">
-                <button class="opt" type="button" data-ltr="A" data-mech="Level confusion"
-                        data-why="This is the misreading the paragraph was built to invite. &para;3 states the psychometric case at full strength, but stating a position well is not endorsing it. A fast reader hears advocacy; a careful one hears setup.">
-                  <span class="opt__ltr">A</span>
-                  <span>endorse the psychometric case for attention as a stable psychological kind</span>
-                </button>
-                <button class="opt" type="button" data-ltr="B" data-mech="Correct"
-                        data-why="&para;3 presents the strongest available version of a position precisely so that the passage can undermine it later without appearing to attack a weak target.">
-                  <span class="opt__ltr">B</span>
-                  <span>present the strongest available version of a position the passage will go on to undermine</span>
-                </button>
-                <button class="opt" type="button" data-ltr="C" data-mech="Premature closure"
-                        data-why="Closes a question the passage deliberately keeps open. Attractive to students trained to look for the sceptical answer, which is why it is here rather than an obviously wrong option.">
-                  <span class="opt__ltr">C</span>
-                  <span>concede that the passage&rsquo;s central question cannot be settled empirically</span>
-                </button>
-                <button class="opt" type="button" data-ltr="D" data-mech="Stage misattribution"
-                        data-why="Describes real work the passage does &mdash; but in a later paragraph, not this one. It punishes remembering the passage as a whole instead of reading the paragraph asked about.">
-                  <span class="opt__ltr">D</span>
-                  <span>introduce a methodological distinction that the rest of the passage quietly abandons</span>
-                </button>
-              </div>
-              <div class="qn__verdict" id="verdict" hidden>
-                <span class="qn__mech" id="vmech"></span>
-                <span id="vwhy"></span>
-              </div>
-            </div>
-            <p class="fig__note">
-              Every wrong option implements one of twenty named mechanisms, and every key ships with
-              this explanation attached. Your faculty receive debrief material, not a column of letters.
-            </p>
-          </div>
-        </div>
+        <div class="sample-caption"><span>In every full set: passage + 8 questions + answer rationales. Your faculty keeps the best 4–5.</span><a href="#contact" class="text-link" data-interest="Sample pack">Request a sample pack <span aria-hidden="true">↗</span></a></div>
       </div>
     </section>
 
-    <section class="section" id="engine">
-      <div class="wrap spread">
-        <p class="spread__margin label" data-reveal>03 &mdash; Method</p>
-        <div class="spread__body" data-reveal>
-          <h2 class="sec-title">How a passage gets its shape</h2>
-          <div class="sec-intro prose">
-            <p class="lead">
-              The shape of the argument is decided before a word is written, and it is decided by
-              a sampler, not by a writer with habits.
-            </p>
-            <p>
-              Seven choices are fixed in advance: how the argument moves, whose voice tells it, how
-              the paragraphs are paced, when the thesis becomes visible, which misreadings the passage
-              will invite, and how the six questions will interrogate it. Only after that is the prose
-              written to fit. The writing step never gets to choose the shape &mdash; which is exactly
-              the choice that leaks.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="wrap spread sec-body">
-        <p class="spread__margin label" data-reveal>One set&rsquo;s seven choices</p>
-        <div class="spread__wide" data-reveal>
-          <div class="fig">
-            <div class="fig__head">
-              <span class="label">Blueprint &middot; fixed before writing</span>
-              <span class="label mono">never reused</span>
-            </div>
-            <div class="fig__body">
-              <table class="spec">
-                <tbody>
-                  <tr><th scope="row">Argument family</th><td>The Vanishing Object <i>&mdash; the inquiry dissolves its own object</i></td></tr>
-                  <tr><th scope="row">Authorial voice</th><td>The Epistemic Auditor</td></tr>
-                  <tr><th scope="row">Ending</th><td>The Instrument Doubt</td></tr>
-                  <tr><th scope="row">Paragraph rhythm</th><td>Trapdoor</td></tr>
-                  <tr><th scope="row">Thesis reveal</th><td>Retrospective</td></tr>
-                  <tr><th scope="row">Distractor profile</th><td>The Time Traveler</td></tr>
-                  <tr><th scope="row">Question topology</th><td>The Ambush</td></tr>
-                </tbody>
-              </table>
-            </div>
-            <p class="fig__note">
-              A family just used is locked for the next 25 sets, a question topology for 12, a voice
-              for 10. The combination is then checked for distance from the last fifty sets before
-              anything is written.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="wrap spread sec-body">
-        <p class="spread__margin label" data-reveal>What happens to one set</p>
-        <div class="spread__body" data-reveal>
-          <ol class="steps">
-            <li>
-              <h3>The shape is drawn and checked</h3>
-              <p>Seven components sampled under exclusion windows, filtered by compatibility rules,
-                 then distance-checked against the last fifty blueprints. Near-clones are rejected
-                 here, before anything is written.</p>
-            </li>
-            <li>
-              <h3>The passage is written to that shape</h3>
-              <p>Paragraph function, word range, cadence, when the thesis surfaces, how it ends,
-                 and a list of phrases it may not use. The writing step invents every sentence and
-                 chooses no structure.</p>
-            </li>
-            <li>
-              <h3>The structure is re-derived blind</h3>
-              <p>A separate pass reads the finished passage without the plan and works out its
-                 structure from scratch. If the turn landed in &para;3 instead of &para;4, the passage
-                 is rewritten with that specific correction &mdash; not discarded.</p>
-            </li>
-            <li>
-              <h3>Novelty is checked before questions exist</h3>
-              <p>Movement, pacing, conviction, voice and meaning are compared against your corpus.
-                 A passage that resembles its history dies here, cheaply, and a new shape is drawn.</p>
-            </li>
-            <li>
-              <h3>Six questions are built from the plan</h3>
-              <p>Generated from the blueprint&rsquo;s question topology rather than reverse-engineered
-                 from the finished prose. Wrong options quote the exact misreadings the passage was
-                 built to invite.</p>
-            </li>
-            <li>
-              <h3>It is solved blind and judged</h3>
-              <p>An independent solver answers all six without seeing the key. A rubric scores the
-                 set against its own intent. Any disagreement goes to a person rather than to an
-                 automatic rewrite.</p>
-            </li>
-          </ol>
-        </div>
+    <section class="section wrap method-section" id="quality">
+      <div class="method-visual"><img src="assets/editorial.png" width="1536" height="1024" alt="An open journal and a blue pencil on a cobalt desk" loading="lazy"><p>Built for close reading.<br><em>Checked for a reason.</em></p></div>
+      <div class="method-copy"><p class="eyebrow">03 / BEHIND EVERY SET</p><h2>Creative in the writing.<br><em>Rigorous in the checks.</em></h2><p class="section-description">An AI-assisted production process with explicit checks at each stage. Your faculty can judge the work on the page.</p>
+        <ol class="method-steps"><li><span>01</span><div><h3>Plan the reading challenge</h3><p>Set the difficulty, argument, voice and question mix before the passage is written.</p></div></li><li><span>02</span><div><h3>Check more than the topic</h3><p>Compare structure and language with prior sets, then check question mix and answer-option patterns.</p></div></li><li><span>03</span><div><h3>Solve without seeing the key</h3><p>An independent solver attempts the questions. Disagreements and quality flags are recorded for review.</p></div></li><li><span>04</span><div><h3>Fit your faculty’s brief</h3><p>Agree the difficulty mix, review expectations and delivery schedule around your mock calendar.</p></div></li></ol>
       </div>
     </section>
 
-    <section class="section section--tint" id="audit">
-      <div class="wrap spread">
-        <p class="spread__margin label" data-reveal>04 &mdash; The audit</p>
-        <div class="spread__body" data-reveal>
-          <h2 class="sec-title">Nine things we check before a set ships</h2>
-          <div class="sec-intro prose">
-            <p class="lead">
-              Each channel below is a sentence we do not want your students to be able to say. They
-              are listed in the students&rsquo; own words, because that is the form the problem takes
-              in a classroom.
-            </p>
-            <p>
-              Every finished set is scored against the trailing hundred on all nine. Meaning is one
-              of the nine. The other eight are what a similarity checker cannot see, and any single
-              breach stops the set.
-            </p>
-          </div>
-        </div>
+    <section class="pricing-section" id="pricing"><div class="wrap">
+      <div class="section-heading"><p class="eyebrow">04 / ROOM TO GROW</p><div class="heading-row"><h2>Your ambition.<br><em>Your engagement.</em></h2><p>Start with a sample, align on the standard, then build a content partnership around your calendar.</p></div></div>
+      <div class="pricing-grid">
+        <article class="price-card"><span class="eyebrow">FOR EDUCATORS &amp; SMALL TEAMS</span><h3>Practice Bench</h3><p class="plan-description">A dependable reading practice pipeline.</p><p class="price">₹15,000<span> / month, from</span></p><ul><li>21 RC sets per month</li><li>A graded difficulty mix</li><li>Weekly delivery batches</li><li>Explained answer keys</li><li>Monthly novelty summary</li></ul><a class="button button-outline" href="#contact" data-interest="Practice Bench">Discuss Practice Bench <span aria-hidden="true">↗</span></a></article>
+        <article class="price-card featured"><div class="plan-flag">BUILT FOR YOUR MOCK SERIES</div><span class="eyebrow">FOR COACHING INSTITUTES</span><h3>Mock Vault</h3><p class="plan-description">RC content that follows your mock calendar.</p><p class="price">₹30,000<span> / month, from</span></p><ul><li>40 RC sets per month</li><li>Difficulty planned across mocks</li><li>Client-specific delivery history</li><li>Detailed answer rationales</li><li>Faculty feedback and correction support</li></ul><a class="button button-lime" href="#contact" data-interest="Mock Vault">Discuss Mock Vault <span aria-hidden="true">↗</span></a></article>
+        <article class="price-card"><span class="eyebrow">FOR LEARNING PLATFORMS</span><h3>Platform Feed</h3><p class="plan-description">A larger content bank, built to your brief.</p><p class="price">₹75,000<span> / month, from</span></p><ul><li>100+ RC sets per month</li><li>Difficulty metadata</li><li>CSV or JSON delivery by agreement</li><li>A planned subject and question mix</li><li>Volume and schedule tailored to you</li></ul><a class="button button-outline" href="#contact" data-interest="Platform Feed">Discuss Platform Feed <span aria-hidden="true">↗</span></a></article>
       </div>
+      <p class="pricing-note">Every set includes a passage and eight explained MCQs on all plans. Indicative starting prices. Final scope, taxes, delivery formats, usage rights and commercial terms are agreed in your proposal. These plans cover reading comprehension content.</p>
+    </div></section>
 
-      <div class="wrap spread sec-body">
-        <p class="spread__margin label" data-reveal>Said by a student</p>
-        <div class="spread__body" data-reveal>
-          <ul class="ruled">
-            <li class="hang"><span class="label mono">01</span><div>
-              <h3>&ldquo;These passages always argue the same way.&rdquo;</h3>
-              <p><strong>Argument skeleton.</strong> How much of the underlying shape this set shares
-                 with recent ones, weighted by what students notice first.</p></div></li>
-            <li class="hang"><span class="label mono">02</span><div>
-              <h3>&ldquo;&para;2 raises the objection, &para;4 resolves it.&rdquo;</h3>
-              <p><strong>Paragraph choreography.</strong> The order of argumentative moves, tracked
-                 like a chess line. Repeated orders and repeated transitions are both caught.</p></div></li>
-            <li class="hang"><span class="label mono">03</span><div>
-              <h3>&ldquo;The author always commits late, so answers live at the end.&rdquo;</h3>
-              <p><strong>Conviction arc.</strong> How committed the author sounds, paragraph by
-                 paragraph. The most learnable signature a writer has, and the one we force to vary.</p></div></li>
-            <li class="hang"><span class="label mono">04</span><div>
-              <h3>&ldquo;The short paragraph is always the pivot.&rdquo;</h3>
-              <p><strong>Pacing.</strong> Paragraph lengths, sentence cadence, where the pivot sits &mdash;
-                 the music of the prose, blocked from repeating.</p></div></li>
-            <li class="hang"><span class="label mono">05</span><div>
-              <h3>&ldquo;Q1 is main-idea. The last one is tone.&rdquo;</h3>
-              <p><strong>Question mix.</strong> Type, order and difficulty curve across the six. There
-                 is no fixed question formula to learn because there is no fixed question formula.</p></div></li>
-            <li class="hang"><span class="label mono">06</span><div>
-              <h3>&ldquo;Cut the extreme option and the broad one. Done.&rdquo;</h3>
-              <p><strong>Wrong-answer logic.</strong> The mechanisms of wrongness are tracked as a
-                 distribution, so elimination habits that work on one set fail on the next.</p></div></li>
-            <li class="hang"><span class="label mono">07</span><div>
-              <h3>&ldquo;These all read like one writer.&rdquo;</h3>
-              <p><strong>Voice separation.</strong> Function-word forensics &mdash; the method used to
-                 attribute anonymous authorship &mdash; confirms different voices really are different
-                 writers.</p></div></li>
-            <li class="hang"><span class="label mono">08</span><div>
-              <h3>&ldquo;When unsure: longest option, most hedged, or C.&rdquo;</h3>
-              <p><strong>Answer-key behaviour.</strong> Letters, option lengths and hedging tested for
-                 exploitable trends across your whole series, not just inside one set.</p></div></li>
-            <li class="hang"><span class="label mono">09</span><div>
-              <h3>&ldquo;We have basically read this passage before.&rdquo;</h3>
-              <p><strong>Topic distance.</strong> The oldest check in the industry. Still enforced,
-                 now one voice among nine rather than the only one.</p></div></li>
-          </ul>
-        </div>
-      </div>
+    <section class="section wrap faq-section" id="faq"><div><p class="eyebrow">05 / GOOD QUESTIONS</p><h2>Before we<br><em>get to work.</em></h2><div class="faq-links"><a class="text-link" href="mailto:ansh@passageworks.in">Ask us something else <span aria-hidden="true">↗</span></a><a class="text-link" href="https://wa.me/918319230930?text=Hi%20Passage%20Works%2C%20I%E2%80%99d%20like%20to%20discuss%20RC%20content%20for%20our%20students." target="_blank" rel="noopener">Or message us on WhatsApp <span aria-hidden="true">↗</span></a></div></div><div class="faq-list">
+      <details><summary>Who is Passage Works for?<span aria-hidden="true">+</span></summary><p>Coaching institutes, independent VARC educators, mock test providers and learning platforms that need CAT-style reading comprehension content for their own students.</p></details>
+      <details><summary>What does one RC set include?<span aria-hidden="true">+</span></summary><p>A passage, eight multiple-choice questions, the answer key and explanations of the correct answer and every distractor. Difficulty and the mix of question types are agreed as part of your brief.</p></details>
+      <details><summary>Why eight questions when a mock uses four or five?<span aria-hidden="true">+</span></summary><p>So your faculty chooses, rather than accepts. Eight questions across different types let them keep the items that best suit their students and the mock’s difficulty target, and set aside any they would rather not use. Unused questions work well as classroom discussion or homework.</p></details>
+      <details><summary>Is AI involved in the writing?<span aria-hidden="true">+</span></summary><p>Yes. Passage Works uses a custom AI-assisted engine to plan and write content, check repetition, generate questions and independently solve them. Automated checks support editorial decisions; they are not a guarantee that an item is error-free. We encourage your faculty to evaluate a sample before commissioning a series.</p></details>
+      <details><summary>Can we evaluate the content first?<span aria-hidden="true">+</span></summary><p>Yes. Ask for a sample pack or a faculty audition, and tell us your target difficulty and audience. You can also request a structural audit of 6–10 existing RC sets before discussing a pilot.</p></details>
+      <details><summary>What if our faculty question an answer?<span aria-hidden="true">+</span></summary><p>Share the item and the alternative reading with us. We review it against the passage and rationale, then agree a correction or replacement when needed. Your proposal sets out the review process and turnaround.</p></details>
+      <details><summary>Can we use the content under our brand?<span aria-hidden="true">+</span></summary><p>We can discuss delivery for your own mock series or learning platform. Branding, usage rights and any exclusivity are agreed in writing before work begins.</p></details>
+    </div></section>
 
-      <div class="wrap spread sec-body">
-        <p class="spread__margin label" data-reveal>A real result</p>
-        <div class="spread__wide" data-reveal>
-          <div class="fig">
-            <div class="fig__head">
-              <span class="label">Audit &middot; one set vs the trailing hundred</span>
-              <span class="label mono">cleared to ship</span>
-            </div>
-            <div class="fig__body">
-              <div class="bar"><div class="bar__row"><span class="bar__name">Argument skeleton</span><span class="bar__val">0.22</span></div><div class="bar__track"><span class="bar__fill" style="width:22%"></span></div></div>
-              <div class="bar"><div class="bar__row"><span class="bar__name">Paragraph choreography</span><span class="bar__val">0.38</span></div><div class="bar__track"><span class="bar__fill" style="width:38%"></span></div></div>
-              <div class="bar"><div class="bar__row"><span class="bar__name">Conviction arc</span><span class="bar__val">0.41</span></div><div class="bar__track"><span class="bar__fill" style="width:41%"></span></div></div>
-              <div class="bar"><div class="bar__row"><span class="bar__name">Pacing</span><span class="bar__val">0.35</span></div><div class="bar__track"><span class="bar__fill" style="width:35%"></span></div></div>
-              <div class="bar"><div class="bar__row"><span class="bar__name">Question mix</span><span class="bar__val">0.29</span></div><div class="bar__track"><span class="bar__fill" style="width:29%"></span></div></div>
-              <div class="bar"><div class="bar__row"><span class="bar__name">Wrong-answer logic</span><span class="bar__val">0.42</span></div><div class="bar__track"><span class="bar__fill" style="width:42%"></span></div></div>
-              <div class="bar"><div class="bar__row"><span class="bar__name">Voice separation</span><span class="bar__val">0.37</span></div><div class="bar__track"><span class="bar__fill" style="width:37%"></span></div></div>
-              <div class="bar"><div class="bar__row"><span class="bar__name">Answer-key behaviour</span><span class="bar__val">0.28</span></div><div class="bar__track"><span class="bar__fill" style="width:28%"></span></div></div>
-              <div class="bar"><div class="bar__row"><span class="bar__name">Topic distance</span><span class="bar__val">0.31</span></div><div class="bar__track"><span class="bar__fill" style="width:31%"></span></div></div>
-            </div>
-            <p class="fig__note">
-              Lower is closer to something already shipped. Each channel has a hard ceiling; one
-              breach rejects the set and a fresh shape is drawn. You receive this sheet per mock.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="hygiene">
-      <div class="wrap spread">
-        <p class="spread__margin label" data-reveal>05 &mdash; Answer keys</p>
-        <div class="spread__body" data-reveal>
-          <h2 class="sec-title">The guessing shortcuts, closed</h2>
-          <div class="sec-intro prose">
-            <p class="lead">
-              Some tells do not live in the prose at all. They live in the keys, and every serious
-              student has been taught them. These four are closed by construction rather than by
-              hoping the writing behaves.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="wrap spread sec-body">
-        <p class="spread__margin label" data-reveal>Four heuristics</p>
-        <div class="spread__body" data-reveal>
-          <ul class="ruled">
-            <li>
-              <h3>&ldquo;Pick C when unsure.&rdquo;</h3>
-              <p>Answer letters are decided as a plan before the questions exist, then assigned
-                 mechanically &mdash; the options come back unlabelled, so nothing can cluster the keys.
-                 Letter behaviour is then tested across your whole series, not one paper.</p>
-            </li>
-            <li>
-              <h3>&ldquo;The longest option is right.&rdquo;</h3>
-              <p>Per set, the correct option may be strictly longest in at most two of six questions.
-                 The main-idea question gets its own budget across the corpus, because that is the one
-                 students check first.</p>
-            </li>
-            <li>
-              <h3>&ldquo;The most hedged option is right.&rdquo;</h3>
-              <p>Each authorial voice carries its own hedging inventory, so qualification patterns
-                 differ from set to set &mdash; and one distractor profile exists specifically to make
-                 over-hedged options wrong.</p>
-            </li>
-            <li>
-              <h3>&ldquo;Extreme words mean wrong.&rdquo;</h3>
-              <p>Lexical extremity is treated as a wasted distractor. Traps are built from the
-                 passage&rsquo;s own logic &mdash; misreadings a strong reader could genuinely commit &mdash;
-                 so scanning for <em>always</em> and <em>never</em> eliminates nothing.</p>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--tint" id="keys">
-      <div class="wrap spread">
-        <p class="spread__margin label" data-reveal>06 &mdash; Disputes</p>
-        <div class="spread__body" data-reveal>
-          <h2 class="sec-title">When your faculty disputes a key</h2>
-          <div class="sec-intro prose">
-            <p class="lead">
-              This is the question that decides whether outsourced content is worth the trouble, so
-              it is worth answering before the pitch.
-            </p>
-            <p>
-              Every set is answered by an independent solver that never sees the key. When it
-              disagrees, that disagreement goes to a person &mdash; never quietly regenerated away &mdash;
-              because a defensible dispute means either a broken key or a genuinely brutal question,
-              and both deserve eyes. Where a rival reading is defensible, we rebuild the question
-              inside 72 hours. Disputed items get replaced, not argued about.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="wrap spread sec-body">
-        <p class="spread__margin label" data-reveal>What can happen to a set</p>
-        <div class="spread__body" data-reveal>
-          <ul class="ruled">
-            <li class="hang"><span class="label mono">Ships</span><div>
-              <h3>Approved</h3>
-              <p>Passed structure, novelty, blind solve, rubric and key-hygiene checks, then
-                 reviewed before release.</p></div></li>
-            <li class="hang"><span class="label mono">Held</span><div>
-              <h3>Needs review</h3>
-              <p>Complete but flagged &mdash; a low rubric score or a key-hygiene breach routes it to a
-                 person. It is never approved automatically.</p></div></li>
-            <li class="hang"><span class="label mono">Held</span><div>
-              <h3>Solver dispute</h3>
-              <p>The blind solver read it differently. A human adjudicates; defensible disputes get
-                 the question rebuilt.</p></div></li>
-            <li class="hang"><span class="label mono">Killed</span><div>
-              <h3>Rejected for novelty</h3>
-              <p>Too close to something in your history. Recomposed from scratch &mdash; and its
-                 fingerprint still joins the corpus, so nothing may resemble it either.</p></div></li>
-          </ul>
-          <p class="prose faint" style="margin-top:1.2rem">
-            Sets that die are recorded with the reason. Being able to see what was rejected is what
-            makes the approvals worth anything.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="audition">
-      <div class="wrap spread">
-        <p class="spread__margin label" data-reveal>07 &mdash; The audition</p>
-        <div class="spread__body" data-reveal>
-          <h2 class="sec-title">Test it blind</h2>
-          <div class="sec-intro prose">
-            <p class="lead">
-              Every content vendor claims quality. We would rather your VARC head measure it, on your
-              content and ours, with the stake agreed in writing before we start.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="wrap spread sec-body">
-        <p class="spread__margin label" data-reveal>Five steps</p>
-        <div class="spread__body" data-reveal>
-          <ol class="steps">
-            <li>
-              <h3>Send us 6&ndash;10 sets from your current series</h3>
-              <p>Within 48 hours you get a structural repetition report: repeating skeletons,
-                 correlated conviction arcs, answer-key drift. Free, and yours either way.</p>
-            </li>
-            <li>
-              <h3>We send five passages</h3>
-              <p>Three of ours, with different families, voices and endings. One by a strong
-                 professional writer. One from a general-purpose AI tool. No labels.</p>
-            </li>
-            <li>
-              <h3>Your VARC head scores them blind</h3>
-              <p>Quality ranking, a guess at which are machine-written, and any pair that feels like
-                 the same writer.</p>
-            </li>
-            <li>
-              <h3>The stake</h3>
-              <p>If your faculty identify our three at better than chance, we walk away and you keep
-                 all five sets. Committed in writing before the pack is sent.</p>
-            </li>
-            <li>
-              <h3>The pilot</h3>
-              <p>Otherwise, one paid pilot &mdash; a complete, difficulty-curved mock VARC section &mdash;
-                 credited in full against your first retainer month.</p>
-            </li>
-          </ol>
-          <p class="hero__cta">
-            <a class="btn btn--lg" href="mailto:ansh@passageworks.in?subject=Blind%20audition%20request">Start the blind audition</a>
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--tint" id="pricing">
-      <div class="wrap spread">
-        <p class="spread__margin label" data-reveal>08 &mdash; Engagements</p>
-        <div class="spread__body" data-reveal>
-          <h2 class="sec-title">Engagements</h2>
-          <div class="sec-intro prose">
-            <p class="lead">
-              Retainers built around your mock calendar. Every tier includes the nine-channel audit
-              on every set.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="wrap spread sec-body">
-        <p class="spread__margin label" data-reveal>Three tiers</p>
-        <div class="spread__wide" data-reveal>
-          <div class="tiers">
-            <div class="tier">
-              <span class="label">Tier one</span>
-              <h3>Practice Bench</h3>
-              <p class="tier__who">Focused coachings and independent VARC mentors</p>
-              <p class="tier__price">&#8377;15,000 <span>/ month, from</span></p>
-              <ul>
-                <li>24 sets monthly, graded difficulty mix</li>
-                <li>Weekly delivery batches</li>
-                <li>Monthly novelty summary</li>
-                <li>Full answer-key rationales</li>
-              </ul>
-              <a class="btn btn--ghost" href="mailto:ansh@passageworks.in?subject=Practice%20Bench%20enquiry">Enquire</a>
-            </div>
-            <div class="tier tier--flag">
-              <span class="label">Tier two &middot; most common</span>
-              <h3>Mock Vault</h3>
-              <p class="tier__who">Institutes running their own mock series</p>
-              <p class="tier__price">&#8377;40,000 <span>/ month, from</span></p>
-              <ul>
-                <li>A full 10-mock VARC series each month (40 sets)</li>
-                <li>Difficulty curve designed per mock</li>
-                <li>Structural exclusivity, enforced in the database</li>
-                <li>Novelty certificate per mock</li>
-                <li>Teaching notes for debriefs</li>
-                <li>72-hour correction turnaround</li>
-              </ul>
-              <a class="btn" href="mailto:ansh@passageworks.in?subject=Mock%20Vault%20enquiry">Enquire</a>
-            </div>
-            <div class="tier">
-              <span class="label">Tier three</span>
-              <h3>Platform Feed</h3>
-              <p class="tier__who">Test platforms and adaptive learning products</p>
-              <p class="tier__price">&#8377;75,000 <span>/ month, from</span></p>
-              <ul>
-                <li>100+ sets monthly, CSV or JSON delivery</li>
-                <li>Per-student novelty guarantee</li>
-                <li>Difficulty metadata on every question</li>
-                <li>Co-branded audit trail</li>
-              </ul>
-              <a class="btn btn--ghost" href="mailto:ansh@passageworks.in?subject=Platform%20Feed%20enquiry">Enquire</a>
-            </div>
-          </div>
-          <p class="prose faint" style="margin-top:1.4rem">
-            Quarterly advance billing. Annual contracts flex with the season &mdash; mock-heavy before
-            the exam, bank-building after. Category exclusivity within a city is available as an
-            add-on.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="faq">
-      <div class="wrap spread">
-        <p class="spread__margin label" data-reveal>09 &mdash; Questions</p>
-        <div class="spread__body" data-reveal>
-          <h2 class="sec-title">Questions institutes ask</h2>
-        </div>
-      </div>
-      <div class="wrap spread sec-body">
-        <p class="spread__margin label" data-reveal>Before signing</p>
-        <div class="spread__body faq" data-reveal>
-          <details>
-            <summary>Is this AI-generated content?</summary>
-            <div class="faq__a">
-              <p>The passages are produced by an engine we built, and that is precisely why they can
-                 be audited. A human writer cannot prove their fifteenth passage is structurally
-                 unlike their first. We can, on nine measures, for every set, against your full history.</p>
-              <p>What no set ever is: raw generator output. A blind solve, a rubric judgement,
-                 key-hygiene budgets and human review all stand between generation and
-                 delivery. The blind audition exists because we are happy to be tested on the result
-                 rather than the method.</p>
-            </div>
-          </details>
-          <details>
-            <summary>What happens when our faculty dispute an answer key?</summary>
-            <div class="faq__a">
-              <p>Keys are independently blind-solved before delivery, and every rationale names the
-                 misreading each wrong option targets, so most disputes resolve on the rationale alone.
-                 Where a rival reading is genuinely defensible, we rebuild the question within 72 hours.</p>
-            </div>
-          </details>
-          <details>
-            <summary>Who owns the content we receive?</summary>
-            <div class="faq__a">
-              <p>You hold an exclusive licence to your delivered sets. No other client receives them,
-                 nor any set built on the same argumentative skeleton. We retain the structural system
-                 and the audit metadata, which is what makes that exclusivity enforceable rather than
-                 merely promised.</p>
-            </div>
-          </details>
-          <details>
-            <summary>Which exams do you cover?</summary>
-            <div class="faq__a">
-              <p>Calibrated for CAT-level VARC today, with passage lengths, question styles and
-                 difficulty tiers matched to the real paper. CLAT, OMET and GRE-style variants are
-                 available on request; the underlying libraries are exam-agnostic and only the surface
-                 parameters change.</p>
-            </div>
-          </details>
-          <details>
-            <summary>How fast can a full mock series land?</summary>
-            <div class="faq__a">
-              <p>Delivery is weekly against your mock calendar. A complete 10-mock VARC series lands
-                 within one month of calibration; week one locks lengths, difficulty curves and format
-                 to your paper pattern.</p>
-            </div>
-          </details>
-          <details>
-            <summary>If every institute buys this, what is our edge?</summary>
-            <div class="faq__a">
-              <p>No two clients ever share an argumentative skeleton &mdash; that is a constraint in the
-                 database, not a promise in a contract &mdash; and we serve one institute per category
-                 per city.</p>
-              <p>More fundamentally, what compounds is the memory of what <em>your</em> students have
-                 already seen. That history is yours, and nobody starting fresh can reproduce it.</p>
-            </div>
-          </details>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--tint" id="contact">
-      <div class="wrap spread">
-        <p class="spread__margin label" data-reveal>10 &mdash; Start</p>
-        <div class="spread__body" data-reveal>
-          <h2 class="sec-title">Start with an audit of your own mocks</h2>
-          <div class="sec-intro prose">
-            <p class="lead">
-              Send 6&ndash;10 RC sets from your current series. You get back a structural repetition
-              report showing exactly what your repeat-takers have already learned to exploit. No
-              commitment, and the report is yours either way.
-            </p>
-          </div>
-          <p class="hero__cta">
-            <a class="btn btn--lg" href="mailto:ansh@passageworks.in?subject=Structural%20audit%20request">Request the free audit</a>
-            <a class="btn btn--ghost btn--lg" href="mailto:ansh@passageworks.in?subject=Blind%20audition%20request">Book the audition</a>
-          </p>
-        </div>
-      </div>
-      <div class="wrap spread sec-body">
-        <p class="spread__margin label" data-reveal>Who runs this</p>
-        <div class="spread__body" data-reveal>
-          <div class="prose">
-            <p>
-              Passage Works is built and run by Ansh Upadhyay.
-            </p>
-            <p class="faint" style="margin-top:.8rem">
-              <a href="mailto:ansh@passageworks.in">ansh@passageworks.in</a> &middot; replies within one
-              working day.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="contact-section" id="contact"><div class="wrap contact-grid"><div class="contact-copy"><p class="eyebrow">LET’S BUILD SOMETHING WORTH READING</p><h2>Your next great<br>mock <em>starts here.</em></h2><p>Tell us who you teach and what you’re building. We’ll start with the right sample and a conversation about your content.</p><div class="contact-links"><a class="contact-email" href="mailto:ansh@passageworks.in">ansh@passageworks.in <span aria-hidden="true">↗</span></a><a class="contact-email" href="https://wa.me/918319230930?text=Hi%20Passage%20Works%2C%20I%E2%80%99d%20like%20to%20discuss%20RC%20content%20for%20our%20students." target="_blank" rel="noopener">WhatsApp +91 83192 30930 <span aria-hidden="true">↗</span></a></div><div class="founder-line"><span class="founder-initials" aria-hidden="true">AU</span><span>Ansh Upadhyay<small>Founder, Passage Works</small></span></div></div>
+      <form id="enquiry-form" class="enquiry-form"><h3>A few details to get started.</h3><div class="form-row"><label>Your name<input name="name" autocomplete="name" required maxlength="100" placeholder="Name"></label><label>Work email<input name="email" type="email" autocomplete="email" required maxlength="254" placeholder="you@institute.com"></label></div><label>Institute or company<input name="organisation" autocomplete="organization" required maxlength="160" placeholder="Your organisation"></label><label>I’m interested in<select name="interest" id="interest"><option>Sample pack</option><option>Practice Bench</option><option>Mock Vault</option><option>Platform Feed</option><option>Structural audit</option><option>Faculty audition</option><option>Custom requirement</option></select></label><label>Your content brief <span class="optional">(optional)</span><textarea name="brief" rows="3" maxlength="3000" placeholder="Audience, monthly volume, difficulty or a launch date…"></textarea></label><div class="form-actions"><button class="button button-lime" type="submit">Email my enquiry <span aria-hidden="true">↗</span></button><button class="button button-whatsapp" id="whatsapp-enquiry" type="button">Send on WhatsApp <span aria-hidden="true">↗</span></button></div><p class="form-note">Opens a draft in your email app or WhatsApp for you to review and send. No details are submitted or stored by this website.</p><div id="enquiry-result" class="enquiry-result" hidden><p id="enquiry-status" role="status">Your email draft is ready. If your email app did not open, copy your brief and email it to ansh@passageworks.in.</p><textarea id="prepared-brief" aria-label="Prepared enquiry text" readonly rows="6"></textarea><button class="button button-outline" id="copy-enquiry" type="button">Copy enquiry</button></div><noscript><p>Please email your requirements directly to <a href="mailto:ansh@passageworks.in">ansh@passageworks.in</a>.</p></noscript></form>
+    </div></section>
   </main>
-
-  <footer class="foot">
-    <div class="wrap foot__in">
-      <span class="label">Passage Works</span>
-      <a class="label" href="mailto:ansh@passageworks.in">ansh@passageworks.in</a>
-      <span class="label">One institute per category per city</span>
-    </div>
-  </footer>
-
-  <script src="js/app.js"></script>
+  <footer class="footer"><div class="wrap footer-top"><a class="brand" href="#top"><span class="brand-mark" aria-hidden="true">P<span>·</span></span><span>passage<span class="brand-light">works</span></span></a><p>For readers who think.<br>And educators who expect more.</p><a class="text-link" href="#top">Back to top ↑</a></div><div class="wrap footer-bottom"><span>© 2026 Passage Works</span><span>Independent content provider. Not affiliated with the CAT examination or the IIMs.</span><span class="footer-contact"><a href="mailto:ansh@passageworks.in">Email ↗</a><a href="https://wa.me/918319230930?text=Hi%20Passage%20Works%2C%20I%E2%80%99d%20like%20to%20discuss%20RC%20content%20for%20our%20students." target="_blank" rel="noopener">WhatsApp ↗</a></span></div></footer>
+  <a class="whatsapp-float" href="https://wa.me/918319230930?text=Hi%20Passage%20Works%2C%20I%E2%80%99d%20like%20to%20discuss%20RC%20content%20for%20our%20students." target="_blank" rel="noopener" aria-label="Chat with Passage Works on WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 19.5l1.2-3.6A8 8 0 1 1 8.4 18.6z"/><path d="M9.3 8.6c.3-.6 1-.6 1.2 0l.5 1.2c.1.3 0 .6-.2.8l-.4.4c.5 1 1.3 1.8 2.3 2.3l.4-.4c.2-.2.5-.3.8-.2l1.2.5c.6.2.6.9 0 1.2-1.4.8-3.4 0-4.9-1.5S8.5 10 9.3 8.6z" fill="currentColor" stroke="none"/></svg><span>Chat on WhatsApp</span></a>
 </body>
 </html>
