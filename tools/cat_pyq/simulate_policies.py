@@ -35,12 +35,37 @@ from rc_engine.pipeline import RCPipeline, run_batch  # noqa: E402
 from rc_engine.registry import ComponentRegistry, posture_class  # noqa: E402
 
 
+_SEED_SENTENCES = [
+    "A 2022 audit by the river authority found that 41 percent of gauges read high after floods.",
+    "Officials denied that the new weirs had changed the flow downstream.",
+    "According to hydrologist Lena Varga, the records \"may understate the smallest floods\".",
+    "The authority did not publish its correction factors.",
+    "Farmers estimated that about 120 fields were abandoned over the decade.",
+    "Engineer Tomas Reyes said the sensors were installed before the channel was straightened.",
+]
+
+
+def invented_seed_provider():
+    """Deterministic invented seeds with figures, a denial, a hedge and quotations,
+    so the source-facts path runs in simulation. Never real source text."""
+    from rc_engine.models import SeedEssay
+    counter = {"n": 0}
+
+    def provider(tier, exclude_ids=None, avoid_kinds=None):
+        counter["n"] += 1
+        n = counter["n"]
+        text = " ".join(_SEED_SENTENCES[(n + k) % len(_SEED_SENTENCES)] for k in range(6))
+        return SeedEssay(doc_id=f"sim-{n}", url=f"https://example.org/sim/{n}",
+                         title=f"Simulated source {n}", text=text), None
+    return provider
+
+
 def closure(posture: str) -> str:
     cls = posture_class(posture)
     return "refusal" if cls == "refusal" else ("neutral" if cls == "exposition" else "committed")
 
 
-def simulate(version: str, tiers: dict, seed: int) -> dict:
+def simulate(version: str, tiers: dict, seed: int, invented_seeds: bool = False) -> dict:
     config.GENERATION_POLICY_FOR_NEW_PLANS = {"medium": version, "hard": version, "elite": ""}
     reg = ComponentRegistry()
     policy = get_policy(version)
@@ -48,7 +73,8 @@ def simulate(version: str, tiers: dict, seed: int) -> dict:
     with tempfile.TemporaryDirectory() as tmp:
         history = HistoryStore(os.path.join(tmp, "sim.db"))
         pipe = RCPipeline(history, MockLLMClient(), embed=False, rng=random.Random(seed))
-        results = run_batch(pipe, tiers, None, max_usd=1000.0)
+        provider = invented_seed_provider() if invented_seeds else None
+        results = run_batch(pipe, tiers, provider, max_usd=1000.0)
         rows = history.conn.execute(
             "SELECT tier, status, blueprint_json FROM blueprints").fetchall()
         history.close()
@@ -87,6 +113,10 @@ def simulate(version: str, tiers: dict, seed: int) -> dict:
             "negative_slots_per_set": dict(collections.Counter(
                 sum(1 for s in b.get("question_slots") or [] if s.get("polarity") == "negative")
                 for b in shipped)),
+            "source_facts_per_set": dict(collections.Counter(
+                len(b.get("source_facts") or []) for b in shipped)),
+            "fact_beat_swaps": sum(1 for b in shipped for n in b.get("source_fact_notes") or []
+                                   if "no supporting facts" in n),
         }
     return out
 
@@ -97,9 +127,11 @@ def main(argv=None) -> int:
     ap.add_argument("--policies", nargs="*", default=["", "cat-pyq-q1", "cat-pyq-s1", "cat-pyq-s2"])
     ap.add_argument("--seed", type=int, default=20260913)
     ap.add_argument("--out", default=None)
+    ap.add_argument("--invented-seeds", action="store_true",
+                    help="feed invented source excerpts so source-facts policies extract facts")
     args = ap.parse_args(argv)
-    reports = [simulate(v, {"medium": args.sets, "hard": args.sets}, args.seed)
-               for v in args.policies]
+    reports = [simulate(v, {"medium": args.sets, "hard": args.sets}, args.seed,
+                        args.invented_seeds) for v in args.policies]
     text = json.dumps(reports, indent=1)
     if args.out:
         with open(args.out, "w", encoding="utf-8", newline="\n") as f:
@@ -112,6 +144,8 @@ def main(argv=None) -> int:
                   f"families={t['distinct_families']} neg={t['negative_slots_per_set']}")
             print(f"            new components {t['new_components_shipped']}")
             print(f"            new beats {t['new_beats_shipped']}")
+            print(f"            source facts per set {t['source_facts_per_set']} "
+                  f"fact-beat swaps {t['fact_beat_swaps']}")
     return 0
 
 

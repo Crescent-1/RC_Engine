@@ -126,6 +126,11 @@ class GenerationPolicy:
     # True: renderer, compliance and texture_report share per-plan permissions
     # (passage_permissions.py). False = the house rules apply in full.
     passage_permissions: bool = False
+    # -- source-supported facts (section 6; see source_facts.py) --
+    # True: refine proposes facts from the retained seed excerpt, they are
+    # validated and stored on the plan, the renderer may use them, and the
+    # auditor traces every factual claim back to them.
+    source_facts: bool = False
 
     # -- identity -------------------------------------------------------------
 

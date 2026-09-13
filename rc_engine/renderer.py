@@ -322,6 +322,11 @@ class PassageRenderer:
         if policy.passage_permissions:
             from .passage_permissions import grants_for, permissions_block
             permissions_part = permissions_block(grants_for(bp, self.registry)) + NL
+        if policy.source_facts:
+            # Section 6: the only evidence this passage may present as real,
+            # beyond rule 9's well-known references.
+            from .source_facts import facts_block
+            permissions_part += facts_block(bp.source_facts) + NL
 
         schema = policy.argument_schemas().get(bp.argument_schema_id or "")
         schema_block = ""

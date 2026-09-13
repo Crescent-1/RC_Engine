@@ -488,7 +488,117 @@ CAT_PYQ_S2_POLICY = dataclasses.replace(
     extra_schema_middle_moves=_ro(_S2_MIDDLE),
 )
 
-PRODUCTION_POLICIES = (CAT_PYQ_Q1_POLICY, CAT_PYQ_S1_POLICY, CAT_PYQ_S2_POLICY)
+# ---------------------------------------------------------------------------
+# cat-pyq-f1 (2026-09-13) — section 6, source-supported facts, cumulative on s2.
+#
+# The refiner proposes up to eight facts from the retained seed excerpt, each
+# with its exact span; source_facts.validate keeps only structurally sound ones;
+# the renderer may present those (and rule 9's well-known references) as real;
+# the compliance auditor traces every factual claim in the passage to fact ids,
+# and anything untraced becomes a repair directive and a needs_review route.
+# NEWS_DATA_HOOK, STUDY_WALKTHROUGH, EXPERT_AS_SPINE and QUOTE_CLOSE become
+# plannable, and a plan whose facts cannot carry them falls back to their
+# source-independent counterparts rather than fabricating.
+#
+# No new model call and no budget change: facts ride the existing refine and
+# compliance calls. Their outputs grow (roughly 60-80 tokens a fact); refine
+# max_tokens (medium 1600, hard/elite 2400) is unchanged, so refine truncation
+# under this policy is a pilot measurement, not an assumption.
+# ---------------------------------------------------------------------------
+
+CAT_PYQ_F1 = "cat-pyq-f1"
+
+_FACT_BEATS = {
+    "NEWS_DATA_HOOK": "opens on a recent, specific development or figure taken from the "
+                      "SOURCE-SUPPORTED FACTS, stated with its attribution",
+    "STUDY_WALKTHROUGH": "walks through one study or inquiry from the SOURCE-SUPPORTED FACTS — "
+                         "what was asked, how, and what was found — keeping its qualifications",
+    "EXPERT_AS_SPINE": "carries the argument through the attributed claims of one or two people "
+                       "from the SOURCE-SUPPORTED FACTS, reported in their own terms",
+    "QUOTE_CLOSE": "closes on an exact, attributed quotation from the SOURCE-SUPPORTED FACTS "
+                   "that the argument has earned",
+}
+
+_RULE9_REWRITE = (
+    "characterises — never with a plausible-sounding invention.",
+    "characterises — never with a plausible-sounding invention.\n"
+    "   - Facts listed in the contract's SOURCE-SUPPORTED FACTS block may be presented as\n"
+    "     real, with their attribution and qualification intact and quotations copied\n"
+    "     exactly. The block adds nothing beyond itself: every other study, figure,\n"
+    "     quotation, name or date still falls under this rule.")
+
+_FACTS_REFINE = _REFINE_EXTENSION + """
+
+SOURCE-SUPPORTED FACTS: also return "source_facts", at most 8 (fewer is fine; [] when the
+excerpt holds none), each the shortest exact passage of the INSPIRATION ESSAY EXCERPT that
+supports one factual claim the passage could use:
+  {"span": "<words copied exactly from the excerpt, 3-40 words>",
+   "claim": "<the claim, max 25 words, adding nothing the span does not say>",
+   "attribution": "<who says or found it, as the excerpt states, or ''>",
+   "qualification": "<the excerpt's own hedge or condition, or ''>"}
+Keep every number, negation and hedge the span has. Name nobody the excerpt does not name.
+When the plan includes NEWS_DATA_HOOK, STUDY_WALKTHROUGH, EXPERT_AS_SPINE or QUOTE_CLOSE,
+prefer facts that can carry them."""
+
+_FACTS_COMPLIANCE = _COMPLIANCE_PERMISSIONS + """
+
+FACT TRACE: the input also lists SOURCE-SUPPORTED FACTS by id. In "fact_trace" list every
+claim the passage presents as real-world fact — a statistic, a date, a named person, work,
+institution or study, a quotation:
+  {"claim": "<passage wording, max 25 words>", "fact_ids": ["SF1"],
+   "support": "source_fact" | "common_knowledge" | "unsupported", "attribution_ok": true}
+"source_fact" only when the listed fact actually supports the claim as written, with its
+qualification kept; "common_knowledge" for a well-known, checkable reference; otherwise
+"unsupported". attribution_ok is false when the claim credits the wrong person or source.
+Report [] when the passage presents nothing as real."""
+
+CAT_PYQ_F1_POLICY = dataclasses.replace(
+    CAT_PYQ_S2_POLICY, version=CAT_PYQ_F1,
+    description="section 6: source-supported facts and the four fact-dependent beats",
+    component_tags=frozenset({CAT_PYQ_Q1, CAT_PYQ_S1, CAT_PYQ_S2}),
+    source_facts=True,
+    extra_moves=_ro({**_NEW_BEATS, **_FACT_BEATS}),
+    extra_move_groups=_ro({
+        "opening": ["REPORTED_POSITION", "NEWS_DATA_HOOK"],
+        "middle": ["ENUMERATED_SET", "HYPOTHETICAL_CASE", "TERM_COINED", "IRONY_NOTED",
+                   "OBJECTION_FORESTALLED", "THEN_NOW_CONTRAST", "STUDY_WALKTHROUGH",
+                   "EXPERT_AS_SPINE"],
+        "closing": ["PRESCRIPTION_STATED", "FORECAST", "SPLIT_VERDICT", "QUOTE_CLOSE"]}),
+    extra_exam_move_shares=_ro({**_NEW_BEAT_SHARES, "NEWS_DATA_HOOK": 0.05,
+                                "STUDY_WALKTHROUGH": 0.04, "EXPERT_AS_SPINE": 0.04,
+                                "QUOTE_CLOSE": 0.04}),
+    extra_schema_middle_moves=_ro({
+        s: list(_S2_MIDDLE.get(s, [])) + extra for s, extra in {
+            **{s: [] for s in _S2_MIDDLE},
+            "S1_INSTRUMENT_BLIND": ["STUDY_WALKTHROUGH"],
+            "S2_RECEIVED_ACCOUNT_REPLACED": ["STUDY_WALKTHROUGH", "EXPERT_AS_SPINE"],
+            "S3_TWO_CAMPS_RELOCATED": ["EXPERT_AS_SPINE"],
+            "S4_MECHANISM_TRACED": ["STUDY_WALKTHROUGH", "EXPERT_AS_SPINE"],
+            "S10_FRAMED_INQUIRY": ["EXPERT_AS_SPINE"],
+            "S11_SPLIT_VERDICT_REVIEW": ["EXPERT_AS_SPINE"],
+        }.items()}),
+    extra_closing_registers_by_beat=_ro({
+        **CAT_PYQ_S2_POLICY.extra_closing_registers_by_beat,
+        "QUOTE_CLOSE": {"bound_continuation", "quiet_qualification"}}),
+    extra_ending_beats=_ro({
+        **CAT_PYQ_S2_POLICY.extra_ending_beats,
+        "E03": {"QUOTE_CLOSE"}, "E14": {"QUOTE_CLOSE"}, "E20": {"QUOTE_CLOSE"},
+        "E07": set(CAT_PYQ_S2_POLICY.extra_ending_beats["E07"]) | {"QUOTE_CLOSE"}}),
+    closing_beat_postures=_ro({
+        **CAT_PYQ_S2_POLICY.closing_beat_postures,
+        "QUOTE_CLOSE": frozenset({"resolution_qualified", "resolution_costed",
+                                  "affirmation_endorsed", "reframe_displace"})}),
+    system_rewrites=_ro({"render": _RENDER_REWRITES + (_RULE9_REWRITE,),
+                         "compliance": (("  \"notes\": \"max 30 words\"\n}",
+                                         "  \"unpermitted_devices\": [],\n  \"fact_trace\": [],\n"
+                                         "  \"notes\": \"max 30 words\"\n}"),)}),
+    prompt_extensions=_ro({"refine": _FACTS_REFINE}),
+    system_extensions=_ro({**CAT_PYQ_S2_POLICY.system_extensions,
+                           "compliance": _FACTS_COMPLIANCE}),
+)
+
+PRODUCTION_POLICIES = (CAT_PYQ_Q1_POLICY, CAT_PYQ_S1_POLICY, CAT_PYQ_S2_POLICY,
+                       CAT_PYQ_F1_POLICY)
 
 # Covers `import rc_engine.policy_catalog` before generation_policy: the
 # registration generation_policy attempted at its own import found this module

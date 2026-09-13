@@ -110,7 +110,7 @@ def test_elite_matches_pre_policy_golden_while_medium_hard_use_policy(tmp_path):
     assert any(s["question_slots"] == 8 for s in side), side
 
 
-@pytest.mark.parametrize("version", ["cat-pyq-s1", "cat-pyq-s2"])
+@pytest.mark.parametrize("version", ["cat-pyq-s1", "cat-pyq-s2", "cat-pyq-f1"])
 def test_elite_matches_pre_policy_golden_while_structure_release_runs(tmp_path, version):
     """Section 5 releases (families, beats, revelations, rhythms, personas,
     permissions, rewritten render rules) run between elite attempts; elite still

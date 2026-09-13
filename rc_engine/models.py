@@ -71,6 +71,11 @@ class Blueprint:
     # and resume, so a later library edit cannot reinterpret a stored plan.
     # Empty for legacy plans, which resolve slots exactly as before.
     question_slots: list[dict] = field(default_factory=list)
+    # Source-supported facts (2026-09-13, source_facts.py): validated spans from
+    # the retained seed excerpt, kept for render and resume and never exported.
+    # Empty for every plan whose policy does not use them.
+    source_facts: list[dict] = field(default_factory=list)
+    source_fact_notes: list[str] = field(default_factory=list)
     seed_genre: str = ""         # from seed_classify; "" = never classified
     # Prescribed rhetorical beats (labels from config.RHETORICAL_MOVES), in
     # order. A PLAN, not a ban list — see BlueprintComposer._sample_move_plan.
@@ -166,6 +171,10 @@ class RealizedStructure:
     # (2026-09-13, passage_permissions.py). Always [] for plans without
     # permissions.
     unpermitted_devices: list[str] = field(default_factory=list)
+    # The auditor's trace of every claim the passage presents as real, and the
+    # ones it could not support (2026-09-13, source_facts.py; [] otherwise).
+    fact_trace: list[dict] = field(default_factory=list)
+    unsupported_claims: list[dict] = field(default_factory=list)
 
     def movement_string(self) -> str:
         return "|".join(self.paragraph_functions)

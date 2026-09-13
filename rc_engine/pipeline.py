@@ -302,7 +302,14 @@ class RCPipeline:
             if policy.passage_permissions:
                 from .passage_permissions import grants_for
                 grants = grants_for(bp, self.registry)
-            for w in texture_report(passage, grants)["warnings"]:
+            supported = None
+            if policy.source_facts:
+                from .source_facts import supported_claims
+                supported = supported_claims(realized.fact_trace, bp.source_facts)
+                notes.extend(bp.source_fact_notes)
+                for u in realized.unsupported_claims:
+                    notes.append(f"unsupported factual claim ({u['support']}): {u['claim']}")
+            for w in texture_report(passage, grants, supported)["warnings"]:
                 notes.append(f"texture: {w}")
                 print(f"  [texture] {w}")
 
@@ -600,6 +607,12 @@ class RCPipeline:
             # pre-posture corpus or residual library skew) — a human decides.
             status = "needs_review"
             notes.append("posture run: routed to needs_review")
+        elif realized.unsupported_claims:
+            # Section 6 (2026-09-13): a claim presented as real that the auditor
+            # could not trace to a source-supported fact is a human decision.
+            status = "needs_review"
+            notes.append(f"source facts: {len(realized.unsupported_claims)} unsupported "
+                         f"factual claim(s) - routed to needs_review")
         elif not word_report["in_band"]:
             # 500-word standard is mandatory: a passage outside the band never
             # auto-approves, whatever the judge thinks of it.
