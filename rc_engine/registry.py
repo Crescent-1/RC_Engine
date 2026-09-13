@@ -109,7 +109,15 @@ class ComponentRegistry:
         return out
 
     def ids(self, ctype: str) -> list[str]:
+        """Every id in the library, whatever policy it belongs to. Sampling
+        and question paths must use GenerationPolicy.eligible_ids instead;
+        this stays unfiltered for reports and validation."""
         return list(self.libraries[ctype].keys())
+
+    def has_policy_tags(self, ctype: str) -> bool:
+        """True when any item of this type is restricted to a generation
+        policy (see generation_policy.py)."""
+        return any(item.get("policies") for item in self.libraries[ctype].values())
 
     def length_class_range(self, cls: str) -> tuple[int, int]:
         rng = self.meta["rhythm"]["length_classes"][cls]
@@ -179,8 +187,19 @@ class ComponentRegistry:
             if topo["slots"] and topo["slots"][0]["type"] != "thesis":
                 errors.append(f"topology:{cid} slot 1 must be 'thesis', "
                               f"got {topo['slots'][0]['type']!r}")
+            # A topology tagged for generation policies may also use slot types
+            # every one of those policies adds (2026-09-13); an untagged one is
+            # read by legacy plans and must stay inside the library's own types.
+            allowed_types = slot_types
+            if topo.get("policies"):
+                from .generation_policy import registered
+                policies = registered()
+                extras = [set(policies[v].extra_slot_types)
+                          for v in topo["policies"] if v in policies]
+                if extras:
+                    allowed_types = slot_types | set.intersection(*extras)
             for i, slot in enumerate(topo["slots"]):
-                if slot["type"] not in slot_types:
+                if slot["type"] not in allowed_types:
                     errors.append(f"topology:{cid} slot {i+1} unknown type {slot['type']!r}")
 
         postures = set(self.meta["family"].get("closing_postures", {}))
@@ -233,6 +252,9 @@ class ComponentRegistry:
             for ctype, cid in rule.get("when", {}).items():
                 if cid not in self.libraries[ctype]:
                     errors.append(f"rule {i}: 'when' references unknown {ctype}:{cid}")
+
+        from .generation_policy import validation_errors
+        errors.extend(validation_errors(self))
 
         if errors:
             raise RegistryError("Component library validation failed:\n  " + "\n  ".join(errors))

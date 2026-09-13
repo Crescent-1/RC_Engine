@@ -122,14 +122,19 @@ def genre_is_saturated(history, genre: str) -> float | None:
     return share if share > config.SEED_GENRE_SATURATION else None
 
 
-def eligible_topic_shapes(registry, info: dict) -> list[str]:
+def eligible_topic_shapes(registry, info: dict, policy=None) -> list[str]:
     """Topic shapes this seed can actually carry.
 
     A seed with no real dispute in it must not be handed a shape that requires
     two poles — that conversion is exactly how a technical piece became another
-    'whether X or Y' essay."""
+    'whether X or Y' essay.
+
+    policy: the generation policy of the plan being composed (2026-09-13);
+    shapes tagged for another policy are never offered, even by the fallback."""
+    from .generation_policy import LEGACY_POLICY
+    shape_ids = (policy or LEGACY_POLICY).eligible_ids(registry, "topic_shape")
     out = []
-    for tid in registry.ids("topic_shape"):
+    for tid in shape_ids:
         shape = registry.get("topic_shape", tid)
         if shape.get("requires_tension") and not info.get(
                 "bipolar_dispute_available", True):
@@ -138,6 +143,6 @@ def eligible_topic_shapes(registry, info: dict) -> list[str]:
         if compat and info.get("genre") not in compat and info.get("genre") != "unknown":
             continue
         out.append(tid)
-    if not out:      # never dead-end: fall back to the whole library
-        out = list(registry.ids("topic_shape"))
+    if not out:      # never dead-end: fall back to the policy's whole library
+        out = list(shape_ids)
     return out

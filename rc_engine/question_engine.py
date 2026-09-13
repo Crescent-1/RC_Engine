@@ -13,6 +13,7 @@ import json
 import random
 
 from . import config
+from .generation_policy import LEGACY_POLICY, policy_for_blueprint
 from .llm import CostLedger, extract_json
 from .models import Blueprint
 
@@ -166,18 +167,20 @@ class QuestionEngine:
         stage: which STAGE_CONFIG entry drives model/max_tokens and cost
         labelling (normally 'questions')."""
         model, max_tokens = config.STAGE_CONFIG[stage][bp.tier]
+        # The stored plan's policy, never today's configuration (2026-09-13).
+        policy = policy_for_blueprint(bp)
         topo = self.registry.get("topology", bp.topology_id)
         profile = self.registry.get("distractor_profile", bp.distractor_profile_id)
-        slots = self._retarget_thesis(topo["slots"], bp)
-        slots = self._scale_slots(self._assign_traps(slots, bp), bp.tier)
+        slots = self.effective_slots(bp)
 
-        user = self._prompt(bp, passage, slots, topo, profile)
+        user = policy.user_prompt(stage, self._prompt(bp, passage, slots, topo, profile, policy))
         if extra_guidance:
             user += f"\n\nADDITIONAL DIRECTIVES:\n{extra_guidance}"
+        system = policy.system_prompt(stage, QUESTION_SYSTEM)
         last_err = None
         for _ in range(config.MAX_QUESTION_ATTEMPTS):
             text, truncated = self.llm.call(
-                ledger, stage, model, max_tokens, QUESTION_SYSTEM, user,
+                ledger, stage, model, max_tokens, system, user,
                 context={"blueprint": bp, "slots": slots,
                          "mechanisms": [profile["primary"], profile["secondary"]]})
             try:
@@ -189,6 +192,21 @@ class QuestionEngine:
                 user += ("\n\nYOUR PREVIOUS RESPONSE WAS INVALID: "
                          f"{e}. Emit complete, valid JSON exactly per schema.")
         raise QuestionEngineError(f"question generation failed: {last_err}")
+
+    def effective_slots(self, bp: Blueprint) -> list[dict]:
+        """The slots this plan's questions are asked in: thesis retargeting,
+        trap harvesting and tier scaling applied to the topology.
+
+        2026-09-13: a plan that stored its slots (bp.question_slots, set once
+        for non-legacy policies before the first questions call) reuses them
+        on every retry and resume, so a later library or scaling edit cannot
+        change what a stored plan asks. A plan without stored slots resolves
+        them from the library exactly as before."""
+        if bp.question_slots:
+            return [dict(s) for s in bp.question_slots]
+        topo = self.registry.get("topology", bp.topology_id)
+        slots = self._retarget_thesis(topo["slots"], bp)
+        return self._scale_slots(self._assign_traps(slots, bp), bp.tier)
 
     # ------------------------------------------------------------- internals
 
@@ -271,7 +289,8 @@ class QuestionEngine:
             hit["target"] = "local"
         return out
 
-    def _stem_shapes(self, slots: list[dict], bp: Blueprint) -> list[str]:
+    def _stem_shapes(self, slots: list[dict], bp: Blueprint,
+                     policy=None) -> list[str]:
         """One authentic CAT stem shape per slot.
 
         Dealt without replacement within a slot type, so a topology that plans
@@ -281,9 +300,12 @@ class QuestionEngine:
 
         Seeded from the blueprint, like the letter plan, so a resumed run
         reproduces its shapes instead of re-rolling them.
+
+        policy: the plan's generation policy; its extra forms are dealt from a
+        copy, never added to the shared pool legacy plans read.
         """
         rng = random.Random(f"{bp.blueprint_id}:stems")
-        stem_forms = self.registry.stem_forms
+        stem_forms = (policy or LEGACY_POLICY).stem_forms(self.registry)
         pools: dict[str, list[str]] = {}
         shapes = []
         for s in slots:
@@ -297,9 +319,10 @@ class QuestionEngine:
         return shapes
 
     def _prompt(self, bp: Blueprint, passage: str, slots: list[dict],
-                topo: dict, profile: dict) -> str:
-        type_defs = self.registry.slot_type_definitions
-        shapes = self._stem_shapes(slots, bp)
+                topo: dict, profile: dict, policy=None) -> str:
+        policy = policy or LEGACY_POLICY
+        type_defs = policy.slot_type_definitions(self.registry)
+        shapes = self._stem_shapes(slots, bp, policy)
         slot_lines = []
         for i, s in enumerate(slots, start=1):
             line = (f"  Q{i}: type={s['type']} — {type_defs[s['type']]} | "

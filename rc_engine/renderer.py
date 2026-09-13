@@ -5,6 +5,7 @@ nothing structural is hardcoded here."""
 from __future__ import annotations
 
 from . import config
+from .generation_policy import policy_for_blueprint
 from .llm import CostLedger
 from .models import Blueprint
 from .registry import ComponentRegistry
@@ -119,8 +120,9 @@ class PassageRenderer:
                directives: list[str] | None = None) -> str:
         model, max_tokens = config.STAGE_CONFIG["render"][bp.tier]
         user = self._contract(bp, directives or [])
+        system = policy_for_blueprint(bp).system_prompt("render", RENDER_SYSTEM)
         text, truncated = self.llm.call(
-            ledger, "render", model, max_tokens, RENDER_SYSTEM, user,
+            ledger, "render", model, max_tokens, system, user,
             context={"blueprint": bp})
         if truncated:
             raise TruncatedRender("render hit max_tokens")
@@ -165,6 +167,8 @@ class PassageRenderer:
         return config.CLOSING_REGISTERS[0][2]
 
     def _contract(self, bp: Blueprint, directives: list[str]) -> str:
+        policy = policy_for_blueprint(bp)
+        vocab = policy.move_vocabulary()
         persona = self.registry.get("persona", bp.persona_id)
         family = self.registry.get("family", bp.family_id)
         ending = self.registry.get("ending", bp.ending_id)
@@ -192,7 +196,7 @@ class PassageRenderer:
                 + (f" Content brief: {p.gist}" if p.gist else ""))
             for m in beats:
                 movement_lines.append(
-                    f"       BEAT: {m} — {config.RHETORICAL_MOVES.get(m, '')}")
+                    f"       BEAT: {m} — {vocab.get(m, '')}")
 
         trap_lines = [
             f"  {t['trap_id']} (paragraph {t['anchor_para']}): invite the misreading that "
@@ -239,7 +243,7 @@ class PassageRenderer:
         beat_plan_block = ""
         if bp.move_plan:
             lines = NL.join(
-                f"  {i}. {m} — {config.RHETORICAL_MOVES.get(m, '')}"
+                f"  {i}. {m} — {vocab.get(m, '')}"
                 for i, m in enumerate(bp.move_plan, start=1))
             first, last = bp.move_plan[0], bp.move_plan[-1]
             # The first and last beat are stated again, on their own, ABOVE the
@@ -258,11 +262,11 @@ class PassageRenderer:
             # position a reader hears as voice.
             beat_plan_block = (
                 f"FIRST SENTENCE — {first}: "
-                f"{config.RHETORICAL_MOVES.get(first, '')}.{NL}"
+                f"{vocab.get(first, '')}.{NL}"
                 f"  Do NOT open on a concrete scene, object, or document "
                 f"unless that beat literally says so.{NL}"
                 f"FINAL SENTENCE — {last}: "
-                f"{config.RHETORICAL_MOVES.get(last, '')}.{NL}"
+                f"{vocab.get(last, '')}.{NL}"
                 f"  The passage ENDS on this move. Do NOT land the last "
                 f"sentence on a named physical object, a return to the opening "
                 f"image, or a detachable quotable line, unless that beat "
@@ -303,7 +307,7 @@ class PassageRenderer:
         # of real exam passages. Everything this session actually moved was
         # moved by prescribing a thing, not by forbidding one (the opening beat
         # went 2/9 to 5/5 the moment it was stated positionally).
-        schema = config.ARGUMENT_SCHEMAS.get(bp.argument_schema_id or "")
+        schema = policy.argument_schemas().get(bp.argument_schema_id or "")
         schema_block = ""
         if schema:
             schema_block = (
@@ -311,7 +315,7 @@ class PassageRenderer:
                 f"is not the topic and not the family arc; it is what the passage "
                 f"is FOR):{NL}  {schema['directive']}{NL}{NL}")
 
-        return f"""STRUCTURAL CONTRACT
+        return policy.user_prompt("render", f"""STRUCTURAL CONTRACT
 
 {schema_block}{stance_block}The schema is the primary reasoning purpose. Paragraph roles and beats
 develop that argument; keep the content briefs consistent with it.
@@ -361,7 +365,7 @@ total is not between {band_lo} and {band_hi}, revise it into that range —
 expand or compress the argument itself, do not pad with filler or amputate a
 paragraph's function. Emit only the corrected passage.
 
-Write the passage now."""
+Write the passage now.""")
 
 
 class TruncatedRender(RuntimeError):

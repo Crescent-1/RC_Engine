@@ -5,6 +5,95 @@ go first; dates use Asia/Calcutta time. `AGENTS.md` instructs Codex to update th
 file whenever it changes project files. Entries are task summaries, not a record
 of every intermediate edit. Git remains the source for exact diffs.
 
+## 2026-09-13 — Generation-policy boundary (plan section 3), by Claude Code
+
+- Completed section 3 of `2026-09-13-cat-pyq-implementation-plan.md`. The
+  boundary is dormant: no non-legacy policy is registered, and every tier maps
+  to legacy in `config.GENERATION_POLICY_FOR_NEW_PLANS`.
+- Added `rc_engine/generation_policy.py`:
+  - The legacy version `""` returns the shared objects themselves, with no
+    copies and no extra RNG.
+  - A non-legacy policy may only add. It can own tagged components
+    (`"policies": [version]`), beats, slot types, stem forms, schemas and
+    schema forms, closing registers, prompt/system extensions and a weight
+    hook.
+  - `policy_for_new_plan` always maps elite to legacy.
+  - `policy_for_blueprint` resolves from the stored plan and raises
+    `PolicyError` for an unknown version or a tier the policy does not admit.
+  - `validation_errors` runs inside registry validation.
+- Blueprint fields:
+  - Added `generation_policy` (missing means legacy) and `question_slots`.
+  - Neither is in `component_ids`, so `combo_hash` and pair hashes are
+    unchanged.
+- Plumbing:
+  - The policy is applied first in `_eligible`, topic-shape eligibility and
+    its fallback, rhythm/movement options, and the pipeline topology re-pick
+    and least-colliding fallback.
+  - Move plans, schema forms, closing registers, the refine/render/compliance/
+    question prompts, the blind move-signature and argument-schema vocabularies,
+    compliance scoring, stem shapes and slot definitions all go through it.
+  - Resume resolves the stored policy and returns `failed_resume` on
+    `PolicyError`.
+  - Non-legacy plans store their effective question slots before the first
+    questions call (`history.update_blueprint_json`, client-scoped, status and
+    `created_at` untouched). Retry and resume reuse them.
+  - `_generation_policy` is written to the fingerprint only for non-legacy
+    plans.
+  - History schema counts accept schemas from registered policies.
+  - Tagged topologies may use slot types that every one of their policies adds.
+- Tests:
+  - Added `tests/policy_harness.py`: a deterministic mock scenario run in a
+    subprocess with `PYTHONHASHSEED=0`, pinned ids and clock, and SHA-1 prompt
+    hashes.
+  - Added `tests/policy_fixtures.py`: a test-only policy with one tagged
+    component of each sampled type and a 1e6 weight boost.
+  - Added `tests/test_generation_policy.py` (14 tests).
+  - Two goldens were captured from an untouched `git archive` of `23e3d49`
+    (in the scratchpad, with the repo `.env` loaded into the environment only):
+    - `generation_policy_legacy_golden.json`: 14 interleaved attempts, a
+      forced question failure and resume, topology re-picks, and 24
+      exhausted-pool probes.
+    - `generation_policy_elite_isolation_golden.json`: six mixed attempts, the
+      policy enabled for medium/hard, then four elite attempts with a resume.
+      A side pipeline in the same process runs a policy attempt before each
+      elite attempt.
+  - The current engine matches both goldens, including the legacy golden with
+    the policy registered and tagged libraries present. The export reproduced
+    the first golden exactly.
+  - In-process tests cover:
+    - new plans storing the policy and using its additions;
+    - no shared pool widening;
+    - elite staying legacy even when config names the policy;
+    - disabling the policy;
+    - ban/recency/topic-shape fallbacks never admitting tagged components;
+    - topology re-pick;
+    - resume with stored slots after a library edit;
+    - unknown versions;
+    - hash invariance;
+    - legacy accessor identity;
+    - validation errors.
+  - Mutation check: 7 deliberate boundary breaks were each caught. They were
+    legacy seeing tagged items, the stem pool widened in place, re-pick
+    ignoring the policy, elite following config, stored slots not reused,
+    resume using today's policy, and legacy prompt text altered.
+  - Updated the source-grep assertion in
+    `test_schema_directive_reaches_the_render_contract` to the policy accessor.
+- Found, not changed: `_eligible` re-admits missing arc shapes by iterating a
+  set, so composition depends on `PYTHONHASHSEED` across processes. The
+  harness pins it.
+- Follow-up for section 4: `move-audit` (`cli.py:668`) re-extracts corpus
+  signatures with the legacy vocabulary. It must use each passage's stored
+  policy once policy plans ship.
+- Validation:
+  - `python -m pytest tests -q`: 313 passed.
+  - `python -m rc_engine.cli selftest`: passed.
+  - `generate --dry-run --hard 2`: ran.
+  - `generate --dry-run --hard 2 --medium 2 --workers 2`: ran.
+  - Both dry runs rejected some attempts on mock rhythm-cosine collisions
+    against the dry-run DB.
+- No paid run. No production DB, exports or libraries were changed.
+- Changes are uncommitted.
+
 ## 2026-09-13 — CAT PYQ evidence baseline (plan section 2), by Claude Code
 
 - Completed section 2 of `2026-09-13-cat-pyq-implementation-plan.md`.
