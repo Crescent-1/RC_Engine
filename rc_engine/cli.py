@@ -288,15 +288,93 @@ def _report_all_in(results, screen_usd: float) -> None:
 _SEED_RNG = random.Random()
 
 
-def _make_seed_provider():
+def _load_seed_ids(path: str) -> list[str]:
+    """Seed doc ids from a file: a JSON list, a JSON object whose values are
+    lists or {id: label} maps (grouped by subject), or one id per text line."""
+    with open(path, encoding="utf-8") as f:
+        raw = f.read()
+    try:
+        data = json.loads(raw)
+    except ValueError:
+        return [l.strip() for l in raw.splitlines() if l.strip() and not l.startswith("#")]
+    ids: list[str] = []
+
+    def walk(node):
+        if isinstance(node, str):
+            ids.append(node)
+        elif isinstance(node, list):
+            for x in node:
+                walk(x)
+        elif isinstance(node, dict):
+            for k, v in node.items():
+                if k == "note":
+                    continue
+                if isinstance(v, str) and len(k) >= 16:     # {doc_id: label}
+                    ids.append(k)
+                else:
+                    walk(v)
+    walk(data)
+    return list(dict.fromkeys(ids))
+
+
+def _allowlist_seed_picker(db, seed_ids: list[str]):
+    """get_unused_essay restricted to an explicit list of doc ids (2026-09-14,
+    `generate --seed-ids`): an operator's subject choice — e.g. only philosophy
+    and literature — which the store cannot express, since it has no subject
+    field. The list overrides the tier's publication pool; used, excluded and
+    avoided-kind rules still apply, with the same never-dead-end fallback."""
+    import random as _random
+
+    def pick(exclude_ids=None, avoid_kinds=None):
+        got = db.get(ids=list(seed_ids), include=["documents", "metadatas"])
+        cands = [{"id": i, "text": d, "metadata": m or {}}
+                 for i, d, m in zip(got.get("ids") or [], got.get("documents") or [],
+                                    got.get("metadatas") or [])
+                 if not (m or {}).get("used") and i not in set(exclude_ids or ())]
+        if avoid_kinds:
+            steered = [c for c in cands if c["metadata"].get("kind") not in set(avoid_kinds)]
+            cands = steered or cands
+        return _random.choice(cands) if cands else None
+    return pick
+
+
+def _make_seed_provider(seed_ids: list[str] | None = None, subjects=None, genres=None):
     try:
         from RAG import get_db, get_unused_essay, mark_essay_used  # noqa: legacy module
     except Exception as e:
         print(f"[seeds] RAG unavailable ({e}) - running seedless")
         return None
+    from .seed_labels import from_metadata, labelled_pool
     db = get_db()
+    if subjects or genres:
+        # 2026-09-14: pick by stored labels instead of a hand-built id list.
+        pool = labelled_pool(db, subjects, genres, config.SEED_MIN_CARRIABLE_SHAPES)
+        if seed_ids:
+            pool = [i for i in pool if i in set(seed_ids)]
+        print(f"[seeds] {len(pool)} unused labelled essays match subject={subjects or 'any'} "
+              f"genre={genres or 'any'} (>= {config.SEED_MIN_CARRIABLE_SHAPES} carriable shapes)")
+        if not pool:
+            # 2026-09-14 review: an empty pool used to run the batch seedless,
+            # i.e. off-subject. Refuse instead; the caller aborts the run.
+            print("[seeds] no unused labelled essay matches - nothing to generate "
+                  "(run `seeds classify` after a sync, or widen --subject/--genre)")
+            return "empty"
+        seed_ids = pool
+    allowlisted = _allowlist_seed_picker(db, seed_ids) if seed_ids else None
 
     def provider(tier: str | None = None, exclude_ids=None, avoid_kinds=None):
+        if allowlisted is not None:
+            essay = allowlisted(exclude_ids, avoid_kinds)
+            if essay is None:
+                print("[seeds] --seed-ids list has no unused essay left - seedless this slot")
+                return None, None
+            genre = essay["metadata"].get("genre")
+            print(f"[seeds] {tier or 'any'} <- [{genre}] {essay['metadata'].get('title')} (listed)")
+            seed = SeedEssay(doc_id=essay["id"], url=essay["metadata"].get("url"),
+                             title=essay["metadata"].get("title"),
+                             text=essay["text"], domain_hint=genre,
+                             labels=from_metadata(essay["metadata"]))
+            return seed, (lambda rc_id, _id=essay["id"]: mark_essay_used(db, _id, rc_id))
         # Hard/elite: random draw inside the tier's pool only (strict by
         # default). Medium: any unused genre. exclude_ids = batch-slot rotations.
         preferred = config.TIER_SEED_GENRES.get(tier) if tier else None
@@ -333,12 +411,16 @@ def _make_seed_provider():
         print(f"[seeds] {tier or 'any'} <- [{genre}] {essay['metadata'].get('title')}")
         seed = SeedEssay(doc_id=essay["id"], url=essay["metadata"].get("url"),
                          title=essay["metadata"].get("title"),
-                         text=essay["text"], domain_hint=genre)
+                         text=essay["text"], domain_hint=genre,
+                         labels=from_metadata(essay["metadata"]))
 
         def on_success(rc_id):
             mark_essay_used(db, essay["id"], rc_id)
         return seed, on_success
 
+    # 2026-09-14 review: a restricted draw (--subject/--genre/--seed-ids) skips a
+    # slot when it runs dry instead of generating seedless (run_slot, workers).
+    provider.restricted = allowlisted is not None
     return provider
 
 
@@ -464,8 +546,28 @@ def _apply_generation_policy(version: str) -> int:
             print(f"[policy] {version!r} does not admit {tier}")
             return 2
     os.environ["RC_ENGINE_NEW_PLAN_POLICY"] = version
-    config.GENERATION_POLICY_FOR_NEW_PLANS = {"medium": version, "hard": version,
-                                              "elite": ""}
+    config.GENERATION_POLICY_FOR_NEW_PLANS = {
+        "medium": version, "hard": version,
+        "elite": config.GENERATION_POLICY_FOR_NEW_PLANS.get("elite", "")}
+    return 0
+
+
+def _apply_elite_policy(version: str) -> int:
+    """2026-09-14: opt this run's new elite plans into a legacy-based policy
+    (legacy-sf1). Anything else is refused, not silently read as legacy."""
+    from .generation_policy import PolicyError, get_policy
+    version = (version or "").strip()
+    try:
+        policy = get_policy(version)
+    except PolicyError as e:
+        print(f"[policy] {e}")
+        return 2
+    if version and not (policy.legacy_base and "elite" in policy.tiers):
+        print(f"[policy] {version!r} is not a legacy-based policy; elite may only take one")
+        return 2
+    os.environ["RC_ENGINE_ELITE_PLAN_POLICY"] = version
+    config.GENERATION_POLICY_FOR_NEW_PLANS = {**config.GENERATION_POLICY_FOR_NEW_PLANS,
+                                              "elite": version}
     return 0
 
 
@@ -487,6 +589,10 @@ def cmd_generate(args) -> int:
         err = _apply_generation_policy(args.generation_policy)
         if err:
             return err
+    if getattr(args, "elite_policy", None) is not None:
+        err = _apply_elite_policy(args.elite_policy)
+        if err:
+            return err
     print("[policy] new plans: " + ", ".join(
         f"{t}={config.GENERATION_POLICY_FOR_NEW_PLANS.get(t) or 'legacy'}"
         for t in tier_counts))
@@ -500,7 +606,17 @@ def cmd_generate(args) -> int:
     # (correctly) reject them as duplicates, which only confuses a $0 test
     embed = not (args.no_embed or args.dry_run)
     pipe = RCPipeline(history, llm, embed=embed)
-    provider = None if (args.no_seed or args.dry_run) else _make_seed_provider()
+    seed_ids = None
+    if getattr(args, "seed_ids", None):
+        seed_ids = _load_seed_ids(args.seed_ids)
+        print(f"[seeds] restricted to {len(seed_ids)} listed seed essays ({args.seed_ids})")
+    subjects = [x for x in (getattr(args, "subject", None) or "").split(",") if x.strip()]
+    genres = [x for x in (getattr(args, "genre", None) or "").split(",") if x.strip()]
+    provider = None if (args.no_seed or args.dry_run) else _make_seed_provider(
+        seed_ids, subjects=subjects, genres=genres)
+    if provider == "empty":
+        history.close()
+        return 1
     workers = max(1, min(int(getattr(args, "workers", 1) or 1), config.BATCH_WORKERS_MAX))
     if workers > 1:
         # The parent's client is only used for the key check above; workers
@@ -589,9 +705,13 @@ def cmd_retry_questions(args) -> int:
     pipe = RCPipeline(history, llm, embed=not (args.no_embed or args.dry_run))
     shipped = 0
     shipped_ids: list[str] = []
+    # 2026-09-14: `results` was never defined here, so every real resume that
+    # shipped crashed in _report_all_in after the screen and skipped the export.
+    results = []
     for bp_id in targets:
         print(f"\n=== retry-questions {bp_id} ===")
         res = pipe.resume_questions(bp_id, extra_guidance=args.note)
+        results.append(res)
         print(f"  -> {res.status} rc_id={res.rc_id} "
               f"new spend ${res.cost_usd:.4f}")
         for n in res.notes:
@@ -954,6 +1074,65 @@ def cmd_topo_report(args) -> int:
 
 
 # ---------------------------------------------------------------------------
+# seeds — classify the seed store once, report coverage (2026-09-14)
+# ---------------------------------------------------------------------------
+
+def cmd_seeds(args) -> int:
+    try:
+        from RAG import get_db  # noqa: legacy module
+    except Exception as e:
+        print(f"[seeds] RAG unavailable ({e})")
+        return 2
+    from . import seed_labels
+    db = get_db()
+    if args.action == "report":
+        for line in seed_labels.report(db):
+            print(line)
+        return 0
+    todo = seed_labels.pending(db, relabel=args.relabel)
+    if args.limit:
+        todo = todo[:args.limit]
+    config.set_provider(args.provider)
+    from .llm import CostLedger  # noqa: F401  (pricing below uses config rates)
+    model = config.resolve_stage_pin("seed_classify", "hard") or (
+        args.provider, config.STAGE_CONFIG["seed_classify"]["hard"][0])
+    rate_in, rate_out = config.MODEL_RATES.get(model[1], (0.0, 0.0))
+    # ~2,300 input tokens (600-word excerpt + 16-shape menu), ~450 output incl. reasoning
+    est = len(todo) * (2300 * rate_in + 450 * rate_out) / 1e6
+    print(f"[seeds] {len(todo)} unused essays to label with {model[1]} "
+          f"(estimated ${est:.2f}; cap ${args.max_usd:.2f})")
+    if args.estimate or not todo:
+        return 0
+    if args.dry_run:
+        llm = MockLLMClient()
+        todo = todo[:3]
+        print("[seeds] dry run: mock classifier on 3 essays, nothing written")
+
+        class _NoWrite:
+            def __init__(self, inner):
+                self._inner, self._collection = inner, self
+
+            def get(self, *a, **k):
+                return self._inner.get(*a, **k)
+
+            def update(self, *a, **k):
+                pass
+        db = _NoWrite(db)
+    else:
+        llm, err = _setup_provider(argparse.Namespace(provider=args.provider, dry_run=False))
+        if llm is None:
+            return err
+    result = seed_labels.classify_store(db, llm, ComponentRegistry(), todo,
+                                        max_usd=args.max_usd, workers=args.workers)
+    print(f"[seeds] labelled {result['labelled']}, failed {result['failed']}, "
+          f"spent ${result['spent_usd']:.4f}")
+    if not args.dry_run:
+        for line in seed_labels.report(get_db()):
+            print(line)
+    return 0
+
+
+# ---------------------------------------------------------------------------
 # health
 # ---------------------------------------------------------------------------
 
@@ -1023,6 +1202,20 @@ def cmd_health(args) -> int:
     print(f"Corpus health for client {cid} (trailing {window} shipped):")
     print(f"  family KL vs design uniform:   {fam_kl:.3f}  (alarm > 0.15 once corpus > 100)")
     print(f"  topology KL vs design uniform: {topo_kl:.3f}")
+    # 2026-09-14: the question-type MIX replaces per-pair topology rejection
+    # (config.TOPOLOGY_GATE_ENFORCE); see rc_engine/question_mix.py.
+    from .question_mix import format_mix, mix
+    bp_rows = [bj for _b, _r, _f, bj in history.shipped_blueprint_rows(window)]
+    print(f"\n  question-task mix vs CAT PYQ (last {window} shipped; flag = under half / over double):")
+    for line in format_mix(mix(bp_rows, reg), "all tiers"):
+        print(line)
+    for tier in ("medium", "hard", "elite"):
+        r = mix(bp_rows, reg, tier)
+        flags = [f"{t} {v['share']:.0%} vs {v['exam']:.0%} ({v['flag']})"
+                 for t, v in r["tasks"].items() if v["flag"] and v["exam"]]
+        eo = r["tasks"]["engine_only"]
+        print(f"  {tier}: {r['sets']} sets; engine-only types {eo['share']:.0%}"
+              + (f"; flagged: {', '.join(flags)}" if flags else "; no task flagged"))
     print(f"  ARC-SHAPE KL vs design uniform: {shape_kl:.3f}  "
           f"(the family-level number that actually tracks how a passage reads)")
     if shape_counts:
@@ -1246,6 +1439,22 @@ def _print_cross_client(history) -> None:
 # export
 # ---------------------------------------------------------------------------
 
+def _move_superseded(path: str, dest_root: str) -> int:
+    """Move one superseded export out of the client folders (2026-09-14). Keeps
+    the folder it came from as a subfolder and never overwrites an earlier move."""
+    import shutil
+    from datetime import datetime as _dt
+    sub = os.path.basename(os.path.dirname(os.path.abspath(path)))
+    target_dir = os.path.join(dest_root, sub)
+    os.makedirs(target_dir, exist_ok=True)
+    target = os.path.join(target_dir, os.path.basename(path))
+    if os.path.exists(target):
+        stem, ext = os.path.splitext(target)
+        target = f"{stem}.{_dt.now().strftime('%Y%m%d-%H%M%S')}{ext}"
+    shutil.move(path, target)
+    return 1
+
+
 def cmd_export(args) -> int:
     history = _open_store(args)
     if history is None:
@@ -1260,11 +1469,20 @@ def cmd_export(args) -> int:
     if args.status:
         q += " AND status = ?"
         params.append(args.status)
+    else:
+        # 2026-09-14 review: with no --status every row with text was written,
+        # including rejected_novelty sets (_reject_full stores their text), and
+        # two had reached the client folders. The default is shipped sets only;
+        # `--status rejected_novelty` still exports rejects on request.
+        q += f" AND status IN ({','.join('?' * len(config.SHIPPING_STATUSES))})"
+        params.extend(config.SHIPPING_STATUSES)
     rows = history.conn.execute(q, params).fetchall()
     out = getattr(args, "out", None) or _export_dir(history.client_id, False)
     os.makedirs(out, exist_ok=True)
     flagged_dir = getattr(args, "flagged_out", None) or _flagged_dir(history.client_id, out)
-    n_ok = n_red = 0
+    superseded = getattr(args, "superseded_out", None) or os.path.join(
+        config.EXPORT_SUPERSEDED_DIR, history.client_id)
+    n_ok = n_red = n_moved = 0
     for rc_id, tier, rc_text, avg, status, created, f1, nov, verdict in rows:
         # A red verdict routes the file; it never changes the set's status or
         # withholds it. The reviewer decides what a flagged set is worth.
@@ -1277,9 +1495,19 @@ def cmd_export(args) -> int:
                   f"Generated: {created}\n" + "=" * 70 + "\n\n")
         with open(os.path.join(dest, f"{rc_id}.txt"), "w", encoding="utf-8") as f:
             f.write(header + rc_text)
+        # The same set in the OTHER folder is a stale copy from before its
+        # verdict changed. Move it aside (never delete) so a reviewer never
+        # sees one set twice with contradicting screen headers.
+        other = os.path.join(out if red else flagged_dir, f"{rc_id}.txt")
+        if (os.path.abspath(other) != os.path.abspath(os.path.join(dest, f"{rc_id}.txt"))
+                and os.path.isfile(other)):
+            n_moved += _move_superseded(other, superseded)
         n_red += red
         n_ok += (not red)
     print(f"Exported {n_ok} set(s) for client {history.client_id} to '{out}/'")
+    if n_moved:
+        print(f"Moved {n_moved} superseded copy/copies to '{superseded}/' "
+              f"(same set, other folder, older screen verdict)")
     if n_red:
         print(f"Exported {n_red} similarity-flagged set(s) to '{flagged_dir}/' "
               f"- these read like recent sets and want a human look")
@@ -1675,6 +1903,15 @@ def main(argv=None) -> int:
     g.add_argument("--db", default=config.DB_PATH)
     g.add_argument("--dry-run", action="store_true", help="mock client, $0")
     g.add_argument("--no-seed", action="store_true", help="skip RAG seed essays")
+    g.add_argument("--seed-ids", default=None, metavar="FILE",
+                   help="draw seeds only from these doc ids (JSON list/map or one id per "
+                        "line) — e.g. a subject-restricted batch; overrides tier seed pools")
+    g.add_argument("--subject", default=None, metavar="LIST",
+                   help="draw only unused essays whose stored label domain is in this "
+                        "comma list, e.g. philosophy,literature (run `seeds classify` first)")
+    g.add_argument("--genre", default=None, metavar="LIST",
+                   help="draw only unused essays whose stored label genre is in this "
+                        "comma list, e.g. criticism,conceptual_essay")
     g.add_argument("--no-embed", action="store_true", help="disable embedding channel")
     g.add_argument("--no-export", action="store_true")
     g.add_argument("--no-screen", action="store_true",
@@ -1691,6 +1928,9 @@ def main(argv=None) -> int:
                    help="compose NEW medium/hard plans under this generation policy "
                         "(e.g. cat-pyq-q1); elite always stays legacy; '' forces legacy. "
                         "Default: config.GENERATION_POLICY_FOR_NEW_PLANS")
+    g.add_argument("--elite-policy", default=None, metavar="VERSION",
+                   help="compose NEW elite plans under a legacy-based policy, e.g. "
+                        "legacy-sf1 (legacy engine + seed fidelity). Default: legacy")
     _client_opt(g)
 
     pr = sub.add_parser("policy-report",
@@ -1750,6 +1990,18 @@ def main(argv=None) -> int:
                    help="directories of exported RC .txt files to fingerprint "
                         f"(founding client default: {_BACKFILL_TXT_DIRS}; other clients: none)")
     _client_opt(b)
+
+    sd = sub.add_parser("seeds", help="seed-store labels: classify essays once (cheap "
+                                      "model) and report subject/genre coverage")
+    sd.add_argument("action", choices=["classify", "report"])
+    sd.add_argument("--provider", choices=list(config.PROVIDERS), default="openai",
+                    help="provider whose small model labels (default openai: gpt-5.6-luna)")
+    sd.add_argument("--limit", type=int, default=None, help="label at most N essays")
+    sd.add_argument("--max-usd", type=float, default=3.0, help="stop starting calls at this spend")
+    sd.add_argument("--workers", type=int, default=6, help="parallel classifier calls")
+    sd.add_argument("--relabel", action="store_true", help="label again even if already labelled")
+    sd.add_argument("--estimate", action="store_true", help="count and price only, no calls ($0)")
+    sd.add_argument("--dry-run", action="store_true", help="mock classifier, writes nothing ($0)")
 
     h = sub.add_parser("health", help="corpus health snapshot ($0)")
     h.add_argument("--db", default=config.DB_PATH)
@@ -1816,7 +2068,7 @@ def main(argv=None) -> int:
             "avoid": cmd_avoid, "vet": cmd_vet, "topo-report": cmd_topo_report,
             "retry-questions": cmd_retry_questions,
             "move-audit": cmd_move_audit, "client": cmd_client,
-            "policy-report": cmd_policy_report}[args.cmd](args)
+            "policy-report": cmd_policy_report, "seeds": cmd_seeds}[args.cmd](args)
 
 
 if __name__ == "__main__":

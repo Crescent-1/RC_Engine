@@ -48,8 +48,19 @@ def blind_solve(llm, ledger: CostLedger, bp: Blueprint, passage: str,
     except (ValueError, json.JSONDecodeError) as e:
         return {"verdict": "solver_error", "error": str(e), "disputes": []}
 
-    answers = {int(a["q"]): a for a in parsed.get("answers", [])
-               if isinstance(a.get("q"), int) and a.get("answer")}
+    # 2026-09-14 review: a non-dict item raised AttributeError after the paid
+    # questions call, and a q given as "3" was silently dropped. Keep what can
+    # be read; the pipeline routes an incomplete read to review via "comparable".
+    answers = {}
+    raw = parsed.get("answers", []) if isinstance(parsed, dict) else []
+    for a in raw if isinstance(raw, list) else []:
+        if not isinstance(a, dict) or not a.get("answer"):
+            continue
+        qn = a.get("q")
+        if isinstance(qn, str) and qn.strip().isdigit():
+            qn = int(qn.strip())
+        if isinstance(qn, int) and not isinstance(qn, bool):
+            answers[qn] = a
     disputes = []
     for q in qdata["questions"]:
         sa = answers.get(q["q"], {})
@@ -58,9 +69,11 @@ def blind_solve(llm, ledger: CostLedger, bp: Blueprint, passage: str,
             disputes.append({"q": q["q"], "solver": letter, "key": q["correct"],
                              "confidence": sa.get("confidence"),
                              "reasoning": sa.get("reasoning", "")})
-    return {"verdict": "ok", "answers": parsed.get("answers", []),
+    expected = {q["q"] for q in qdata["questions"]}
+    return {"verdict": "ok", "answers": list(answers.values()),
+            "answered": len(expected & set(answers)),
             "disputes": disputes,
-            "comparable": len(answers) == config.QUESTIONS_PER_SET}
+            "comparable": expected <= set(answers)}
 
 
 JUDGE_SYSTEM_TEMPLATE = """You are a strict, adversarial CAT VARC quality auditor. Assume the

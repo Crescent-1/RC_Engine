@@ -131,6 +131,28 @@ class GenerationPolicy:
     # validated and stored on the plan, the renderer may use them, and the
     # auditor traces every factual claim back to them.
     source_facts: bool = False
+    # 2026-09-14: f2 checks original evidence and requires complete audit results.
+    # Keep f1's persisted prompt/validation contract unchanged.
+    strict_source_fact_audit: bool = False
+    # -- seed fidelity (2026-09-14; see seed_fidelity.py) --
+    # True: the plan must stay on the seed's subject and kind of material. Refine
+    # and re-refine are told so, the plan is checked before render, and the
+    # rendered passage is held to SEED_FIDELITY_PASSAGE_FLOOR.
+    seed_fidelity: bool = False
+    # 2026-09-14: True = the legacy engine plus ONLY seed fidelity (and its refine
+    # system text). Such a policy reads every legacy path and is the one kind of
+    # non-legacy policy elite may use; validation_errors enforces "only".
+    legacy_base: bool = False
+    # 2026-09-14 prompt review (RC-HARD-260914-0099's contract), measured over
+    # 135 shipped plans. True: no never-stated revelation under a committed
+    # closing posture (7 of 135 plans told the writer the thesis is never stated
+    # AND to end on a verdict); no plan holding both LEVEL_RELOCATION and
+    # UNDERLYING_CAUSE_NAMED, whose glosses contradict each other (9 of 135);
+    # and the family's paragraph role is printed as subordinate to the beats.
+    coherent_plans: bool = False
+    # True: the render contract names the seed essay (title, subject, kind,
+    # particulars) and keeps cases and analogies inside that subject.
+    render_seed_context: bool = False
 
     # -- identity -------------------------------------------------------------
 
@@ -138,13 +160,18 @@ class GenerationPolicy:
     def is_legacy(self) -> bool:
         return self.version == LEGACY
 
+    @property
+    def reads_legacy(self) -> bool:
+        """Takes the legacy branch wherever code branches on the policy."""
+        return self.is_legacy or self.legacy_base
+
     # -- components -----------------------------------------------------------
 
     def component_eligible(self, item: dict) -> bool:
         tags = item.get("policies")
         if not tags:
             return True
-        if self.is_legacy:
+        if self.reads_legacy:
             return False
         return bool(set(tags) & (set(self.component_tags) | {self.version}))
 
@@ -153,7 +180,7 @@ class GenerationPolicy:
         topology that cannot carry the tier's negative-slot target is not
         eligible (section 4). Legacy ignores it."""
         ids = registry.ids(ctype)
-        if self.is_legacy and not registry.has_policy_tags(ctype):
+        if self.reads_legacy and not registry.has_policy_tags(ctype):
             return ids
         ids = [i for i in ids if self.component_eligible(registry.get(ctype, i))]
         if ctype == "topology" and self.question_contracts and tier:
@@ -345,8 +372,16 @@ def get_policy(version: str | None) -> GenerationPolicy:
 
 
 def policy_for_new_plan(tier: str) -> GenerationPolicy:
-    """The policy a NEW blueprint for this tier is composed under."""
+    """The policy a NEW blueprint for this tier is composed under.
+
+    Elite is legacy unless config names a legacy-based policy for it
+    (2026-09-14, operator decision: elite passages must keep their seed's
+    subject too). Any other version named for elite still resolves to legacy."""
     if tier == "elite":
+        version = getattr(config, "GENERATION_POLICY_FOR_NEW_PLANS", {}).get("elite", LEGACY)
+        policy = _POLICIES.get(version or LEGACY)
+        if policy is not None and policy.legacy_base and "elite" in policy.tiers:
+            return policy
         return LEGACY_POLICY
     version = getattr(config, "GENERATION_POLICY_FOR_NEW_PLANS", {}).get(tier, LEGACY)
     policy = get_policy(version)
@@ -410,8 +445,9 @@ def validation_errors(registry) -> list[str]:
             errors.append(f"GENERATION_POLICY_FOR_NEW_PLANS has unknown tier {tier!r}")
         if version not in _POLICIES:
             errors.append(f"GENERATION_POLICY_FOR_NEW_PLANS[{tier!r}] names unknown policy {version!r}")
-        elif tier == "elite" and version != LEGACY:
-            errors.append("elite must stay on the legacy generation policy")
+        elif tier == "elite" and version != LEGACY and not _POLICIES[version].legacy_base:
+            errors.append("elite must stay on the legacy generation policy "
+                          "(or a legacy-based one)")
         elif tier in TIERS and tier not in _POLICIES[version].tiers:
             errors.append(f"policy {version!r} does not admit tier {tier!r}")
     for ctype, items in registry.libraries.items():
@@ -443,11 +479,36 @@ def validation_errors(registry) -> list[str]:
             for m in moves:
                 if m not in vocab:
                     errors.append(f"policy {version!r} plans beat {m!r} with no gloss")
-        if "elite" in p.tiers and not p.is_legacy:
+        if "elite" in p.tiers and not p.is_legacy and not p.legacy_base:
             errors.append(f"policy {version!r} must not admit elite")
+        if p.legacy_base:
+            errors.extend(legacy_base_errors(p))
         if p.question_contracts:
             errors.extend(_contract_errors(version, p, registry))
         errors.extend(_structure_errors(version, p, registry))
+    return errors
+
+
+# Fields a legacy-based policy may set away from LEGACY_POLICY (2026-09-14).
+_LEGACY_BASE_FREE = {"version", "tiers", "description", "legacy_base", "seed_fidelity",
+                     "system_extensions", "coherent_plans", "render_seed_context"}
+
+
+def legacy_base_errors(p: GenerationPolicy) -> list[str]:
+    """A legacy-based policy is the legacy engine plus seed fidelity, nothing
+    else: every other field must equal legacy's, and its only system text is for
+    refine. This is what lets elite use it without taking any CAT PYQ change."""
+    import dataclasses
+    errors = []
+    for f in dataclasses.fields(GenerationPolicy):
+        if f.name in _LEGACY_BASE_FREE:
+            continue
+        if getattr(p, f.name) != getattr(LEGACY_POLICY, f.name):
+            errors.append(f"legacy-based policy {p.version!r} changes {f.name!r}")
+    extra = set(p.system_extensions) - {"refine"}
+    if extra:
+        errors.append(f"legacy-based policy {p.version!r} extends system prompts "
+                      f"{sorted(extra)}; only refine is allowed")
     return errors
 
 

@@ -36,7 +36,10 @@ python -m rc_engine.cli export --status approved
 python -m rc_engine.cli client list                # clients; `client add BB` for a new one
 python -m rc_engine.cli health --client BB --all   # per-client health + exclusivity audit
 python -m rc_engine.cli policy-report              # $0 metrics by tier and generation policy
-python -m rc_engine.cli generate --dry-run --hard 2 --generation-policy cat-pyq-f1  # opt a run into a policy
+python -m rc_engine.cli generate --dry-run --hard 2 --elite 2 --generation-policy cat-pyq-f4 --elite-policy legacy-sf2  # seed fidelity, all tiers
+python -m rc_engine.cli seeds report                # $0 labelled seed coverage by subject/genre
+python -m rc_engine.cli seeds classify --estimate   # label new essays once (luna, ~$0.001 each)
+python -m rc_engine.cli generate --hard 2 --subject philosophy,literature   # draw seeds by stored label
 python -m gui                                      # web console on :8730
 ```
 
@@ -72,8 +75,11 @@ or a component library. Add a test for every behaviour change; the suite in
   query in `history.py` must say which scope it is — see `HistoryStore._scope`.
 - Generation policies (2026-09-13): medium/hard changes go into a NEW version in
   `rc_engine/policy_catalog.py` (never edit a registered version, and never
-  widen a shared library in place); elite always stays legacy, and the goldens in
-  `tests/test_generation_policy.py` must keep passing. See
+  widen a shared library in place); elite stays legacy, and the goldens in
+  `tests/test_generation_policy.py` must keep passing. The one exception
+  (2026-09-14, operator decision): elite may take a *legacy-based* policy —
+  `legacy-sf1`, the legacy engine plus seed fidelity (`--elite-policy`);
+  `legacy_base_errors` refuses any other difference. See
   `2026-09-13-cat-pyq-validation.md`.
 - Statuses: `approved` / `needs_review` / `solver_dispute` are shipped;
   `rejected_*` and `failed_*` are not. `solver_dispute` and `rejected_novelty`

@@ -5,6 +5,162 @@ go first; dates use Asia/Calcutta time. `AGENTS.md` instructs Codex to update th
 file whenever it changes project files. Entries are task summaries, not a record
 of every intermediate edit. Git remains the source for exact diffs.
 
+## 2026-09-14 — Fixes from a step-by-step code review
+
+- Export: `export` with no `--status` wrote every row with text, including
+  `rejected_novelty` sets; it now writes shipped statuses only. When a set's
+  screen verdict changes, the copy in the other folder is moved to
+  `~\rc_data\export_superseded\<client>\` (never deleted). One-off cleanup
+  (operator approved): 2 rejected exports and 7 stale duplicates (green in the
+  database, still in `flagged_similar/`) moved to
+  `~\rc_data\export_superseded\AA\cleanup-2026-09-14\`.
+- Answerability flags now route a set to `needs_review`; qa_checks already said
+  they did, but the status logic never read them.
+- An incomplete blind solve (unparseable, partial, or skipped for budget) now
+  routes to `needs_review`; `comparable` was computed and never used. The solver
+  reader accepts string question numbers and skips malformed items.
+- `--subject/--genre/--seed-ids` runs skip a slot when no matching seed is left
+  (sequential and parallel) and abort when the labelled pool is empty, instead of
+  generating seedless, off-subject passages.
+- Seed-fidelity rejections carry the attempt's family/movement bans.
+- Compliance scoring tolerates non-object paragraph entries, non-numeric curve
+  points, null trap/tic fields, and audits the closing commitment only when every
+  paragraph has a reading (short curves were padded with 0.0).
+- With `TOPOLOGY_GATE_ENFORCE` off, topology no longer contributes to the novelty
+  composite either.
+- Checked and dismissed with data: never-stated theses scored as missing (17/19
+  audits report the planned paragraph, none null) and zero-padded curves (none).
+- Tests: `tests/test_review_fixes.py` (9); updated the solver stub in
+  `test_voice_plan.py`. Selftest passed; full suite 535 passed; goldens unchanged.
+
+## 2026-09-14 — Prompt fixes, lenient question layout, seed-store labels, f4
+
+- Prompt review of the exact render/questions prompts (RC-HARD-260914-0099),
+  operator-approved for every tier: the questions system prompt told the model
+  to begin and end its JSON with `'` (an f-string ate the braces; in master
+  too); dated measurements, rule-numbering history, a banned phrase quoted as an
+  example and an operator's name in the closure_reading slot text were removed
+  from prompts and kept as code comments. Goldens re-captured after a diff showed
+  only render/questions prompt hashes changed (legacy 72, elite 52). Added
+  `tests/test_prompt_hygiene.py`.
+- Question layout (operator decision): `config.TOPOLOGY_GATE_ENFORCE = False`.
+  Gate C reports a shared topology instead of rejecting (it was 3 of 4 full-gate
+  rejections in the DB and cost a paid medium passage); the free pre-render
+  re-pick stays and no longer rejects. New `rc_engine/question_mix.py`: `health`
+  prints the question-task mix of the last 100 shipped sets against the CAT PYQ
+  task shares, per tier. First read: inference 6.8% vs 15.9%, author-endorse
+  0.2% vs 5.9% under; gist 16.6% vs 8.2%, weaken 13.1% vs 6.2% over. Steering the
+  topology draw toward the gap is not built yet (measure first).
+- Seed store: refreshed (+109 essays, 1,314 total). New `seeds classify|report`
+  and `rc_engine/seed_labels.py`: every unused essay labelled once with
+  gpt-5.6-luna (genre, domain incl. new `literature`, subject, particulars,
+  dispute, topic shapes as natural/possible verdicts), stored as `seed_*`
+  metadata with a label version (`sl3`). 1,167 labelled, 0 failed, $0.96. Draws
+  use stored labels instead of a live classifier call; `generate --subject
+  philosophy,literature --genre criticism` draws by label (essays with fewer than
+  `SEED_MIN_CARRIABLE_SHAPES` = 3 shapes skipped). Shape verdicts went list ->
+  true/false -> three levels after 5-essay tests (2-3 shapes; then 14-16 or 0).
+- `cat-pyq-f4` (f3 + ...) and `legacy-sf2` (legacy-sf1 + ...): `render_seed_context`
+  names the seed essay to the writer and keeps cases inside its subject;
+  `coherent_plans` removes contradictions counted over 135 shipped plans
+  (never-stated thesis under a committed close: 7; LEVEL_RELOCATION with
+  UNDERLYING_CAUSE_NAMED: 9) and marks the family's paragraph role as
+  subordinate to the brief and beats. Tests: `test_coherent_plans.py`,
+  `test_question_mix.py`, `test_seed_labels.py`; f4 added to elite goldens.
+- Validation: selftest passed; dry run f4 + legacy-sf2 shipped (elite misses were
+  mock rhythm collisions); full suite 525 passed; goldens unchanged by f4 and the
+  topology change. No paid generation (operator's generation credits are out).
+
+## 2026-09-14 — Seed fidelity policy `cat-pyq-f3`
+
+- Operator requirement: a passage must preserve its seed essay's topic and
+  nature. The philosophy/literature f2 batch turned two Psyche philosophy essays
+  into probate and promissory-note passages. A $0 measurement over all 134
+  shipped sets (local cosine, seed vs passage) found on-subject passages at
+  0.71-0.86 and most of the corpus drifted at 0.47-0.65; the drift came from
+  refine being told to "adapt" the territory, move "semantically distant" from
+  recent topics, and choose "a DIFFERENT domain" on collisions.
+- Added default-off `cat-pyq-f3` (f2 plus `seed_fidelity`). The plan stores the
+  seed's subject/domain/particulars; refine, AVOID and collision re-refine
+  wording keep the angle inside that subject; a new cheap `seed_fidelity` stage
+  checks the plan before render (fails closed, one directed re-refine, then
+  `rejected_seed_fidelity` with seed rotation); a free passage-vs-seed cosine
+  floor (0.65) rejects before questions. Elite and older policies unchanged.
+- Main areas: new `rc_engine/seed_fidelity.py`; `policy_catalog.py`,
+  `generation_policy.py`, `composer.py`, `pipeline.py`, `config.py` (stage entries,
+  `SEED_FIDELITY_*`), mock handler in `llm.py`. Added `tests/test_seed_fidelity.py`
+  (12 tests) and f3 to the elite golden parametrisation.
+- Causes fixed at the source, not only gated: the classifier (seed-fidelity
+  plans) also returns the topic shapes the essay's own material can carry and
+  only those are drawn; the refine fallback topic uses the seed's subject
+  instead of the publication name.
+- Elite (operator decision, same day): added `legacy-sf1`, the legacy engine plus
+  seed fidelity only, with `legacy_base_errors` refusing any other difference;
+  `policy_for_new_plan("elite")` accepts only a legacy-based policy;
+  `generate --elite-policy` / `RC_ENGINE_ELITE_PLAN_POLICY`. Branches that meant
+  "legacy path" now read `reads_legacy`.
+- Validation: selftest passed; dry run medium/hard f3 + elite legacy-sf1 shipped
+  4/4; `tests/test_seed_fidelity.py` 20 tests; full suite 476 passed.
+- Limits: before the pilot batch the checker's judgement and the refine wording
+  were untested on real models; the floor is calibrated on legacy output.
+- Paid pilot (2/2/2, f3 + elite legacy-sf1, philosophy/literature seeds): 4
+  shipped for $2.45 ($1.41 wasted). Every shipped passage stayed on its seed
+  (cosine 0.81-0.86, against 0.49/0.54 for the drifted f2 sets); one drift was
+  caught by the passage floor. Follow-ups from it: carriable-shape ids are now
+  parsed from "TS01 Name" replies (the restriction had silently lapsed); the
+  shape-menu wording counts material from the essay's whole subject and asks
+  for every fitting shape (the first wording gave 1-3 shapes, TS01 on 6 of 9
+  plans, all shipped sets screened red); `SEED_FIDELITY_COHORT_MAX_SHARE` caps
+  TS01 at 0.20 for seed-fidelity plans; `resume_questions` now re-clears
+  topology for $0 before paying for questions (BP_260914_18b725c5 paid $0.11
+  and died at Gate C on a topology a sibling had shipped meanwhile).
+- Validation after follow-ups: selftest passed; 23 seed-fidelity tests; full
+  suite 479 passed.
+
+## 2026-09-14 — Subject-restricted seed pools (`generate --seed-ids`)
+
+- The Chroma seed store has no subject field and publications mix subjects, so
+  a "philosophy and literature only" batch was impossible. Added
+  `generate --seed-ids FILE`: a JSON list, a grouped `{label: {doc_id: note}}`
+  object, or one id per line. When given, every slot draws an unused, listed
+  essay (overriding the tier publication pools), still honouring exclusions and
+  kind steering; an exhausted list runs that slot seedless.
+- Main areas: `rc_engine/cli.py`; added `tests/test_seed_allowlist.py`.
+- First list (outside the repo): `~\rc_data\seed_lists\2026-09-14-philosophy-literature.json`,
+  17 philosophy + 22 literature essays, all verified present and unused.
+- Validation: the two new tests passed; the list was checked against the live
+  store. Used for a paid 2/2/2 batch with `--generation-policy cat-pyq-f2`.
+- Fixed `retry-questions`: it referenced an undefined `results` after the
+  similarity screen (since 2026-09-02), so every real resume that shipped
+  crashed before exporting. The existing source-count test now also checks the
+  local exists in both screening commands.
+
+## 2026-09-14 — Correct source evidence and incomplete factual audits
+
+- Added default-off `cat-pyq-f2` rather than mutating registered f1. New plans
+  retain original source spans and bounded surrounding context; both renderer
+  and auditor receive them, with extracted interpretations marked unverified.
+- Added explicit per-source entailment, attribution and qualification checks,
+  mandatory audit completion and well-formed passage traces. Missing fields,
+  invalid JSON, truncated responses, failed evidence checks and incomplete
+  attribution route to review. Only source-checked claims may suppress texture
+  warnings. Source evidence survives resume; elite and older policies retain
+  their existing behavior and defaults remain legacy.
+- Main areas: `source_facts.py`, policy catalog/boundary, composer, renderer,
+  compliance, pipeline and mocks. Added `tests/test_source_fact_audit.py` and
+  f2 elite golden coverage; corrected README, validation notes and command docs.
+- Validation: 71 focused tests passed (including source-fact regressions,
+  existing f1 checks, policy/elite goldens, resume and a sampling-test rerun).
+  Selftest and whitespace checks passed. Final full-suite attempt: 447 passed,
+  two skipped, four failed: three RAG imports lack optional `trafilatura` in the
+  isolated test environment; the unseeded legacy exam-share test measured 44.4%
+  against its 44.05% tolerance. That test passed in the focused rerun with
+  `PYTHONHASHSEED=0`; its thresholds and implementation were not changed.
+- Limits: semantic entailment still depends on the real auditor; no paid pilot
+  or production-data changes ran. Extra evidence/prompt size and real-model
+  behavior remain pilot measurements. F1 is retained for stored-plan replay;
+  use f2 for future source-fact pilots. Changes are uncommitted.
+
 ## 2026-09-13 — Validation, rollout and pilot preparation (plan sections 7–8), by Claude Code
 
 - `2026-09-13-cat-pyq-validation.md` records:

@@ -166,6 +166,13 @@ class RCPipeline:
             self.history.record_blueprint(bp, "composed")
             if self.parallel:
                 self.history.reserve_inflight(self.worker_id, bp, seed)
+            # Gate A⅛ (cat-pyq-f3): the plan must stay with its seed essay.
+            try:
+                drifted = self._seed_fidelity_gate(bp, seed, ledger, notes, policy, ban_f, ban_m)
+            except BudgetExceeded as e:
+                return self._abort(bp, ledger, f"budget during seed fidelity check: {e}", notes)
+            if drifted:
+                return drifted
             print(f"  [BP {bp.blueprint_id}] {bp.family_id}/{bp.persona_id}/{bp.ending_id}/"
                   f"{bp.rhythm_id}/{bp.revelation_id}/{bp.distractor_profile_id}/"
                   f"{bp.topology_id} instability={bp.instability}")
@@ -195,6 +202,15 @@ class RCPipeline:
                     except BudgetExceeded as e:
                         return self._abort(bp, ledger, f"budget during re-refine: {e}", notes)
                     self.history.record_blueprint(bp, "composed")
+                    # A collision re-refine is a new plan: it answers to the
+                    # seed check again before its topic is trusted.
+                    try:
+                        drifted = self._seed_fidelity_gate(bp, seed, ledger, notes, policy, ban_f, ban_m)
+                    except BudgetExceeded as e:
+                        return self._abort(bp, ledger,
+                                           f"budget during seed fidelity check: {e}", notes)
+                    if drifted:
+                        return drifted
                     collisions = self._topic_precheck(bp)
                     if not collisions:
                         break
@@ -305,7 +321,8 @@ class RCPipeline:
             supported = None
             if policy.source_facts:
                 from .source_facts import supported_claims
-                supported = supported_claims(realized.fact_trace, bp.source_facts)
+                supported = supported_claims(realized.fact_trace, bp.source_facts,
+                                             strict=policy.strict_source_fact_audit)
                 notes.extend(bp.source_fact_notes)
                 for u in realized.unsupported_claims:
                     notes.append(f"unsupported factual claim ({u['support']}): {u['claim']}")
@@ -364,6 +381,24 @@ class RCPipeline:
             notes.append(f"gate B breach {pre_report.breached} — one breach-directed re-render")
             print(f"  [gate-b] {pre_report.breached} - re-rendering with directives")
             directives = retry_dirs
+
+        # Free passage floor (cat-pyq-f3): a render can still wander off a plan
+        # that passed its seed check. Rejected before the questions call, the
+        # most expensive one; see config.SEED_FIDELITY_PASSAGE_FLOOR.
+        if policy.seed_fidelity and self.embed and getattr(seed, "text", ""):
+            from .seed_fidelity import passage_cosine
+            cos = passage_cosine(seed.text, passage)
+            if cos is not None:
+                notes.append(f"seed fidelity: passage-seed cosine {cos:.3f} "
+                             f"(floor {config.SEED_FIDELITY_PASSAGE_FLOOR})")
+                if cos < config.SEED_FIDELITY_PASSAGE_FLOOR:
+                    print(f"  [seed-fidelity] passage left its seed: cosine {cos:.3f} < "
+                          f"{config.SEED_FIDELITY_PASSAGE_FLOOR} - rejecting before questions")
+                    self.history.set_blueprint_status(bp.blueprint_id, "rejected_seed_fidelity")
+                    return RCResult(None, bp.blueprint_id, tier, "rejected_seed_fidelity",
+                                    cost_usd=ledger.spent_usd, cost_lines=ledger.lines,
+                                    notes=notes + ["seed fidelity: rendered passage below floor"],
+                                    ban_families=sorted(ban_f), ban_movements=sorted(ban_m))
 
         # persist the novelty-clean passage: a question failure can now resume
         # from here instead of re-paying compose/render/compliance
@@ -431,6 +466,27 @@ class RCPipeline:
                             novelty_composite=pre_report.composite,
                             notes=notes + [f"passage novelty on resume: "
                                            f"{pre_report.breached or pre_report.composite}"])
+
+        # Free topology re-clearance (2026-09-14). The topology was cleared when
+        # the plan was composed, but siblings may have shipped since: BP_260914_
+        # 18b725c5 resumed after RC-MEDIUM-260914-0074 shipped on the same QT10,
+        # paid $0.11 for questions and died at Gate C on "topology 1.00". The
+        # topology is blueprint-derived and fixed before questions, so re-pick it
+        # here for $0, exactly as compose does.
+        old_topology = bp.topology_id
+        bp, topo_notes, topo_ok = self._resolve_topology(bp)
+        notes.extend(topo_notes)
+        if not topo_ok:
+            self.history.set_blueprint_status(bp.blueprint_id, "rejected_novelty")
+            return RCResult(None, bp.blueprint_id, bp.tier, "rejected_novelty",
+                            cost_usd=0.0, notes=notes + [
+                                "topology precheck failed on resume - no questions paid; "
+                                "passage left resumable"])
+        if bp.topology_id != old_topology and bp.question_slots:
+            # Stored slots belong to the old topology; the next questions call
+            # re-resolves them under the plan's own policy.
+            bp.question_slots = []
+            self.history.update_blueprint_json(bp)
 
         return self._questions_and_ship(bp, passage, realized, ledger, notes,
                                         seed, bp_sims, rc_id,
@@ -533,6 +589,7 @@ class RCPipeline:
         rc_text = assemble_rc_text(bp, passage, qdata)
         solver, judge = None, {"scores": {}, "average": 0.0, "verdict": "skipped"}
         solver_dispute = False
+        answerability_flags: list[str] = []
         # Answerability: asked before the solver, so a question that cannot be
         # settled from the passage is named as such rather than surfacing later
         # as an unexplained dispute. Warnings only — nothing is withheld.
@@ -541,6 +598,7 @@ class RCPipeline:
             rows = check_answerability(passage, qdata.get("questions", []),
                                        self.llm, ledger, bp.tier, policy=policy)
             flagged = answerability_warnings(rows)
+            answerability_flags = list(flagged)
             for w in flagged:
                 notes.append(f"answerability: {w}")
                 print(f"  [answerability] {w}")
@@ -589,6 +647,16 @@ class RCPipeline:
             judge = {"scores": {}, "average": 0.0, "verdict": "skipped_budget"}
 
         avg = float(judge.get("average") or 0.0)
+        if solver is None:
+            solver_verified, solver_unverified_reason = False, "blind solve did not run"
+        elif solver.get("verdict") != "ok":
+            solver_verified, solver_unverified_reason = False, "blind solve reply unusable"
+        elif not solver.get("comparable", False):
+            solver_verified, solver_unverified_reason = (
+                False, f"blind solve answered {solver.get('answered', 0)} of "
+                       f"{len(qdata.get('questions', []))} questions")
+        else:
+            solver_verified, solver_unverified_reason = True, ""
         from .voice_plan import review_reasons
         voice_reasons = review_reasons(bp, realized)
         notes.extend(f"voice review: {reason}" for reason in voice_reasons)
@@ -613,6 +681,19 @@ class RCPipeline:
             status = "needs_review"
             notes.append(f"source facts: {len(realized.unsupported_claims)} unsupported "
                          f"factual claim(s) - routed to needs_review")
+        elif answerability_flags:
+            # 2026-09-14 review: qa_checks has always said a flagged question "is
+            # routed to review", but nothing here read the flags, so a question
+            # judged unanswerable or double-keyed could ship approved.
+            status = "needs_review"
+            notes.append(f"answerability: {len(answerability_flags)} question(s) flagged "
+                         f"- routed to needs_review")
+        elif not solver_verified:
+            # 2026-09-14 review: a solver reply that failed to parse, answered
+            # only some questions, or was skipped for budget raised no dispute,
+            # so the set could be approved with its keys never blind-checked.
+            status = "needs_review"
+            notes.append(f"solver: {solver_unverified_reason} - routed to needs_review")
         elif not word_report["in_band"]:
             # 500-word standard is mandatory: a passage outside the band never
             # auto-approves, whatever the judge thinks of it.
@@ -741,6 +822,41 @@ class RCPipeline:
             neg = [s for s in bp.question_slots if s["polarity"] == "negative"]
             f.stylometry["_negated_slots"] = len(neg)
             f.stylometry["_negated_tasks"] = "|".join(sorted(s["task"] for s in neg))
+
+    def _seed_fidelity_gate(self, bp: Blueprint, seed: SeedEssay, ledger: CostLedger,
+                            notes: list[str], policy, ban_f: set | None = None,
+                            ban_m: set | None = None) -> RCResult | None:
+        """cat-pyq-f3 (2026-09-14): check the refined plan against its seed
+        before any render money is spent; one directed re-refine on failure
+        (config.SEED_FIDELITY_MAX_REREFINES), then reject so run_slot rotates
+        the seed. bp is updated in place. None means go ahead. Plans under any
+        other policy, and seedless attempts, pass untouched."""
+        if not policy.seed_fidelity or not getattr(seed, "text", ""):
+            return None
+        from .seed_fidelity import check_plan
+        ok, reason = check_plan(self.llm, ledger, bp, seed)
+        for i in range(1, config.SEED_FIDELITY_MAX_REREFINES + 1):
+            if ok:
+                break
+            notes.append(f"seed fidelity: plan drifted ({reason}) - re-refine "
+                         f"{i}/{config.SEED_FIDELITY_MAX_REREFINES}")
+            print(f"  [seed-fidelity] plan drifted: {reason} - re-refining "
+                  f"({i}/{config.SEED_FIDELITY_MAX_REREFINES})")
+            self.composer.refine_only(bp, seed, ledger, fidelity_failure=reason)  # in place
+            self.history.record_blueprint(bp, "composed")
+            ok, reason = check_plan(self.llm, ledger, bp, seed)
+        if ok:
+            notes.append("seed fidelity: plan keeps the seed's subject and kind")
+            return None
+        print(f"  [seed-fidelity] plan still off its seed: {reason} - rejecting")
+        self.history.set_blueprint_status(bp.blueprint_id, "rejected_seed_fidelity")
+        # Bans collected earlier in this attempt travel with the reject (2026-09-14
+        # review), exactly as the novelty rejects carry them, so the slot's next
+        # attempt cannot re-draw a skeleton this one already ruled out.
+        return RCResult(None, bp.blueprint_id, bp.tier, "rejected_seed_fidelity",
+                        cost_usd=ledger.spent_usd, cost_lines=ledger.lines,
+                        notes=notes + [f"seed fidelity: plan still drifted ({reason})"],
+                        ban_families=sorted(ban_f or ()), ban_movements=sorted(ban_m or ()))
 
     def _pool_is_single_kind(self, tier: str) -> bool:
         """Can this tier's seed pool offer any alternative content kind?
@@ -884,6 +1000,12 @@ class RCPipeline:
         # we can do is still above it, the rejection is already decided — bail
         # now (cost: the refine call) instead of after render + questions.
         cap = config.NOVELTY_CAPS["topology_similarity"]
+        if best_sim > cap and not getattr(config, "TOPOLOGY_GATE_ENFORCE", True):
+            # 2026-09-14: Gate C no longer rejects on topology, so a shared
+            # layout is no longer a certain rejection worth bailing for.
+            notes.append(f"topology precheck: best available {best_tid} @ {best_sim:.2f} "
+                         f"vs {best_near} - proceeding (topology is reported, not gated)")
+            return bp, notes, True
         if best_sim > cap:
             notes.append(
                 f"topology precheck: best available {best_tid} @ {best_sim:.2f} "
@@ -1184,6 +1306,12 @@ def run_slot(pipeline: RCPipeline, tier: str, slot_no: int, count: int,
     tried_doc_ids: set[str] = set()
     if seed_provider:
         seed, on_success = seed_provider(tier)
+        if seed is None and getattr(seed_provider, "restricted", False):
+            # 2026-09-14 review: a subject- or list-restricted run that has run
+            # out of essays skips the slot. Running seedless would produce the
+            # off-subject passage the restriction exists to prevent.
+            print(f"[seeds] no matching seed left for {tier} - slot {slot_no} skipped")
+            return False
         if seed is None:
             print(f"[seeds] exhausted - continuing seedless for {tier}")
         elif seed.doc_id:
@@ -1226,8 +1354,10 @@ def run_slot(pipeline: RCPipeline, tier: str, slot_no: int, count: int,
         keep(res, tier, slot_no, attempt + 1)
         ban_families.update(res.ban_families or [])
         ban_movements.update(res.ban_movements or [])
+        # rejected_seed_fidelity (2026-09-14): the plan or passage left its seed;
+        # a fresh seed is the retry, as for a saturated genre.
         if res.status not in ("rejected_novelty", "failed_composition",
-                              "rejected_seed_genre"):
+                              "rejected_seed_genre", "rejected_seed_fidelity"):
             break
         if spent() >= max_usd:
             print(f"[batch] spending cap reached mid-retry - stopping cleanly.")

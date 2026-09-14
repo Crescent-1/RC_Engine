@@ -1825,6 +1825,10 @@ def test_both_screen_call_sites_fold_the_spend_in():
     assert src.count("_, screen_usd = screen_batch(") == 2, (
         "generate and retry-questions both screen; both must report it")
     assert src.count("_report_all_in(results, screen_usd)") == 2
+    # 2026-09-14: the source count passed while retry-questions had no `results`
+    # local at all (NameError after every real screened resume).
+    for fn in (cli.cmd_generate, cli.cmd_retry_questions):
+        assert "results" in fn.__code__.co_varnames, fn.__name__
 
 
 # ---------------------------------------------------------------------------

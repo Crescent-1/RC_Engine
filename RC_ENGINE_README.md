@@ -152,10 +152,67 @@ fall back when facts cannot carry them; every factual claim in the passage is
 traced to fact ids, and untraced claims route the set to review. Evidence is
 never exported.
 
+`cat-pyq-f2` — corrected source-fact auditing (2026-09-14), cumulative on f1:
+- original spans and surrounding source context are persisted and supplied to
+  both renderer and auditor; extracted paraphrases are explicitly unverified;
+- every source proposal needs explicit entailment, attribution and qualification
+  verdicts against that evidence; every passage claim needs an explicit trace;
+- missing, malformed or incomplete audits and failed evidence checks route to
+  review. An empty trace is accepted only with explicit completed-audit results;
+- texture warnings can be suppressed only for claims backed by passed source
+  checks and an explicit positive attribution verdict.
+
+Use **f2 for future source-fact pilots**, not f1. F1 remains registered solely to
+preserve stored-policy behavior; its original checks could accept an incorrect
+paraphrase as evidence or miss an incomplete audit. Defaults remain legacy and
+elite is unchanged. These are audit safeguards, not deterministic proof of facts;
+semantic quality and added prompt size still need an authorized paid pilot.
+
+`cat-pyq-f3` — seed fidelity (2026-09-14), cumulative on f2. The passage must
+keep its seed essay's subject and kind of material (operator requirement):
+- the seed's classified subject, domain and particulars are stored on the plan;
+  refine, the AVOID list and the topic-collision re-refine steer the angle
+  *within* that subject instead of "adapt its territory" / "a DIFFERENT domain";
+- before render, a cheap `seed_fidelity` call checks the plan (subject and kind,
+  fails closed); one directed re-refine, then `rejected_seed_fidelity` and the
+  slot rotates to another seed;
+- after render, a free local cosine between seed and passage must clear
+  `config.SEED_FIDELITY_PASSAGE_FLOOR` (0.65) or the attempt is rejected before
+  the questions call.
+- at the source, the classifier also lists which topic shapes the essay's own
+  material can carry, and only those are drawn (a virtue essay is no longer
+  handed "One Object, Read Closely" and left to invent a will); the refine
+  fallback topic uses the seed's subject, not the publication name.
+Why: measured over the 134 shipped sets, on-subject passages scored 0.71-0.86
+against their seed while most of the corpus had drifted (0.47-0.65). See
+`rc_engine/seed_fidelity.py`.
+
+`legacy-sf1` — the same seed fidelity on the legacy engine, and nothing else; the
+only non-legacy policy elite may take (`generate --elite-policy legacy-sf1`).
+
+`cat-pyq-f4` / `legacy-sf2` (2026-09-14) — the above plus: the writer's contract
+names the seed essay (title, subject, kind, particulars) and keeps cases inside
+its subject; plans no longer pair a never-stated thesis with a committed close,
+or LEVEL_RELOCATION with UNDERLYING_CAUSE_NAMED; the family's paragraph role is
+marked subordinate to the brief and beats. Prefer these for new pilots.
+
+Seed labels (2026-09-14): `seeds classify` labels every unused essay once with
+the cheap model (genre, domain incl. literature, subject, particulars, topic
+shapes as natural/possible) and stores them in the seed store; `seeds report`
+shows coverage; `generate --subject … --genre …` draws by label. Run
+`seeds classify` after each `python RAG.py` sync so new essays are labelled.
+
+Question layout is reported, not gated (`config.TOPOLOGY_GATE_ENFORCE`); `health`
+prints the question-task mix against the CAT PYQ shares instead.
+
+```bash
+python -m rc_engine.cli generate --hard 2 --elite 2 --generation-policy cat-pyq-f3 --elite-policy legacy-sf1
+```
+
 ```bash
 python -m rc_engine.cli policy-report                      # $0 metrics by tier and policy
 python tools/cat_pyq/simulate_policies.py --sets 40 --invented-seeds   # $0 seeded simulations
-python tools/cat_pyq/pilot_review_pack.py --db rc_pipeline.db --policy cat-pyq-f1 --out <private dir>
+python tools/cat_pyq/pilot_review_pack.py --db rc_pipeline.db --policy cat-pyq-f2 --out <private dir>
 ```
 
 Validation, rollout, rollback and the pilot protocol: `2026-09-13-cat-pyq-validation.md`.

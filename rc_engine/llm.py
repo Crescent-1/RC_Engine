@@ -352,6 +352,13 @@ class MockLLMClient:
             "notes": "mock compliance pass",
             # the mock renderer invents no facts, so there is nothing to trace
             **({"fact_trace": []} if "source_facts" in ctx else {}),
+            # f2 mock: its filler prose makes no factual claims. Semantic
+            # failures are supplied by adversarial tests, not simulated here.
+            **({"fact_trace_complete": True,
+                "source_fact_checks": [
+                    {"fact_id": fid, "entailed": True, "attribution_ok": True,
+                     "qualification_ok": True} for fid in ctx.get("source_facts", [])]}
+               if ctx.get("strict_source_fact_audit") else {}),
         })
 
     def _seed_classify(self, ctx) -> str:
@@ -361,11 +368,24 @@ class MockLLMClient:
         genres = sorted(g for g in config.SEED_GENRES if g != "unknown")
         rng = random.Random(str(ctx.get("seed", ""))[:200])
         g = rng.choice(genres)
+        # Seed-fidelity plans send a shape menu: the mock calls every listed
+        # shape carriable, so dry runs keep the full draw.
+        carriable = ({"shape_verdicts": {ln.split()[0]: "natural" for ln in ctx["shape_menu"].splitlines()
+                                         if ln.strip()}}
+                     if ctx.get("shape_menu") else {})
         return json.dumps({
+            **carriable,
             "genre": g, "domain": rng.choice(["science", "history", "social"]),
             "concrete_particulars": ["a mock particular"],
             "bipolar_dispute_available": rng.random() < 0.5,
             "one_line": "mock seed classification"})
+
+    def _seed_fidelity(self, ctx) -> str:
+        # The mock refiner writes placeholder content, so there is no subject to
+        # drift from. Drift verdicts are supplied by tests, not simulated here.
+        return json.dumps({"same_subject": True, "same_nature": True,
+                           "source_subject": "mock source", "plan_subject": "mock plan",
+                           "drift": ""})
 
     def _move_signature(self, ctx) -> str:
         # Deterministic per passage, but genuinely varied across passages —
