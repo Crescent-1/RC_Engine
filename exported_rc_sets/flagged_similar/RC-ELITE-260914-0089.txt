@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260914-0089 | Tier: elite | Score: 8.8 | Status: needs_review | Compliance F1: 0.862 | Novelty: 0.542 | Screen: red | Generated: 2026-09-14T06:27:24.536262+00:00
+======================================================================
+
+[PASSAGE]
+
+A children's book is almost always evaluated by the way it manages what hurts. Two camps have formed around this, and both argue well. The first, whose most articulate recent advocate is Mac Barnett, holds that children are readers rather than patients, that the condescension of sanitized material is its own small injury, and that the durable works — Golding's boys on the island, the Grimm versions where the stepsisters mutilate their feet — earn their permanence by telling the truth about cruelty and death before a child has been assured there isn't any. The second camp holds that childhood is a bounded interval to which a certain quality of attention is owed, and that a story-world can be a place where nothing irrecoverable happens: *Bluey*'s Brisbane backyard, or the frontier of the Little House books, where hunger and illness are real but narrated at a temperature a seven-year-old can carry. I find the first position more interesting and the second more honest about what it wants. Neither, though, is arguing about what it thinks. Both treat the dispute as one about content — how much harshness belongs on the page — when the variable that actually moves is who absorbs the cost when a book gets it wrong, and that party is never the book.
+
+Consider the shelf and the queue together. The unrevised Grimm are brutal and beloved; *Bluey* is gentle and adored; the streaming *Lord of the Flies* softens the bleakest turns; the televised Little House smooths the frontier toward warmth. The sort is clean until you watch *Bluey* carefully. That show stages the death of a pet, the fear that a parent might not come back, the flat fact of a father who is tired and gets things wrong — inside its gentleness, not despite it. So the binary fails at the level of description before anyone reaches the level of judgment. Gentleness here is not the absence of hard material; it is a rate of delivery.
+
+Streaming has changed the arithmetic in a way the argument over Barnett's crud percentage never had to accommodate. A printed book reaches a child once, at a pace the child sets, and can be closed. An adaptation reaches millions simultaneously and then reaches them again, at four in the morning, on autoplay, at whatever age the algorithm decides. And I grant the protective camp nearly everything it asks: a child who encounters irrecoverable cruelty too early, in a form they cannot pause or place, is not merely unsettled but damaged, and the damage is not redeemed by the work's artistic seriousness. That concession is owed. It does not tell me which camp is right, because both camps are worried about precisely this, and they differ only in their guesses about when it happens.
+
+So the tally does not close. Praise for honesty and praise for gentleness are both verdicts rendered on the work, while the cost of misjudging readiness lands on particular children the critic will never meet, at ages and in circumstances no single adaptation can be engineered to anticipate. To conclude now would require knowing the distribution, and nothing in the debate as conducted has ever been in a position to know it — which is why the suspension is not a failure of nerve, if one is careful about what is actually being suspended.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) Children's books earn permanence by telling the truth about cruelty early, and sanitizing them is a condescension that constitutes its own injury to readers.
+(B) The debate misdescribes itself as a quarrel over content when the decisive variable is who bears the cost of misjudged readiness, which no critic can know.
+(C) Bluey's handling of death and parental failure shows that gentle works are covertly members of the harsh-truth camp, so the two positions were always one position.
+(D) Streaming's scale and autoplay have made the protective camp's warning decisive, since an adaptation reaches children at ages no one selected or supervised.
+
+Q2. What does the passage's final sentence accomplish?
+(A) It summarises the two preceding paragraphs by restating that praise for honesty and praise for gentleness are verdicts rendered on works.
+(B) It concludes that both camps have been arguing in bad faith, since each rendered verdicts it lacked any standing whatsoever to render.
+(C) It concedes that the protective camp's worry about irrecoverable harm settles the matter, provided critics are honest about the limits of their evidence.
+(D) It defends the withheld verdict as a consequence of missing knowledge, while signalling that what is suspended must itself be specified carefully.
+
+Q3. In the passage, the phrase 'a rate of delivery' is used to mean:
+(A) the speed at which a child chooses to read a printed book, since the page can always be closed
+(B) the pacing and framing at which hard material is given, rather than whether such material appears at all
+(C) the proportion of harsh content a work is permitted to carry before it stops counting as a gentle work
+(D) the frequency with which an adaptation is replayed to a child by autoplay, at hours no parent has chosen
+
+Q4. According to the text, the televised and streaming adaptations mentioned are described as:
+(A) proving that gentleness in adaptation is compatible with irrecoverable harm on screen
+(B) demonstrating that the shelf and the queue sort cleanly once both are examined
+(C) preserving the brutality of their sources while reaching audiences at unsupervised hours
+(D) softening the bleakest turns of one source and warming the frontier of another
+
+Q5. Which one of the following positions is described in the passage but not endorsed by the author?
+(A) The cost of misjudging readiness lands on particular children the critic will never actually meet.
+(B) Enduring children's works earn their permanence by telling the truth about cruelty and death early.
+(C) Gentleness in a children's work names a rate of delivery rather than the absence of hard material.
+(D) A child harmed too early by unpausable cruelty is not redeemed by the work's artistic seriousness.
+
+Q6. Which one of the following situations is most analogous to the mechanism the author identifies in the children's-literature debate?
+(A) Regulators dispute how strong a vaccine dose should be, while the relevant uncertainty is which recipients react badly, a distribution nobody has measured.
+(B) Two film critics disagree about a thriller's violence, and one later admits the other's reading of the closing sequence was the better one.
+(C) A museum discovers that its supposedly gentle folk-art wing contains images of famine, so its catalogue categories turn out to describe nothing real.
+(D) A newspaper concludes a long editorial fight by conceding that its opponents' warnings about unsupervised online access were correct all along.
+
+Q7. What is the structural function of the sentence beginning 'And I grant the protective camp nearly everything it asks' within the argument?
+(A) It removes the strongest available objection to suspending judgement, then shows the concession leaves the two camps undecided between themselves.
+(B) It marks the point at which the author abandons the honesty camp and adopts the protective camp's account of readiness and harm.
+(C) It supplies the empirical evidence about streaming scale that the preceding two sentences about autoplay had merely asserted without support.
+(D) It introduces the essay's governing claim that the cost of error falls on children the critic will never meet or know.
+
+Q8. Which one of the following research findings, if true, would most strengthen the author's conclusion that the tally cannot be closed?
+(A) Adaptations that soften their sources are watched repeatedly by young children at hours their parents did not choose or monitor.
+(B) Critics who praise honesty in children's books are usually found to praise gentleness in television with equal enthusiasm.
+(C) Gentle children's programmes turn out to contain as much hard material as unrevised folk tales, measured scene by scene.
+(D) Children's responses to the same hard scene vary enormously by age and circumstance, and no measured factor predicts which child is harmed.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — Integrates the paragraph-1 relocation of the variable, the paragraph-2 collapse of the content binary, and the closing refusal to settle the tally without the distribution.
+  (A) stage_misattribution — This is Barnett's reported position from paragraph 1, which the author calls more interesting but never adopts.
+  (C) level_confusion — The Bluey case shows gentleness is a rate of delivery, not that the camps merge; it breaks the description, not the distinction.
+  (D) stance_misread — Paragraph 3 grants this worry to both camps explicitly and says the concession 'does not tell me which camp is right'.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — The clause 'if one is careful about what is actually being suspended' converts the non-conclusion into a principled epistemic position and points forward to defining the suspension.
+  (A) level_confusion — That restatement belongs to the earlier sentences of paragraph 4; the final clause adds a defence of the suspension itself.
+  (B) scope_inflation — The author faults the debate's position to know the distribution, not the sincerity of either camp, which he says argues well.
+  (C) stance_misread — Paragraph 3 states the concession is owed to a worry both camps share and does not adjudicate between them.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — It follows the Bluey analysis, where death, abandonment fear and parental failure appear inside gentleness, so gentleness names pacing, not exclusion.
+  (A) category_slip — Child-set pace describes books in paragraph 3; the phrase here describes a television show's narrative handling.
+  (C) half_truth — This returns to the content quantity the author has just rejected as the wrong variable for describing gentleness.
+  (D) adjacent_answer — Repetition and autoplay belong to paragraph 3's streaming arithmetic, not to the paragraph 2 verdict on Bluey's gentleness.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — Paragraph 2 states the streaming Lord of the Flies softens the bleakest turns and the televised Little House smooths the frontier toward warmth.
+  (A) level_confusion — That inference comes from the Bluey discussion, not from the described softening of these two adaptations.
+  (B) stance_misread — The passage says the sort is clean only until one watches Bluey carefully, at which point description fails.
+  (C) half_truth — Paragraph 2 says the adaptations soften and smooth; the unsupervised reach is a separate paragraph 3 point.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — This is attributed to Barnett's camp in paragraph 1; the author calls it the more interesting position but never affirms it.
+  (A) stage_misattribution — Paragraph 4 states this directly as the author's reason the tally cannot close.
+  (C) stage_misattribution — This is the author's own conclusion from the Bluey example at the end of paragraph 2.
+  (D) stance_misread — Paragraph 3 offers this in the author's own voice as a concession he says is owed.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — It reproduces the relocation: the argued variable (dosage/content) is not the moving one; the cost falls on unidentified individuals whose distribution is unknown.
+  (B) category_slip — This is a dispute resolved on its own terms, with no relocation of the variable onto unmeasured third parties.
+  (C) level_confusion — This captures only the paragraph 2 descriptive collapse, not the cost-bearing mechanism the author says actually moves.
+  (D) stance_misread — The passage's concession explicitly fails to award victory, whereas this scenario ends in adjudication.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — The concession pre-empts the charge of evasion and is immediately neutralised as an adjudicator, since both camps share the worry it grants.
+  (B) stance_misread — The next sentence says the concession does not tell him which camp is right, since both worry about precisely this.
+  (C) level_confusion — The sentence concedes a normative point about harm; it adds no evidence for the streaming arithmetic described just before.
+  (D) stage_misattribution — That claim is stated in paragraph 1 and restated in paragraph 4, not introduced by this concession.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — The conclusion rests on the unknowability of the distribution of costs; unpredictable variation across particular children is exactly what makes closure impossible.
+  (A) missing_link — This supports paragraph 3's streaming arithmetic but says nothing about whether the distribution of harm can be known.
+  (B) adjacent_answer — Critical consistency concerns verdicts on works, which the author says is the wrong level for settling the question.
+  (C) level_confusion — This bolsters the paragraph 2 descriptive collapse, not the paragraph 4 claim about unknowable costs to particular children.
+
+[Inspired by: "Surviving With Little House on the Prairie and Lord of the Flies", https://newrepublic.com/article/211687/surviving-little-house-prairie-lord-flies]

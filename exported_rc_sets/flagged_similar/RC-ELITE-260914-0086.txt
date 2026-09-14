@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260914-0086 | Tier: elite | Score: 8.8 | Status: approved | Compliance F1: 0.844 | Novelty: 0.541 | Screen: red | Generated: 2026-09-14T05:19:20.352356+00:00
+======================================================================
+
+[PASSAGE]
+
+A repeated phrase in a translated dialogue is generally assumed to be one thing appearing several times, and the argument concerns what should be done with it. Two schools have made their positions clear. The leitmotif party — heirs of the Homeric translators who fix "wine-dark sea" once and keep it fixed, Lattimore's practice being the classic instance — holds that recurrence is itself the meaning: vary the wording and the reader loses the thread that binds the scenes. The contextualist party answers that fidelity to a phrase's local sentence outranks fidelity to its earlier selves, that Beckett translating himself between French and English let repeated stage phrases drift when the surrounding rhythm demanded it, and that a translation policed for consistency reads like a machine. I have taught out of both camps and I confess an old loyalty to the first; the apprentice in me still believes that a phrase struck the same way three times is a phrase forged, and I have to keep reminding myself that this is affection, not argument. Set Pavese's *Dialoghi con Leucò* beside these cases and the quarrel comes apart in the hands. "C'è una legge, Issione, cui bisogna ubbidire" surfaces three times in the opening dialogue between the Cloud and Ixion, and it is not doing the same work each time. The first announces that a law has come into being where none was — the emphasis falls on *c'è*, on sheer existence. The second sets that existence against a lawless past, and the weight shifts to the contrast. The third stands alone, stripped, a flat declarative with nothing to lean on. So the schools are not disagreeing about how to handle a recurring unit; they have both assumed there is a recurring unit to handle. Italian syntax makes this easy to miss: *c'è* can carry an existential claim, a temporal one, or almost none at all, and the surface never moves.
+
+This is not a philological nicety for specialists. Most readers now meet the *Dialoghi* only in English, and whether Nephele's speech registers as cosmology or as pious filler depends entirely on those three sentences — a whole dialogue's reputation in anglophone criticism rests on them.
+
+Grant the contextualists their case. The three sentences genuinely differ. Their neighbouring clauses differ. Proctor's shifting renderings, varying even within her own text, are not carelessness; they answer to something real on the page. Adaptive translation here is defensible craft, and I would not want a version that ignored the differences to keep a formula intact.
+
+But the concession does not restore the question, because neither label holds. The refrain is no fixed formula, and calling it free variation loses precisely what makes it feel inevitable on a third reading: it accumulates, each utterance drawing weight from the two behind it, so that the bare third line is heavy only because the first two happened. No single-line choice can register that. Criticism keeps demanding a verdict on which rendering is right, when what such a passage needs from its reviewers is a judgment on the arc all three make together — a small change in what gets compared, and one the existing habits of review could absorb without any new theory at all.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) The translation quarrel misfires because the refrain is neither formula nor free variation but a cumulative arc, so review should judge the three lines together.
+(B) Italian syntax allows existential, temporal and near-empty senses of the same surface phrase, which makes faithful English renderings of Pavese's dialogues effectively impossible.
+(C) Between the leitmotif translators and the contextualists, the contextualist position better fits Pavese, since the three sentences do different work and varied renderings honour that.
+(D) Because most anglophone readers meet the Dialoghi only in translation, a dialogue's critical reputation can rest on a translator's handling of three short sentences.
+
+Q2. What is the structural function of the short second paragraph, which notes that most readers now meet the Dialoghi only in English?
+(A) It supplies the passage's governing claim, since the reputational stakes of translation choices are what the argument finally turns upon.
+(B) It introduces Proctor's shifting renderings as evidence that adaptive translation answers to something genuinely present on the page.
+(C) It forestalls the charge that the distinction just drawn is a specialist's fussiness, by showing what reception hangs on it.
+(D) It concedes that specialists in Italian will find the reading of c'è unsurprising, and so shifts the discussion toward English readers.
+
+Q3. Which reading of the following scenario best follows the passage's reasoning? A choreographer's piece returns three times to an identical eight-count gesture; one critic praises a revival for reproducing it exactly, another praises a revival for varying its speed each time.
+(A) The second critic is closer to right, since the gesture's surroundings change and a revival should answer to what actually sits around each occurrence.
+(B) The gesture is best described as a leitmotif, so the first critic's demand for exact reproduction preserves the thread binding the three passages together.
+(C) Since audiences now meet the work mainly through revivals, the choreography's reputation rests wholly on how the eight-count gesture is danced.
+(D) Both critics judge the gesture one instance at a time, so neither can register whether the third occurrence gains weight from the first two.
+
+Q4. According to the passage, why is it easy to miss that the three occurrences of the refrain are not one recurring unit?
+(A) Both critical schools concentrate on the Homeric precedent, where a fixed epithet genuinely does return unchanged across scenes.
+(B) Italian permits c'è to carry existential, temporal or minimal force while its surface wording stays unchanged.
+(C) The third occurrence stands alone and stripped, so readers take it as a flat declarative rather than a repetition of anything.
+(D) Translators such as Proctor vary their renderings within a single text, which conceals from readers the underlying identity of wording.
+
+Q5. Which one of the following findings would most complicate the author's account of the refrain's cumulative force?
+(A) Pavese's manuscripts show that the second occurrence of the sentence was added late, after the opening dialogue had been drafted.
+(B) Readers encountering the third sentence in isolation report the same sense of weight as readers who have read the whole dialogue.
+(C) Other dialogues in the collection contain repeated phrases whose occurrences do not differ in emphasis from one another.
+(D) Proctor's renderings of the three sentences have been criticised by reviewers for obscuring the existential force of the first.
+
+Q6. Which one of the following would best license the inference the author draws from the three occurrences of 'C'è una legge, Issione'?
+(A) Beckett's self-translations show repeated stage phrases drifting whenever the surrounding rhythm of the scene demanded such drift.
+(B) Linguists confirm that Italian c'è is systematically ambiguous between existential and temporal readings in unmarked declarative sentences.
+(C) Surveys show anglophone critics discuss Nephele's speech far more often than any other passage in the collection of dialogues.
+(D) Readers given the three lines in reversed order describe the final one as thin, and the opening one as unexpectedly heavy.
+
+Q7. We can infer from the passage that 'the quarrel comes apart in the hands' refers to:
+(A) the collapse of the leitmotif position, since Pavese's three sentences plainly resist being fixed into a single formula.
+(B) the difficulty of rendering c'è in English, since no single word carries its existential and temporal senses together.
+(C) the dissolution of the dispute's shared premise, since the three sentences are not one unit needing a policy.
+(D) the author's loss of confidence in his old apprentice loyalty, which he now admits was affection rather than any argument.
+
+Q8. 'I have taught out of both camps and I confess an old loyalty to the first; the apprentice in me still believes that a phrase struck the same way three times is a phrase forged.' We can infer from this statement that the author is being:
+(A) self-auditing, flagging a sympathy he holds so that it cannot quietly steer the analysis that follows.
+(B) conciliatory, offering the leitmotif school credit for its insight before setting its recommendations gently aside.
+(C) noncommittal, withholding any preference between the schools so that the later analysis can appear wholly neutral.
+(D) self-deprecating, treating his years of teaching as an apprenticeship that never quite matured into real judgement.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Integrates the framing of the two camps, the Pavese counter-case that dissolves the shared premise, the concession, and the closing relocation of the critical question onto the arc.
+  (B) scope_inflation — Inflates a passing remark about c'è into an impossibility claim the author never makes and explicitly resists.
+  (C) adjacent_answer — Takes the paragraph-three concession as a verdict inside the debate, though the next paragraph says neither label holds.
+  (D) half_truth — Restates the stakes paragraph as the thesis, mistaking scale of consequence for the claim about the refrain's nature.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The paragraph opens by denying it is a philological nicety, so its role is to defend the relevance of the preceding analysis rather than to advance a new claim.
+  (A) half_truth — Promotes a stakes-raising aside to thesis status, though the closing paragraph locates the claim in cumulative reading.
+  (B) stage_misattribution — Proctor appears in the third paragraph's concession, not in the stakes paragraph being asked about.
+  (D) adjacent_answer — Misreads 'not a philological nicety for specialists' as a concession about specialists' prior knowledge.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — Transfers the passage's relocation: the quarrel between fixity and variation shares the assumption of a single repeated unit, and misses accumulation across occurrences.
+  (A) adjacent_answer — Treats the concession to contextualists as settling the debate, whereas the author says neither label holds.
+  (B) prior_belief — Adopts the loyalty the author explicitly labels affection rather than argument in the first paragraph.
+  (C) scope_inflation — Borrows the stakes paragraph and stretches it into a claim about reputation resting wholly on one element.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The first paragraph's closing sentence names exactly this: the senses vary while 'the surface never moves'.
+  (A) framework_import — The Homeric material illustrates the leitmotif position; the passage never blames it for obscuring Pavese's refrain.
+  (C) half_truth — Accurately describes the third line's character but is not offered as the cause of the oversight.
+  (D) causal_inversion — Proctor's variation responds to the differences; it is not the reason the differences go unnoticed.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The load-bearing claim is that the bare third line is heavy only because the first two happened; equal weight without the prior two removes the accumulation.
+  (A) adjacent_answer — Composition order says nothing about how the finished sequence works on a reader, which is the author's claim.
+  (C) scope_inflation — The author's claim concerns this refrain, not a general law that all Pavese repetitions accumulate.
+  (D) half_truth — A complaint about one rendering fits the author's case rather than complicating the cumulative account.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — Reversal transfers the weight with position rather than with the wording, supporting the claim that heaviness comes from what precedes rather than from the sentence itself.
+  (A) stage_misattribution — Beckett is the contextualists' evidence in paragraph one, and supports variation rather than accumulation.
+  (B) adjacent_answer — Backs the remark about why the difference is missed, not the claim that weight accumulates across occurrences.
+  (C) half_truth — Supports the stakes paragraph about reception, not the inference about how the three sentences accumulate.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — The sentences immediately following explain that both schools assumed a recurring unit to handle, which the Pavese case removes.
+  (A) adjacent_answer — Only one camp collapses here; the passage later insists neither label holds for the refrain.
+  (B) level_confusion — Shifts from the status of the critical dispute to a lexical problem in the final sentence of paragraph one.
+  (D) stance_misread — The confession precedes the Pavese case and is a self-caution, not what the phrase 'comes apart' describes.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — The sentence continues by calling the loyalty affection rather than argument, marking a disclosed bias to be discounted, not a position defended.
+  (B) adjacent_answer — Reads a confession of personal pull as a concession granted to one camp's argument.
+  (C) half_truth — He states a preference explicitly; the point is to quarantine it, not to withhold it.
+  (D) stance_misread — 'The apprentice in me' names a persisting instinct, not a verdict on the author's overall competence.
+
+[Inspired by: "In the Reckless Hour", https://thepointmag.com/criticism/in-the-reckless-hour/]

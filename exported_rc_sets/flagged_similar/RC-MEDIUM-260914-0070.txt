@@ -1,0 +1,118 @@
+RC ID: RC-MEDIUM-260914-0070 | Tier: medium | Score: 7.8 | Status: needs_review | Compliance F1: 0.739 | Novelty: 0.55 | Screen: red | Generated: 2026-09-14T05:06:22.563750+00:00
+======================================================================
+
+[PASSAGE]
+
+Philosophy has long held mystical language to a single test: either it yields a proposition that can be assessed, or it belongs to the ineffable and may be set aside with a courteous shrug. Clare Carlisle's Transcendence for Beginners, gathered from her 2024 Gifford Lectures, proposes something more graceful. Where the older religious readers took mystical report as testimony and the literary readers took it as figure, Carlisle takes a life — its texture, its turnings, its documented ordinariness — as the enlarging instrument. Life writing joins philosophy not to soften it but to extend its reach, and the elegance of the arrangement lies in how little it appears to give up: rigour preserved, mystery admitted.
+
+Her procedure is visible in its order. She begins not with a thesis but with a journey to a cave. From the narrative particulars she moves to a question — what does a life reveal, whether it expresses only itself or something beyond itself — and that beyond is then read through Spinoza's panentheism. Biography becomes philosophical evidence.
+
+Call the alternative effect-reading: attention to what a mystical text does to its reader rather than only to what it asserts. Granted, effect-reading names a blind spot the field genuinely has — Christian mystics were forever saying what they did not mean by their reports — but the cases do not all work alike, and that is what the replacement must carry. Eckhart's prose moves; Teresa of Ávila warns against relying on discursive meditation; Thoreau, on Cavell's reading, escapes the conditions of knowledge; Critchley describes hearers being affected. Four different kinds of action, not one method with four illustrations.
+
+Where the argument and the report are treated as parallel — both made of language, both offered to a reader, both citable — the parallel quietly fails, since the argument is built to reach settlement and the report may have been built to unsettle, so that a text engineered as a catalyst enters a philosophical discussion already miscast the moment it is quoted for what it claims. Neither doctrine nor private experience wins here. The asymmetry works earlier than interpretation: importing this writing into philosophy alters what counts as evidence before any reading of it begins.
+
+Critchley puts the demand plainly in his study Mysticism: "Reading [Meister] Eckhart is a question of allowing the movement of his thinking to have an effect on you, an effect which is not reducible to an act of understanding" — a formulation that, set beside Cavell's remark that our primary relation to the world is not one of knowing it, confirms a way of reading without licensing anyone to declare that transcendence has now been redefined as effect.
+
+The friction is the useful thing. Carlisle's argumentative pressure is worth keeping; so is the recognition that a life, an utterance and a reader do not line up as interchangeable evidence, however smoothly a chapter may make them seem to. Effect-reading is not permission to count every response. It is a second obligation laid on top of the first, and obligations do not cancel. Widened from the cave to the page to the institution that trains people to read pages, the field's verdict has to remain a disciplined suspension: an account stays answerable to what a text does, provided it has not stopped being answerable to what the text says.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) Carlisle's biographical route to transcendence finally supersedes the older religious and literary ways of handling mystical report.
+(B) Effect-reading fails as a method because the four cases named — Eckhart, Teresa, Thoreau, Critchley — describe four unrelated kinds of action rather than one.
+(C) Reading mystical writing for its effects is a genuine additional duty, but it cannot replace the duty to what such texts assert.
+(D) Because mystical texts are engineered to unsettle readers, philosophy should stop quoting them as evidence for any claim whatsoever.
+
+Q2. The author's principle about what happens when writing built to unsettle is imported into philosophical argument would apply to all of the following cases, EXCEPT:
+(A) A logician quotes a Zen koan as a premise in a formal proof about the limits of reference.
+(B) An editor reprints a medieval sermon in an anthology of devotional prose, noting the compiler's dating of the manuscript.
+(C) An ethicist treats a Sufi poem's paradoxes as stated doctrines and tests them for internal consistency.
+(D) A seminar cites a hymn designed to move congregants as testimony about the structure of divine reality.
+
+Q3. Which one of the following, if established, would most damage the author's central claim?
+(A) Carlisle's Gifford Lectures were substantially revised before publication, altering the order of her chapters on Spinoza.
+(B) Several prominent writers besides Critchley and Cavell describe mystical language as transformative for its hearers.
+(C) Teresa of Ávila's warning against discursive meditation was addressed only to novices within her own religious order.
+(D) The actions performed by mystical texts are in every case derivable from what those texts assert, needing no separate reading.
+
+Q4. If the passage continued, which one of the following would it most likely discuss next?
+(A) A closer defence of Spinoza's panentheism as the correct metaphysics underwriting Carlisle's account of a life.
+(B) A survey of further mystics whose prose moves readers in ways that understanding alone cannot capture.
+(C) Why criticism, once suspension is accepted, may count every reader's response as an equally admissible finding.
+(D) How departments that train readers might build the double obligation into what they teach as competent reading.
+
+Q5. All of the following are true of effect-reading as the passage presents it, EXCEPT:
+(A) It identifies a blind spot the field genuinely has, given how mystics disclaimed their own reports.
+(B) It is bound by cases that differ in kind, since four writers illustrate four different sorts of action.
+(C) It is offered by the author as the discipline's corrective for having read mystical texts too literally for too long.
+(D) It attends to what a mystical text does to its reader rather than only to what that text asserts.
+
+Q6. Regarding Carlisle's procedure as described in the passage, the author asserts that:
+(A) she starts from narrative particulars, raises a question about what a life reveals, then reads it through Spinoza.
+(B) she derives Spinoza's panentheism from the documented ordinariness of the lives her lectures examine.
+(C) she starts from a thesis about transcendence and then seeks a life whose particulars can illustrate it.
+(D) she treats life writing as a way of softening philosophy's demands so that mystery can be admitted.
+
+Q7. Why does the author include the quotation from Critchley alongside Cavell's remark?
+(A) To report that Critchley regards reading Eckhart as an effect irreducible to any act of understanding.
+(B) To establish that Cavell and Critchley have independently arrived at the same account of mystical transcendence.
+(C) To supply the transition between the critique of parallelism and the passage's concluding statement of obligation.
+(D) To show that these formulations, taken together, license a way of reading without licensing a redefinition of transcendence.
+
+Q8. Which one of the following research findings would most strengthen the author's conclusion about the double obligation?
+(A) Historians find that medieval sermons were routinely composed with an eye to their immediate effect upon congregations.
+(B) Studies of trained readers find that accounts tracking a text's effects stay accurate about its claims only when both are checked.
+(C) Surveys show that readers of Eckhart report being moved well before they can paraphrase any doctrine he states.
+(D) Archival work confirms that Carlisle's Gifford Lectures drew on a wider range of mystical sources than the book retains.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates the endorsement of effect-reading's blind-spot diagnosis with the closing insistence that obligations add rather than cancel.
+  (A) category_slip — The opening describes Carlisle's method without endorsing it as a replacement; the later paragraphs press against the parallel she builds.
+  (B) half_truth — Paragraph 3 grants that effect-reading names a real blind spot; the plurality is a burden on it, not a refutation.
+  (D) scope_inflation — Paragraph 4 notes a miscasting risk, not a ban; the close explicitly keeps texts answerable to what they say.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — No philosophical argument is being built and no claim is extracted, so the asymmetry the passage describes never arises.
+  (A) rule_satisfied — A text engineered as a catalyst is cited for what it claims, exactly the miscasting of paragraph 4.
+  (C) rule_satisfied — Unsettling language is assessed as settlement-seeking argument, the parallel the passage says quietly fails.
+  (D) rule_satisfied — Catalytic writing enters philosophical discussion as evidential report, altering what counts as evidence before reading begins.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The claim that effect is a second, non-cancelling obligation collapses if effect reduces to assertion.
+  (A) adjacent_answer — Revision history touches a decorative detail of paragraph 2, leaving the argument about evidence untouched.
+  (B) missing_link — Multiplying such descriptions does not establish that effect-reading should displace attention to claims, as the passage notes.
+  (C) example_promotion — Narrowing one illustration in paragraph 3 does not disturb the general point about heterogeneous kinds of action.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — The close widens 'from the cave to the page to the institution that trains people to read pages', pointing at pedagogy.
+  (A) adjacent_answer — Spinoza appears in paragraph 2 as a step in her procedure, not as a doctrine the passage sets out to defend.
+  (B) example_promotion — More illustrations repeat paragraph 3's material without advancing the institutional widening the ending performs.
+  (C) category_slip — The passage states flatly that effect-reading is not permission to count every response.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — The author grants effect-reading a real blind spot but presents it as an added obligation, not as a corrective replacement he endorses.
+  (A) passage_supported — Paragraph 3 concedes this, citing Christian mystics saying what they did not mean.
+  (B) passage_supported — Paragraph 3 ends by insisting these are four kinds of action, not one method with four illustrations.
+  (D) passage_supported — Paragraph 3 defines it in exactly these terms at the moment it is named.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — Paragraph 2 gives precisely this order: cave, question, panentheism, with biography becoming evidence.
+  (B) level_confusion — Spinoza is the lens through which the 'beyond' is read, not a conclusion derived from biography.
+  (C) causal_inversion — Paragraph 2 states she begins not with a thesis but with a journey to a cave.
+  (D) stance_misread — Paragraph 1 says life writing joins philosophy not to soften it but to extend its reach.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — Paragraph 5 states exactly this purpose: the pairing confirms a way of reading but grants no warrant to redefine.
+  (A) level_confusion — This summarises the quotation's content accurately but does not say why the author placed it where he did.
+  (B) scope_inflation — The passage pairs them to confirm a reading practice, expressly stopping short of any shared redefinition.
+  (C) category_slip — This names a structural role in the paragraph sequence rather than the author's reason for including the material.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — Direct evidence that neither obligation can be discharged through the other supports the claim that obligations do not cancel.
+  (A) half_truth — This supports the catalytic character of such texts but says nothing about retaining the claim-level duty.
+  (C) missing_link — Priority of effect in time does not show that answerability to what the text says must be retained.
+  (D) adjacent_answer — Source breadth concerns her materials, not the passage's claim about two standing obligations.
+
+[Inspired by: "The Stretch of a Soul", https://thepointmag.com/criticism/the-stretch-of-a-soul/]

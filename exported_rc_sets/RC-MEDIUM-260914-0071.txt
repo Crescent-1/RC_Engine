@@ -1,0 +1,120 @@
+RC ID: RC-MEDIUM-260914-0071 | Tier: medium | Score: 0.0 | Status: solver_dispute | Compliance F1: 0.82 | Novelty: 0.539 | Screen: green | Generated: 2026-09-14T05:29:21.014417+00:00
+======================================================================
+
+[PASSAGE]
+
+Arnoud Visser, in a study published in July 2026, investigates the stock figure of the pedant and his association with individual superiority, social distinction, and sexual transgression — and beginning from Prudenzio, the vain schoolmaster of Francesco Belo's El pedante, he states the claim flatly: these men are not simply failed scholars held up for laughter, but devices for showing how displayed learning turns into power over other people. The claim is put to the test.
+
+The test proceeds in a sequence those of us trained on this material can follow without difficulty. First, each display of learning is identified — a tag of Latin, a citation, a lecture nobody asked for. Then the listeners are recorded: who is obliged to sit still for it, who defers, who is silenced. Then the speech is followed forward into what it produces, a decision taken, a misunderstanding sown, a household rearranged. Last comes the reckoning of outcome: humiliation, exclusion, a sexual complication. Erudition is tracked out of language and into conduct.
+
+Run across the erudite comedies, the pattern holds. Calandra, first performed in 1513, already has a tutor whose intellectual pomposity is unmistakable; Belo's play of the 1520s gives the pedant the centre of the stage; the later Italian comedies inherited the house and added rooms. In each, the Latin is conspicuous and the jargon thick, which makes it tempting to say the language is the joke. But the damage arrives at a particular moment — when the learning is used to rank a rival, to blame a servant, to control a marriage. The speech is the instrument, not the injury.
+
+Suppose a pedant mounts a lectern and expounds some remote point of Greek prosody. Nobody understands him; nobody is deceived, punished, or displaced. The method would record a display and then find nothing downstream. Obscurity alone, on this showing, does not generate the satire.
+
+Why the pattern recurs is not hard to see. The pedant's learning asserts superiority while remaining wholly dependent on the household, the patron, or the schoolroom that pays for it — and such dependents can always demonstrate, in an afternoon, that the man cannot manage a debt or a dinner. This is why failed scholarship, and not authority in some abstract sense, remains the visible material of the stage. The comedies mock learning; what they mock it for is its pretension to rule.
+
+Prudenzio repays a second look on these terms. He is scruffy. He talks in a mangled mix of Latin and vernacular. He presents himself as a scholarly genius and behaves like a blundering buffoon — and the polarities Visser draws out, learning against ignorance, grand speech against banal conduct, are not two jokes but one joke at two moments. His erudition licenses him to instruct, to judge, to interfere in matters of courtship and money. Then it fails him at every practical turn. The completion of the joke lies in that distance.
+
+The old belief survives, then, as an account of the surface target: intellectual pretension is what audiences saw being mocked. The engine beneath it is the passage from erudition to imposed superiority and from there to practical collapse, so that Prudenzio's grand Latin, once heard as the whole of his absurdity, opens instead onto his conduct toward the household he presumes to govern — though a wider corpus than these Italian scripts would be needed before the reading could be called general.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) Renaissance comedy treated educated men as absurd, holding all scholarship up as inherently ridiculous before its audiences.
+(B) The pedant's learning is comic because it converts display into control over others and then collapses in practice.
+(C) The pedant's thick Latin and heavy jargon supply the comic effect, since obscure speech alone amuses audiences.
+(D) Because pedants depend financially on households, comedies chiefly dramatise economic dependency rather than any question about learning.
+
+Q2. Which one of the following research findings would most strengthen the author's conclusion?
+(A) Newly examined comedies show that audiences laughed loudest at the densest jargon, regardless of what followed the speech.
+(B) Newly examined comedies show pedants using more Latin tags per scene than any other stock character type.
+(C) In newly examined comedies, pedants' Latin draws laughter only where it precedes a punishment, exclusion or arranged match.
+(D) Newly examined comedies show pedants were usually played by actors known for their scruffy, dishevelled stage appearance.
+
+Q3. Which one of the following findings would most weaken the author's conclusion in the fifth paragraph?
+(A) Prudenzio's mangled Latin and vernacular mixture was largely an invention of Belo rather than an inherited convention.
+(B) The comedies also mock priests, soldiers and notaries, treating hierarchy across many professions rather than learning alone.
+(C) Pedants who were financially independent of household or patron are mocked on stage in exactly the same terms.
+(D) Some independent scholars in the period wrote treatises complaining that stage comedy misrepresented the conditions of learned life.
+
+Q4. Which one of the following can NOT be inferred from the author's account of the method described in the second paragraph?
+(A) The method requires that a display of learning be traced into its practical consequences.
+(B) The method judges a display satirical whenever listeners are visibly obliged to sit through it.
+(C) The method can register a display that yields no consequence whatever downstream.
+(D) The method treats humiliation, exclusion or sexual complication as outcomes worth recording.
+
+Q5. In the context of the passage, "The speech is the instrument, not the injury" is best understood as:
+(A) Erudite language is innocent, since the true fault lies with households that reward such displays.
+(B) Erudite language wounds its hearers directly, since incomprehension is itself a form of social harm.
+(C) Erudite language is a mere ornament, detachable from the plot without altering the comic effect.
+(D) Erudite language is the means by which harm is done; the harm lies in its social use.
+
+Q6. What is the structural function of the hypothetical lectern scene in the fourth paragraph within the argument?
+(A) It supplies a test case where the method finds no satire, isolating consequence as the decisive factor.
+(B) It summarises the four stages of the method so that readers can apply them to later plays.
+(C) It concedes that obscure speech does amuse audiences, softening the claim made earlier about language.
+(D) It offers a further historical example of pedantry drawn from the erudite comedies of the period.
+
+Q7. Which one of the following claims about Prudenzio is NOT supported by the passage?
+(A) He presents himself as a genius while conducting himself as a blundering buffoon.
+(B) His mangled Latin is the element that finally completes the joke about him.
+(C) He is the figure from whom Visser's flat statement of the claim begins.
+(D) He intervenes in questions of courtship and money on the strength of his learning.
+
+Q8. The author of the passage is likely to disagree with which one of the following statements?
+(A) A pedant's claim to superiority sits oddly with his reliance on those who pay him.
+(B) Audiences of these comedies did see intellectual pretension as the target being mocked.
+(C) The reading offered here can already be treated as a general account of European pedant comedy.
+(D) Later Italian comedies extended a structure that Calandra and Belo had already established.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — Holds paragraph 1's claim, the method of paragraphs 2-4, and the closing formulation that erudition passes into imposed superiority and practical failure.
+  (A) moderate_extremism — The final paragraph says the comedies mock learning for its pretension to rule, not learning as such.
+  (C) half_truth — Paragraph 4's lectern case shows obscurity without downstream damage generates no satire.
+  (D) scope_inflation — Dependency in paragraph 5 explains why the pattern recurs; it is not the passage's subject.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — It confirms the load-bearing move: damage arrives when learning is used to rank, blame or control, not from the speech itself.
+  (A) overqualification — This backs obscurity as the comic engine, which paragraph 4 explicitly rules out.
+  (B) example_promotion — Frequency of Latin is decorative detail; it says nothing about learning becoming power.
+  (D) adjacent_answer — Costume echoes Prudenzio's scruffiness in paragraph 6 but leaves the erudition-to-power claim untouched.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — Paragraph 5 grounds the recurrence in dependency, which makes exposure possible; independent pedants mocked identically removes that explanation.
+  (A) example_promotion — An origin claim about one character's speech leaves the dependency argument standing.
+  (B) overqualification — Reads the passage as a general theory of hierarchy; paragraph 5 insists failed scholarship stays the visible material.
+  (D) level_confusion — Contemporary complaint about accuracy does not touch the explanation of why the pattern recurs.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The method records listeners as one stage but reserves judgement for downstream consequences and outcome, as the lectern case shows.
+  (A) passage_supported — Paragraph 2: the speech is followed forward into what it produces.
+  (C) passage_supported — Paragraph 4: the method would record a display and then find nothing downstream.
+  (D) passage_supported — Paragraph 2 names exactly these under the reckoning of outcome.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 contrasts conspicuous Latin with the moment learning is used to rank a rival or control a marriage.
+  (A) straw_version — Shifts blame to patrons; paragraph 5 uses dependency to explain recurrence, not to excuse pedants.
+  (B) causal_inversion — Reverses the sentence: the passage denies that the speech is the injury.
+  (C) half_truth — Calling the speech an instrument makes it essential to the mechanism, not ornamental.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The imagined case subtracts downstream effect and shows the satire disappears, which separates obscurity from the real engine.
+  (B) level_confusion — The stages are set out in paragraph 2; here they are applied, not summarised.
+  (C) stance_misread — The paragraph concludes obscurity alone does not generate the satire; it concedes nothing.
+  (D) category_slip — The scene is explicitly hypothetical ('Suppose'), not a historical instance.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — Paragraph 6 locates the completion of the joke in the distance between licensed instruction and practical failure, not in the Latin itself.
+  (A) passage_supported — Paragraph 6 states this contrast directly.
+  (C) passage_supported — Paragraph 1 says Visser begins from Prudenzio in stating the claim.
+  (D) passage_supported — Paragraph 6: his erudition licenses him to interfere in matters of courtship and money.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — The closing clause insists a wider corpus than these Italian scripts would be needed before the reading could be called general.
+  (A) half_truth — Paragraph 5 makes exactly this point about dependence on household, patron or schoolroom.
+  (B) stance_misread — Paragraph 7 grants the old belief as an accurate account of the surface target.
+  (D) adjacent_answer — Paragraph 3 says the later comedies inherited the house and added rooms.
+
+[Inspired by: "“Worthless Idiot, Donkey Head”: Parodies of Pedantry on the Renaissance Stage", https://publicdomainreview.org/essay/parodies-of-pedantry]

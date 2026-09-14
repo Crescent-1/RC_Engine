@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260914-0096 | Tier: hard | Score: 8.2 | Status: needs_review | Compliance F1: 0.756 | Novelty: 0.568 | Screen: green | Generated: 2026-09-14T05:10:23.880617+00:00
+======================================================================
+
+[PASSAGE]
+
+What does a single stroke of ink through a written bequest actually record? I have in front of me a photocopy of one page from a probate archive: a draft will, the clause typed, a house on a named street left to a named nephew, and running across it one diagonal line in a darker ink, with two initials in the right margin. The draft carries a date stamp. The stroke does not. No codicil explains it. No witness signed beside it. And so the mark says, with equal plausibility, two flatly opposed things: that the house was never given, the clause abandoned before the will was signed; or that the house was given, formally, and then taken back. Probate practice tends to treat these as the same outcome — the nephew gets nothing either way — but they are not the same event, and they are certainly not the same evidence. One is a draft correction. The other is a legal act.
+
+The distinction is well worn in the reported cases. A strike made before execution is inert; the signed instrument simply never contained the clause. A strike made after execution, in the right form, with the right intention, is revocation, and courts have long been willing to look for that intention. Timing has been reconstructed from ink tone, from the memory of a solicitor's clerk, from the order of pages in a file. The techniques are real, and they work often enough that jurisdictions proceed as though the document itself, properly read, settles the matter.
+
+This page is where that assumption gives out. A deletion mark carries no timestamp relative to execution — its silence is not an absence in the record but the thing producing the ambiguity — and the problem is spreading, since estates now pass through drafts corrected in software and drafts corrected in ink, sometimes both, with strike-throughs surviving into printed copies that were never meant to be signed. Suppose two testators, each with an identical typed clause. One draws the line the night before the signing; the other, the night after, alone, in the same ink, initialling the margin exactly as her solicitor once showed her. The pages are indistinguishable. The legal consequences are not.
+
+The reason lies in what such instruments are for. A will is built to record a final state — who takes what, when the testator is gone — and not the sequence of decisions that produced it. It is a photograph, not a logbook. Ask it to prove that a change occurred and it answers readily: here is the stroke, here are the initials. Ask it to place that change before or after the moment of execution and it has no vocabulary at all. The mark is evidence of an act. It is not evidence of the act's position in time, and nothing in the form was ever designed to supply that.
+
+So the burden moves. It should not rest on whoever disputes the strike. It rests on the process that accepts it. A mark that cannot be dated is being asked to carry a meaning it cannot certify, and until someone can say when the pen touched the page, the confident reading of that stroke is a decision the archive has made rather than one the document supports.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) Wills should be redesigned as logbooks that record the full sequence of a testator's decisions, since photographs of a final state cannot settle any contested clause.
+(B) An undated deletion mark cannot certify when a change occurred, so the confident readings routinely placed on it belong to the process, not to the document.
+(C) Since either reading of the diagonal stroke leaves the nephew with nothing, probate courts are right to treat a draft correction and a revocation as one and the same outcome.
+(D) Techniques for reconstructing timing from ink tone, clerks' memories and page order have grown unreliable as estates now pass through software drafts and inked drafts together.
+
+Q2. The difficulty posed by the undated deletion mark is described in the passage as involving all of the following EXCEPT:
+(A) the absence of any date stamp or codicil attaching to the diagonal stroke itself
+(B) the spread of drafts corrected in software alongside drafts corrected in ink
+(C) the failure of courts to develop any willingness to inquire into a testator's intention behind a strike
+(D) the legal difference between a strike made before execution and one made after execution
+
+Q3. Which one of the following views does the author report from legal practice rather than hold as his own?
+(A) A will is designed to record a final distribution rather than the sequence of decisions producing it.
+(B) A mark that cannot be dated is being asked to carry a meaning it has no capacity to certify.
+(C) The reconstruction techniques used by courts are genuine and succeed in a good many disputed cases.
+(D) A document, if it is read properly, can itself settle when a deletion was made relative to execution.
+
+Q4. Which one of the following sequences of phrases best captures the flow of the passage?
+(A) one ambiguous stroke → software-corrected drafts → solicitor's clerk remembers → nephew receives nothing → archive makes decision
+(B) one ambiguous stroke → settled legal distinction → the assumption gives out → photograph, not logbook → burden shifts to process
+(C) settled legal distinction → one ambiguous stroke → burden shifts to process → photograph, not logbook → the assumption gives out
+(D) one ambiguous stroke → settled legal distinction → photograph, not logbook → probate outcomes equalised → witnesses should sign margins
+
+Q5. Which one of the following, if true, would most support the claim made in the fourth paragraph about what such instruments are built to record?
+(A) Courts have occasionally dated a strike correctly by comparing ink tone against samples taken from the same pen.
+(B) Solicitors advise clients that a fresh will is safer than a codicil whenever several clauses need to be altered at once.
+(C) Drafting manuals instruct that a will's text be framed so that nothing in it discloses when any particular provision was settled.
+(D) Probate registries report that disputes over deleted clauses have risen sharply since word processors entered general conveyancing use.
+
+Q6. Which one of the following practices would the author most readily endorse?
+(A) Requiring anyone who disputes a struck clause to produce positive proof that the deletion preceded the signing of the will.
+(B) Encouraging probate courts to expand ink-tone analysis and clerk testimony until such methods can date every disputed marking.
+(C) Abolishing the doctrinal difference between pre-execution and post-execution strikes, since the beneficiary's share is unaffected.
+(D) Treating an undated strike as carrying no revocatory force unless independent evidence places the pen stroke after execution.
+
+Q7. The principle the author draws from the undated strike would apply to all of the following cases EXCEPT:
+(A) A committee's minutes contain a struck resolution and a chair's initials, with no record of whether the deletion preceded or followed formal adoption.
+(B) A laboratory notebook shows a reading overwritten in the same hand, with no indication whether the change preceded or followed the supervisor's countersignature.
+(C) A pension nomination form bears a crossed-out beneficiary beside a clerk's stamp recording the date on which the crossing was received.
+(D) A surveyed boundary plan carries an erased line and fresh initials, with nothing showing whether the erasure came before or after the parties sealed the agreement.
+
+Q8. Regarding the silence of the deletion mark about its own timing, the author asserts that:
+(A) that silence is proof that no change to the typed clause was ever actually made.
+(B) that silence is not a gap in the record but the very thing generating the ambiguity.
+(C) that silence is one more paperwork burden created as drafting has migrated into software.
+(D) that silence is an omission which careful archival practice could in principle repair later.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — This joins paragraph 1's two-meanings puzzle, paragraph 4's diagnosis that the form records a final state rather than a sequence, and paragraph 5's transfer of burden to the process that accepts the mark.
+  (A) scope_inflation — Paragraph 4's photograph-logbook contrast explains a limit; the author proposes no redesign and says the form answers readily that a change occurred.
+  (C) scope_inflation — The passage grants the outcome is identical but insists the events and the evidence differ; it is not arguing about who should inherit.
+  (D) example_promotion — Paragraph 2 calls those techniques real and often effective; digital drafting spreads the problem rather than corrupting the methods.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — Paragraph 2 states the opposite: courts "have long been willing to look for that intention," so this option misattributes a stance the passage denies.
+  (A) passage_supported — Paragraph 1 notes the draft carries a date stamp, the stroke does not, and no codicil explains it.
+  (B) passage_supported — Paragraph 3 says estates now pass through drafts corrected in software and in ink, sometimes both.
+  (D) passage_supported — Paragraph 2 states a pre-execution strike is inert while a post-execution strike in proper form is revocation.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — Paragraph 2 attributes this working assumption to jurisdictions; paragraph 3 opens by declaring that this is exactly where the assumption gives out.
+  (A) half_truth — Paragraph 4 offers this as the author's own diagnosis of what such instruments are for.
+  (B) stance_misread — Paragraph 5 states this in the author's own voice as the conclusion of his argument.
+  (C) example_promotion — The author himself grants in paragraph 2 that the techniques are real and work often enough; he does not merely report it.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — This tracks paragraph 1's specimen, paragraph 2's doctrinal distinction and confidence, paragraph 3's breakdown, paragraph 4's diagnosis of form, and paragraph 5's reallocation of burden.
+  (A) example_promotion — Peripheral details—the clerk's memory, the nephew's share—are promoted over the doctrinal distinction and the diagnosis of what wills record.
+  (C) stage_misattribution — The passage opens with the specimen page and closes with the burden; this order scrambles opening, diagnosis and conclusion.
+  (D) adjacent_answer — The passage never recommends marginal witnessing, and outcome-equalisation appears in paragraph 1, not as a late stage.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — It confirms the form is deliberately built to record a final state and to have "no vocabulary at all" for placing a change in time.
+  (A) causal_inversion — This shows external evidence supplying timing, which cuts against rather than supports the claim about the document's own form.
+  (B) adjacent_answer — This concerns prudent amendment practice, not whether the instrument's form can record the timing of a change.
+  (D) example_promotion — It supports paragraph 3's point about the problem spreading, not paragraph 4's claim about what the form is designed to record.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — Paragraph 5 relocates the burden onto the process that accepts the mark, insisting nothing be read into it until someone can say when the pen touched the page.
+  (A) causal_inversion — Paragraph 5 explicitly denies that the burden should rest on whoever disputes the strike.
+  (B) example_promotion — The author accepts these techniques work often, but his point is that some pages remain indistinguishable whatever the method.
+  (C) scope_inflation — Paragraph 1 insists the two are different events and different evidence even where the outcome matches.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — The mechanism requires a mark whose position in time is uncertifiable; here a dated stamp attaches to the crossing itself, supplying exactly the timing the passage says such marks lack.
+  (A) rule_satisfied — The document records a final state and cannot place the deletion before or after the act that gave it force.
+  (B) rule_satisfied — The alteration is real but its position relative to the validating signature is uncertifiable from the page itself.
+  (D) rule_satisfied — As with the will, the mark proves a change occurred while leaving its relation to the operative moment unrecorded.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — Paragraph 3 states plainly that the mark's silence "is not an absence in the record but the thing producing the ambiguity," making it the passage's pivot.
+  (A) level_confusion — Paragraph 4 says the mark is good evidence that an act occurred; what it cannot supply is that act's position in time.
+  (C) scope_inflation — Paragraph 3 mentions software drafts as spreading the problem, not as the source of the mark's constitutive silence.
+  (D) half_truth — The passage denies it is an absence to be filled, treating it instead as what produces the ambiguity.
+
+[Inspired by: "Mother Teresa was virtuous, but she was wrong about virtue", https://psyche.co/ideas/mother-teresa-was-virtuous-but-she-was-wrong-about-virtue]

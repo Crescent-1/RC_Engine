@@ -1,0 +1,118 @@
+RC ID: RC-ELITE-260914-0091 | Tier: elite | Score: 6.2 | Status: needs_review | Compliance F1: 0.921 | Novelty: 0.467 | Screen: red | Generated: 2026-09-14T06:32:31.503605+00:00
+======================================================================
+
+[PASSAGE]
+
+In January 1915, at a table in Richmond, Virginia Woolf wrote down that she and Leonard had settled on buying a printing press. The entry is brief. It records the resolution with real pleasure. What it does not record — because there was nothing yet to record — is any step toward the purchase. Two years and three months later the machine arrived. Between the sentence and the machine lies a gap that the surviving papers describe without ever quite explaining.
+
+Trace the press through the letters of those years and you watch it change register, the way a word does when it crosses from one trade into another: to one correspondent it is an amusement, a thing she and Leonard will do when they are idle; to her sister it becomes a practical scheme with rooms and costs attached; to another friend it dwindles into a half-joke, the sort of plan one refers to fondly without expecting to be held to it. What stays constant is only that it keeps being mentioned. During months when her health made nearly every other arrangement conditional, the press served as the one intention she could state without qualification — an unbuilt thing has the advantage of never being postponed, only awaited.
+
+That explanation is tidy enough to stop with, and it stops too soon. Money was short in 1916; money was also spent. Books came into the house. A servant was kept. Small comforts were not refused. A household that could find funds for those could, over two years, have found funds for a secondhand machine costing less than a season's bills. Scarcity explains why the purchase was slow. It does not explain why this purchase, and not the others, was the one that stayed in the future.
+
+Consider what happened the same afternoon the press was resolved upon. A bulldog was also decided on — John. The dog came quickly. Both choices are usually told together, as evidence of a shared impulsive brightness in that household, and the dog's swift arrival is taken as proof that the impulse was real. It proves the opposite about the press. Two resolutions made in one hour, one executed within days, the other for years: they were never the same kind of resolution at all.
+
+A writer who knew them saw it plainly enough. An unbought press is like a manuscript kept in a drawer — a promise made to a later self. Both are useful precisely while unopened. Both confer the standing of the work without its exposure. Both are diminished the moment the drawer is pulled or the platen comes down, because then there is a thing to be judged rather than a thing to be intended.
+
+The trade's version runs otherwise: a machine is ordered, crated, carried, and arrives with a part broken; the broken part is identified, a replacement obtained, the mechanism set square, inked, tested on scrap; only then does it print. Each stage takes its own time and answers to no one's state of mind. Offered as the account that settles the matter, this would have to show that no month of those two years was available for placing the order — and the letters, whatever else they show, do not show that. So the mechanical sequence and the interpretive ones remain side by side, neither absorbing the other, which is where the record leaves them.
+
+[QUESTIONS]
+
+Q1. Which one of the following best explains the primary purpose of the discussion of the bulldog bought on the same afternoon as the press?
+(A) It illustrates the brightness of a household that made cheerful decisions quickly and afforded small comforts without hesitation.
+(B) It demonstrates that money was in fact available, since a dog too had to be purchased and then kept.
+(C) It confirms that the press had already become a fixed intention whose psychology explains the whole two-year delay.
+(D) It converts an anecdote usually read as evidence of shared impulsiveness into evidence that the two decisions differed in kind.
+
+Q2. In context, the claim that the dog's swift arrival "proves the opposite about the press" most nearly means that:
+(A) the speed of one decision shows the other was not really a decision of that kind.
+(B) the household's impulses were genuine but the press was simply too costly to buy.
+(C) the pleasure of the January entry was retrospectively invented by later biographers.
+(D) both acquisitions sprang from one impulsive brightness that the household shared throughout.
+
+Q3. Regarding the trade's step-by-step account of ordering, repair and testing, the author asserts that:
+(A) it collapses once the letters are read, since each mechanical stage plainly answers to the household's state of mind.
+(B) it supplies the factual sequence that settles the matter and supersedes the more speculative interpretive readings entirely.
+(C) it stands beside the interpretive accounts without absorbing them, because it never shows the order could not have been placed earlier.
+(D) it was the version offered by the writer who knew them, whose drawer analogy makes the delay intelligible.
+
+Q4. Which one of the following would best license the inference the author draws from the household's spending in 1916?
+(A) Several friends recall that the Woolfs spoke of the press as a purchase they intended to make when circumstances improved.
+(B) A dealer's advertisement from mid-1916 lists secondhand presses at a price below the family's recorded quarterly book bills.
+(C) Letters from 1916 record that Leonard often worried aloud about the cost of running a household with a servant.
+(D) A surviving account book shows that the household's total expenditure fell steadily across the whole of 1916 and 1917.
+
+Q5. If the third paragraph, on money spent in 1916, were removed, the argument would:
+(A) remove the passage's acknowledgement that the household was genuinely poor and that its comforts were unusually modest.
+(B) lose its only concrete evidence that the Woolfs kept discussing the press with different correspondents in different registers.
+(C) leave the trade's mechanical sequence unchallenged, so the broken part would become the passage's settled explanation.
+(D) let the psychological reading stand as sufficient, since nothing would then show scarcity failing to select this purchase.
+
+Q6. The author uses the word "register" in the second paragraph to mean:
+(A) the formal record in which the intended purchase was repeatedly entered and dated.
+(B) the kind of commitment a plan carries, varying with whom it is described to.
+(C) the technical vocabulary of the printing trade, which she gradually acquired through reading.
+(D) the fluctuating tone of voice produced by the strain of her recurring poor health.
+
+Q7. The primary purpose of the passage is to:
+(A) establish that a psychological need for an unrealised intention is the underlying cause of the long delay.
+(B) argue that biographers have wrongly conflated two decisions that a careful reading of household finances separates.
+(C) show that several accounts of one delay each explain something while none of them explains the whole.
+(D) recover, from letters and diaries, the sequence of steps by which the Woolfs finally acquired their printing press.
+
+Q8. Which one of the following is most strongly implied by the way the passage ends?
+(A) Interpretation and mechanics can eventually be merged once the drawer analogy is applied to the broken part.
+(B) The diary entry of January 1915 must be reread as an unreliable record of a passing fancy.
+(C) A further inquiry would have to find letters fixing which months were free, not a better theory.
+(D) The mechanical account, being indifferent to states of mind, is the one a historian should finally adopt.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — Paragraph 4 explicitly takes the standard joint telling and reverses its force: the dog's speed shows the press resolution was never the same species of resolution.
+  (A) half_truth — That is the usual reading the author cites in paragraph 4 in order to turn it against itself.
+  (B) adjacent_answer — The affordability point belongs to paragraph 3's books, servant and comforts, not to the dog's function here.
+  (C) framework_import — Paragraph 3 has already refused that psychological account as stopping too soon, so the dog cannot be sealing it.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The bridge is the sentence that follows: two resolutions in one hour, one executed in days, were never the same kind of resolution.
+  (B) adjacent_answer — Paragraph 3 has already denied that cost accounts for this purchase rather than the others.
+  (C) scope_inflation — The first paragraph grants the entry records real pleasure; nothing questions its authenticity.
+  (D) prior_belief — This is precisely the joint reading paragraph 4 names and then overturns with the dog's speed.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — The final paragraph makes exactly this conditional demand and reports that the letters do not meet it, leaving the accounts side by side.
+  (A) causal_inversion — The passage says the stages answer to no one's state of mind; it is not refuted, only unproven as decisive.
+  (B) framework_import — The passage offers it as an account that would have to prove something it cannot, not as the arbitrating one.
+  (D) stage_misattribution — The drawer analogy belongs to paragraph 5's writer; the trade's version is introduced as running otherwise.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — Paragraph 3's inference depends on the press costing less than a season's bills while comparable sums were being spent; a priced listing supplies the missing comparison.
+  (A) half_truth — This restates the register-shifting talk of paragraph 2 and says nothing about affordability.
+  (C) adjacent_answer — Expressed worry about costs supports scarcity, which paragraph 3 already concedes explains slowness, not selection.
+  (D) causal_inversion — Falling expenditure would weaken, not license, the claim that funds for a press were findable.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 is the hinge that declares the tidy explanation stops too soon and isolates why this purchase alone stayed future; without it the sequence runs straight from motive to anecdote.
+  (A) straw_version — The passage grants money was short but does not build on modesty of comforts; it notes comforts were not refused.
+  (B) stage_misattribution — The register-shifting letters are paragraph 2's material, untouched by removing the spending paragraph.
+  (C) level_confusion — The mechanical account is qualified in the last paragraph by the letters, independently of paragraph 3.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — The analogy of a word crossing trades is cashed out by the list: amusement, practical scheme with costs, half-joke — the same object described at different levels of obligation.
+  (A) terminological_twin — It borrows the bookkeeping sense of the word, which the letters-analogy in paragraph 2 does not support.
+  (C) phrase_misuse — The crossing of trades is offered as a simile for how words shift, not as vocabulary she learned.
+  (D) adjacent_answer — Health enters later, to explain constancy of mention, not to account for the varying descriptions.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — The passage successively entertains motive, scarcity, temperament, analogy and mechanics, qualifying each, and closes by leaving them unabsorbed side by side.
+  (A) framework_import — Paragraph 3 explicitly calls that explanation tidy enough to stop with, and stopping too soon.
+  (B) example_promotion — The dog-and-press conflation is one move within the argument, not the passage's governing aim.
+  (D) level_confusion — The passage's subject is competing explanations of a gap, not a reconstructed purchasing chronology.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — The close makes the mechanical account's failure turn on what the letters do not show, so the unresolved point is documentary availability rather than interpretive ingenuity.
+  (A) false_symmetry — The last sentence says neither account absorbs the other, which is where the record leaves them.
+  (B) stance_misread — The opening grants the entry records real pleasure; nothing at the close revises its reliability.
+  (D) framework_import — Its indifference is noted, but the passage withholds arbitration between it and the interpretive readings.
+
+[Inspired by: "Dennis Duncan: At Charleston", https://www.lrb.co.uk/the-paper/v48/n14/dennis-duncan/at-charleston]

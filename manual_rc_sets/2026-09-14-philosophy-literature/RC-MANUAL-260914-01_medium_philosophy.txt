@@ -1,0 +1,111 @@
+[PASSAGE]
+
+A promise is easily mistaken for a confident prediction. Both concern something that has yet to happen, and both can give another person a reason to make plans. Yet their resemblance hides a difference in what the speaker has done. Someone who predicts a clear afternoon offers information about the weather. Someone who promises to meet a friend at the station gives that friend a claim on a particular action. The prediction concerns how things are likely to turn out; the promise helps determine what the speaker owes, even if the promised action was already likely to occur.
+
+This difference becomes visible when circumstances change. If the weather forecast improves, a prediction of rain becomes less credible. If an invitation to a more enjoyable evening arrives, a promise to collect someone does not become less binding. Its practical point is partly to prevent an attractive alternative from deciding the matter afresh. Promising would add little to ordinary intention if the speaker could withdraw whenever a better offer appeared. The friend waiting beside a suitcase is entitled to more than an updated account of the driver's preferences. A promise makes some reasons for changing one's mind insufficient.
+
+That does not make every promise unconditional. The station may close, an emergency may require assistance elsewhere, or the person expecting collection may release the driver. These possibilities have different effects. An emergency can justify failing to perform while leaving something to explain or repair. A release removes the other person's claim itself. Permission therefore matters in a way that a favourable change in the driver's mood does not. The person to whom the commitment was made has a role in deciding whether it remains, rather than merely a strong interest in what eventually happens.
+
+Reliance is important, but it cannot explain the whole obligation. A neighbour might expect help with moving a table because help has regularly been offered before. Disappointing that expectation may be inconsiderate without breaking a promise. Conversely, a friend might book an alternative ride despite a promise, perhaps because the driver has previously been unreliable. That precaution reduces the practical loss caused by another failure; it does not turn the promise into a prediction. The driver cannot make a commitment disappear by becoming so unreliable that nobody depends on it. Expectations concern what someone anticipates; commitments also concern what that person may demand.
+
+The distinction helps explain why an apology sometimes remains appropriate even when a broken promise caused no inconvenience. The apology acknowledges that the speaker treated a shared arrangement as though it were still a private intention, available for unilateral revision. Compensation alone may miss that feature, just as an apology alone may leave an actual expense unpaid. Keeping a promise is therefore more than producing a desirable outcome. It respects the other person's standing within an arrangement the speaker helped create, including that person's authority to release the commitment when performance no longer matters to them. Where release has not occurred, the absence of measurable harm does not settle what is still owed.
+
+[QUESTIONS]
+
+Q1. Which statement best captures the central idea of the passage?
+(A) Promises create obligations because their recipients usually organise their practical affairs around the speaker's predicted behaviour.
+(B) Promises give recipients claims on actions that cannot be reduced to predictions, expectations, or practical benefits.
+(C) Promises protect shared arrangements primarily by requiring speakers to compensate recipients whenever their expectations are disappointed.
+(D) Promises remain binding because speakers should preserve their earlier preferences when circumstances make alternative choices more attractive.
+
+Q2. According to paragraph 3, all the following are supported, EXCEPT:
+(A) An emergency can justify nonperformance while leaving the speaker with an obligation to offer some explanation.
+(B) The intended recipient can release a commitment even though the promised action remains entirely possible afterwards.
+(C) A recipient's permission changes the commitment differently from a change in the speaker's personal preferences alone.
+(D) An emergency removes the recipient's claim in the same way that an explicit release ordinarily does.
+
+Q3. What is the purpose of the example of a friend booking another ride?
+(A) It separates the obligation created by a promise from the recipient's practical dependence on its fulfilment.
+(B) It shows how a recipient's alternative arrangements can reasonably be understood as permission to abandon performance.
+(C) It demonstrates why promises from unreliable speakers generate greater practical obligations than promises from reliable speakers.
+(D) It explains how precautions transfer responsibility for an eventual failure from the speaker to the intended recipient.
+
+Q4. In paragraph 2, “deciding the matter afresh” most nearly means:
+(A) Reconsidering whether the recipient understood the precise action that the original promise was intended to cover.
+(B) Asking the recipient to choose between the original arrangement and a newly available alternative arrangement instead.
+(C) Treating performance as an open choice governed by whichever current option the speaker finds most attractive.
+(D) Assessing whether an unforeseen emergency provides sufficient justification for temporarily postponing an otherwise continuing personal obligation.
+
+Q5. Based on paragraph 3, which practice would the author most likely endorse?
+(A) Speakers should treat an improvement in the recipient's circumstances as sufficient evidence that release has occurred.
+(B) Speakers should seek the recipient's release when they wish to abandon a commitment for personal convenience.
+(C) Recipients should explain their practical losses before asking a speaker to honour an otherwise inconvenient commitment.
+(D) Recipients should preserve their original arrangements so that the speaker continues to have a binding obligation.
+
+Q6. What follows from the example of the neighbour expecting help with a table?
+(A) Reasonable expectations can deserve consideration without giving their holders the particular claim created by a promise.
+(B) Repeated voluntary assistance gradually creates the same claim as an explicit commitment once expectations become predictable.
+(C) Disappointed expectations become morally significant only when their holders can identify an earlier explicit verbal undertaking.
+(D) A helpful person's established habits give neighbours stronger claims than promises made by an unreliable speaker.
+
+Q7. Which response does NOT respect the distinction between release and justified nonperformance in paragraph 3?
+(A) After an urgent rescue prevents collection, the driver explains the situation and acknowledges the unfinished arrangement.
+(B) Before accepting another invitation, the driver obtains the waiting friend's agreement to end their collection arrangement.
+(C) When the friend expressly cancels collection, the driver accepts that the original undertaking no longer requires performance.
+(D) After an emergency prevents collection, the driver assumes that the friend's claim vanished without any remaining obligation.
+
+Q8. Which issue would most naturally extend the discussion in the final paragraph?
+(A) Whether accurate weather predictions encourage more extensive practical reliance than personal commitments made between close friends.
+(B) Whether reducing the financial costs of nonperformance makes it easier for speakers to predict their future preferences.
+(C) How an apology can acknowledge another person's standing when compensation has already covered every practical loss.
+(D) How recipients can preserve measurable losses so that a previously broken promise continues to generate an obligation.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+(A) causal_inversion — Paragraph 4 distinguishes reliance from the obligation; reliance does not create the whole claim.
+(B) CORRECT — Paragraphs 1, 3 and 4 distinguish a recipient's claim from a prediction, permission from preference, and obligation from reliance.
+(C) half_truth — Compensation can address an expense, but paragraph 5 says it can miss the recipient's standing.
+(D) stance_misread — Paragraph 2 concerns reasons and commitments, not preserving the speaker's preferences.
+
+Q2 — Correct answer: (D)
+(A) passage_supported — Paragraph 3 says an emergency can justify nonperformance while leaving something to explain or repair.
+(B) passage_supported — Paragraph 3 identifies release by the recipient as removing the claim, without requiring impossibility.
+(C) passage_supported — Paragraph 3 explicitly contrasts permission with a favourable change in the driver's mood.
+(D) CORRECT — Paragraph 3 distinguishes an emergency's justification from a release's removal of the claim.
+
+Q3 — Correct answer: (A)
+(A) CORRECT — Paragraph 4 says booking another ride reduces practical loss without converting the promise into a prediction.
+(B) adjacent_answer — A precaution against unreliability is not the release described in paragraph 3.
+(C) scope_inflation — The obligation survives unreliability; the passage does not say it becomes greater.
+(D) causal_inversion — Taking precautions does not transfer responsibility for the speaker's failure to the recipient.
+
+Q4 — Correct answer: (C)
+(A) adjacent_answer — Paragraph 2 concerns the speaker's competing preference, not misunderstanding the promised action.
+(B) stage_misattribution — Negotiating a release involves the recipient; the phrase describes reopening the decision privately.
+(C) CORRECT — The attractive invitation would otherwise make the promised action compete again with the speaker's preferred alternatives.
+(D) half_truth — Paragraph 3 allows emergencies, but paragraph 2's phrase concerns ordinary changes of preference.
+
+Q5 — Correct answer: (B)
+(A) nec_suff_swap — Changed circumstances can make release attractive without constituting the recipient's permission.
+(B) CORRECT — Seeking release respects the recipient's role in ending the claim rather than treating convenience as permission.
+(C) framework_import — Paragraph 4 denies that a measurable practical loss is necessary for the claim.
+(D) causal_inversion — Precautions do not extinguish a promise, so recipients need not preserve dependence to keep it binding.
+
+Q6 — Correct answer: (A)
+(A) CORRECT — Paragraph 4 describes disappointment as potentially inconsiderate while distinguishing it from breaking a promise.
+(B) false_symmetry — The example specifically separates regular assistance from the particular commitment created by promising.
+(C) scope_inflation — The neighbour's expectation can merit consideration even without an explicit undertaking.
+(D) level_confusion — Predictable helpfulness concerns expectation; the passage does not rank it above a promissory claim.
+
+Q7 — Correct answer: (D)
+(A) rule_satisfied — The response recognises justification while allowing a remaining obligation, as paragraph 3 requires.
+(B) rule_satisfied — The driver obtains the recipient's release rather than treating a better invitation as sufficient.
+(C) rule_satisfied — Express cancellation by the recipient removes the claim in the way paragraph 3 describes.
+(D) CORRECT — It treats justification as automatic release and excludes the possible remaining obligation.
+
+Q8 — Correct answer: (C)
+(A) adjacent_answer — Prediction appears earlier, but this comparison would leave the final paragraph's apology and standing unexplored.
+(B) level_confusion — The paragraph distinguishes compensation from acknowledgement; it does not concern forecasting preferences.
+(C) CORRECT — This develops the final paragraph's distinction between paying an expense and acknowledging a recipient's standing.
+(D) causal_inversion — Paragraph 5 says the claim can survive an absence of measurable harm; manufacturing loss is unnecessary.

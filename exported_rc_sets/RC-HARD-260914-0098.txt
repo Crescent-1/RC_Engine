@@ -1,0 +1,120 @@
+RC ID: RC-HARD-260914-0098 | Tier: hard | Score: 8.4 | Status: needs_review | Compliance F1: 0.78 | Novelty: 0.548 | Screen: green | Generated: 2026-09-14T05:16:39.283038+00:00
+======================================================================
+
+[PASSAGE]
+
+What holds a signed promise together once the paper leaves the hands of the two people who made it? A maker writes a fixed sum, a fixed date, a name. Then the note travels. Each endorser signs the back and passes it on. The promise is one; the promisors multiply.
+
+On the due date the holder presents the note at the place named on it and demands payment. The maker refuses, or cannot be found, or pays part. At this point the holder takes the instrument to a notary, who presents it again in his own person, records the refusal, and draws up a formal certificate of protest under seal. The protest fixes the fact of dishonour beyond later argument: date, place, demand, refusal. It also starts a clock, and the clock governs what the holder must do next.
+
+What he must do next is give notice. A commercial-law treatise of the older kind — the sort that walks the practitioner through each instrument in turn before reaching remedies — describes protest and notice together as machinery that operates without a court. The endorsers are ranked in the order they signed. Loss travels backward along that rank. Nobody sues to start it moving. The treatise calls the arrangement self-executing, meaning the certificate and the letters do the work a judgment would otherwise do.
+
+Merchant bills drawn between inland towns follow it. Bank notes returned unpaid follow it. A bill of exchange accepted at one port and dishonoured at another follows it, with local variation only in how many days the notary may take and whether a copy must be filed.
+
+The uniformity is easy to mistake for strength, and for a long time the mistake cost little, because chains were short and endorsers known to one another. Then notes began circulating further. Six or eight names on the back, spread across three provinces, none of them personally acquainted with the holder. Under those conditions the timely-notice requirement stopped functioning as a formality attending the protest and became the thing that decided whether the paper was worth its face or worth nothing.
+
+Notice fails to arrive in four ways. It may be misdirected, sent to an address the endorser gave when he signed and has since abandoned. The endorser may have moved without leaving word, so that a correctly addressed letter finds no one. The post itself may be slow, arriving after the permitted days have run. Or the notary may miscount the deadline. None of these degrades the endorser's liability by degrees. Each one, alone, discharges him outright. He owes what he owed before he signed, which is nothing.
+
+The machinery does what the treatise says it does, and it does it without a court, and it does it reliably — up to the first name the letters do not reach in time. That endorser is not made harder to pursue; he is gone from the chain, and everyone whose liability ran through his, being endorsers earlier than he, goes with him.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) Endorsers who move without notifying holders are the chief cause of loss on circulating commercial paper today.
+(B) Because merchant bills, bank notes and foreign bills all follow one procedure, commercial paper enforcement is uniform and dependable everywhere.
+(C) A uniform court-free enforcement chain rests on timely notice, so lengthening chains make that fragile step decisive.
+(D) The notary's formal certificate of protest is what converts the maker's refusal into consequences the endorsers must bear.
+
+Q2. According to the passage, all of the following are true of the protest drawn up by the notary EXCEPT:
+(A) It is a formal certificate issued under seal by the notary handling the matter.
+(B) It records a demand made by the notary in his own person at presentment.
+(C) It settles which endorsers along the chain remain liable for the unpaid sum.
+(D) It begins a period whose expiry governs what the holder is required to do.
+
+Q3. The list of merchant bills, returned bank notes and bills of exchange in paragraph 4 functions to:
+(A) establish the procedure's breadth of application, which the next paragraph reinterprets as a false reassurance.
+(B) introduce the four channels by which a notice letter may fail to reach an endorser in time.
+(C) show that local variation in filing and permitted days has quietly displaced the treatise's uniform scheme.
+(D) demonstrate that the protest-and-notice mechanism has proved sound across every commercial setting it governs.
+
+Q4. Which one of the following proposals about long endorsement chains is most consistent with the author's position?
+(A) Notaries should be given longer permitted days so that miscounted deadlines cease to occur in practice.
+(B) Holders should verify each endorser's current address before presentment, since one late letter erases a whole segment.
+(C) Courts should be brought in to supervise protest and notice, since the machinery is untrustworthy.
+(D) Late notice should reduce an endorser's liability in proportion to the delay rather than removing it.
+
+Q5. Based on the passage, the treatise's description of the arrangement as "self-executing" would most likely mean that:
+(A) the instrument enforces itself against endorsers regardless of whether any documents are prepared.
+(B) the certificate and the letters accomplish what a judgment would otherwise have to accomplish.
+(C) the endorsers settle among themselves privately once the maker's refusal has become known.
+(D) a court's judgment is required only when several endorsers dispute their order of signing.
+
+Q6. Which one of the following situations does NOT illustrate the mechanism the passage describes?
+(A) A clerk misreads the calendar and posts notice two days after the period closed, and the fifth endorser is released.
+(B) A letter reaches an office the second endorser vacated last winter, and both he and the first endorser escape liability.
+(C) A notice posted in good time is delayed in transit and arrives past the allowed days, and the addressed endorser owes nothing.
+(D) A holder, after protest, writes to the third endorser at his correct address within the permitted days, and that endorser is discharged.
+
+Q7. Which one of the following findings would most complicate the author's account of what happens when notice fails?
+(A) Records show that most endorsers in short chains were personally known to holders and rarely needed written notice.
+(B) Records show that notaries in several ports were permitted more days for protest than treatise writers had assumed.
+(C) Records show that a holder who missed one endorser could still recover in full from endorsers earlier in the rank.
+(D) Records show that makers of dishonoured notes were sometimes traced and made to pay long after the protest was drawn.
+
+Q8. Which one of the following sequences of phrases best captures the flow of the passage?
+(A) four ways notice can fail → protest fixes the fact of dishonour → promise passed along by endorsers → uniform coverage of instruments → recovery from the maker
+(B) promise passed along by endorsers → uniform coverage of instruments → uniformity proves the machinery robust → notaries given extra filing days → holders resort to courts
+(C) maker fixes sum and date → notary's seal decides endorser liability → letters merely confirm the record → chains lengthen across provinces → liability weakens by degrees
+(D) promise passed along by endorsers → protest recording dishonour → notice ranked backward without courts → chains lengthen across provinces → one missed letter ends the chain
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — It joins the treatise's self-executing machinery (paras 2-4), the shift in conditions (para 5), and the closing point that the chain ends at the first missed letter (paras 6-7).
+  (A) example_promotion — Paragraph 6 lists relocation as one of four equal failure channels, not as the dominant or chief cause.
+  (B) half_truth — Paragraph 5 states the uniformity 'is easy to mistake for strength', so the survey of paragraph 4 cannot ground dependability.
+  (D) prior_belief — Paragraph 2-3 makes protest only the record of dishonour; what the holder 'must do next' — notice — is what preserves liability.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — Paragraph 2 confines protest to fixing the fact of dishonour and starting a clock; liability along the chain turns on notice (paras 3, 6), so this misplaces the protest's level of operation.
+  (A) passage_supported — Paragraph 2 states the notary 'draws up a formal certificate of protest under seal'.
+  (B) passage_supported — Paragraph 2 says the notary 'presents it again in his own person, records the refusal'.
+  (D) passage_supported — Paragraph 2 says the protest 'starts a clock, and the clock governs what the holder must do next'.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — Paragraph 4 catalogues instruments following the same route; paragraph 5 immediately says that uniformity 'is easy to mistake for strength', so the list sets up the correction.
+  (B) stage_misattribution — The four failure channels appear in paragraph 6, not as the work of paragraph 4's catalogue of instruments.
+  (C) half_truth — Paragraph 4 calls such variation minor ('with local variation only'), not a displacement of the common procedure.
+  (D) framework_import — Paragraph 5 explicitly warns against reading uniform coverage as robustness, which this option performs anyway.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — Paragraphs 6-7 make any single notice failure a complete discharge that carries earlier endorsers with it, so address currency is the load-bearing safeguard.
+  (A) adjacent_answer — Miscounting is only one of four channels in paragraph 6; extending days leaves misdirection and relocation untouched.
+  (C) straw_version — Paragraph 7 grants that the machinery works reliably without a court; the author's worry is the reach of letters.
+  (D) framework_import — Paragraph 6 says none of the failures 'degrades the endorser's liability by degrees'; each discharges outright.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — Paragraph 3 defines the term directly: nobody sues to start loss moving backward along the rank, because documents do a judgment's work.
+  (A) scope_inflation — Paragraph 3 makes the certificate and letters the very things doing the work; documents are not dispensable.
+  (C) category_slip — Paragraph 3 describes a ranked backward transfer of loss driven by notice, not informal private settlement.
+  (D) prior_belief — Paragraph 3 says 'Nobody sues to start it moving'; ranking follows signing order without adjudication.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — Notice was timely and correctly directed, so none of paragraph 6's four channels operates; the conditions for discharge are unmet.
+  (A) rule_satisfied — Paragraph 6 lists miscounting the deadline as a channel that discharges the endorser outright.
+  (B) rule_satisfied — Paragraph 6 covers relocation; paragraph 7 carries earlier endorsers out with the one whose notice failed.
+  (C) rule_satisfied — Paragraph 6 names the post's slowness as a channel, and discharge follows regardless of the holder's diligence.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — Paragraph 7's load-bearing claim is that everyone whose liability ran through the missed endorser goes with him; recovery from earlier endorsers dismantles exactly that.
+  (A) half_truth — Paragraph 5 says the mistake cost little when chains were short; this confirms rather than complicates the account.
+  (B) adjacent_answer — Paragraph 4 already concedes local variation in permitted days; the discharge rule is untouched by it.
+  (D) level_confusion — The argument concerns endorser liability along the chain, not the separate possibility of recovering from the maker.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — It tracks paragraphs 1-2, 3, 5 and 6-7 in order, ending where the passage narrows to the single decisive failure.
+  (A) level_confusion — It reverses the passage's order, opening with paragraph 6's failures and closing on a maker remedy never discussed.
+  (B) half_truth — Paragraph 5 rejects reading uniformity as strength, and paragraph 7 keeps the machinery court-free throughout.
+  (C) stage_misattribution — It gives the protest the liability-deciding role that paragraphs 3 and 6 assign to notice, and denies outright discharge.
+
+[Inspired by: "Is it morally wrong to not take care of yourself?", https://psyche.co/ideas/is-it-morally-wrong-to-not-take-care-of-yourself]

@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260914-0099 | Tier: hard | Score: 7.4 | Status: needs_review | Compliance F1: 0.631 | Novelty: 0.557 | Screen: red | Generated: 2026-09-14T06:15:51.071401+00:00
+======================================================================
+
+[PASSAGE]
+
+A refusal to have children can be stated as a conclusion about the world, and in Japan it increasingly is: young people who say, with some elegance, that no one is entitled to gamble another person's existence against the suffering the century is likely to hand out. Bioethicists and the movement's sympathizers take that at face value, as a position arrived at by argument and holding whether or not the arguer is happy. Sociologists of the family hear something else in the same sentences — not a conclusion but a symptom, the philosophical dress worn by a long retreat from marriage and childbearing that was underway before anyone in these groups was old enough to reason about it. One camp grants the argument its dignity. The other grants it a diagnosis. Both assume the sentence is about the world.
+
+I think both have mislaid the subject. They treat reason and symptom as rivals for a single slot: either she means it or she is being explained. But someone who says she cannot see a reason to reproduce is not usually delivering a verdict on the century. She is describing a relationship. Somewhere in the account there is a parent, waiting.
+
+Yukina, a pseudonymous art student and part-time worker in Tokyo, put it more flatly than any bioethicist would. "We have children because of social pressures," she told the anthropologist who interviewed her, and then: "But also because we want our children to replace us." Her own refusal is complete and philosophically framed — she holds there is no good reason to reproduce — yet what she reports is not cosmic pessimism but the moment her parents learned she is a transgender woman with no plans for a family, and their hope collapsed. What had been pinned on grandchildren was continuation: a hedge against ending, which they had quietly filed under her name. The fear of vanishing, relocated onto the child, is the engine here. It does not tell us whether she is right about the world.
+
+And the household is no longer the whole room. What was once a private, slightly embarrassing disappointment at a dinner table now reads as national evidence. A daughter saying no is heard at once as personal betrayal and as a data point in the depopulation panic. There is no register left between those two.
+
+Someone who organizes for Antinatalism Japan, the group that formed in 2021 and has since run monthly street outreach events, could tell you what actually passes between members at these gatherings, and it is not doctrine. Across such groups people recognize each other through shared histories of mental illness, workplace harassment, social ostracization — and through one word, ikizurasa, the pain of living, which they needed and their parents did not. That is why the two camps cannot land a punch on each other. The ethical claim is offered as impersonal and so cannot be audited by asking about anyone's family; the demographic reading explains a curve but not why this cohort required a vocabulary for a refusal that is centuries old. The word is the tell. It is not a premise in an argument about the world's unfitness for life; it names what it costs to be someone's insurance against death and to decline the job, and the stall in the dispute is only the two camps agreeing to look past that.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) The question of whether these young people are right about the century, or merely rationalizing a decline already underway, admits of no settlement.
+(B) Both the ethical and the demographic readings miss that such refusals describe a relationship with parents who made the child their hedge against ending.
+(C) Japan's depopulation panic has removed any private register in which a daughter's refusal could once be heard as ordinary disappointment.
+(D) Anti-natalist rhetoric in Japan is best understood as the philosophical dress worn by a retreat from marriage that long preceded it.
+
+Q2. Which one of the following views does the author report or steelman rather than hold?
+(A) The two camps cannot land a punch on each other because each is answerable only on terrain the other never enters.
+(B) The word ikizurasa names a cost rather than functioning as a premise within an argument about the world's unfitness.
+(C) The refusal is a position reached by argument, holding regardless of whether the person voicing it happens to be happy.
+(D) Naming the parent's fear of vanishing as the engine does not establish whether the refusal is correct about the world.
+
+Q3. All of the following are true of Yukina's case as the passage presents it, EXCEPT:
+(A) What she reports is her parents' collapsing hope rather than a bleak verdict on the century.
+(B) Her account shows that a philosophically framed refusal tends to dissolve once its familial origins are traced.
+(C) She holds that there is no good reason to reproduce, and her refusal is complete.
+(D) She names social pressure and the wish that children replace us as reasons people reproduce.
+
+Q4. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) A childless man defends non-reproduction on impersonal grounds, but describes only his mother's grief at losing her sole guarantee against being forgotten.
+(B) A demographer shows that birth rates in a region fell steadily for decades before any philosophical vocabulary for refusing parenthood became available there.
+(C) A young man joins an ethics discussion group and gradually concludes, from published arguments alone, that reproduction imposes unconsented risk on others.
+(D) A woman abandons her stated ethical objection to childbearing after therapy reveals it originated in her father's controlling expectations about family continuity.
+
+Q5. Which one of the following findings would most complicate the author's account of what draws people to anti-natalist groups in Japan?
+(A) Members at these gatherings mostly debate published philosophical arguments, and rarely mention families, harassment, illness, or ikizurasa at all.
+(B) The philosophical arguments circulating in the group are centuries old and were formulated in societies with rising rather than falling birth rates.
+(C) Several members report that their parents also privately doubted whether having children was worth the suffering of the coming century.
+(D) Antinatalism Japan was founded only in 2021 and its street outreach reaches far fewer people than national surveys of childlessness suggest.
+
+Q6. Which one of the following claims about the stalemate between the two camps is NOT supported by the passage?
+(A) Both camps proceed on the shared assumption that the sentence being uttered is about the world.
+(B) The demographic reading fails because the decline it charts began after young people acquired a vocabulary for refusal.
+(C) The ethical claim resists audit by questions about family because it is offered as impersonal.
+(D) The stall persists because each camp agrees to look past what the word ikizurasa names.
+
+Q7. Which one of the following is most strongly implied by the way the passage ends?
+(A) An adequate account would have to describe the cost of serving as a parent's insurance against death, a subject neither camp is equipped to raise.
+(B) Anti-natalist groups should be studied primarily by anthropologists, since sociologists and bioethicists have both proven unable to describe them accurately.
+(C) The national depopulation panic is atmosphere surrounding the argument, while the genuine disagreement stays confined to the household and its disappointments.
+(D) The dispute between the ethicists and the demographers will be settled once researchers determine which cohort first adopted the vocabulary of refusal.
+
+Q8. What is the purpose of the example of Yukina in the passage?
+(A) It establishes that anti-natalist reasoning in Japan originates with young people who have been rejected by their own families.
+(B) It documents how a transgender woman's disclosure to her parents converts a private disappointment into a national demographic concern.
+(C) It proves that the sociologists are right, since her stated argument turns out to conceal an ordinary family disappointment.
+(D) It shows a complete philosophical refusal whose actual content, on inspection, is a parent's collapsed hope rather than a verdict.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — Integrates the paragraph-2 reframing ('She is describing a relationship'), the Yukina case, and the paragraph-5 verdict that both camps agree to look past what ikizurasa names.
+  (A) premature_closure — Treats the passage as adjudicating between the two camps' claims about the world, which paragraph 2 explicitly refuses as the wrong subject.
+  (C) example_promotion — Paragraph 4's point about the missing middle register is one stage of the argument, not its central claim.
+  (D) stance_misread — This is the sociologists' diagnosis reported in paragraph 1, not the author's position.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — Paragraph 1 attributes this to bioethicists and sympathizers who take the claim at face value; the author departs from it in paragraph 2.
+  (A) adjacent_answer — Paragraph 5 offers this diagnosis of the stalemate in the author's own voice.
+  (B) half_truth — Paragraph 5 gives this as the author's own conclusion, the tell he uses against both camps.
+  (D) stage_misattribution — The author states this directly at the end of paragraph 3; it is his own guard against the symptom reading, not a reported view.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The passage insists the parental engine 'does not tell us whether she is right about the world'; nothing in her case dissolves or weakens the philosophical claim.
+  (A) passage_supported — Paragraph 3 contrasts 'cosmic pessimism' with the moment her parents learned of her plans.
+  (C) passage_supported — Paragraph 3 states her refusal is complete and philosophically framed, with no good reason to reproduce.
+  (D) passage_supported — Paragraph 3 quotes both clauses of her statement to the anthropologist directly.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Combines the two constraints: an impersonal philosophical framing on the surface, and underneath a parent's fear of vanishing relocated onto the child.
+  (B) stage_misattribution — This is the sociologists' curve-explaining reading, which paragraph 5 says cannot explain why this cohort needed the vocabulary.
+  (C) half_truth — This matches the bioethicists' face-value picture in paragraph 1, with no relationship or parent anywhere in the account.
+  (D) causal_inversion — The author denies that tracing the familial engine settles the truth of the ethical claim, as paragraph 3's last line states.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — Paragraph 5 rests on the claim that recognition at these gatherings runs through shared histories and one word rather than doctrine; this finding removes that foundation.
+  (B) half_truth — Paragraph 5 already grants that the refusal is centuries old; this restates the author's own premise instead of straining it.
+  (C) adjacent_answer — Parents doubting too does not disturb the claim about what members recognize in each other, or about the hedge against ending.
+  (D) scope_inflation — The author never claims the group is large or representative; size leaves the claim about what passes between members untouched.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — Paragraph 5 says the demographic reading explains a curve but cannot explain why this cohort needed the vocabulary; the passage puts the retreat before the vocabulary, not after.
+  (A) passage_supported — Paragraph 1 closes by noting that both camps assume the sentence is about the world.
+  (C) passage_supported — Paragraph 5 states the claim is offered as impersonal and so cannot be audited by asking about anyone's family.
+  (D) passage_supported — The final sentence of paragraph 5 attributes the stall to exactly this shared avoidance.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — The closing sentence relocates the real question onto what ikizurasa names, displacing the original dispute rather than deciding it.
+  (B) level_confusion — The ending shifts the subject of inquiry, not the disciplinary credentials of who conducts it.
+  (C) premature_closure — Paragraph 4 makes the collapse of any register between betrayal and data point structural to the problem, not decorative background.
+  (D) premature_closure — The passage treats the dispute as misdirected rather than pending; no timeline finding would resolve what both camps are looking past.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 licenses the paragraph-2 reframing by exhibiting a case where the philosophical framing and the relational content come apart.
+  (A) scope_inflation — One pseudonymous interviewee is used to reframe the subject, not to generalize about the origins of a movement.
+  (B) stage_misattribution — The collapse of the private register is paragraph 4's separate move; Yukina's case is introduced to relocate the subject.
+  (C) half_truth — The paragraph explicitly denies this inference: the engine 'does not tell us whether she is right about the world.'
+
+[Inspired by: "In Japan, the Philosophical Stance Against Having Children", https://www.sapiens.org/culture/japan-reproduction-death-anti-natalism-movement/]
