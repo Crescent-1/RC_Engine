@@ -45,6 +45,16 @@ _MAX_LONGEST = config.MAX_CORRECT_LONGEST
 # options are; they just have to match each other.
 OPTION_LENGTH_SPREAD_TARGET = 3
 
+# 2026-09-14 prompt review. (1) This is an f-string, and the output-discipline
+# line's braces were single, so the model was told the response must begin and
+# end with "'" rather than "{" and "}" (tests/test_prompt_hygiene.py now pins
+# it). (2) Moved out of the prompt into this comment: measured over 94 sets, the
+# per-set correct-longest count was 1.74x more dispersed than chance (chi-square
+# 53.7 on 8 df); mean 25%, but 10% of sets at 5-8 of 8 — errors clustering
+# within a set, which is what a skipped self-check looks like. (3) The
+# closure_reading slot description in topologies.json named the operator who
+# retired the stem "The passage stops where it does in order to:" (2026-09-12,
+# replaced by a continuation question); that history now lives here.
 QUESTION_SYSTEM = f"""You are a senior CAT VARC question architect. You receive a passage,
 its hidden structural blueprint (trap map, tension system, revelation schedule), and a
 QUESTION PLAN of {_N_Q} slots. Write exactly one MCQ per slot, to spec.
@@ -117,12 +127,8 @@ as you wrote them — ignore letters; count the option strings only).
 5. Report the result of step 2 in the "length_audit" field of the JSON — the
    count itself, plus the question numbers where the correct option is strictly
    longest. Writing the count down is the point: a silent tally over {_N_Q}
-   questions is not verifiable by you or by us, and the corpus shows it is not
-   reliably performed. Measured over 94 sets, the per-set correct-longest count
-   is 1.74x MORE dispersed than chance (chi-square 53.7 on 8 df): the mean is
-   exactly the 25% you would get by luck, but 10% of sets land at 5-8 of {_N_Q},
-   where "pick the longest option" becomes a working heuristic. The errors
-   cluster WITHIN a set, which is what a skipped check looks like.
+   questions is not verifiable, and skipped checks leave whole sets where "pick
+   the longest option" works.
 6. Only after this recheck passes, emit the JSON.
 
 OUTPUT DISCIPLINE (this model writes extra visible reasoning when thinking is
@@ -132,7 +138,7 @@ off, and that reasoning competes with the JSON for the output budget):
 - Do not narrate the length-bias recheck in prose. Report it ONLY as the
   structured "length_audit" field below — that is data, not commentary, and it
   does not compete with the questions for the output budget.
-- The first character of your response must be '{' and the last must be '}'.
+- The first character of your response must be '{{' and the last must be '}}'.
 
 Respond ONLY with valid JSON, no markdown fences:
 {{

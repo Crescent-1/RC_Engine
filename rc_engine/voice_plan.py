@@ -118,7 +118,7 @@ SCHEMA_EXTRA_MOVES = {
 def middle_moves(schema_id, policy=None):
     """Body beats this schema may plan. A generation policy may widen the set
     for its own plans (2026-09-13); the legacy result is unchanged."""
-    if policy is not None and not policy.is_legacy:
+    if policy is not None and not policy.reads_legacy:
         return policy.middle_moves(schema_id)
     return SUPPORTING_MOVES | SCHEMA_EXTRA_MOVES[schema_id]
 

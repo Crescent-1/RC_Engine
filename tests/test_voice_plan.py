@@ -218,7 +218,9 @@ def test_shipping_records_voice_observations_without_an_extra_gate(setup, monkey
         read.closing_beat_ok = False
     pipe = RCPipeline(history, MockLLMClient(), embed=False)
     monkeypatch.setattr(pipe.novelty, 'score', lambda *a, **kw: NoveltyReport('pass'))
-    monkeypatch.setattr('rc_engine.pipeline.blind_solve', lambda *a: {'disputes': []})
+    # A complete, agreeing blind solve (2026-09-14: an incomplete one now routes to review).
+    monkeypatch.setattr('rc_engine.pipeline.blind_solve', lambda *a: {
+        'verdict': 'ok', 'disputes': [], 'comparable': True, 'answered': 8})
     monkeypatch.setattr('rc_engine.pipeline.judge_rc', lambda *a, **kw:
                         {'average': 10, 'verdict': 'approve', 'scores': {}})
     monkeypatch.setattr('rc_engine.pipeline.length_bias_report', lambda *a:

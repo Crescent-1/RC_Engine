@@ -136,12 +136,26 @@ class ComplianceAuditor:
         if policy.source_facts:
             from .source_facts import facts_block
             context["source_facts"] = [f["id"] for f in bp.source_facts]
-            user = facts_block(bp.source_facts) + "\n\n" + user
+            if policy.strict_source_fact_audit:
+                context["strict_source_fact_audit"] = True
+            user = facts_block(bp.source_facts, evidence=policy.strict_source_fact_audit) + "\n\n" + user
         user = policy.user_prompt("compliance", user)
-        text, _ = self.llm.call(ledger, "compliance", model, max_tokens,
+        text, truncated = self.llm.call(ledger, "compliance", model, max_tokens,
                                 policy.system_prompt("compliance", COMPLIANCE_SYSTEM), user,
                                 context=context)
-        data = extract_json(text)
+        if policy.strict_source_fact_audit:
+            # 2026-09-14: a syntactically complete prefix of a truncated audit
+            # is still incomplete. Never turn absent checks into success.
+            try:
+                data = extract_json(text)
+            except (ValueError, TypeError, AttributeError):
+                data = {}
+            if not isinstance(data, dict):
+                data = {}
+            if truncated:
+                data["fact_trace_complete"] = False
+        else:
+            data = extract_json(text)
         return self._score(data, passage, bp, realized_moves or [],
                            grants=context.get("permissions"),
                            trace_facts=policy.source_facts)
@@ -289,26 +303,43 @@ class ComplianceAuditor:
         postures = policy.closing_postures(self.registry)
         vocab = policy.move_vocabulary()
         exam_shares = policy.exam_move_shares()
-        paras_report = data.get("paragraphs", [])[:n]
+        paras_report = data.get("paragraphs", [])
+        paras_report = paras_report[:n] if isinstance(paras_report, list) else []
         real_paras = [p for p in passage.split("\n\n") if p.strip()]
 
         functions, matches = [], []
         for i, p in enumerate(bp.movement):
             rep = paras_report[i] if i < len(paras_report) else {}
+            # 2026-09-14 review: a non-object entry raised AttributeError, which
+            # the render loop does not catch; it now reads as an unmatched paragraph.
+            rep = rep if isinstance(rep, dict) else {}
             guess = rep.get("function_guess", "OTHER")
             match = bool(rep.get("matches_plan", False))
             functions.append(guess if guess else "OTHER")
             matches.append(match)
 
-        curve = [float(x) for x in data.get("commitment_curve", [])][:n]
+        # 2026-09-14 review: one non-numeric point used to raise (a paid
+        # re-render), and a short curve was padded with 0.0, which the posture
+        # band then read as a real endpoint. Unreadable points are dropped, and
+        # the close is only audited when every paragraph has a reading.
+        curve = []
+        raw_curve = data.get("commitment_curve", [])
+        for x in (raw_curve if isinstance(raw_curve, list) else [])[:n]:
+            try:
+                curve.append(float(x))
+            except (TypeError, ValueError):
+                continue
+        curve_measured = len(curve) == n
         while len(curve) < n:
             curve.append(0.0)
 
         planned_thesis = bp.revelation_detail.get("planned_para", n)
         realized_thesis = data.get("thesis_first_visible_para")
-        traps_present = [t for t in data.get("traps_present", [])
+        raw_traps = data.get("traps_present")
+        traps_present = [t for t in (raw_traps if isinstance(raw_traps, list) else [])
                          if t in {x["trap_id"] for x in bp.trap_map}]
-        tics = data.get("forbidden_tics_found", [])
+        tics = data.get("forbidden_tics_found")
+        tics = [t for t in tics if t] if isinstance(tics, list) else []
 
         # ---- beat-plan compliance (2026-08-22) -----------------------------
         # Scored from the BLIND extraction, so this measures the prose and not a
@@ -513,7 +544,7 @@ class ComplianceAuditor:
         # a directive that rides an existing retry, never a forced re-render.
         commitment_ok = True
         band = policy.posture_end_commitment().get(planned_posture or "")
-        if band and curve:
+        if band and curve and curve_measured:
             lo, hi = band
             tol = config.POSTURE_END_TOLERANCE
             end = curve[-1]
@@ -551,10 +582,16 @@ class ComplianceAuditor:
         trace: list[dict] = []
         unsupported_claims: list[dict] = []
         if trace_facts:
-            from .source_facts import unsupported
-            trace = [t for t in (data.get("fact_trace") or []) if isinstance(t, dict)][:20]
-            unsupported_claims = unsupported(trace, bp.source_facts)
+            from .source_facts import audit_evidence, unsupported
+            if policy.strict_source_fact_audit:
+                trace, unsupported_claims = audit_evidence(data, bp.source_facts, passage)
+            else:
+                trace = [t for t in (data.get("fact_trace") or []) if isinstance(t, dict)][:20]
+                unsupported_claims = unsupported(trace, bp.source_facts)
             for u in unsupported_claims[:4]:
+                if u["support"] == "audit_incomplete":
+                    directives.append(u["claim"] + "; require a complete evidence audit before approval")
+                    continue
                 directives.append(
                     f"the passage presents \"{u['claim']}\" as real without support in "
                     f"SOURCE-SUPPORTED FACTS: remove it, or restate it from a listed fact "

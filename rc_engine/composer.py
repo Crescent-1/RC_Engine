@@ -41,6 +41,13 @@ def blueprint_categorical_similarity(a: dict, b: dict) -> float:
     return sim / sum(config.BLUEPRINT_HAMMING_WEIGHTS.values())
 
 
+# coherent_plans (2026-09-14; see GenerationPolicy.coherent_plans for the counts).
+# Beat pairs whose glosses contradict: LEVEL_RELOCATION reframes the question,
+# UNDERLYING_CAUSE_NAMED names a cause "while leaving the question as posed intact".
+CONFLICTING_BEATS = (frozenset({"LEVEL_RELOCATION", "UNDERLYING_CAUSE_NAMED"}),)
+# Posture classes (label prefix) whose close must commit to a position.
+COMMITTED_POSTURE_CLASSES = ("resolution", "affirmation")
+
 REFINE_SYSTEM = """You are the content-planning stage of a CAT VARC generation engine.
 You receive a structural blueprint (argument family, paragraph movement plan, persona,
 revelation pattern, ending type) plus an optional inspiration essay excerpt.
@@ -634,10 +641,15 @@ class BlueprintComposer:
         if schema_id:
             banned.update(policy.family_forbidden_moves(family_id))
 
+        def clashes(m: str, taken: set[str]) -> bool:
+            return policy.coherent_plans and any(
+                m in pair and (pair - {m}) & taken for pair in CONFLICTING_BEATS)
+
         def pick(pool: list[str], k: int, taken: set[str]) -> list[str]:
             out: list[str] = []
             for _ in range(k):
-                cands = [m for m in pool if m not in taken and m not in banned]
+                cands = [m for m in pool if m not in taken and m not in banned
+                         and not clashes(m, taken)]
                 if not cands and schema_id:
                     break  # fewer useful operations beats repeating or violating the stance
                 if not cands:
@@ -744,6 +756,13 @@ class BlueprintComposer:
                                    if i not in excluded}
                 pool = self._eligible(ctype, tier, ban_families=ban_f,
                                       allowed_ids=allowed, policy=policy)
+                if (ctype == "revelation" and policy.coherent_plans and "family" in ids
+                        and self.registry.posture_of(ids["family"]).split("_")[0]
+                        in COMMITTED_POSTURE_CLASSES):
+                    # A thesis that is never stated cannot also be the verdict
+                    # the close must commit to (see GenerationPolicy.coherent_plans).
+                    pool = [i for i in pool
+                            if self.registry.get(ctype, i).get("timing") != "never_stated"]
                 bound = policy.family_bound_components.get(ctype)
                 if bound and "family" in ids:
                     # e.g. E21 "The Scope Fixed" only closes F61 (2026-09-13);
@@ -959,10 +978,24 @@ class BlueprintComposer:
         from .seed_classify import (classify_seed, eligible_topic_shapes,
                                     genre_is_saturated)
 
-        info = classify_seed(seed, self.llm, ledger, tier)
-        info["saturated"] = genre_is_saturated(self.history, info["genre"])
-
         policy = policy or policy_for_new_plan(tier)
+        menu = ""
+        if policy.seed_fidelity:
+            from .seed_classify import shape_menu
+            menu = shape_menu(self.registry, policy.eligible_ids(self.registry, "topic_shape"))
+        stored = getattr(seed, "labels", None)
+        if stored:
+            # 2026-09-14: labelled once in the seed store (seed_labels.py); the
+            # stored shapes cover the whole library, filtered per policy below.
+            info = dict(stored)
+            print("  [seed] labels from the seed store")
+        else:
+            info = classify_seed(seed, self.llm, ledger, tier, menu=menu)
+        info["saturated"] = genre_is_saturated(self.history, info["genre"])
+        if menu and getattr(seed, "text", ""):
+            print(f"  [seed] shapes this essay can carry: "
+                  f"{', '.join(info.get('carriable_shapes') or []) or 'none reported'}")
+
         eligible = eligible_topic_shapes(self.registry, info, policy)
         # Ceiling on groups of shapes that ask the same question, BEFORE the
         # inverse-frequency draw below. It has to come first: the decay weight
@@ -974,7 +1007,11 @@ class BlueprintComposer:
         # cohort on a winning flip and AWAY from it on a losing one. A
         # permit-only flip multiplies two probabilities and under-binds; that
         # is how FIRST_PERSON_MAX_SHARE realised 4-5% against a 20% ceiling.
-        for cohort, cap in getattr(config, 'TOPIC_SHAPE_COHORT_MAX_SHARE', []):
+        cohorts = list(getattr(config, 'TOPIC_SHAPE_COHORT_MAX_SHARE', []))
+        if policy.seed_fidelity:
+            # 2026-09-14: see config.SEED_FIDELITY_COHORT_MAX_SHARE.
+            cohorts += list(getattr(config, 'SEED_FIDELITY_COHORT_MAX_SHARE', []))
+        for cohort, cap in cohorts:
             eligible = self._steer_share(
                 eligible, self.rng.random() < cap, lambda i, c=cohort: i in c)
         # Same inverse-frequency logic the move plan and arc shapes use: a
@@ -1059,7 +1096,7 @@ class BlueprintComposer:
                     break
                 except CompositionExhausted:
                     schemas.remove(schema_id)
-            if ids is not None or policy.is_legacy or not topic_shape_id:
+            if ids is not None or policy.reads_legacy or not topic_shape_id:
                 break
             # 2026-09-13 (measured in tools/cat_pyq/simulate_policies.py): a
             # section-5 topic shape can lead to a single schema with a single
@@ -1121,6 +1158,12 @@ class BlueprintComposer:
                   "domain_hint": seed.domain_hint},
         )
 
+        if policy.seed_fidelity:
+            # 2026-09-14: the anchor rides on the plan so a re-refine or a plan
+            # check later in the attempt reads what this compose read.
+            from .seed_fidelity import anchor_from
+            bp.seed.update(anchor_from(seed, seed_info))
+
         issues = plan_violations(bp, self.registry)
         if issues:
             raise CompositionExhausted("incompatible voice plan: " + "; ".join(issues))
@@ -1134,11 +1177,16 @@ class BlueprintComposer:
         return self._apply_refined(bp, refined, mechanisms, seed)
 
     def refine_only(self, bp: Blueprint, seed: SeedEssay, ledger: CostLedger,
-                    avoid_topics: list[str] | None = None) -> Blueprint:
+                    avoid_topics: list[str] | None = None,
+                    fidelity_failure: str = "") -> Blueprint:
         """Re-run the refine stage on an existing blueprint (structure stays
         fixed), steering the topic away from avoid_topics. Used by the
         pre-render topic-collision precheck: a re-refine costs ~$0.01-0.03 vs
-        ~$0.07 for a render + compliance that novelty would then reject."""
+        ~$0.07 for a render + compliance that novelty would then reject.
+
+        fidelity_failure (seed-fidelity plans, 2026-09-14): why the previous
+        plan failed the seed check, restated so the re-plan returns to the
+        seed's subject."""
         family = self.registry.get("family", bp.family_id)
         revelation = self.registry.get("revelation", bp.revelation_id)
         ending = self.registry.get("ending", bp.ending_id)
@@ -1146,11 +1194,24 @@ class BlueprintComposer:
         model, max_tokens = config.STAGE_CONFIG["refine"][bp.tier]
         mechanisms = [profile["primary"], profile["secondary"]]
         user = self._refine_user_prompt(bp, family, revelation, ending, profile, seed)
-        if avoid_topics:
+        fidelity = policy_for_blueprint(bp).seed_fidelity
+        if avoid_topics and fidelity:
+            # Changing domain is exactly what f3 forbids: the collision is
+            # escaped by angle, question or particulars inside the seed's subject.
+            user += ("\n\nCRITICAL: a previous topic for this structure was too "
+                     "semantically close to existing passages. Keep the source essay's "
+                     "subject and kind of material, and choose a different angle, question "
+                     "or set of particulars within it, far from ALL of these:\n  - "
+                     + "\n  - ".join(t for t in avoid_topics if t))
+        elif avoid_topics:
             user += ("\n\nCRITICAL: a previous topic for this structure was too "
                      "semantically close to existing passages. Choose a DIFFERENT "
                      "domain, far from ALL of these:\n  - "
                      + "\n  - ".join(t for t in avoid_topics if t))
+        if fidelity_failure and fidelity:
+            user += ("\n\nCRITICAL: the previous plan left the source essay "
+                     f"({fidelity_failure}). Re-plan on the essay's own subject, as the "
+                     "same kind of material, with the structure unchanged.")
         refined = self._refine_with_retry(bp, model, max_tokens, user,
                                           mechanisms, ledger, seed)
         return self._apply_refined(bp, refined, mechanisms, seed)
@@ -1160,7 +1221,8 @@ class BlueprintComposer:
         structural validation, and swap planned beats the survivors cannot carry.
         Only rejection REASONS are recorded; source text never reaches a log."""
         from .source_facts import replace_unsupported_beats, validate
-        facts, reasons = validate(refined.get("source_facts") or [], seed)
+        facts, reasons = validate(refined.get("source_facts") or [], seed,
+                                  strict=policy_for_blueprint(bp).strict_source_fact_audit)
         bp.source_facts = facts
         notes = [f"source facts: {len(facts)} kept"
                  + (f", {len(reasons)} rejected ({'; '.join(sorted(set(reasons)))})"
@@ -1258,6 +1320,11 @@ class BlueprintComposer:
         family = self.registry.get("family", bp.family_id)
         n = len(bp.movement)
         domain = bp.seed.get("domain_hint") or (self.rng.choice(config.DOMAIN_POOL))
+        if policy_for_blueprint(bp).seed_fidelity and (bp.seed.get("subject")
+                                                       or bp.seed.get("title")):
+            # 2026-09-14: domain_hint is the PUBLICATION ("a live conceptual
+            # tension in Aeon"), so the legacy fallback topic was never the seed's.
+            domain = bp.seed.get("subject") or bp.seed.get("title")
         return {
             "topic": f"a live conceptual tension in {domain}",
             "tension_system": {
@@ -1328,7 +1395,18 @@ class BlueprintComposer:
                           f"into a conceptual essay about it.{NL}")
 
         seed_part = ""
-        if seed.text:
+        fidelity = policy.seed_fidelity and bool(seed.text)
+        if fidelity:
+            # 2026-09-14 (seed_fidelity.py): "adapt its territory" is how a
+            # virtue essay became a probate passage. The excerpt keeps its label
+            # (f1/f2 fact spans are quoted "from the INSPIRATION ESSAY EXCERPT").
+            from .seed_fidelity import anchor_block
+            excerpt = " ".join(seed.text.split()[:550])
+            seed_part = (f"\n{anchor_block(bp, seed)}"
+                         f"INSPIRATION ESSAY EXCERPT (stay on its subject and kind of "
+                         f"material; build your own argument, do NOT copy its argument):"
+                         f"\n{excerpt}\n")
+        elif seed.text:
             words = seed.text.split()
             excerpt = " ".join(words[:550])
             seed_part = (f"\nINSPIRATION ESSAY EXCERPT (adapt its domain and intellectual "
@@ -1348,7 +1426,12 @@ class BlueprintComposer:
         # expensive render call; includes recently rejected topics on purpose
         avoid_part = ""
         avoid = self.history.recent_topics(config.REFINE_AVOID_TOPICS)
-        if avoid:
+        if avoid and fidelity:
+            avoid_part = ("\nAVOID these recently used topical territories — take an "
+                          "angle within the source essay's subject that is distant from "
+                          "ALL of them; never leave the essay's subject to escape them:\n  - "
+                          + "\n  - ".join(avoid) + "\n")
+        elif avoid:
             avoid_part = ("\nAVOID these recently used topical territories — invent "
                           "something semantically distant from ALL of them:\n  - "
                           + "\n  - ".join(avoid) + "\n")

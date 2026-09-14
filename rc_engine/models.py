@@ -16,6 +16,9 @@ class SeedEssay:
     title: str | None = None
     text: str | None = None          # trimmed excerpt, not the full essay
     domain_hint: str | None = None
+    # 2026-09-14: the classifier's answer stored in the seed store
+    # (seed_labels.from_metadata); None = classify at draw time.
+    labels: dict | None = None
 
 
 @dataclass

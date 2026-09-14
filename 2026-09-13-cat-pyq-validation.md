@@ -5,6 +5,15 @@ Date: 2026-09-13 (Asia/Calcutta). Branch `cat-pyq-plan`. This closes sections 7 
 as can be done without paid generation. The paid pilot (below) is the one remaining step and
 needs explicit authorization.
 
+**Correction, 2026-09-14:** quick review reproduced two gaps in f1: numeric roles
+could be reversed in an extracted claim while the auditor saw only that claim,
+and omitted trace/attribution fields could pass as successful checking. The new,
+default-off `cat-pyq-f2` policy supplies original spans plus source context and
+requires complete explicit evidence/trace verdicts. Use f2 for future source-fact
+pilots; f1 stays registered for stored plans. The historical test and simulation
+results below describe the original releases, not f2 validation; current checks
+and limitations are recorded in `codex.md`.
+
 ## 1. What exists
 
 | Plan section | Delivered as | Default |

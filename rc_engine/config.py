@@ -109,6 +109,13 @@ _new_plan_policy = os.environ.get("RC_ENGINE_NEW_PLAN_POLICY", "").strip()
 if _new_plan_policy:
     GENERATION_POLICY_FOR_NEW_PLANS = {"medium": _new_plan_policy,
                                        "hard": _new_plan_policy, "elite": ""}
+# 2026-09-14: elite may opt into a legacy-based policy only (`legacy-sf1`: the
+# legacy engine plus seed fidelity). `generate --elite-policy` sets this for the
+# run and its workers; any other version resolves elite to legacy.
+_elite_plan_policy = os.environ.get("RC_ENGINE_ELITE_PLAN_POLICY", "").strip()
+if _elite_plan_policy:
+    GENERATION_POLICY_FOR_NEW_PLANS = {**GENERATION_POLICY_FOR_NEW_PLANS,
+                                       "elite": _elite_plan_policy}
 
 # ---------------------------------------------------------------------------
 # Providers, models & pricing ($ per million tokens: input, output)
@@ -463,6 +470,14 @@ _STAGE_PLAN = {
         "hard": ("small", 2400),
         "elite": ("small", 2400),
     },
+    # cat-pyq-f3 plan check (2026-09-14, rc_engine/seed_fidelity.py): does the
+    # refined plan stay on the seed's subject and kind of material? Runs only
+    # for f3 plans, before render. Same reasoning-headroom logic as above.
+    "seed_fidelity": {
+        "medium": ("small", 1400),
+        "hard": ("small", 1400),
+        "elite": ("small", 1400),
+    },
     # Both pinned to the cheap tier via STAGE_MODEL_PINS. Ceilings are generous
     # because reasoning models spend the ceiling before emitting any JSON, and
     # a check that silently returns nothing is worse than one that costs a
@@ -675,6 +690,7 @@ if _gen_effort:
 OPENAI_STAGE_EFFORT = {
     # reading and classification - reasoning adds cost, not accuracy
     "seed_classify":     "low",
+    "seed_fidelity":     "low",
     "move_signature":    "low",
     "compliance":        "low",
     "judge":             "low",
@@ -734,6 +750,7 @@ STAGE_MODEL_PINS = {
     # without touching the tiers that were never on it.
     "refine":           {"medium": ("openai", "gpt-5.6-luna")},
     "seed_classify":    ("openai", "gpt-5.6-luna"),
+    "seed_fidelity":    ("openai", "gpt-5.6-luna"),
     "move_signature":   ("openai", "gpt-5.6-luna"),
     "answerability":    ("openai", "gpt-5.6-luna"),
     "solver_tiebreak":  ("openai", "gpt-5.6-luna"),
@@ -824,6 +841,7 @@ STAGE_EFFORT = {
     "solver":     {"medium": None, "hard": None, "elite": None},
     "judge":      {"medium": None, "hard": None, "elite": None},
     "seed_classify": {"medium": None, "hard": None, "elite": None},
+    "seed_fidelity": {"medium": None, "hard": None, "elite": None},
     "move_signature": {"medium": None, "hard": None, "elite": None},
     "answerability": {"medium": None, "hard": None, "elite": None},
     "solver_tiebreak": {"medium": None, "hard": None, "elite": None},
@@ -845,6 +863,7 @@ ESTIMATED_INPUT_TOKENS = {
     "solver": 2180,
     "judge": 3650,
     "seed_classify": 900,
+    "seed_fidelity": 1100,
     "move_signature": 900,
     "answerability": 2400,
     "solver_tiebreak": 1100,
@@ -853,6 +872,33 @@ ESTIMATED_INPUT_TOKENS = {
 # Retry ceilings. Compose retries are local sampling (free).
 MAX_COMPOSE_ATTEMPTS = 40
 MAX_REFINE_ATTEMPTS = 3      # transient empty/truncated refine responses
+
+# Seed fidelity (cat-pyq-f3 plans only; rc_engine/seed_fidelity.py).
+# A plan that fails the check gets this many directed re-refines before the
+# attempt is rejected as rejected_seed_fidelity and the slot rotates its seed.
+SEED_FIDELITY_MAX_REREFINES = 1
+# Rendered passage vs seed, local bge-small cosine on the first 400 words
+# (free). Measured 2026-09-14 over the 134 shipped sets: passages plainly on
+# their seed's subject scored 0.71-0.86; most of the corpus, whose topics had
+# left the seed (left-handedness -> shipping containers), scored 0.47-0.65. The
+# floor sits below every on-subject set measured, so it catches gross drift the
+# plan check missed rather than grading closeness. Recalibrate on f3 output.
+SEED_FIDELITY_PASSAGE_FLOOR = 0.65
+# Extra topic-shape cohort ceilings for seed-fidelity plans only, applied like
+# TOPIC_SHAPE_COHORT_MAX_SHARE (restrict to the cohort on a winning flip, away
+# from it otherwise; never empties the pool). First paid f3 batch, 2026-09-14:
+# the narrowed shape pools put TS01 (The Conceptual Dispute) on six of nine
+# plans, and every shipped set screened red for one two-camps architecture.
+# 0.20 is roughly uniform over the four-to-six shapes a subject can carry.
+# Label-based draws (`generate --subject/--genre`, 2026-09-14) skip essays the
+# store labels as carrying fewer topic shapes than this. The first paid f3 batch
+# drew essays with one or two carriable shapes; every such plan landed on TS01
+# and the sets screened red for one shared architecture.
+SEED_MIN_CARRIABLE_SHAPES = 3
+
+SEED_FIDELITY_COHORT_MAX_SHARE = [
+    ({"TS01"}, 0.20),
+]
 MAX_RENDER_ATTEMPTS = 2      # render + compliance loop
 
 # Transient API failures — 429 rate limit, 5xx overload, dropped connections —
@@ -1376,6 +1422,16 @@ SHIPPING_STATUSES = ("approved", "needs_review", "solver_dispute")
 # coarse to hard-veto a billion-way blueprint space until the corpus is large.
 CURVE_CAP_MIN_CORPUS = 75
 
+# Topology (the set's question layout) at Gate C — operator decision 2026-09-14:
+# report, do not reject. A layout shared with a recent set is coincidence; what
+# must hold is the question-type MIX across the corpus, measured in `health`
+# against the CAT PYQ task shares (rc_engine/question_mix.py). Evidence: topology
+# was 3 of the 4 full-gate rejections in the whole DB, and on 2026-09-14 it cost
+# a paid medium passage (BP_260914_18b725c5) after its questions were bought.
+# The free pre-render re-pick still runs; only the reject is gone. The cap below
+# stays for that re-pick and for reporting.
+TOPOLOGY_GATE_ENFORCE = False
+
 NOVELTY_CAPS = {
     "movement_levenshtein": 0.70,   # similarity cap
     "movement_bigram_jaccard": 0.60,
@@ -1603,6 +1659,12 @@ SIMILARITY_SCREEN = {
 # rather than a status flag so the split is visible in the filesystem, the way
 # the exports are actually reviewed.
 FLAGGED_EXPORT_DIR = "exported_rc_sets/flagged_similar"
+# Where `export` moves a copy it has superseded (2026-09-14 review): the same set
+# in the other folder after its screen verdict changed. Moved, never deleted, and
+# outside the client deliverables. Found 7 such pairs, green in one folder and
+# red in the other.
+EXPORT_SUPERSEDED_DIR = os.environ.get(
+    "RC_ENGINE_EXPORT_SUPERSEDED_DIR", os.path.expanduser(r"~\rc_data\export_superseded"))
 
 # ---------------------------------------------------------------------------
 # Per-stage model pinning (2026-08-22)

@@ -253,8 +253,15 @@ def run_parallel(history, tier_counts: dict[str, int], workers: int, *,
                     stop = True
                     break
                 tier, slot_no, count = slots.popleft()
+                seeds = draw_seeds(tier)
+                if not seeds and getattr(seed_provider, "restricted", False):
+                    # 2026-09-14 review: a --subject/--seed-ids run that is out of
+                    # matching essays must not fall back to a seedless, off-subject
+                    # passage. The slot is skipped instead.
+                    print(f"[seeds] {tier} slot {slot_no}: no matching seed left - slot skipped")
+                    continue
                 fut = ex.submit(_worker_slot, tier, slot_no, count,
-                                draw_seeds(tier), forced_bans,
+                                seeds, forced_bans,
                                 max(0.0, max_usd - spent()))
                 pending[fut] = (tier, slot_no)
             if not pending:

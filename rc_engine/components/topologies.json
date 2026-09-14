@@ -16,7 +16,7 @@
   "strengthen": "which new fact would most strengthen a specified claim from the passage",
   "weaken": "which new fact would most weaken a specified claim from the passage",
   "author_vs_reported": "distinguish the author's own view from views the author reports or steelmans",
-  "closure_reading": "what the ending does — what it accomplishes, what it implies, and what the passage would most likely take up next. NOT 'why does it stop here': Lokesh retired the stem 'The passage stops where it does in order to:' on 2026-09-12 and asked for a continuation question in its place",
+  "closure_reading": "what the ending does — what it accomplishes, what it implies, and what the passage would most likely take up next. NOT why the passage stops where it does",
   "phrase_in_context": "the meaning of a specific phrase as used in the passage, not in general usage",
   "detail_check": "a precise factual/claim-level detail from the passage"
  },

@@ -134,7 +134,12 @@ class NoveltyScorer:
             ("embedding", s["embedding_cosine"]),
         ]
         if include_question_channels:
-            parts.append(("topology", s["topology_similarity"]))
+            # 2026-09-14 review: with the topology gate off (question layout is
+            # reported, not gated) a shared layout must not still push a set
+            # toward a composite reject at weight 0.14. The mix is watched in
+            # `health` instead.
+            if getattr(config, "TOPOLOGY_GATE_ENFORCE", True):
+                parts.append(("topology", s["topology_similarity"]))
             # LOW distractor JSD = repetitive; invert into similarity
             parts.append(("distractor_jsd", max(0.0, 1.0 - s["distractor_jsd"] * 4)))
         # A None channel is unmeasurable for this pair (see the placeholder-curve
@@ -189,6 +194,7 @@ class NoveltyScorer:
         breached: list[str] = []
         persona_candidates: list[tuple[str, str, float]] = []
         channel_report: dict = {}
+        topology_note = ""
 
         # window is newest-first, so the index doubles as recency
         for idx, other in enumerate(window):
@@ -252,10 +258,19 @@ class NoveltyScorer:
             # guaranteed 1.00 breach, contradicting the composer's own policy.
             # Inside the window it is still a hard reject (that would be a
             # composer bug). It stays in the composite score either way.
+            #
+            # 2026-09-14 (operator decision): a question layout shared with a
+            # recent set is coincidence, not a duplicate; what matters is the
+            # question-type MIX across the corpus (question_mix.py, `health`).
+            # With TOPOLOGY_GATE_ENFORCE off it is reported, never a reject.
             if (include_question_channels
                     and idx < config.EXCLUSION_WINDOWS["topology"]
                     and s["topology_similarity"] > caps["topology_similarity"]):
-                breached.append(f"topology {s['topology_similarity']:.2f} vs {other.rc_id}")
+                line = f"topology {s['topology_similarity']:.2f} vs {other.rc_id}"
+                if getattr(config, "TOPOLOGY_GATE_ENFORCE", True):
+                    breached.append(line)
+                elif not topology_note:
+                    topology_note = f"{line} (reported, not gated)"
 
         # ---- persona_leak: a leak is SPECIFIC, the house voice is DIFFUSE ----
         # A real leak means "this passage reads like persona X" — one voice
@@ -315,6 +330,8 @@ class NoveltyScorer:
             corpus_flags = corpus_flags + [posture_flag]
         if house_voice_flag:
             corpus_flags = corpus_flags + [house_voice_flag]
+        if topology_note:
+            corpus_flags = corpus_flags + [topology_note]
         return NoveltyReport(
             verdict=verdict, composite=round(novelty, 3),
             channel_scores={"nearest": worst_rc, **channel_report},

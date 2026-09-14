@@ -8,6 +8,13 @@ output captured from the engine BEFORE the policy layer existed (23e3d49):
   generation_policy_elite_isolation_golden.json  six mixed attempts, then four
                                                  elite ones with a resume
 
+Re-captured 2026-09-14 (operator-approved prompt fixes for every tier: the
+questions prompt's lost JSON braces and internal history removed from the render
+and question prompts). Before rewriting, both scenarios were diffed against the
+old goldens: the only differences were prompt hashes on render and questions
+calls (legacy 72, elite 52); statuses, notes, components, slots and stem shapes
+were identical.
+
 The remaining tests run in-process against tests/policy_fixtures.py, a
 test-only policy that owns one tagged component of every sampled type plus an
 extra beat, slot type, stem forms, prompt extensions and a weight boost.
@@ -110,7 +117,8 @@ def test_elite_matches_pre_policy_golden_while_medium_hard_use_policy(tmp_path):
     assert any(s["question_slots"] == 8 for s in side), side
 
 
-@pytest.mark.parametrize("version", ["cat-pyq-s1", "cat-pyq-s2", "cat-pyq-f1"])
+@pytest.mark.parametrize("version", ["cat-pyq-s1", "cat-pyq-s2", "cat-pyq-f1", "cat-pyq-f2",
+                                     "cat-pyq-f3", "cat-pyq-f4"])
 def test_elite_matches_pre_policy_golden_while_structure_release_runs(tmp_path, version):
     """Section 5 releases (families, beats, revelations, rhythms, personas,
     permissions, rewritten render rules) run between elite attempts; elite still
@@ -259,8 +267,9 @@ def test_elite_plans_stay_legacy_even_when_config_names_the_policy(env, monkeypa
         assert pf.EXTRA_MOVE not in c["user"]
         assert "vocabulary" not in c["context"]
     # ...and registry validation names the misconfiguration.
-    assert "elite must stay on the legacy generation policy" in \
-        env.gp.validation_errors(env.pipe.registry)
+    # 2026-09-14: a legacy-based policy (legacy-sf1) is the one allowed exception.
+    assert any("elite must stay on the legacy generation policy" in e
+               for e in env.gp.validation_errors(env.pipe.registry))
 
 
 def test_policy_can_be_disabled_for_future_plans(env, monkeypatch):

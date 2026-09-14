@@ -12,6 +12,23 @@ from .registry import ComponentRegistry
 
 NL = chr(10)
 
+# Evidence behind rules 10 and 11 (kept here, not in the prompt, since
+# 2026-09-14: a prompt review found dated measurements, rule-numbering history
+# and the banned phrase itself being sent to the model on every render).
+#
+# Rule 10, measured 2026-09-05 against 124 real CAT/XAT/GMAT passages: they use
+# the vocabulary of measurement, procedure, records, categories and
+# classification at 3.4 per 1000 words; this engine's passages used it at 10.0,
+# and the seeds sit at 2.2, below the exam. The register was being added, not
+# inherited. No example phrases are quoted in the prompt on purpose: "no: more
+# precisely" was given as an illustration in rule 11 until 2026-08-22 and was
+# copied verbatim into four passages. Rule 10 is numbered 10 because HUMAN
+# TEXTURE was once mis-numbered 8.
+#
+# Rule 11's placement clause, measured 2026-08-29: the texture instruction alone
+# put a concrete particular in sentence 1 of six of nine consecutive passages;
+# barring the opening moved it to the close in all five of the next batch. A
+# tell that relocates has not been fixed, hence "where the ARGUMENT needs it".
 RENDER_SYSTEM = """You are a writer producing intellectually serious prose that will
 later be adapted into a CAT VARC reading-comprehension passage. Use the source
 genre and assigned persona to set the register: explanation, history, criticism
@@ -61,11 +78,9 @@ HARD RULES:
      source, a described-but-unnamed one, or a document the passage itself
      characterises — never with a plausible-sounding invention.
 10. SUBJECT REGISTER — write about the thing, not the apparatus around it.
-   Measured 2026-09-05 against 124 real CAT/XAT/GMAT passages: they use the
-   vocabulary of measurement, procedure, records, categories and classification
-   at 3.4 occurrences per 1000 words. This engine's passages use it at 10.0 —
-   nearly three times as often — and the seeds it works from sit at 2.2, BELOW
-   the exam. The register is being added here, not inherited.
+   Real exam passages use the vocabulary of measurement, procedure, records,
+   categories and classification sparingly; generated prose tends to use it about
+   three times as often. Do not add that register where the subject does not.
    - When the topic is a phenomenon, explain the phenomenon. Real exam prose
      spends its length on how a thing works, what happened, why it changed.
    - Critiquing how something is known, counted or sorted is a legitimate
@@ -74,31 +89,18 @@ HARD RULES:
    - Test the finished paragraph on its concrete nouns. If they are mostly the
      machinery around the subject rather than the people, objects, places and
      processes the passage is supposed to be about, rewrite toward the latter.
-   No example phrases are quoted here deliberately. "no: more precisely" was
-   given as an illustration in rule 11 below until 2026-08-22 and was copied
-   verbatim into four passages; naming a pattern in this prompt reproduces it.
-   (Numbered 10 because HUMAN TEXTURE below was mis-numbered 8, duplicating the
-   ARCHITECTURE INVISIBILITY rule above; corrected to 11 in the same edit.)
 
 11. HUMAN TEXTURE (a touch only — keep the intellect; break factory polish):
    - Use concrete particulars where they advance this argument, rather than adding
      a decorative detail to every passage. A detail added for texture must earn
      its place instead of becoming a system-metaphor.
-     It belongs in the BODY: not the opening sentence, not the closing one.
-     Measured 2026-08-29: this instruction alone put a concrete particular in
-     sentence 1 of six of nine consecutive passages, none of which planned it.
-     Barring it from the opening moved it to the close instead — all five of
-     the next batch ended on a named physical object, a higher rate than the
-     fifteen before. A tell that relocates has not been fixed. Place the
-     particular where the ARGUMENT needs it, which is neither of the two
-     positions a reader uses to recognise a writer.
+     It belongs in the BODY: not the opening sentence, not the closing one. Place
+     the particular where the ARGUMENT needs it; opening and closing sentences are
+     the two positions a reader uses to recognise a writer.
    - Allow one sentence that is plainer / more workmanlike than its neighbors — not
      every sentence equally epigrammatic. One midstream re-steer is fine, if it
      arises from the argument rather than from a formula. Do NOT use a fixed
-     correction phrase: "no: more precisely" was given here as an illustration
-     until 2026-08-22 and was copied verbatim into four separate passages,
-     where the similarity screen then flagged it as a shared tell. Re-steer in
-     whatever words that sentence needs.
+     correction phrase; re-steer in whatever words that sentence needs.
    - Mix sentence subjects; avoid a run of abstract openers ("The doctrine… The
      residue… The mechanism… The ledger…"). Prefer some agents and concrete nouns
      when the persona allows.
@@ -167,6 +169,32 @@ class PassageRenderer:
                 f"{where}.")
 
     @staticmethod
+    def _seed_context(bp: Blueprint, policy) -> str:
+        """render_seed_context (2026-09-14): the writer never saw the seed essay,
+        only the plan, so nothing kept a case or an analogy inside the seed's
+        subject once the plan left room. Empty for every other policy, which
+        leaves their contracts byte-identical."""
+        seed = bp.seed or {}
+        if not policy.render_seed_context or not (seed.get("subject") or seed.get("title")):
+            return ""
+        lines = ["SOURCE ESSAY (the passage stays on its subject):"]
+        head = f"  \"{seed.get('title', '')}\"" if seed.get("title") else "  (untitled)"
+        if seed.get("subject"):
+            head += f" - {seed['subject']}"
+        lines.append(head)
+        kind = [f"subject area: {seed['seed_domain']}"] if seed.get("seed_domain") else []
+        if bp.seed_genre and bp.seed_genre != "unknown":
+            kind.append(f"kind of material: {bp.seed_genre}")
+        if kind:
+            lines.append("  " + "; ".join(kind))
+        if seed.get("particulars"):
+            lines.append("  Particulars from the essay: " + "; ".join(seed["particulars"]))
+        lines.append("  Cases, examples and analogies come from this subject. Another subject "
+                     "may appear only in a passing sentence, never as a paragraph's material. "
+                     "Rule 9 still governs what may be presented as real.")
+        return NL.join(lines) + NL
+
+    @staticmethod
     def _register_instruction(bp: Blueprint) -> str:
         for reg_id, _w, instruction in config.CLOSING_REGISTERS:
             if reg_id == bp.closing_register:
@@ -198,9 +226,14 @@ class PassageRenderer:
         for i, p in enumerate(bp.movement):
             fn_human = p.function.replace("_", " ").lower()
             beats = alloc[i] if i < len(alloc) else []
+            # coherent_plans (2026-09-14): the family's paragraph label often
+            # disagreed with that paragraph's brief and beats ("stakes escalation
+            # noted" over a LEVEL_RELOCATION brief); say which one governs.
+            role = (f"arc role = {fn_human} (where the brief or beats differ, they govern)"
+                    if policy.coherent_plans and (beats or p.gist) else f"role = {fn_human}")
             movement_lines.append(
                 f"  Paragraph {p.para} (~{p.words_label} words, "
-                f"cadence: {p.cadence.replace('_', ' ')}): role = {fn_human}."
+                f"cadence: {p.cadence.replace('_', ' ')}): {role}."
                 + (f" Content brief: {p.gist}" if p.gist else ""))
             for m in beats:
                 movement_lines.append(
@@ -286,11 +319,13 @@ class PassageRenderer:
                 f"THE BODY BEATS ARE NOT OPTIONAL EITHER. You may run them in "
                 f"whatever order the argument wants — that part is yours — but "
                 f"every one must actually happen, and you may not substitute. "
-                f"Measured across 13 consecutive passages, this renderer kept "
-                f"only 43% of its planned middle beats and replaced the rest "
-                f"with the same few gestures every time, whatever the plan said: "
-                f"conceding an opposing account at length, then demolishing an "
-                f"easy reading of it. If you feel that shape arriving and the "
+                # 2026-09-14: the measurement behind this (13 passages, 43% of
+                # planned middle beats kept) stays in this comment, not the prompt.
+                f"Writers given a plan like this tend to keep fewer than half of "
+                f"the middle beats and replace the rest with the same few "
+                f"gestures, whatever the plan said: conceding an opposing account "
+                f"at length, then demolishing an easy reading of it. If you feel "
+                f"that shape arriving and the "
                 f"plan below did not ask for it, it is displacing a beat you "
                 f"owe.{NL}{NL}"
                 f"RHETORICAL BEAT PLAN — {len(bp.move_plan)} beats, and they "
@@ -326,7 +361,8 @@ class PassageRenderer:
             # Section 6: the only evidence this passage may present as real,
             # beyond rule 9's well-known references.
             from .source_facts import facts_block
-            permissions_part += facts_block(bp.source_facts) + NL
+            permissions_part += facts_block(
+                bp.source_facts, evidence=policy.strict_source_fact_audit) + NL
 
         schema = policy.argument_schemas().get(bp.argument_schema_id or "")
         schema_block = ""
@@ -342,7 +378,7 @@ class PassageRenderer:
 develop that argument; keep the content briefs consistent with it.
 TOPIC: {bp.topic}
 SOURCE GENRE: {bp.seed_genre or 'unspecified'}
-TIER: {bp.tier} — {config.TIER_DIFFICULTY_CHARACTER.get(bp.tier, '')}
+{self._seed_context(bp, policy)}TIER: {bp.tier} — {config.TIER_DIFFICULTY_CHARACTER.get(bp.tier, '')}
 ARGUMENT FAMILY: {family['name']} — {family['core']}
 
 {material_block}
