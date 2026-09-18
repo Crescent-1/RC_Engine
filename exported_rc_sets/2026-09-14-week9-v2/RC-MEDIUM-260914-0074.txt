@@ -1,0 +1,116 @@
+RC ID: RC-MEDIUM-260914-0074 | Tier: medium | Score: 8.0 | Status: needs_review | Compliance F1: 0.81 | Novelty: 0.566 | Screen: red | Generated: 2026-09-14T06:12:28.053507+00:00
+======================================================================
+
+[PASSAGE]
+
+Omri Boehm's Radical Universalism, a lucid and vivid tract arguing that philosophy is prior to politics, uses the binding of Isaac as evidence. Most criticism of the book has followed its lead. Genesis 22 unfolds in a fixed order: the command, the three-day walk, the wood laid on the son's back, the binding, the knife raised, the angel's call, the ram caught in a thicket. Boehm and his critics treat that order as an illustration of a doctrine already secured elsewhere, mostly from Kant's "What is Enlightenment?" The frame will not hold, and not because the doctrine is empty. It fails because the interruption changes what counts as obedience. As readers, we first fix on one moment in the sequence as the moment that authorizes the doctrine: for some the command, for Boehm the refusal to be determined by what is given. Every prior moment is then read as preparation for it. Every later moment is read as confirmation of it, subordinate, explanatory, not evidential in its own right. The ram becomes decoration for a decision already made about the knife. What looks like an argument drawn from the narrative is a distribution of weight across the narrative, and the certainty attaches to that distribution rather than to anything the text does on its own.
+
+The obvious objection points to the order of events: Abraham obeys before he is stopped, so the sequence seems to confirm absolute duty. Up to the angel's speech, that is true, and obedience looks complete and self-explanatory, needing no gloss. After the speech it is no longer true in the same way. The narrative has now made the interruption part of what the command meant, so that obedience includes being prevented. This does not leave the episode indeterminate, and it is not a request for more historical context. It shows that the received frame cannot take the passage as a straightforward proof.
+
+The episode's apparent clarity comes from a compression that the received reading never registers. Command, act and verdict are collapsed into a single moral instant, and once collapsed they seem to speak with one voice. Whether the story can ground a universal duty remains an open question, properly posed. Its answer, whatever it proves to be, cannot be read off obedience alone.
+
+A universalist reader will charge that this reading dissolves a binding episode into mere literary ambiguity. It does not deny obligation; it locates obligation in how the interruption is handled, which is a different matter from denying that there is anything to handle — though I grant that the doctrine's authority then rests on judgment rather than on a command standing uncontested in the text.
+
+Seen this way, Genesis 22 functions in Boehm's argument as the machinery by which a fractured sequence is converted into moral certainty, and the conversion is the book's real achievement rather than its illustration. That achievement has a price, and a precise one. A doctrine that finds its warrant in that conversion cannot also claim that its absolute duty reaches us unmediated.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) Defending Kant's account of enlightenment against readers who treat scripture as a source of duty.
+(B) Showing how the biblical episode is made to yield certainty, and naming the price of that conversion.
+(C) Recovering the original historical setting of Genesis 22 against the modern philosophical readings of it.
+(D) Refuting radical universalism by showing that no moral duty survives the episode's interruption.
+
+Q2. Which one of the following best describes the role played by the second paragraph?
+(A) It demonstrates that the episode remains indeterminate and so cannot bear any moral reading.
+(B) It qualifies the reading with literary and historical detail that leaves the philosophical claim standing.
+(C) It concedes the objection's force up to a point, then shows the concession cannot be extended.
+(D) It abandons the earlier analysis of weighting in favour of a purely textual account of obedience.
+
+Q3. If the passage continued, which one of the following would it most likely discuss next?
+(A) Why moral claims dissolve into interpretation once no command stands uncontested in a text.
+(B) How later readers of Kant's essay revised his account of self-incurred immaturity and tutelage.
+(C) What archaeological evidence reveals about the ritual practices behind the binding and the ram.
+(D) How a duty whose warrant rests on judgment can nonetheless bind those who have to exercise it.
+
+Q4. Which one of the following statements, if true, would best invalidate the main argument of the passage?
+(A) Some commentators on the book have read the episode without following the frame Boehm supplies.
+(B) The doctrine's warrant is established independently, and the episode adds nothing the argument needs.
+(C) Boehm's book devotes far more space to Kant's essay than it does to the Genesis episode.
+(D) Ancient readers of the episode disagreed sharply about whether the ram belonged to the original story.
+
+Q5. The statement 'The ram becomes decoration for a decision already made about the knife' suggests that:
+(A) The ram matters to the story only as a symbol, since the knife alone carries its moral content.
+(B) Abraham had privately resolved to spare his son before the angel's call ever reached him.
+(C) The details of the episode were invented after its moral had already been settled by tradition.
+(D) Once one moment is fixed as decisive, later details are read as ornament, not as evidence.
+
+Q6. According to the passage, all of the following are true of the received frame for reading Genesis 22, EXCEPT:
+(A) It treats the doctrine it supports as empty until the episode arrives to secure it.
+(B) It cannot take the Genesis passage as a straightforward proof of absolute duty.
+(C) It treats later moments as confirming rather than as evidence in their own right.
+(D) It reads every moment before the chosen one as mere preparation for that single moment.
+
+Q7. In the sentence 'It does not deny obligation; it locates obligation in how the interruption is handled, which is a different matter from denying that there is anything to handle — though I grant that the doctrine's authority then rests on judgment rather than on a command standing uncontested in the text.', the author's tone is best described as:
+(A) Dismissive of the universalist objection as resting on a misunderstanding of literary form.
+(B) Defensive throughout, conceding ground to the universalist charge without securing any point.
+(C) Firm in the distinction it draws, yet open about the cost that the distinction carries.
+(D) Tentative about the location of obligation and reluctant to state where duty resides.
+
+Q8. The author of the passage is likely to disagree with which one of the following statements?
+(A) Since Abraham obeys before he is stopped, the sequence settles the case for absolute duty.
+(B) Whether the story can ground a universal duty is a question still properly open.
+(C) The conversion of a fractured sequence into certainty is the book's genuine accomplishment.
+(D) A doctrine warranted by that conversion cannot claim its duty reaches us unmediated.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — The passage tracks the weighting of the narrative (para 1), the interruption's effect (para 2), and closes by naming the conversion and its cost.
+  (A) adjacent_answer — Kant appears only as the doctrine's source in para 1; no defence of him is offered.
+  (C) framework_import — Para 2 states the argument 'is not a request for more historical context'.
+  (D) moderate_extremism — Para 4 explicitly denies denying obligation; the author corrects the use of evidence, not the doctrine.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The paragraph grants that obedience precedes the stop, then argues that after the angel's speech the same narrative reframes obedience.
+  (A) moderate_extremism — The paragraph states 'This does not leave the episode indeterminate'.
+  (B) overqualification — The paragraph says it is 'not a request for more historical context' and does unsettle the proof.
+  (D) stage_misattribution — The paragraph extends, rather than abandons, the first paragraph's account of distributed weight.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — Para 4 relocates obligation in how the interruption is handled and concedes authority rests on judgment; the ending narrows to that cost.
+  (A) moderate_extremism — Para 4 refuses the relativist conclusion: it locates obligation rather than denying it.
+  (B) adjacent_answer — Kant is cited only as the doctrine's source; the passage's closing concern is the conversion's price.
+  (C) framework_import — Para 2 rules out the demand for historical context as beside the point.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The passage's load-bearing claim is that the conversion of the sequence is the book's real achievement; if the episode is dispensable, the priced conversion is not doing the work.
+  (A) scope_inflation — A few dissenting readers leave intact the claim about how the narrative is weighted.
+  (C) half_truth — Proportion of space says nothing about whether the episode carries the argument's evidential weight.
+  (D) example_promotion — Textual disputes over one detail do not touch the argument about distributed weight and interruption.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — Para 1 says every later moment is read 'as confirmation of it, subordinate, explanatory, not evidential in its own right'; the ram is the instance of that demotion.
+  (A) stance_misread — States the received weighting as if it were true; the author describes this demotion in order to criticise it.
+  (B) phrase_misuse — Reads 'a decision already made' as Abraham's choice, whereas it is the reader's prior decision about which moment authorizes the doctrine.
+  (C) framework_import — Imports a claim about how the story was composed; para 2 says the argument 'is not a request for more historical context'.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — Para 1 says the frame fails 'not because the doctrine is empty', and the doctrine is secured elsewhere, mostly from Kant.
+  (B) passage_supported — Para 2 concludes that the received frame cannot take the passage as straightforward proof.
+  (C) passage_supported — Para 1 describes later moments as 'subordinate, explanatory, not evidential in its own right'.
+  (D) passage_supported — Para 1: 'Every prior moment is then read as preparation for it'.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — The sentence rejects the dissolution charge outright and then concedes the shift from uncontested command to judgment.
+  (A) straw_version — The author takes the charge seriously and grants part of it rather than dismissing it.
+  (B) stance_misread — The first clause holds the point firmly before any concession is made.
+  (D) overqualification — The location is stated flatly: obligation lies in how the interruption is handled.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — Para 2 presents this as the objection and answers it: after the angel's speech, it is no longer true in the same way.
+  (B) stance_misread — Para 3 states this in the author's own voice.
+  (C) stance_misread — Para 5 asserts exactly this as the author's own conclusion about the book.
+  (D) stance_misread — The final sentence states this as the price the author names.
+
+[Inspired by: "Bloody Certitudes", https://www.commonwealmagazine.org/bloody-certitudes]

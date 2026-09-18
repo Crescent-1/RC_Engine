@@ -1,0 +1,116 @@
+RC ID: RC-MEDIUM-260726-0021 | Tier: medium | Score: 8.8 | Status: approved | Compliance F1: 1.0 | Novelty: 0.558 | Generated: 2026-07-26T13:41:47.164610+00:00
+======================================================================
+
+[PASSAGE]
+
+A Sheffield hospital ward displayed a donor's name on a brass plate from 1911 until 2019, a span of more than a century. Across those decades the donor acquired no new opinions, made no fresh investments, and wrote no letters. He was already dead when the reassessment began. Yet the removal was argued in the same grammar we use for a colleague who has said something indefensible at a meeting: he must answer for this, the record must be corrected, the standard applies to him as it applies to everyone. The appeal to consistency sounds honest. Standards that bend around the identity of the accused are not standards. Whatever else moral judgment is, it seems to require indifference to who is being judged, and to when. The dead do not get a discount for being dead.
+
+But death changes something that indifference cannot reach. Blame, unlike a measurement, is aimed. It is addressed to an agent who might yet do otherwise, and its whole point is the *otherwise*. Direct it at someone who has stopped acting and the address fails. What remains is not a lie. It is a monument, which is a different sort of object, and it does not correct anyone.
+
+The argument appears to lead toward a set of concessions. If the living are granted endless reinterpretation—the second chance, the changed man, the acknowledgment that a person at fifty is not the person who acted at twenty-eight—then consistency appears to demand either the same generosity for the dead or a dignified silence about them. They cannot recant. They cannot be rehabilitated. To keep arraigning them looks like beating a locked door, and it is easy to conclude that the decent course is amnesty, or amnesia, or the historian's careful refusal to score. That conclusion moves too fast. It assumes blame is a transaction between judge and judged, so that when one party is absent the transaction voids.
+
+The transaction model misses a second party: blame has an audience, as it always did. The dead man is the occasion, not the recipient.
+
+So the plate comes down, and it comes down rightly, though not because a Victorian ironmaster is being punished; he is beyond the reach of any sanction the ward committee can devise. It comes down because a hospital is a going concern with staff and patients and a future, and what it hangs on its walls instructs them. Read that way, the demand for universal standards in the first paragraph was never wrong so much as misdescribed: the standard is universal, the *sanction* is not, because sanction is an instrument and instruments require something to work on. Symmetry between past and future was a grammatical illusion, produced by a verb that takes the same form in both directions. Which is why no verdict on the dead can be final in the way verdicts on the living are, and why the arguments about the plates will keep restarting—not from indecision, but because the people they are actually addressed to keep being replaced.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central claim of the passage?
+(A) Moral standards should be universal and impersonal, applied equally to every agent whether or not he can still respond to judgment.
+(B) Commemoration is an administrative question for institutions, which moral vocabulary confuses when applied to plaques.
+(C) Moral standards apply to the dead, but sanction does not reach them, because blame is really addressed to a living audience.
+(D) Because the dead cannot revise themselves, judgment of them is a monument, and dignified silence is the decent historical course.
+
+Q2. According to the passage, why does the plate come down?
+(A) Because the historical record required correction, and leaving the plate up would have amounted to an institutional lie.
+(B) Because a hospital is an ongoing institution, and what it displays instructs the staff and patients it still serves.
+(C) Because judgment of the dead should give way to the rehabilitative mercy that we routinely grant the living.
+(D) Because the ironmaster forfeited his honour by conduct that the ward committee was finally in a position to sanction.
+
+Q3. "Symmetry between past and future was a grammatical illusion" most nearly means:
+(A) One verb form serves both directions of time, hiding that only future-directed sanction has anything to work on.
+(B) Moral language is inherently too crude for temporal distinctions, so such disputes cannot be settled by argument.
+(C) Historians and moralists use incompatible vocabularies, and confusion arises when one borrows the other's terms.
+(D) Blame exists only where consequences remain alterable, so the past can be explained but never truly blamed.
+
+Q4. Which of the following, if true, would most weaken the author's reason for holding that the plate comes down rightly?
+(A) The ironmaster's descendants object that removing the plate unfairly punishes a man who can no longer answer.
+(B) The hospital's plates were installed by a committee that had no authority to honour private donors at all.
+(C) Staff and patients take no notice of the plates, which shape nobody's sense of what the hospital now values.
+(D) Other hospitals in the region have left similar plates in place without attracting any public complaint.
+
+Q5. Which one of the following views does the author report rather than hold?
+(A) Standards that bend around the identity of the accused are, for that reason, not standards at all.
+(B) Disputes over commemorative plates will keep restarting, since the audience addressed keeps being replaced.
+(C) Blame is addressed to an agent who might yet act otherwise, and that address fails when directed at the inert.
+(D) Consistency demands that we extend the same generosity to the dead or else keep a careful silence about them.
+
+Q6. The author's posture toward the universalist claim of paragraph 1 is best described as:
+(A) Retention with correction: the claim is kept, but shown to have been misdescribed rather than mistaken.
+(B) Detached description of a dispute whose competing grammars the author declines to adjudicate.
+(C) Sympathetic rejection: the intuition is respectable but collapses once the addressee's absence is registered.
+(D) Provisional endorsement, held open because recurring disputes about plates show no such question can be closed.
+
+Q7. Which of the following cases best fits the author's account of why judgments of the dead still matter?
+(A) A court convicts a long-dead official of fraud so that the sentence can be served on his reputation.
+(B) A school renames a hall honouring a dead benefactor, since the name tells pupils whom the school admires.
+(C) A museum keeps a disgraced founder's portrait on display, since he is no longer able to answer for his conduct.
+(D) A historian declines to evaluate a dead general, holding that the standards of his era cannot be applied to him.
+
+Q8. The author mentions 'a colleague who has said something indefensible at a meeting' primarily in order to:
+(A) Suggest that workplace discipline and historical commemoration should follow identical procedures.
+(B) Illustrate that people are generally harsher on their colleagues than on historical figures.
+(C) Argue that the dead deserve the second chances that living colleagues are routinely given.
+(D) Show that the removal was argued in the grammar used for a living agent who can still respond.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — It joins the concession of paragraph 1 to the paragraph 5 resolution: universal standard, non-universal sanction, audience as true recipient.
+  (A) straw_version — This is the first paragraph's position, which paragraph 5 calls misdescribed rather than simply endorses.
+  (B) category_slip — The author keeps the judgment moral; the hospital's interest supplements, not replaces, the standard.
+  (D) stance_misread — The passage calls this concession-sequence a conclusion that 'moves too fast' in paragraph 3.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — Paragraph 5 states this explicitly and denies that the removal punishes the ironmaster.
+  (A) half_truth — Paragraph 2 explicitly says what remains is not a lie but a monument.
+  (C) straw_version — That amnesty-or-amnesia inference is the position paragraph 3 introduces and then rejects as too fast.
+  (D) stance_misread — Paragraph 5 says he is beyond any sanction the committee could devise.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — The phrase glosses the sanction/standard split: identical grammar masks the asymmetry of instruments.
+  (B) scope_inflation — The author does settle the distinction; only the addressed audience keeps changing.
+  (C) framework_import — The illusion is located in a verb's form, not in a clash of disciplinary vocabularies.
+  (D) straw_version — The passage keeps the standard universal; it withdraws sanction, not blameworthiness, from the past.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — Paragraph 5 rests the removal on the claim that what a hospital 'hangs on its walls instructs them'; displays that instruct no one remove that ground.
+  (A) stance_misread — The author already denies that removal punishes the ironmaster, who 'is beyond the reach of any sanction'; the objection misreads the argument.
+  (B) adjacent_answer — The committee's original authority is never the author's ground; the removal rests on what the plate teaches now.
+  (D) missing_link — The practice of other hospitals says nothing about whether this hospital's walls instruct its own staff and patients.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 constructs this concession explicitly and paragraph 3's close labels it a conclusion that moves too fast.
+  (A) half_truth — The author endorses this line in paragraph 1 and preserves it in paragraph 5.
+  (B) stance_misread — This is the author's closing claim, not a reported position.
+  (C) stance_misread — This is the author's own claim in paragraph 2, the basis of the whole asymmetry.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — Paragraph 5 says the demand 'was never wrong so much as misdescribed', splitting standard from sanction.
+  (B) stance_misread — The author adjudicates plainly, ruling that the plate comes down rightly.
+  (C) stance_misread — The universal standard survives; only sanction is withdrawn, so nothing collapses.
+  (D) premature_closure — Recurrence stems from replaced audiences, not from unresolved doubt about the principle.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — Like the plate, the renaming is aimed at a living audience that the institution's displays instruct, not at the benefactor, who is beyond sanction.
+  (A) stance_misread — Treats the verdict as a sanction served on the dead, but sanction 'is an instrument' and needs 'something to work on'.
+  (C) straw_version — Keeping the portrait because the founder cannot answer repeats the amnesty conclusion that paragraph 3 says 'moves too fast'.
+  (D) framework_import — The historian's refusal to score is the conclusion paragraph 3 rejects, and the author holds that 'the standard is universal'.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — Paragraph 1 notes the removal 'was argued in the same grammar' used for a living colleague, preparing paragraph 2's point that blame is aimed at an agent who might yet do otherwise.
+  (A) scope_inflation — The comparison concerns a shared way of speaking, not a proposal that the two settings adopt the same procedures.
+  (B) framework_import — The passage never compares how harshly people judge colleagues and historical figures.
+  (C) stance_misread — Extending the living's generosity to the dead is the concession paragraph 3 raises and then calls a conclusion that moves too fast.
+
+[Inspired by: "The Art of Prognostication", https://www.thenewatlantis.com/practicing-medicine/the-art-of-prognostication]

@@ -1,0 +1,116 @@
+RC ID: RC-MEDIUM-260914-0076 | Tier: medium | Score: 7.8 | Status: needs_review | Compliance F1: 0.687 | Novelty: 0.476 | Screen: red | Generated: 2026-09-14T09:28:33.072312+00:00
+======================================================================
+
+[PASSAGE]
+
+A settled habit of reading holds that the family novel exposes a structure of injury, and that its business is disclosure. Applied to the narrator of one such recent novel, the frame names the damage around her but cannot say why her tending, her fear and her withdrawal move as one conduct.
+
+The received account runs in steps. Edwyn is demanding, much older, crotchety. Neve ministers, nurse-like, to his arthritic hands. That looks like submission. She tells us she loves animals, their natural ways, and keeps humanity at a distance; that looks like retreat. Each step is legible as a symptom. What the sequence never explains is how the tending itself becomes the medium in which the role is held in place, rather than a sign of a role held elsewhere.
+
+More than one marriage rests on the answer. The judgment a reader forms about Neve also governs how responsibility gets apportioned backward, across a family the novel keeps in view. Name her conduct damage and it is excused; name it choice and the conditions that taught it disappear. Riley, stage-managing a combat between her readers' moral judgment and the questionable behavior for which her narrator seeks validation, makes the accounting depend on the form the care takes. It is tempting to treat this as a contest over whether Neve is finally blameworthy or innocent. The novel is doing something narrower and harder: assembling a conduct in which either verdict arrives too late to be useful.
+
+Read closely, the scene of the hands and the scene of Edwyn's boasting belong together. He boasts of his innate nastiness; she hears the low, pleading sounds she has started making whenever he is sharp with her, and finds them frightening, panic-making. "This wasn't how I spoke. (Except it was.) This wasn't me, this crawling, cautious creature. (Except it was.) I defaulted to it very easily. And he let me." Call this sequence a care-script: service, distance and fear reinforcing one another until the default feels native. The parenthesis does the work. It does not report a belief Neve holds; it records the moment a practised role is caught being practised, and the correction follows immediately, because the script supplies its own account of itself.
+
+The care-script has a history in Riley's work. Conflicted feelings about past events first became significant in the third novel, Joshua Spassky (2007), where Natalie remembers pretending, as a child, to shrink from the slipper her divorced father raised above her as a joke — spite, she says, then doubts the spontaneity of it. That is bodily tending turned inward, a child managing an adult by managing herself. The narrator of the later book, rereading the earnest underlinings in her old college books, can say only that there was something she was trying to sound out, and that she had to start with that kind of calling out: the same demand, now interpretive. By First Love it is domestic and nurse-like again. Recurrence of this kind is not a fixed doctrine of family life; the situations differ too much for that. What persists is a practice, inherited and adapted, for converting compromised conduct into a livable account. On that ground the pathology frame should give way, and the question of how far conduct learned as care can be judged at all stays open beneath it.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) arguing that Neve is finally a victim of an injurious family and should therefore be morally exonerated by her readers
+(B) tracing how Riley's early novels gradually abandon domestic settings in favour of more interpretive and bookish adult concerns
+(C) showing how Riley composes care, fear and distance into a single practised script that makes verdicts on Neve arrive too late
+(D) defending the settled critical habit that reads the family novel as the disclosure of a hidden structure of injury
+
+Q2. Which one of the following claims about the received account of Neve is NOT supported by the passage?
+(A) It treats her ministering to Edwyn's arthritic hands as a form of submission
+(B) It renders each step of her conduct legible as a symptom of damage
+(C) It reads her tending as the very medium in which her role is sustained
+(D) It reads her preference for animals and distance from people as retreat
+
+Q3. "either verdict arrives too late to be useful" most nearly means:
+(A) the real question is whether Neve is finally blameworthy or innocent, and readers must eventually decide
+(B) by the time blame or innocence is assigned, the conduct has already been formed as a practice
+(C) Riley withholds the information needed for judgement until the closing pages of her narrative
+(D) readers of the novel tend to reach their moral conclusions before they have finished the narrative
+
+Q4. Which one of the following, if true, would most call into question the claim that what persists across Riley's novels is an inherited practice rather than a doctrine?
+(A) Riley has said in interviews that she dislikes readers who search her books for patterns
+(B) The recurrence of similar scenes across the books shows that Riley is repeating one settled theory
+(C) Natalie in Joshua Spassky was a child, whereas Neve in First Love is an adult woman
+(D) The novels all state one uniform principle about family injury that governs each narrator's account
+
+Q5. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account of the care-script?
+(A) A woman leaves a demanding partner after a friend convinces her that the relationship has been damaging
+(B) A nurse who tends a difficult patient all day later reports feeling exhausted and resentful about the arrangement
+(C) A son refuses to visit his overbearing father and explains the refusal as the result of childhood injury
+(D) An assistant soothes a harsh employer, hears herself placating, calls it unlike her, and resumes placating at once
+
+Q6. Which one of the following can NOT be inferred from the author's account of the parenthesis "(Except it was.)"?
+(A) It marks Neve's considered belief about the kind of person she actually is
+(B) It catches a practised role at the moment of being practised
+(C) The script is able to furnish an account of its own workings
+(D) The correction it performs follows immediately upon the disavowal
+
+Q7. The recollection of Natalie and her father's raised slipper in Joshua Spassky is introduced primarily to:
+(A) establish an earlier form of the same practice, so that the care-script reads as inherited rather than local
+(B) summarise how a child in an earlier Riley novel manages a divorced adult by managing her own body
+(C) contrast an innocent childhood game with the far more damaging adult marriage the later novel depicts
+(D) demonstrate that Riley holds a consistent doctrine about how families reliably transmit injury to children
+
+Q8. What does the passage's final sentence accomplish?
+(A) It resolves the earlier tension by declaring Neve neither blameworthy nor finally innocent
+(B) It restores the disclosure model of paragraph one on firmer and better evidenced grounds
+(C) It retires the pathology frame while leaving open how far care-learned conduct can be judged
+(D) It concludes that conduct learned as care cannot be subjected to any moral judgement
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates the critique of the pathology frame, the care-script naming, and the closing claim that either verdict comes too late.
+  (A) missing_link — The third paragraph explicitly refuses the exoneration verdict, calling the novel's work narrower and harder than blame or innocence.
+  (B) stage_misattribution — Paragraph five says the practice recurs and adapts, ending domestic and nurse-like again, not abandoning domesticity.
+  (D) stance_misread — Paragraph one introduces that habit precisely as inadequate, and paragraph five says the pathology frame should give way.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — Paragraph two says the sequence never explains how tending becomes that medium; this is the author's correction, not the received account.
+  (A) passage_supported — Paragraph two states that her nurse-like ministering 'looks like submission'.
+  (B) passage_supported — Paragraph two states plainly that 'each step is legible as a symptom'.
+  (D) passage_supported — Paragraph two says her keeping humanity at a distance 'looks like retreat'.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The phrase follows the claim that the novel assembles a conduct, so judgement lands after the script is in place.
+  (A) category_slip — Paragraph three explicitly rejects treating the novel as a contest over blame or innocence.
+  (C) adjacent_answer — Nothing concerns withheld information; the point is that verdicts cannot do the work the conduct has already done.
+  (D) level_confusion — The lateness concerns the formation of conduct, not the timing of a reader's progress through the book.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — Paragraph five denies a fixed doctrine and asserts a practice; a uniform stated principle attacks that load-bearing distinction.
+  (A) level_confusion — Authorial preference about reading habits leaves the textual claim about a persisting practice untouched.
+  (B) missing_link — Paragraph five already concedes recurrence while denying it yields doctrine, since the situations differ too much.
+  (C) half_truth — The passage already registers this difference in situation and treats adaptation as part of the practice.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — Reproduces service plus fear plus immediate self-correction, the structure the parenthesis exemplifies in paragraph four.
+  (A) adjacent_answer — Departure prompted by outside judgement is the opposite of a default that supplies its own account.
+  (B) category_slip — Reported exhaustion is a symptom-level report, not conduct sustaining itself through its own account.
+  (C) missing_link — This is the pathology frame the passage sets aside, naming damage rather than showing a practised role.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — Paragraph four states directly that it does not report a belief Neve holds, but records a role caught being practised.
+  (B) passage_supported — Paragraph four says it records a practised role caught being practised.
+  (C) passage_supported — Paragraph four states the script supplies its own account of itself.
+  (D) passage_supported — Paragraph four notes that the correction follows immediately.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — Paragraph five uses the memory to give the care-script a history across Riley's work, supporting practice over one-novel pathology.
+  (B) example_promotion — This restates the example's content but not the structural work it does in the argument about recurrence.
+  (C) false_symmetry — The passage draws continuity rather than contrast, and calls the memory bodily tending turned inward.
+  (D) scope_inflation — Paragraph five expressly denies a fixed doctrine, since the situations differ too much for that.
+
+Q8 — Correct answer: (C)
+  (C) CORRECT — The sentence widens the aperture: it settles the frame's fate but refuses to close the question of judgement.
+  (A) category_slip — The passage refuses that verdict contest rather than settling it with a balanced ruling.
+  (B) stance_misread — The sentence says the pathology frame should give way, not that it should be restored.
+  (D) moderate_extremism — The sentence says the question stays open, not that judgement has been ruled out.
+
+[Inspired by: "Chills of the Unsaid", https://www.nybooks.com/articles/2026/09/24/chills-of-the-unsaid-the-palm-house-gwendoline-riley/]

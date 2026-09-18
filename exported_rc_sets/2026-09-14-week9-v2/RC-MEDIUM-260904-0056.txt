@@ -1,0 +1,114 @@
+RC ID: RC-MEDIUM-260904-0056 | Tier: medium | Score: 9.0 | Status: approved | Compliance F1: 0.794 | Novelty: 0.567 | Screen: green | Generated: 2026-09-04T19:36:10.871202+00:00
+======================================================================
+
+[PASSAGE]
+
+A record of danger is not the same thing as a safe child, although reforms are often judged as if it were. Northbridge County's 2018 rule made the first easy to produce. Under the rule, a school counsellor took a disclosure on a Tuesday morning and rang the central desk. The desk logged it within four minutes, assigned a case number and sent it to triage. A welfare visit followed nineteen days later. Every hand-off was timestamped and every officer named. By the rule's own standards the file is exemplary: there was no suppression, no informal decision, no allegation quietly parked with a headteacher. A reader who follows only the timestamps could still mistake a well-documented delay for an accident, or for the rule's typical product.
+
+The belief behind the rule is old and not foolish. Local discretion had failed in familiar ways. Schools shaded allegations downward to protect their reputations, thresholds varied by borough and temperament, and a child's safety could rest on whether one adult in the building had the nerve to make a call. Centralised mandatory reporting was meant to end those failures. Every disclosure would enter one channel under a written threshold. Responsibility would become locatable, because the channel remembers who touched what and when, and specialists rather than sympathetic strangers would assess the risk. Put that way, the policy sounds like a complete net. Its actual claim is narrower: it is a claim about intake.
+
+The new study is best read as a study of that narrowness. Researchers reconstructed 312 referrals from the rule's first eighteen months. They drew on school logs, central-desk timestamps, police occurrence books, social-work case files, and interviews with parents, counsellors and caseworkers. Each referral was cut into four intervals: disclosure to referral, referral to triage decision, triage to first contact, and first contact to protective action. The sources were then checked against one another, so that a step recorded once but missing from the parallel file, or entered retroactively after a review, could be flagged. The method is meticulous, but what it measures is the movement of paperwork through stages, from which it infers when a child was reached, and that is not the same as measuring whether the child was safer afterwards.
+
+The findings divide along that line. Unlogged and rejected referrals fell sharply. Where a referral stalled, the cross-checked records let the study name the desk it stalled at, which the old arrangement rarely allowed. Yet median time from disclosure to a child's first protective contact barely moved. Triage queues and staffing shortfalls had not been removed by centralisation; they had been shifted downstream, past the point the rule was designed to govern. So the two results are not parallel achievements. One belongs to the intake stage the rule reformed, and the other to stages it left alone. The evidence is also limited to one county and eighteen months, with outcome data so thin that recurrence rates could not be estimated at all. What the study supports is that Northbridge's rule improved the record of danger and did no more. Whether it improved protection depends on whether the later stages catch up, and asking that of the rule now is asking a question the study was not built to settle.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) Centralised mandatory reporting replaced fallible local discretion with a standardised net that protects every child who discloses.
+(B) Careful reconstruction of referral intervals is the most reliable available method for judging child protection policy.
+(C) The nineteen-day welfare visit shows that centralised reporting routinely delays help while producing impeccable documentation.
+(D) Northbridge's rule demonstrably improved the recording of danger, but evidence that it improved children's protection is absent.
+
+Q2. Which one of the following situations is most analogous to what the passage says Northbridge's rule achieved?
+(A) A factory installs cameras along its production line, and defects fall sharply because workers know they are being watched.
+(B) A council scraps its complaints form, so grievances go unrecorded, and residents report that services have worsened.
+(C) An airline digitises check-in so no passenger is lost and every delay is traced to a desk, yet departures still run late.
+(D) A library replaces its card catalogue with a database that misfiles books, so borrowers wait longer for their loans.
+
+Q3. The author cites the Tuesday-morning disclosure and its nineteen-day welfare visit primarily in order to:
+(A) Establish that centralised routing typically produces long delays before any protective contact.
+(B) Separate a flawless procedural record from the outcome that record does not guarantee.
+(C) Demonstrate that timestamps recorded at four-minute precision are frequently entered retroactively.
+(D) Expose the informal parking of allegations that the 2018 rule was written to prevent.
+
+Q4. In context, the statement that the queues 'had been shifted downstream, past the point the rule was designed to govern' most nearly means that:
+(A) Caseworkers deliberately postponed contacts so that intake statistics would appear more favourable.
+(B) The study's interval scheme was too coarse to locate where any given referral stalled.
+(C) The delays survived by relocating into later stages over which the rule holds no authority.
+(D) The rule created fresh bottlenecks in triage that local discretion had previously managed better.
+
+Q5. Which one of the following statements, if true, would best invalidate the main argument of the passage?
+(A) Schools in Northbridge continued to shade a small number of allegations downward after the rule took effect.
+(B) Central-desk staff reported that the four-minute logging standard imposed unreasonable pressure on their working day.
+(C) The referral reconstruction was so thorough that every interval could be verified against three independent sources.
+(D) Substantiated recurrence of harm fell by half in Northbridge across the rule's first eighteen months.
+
+Q6. According to the passage, why does the study's method allow a stalled referral to be traced to a particular desk?
+(A) Because the centralised channel remembers who touched what and when, which specialists then audit.
+(B) Because parallel records were cross-checked, so steps missing or entered later could be flagged.
+(C) Because caseworkers and parents were interviewed about every delay they had personally experienced.
+(D) Because each referral's outcome data was matched to recurrence rates estimated from case files.
+
+Q7. Which one of the following positions is described in the passage but not endorsed by the author?
+(A) That centralised reporting constitutes a complete net covering a child's journey to safety.
+(B) That the study measures the movement of paperwork rather than whether children became safer.
+(C) That local discretion had failed in familiar and recognisable ways before the reform.
+(D) That one county over eighteen months limits how far the findings can be extended.
+
+Q8. The author's attitude towards Northbridge's centralised reporting rule can best be described as:
+(A) Appreciative of its genuine achievement while refusing any claims that the evidence does not reach.
+(B) Confident that later stages will eventually catch up and vindicate the policy's original design.
+(C) Neutral, presenting the study's intervals and figures without any evaluative judgement of them.
+(D) Broadly sceptical, treating the reform as documentation that substitutes for actual protective work.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (D)
+  (D) CORRECT — Integrates the opening distinction, the narrow intake claim, the split findings, and the closing verdict.
+  (A) scope_inflation — Treats paragraph two's stated promise as achieved fact, though the author calls the actual claim one about intake only.
+  (B) level_confusion — Praises method as verdict, whereas the passage stresses that measuring paperwork movement is not measuring safety.
+  (C) example_promotion — Promotes the opening illustration into a general finding the author explicitly warns readers not to draw.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — Like the rule, the reform perfects the record and traces every delay to a desk, yet the outcome that matters does not improve, just as time to protective contact 'barely moved'.
+  (A) causal_inversion — Here better monitoring improves the outcome itself, the reverse of the passage's finding that the intake reform left protection unchanged.
+  (B) false_symmetry — Losing records while services worsen reverses the passage's pattern, in which records improved and outcomes held steady.
+  (D) scope_inflation — A reform that corrupts its own records and slows service fails at both stages; the rule improved intake and left later stages alone.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The case contains no rule-violation yet delivers delay, which stages the passage's record-versus-safety distinction.
+  (A) example_promotion — The author warns against mistaking this file for the rule's typical product.
+  (C) phrase_misuse — Retroactive entry belongs to the study's cross-checking method in paragraph three, not to this case.
+  (D) half_truth — The passage states the file contains no such lapse; that list describes the old arrangement.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — The sentence explains why intake improved while first-contact timing did not: the bottleneck moved beyond the reformed stage.
+  (A) straw_version — Attributes intent; the passage cites staffing shortfalls and queues, not manipulation of figures.
+  (B) stage_misattribution — Contradicts paragraph four, which says the study could name the desk at which a referral stalled.
+  (D) causal_inversion — The passage says queues were not removed, not that centralisation generated them or that discretion handled them better.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The verdict rests on outcome data being too thin to judge protection; solid recurrence evidence supplies exactly what was said to be missing.
+  (A) adjacent_answer — Weakens the intake improvement the author concedes, leaving the protection verdict entirely intact.
+  (B) level_confusion — Concerns staff experience of procedure rather than the passage's claim about protection evidence.
+  (C) scope_inflation — Mistakes record-reconstruction rigour for outcome measurement, the very conflation the author is at pains to block.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — Paragraph three describes checking sources against one another to flag single-source or retroactive entries, and paragraph four credits those cross-checked records with naming the desk.
+  (A) stage_misattribution — Borrows paragraph two's account of the rule's promise rather than paragraph three's research procedure.
+  (C) half_truth — Interviews were one source among several, not the mechanism described as locating stalls.
+  (D) scope_inflation — The passage states recurrence rates could not be estimated at all.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — Paragraph two reports this framing, then the author immediately narrows the actual claim to intake.
+  (B) category_slip — This is the author's own evaluative claim at the close of paragraph three.
+  (C) stance_misread — The author calls this belief old and not foolish, and reports the failures without distancing.
+  (D) stance_misread — The author states these limits directly in the final paragraph.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — The author credits improved recording and locatable responsibility, then confines the verdict to what the study could settle.
+  (B) premature_closure — The closing sentence leaves that dependency open rather than predicting it.
+  (C) stance_misread — The passage delivers an explicit verdict about what the rule did and no more.
+  (D) stance_misread — Overstates; the author calls the underlying belief not foolish and grants real gains at intake.
+
+[Inspired by: "Power and Abuse in the United Farm Workers", https://dissentmagazine.org/article/united-farm-workers-cesar-chavez-abuse/]

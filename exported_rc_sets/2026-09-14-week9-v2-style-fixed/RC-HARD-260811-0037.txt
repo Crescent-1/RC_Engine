@@ -1,0 +1,114 @@
+RC ID: RC-HARD-260811-0037 | Tier: hard | Score: 8.6 | Status: needs_review | Compliance F1: 1.0 | Novelty: 0.505 | Generated: 2026-08-11T03:37:46.436766+00:00
+======================================================================
+
+[PASSAGE]
+
+The documentary opens in a Dayton hotel conference room, where a man in a gray suit recalls the afternoon he photocopied test data showing that the brake assemblies had never been run to failure. Strings rise on the soundtrack, and the later TED talk receives a standing ovation. What neither production mentioned, except in a caption held for perhaps two seconds, was the settlement: a sum in the low eight figures under the relevant bounty statute, plus a non-prosecution agreement that closed a separate inquiry into the same man's expense filings. Those details are documented, but they complicate the meaning of the ovation. Conscience, on the available evidence, arrived with counsel present and terms negotiated in advance — which is a description of a transaction, and sentiment applied to a transaction remains sentiment.
+
+Retaliation data changes the scale of the argument. Surveys of employees who witnessed serious misconduct find that a majority say nothing, and that among those who do speak internally, something near half report demotion, exclusion, or termination within two years. Where no statutory shield and no bounty exist, disclosure rates collapse toward zero regardless of how the respondents score on any instrument measuring moral conviction. This is awkward for the prosecution. The pure conscience the mythology celebrates does not appear to be a scarce resource; it appears not to be an operative one. Whistleblowing does not fail for want of virtue. It functions when it is engineered, and where it is not engineered it does not function at all — which shifts the question from character to design.
+
+Even so, the evidence does not make the payout a complete explanation of the act. Consider the accountants and clinicians who reported and then collected nothing, or collected after nine years, or collected sums exceeded within eighteen months by legal fees, lost pension vesting, and the cost of relocating a family out of a town where the employer was the employer. The bounty explains why they entered the process. It does not explain why they stayed in it after the first deposition, when the calculation had visibly turned against them. What the record shows is not the restored saint of the documentaries but something less legible: a person whose participation was purchased and whose persistence was not, the two operating in the same body at the same time.
+
+So the architecture deserves defending, and enlarging — the shields, the anti-retaliation provisions, the percentage awards that make a lawyer take the call. That verdict stands. The bill for it is presented separately. An institution that learns integrity has a market price will price it: compliance departments now model expected bounty exposure the way they model litigation reserves, and internal counsel are trained to identify likely claimants before the claim exists. Juries, in time, will learn the same lesson, and the standard cross-examination will not be *did you lie* but *what were you paid*. Three of the largest awards in the program's history are currently under appeal on precisely that ground. When those rulings come down, the ovation will be harder to arrange, and the mechanism will still be the only thing that works.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) Bounty programmes should be expanded because uncompensated reporters suffer legal fees, lost pensions, and relocation costs that no current award adequately covers or repays.
+(B) Since moral conviction predicts disclosure poorly, character analysis should be abandoned in favour of institutional design, which alone determines whether serious misconduct ever reaches an outside authority.
+(C) Whistleblowing works only where incentives are engineered, yet the engineered motive fails to explain persistence, and the machinery must be defended while its corrosive price is acknowledged.
+(D) The mythology of the heroic whistleblower is a marketing product concealing a straightforward financial transaction, and the documentaries and TED talks that sustain it are better understood as commercial entertainment.
+
+Q2. According to the text, employee behaviour in settings that lack both statutory shields and bounties is described as:
+(A) Disclosure declining sharply, chiefly because demotion, exclusion, or termination follows within two years for nearly half of those who speak.
+(B) Disclosure nearly vanishing, with reporting rates unrelated to how highly the respondents score on any measure of moral conviction.
+(C) Disclosure nearly vanishing, which shows that such workforces lack moral conviction and that incentives have replaced conscience.
+(D) Disclosure declining, though a majority of witnesses still report internally before deciding whether to approach any external authority.
+
+Q3. Which one of the following views does the author present in order to resist it rather than endorse it?
+(A) That compliance departments have begun modelling expected bounty exposure much as they already model their litigation reserves.
+(B) That anti-retaliation provisions and percentage awards deserve both protection and expansion, whatever downstream costs they impose.
+(C) That the man in the gray suit received a negotiated settlement and a non-prosecution agreement covering his own expense filings.
+(D) That the uncompensated hardship borne by some reporters recovers the pure conscience the essay's opening treated with irony.
+
+Q4. Which one of the following, if true, would most support the claim made in the third paragraph?
+(A) Reporters who learn mid-litigation that their award will be negligible almost always continue testifying to the end.
+(B) Reporters in jurisdictions offering the largest percentage awards initiate claims at markedly higher rates than reporters elsewhere.
+(C) Most successful claimants report that legal fees, lost pension vesting, and relocation expenses consumed the greater part of their eventual award.
+(D) Employees with the highest scores on moral conviction instruments are the likeliest to file when a bounty statute applies.
+
+Q5. Which one of the following, if established, would most damage the author's central claim?
+(A) The Dayton engineer's non-prosecution agreement was granted for reasons wholly unconnected to his brake-assembly disclosure.
+(B) Compliance departments that model bounty exposure detect and correct internal misconduct faster than departments that do not model it.
+(C) The three largest awards currently under appeal will be upheld, leaving the payment-based cross-examination strategy without precedential support.
+(D) In sectors with no shields, bounties, or awards, misconduct is disclosed externally at rates equal to those in fully incentivised sectors.
+
+Q6. What is the structural function of the sentence 'This is awkward for the prosecution' within the argument?
+(A) It concedes that the survey evidence is too weak to sustain any general conclusion about how reporting behaves in unprotected workplaces.
+(B) It marks the retaliation evidence as damaging to the author's own opening indictment, converting a debunking into a broader diagnosis.
+(C) It summarises the survey findings about silence and retaliation before the paragraph turns to the question of institutional design.
+(D) It reports that legal prosecutors find retaliation statistics difficult to introduce as evidence when litigating bounty claims.
+
+Q7. 'The bill for it is presented separately' most nearly means:
+(A) The costs of the mechanism outweigh its benefits once juries begin asking claimants what they were paid.
+(B) Expanding shields and percentage awards will require public funding that legislators have not yet been willing to appropriate.
+(C) Institutions that price integrity will eventually pass the expense of compliance modelling on to the claimants themselves.
+(D) Endorsing the mechanism does not cancel the cultural damage its existence inflicts, which must be reckoned on its own.
+
+Q8. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) A port inspector files under a new bounty statute, then keeps testifying for six years after her award is reduced to almost nothing.
+(B) A pharmaceutical researcher accepts a large negotiated settlement, declines all interviews, and afterwards refuses to appear in any documentary about the case.
+(C) A bank's compliance unit identifies a likely claimant early and settles internally, so no external disclosure or award ever occurs.
+(D) A city auditor with unusually high moral conviction scores discloses procurement fraud in a jurisdiction offering neither shields nor any award.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates all four movements: the debunked ovation, the design finding, the unpurchased persistence, and the endorsement-plus-bill closing.
+  (A) example_promotion — Promotes paragraph three's illustrative hardships into the thesis, dropping the design finding and the closing warning about pricing.
+  (B) scope_inflation — Over-reads the paragraph-two shift from character to design; paragraph three explicitly refuses to let design dispose of the moral question.
+  (D) half_truth — Takes paragraph one's debunking as the whole essay and ignores paragraph three's insistence that the payout does not explain persistence.
+
+Q2 — Correct answer: (B)
+  (B) CORRECT — Restates paragraph two exactly: rates 'collapse toward zero regardless of how the respondents score on any instrument measuring moral conviction.'
+  (A) missing_link — Imports the retaliation statistic, which describes internal reporters generally, as the stated cause of collapse in unshielded settings.
+  (C) false_symmetry — The passage says conscience is not scarce but not operative; it never lets incentive simply substitute for absent virtue.
+  (D) half_truth — Inverts the survey finding: a majority say nothing at all, and only some of the remainder speak internally.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — Paragraph three explicitly warns against tidy inference and calls the result 'something less legible,' not the 'restored saint of the documentaries.'
+  (A) adjacent_answer — This is the author's own diagnostic claim about institutional pricing in paragraph four, offered without irony.
+  (B) stance_misread — Paragraph four states plainly that 'the architecture deserves defending, and enlarging' and that 'that verdict stands.'
+  (C) stage_misattribution — This is the undisputed record the author himself asserts in paragraph one, not a position he resists.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — Directly supports the paragraph's load-bearing claim that persistence survives after the financial calculation visibly turns against the reporter.
+  (B) stage_misattribution — Supports paragraph two's entry-side design claim, not paragraph three's argument about persistence after entry.
+  (C) half_truth — Restates a detail already given in the paragraph rather than supplying new support for the persistence claim.
+  (D) framework_import — Reintroduces the character framework paragraph two set aside; it speaks to filing, not to staying in the process.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — Attacks the load-bearing engineering claim that where disclosure is not engineered it does not function at all.
+  (A) example_promotion — Adjusts a single opening illustration; the argument's design finding and persistence claim survive intact.
+  (B) adjacent_answer — Complicates the closing cost ledger without touching the claim that engineered mechanisms are what make disclosure occur.
+  (C) premature_closure — Softens the predicted future cost while leaving the central engineering thesis and the endorsement of the architecture standing.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — The sentence signals that the data cuts against the paragraph-one case the author himself had been building, pivoting from character to design.
+  (A) stance_misread — The author treats the surveys as decisive, not weak; the awkwardness lies in what they imply, not in their quality.
+  (C) level_confusion — Offers a summary of adjacent content rather than the sentence's structural role as a self-directed concession.
+  (D) phrase_misuse — Reads 'prosecution' literally as courtroom lawyers rather than as the author's own case against the celebrated whistleblower.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The phrase separates the paragraph's verdict in favour of the architecture from the pricing and cross-examination costs that follow it.
+  (A) stance_misread — Reverses the author's verdict; he insists the mechanism 'will still be the only thing that works' despite the costs.
+  (B) phrase_misuse — Reads 'bill' as literal fiscal cost, whereas the following sentences describe reputational and evidentiary consequences.
+  (C) adjacent_answer — Invents a transfer of cost to claimants that the paragraph about compliance reserves and cross-examination never describes.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — Reproduces the hybrid figure of paragraph three: entry purchased by the statute, persistence continuing once the calculation collapses.
+  (B) half_truth — Concerns publicity rather than the engineered-entry-plus-unpurchased-persistence structure the author identifies as the real pattern.
+  (C) stage_misattribution — Illustrates the paragraph-four pricing consequence rather than the author's account of what motivates and sustains a reporter.
+  (D) framework_import — Contradicts paragraph two, where disclosure collapses in unprotected settings regardless of measured moral conviction.
+
+[Inspired by: "Jeremy Harding: Does he still jog?", https://www.lrb.co.uk/the-paper/v48/n12/jeremy-harding/does-he-still-jog]

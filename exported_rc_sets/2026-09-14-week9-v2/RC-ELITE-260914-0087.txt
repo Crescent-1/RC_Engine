@@ -1,0 +1,116 @@
+RC ID: RC-ELITE-260914-0087 | Tier: elite | Score: 8.0 | Status: needs_review | Compliance F1: 0.862 | Novelty: 0.496 | Screen: green | Generated: 2026-09-14T05:21:52.468883+00:00
+======================================================================
+
+[PASSAGE]
+
+In 1783 a parish priest named Jozef Ignác Bajza carried a Slovak-language manuscript from his rectory desk into a process with several offices in it. Josephine press regulation had recently moved review out of purely ecclesiastical hands and into a state apparatus that still used clerics as readers. The manuscript passed, a Pressburg shop set the type, and Bajza paid for it himself. A second part followed in 1784-85. Publication in this period meant the whole administrative act of manuscript, imprimatur, print run and distribution, not a title page. On that measure the word has to stretch: a project of three parts, of which two were printed, is published in one sense and unpublished in another. Historians of the Slovak literary language have usually read every later stage backward through that stretched word.
+
+The surviving record would fit on a single sheet: a Foreword lamenting the neglect of the language, a rival's pamphlet attacking Bajza's spelling, a diocesan mention of the book's reception, and a bibliographer's later record that part three never appeared. Each item is accurate, yet together they do not say why the third part stopped, and their individual cleanness is what tempts a reader to link them into a chain. What they document is an interrupted venture, a smaller and odder thing than the birth of a national epic.
+
+Context supplies a cause for the stall, though a layered one. Slovak Catholic clergy in these decades were competing, in print and in correspondence, over whose orthography would count as the written language, so that a book was also a position in a quarrel; ecclesiastical reviewers trained in the Catholic Enlightenment's dogmatic caution read satire on clerical life with particular attentiveness; and a parish income could not underwrite a three-volume print run. Each pressure narrowed what came next. The manuscript was reviewed and printed, then contested philologically by a man who argued that its spelling alone disqualified it. Once contested, it did not sell, leaving the last volume unfunded until it was abandoned. No single office closed the door; the door had fewer and fewer hinges left.
+
+A considerable weight has since settled onto that foreword, that hostile pamphlet and that missing manuscript. National literary historiography has claimed a founding text; communist-era readers found an anticlerical satirist inside a priest; minor-language and postcolonial scholarship has treated the case as exemplary of peripheral print; and translators have prepared editions of a work whose third part has never been read. For all this interpretive traffic, the documentary base has not grown by a page.
+
+What left the Pressburg shop resembles a facade with two wings behind it and, where the third should stand, foundation stones and an intention. The facade is genuine masonry, not a false front. A building left in that condition, however, is described by what it announces rather than by what it encloses, and the phrase "the first Slovak novel" has always described the announcement. Bajza's contemporaries argued about the dressing of the stone, not the plan, while later readers walked past the gap without seeing it. Until the Trnava and Pressburg holdings yield something they have so far withheld, the recoverable object is not the vanished third part but the announcement itself: what a stalled building was understood, in 1783 and after, to be claiming.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) Ecclesiastical reviewers schooled in the Catholic Enlightenment's dogmatic caution were the decisive obstacle that halted the third part of Bajza's projected three-volume novel in Pressburg.
+(B) Later scholarship has misread a private religious satire as a national monument, and the corrective is to recover the vanished third part from the Trnava holdings.
+(C) A famous first Slovak novel exists mainly as an announcement, since its stall had layered causes and its thin record cannot support the weight later interpreters place on it.
+(D) Bajza's printing of two parts in the 1780s marks the point from which the Slovak literary language can be traced as it developed and matured over subsequent generations of writers.
+
+Q2. According to the passage, the relationship between later scholarly attention to Bajza's book and the evidence about it is best described as:
+(A) Translators preparing new editions have gradually recovered portions of the third part from diocesan archives.
+(B) Sustained scholarly interest from several traditions has correspondingly enlarged the surviving record of the affair.
+(C) Communist-era and postcolonial readings have quarrelled with one another over how to interpret the surviving foreword.
+(D) Interpretive commentary has multiplied across several traditions while the documentary base has not grown at all.
+
+Q3. The four surviving items listed in the second paragraph — the Foreword, the rival's pamphlet, the diocesan mention, the bibliographer's record — function to:
+(A) Supply, in sequence, a sufficient explanation of why the third part of the project was abandoned.
+(B) Establish that Bajza's contemporaries understood his book as the founding text of a national literature.
+(C) Demonstrate that the documentary record about the book was deliberately thinned by hostile clerical readers.
+(D) Show why a tidy causal story is so tempting here, while withholding the link that would justify it.
+
+Q4. The central idea of the passage would be most undermined if:
+(A) It emerged that the second part of the novel had actually been printed slightly later, in 1786 rather than 1785.
+(B) A Pressburg ledger surfaced showing that the censor's office had formally refused the third part on doctrinal grounds.
+(C) Correspondence showed that Bajza's rival had also quarrelled bitterly with two other Slovak writers about orthography.
+(D) Scholars established that the Foreword's complaint about linguistic neglect borrowed its wording from a Viennese pamphlet.
+
+Q5. The author would most likely disagree with which one of the following statements?
+(A) Under Josephine press regulation, clerics no longer read the manuscripts submitted for review.
+(B) Bajza bore the cost of having the first part of his work set in type at a Pressburg shop.
+(C) Amid the clergy's contest over orthography, a printed book was itself a position.
+(D) Bajza's contemporaries did not quarrel over the book's design, only over its surface details.
+
+Q6. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) A Welsh hymnal is suppressed outright by a bishop in 1790, and later historians document the suppression order in full from surviving diocesan correspondence.
+(B) A Slovene periodical ceases after two issues when its editor emigrates, and subsequent scholars agree unanimously on this straightforward and well-documented cause of its cessation.
+(C) A Basque chemistry primer, one volume of four printed in 1820, is cited as founding a scientific vocabulary though the surviving evidence is a preface and a critic's letter.
+(D) A Catalan grammar, complete in three volumes and widely sold, becomes the settled standard of written Catalan and is studied through an abundant surviving archive.
+
+Q7. "The door had fewer and fewer hinges left" most nearly means:
+(A) Successive pressures each narrowed the room left to the project, without any single one of them ending it.
+(B) A chain of official decisions gradually removed the permissions that the project needed to continue at all.
+(C) Bajza's own resolve weakened steadily as the hostile responses to his orthography accumulated around him.
+(D) The project's remaining supports failed one by one, until the rival's attack on its spelling finally closed it.
+
+Q8. Which one of the following research findings would most strengthen the author's conclusion about what remains recoverable in this case?
+(A) A Trnava inventory lists a bound manuscript that may correspond to a draft portion of the abandoned third part of the novel.
+(B) Surveys of Slovak print from 1783 to 1830 find the book cited chiefly as a claim about language, almost never for its contents.
+(C) A study finds that Josephine press regulation was applied more leniently to devotional works than to vernacular prose fiction.
+(D) Analysis shows that Bajza's satire of clerical life is milder in tone than communist-era commentators have habitually maintained.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates the stretched sense of 'published' (para 1), the thin and jointly inconclusive record (para 2), the layered stall (para 3), the heavy interpretive traffic (para 4), and the facade conclusion (para 5).
+  (A) half_truth — Paragraph 3 names clerical caution as one pressure among several and denies that any single office closed the door.
+  (B) adjacent_answer — The closing paragraph says the recoverable object is the announcement, not the vanished third part awaiting recovery.
+  (D) scope_inflation — Treats one printing event as evidence of a language's growth, exactly the backward reading the first paragraph flags as habitual.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — Paragraph 4 lists the accumulating schools of reading and then states flatly that the documentary base has not grown by a page.
+  (A) category_slip — Paragraph 4 says translators work on a book whose third part nobody has ever read.
+  (B) scope_inflation — Inverts paragraph 4's contrast: heavy interpretive traffic sits atop a base that 'has not grown by a page.'
+  (C) half_truth — Paragraph 4 lists these readings as accumulated weight, not as parties disputing the foreword's interpretation.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — Paragraph 2 states each item is true but that together they do not say why part three stopped, and that their cleanliness invites chaining them.
+  (A) half_truth — Paragraph 2 explicitly says that together these true items do not say why the third part stopped.
+  (B) stage_misattribution — Paragraph 5 says contemporaries argued over the dressing of the stone; the founding-text claim is later historiography.
+  (C) framework_import — No passage claim attributes the thinness of the record to suppression by any party.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The argument's load-bearing move is that no single office closed the door and the cause is layered; a documented single refusal replaces layering with a singular cause.
+  (A) level_confusion — A date correction leaves the argument about layered causation and interpretive overload entirely intact.
+  (C) adjacent_answer — This enriches a decorative detail about the orthographic quarrel without touching the claim that the stall was layered.
+  (D) missing_link — The provenance of one phrase in the Foreword does not bear on why part three stalled or on the announcement thesis.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — Paragraph 1 says review moved out of 'purely ecclesiastical hands' into a state apparatus 'that still used clerics as readers'; clerics were not removed.
+  (B) passage_supported — Paragraph 1 states that a Pressburg shop set the type and 'Bajza paid for it himself.'
+  (C) passage_supported — Paragraph 3 says that, with the clergy competing over orthography, 'a book was also a position in a quarrel.'
+  (D) passage_supported — Paragraph 5 says contemporaries 'argued about the dressing of the stone, not the plan', a dispute over finish rather than design.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — Reproduces the structure: a partial, self-funded print run bearing a founding-text designation that rests on a thin, jointly inconclusive record.
+  (A) causal_inversion — A documented single act of closure is precisely the singular cause the passage says did not obtain here.
+  (B) straw_version — A single clear documented cause contradicts the layered, unrecoverable causation the passage insists upon.
+  (D) false_symmetry — Completion, sales and an abundant archive invert every condition of the Bajza case.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — The image closes a sequence in which each pressure 'narrowed what came next', just after the explicit denial that any single office closed the door.
+  (B) half_truth — The passage denies official closure; the pressures were philological, dogmatic and financial, not a chain of decisions.
+  (C) category_slip — Relocates a structural claim about external constraints into the author's private psychology.
+  (D) stage_misattribution — The supports did fail in sequence, but paragraph 3 puts the attack on its spelling before the lost sales and the unfunded last volume, and calls the cause 'a layered one.'
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — The closing paragraph holds that the recoverable object is the announcement — what the stalled building was understood to be claiming — rather than the missing text.
+  (A) causal_inversion — Recovering the third part would shift the object away from the announcement the author says is recoverable.
+  (C) level_confusion — This bears on regulatory practice, not on what the announcement was understood in 1783 and after to be claiming.
+  (D) adjacent_answer — Adjusting one strand of later interpretation does not support the claim about which object is recoverable.
+
+[Inspired by: "The Adventures and Experiences of the First Slovak Novel", https://publicdomainreview.org/essay/the-adventures-and-experiences-of-the-first-slovak-novel]

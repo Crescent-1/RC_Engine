@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260711-0024 | Tier: elite | Score: 8.6 | Status: approved | Compliance F1: 1.0 | Novelty: 0.707 | Generated: 2026-07-11T18:49:59.320228+00:00
+======================================================================
+
+[PASSAGE]
+
+For about a hundred years we put up with an error rate in elite sport that no court or exam board would have been allowed to keep. The cameras ended that, and it is hard to argue with what they found. Goals once chalked off for phantom offsides now stand. Penalties invented by a linesman's bad angle now go unawarded. A ball that a bowler swore had crossed the boundary rope is shown, at thirty frames a second, to have stopped short. We had a phrase for our tolerance, the human element, as if fallibility were a flavour rather than a failure. I believed that phrase once. I said it warmly. Then I counted the reversed injustices, the correct goals restored and the correct dismissals confirmed, and the romance thinned. Afterwards I argued that most of what we had mourned as the poetry of the game was injustice that happened to fall in a direction we liked, or against a team we disliked. That was the bias the replay booth was built to remove.
+
+What the cameras did not do was stop the arguing. The controversy did not shrink; it moved. It left the honest fog of a missed call for the false clarity of a drawn line, where an offside can be decided by an armpit. The argument now concerns the instrument rather than the incident: which camera was chosen, where the line was anchored, who in a room miles from the pitch decided that this image, and not the one a fraction of a second later, was the moment of the pass. Players used to shrug at a bad call and get on with it. Now they wait out a four-minute review, and few of them shake hands afterwards.
+
+This is where my old argument holds and turns on me at once. The technology did deliver correctness, and I would still defend it. What it could not deliver was the thing sportsmanship was really protecting. That was never accuracy; it was a shared vocabulary for accepting an outcome as final. We talked about fairness as if we all meant the same word, but we were using it for two ideas. In one, a ruling is fair if it matches what happened. In the other, it is fair because both teams agreed to be bound by a fallible human and walked off together anyway. A park kickabout, its players serving as their own fallible officials, runs entirely on the second kind: a disputed goal goes to whichever side will concede it, and play goes on because everyone would rather keep playing than be proved right. The cameras chose the first fairness, decisively, and in choosing it they revealed that our real quarrel was never about millimetres. It was about which of the two fairnesses we wanted to keep speaking.
+
+So, on the question I started with, the verdict stands. Sport is more just now, and I would not hand the cameras back; the injustices they undid were real and fell on real players in real seasons. But we bought correctness with the currency of assent. The handshake survives only as choreography, and it shows after any long review: two centre-backs at the monitor, arms folded, waiting to be told what they saw.
+
+[QUESTIONS]
+
+Q1. Which of the following best captures the central idea of the passage?
+(A) The controversy in sport did not disappear with better technology but merely relocated to finer margins.
+(B) Officiating technology has made elite sport demonstrably more just, and its critics merely romanticise past errors.
+(C) Technology made outcomes more accurate but dissolved the shared agreement to accept those outcomes as final.
+(D) Sportsmanship was always primarily a matter of ensuring rulings matched the reality of what happened.
+
+Q2. Which finding, if true, would most strengthen the author's claim that technology traded assent for correctness?
+(A) Player disputes and refusals to accept results rose sharply after video review became standard.
+(B) Video review correctly reversed a large share of previously mistaken goals and dismissals.
+(C) Officials' error rates before technology were far higher than administrators had publicly admitted.
+(D) Fans polled overwhelmingly said they preferred correct rulings to the older, more fallible system.
+
+Q3. In context, the phrase 'we bought correctness with the currency of assent' most nearly means that:
+(A) The cost of installing review technology was justified by the fairer outcomes that it produced.
+(B) Gaining accurate rulings has cost us the mutual willingness to treat any ruling as settled.
+(C) Correct decisions are now valued so highly that players consent to any length of review.
+(D) Accuracy and agreement are ultimately the same good, so nothing of value was truly lost.
+
+Q4. Which finding, if true, would most weaken the author's claim that the handshake now survives only as choreography?
+(A) Post-review handshakes are now longer and more frequently televised than they have ever been.
+(B) Some players privately admit that they still respect the referee's authority on the pitch.
+(C) Modern review technology has reduced officiating errors to the lowest levels ever recorded in the sport.
+(D) After reviews, opponents now reconcile of their own accord, whichever side the ruling favoured.
+
+Q5. What is the primary function of the opening admission, 'I believed that phrase once. I said it warmly'?
+(A) It stages the author's earlier position so its later, deeper revision carries weight.
+(B) It signals that the whole essay will ultimately reject officiating technology.
+(C) It provides an anecdote establishing the author's personal expertise in officiating rules.
+(D) It concedes that the human-element defenders were essentially correct all along.
+
+Q6. Which best describes the author's intellectual posture across the passage?
+(A) He celebrates the triumph of accuracy as an unqualified improvement to the sport.
+(B) He affirms the gain in justice while mourning a distinct loss it made unavoidable.
+(C) He remains neutral, presenting both fairnesses as equally valid without preferring either.
+(D) He regrets his earlier support and now believes the technology should be reconsidered.
+
+Q7. Which of the following situations is most analogous to the change the author describes in officiating?
+(A) An orchestra adopts electronic tuners; intonation becomes flawless, and with pitch now beyond dispute, rehearsals grow calmer.
+(B) A tribunal swaps written evidence for live testimony; verdicts grow less reliable but are more readily accepted as final.
+(C) A court adopts DNA evidence; wrongful convictions fall, yet losers now dispute the laboratory instead of accepting verdicts.
+(D) A league abandons video review after it fails, restoring both accurate rulings and players' willingness to shake hands.
+
+Q8. The author attributes all of the following to officiating technology EXCEPT:
+(A) Undoing rulings that had wrongly denied teams the goals they had legitimately scored.
+(B) Relocating disputes from the incident itself to the instrument used to judge it.
+(C) Exposing a disagreement about fairness long concealed by a single shared word.
+(D) Shortening the interval between a contested incident and its eventual resolution.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — Integrates paragraphs 3–4: the cameras delivered one fairness (accuracy) at the cost of the other (mutual assent), which is the passage's resolved tension.
+  (A) half_truth — Captures only paragraph 2's migration point, missing the deeper claim about two competing meanings of fairness.
+  (B) framework_import — Over-reads paragraph 1's local claim as the whole; the passage moves past this to what accuracy could not deliver.
+  (D) causal_inversion — Inverts paragraph 3, which insists sportsmanship protected assent, not accuracy.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Directly supports paragraph 4's claim that correctness was bought with the currency of assent by showing assent measurably declined post-technology.
+  (B) framework_import — Strengthens only paragraph 1's accuracy point, which the author already grants; it does not touch the assent claim.
+  (C) scope_inflation — Reinforces the scale of past error, an accuracy matter, rather than the erosion of assent.
+  (D) adjacent_answer — Supports preference for accuracy, not the loss of shared acceptance the claim actually concerns.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — Reads the metaphor through paragraph 3's two fairnesses: correctness was purchased by spending the agreement to be bound and walk off together.
+  (A) phrase_misuse — Takes 'currency' and 'bought' literally as money, ignoring the metaphor about assent developed across the passage.
+  (C) framework_import — Over-reads the passage's granted accuracy point; the closing image shows resentful waiting, not genuine consent.
+  (D) false_symmetry — Collapses paragraph 3's careful distinction between two different fairnesses that the author insists are not the same word.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — Undercuts the closing claim that assent is dead by showing genuine mutual acceptance persists rather than mere staged ritual.
+  (A) half_truth — Greater visibility of the gesture is compatible with it being empty choreography, which is precisely the author's point.
+  (B) adjacent_answer — Private respect for authority is not the shared, mutual acceptance between opponents the claim concerns.
+  (C) framework_import — Addresses accuracy, which the author concedes; it says nothing about whether assent survives.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — The confessed prior belief sets up the pivot in paragraph 3 where the old argument 'holds and turns on me,' lending the revision authority.
+  (B) prior_belief — Misreads the arc; the verdict stands that sport is more just, so no rejection of technology follows.
+  (C) example_promotion — Treats a rhetorical admission as a credentialing anecdote, missing its role in setting up the self-reversal.
+  (D) stance_misread — The author still defends correctness and calls the romance thinned; he does not endorse the old defence.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — Holds both poles of the resolved tension: sport is more just, yet the shared vocabulary of assent was the real casualty.
+  (A) framework_import — Over-reads paragraph 1's endorsement, ignoring the mourned loss of assent that qualifies his verdict.
+  (C) false_symmetry — The author is not neutral; he affirms the justice gain even while counting its cost.
+  (D) stance_misread — Contradicts 'the verdict stands' and his continued defence of correctness in paragraphs 3 and 4.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — Mirrors the passage's trade: rulings grow more just, yet the losing side now disputes the instrument instead of accepting the outcome as final.
+  (A) half_truth — Keeps the gain in accuracy but has the disputes vanish, whereas the passage insists the controversy 'did not shrink; it moved.'
+  (B) causal_inversion — Reverses the trade: acceptance rises as accuracy falls, the opposite of what the cameras did to sport.
+  (D) framework_import — Imagines the technology failing and assent returning, but the author holds that correctness was delivered and would not hand the cameras back.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — The passage implies the reverse: decisions now wait on 'a four-minute review' while players stand at the monitor 'waiting to be told what they saw.'
+  (A) passage_supported — Paragraph 1: 'Goals once chalked off for phantom offsides now stand.'
+  (B) passage_supported — Paragraph 2: 'The argument now concerns the instrument rather than the incident.'
+  (C) passage_supported — Paragraph 3: fairness was spoken of 'as if we all meant the same word', and the cameras 'revealed that our real quarrel was never about millimetres.'
+
+[Inspired by: "Skill nostalgia", https://aeon.co/essays/the-radical-reasons-why-you-dream-of-making-things-by-hand]
