@@ -1466,22 +1466,22 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
                 if spent() >= max_usd:
                     print(f"[batch] spending cap ${max_usd:.2f} reached "
                           f"(spent ${spent():.4f}) — stopping cleanly.")
-                    summarize_batch(results, batch_id)
+                    summarize_batch(results, batch_id, getattr(pipeline, "llm", None))
                     return results
                 stopped = run_slot(pipeline, tier, i + 1, count, seed_provider,
                                    forced_bans, spent=spent, max_usd=max_usd,
                                    keep=_keep)
                 if stopped:
-                    summarize_batch(results, batch_id)
+                    summarize_batch(results, batch_id, getattr(pipeline, "llm", None))
                     return results
     except APIExhausted as e:
         print(f"\n[STOP] API exhausted ({e}) - batch stopped cleanly; "
               f"completed work is committed. Re-run later to continue.")
-    summarize_batch(results, batch_id)
+    summarize_batch(results, batch_id, getattr(pipeline, "llm", None))
     return results
 
 
-def summarize_batch(results: list[RCResult], batch_id: str) -> None:
+def summarize_batch(results: list[RCResult], batch_id: str, llm=None) -> None:
     """The batch summary and cost telemetry, shared by the sequential and
     parallel runners."""
     total = sum(r.cost_usd for r in results)
@@ -1529,3 +1529,18 @@ def summarize_batch(results: list[RCResult], batch_id: str) -> None:
     if resumable:
         print(f"  resumable passages   {len(resumable)} paid but deferred "
               f"(budget): {', '.join(r.blueprint_id for r in resumable if r.blueprint_id)}")
+    # Subscription usage, when the Claude Code lane served any stage. The cost
+    # telemetry above is API dollars only and reads $0.00 on that lane, which
+    # is true but not the whole story: the quota is finite too (2026-09-18).
+    report = getattr(llm, "usage_report", None)
+    if callable(report):
+        shipped_n = len(shipped)
+        for line in report():
+            print(line)
+        agg = getattr(llm, "usage", {}) or {}
+        if shipped_n and agg.get("calls"):
+            tok = (agg["input"] + agg["cache_write"] + agg["cache_read"]
+                   + agg["output"])
+            print(f"  per shipped set      {agg['calls'] / shipped_n:.1f} calls | "
+                  f"{tok / shipped_n:,.0f} tokens | "
+                  f"${getattr(llm, 'notional_usd', 0.0) / shipped_n:.4f} notional")
