@@ -190,3 +190,41 @@ def test_topology_drops_out_of_the_composite_when_not_gated(monkeypatch):
     monkeypatch.setattr(config, "TOPOLOGY_GATE_ENFORCE", False)
     lenient = scorer._composite(dict(s), 0.1, True)
     assert lenient < gated
+
+
+# ---- retry-questions marks the resumed set's seed used ---------------------------
+
+def test_retry_questions_marks_the_seed_used_when_a_resume_ships(tmp_path, monkeypatch):
+    from rc_engine import cli
+    from rc_engine.models import RCResult
+
+    marked = []
+    monkeypatch.setattr(cli, "_mark_seed_used", lambda doc, rc: marked.append((doc, rc)))
+
+    class Store:
+        client_id = "AA"
+
+        def load_resumable_passages(self):
+            return []
+
+        def load_rendered_passage(self, bp_id):
+            return {"seed_doc_id": "seed-1"}
+
+        def close(self):
+            pass
+
+    class Pipe:
+        def __init__(self, *a, **k):
+            pass
+
+        def resume_questions(self, bp_id, extra_guidance=None):
+            return RCResult("RC-MEDIUM-X", bp_id, "medium", "needs_review")
+
+    monkeypatch.setattr(cli, "_setup_provider", lambda args: (MockLLMClient(), 0))
+    monkeypatch.setattr(cli, "_open_store", lambda args: Store())
+    monkeypatch.setattr(cli, "RCPipeline", Pipe)
+    monkeypatch.setattr(cli, "cmd_export", lambda args: 0)
+    args = argparse.Namespace(dry_run=False, blueprint="BP_1", all=False, note=None,
+                              no_embed=True, no_screen=True, db="x.db", provider="claude")
+    assert cli.cmd_retry_questions(args) == 0
+    assert marked == [("seed-1", "RC-MEDIUM-X")]

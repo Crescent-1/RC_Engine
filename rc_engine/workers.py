@@ -73,8 +73,55 @@ class _Prefixed:
         return getattr(self._s, name)
 
 
+def _lane_client(base, lane: dict | None):
+    """Rebuild the parent's client stack inside a worker.
+
+    Workers do NOT go through cli._wrap_client — they are separate processes
+    that only receive picklable initargs. Before 2026-09-19 that meant
+    `--workers N --claude-code` silently ignored the lane: every worker built a
+    bare RoutedClient and called the Anthropic API directly, while the parent
+    printed a banner saying the subscription lane was in use. With a dead API
+    key that is a batch of 401s; with a live one it is a surprise bill. The
+    lane spec is threaded through initargs so the worker builds what the
+    parent promised."""
+    if not lane or not lane.get("claude_code"):
+        return base
+    from .claude_code import ClaudeCodeClient
+    return ClaudeCodeClient(base, stages=lane.get("stages"),
+                            provider=lane.get("provider"),
+                            effort=lane.get("effort"),
+                            lean=lane.get("lean", True))
+
+
+class _AggregatedUsage:
+    """Sums the workers' Claude Code counters so summarize_batch can report a
+    parallel run exactly as it reports a sequential one. Quacks like
+    ClaudeCodeClient for the two attributes the summary reads."""
+
+    def __init__(self):
+        self.usage = {"calls": 0, "input": 0, "cache_write": 0,
+                      "cache_read": 0, "output": 0, "thinking": 0}
+        self.by_stage: dict[str, dict] = {}
+        self.notional_usd = 0.0
+
+    def add(self, cc: dict) -> None:
+        for k, v in (cc.get("usage") or {}).items():
+            if k in self.usage:
+                self.usage[k] += v
+        for stage, d in (cc.get("by_stage") or {}).items():
+            cur = self.by_stage.setdefault(stage, {"calls": 0, "usd": 0.0})
+            cur["calls"] += d.get("calls", 0)
+            cur["usd"] += d.get("usd", 0.0)
+        self.notional_usd += cc.get("notional_usd") or 0.0
+
+    def usage_report(self) -> list[str]:
+        from .claude_code import ClaudeCodeClient
+        return ClaudeCodeClient.usage_report(self)
+
+
 def _worker_init(db: str, provider: str, dry_run: bool, embed: bool,
-                 client_id: str | None = None) -> None:
+                 client_id: str | None = None,
+                 lane: dict | None = None) -> None:
     global _PIPE, _WORKER_ID
     _WORKER_ID = f"w{os.getpid()}"
     for stream in (sys.stdout, sys.stderr):
@@ -94,6 +141,7 @@ def _worker_init(db: str, provider: str, dry_run: bool, embed: bool,
     else:
         from .providers import RoutedClient, make_client
         llm = RoutedClient(make_client(provider))
+    llm = _lane_client(llm, lane)
     _PIPE = RCPipeline(HistoryStore(db, client_id), llm, embed=embed,
                        parallel=True, worker_id=_WORKER_ID)
 
@@ -139,7 +187,18 @@ def _worker_slot(tier: str, slot_no: int, count: int, seeds: list,
             _PIPE.history.release_inflight(_WORKER_ID)
         except Exception:                                    # noqa: BLE001
             pass
-    return {"results": results, "consumed": consumed, "exhausted": exhausted}
+    # Subscription usage lives on the worker's own client, in this process.
+    # Ship the counters home as plain dicts or the parent's meter reads zero on
+    # every parallel run — the same silent-underreport shape as the lane bug
+    # above (2026-09-19).
+    cc = {}
+    llm = getattr(_PIPE, "llm", None)
+    if getattr(llm, "usage", None):
+        cc = {"usage": dict(llm.usage),
+              "by_stage": {k: dict(v) for k, v in llm.by_stage.items()},
+              "notional_usd": llm.notional_usd}
+    return {"results": results, "consumed": consumed, "exhausted": exhausted,
+            "cc": cc}
 
 
 # ---------------------------------------------------------------- parent side
@@ -148,7 +207,8 @@ def run_parallel(history, tier_counts: dict[str, int], workers: int, *,
                  db: str, provider: str, dry_run: bool, embed: bool,
                  seed_provider=None, max_usd: float | None = None,
                  only_posture: str | None = None,
-                 client_id: str | None = None) -> list[RCResult]:
+                 client_id: str | None = None,
+                 lane: dict | None = None) -> list[RCResult]:
     """Parallel counterpart of pipeline.run_batch with the same contract:
     returns every RCResult, records every attempt, prints the same summary.
     `history` is the parent's store (attempts table + seed callbacks).
@@ -243,8 +303,10 @@ def run_parallel(history, tier_counts: dict[str, int], workers: int, *,
 
     stop = False
     pending: dict = {}
+    cc_total = _AggregatedUsage()
     with ProcessPoolExecutor(max_workers=workers, initializer=_worker_init,
-                             initargs=(db, provider, dry_run, embed, client_id)) as ex:
+                             initargs=(db, provider, dry_run, embed, client_id,
+                                       lane)) as ex:
         while slots or pending:
             while slots and len(pending) < workers and not stop:
                 if spent() >= max_usd:
@@ -276,6 +338,8 @@ def run_parallel(history, tier_counts: dict[str, int], workers: int, *,
                     payload = {"results": [RCResult(None, "", tier, "failed_error",
                                                     notes=[repr(e)])],
                                "consumed": [], "exhausted": False}
+                if payload.get("cc"):
+                    cc_total.add(payload["cc"])
                 record(payload, tier, slot_no)
                 if payload["exhausted"] and not stop:
                     stop = True
@@ -285,5 +349,6 @@ def run_parallel(history, tier_counts: dict[str, int], workers: int, *,
             print(f"[batch] {len(slots)} slot(s) not started.")
 
     history.clear_inflight()
-    summarize_batch(results, batch_id)
+    summarize_batch(results, batch_id,
+                    cc_total if cc_total.usage["calls"] else None)
     return results

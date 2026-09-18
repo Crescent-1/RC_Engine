@@ -244,6 +244,93 @@ PROVIDER_ENV_KEYS = {
     "gemini": ("GOOGLE_API_KEY", "GEMINI_API_KEY"),
 }
 
+# ---------------------------------------------------------------------------
+# Claude Code as a generation backend (2026-09-18) — see rc_engine/claude_code.py
+# ---------------------------------------------------------------------------
+# `generate --claude-code` sends the Anthropic-bound stages through headless
+# Claude Code (subscription-billed) and falls back to the API on any error or
+# usage limit. Off unless the flag is passed; nothing here affects a normal run.
+CLAUDE_CODE_BIN = os.environ.get("RC_ENGINE_CLAUDE_CODE_BIN", "claude")
+CLAUDE_CODE_TIMEOUT_S = int(os.environ.get("RC_ENGINE_CLAUDE_CODE_TIMEOUT_S", "600"))
+# "replace" passes --system-prompt, which SUBSTITUTES Claude Code's own system
+# prompt rather than appending to it — verified on 2.1.276, 2026-09-18, and the
+# closest thing to the API's `system=` field. Falls back to "inline" (prompt at
+# the top of the user turn) on a build without that flag or behind a .cmd shim,
+# both of which claude_code.py detects. "append" is the third option and is the
+# worst of the three: it leaves the coding-agent prompt in front of a stage
+# prompt this engine has tuned line by line.
+CLAUDE_CODE_SYSTEM_MODE = os.environ.get("RC_ENGINE_CC_SYSTEM_MODE", "replace")
+# Engine model id -> what `claude --model` should be given. Full ids are more
+# faithful than the aliases; override per model if a build refuses one.
+CLAUDE_CODE_MODEL_MAP: dict = {}
+# `claude --effort` (low|medium|high|xhigh|max on 2.1.276) is this surface's
+# equivalent of the API's output_config.effort, and the one fidelity gap the
+# CLI can actually close.
+#
+# "max" by operator decision (2026-09-18): on the API path the medium tier pins
+# render and questions to effort "low" purely as a cost trade, and that trade
+# does not apply here — Claude Code bills subscription quota, not API dollars,
+# so the tier budget is not what is being protected. Note the quota is real:
+# effort "max" spends heavily on thinking tokens, on top of the ~21-36k of
+# harness context every call already carries. Set "auto" to honour STAGE_EFFORT
+# per stage instead (which restores medium's "low" render).
+CLAUDE_CODE_EFFORT = os.environ.get("RC_ENGINE_CC_EFFORT", "")
+CLAUDE_CODE_EFFORTS = ("auto", "low", "medium", "high", "xhigh", "max")
+# Per-tier effort (2026-09-19, operator decision). Spend reasoning where the
+# tier is worth it: elite carries the highest price and the strictest gates, so
+# it gets "max"; hard sits just under it; medium buys "high" rather than the
+# "low" that STAGE_EFFORT pins on the API path purely as a cost trade.
+#
+# This is the DEFAULT because the trade it encodes does not exist on this lane:
+# Claude Code bills subscription quota, not API dollars, so the tier budget is
+# not what effort is protecting. Measured on medium (2026-09-19): "low" ran
+# ~36.5k tokens/set, "max" ~100.5k, and "max" was the first configuration to
+# auto-approve. A bare --claude-code-effort LEVEL overrides the whole map;
+# "auto" falls back to STAGE_EFFORT per stage.
+CLAUDE_CODE_EFFORT_BY_TIER = {
+    "medium": "high",
+    "hard":   "xhigh",
+    "elite":  "max",
+}
+# Which stages the per-tier map applies to. QUESTIONS ONLY — the same answer
+# THINKING_STAGES reached on 2026-08-11, for the same reason.
+#
+# That probe measured thinking on render as tripling the cost of every attempt
+# ($0.10 -> ~$0.29) and buying nothing: the problem it was aimed at is the
+# option-balancing self-check, which is a counting task and happens in the
+# questions call. This session reproduced both halves — the length-bias gate
+# failed at 4/8 with low effort and passed at max, while the two best
+# compliance scores of the session (0.915, 0.919) came from renders with no
+# effort flag at all.
+#
+# Keep this list and THINKING_STAGES in agreement unless a measurement says
+# otherwise; they encode one finding through two different levers.
+CLAUDE_CODE_EFFORT_STAGES = ("questions",)
+# Every other Anthropic-bound stage. Explicitly "low" rather than omitting the
+# flag (2026-09-19, operator decision): a stated floor is worth more than a
+# provider default that can move under us, and these stages — render, solver,
+# refine — are prose generation and verification, not reasoning work.
+#
+# The first cut applied the tier's level everywhere, which handed "max" to the
+# solver: on the aborted 3-worker run one Sonnet solver call spent 50,092
+# THINKING tokens answering six MCQs, a gate capped at 1,600 output tokens on
+# the API path. Set to None to send no flag at all instead.
+CLAUDE_CODE_EFFORT_BASELINE = os.environ.get("RC_ENGINE_CC_EFFORT_BASELINE", "low")
+# Lean mode: run Claude Code with `--tools "" --safe-mode` so a generation call
+# costs roughly what the same call costs on the API.
+#
+# Without it, 2.1.276 sent the built-in tool schemas AND every local
+# customization (CLAUDE.md, skills, plugins, MCP servers) on every call, and the
+# agent used Bash/Write to `wc -w` its own passage in an 8-turn loop — one
+# medium set measured 1,004,631 tokens. Measured 2026-09-19 on one trivial
+# prompt: 42,451 tokens without the flags, 694 with. See
+# rc_engine/claude_code.py::_LEAN_FLAGS for the full table and for why --bare
+# and --disallowed-tools are the wrong answers.
+#
+# On by default. Turn it off only to reproduce the old numbers.
+CLAUDE_CODE_LEAN = os.environ.get("RC_ENGINE_CC_LEAN", "1").strip().lower() not in (
+    "0", "false", "off", "no")
+
 # Conservative input-token estimate: chars // 3 overestimates English text
 # by ~25-30%, which is the safe direction for a budget guard.
 CHARS_PER_TOKEN_ESTIMATE = 3

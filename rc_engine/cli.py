@@ -164,6 +164,26 @@ def cmd_selftest(_args) -> int:
     finally:
         config.set_provider(config.DEFAULT_PROVIDER)
 
+    # Reported, never failed: Claude Code is an optional lane, and a machine
+    # without it must still pass selftest (2026-09-18).
+    print("[2c] Claude Code backend (optional lane, $0)...")
+    try:
+        from .claude_code import probe as _cc_probe
+        info = _cc_probe()
+        if info["ok"]:
+            take = {f: ok for f, ok in info["flags"].items() if not ok}
+            print(f"      OK: {info['version'] or '?'} at {info['path']}")
+            print(f"      flags this build LACKS: "
+                  f"{', '.join(take) if take else 'none'}")
+            if not info["flags"].get("--system-prompt", True):
+                print("      (no --system-prompt: keep "
+                      "RC_ENGINE_CC_SYSTEM_MODE=inline, which is the default)")
+        else:
+            print(f"      not available: {info['detail']}")
+            print("      --claude-code will fall straight through to the API.")
+    except Exception as e:
+        print(f"      probe errored (non-fatal): {type(e).__name__}: {e}")
+
     print("[3/5] Budget guard unit check...")
     ledger = CostLedger(budget_usd=0.01)
     try:
@@ -433,7 +453,10 @@ def _setup_provider(args) -> tuple[object | None, int]:
     provider = getattr(args, "provider", "claude")
     config.set_provider(provider)
     if getattr(args, "dry_run", False):
-        return MockLLMClient(), 0
+        # --dry-run --relay is a free rehearsal of the paste loop: the relayed
+        # stages take real pasted text, the rest stay canned. Worth having,
+        # because the first time you meet the loop should not be mid-batch.
+        return _wrap_client(MockLLMClient(), args, provider), 0
     from .providers import (make_client, provider_key_present,
                             provider_key_source, verify_key)
     var = provider_key_present(provider)
@@ -455,18 +478,163 @@ def _setup_provider(args) -> tuple[object | None, int]:
     # Free pre-flight: fail before the first paid call, not partway through.
     ok, detail = verify_key(provider)
     if not ok:
-        print(f"[provider] !! ABORT: key check failed - {detail}")
-        if config.shadowing_conflicts():
-            print("[provider]    Most likely cause: the shadowing warning above. "
-                  "Clear the stale variable so .env is used, or set it to the "
-                  "correct key, then restart this process.")
-        return None, 1
-    print(f"[provider] key check: {detail}")
+        # With --claude-code the Anthropic key is only the FALLBACK's
+        # credential: the generative stages go through the subscription and
+        # the checking stages are pinned to their own provider. A dead key
+        # then means "no safety net", not "cannot run" (2026-09-18).
+        if getattr(args, "claude_code", False):
+            print(f"[provider] !! key check failed - {detail}")
+            print(f"[provider]    --claude-code is on, so this is survivable: "
+                  f"the subscription lane serves the Anthropic-bound stages "
+                  f"and pinned stages use their own provider. THERE IS NO API "
+                  f"FALLBACK - anything Claude Code cannot answer will fail "
+                  f"the attempt rather than quietly costing money.")
+        else:
+            print(f"[provider] !! ABORT: key check failed - {detail}")
+            if config.shadowing_conflicts():
+                print("[provider]    Most likely cause: the shadowing warning "
+                      "above. Clear the stale variable so .env is used, or set "
+                      "it to the correct key, then restart this process.")
+            return None, 1
+    else:
+        print(f"[provider] key check: {detail}")
     # Wrap so cheap CHECKING stages can run on their own pinned model while
     # refine/render/questions stay on the batch's provider. Falls back to the
     # wrapped client whenever a pin is unusable — see providers.RoutedClient.
     from .providers import RoutedClient
-    return RoutedClient(make_client(provider)), 0
+    return _wrap_client(RoutedClient(make_client(provider)), args, provider), 0
+
+
+def _fmt_effort_map(m: dict) -> str:
+    return ",".join(f"{t}={lv}" for t, lv in m.items())
+
+
+def parse_cc_effort(raw: str | None):
+    """A bare level, or 'tier=level,...' -> dict. None keeps the default map.
+
+    Raises ValueError with the offending token so a typo fails at argument
+    parse time rather than silently sending no --effort flag for a whole
+    batch (2026-09-19)."""
+    if raw is None:
+        return None
+    raw = raw.strip()
+    if not raw:
+        return None
+    valid = set(config.CLAUDE_CODE_EFFORTS)
+    if "=" not in raw:
+        if raw not in valid:
+            raise ValueError(f"unknown effort {raw!r}; expected one of "
+                             f"{'|'.join(config.CLAUDE_CODE_EFFORTS)} or a "
+                             f"per-tier map like 'medium=high,elite=max'")
+        return raw
+    out: dict[str, str] = {}
+    for part in raw.split(","):
+        part = part.strip()
+        if not part:
+            continue
+        tier, _, level = part.partition("=")
+        tier, level = tier.strip(), level.strip()
+        if tier not in config.TIER_BUDGET_USD:
+            raise ValueError(f"unknown tier {tier!r} in --claude-code-effort; "
+                             f"expected one of {'|'.join(config.TIER_BUDGET_USD)}")
+        if level not in valid:
+            raise ValueError(f"unknown effort {level!r} for tier {tier!r}; "
+                             f"expected one of {'|'.join(config.CLAUDE_CODE_EFFORTS)}")
+        out[tier] = level
+    return out
+
+
+def _lane_spec(args) -> dict | None:
+    """Picklable description of the run's lane, for workers.py.
+
+    Workers are separate processes that never see `args` and never call
+    _wrap_client, so anything the parent wrapped has to be described here or
+    it silently does not happen in parallel mode (2026-09-19)."""
+    if not getattr(args, "claude_code", False):
+        return None
+    stages = None
+    if getattr(args, "claude_code_stages", None):
+        stages = {s.strip() for s in args.claude_code_stages.split(",") if s.strip()}
+    effort = parse_cc_effort(getattr(args, "claude_code_effort", None))
+    if effort is None:
+        effort = (config.CLAUDE_CODE_EFFORT
+                  or dict(config.CLAUDE_CODE_EFFORT_BY_TIER))
+    return {"claude_code": True, "stages": stages,
+            "provider": getattr(args, "provider", "claude"),
+            "effort": effort,
+            "lean": not getattr(args, "claude_code_full_context", False)}
+
+
+def _wrap_client(client, args, provider: str):
+    """Assemble the run's client stack, innermost first.
+
+    The order is the lane the operator asked for (2026-09-18):
+
+        rc_engine -> claude code -> (error / usage limit) -> API -> relay
+
+    Each wrapper only diverts the Anthropic-bound stages and delegates the
+    rest inward, so the luna-pinned checks keep calling their own provider
+    however the Anthropic stages are being served."""
+    client = _maybe_relay(client, args, provider)     # last resort, innermost
+    return _maybe_claude_code(client, args, provider)
+
+
+def _maybe_claude_code(client, args, provider: str):
+    """Put headless Claude Code in front, with `client` as its fallback."""
+    if not getattr(args, "claude_code", False):
+        return client
+    from .claude_code import ClaudeCodeClient, probe
+    info = probe()
+    if not info["ok"]:
+        print(f"[cc] !! Claude Code unusable: {info['detail']}")
+        print(f"[cc]    Continuing on the fallback lane for every stage.")
+        return client
+    missing = [f for f, ok in info["flags"].items()
+               if not ok and f in ("--print", "--model", "--output-format")]
+    if missing:
+        print(f"[cc] !! this build lacks {', '.join(missing)} - "
+              f"headless calls will fail over to the fallback. "
+              f"Check `claude --help` and rc_engine/claude_code.py::_argv.")
+    effort = parse_cc_effort(getattr(args, "claude_code_effort", None))
+    if effort is None:
+        effort = (config.CLAUDE_CODE_EFFORT
+                  or dict(config.CLAUDE_CODE_EFFORT_BY_TIER))
+    shown = _fmt_effort_map(effort) if isinstance(effort, dict) else effort
+    print(f"[cc] Claude Code {info['version'] or '?'} at {info['path']} "
+          f"(system={config.CLAUDE_CODE_SYSTEM_MODE}, effort={shown}, "
+          f"lean={not getattr(args, 'claude_code_full_context', False)}); "
+          f"Anthropic-bound stages run there first, the API catches anything "
+          f"it cannot answer.")
+    stages = None
+    if getattr(args, "claude_code_stages", None):
+        stages = {s.strip() for s in args.claude_code_stages.split(",") if s.strip()}
+    lean = not getattr(args, "claude_code_full_context", False)
+    if not lean:
+        print("[cc] !! lean mode OFF - tool schemas and local customizations "
+              "load into every call; expect ~60x the tokens.")
+    return ClaudeCodeClient(client, stages=stages, provider=provider,
+                            effort=effort, lean=lean)
+
+
+def _maybe_relay(client, args, provider: str):
+    """Wrap a client in the paste relay when --relay is set.
+
+    Relay goes OUTSIDE the router (2026-09-18): a stage the relay declines
+    must still reach its pinned provider, which is the whole reason the
+    luna-pinned checks keep running while Opus is paste-driven."""
+    if not getattr(args, "relay", False):
+        return client
+    from .relay import RelayClient
+    stages = None
+    if getattr(args, "relay_stages", None):
+        stages = {s.strip() for s in args.relay_stages.split(",") if s.strip()}
+    print(f"[relay] Anthropic-bound stages will be pasted by hand "
+          f"({'stages: ' + ','.join(sorted(stages)) if stages else 'auto'}; "
+          f"system={getattr(args, 'relay_system', 'inline')}). "
+          f"Everything else still calls its provider for real.")
+    return RelayClient(client, root=getattr(args, "relay_dir", "relay"),
+                       system_mode=getattr(args, "relay_system", "inline"),
+                       stages=stages, provider=provider)
 
 
 # ---------------------------------------------------------------------------
@@ -578,6 +746,14 @@ def cmd_generate(args) -> int:
         print("Nothing to generate. Use --medium/--hard/--elite N.")
         return 1
 
+    # A paste loop cannot be shared across a process pool: every worker would
+    # block on its own stdin and the operator would be answering prompts from
+    # processes they cannot tell apart. Relay is sequential by construction.
+    if getattr(args, "relay", False) and getattr(args, "workers", 1) > 1:
+        print(f"[relay] --workers {args.workers} ignored: the paste loop is "
+              f"sequential. Running with 1 worker.")
+        args.workers = 1
+
     llm, err = _setup_provider(args)
     if llm is None:
         return err
@@ -628,7 +804,8 @@ def cmd_generate(args) -> int:
                                dry_run=bool(args.dry_run), embed=embed,
                                seed_provider=provider, max_usd=args.max_usd,
                                only_posture=getattr(args, "only_posture", None),
-                               client_id=history.client_id)
+                               client_id=history.client_id,
+                               lane=_lane_spec(args))
     else:
         results = run_batch(pipe, tier_counts, provider, max_usd=args.max_usd,
                             only_posture=getattr(args, "only_posture", None))
@@ -659,6 +836,20 @@ def cmd_generate(args) -> int:
 # ---------------------------------------------------------------------------
 # retry-questions — regenerate questions on a persisted, novelty-clean passage
 # ---------------------------------------------------------------------------
+
+def _mark_seed_used(doc_id: str, rc_id: str) -> bool:
+    """Flag a seed essay used for a set shipped outside a batch (resume). Never
+    fails the command: a store outage is reported, the set still ships."""
+    try:
+        from RAG import get_db, mark_essay_used  # noqa: legacy module
+        ok = bool(mark_essay_used(get_db(), doc_id, rc_id))
+    except Exception as e:                                   # noqa: BLE001
+        print(f"  [seeds] could not mark seed {doc_id} used ({type(e).__name__}: {e})")
+        return False
+    if ok:
+        print(f"  [seeds] seed {doc_id} marked used by {rc_id}")
+    return ok
+
 
 def cmd_retry_questions(args) -> int:
     if args.dry_run or args.blueprint or args.all:
@@ -710,6 +901,7 @@ def cmd_retry_questions(args) -> int:
     results = []
     for bp_id in targets:
         print(f"\n=== retry-questions {bp_id} ===")
+        row = history.load_rendered_passage(bp_id) or {}
         res = pipe.resume_questions(bp_id, extra_guidance=args.note)
         results.append(res)
         print(f"  -> {res.status} rc_id={res.rc_id} "
@@ -719,6 +911,11 @@ def cmd_retry_questions(args) -> int:
         if res.rc_id and res.status in config.SHIPPING_STATUSES:
             shipped += 1
             shipped_ids.append(res.rc_id)
+            # 2026-09-14: a resumed set never marked its seed essay used (the
+            # batch marks it through the provider callback, which a resume does
+            # not have), so RC-MEDIUM-260914-0071's seed stayed drawable.
+            if row.get("seed_doc_id") and not args.dry_run:
+                _mark_seed_used(row["seed_doc_id"], res.rc_id)
     if shipped_ids:
         if not args.dry_run and not getattr(args, "no_screen", False):
             from .similarity_screen import screen_batch
@@ -1878,8 +2075,9 @@ def _make_stdout_unicode_safe() -> None:
             pass  # already wrapped, or not reconfigurable — printing still works
 
 
-def main(argv=None) -> int:
-    _make_stdout_unicode_safe()
+def build_parser() -> argparse.ArgumentParser:
+    """The whole CLI surface, split out of main() (2026-09-18) so the suite can
+    parse argument lists without running a command."""
     p = argparse.ArgumentParser(prog="rc_engine", description=__doc__,
                                 formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = p.add_subparsers(dest="cmd", required=True)
@@ -1931,6 +2129,44 @@ def main(argv=None) -> int:
     g.add_argument("--elite-policy", default=None, metavar="VERSION",
                    help="compose NEW elite plans under a legacy-based policy, e.g. "
                         "legacy-sf1 (legacy engine + seed fidelity). Default: legacy")
+    g.add_argument("--claude-code", action="store_true",
+                   help="run the Anthropic-bound stages through headless Claude "
+                        "Code (subscription-billed, $0 of API) and fall back to "
+                        "the API on any error or usage limit. Combine with "
+                        "--relay to put the paste loop last. See "
+                        "rc_engine/claude_code.py")
+    g.add_argument("--claude-code-full-context", action="store_true",
+                   help="disable lean mode: let Claude Code load its tool "
+                        "schemas, CLAUDE.md, skills and plugins into every "
+                        "call. Measured 61x more tokens on a trivial prompt "
+                        "(42,451 vs 694) — for reproducing old numbers only")
+    g.add_argument("--claude-code-effort", default=None, metavar="LEVEL|MAP",
+                   help=f"`claude --effort` for the subscription lane: one "
+                        f"level for everything ({'|'.join(config.CLAUDE_CODE_EFFORTS)}), "
+                        f"or a per-tier map like 'medium=high,hard=xhigh,"
+                        f"elite=max'. Default is the per-tier map in "
+                        f"config.CLAUDE_CODE_EFFORT_BY_TIER "
+                        f"({_fmt_effort_map(config.CLAUDE_CODE_EFFORT_BY_TIER)}); "
+                        f"'auto' honours STAGE_EFFORT instead, which pins "
+                        f"medium render/questions to 'low'")
+    g.add_argument("--claude-code-stages", default=None, metavar="LIST",
+                   help="comma list overriding which stages Claude Code takes, "
+                        "e.g. render,questions (default: every Anthropic-bound stage)")
+    g.add_argument("--relay", action="store_true",
+                   help="$0 on Anthropic: hand every Anthropic-bound prompt to the "
+                        "operator to paste into claude.ai, and take the reply back. "
+                        "Stages pinned to another provider still run for real. "
+                        "Forces --workers 1. See rc_engine/relay.py")
+    g.add_argument("--relay-stages", default=None, metavar="LIST",
+                   help="comma list overriding which stages relay, e.g. "
+                        "render,questions (default: every Anthropic-bound stage)")
+    g.add_argument("--relay-system", choices=("inline", "project"), default="inline",
+                   help="inline: paste the system prompt above the user turn. "
+                        "project: write it to relay/_system/ for a claude.ai "
+                        "Project's instructions and paste the user turn alone "
+                        "(closer to the API's shape)")
+    g.add_argument("--relay-dir", default="relay", metavar="DIR",
+                   help="where relay prompts and replies are written (default: relay/)")
     _client_opt(g)
 
     pr = sub.add_parser("policy-report",
@@ -2061,7 +2297,12 @@ def main(argv=None) -> int:
     cl_list = cl_sub.add_parser("list", help="clients with shipped counts")
     cl_list.add_argument("--db", default=config.DB_PATH)
 
-    args = p.parse_args(argv)
+    return p
+
+
+def main(argv=None) -> int:
+    _make_stdout_unicode_safe()
+    args = build_parser().parse_args(argv)
     return {"estimate": cmd_estimate, "selftest": cmd_selftest,
             "generate": cmd_generate, "backfill": cmd_backfill,
             "health": cmd_health, "export": cmd_export,
