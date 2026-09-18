@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260918-0103 | Tier: hard | Score: 8.8 | Status: needs_review | Compliance F1: 0.94 | Novelty: 0.463 | Screen: red | Generated: 2026-09-18T20:09:32.322039+00:00
+======================================================================
+
+[PASSAGE]
+
+What must "independent" mean if the word is to carry the weight placed on it? Consider where the inspected party pays, picks, or supplies the inspector: manufacturer employees authorized to sign off airframe compliance on the regulator's behalf, rating agencies paid by the issuers whose paper they grade, auditors appointed by the companies whose books they open, private certifiers engaged by the developer whose building they approve. Passengers, bondholders, and occupants absorb the errors. The tally is not an indictment; it specifies a job, which is that a finding must not bend toward what the inspected party would prefer to hear.
+
+Take the first candidate: independence as separate legal employment, the inspector drawing salary from another firm entirely. Follow the money rather than the payslip. The client selects the firm from a shortlist, the firm invoices the client, the engagement partner's standing rests on renewal, and renewal rests on a client who was not embarrassed. So the claim here is not that payroll location is decisive. Nor is it that inspectors are dishonest; nor that a signed conflicts declaration is absent. Something else is doing the damage.
+
+Second candidate: independence as limited tenure. Rotate the team; let no relationship harden. The logic is sound as far as it goes. Press one case against it. A fresh audit or certification team arrives at a complex product whose compliance basis — the accepted methods, the negotiated equivalencies, the history of why a particular analysis was allowed — exists in usable form only in the heads of the manufacturer's own engineers. The newcomers spend their first cycle being taught. They are taught by the party they are inspecting. Beneath the familiarity problem sits a harder one: the inspected holds nearly all the knowledge of the object, so every inspector's competence is borrowed from it, and rotation raises the interest rate on that loan. Rotation still cures something real. It simply cannot be the whole of the definition, because independence was never a matter of emotional distance.
+
+Third candidate: public employment. Grant it properly. A salaried state inspector owes the firm nothing, cannot be dismissed by it, and on the question of who pays is as clean an answer as the problem admits. That much is not in dispute. But the two failure modes are not mirrored. Private inspectors fail by selection — the inspected chooses, so the pliant are chosen. Public inspectors fail by thin budgets, by headcount that never matches the volume of work, and by careers that drift toward the industry they supervise. Those are different injuries and they do not share a cure. The state's depth of technical expertise is also precisely what ran out; delegation began because it did. The argument is not that the work should simply be taken back.
+
+What survives is narrower: the inspected party has no say in who inspects it and no power to reward or punish that choice. Fees go into a pooled fund; an outside allocator assigns the inspector; findings run to the regulator whether or not the client likes them. The price is real — fees higher and less predictable, long working relationships lost, poor matches between assignment and expertise, slower schedules, and an allocator who must himself be kept honest. Accepting that price is the position, and it leaves each party still owing something: firms owe access and disclosure, regulators owe the funding and the enforcement that make the pool credible, and inspectors owe findings that hold without the client's approval.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) Independence means the inspected party cannot choose or reward its inspector; the costs of arranging that are worth paying.
+(B) Since paid and delegated inspection has failed passengers, bondholders and occupants alike, such arrangements are corrupt and should be abolished.
+(C) Because state inspectors owe the firm nothing, returning inspection to public payrolls is the cure the analysis recommends.
+(D) Rotation combined with separate payroll removes the pressures that make an inspector's findings bend toward the paying client.
+
+Q2. Regarding the rotation of inspection teams, the author asserts that:
+(A) it deepens reliance on the inspected party's engineers, so longer tenure with a familiar client is the better arrangement.
+(B) it addresses emotional closeness between inspector and client, which the author treats as the deepest injury in delegated inspection work.
+(C) it cures something real but cannot define independence, since fresh teams must be taught by the party they inspect.
+(D) it is the one candidate the author accepts outright, since no relationship is allowed to harden over time.
+
+Q3. All of the following are true of publicly salaried inspectors as the passage describes them, EXCEPT:
+(A) Their careers may drift toward the very industry that they have been assigned to supervise.
+(B) Such inspectors cannot be dismissed by the firms whose books or airframes they examine.
+(C) Their failure mode and that of private inspectors respond to the same corrective measure.
+(D) Thin budgets and insufficient headcount, rather than client selection, are their characteristic failure.
+
+Q4. The author cites the salaried state inspector primarily in order to:
+(A) endorse public employment as the arrangement that finally removes the payer's grip on the finding.
+(B) demonstrate that delegation to private certifiers began for reasons of cost rather than declining technical capacity.
+(C) illustrate that salary arrangements, rather than selection rights, determine whether a finding can bend.
+(D) concede the one thing public employment settles, then show its failures need a different cure.
+
+Q5. Which one of the following findings would most complicate the author's account of the pooled-fund arrangement?
+(A) In pooled schemes, allocators depend on firms' complaint records, so unwelcome inspectors are quietly withdrawn from future assignments.
+(B) Inspectors assigned by an outside allocator are sometimes poorly matched to the technical specialism a particular assignment demands.
+(C) Inspectors working under pooled allocation report lower job satisfaction than those retained directly by long-standing corporate clients.
+(D) Pooled schemes have raised inspection fees sharply and lengthened the time firms must wait for a scheduled compliance assessment.
+
+Q6. A national league lets each club choose and pay the laboratory that tests its athletes, and laboratories reporting positives are rarely re-engaged. Which reading of this scenario best follows the passage's reasoning?
+(A) Laboratories accepting club money have compromised themselves, so their past positive findings should be treated as unreliable.
+(B) Requiring clubs to rotate laboratories every second season would remove the pressure this arrangement places on reported test findings.
+(C) The defect lies in the club's power over re-engagement, not in the laboratories' honesty or their scientific competence.
+(D) Since the payer shapes the result, doping control belongs with salaried public officials employed by the sports ministry.
+
+Q7. The author of the passage is likely to disagree with which one of the following statements?
+(A) Pooled allocation imposes real costs, including lost long relationships and less predictable inspection fees.
+(B) On the question of who pays, a salaried state inspector is about as clean as possible.
+(C) Rotating inspection teams cures something real, yet it cannot supply the whole definition of independence.
+(D) A conflicts declaration plus a separate payroll settles whether an inspector's finding can bend.
+
+Q8. Which one of the following, if true, would best license the inference the author draws from the compliance basis residing in the manufacturer's engineers?
+(A) Regulators reconstructing a product's compliance basis from filed documents alone have repeatedly failed without the manufacturer's engineers.
+(B) Long-serving inspectors report warmer personal relationships with the client engineers they deal with year after year.
+(C) Manufacturers employ far more qualified engineers than regulators do, across nearly every sector requiring formal certification.
+(D) Inspection teams in their first cycle on a new assignment issue fewer findings than teams in later cycles.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — It holds the whole movement: the three candidate definitions are each tested and found partial, and the surviving definition in the final paragraph is structural control over selection, explicitly purchased at an accepted price.
+  (B) scope_inflation — The opening tally is explicitly "not an indictment"; it specifies a job rather than condemning delegation or alleging corruption.
+  (C) half_truth — Paragraph four grants the concession but adds that state expertise ran out and "the work should simply be taken back" is denied.
+  (D) adjacent_answer — Paragraphs two and three test and reject both candidates as incomplete; neither addresses the client's power over selection and renewal.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The third paragraph concedes rotation "still cures something real" while showing that newcomers are taught by the inspected, so it cannot be the whole definition.
+  (A) half_truth — The passage keeps rotation's genuine benefit while limiting its scope; it never endorses hardened long relationships as the superior alternative.
+  (B) level_confusion — The paragraph closes by denying this: "independence was never a matter of emotional distance," the knowledge asymmetry being the harder problem.
+  (D) adjacent_answer — Rotation is accepted only partially; the same paragraph states it "cannot be the whole of the definition" of independence.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — The passage states directly that the two failure modes "are not mirrored" and that "those are different injuries and they do not share a cure," so shared remedy is a stance error.
+  (A) passage_supported — Paragraph four lists "careers that drift toward the industry they supervise" among public failure modes.
+  (B) passage_supported — Paragraph four says a salaried state inspector "owes the firm nothing, cannot be dismissed by it."
+  (D) passage_supported — Paragraph four contrasts private failure by selection with public failure by thin budgets and inadequate headcount.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — The paragraph grants the concession "properly" — clean on who pays — precisely so it can separate that from budget, headcount and drift failures that no takeover would fix.
+  (A) half_truth — The concession about who pays is immediately qualified; the paragraph ends by denying that the work should be taken back.
+  (B) adjacent_answer — The passage states delegation began because the state's depth of technical expertise "ran out," which is capacity, not cost.
+  (C) level_confusion — Paragraph two already says payroll location is not decisive; the surviving definition turns on selection, not on salary source.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — The load-bearing move is that the inspected party has "no power to reward or punish" the choice of inspector; a complaint channel that removes inspectors restores exactly that power.
+  (B) adjacent_answer — Poor matches between assignment and expertise are listed among the costs the author explicitly accepts, not a hidden defect.
+  (C) level_confusion — This concerns inspectors' feelings, whereas the argument turns on structural control over selection, not on morale or comfort.
+  (D) scope_inflation — The final paragraph already concedes higher, less predictable fees and slower schedules as the accepted price of the arrangement.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — Paragraph two isolates the mechanism the author blames — renewal resting on a client who was not embarrassed — while expressly denying that dishonesty is the charge.
+  (A) level_confusion — The opening insists the tally "is not an indictment" of inspectors; the problem is structural incentive, not individual compromise.
+  (B) adjacent_answer — Rotation addresses hardened relationships, not the selection power the passage identifies as the actual source of the bending.
+  (D) scope_inflation — Paragraph four refuses the public-takeover conclusion, noting that state capacity ran out and the injuries do not share a cure.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — Paragraph two expressly withholds this: payroll location is not decisive and a signed conflicts declaration is not absent, yet "something else is doing the damage."
+  (A) passage_supported — The final paragraph states "the price is real" and itemises lost working relationships and higher, less predictable fees.
+  (B) passage_supported — Paragraph four grants exactly this, calling it "as clean an answer as the problem admits" and not in dispute.
+  (C) passage_supported — This is the author's own formulation closing paragraph three, which concedes rotation's value while denying it definitional sufficiency.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — The inference — that every inspector's competence is borrowed from the inspected — depends on the compliance basis existing in usable form nowhere else; this evidence establishes exactly that unavailability.
+  (B) level_confusion — Familiarity is the shallower problem the paragraph sets aside; the borrowed-competence claim concerns where knowledge resides, not affection.
+  (C) scope_inflation — Relative headcount does not establish that the negotiated equivalencies and accepted methods exist only in the manufacturer's engineers' heads.
+  (D) adjacent_answer — This documents a learning curve but not that the knowledge being learned is held exclusively by the inspected party.
+
+[Inspired by: "How Airbus took off", https://worksinprogress.co/issue/how-airbus-took-off/]

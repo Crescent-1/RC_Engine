@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260918-0102 | Tier: hard | Score: 9.0 | Status: needs_review | Compliance F1: 0.85 | Novelty: 0.569 | Generated: 2026-09-18T19:51:45.882171+00:00
+======================================================================
+
+[PASSAGE]
+
+Fault, in divorce law, names a pleading requirement rather than a moral verdict: the petitioner's obligation to write down something the other spouse did, and to have it believed, before the court will open the door. The layer to dig at is 1969. California's Family Law Act, in force from January 1970, and England's Divorce Reform Act, in force from January 1971, both swept away a catalogue of matrimonial offences and left one ground: the marriage had broken down. Beneath the shared word the machinery differs. In California the petitioner states that irreconcilable differences have caused an irremediable breakdown; the court finds that they exist; the respondent's denial cannot defeat the finding; months, not years, then run before judgment is final. In England the petitioner pleaded irretrievable breakdown too, but breakdown by itself proved nothing. No decree could issue unless the petitioner established one of five statutory facts — adultery, behaviour the petitioner could not reasonably be expected to live with, two years' desertion, two years' separation with consent, five years' separation without it — and once a fact was proved, breakdown was presumed from it. Each fact reads like a ground in its own right, and was argued over as if it settled what the marriage had contained. The ground was breakdown; the facts were routes to it, and only two of the five stood open on the day a marriage collapsed. Whatever kept accusation alive in England, it was not a disagreement in principle about what dissolves a marriage.
+
+A price list in time drove the rest. Adultery and behaviour were available at once; the quiet routes cost two years, or five. Accusation bought speed, so petitions carried mild, formulaic particulars that nobody tested. Mrs Owens, petitioning on behaviour in 2015, was refused at first instance, in the Court of Appeal in 2017 and in the Supreme Court in 2018, because her husband defended. The jam was contest, not principle.
+
+Paperwork followed. The 'special procedure' of 1973, extended in 1977 to every undefended petition, sounds like a searching track for hard cases; it was the ordinary one, a file read without hearing or witness. Scotland copied the English list in 1976. Canada's 1985 Act cut its clean route from three years to one. Australia in 1975 and West Germany in 1977 let separation alone carry breakdown. Paper made accusation cheap; the clock made it wanted.
+
+The Divorce, Dissolution and Separation Act 2020, in force from April 2022, abolished the facts. A statement of breakdown by one spouse or both is now conclusive; only jurisdiction or validity can be contested. Twenty weeks, then six, cannot be shortened. The old separation periods were evidence lived through before filing; this reflection period is a wait imposed after it, and it falls on all hundred thousand or so couples a year, where before about half pleaded behaviour and went fast.
+
+If the law no longer asks what a spouse did but only how long a marriage must be held in suspense, whose interval is it and who pays? The 1969 divergence measured what each statute charged for leaving, not how much blame a society wished to keep. Blame is spent; the charge is what is left. Whether the reform worked will be settled by the fixed twenty-six weeks rather than by the accusation it retired, though a few years make a thin layer to read.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) Accusation survived in England until 1969 and vanished once the single ground of breakdown replaced the matrimonial offences.
+(B) England retained fault as a genuine ground for dissolution, so its 1969 statute was markedly more conservative in principle than California's.
+(C) Divorce regimes are best compared by the delay they charge for exit rather than by the blame they voice.
+(D) By abolishing the five facts, the 2020 Act removed the incentive to accuse and shortened the route out of marriage.
+
+Q2. We can infer from the passage that the 'special procedure' of 1973 refers to:
+(A) a routine file-based route that became the normal way undefended petitions were processed without hearing
+(B) a fast-track option letting petitioners who pleaded adultery obtain a final judgment within months
+(C) an exceptionally searching track reserved for difficult petitions requiring closer judicial examination of the particulars
+(D) a reform of 1977 that replaced the five statutory facts with a single breakdown statement
+
+Q3. The author uses the phrase 'reflection period' to mean:
+(A) a period the couple must spend reconsidering, with counselling before the application proceeds
+(B) a fixed wait imposed after filing that no longer works as proof of anything
+(C) a revived separation requirement under which spouses live apart to evidence breakdown before petitioning
+(D) a discretionary interval the court may shorten where both spouses jointly request dissolution
+
+Q4. The Owens litigation mentioned in the passage functions to:
+(A) demonstrate that the 2020 reform aimed chiefly at shortening the periods couples must wait
+(B) establish that English judges had grown unwilling to dissolve marriages on behaviour particulars alone
+(C) illustrate how formulaic particulars went untested in the ordinary undefended paper track after 1977
+(D) show that the English system jammed only when a respondent resisted, not over principle
+
+Q5. Which one of the following findings would most weaken the author's claim in the second paragraph that a price list in time, rather than principle, kept accusation alive in England?
+(A) Scotland's 1976 list produced a somewhat higher share of behaviour petitions than England's did.
+(B) Californian petitioners often described spousal misconduct in statements the court was not required to weigh.
+(C) Defended petitions such as Mrs Owens's remained a small fraction of all English filings.
+(D) Petitioners already separated two years with consent still chose to plead behaviour instead.
+
+Q6. A country abolishes the requirement that tenants allege landlord disrepair to end a lease early, replacing it with a uniform six-month notice binding every tenant; previously two-thirds alleged disrepair and left within weeks. Which reading of this scenario best follows the passage's reasoning?
+(A) Ending disrepair allegations shows that the state no longer blames landlords for failed tenancies.
+(B) Tenants who once alleged disrepair gain the most, since contested claims can no longer delay departure.
+(C) The reform redistributes waiting onto every tenant, so its cost is best measured in notice.
+(D) The six-month notice merely restores the evidence of disrepair that tenant allegations once supplied.
+
+Q7. Which one of the following research findings would most strengthen the author's closing conclusion about how the 2020 reform should be assessed?
+(A) Since April 2022, English divorce applications have risen sharply and are only rarely contested by respondents.
+(B) California's 1970 statute produced final judgments faster than any European reform of that decade.
+(C) Solicitors report that clients recall the old behaviour particulars as humiliating and largely untrue.
+(D) Across comparable states, post-reform outcomes tracked wait length rather than the ending of fault pleading.
+
+Q8. According to the passage, why did English petitions carry mild, formulaic particulars that nobody tested?
+(A) Because accusation opened the immediate routes, and undefended files were read without any hearing.
+(B) Because the 2020 Act made a one-sided statement of breakdown conclusive against the respondent.
+(C) Because respondents who denied the particulars could not delay a decree in England.
+(D) Because the special procedure of 1973 applied to defended and undefended petitions alike.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — It holds together the 1969 comparison (months versus two or five years), the 2020 substitution of a fixed twenty-six weeks for accusation, and paragraph five's verdict that 'blame is spent; the charge is what is left'.
+  (A) stage_misattribution — Locates accusation's end in 1969, though paragraphs two to four show it thriving until the 2020 Act took effect in 2022.
+  (B) terminological_twin — Treats the five 'facts' as grounds; the passage says the ground was breakdown, facts were routes, and denies any disagreement in principle.
+  (D) half_truth — Half right: the facts went, but paragraph four stresses twenty weeks then six 'cannot be shortened' and now bind all couples.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Paragraph three explicitly corrects the name: it 'sounds like a searching track for hard cases; it was the ordinary one, a file read without hearing or witness', extended in 1977 to every undefended petition.
+  (B) half_truth — Speed came from the immediately available facts, not the procedure, which covered every undefended petition regardless of the fact pleaded.
+  (C) phrase_misuse — Reads the label literally, exactly what paragraph three warns against when it says the procedure only 'sounds like' a searching track.
+  (D) stage_misattribution — Attributes to 1977 what paragraph four assigns to the 2020 Act, in force from April 2022, which abolished the facts.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — Paragraph four draws the contrast directly: 'The old separation periods were evidence lived through before filing; this reflection period is a wait imposed after it', and it cannot be shortened.
+  (A) phrase_misuse — Takes 'reflection' at face value; the passage describes only an unshortenable wait, never any required reconsideration or counselling.
+  (C) terminological_twin — Collapses the new interval into the old separation periods, which paragraph four distinguishes as evidence lived through before filing.
+  (D) half_truth — Paragraph four states the twenty weeks, then six, 'cannot be shortened', whether one spouse applies or both.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — The example sits immediately before 'The jam was contest, not principle', and supports paragraph one's claim that accusation survived for reasons other than disagreement about what dissolves a marriage.
+  (A) half_truth — Paragraph four says the new periods cannot be shortened and now fall on all couples, including those who previously went fast.
+  (B) half_truth — Three courts refused Mrs Owens 'because her husband defended'; undefended behaviour petitions passed routinely on untested formulaic particulars.
+  (C) stage_misattribution — Owens was a defended petition, so it falls outside the undefended paper track described in paragraph three.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — These petitioners faced no time charge at all, so their preference for accusation cannot be explained by the clock, which is the load-bearing move in 'Accusation bought speed'.
+  (A) half_truth — Scotland copied the English list, so a similar time price predicts similar accusation; the finding fits the author's account.
+  (B) stage_misattribution — California imposed no pleading requirement, so inert descriptions there say nothing about why England's petitioners pleaded facts.
+  (C) half_truth — This reinforces paragraph two's point that untested particulars normally passed unchallenged; rarity of contest supports rather than damages the claim.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — It applies paragraph five's move: with allegation retired, what remains to be judged is the interval and who bears it, exactly as the fixed twenty-six weeks now falls on all couples.
+  (A) half_truth — The passage denies that pleading tracked blame: fault 'names a pleading requirement rather than a moral verdict', and 'blame is spent'.
+  (B) half_truth — Inverts the incidence: the fast accusers are precisely those the new uniform interval slows, as with the half who pleaded behaviour.
+  (D) terminological_twin — Treats a wait imposed after notice as evidence, the same conflation paragraph four rejects between separation periods and the reflection period.
+
+Q7 — Correct answer: (D)
+  (D) CORRECT — The final paragraph claims the reform 'will be settled by the fixed twenty-six weeks rather than by the accusation it retired'; cross-jurisdictional variation keyed to interval length is direct support.
+  (A) half_truth — Rising, uncontested filings speak to the abolition of the facts, not to the interval the author says will decide the question.
+  (B) stage_misattribution — A 1970s comparison cannot bear on assessing an English reform in force from 2022, the conclusion actually at issue.
+  (C) half_truth — Confirms that particulars were formulaic, but says nothing about the twenty-six weeks by which the author says success is measured.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — It joins paragraph two ('Accusation bought speed', only adultery and behaviour available at once) to paragraph three's paper track: 'Paper made accusation cheap; the clock made it wanted.'
+  (B) stage_misattribution — Assigns a post-2022 rule to the era of formulaic particulars, which paragraph two locates under the five statutory facts.
+  (C) stage_misattribution — That is California's rule, where 'the respondent's denial cannot defeat the finding'; in England a defence stalled Mrs Owens for years.
+  (D) half_truth — Paragraph three says the procedure was extended in 1977 to every undefended petition; defended cases, like Owens, still jammed.
+
+[Inspired by: "The Ctrip Case Reveals the Limits of Administrative Interviews in China’s Antitrust Enforcement", https://www.promarket.org/2026/08/20/the-ctrip-case-reveals-the-limits-of-administrative-interviews-in-chinas-antitrust-enforcement/]

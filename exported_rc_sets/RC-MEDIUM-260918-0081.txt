@@ -1,0 +1,114 @@
+RC ID: RC-MEDIUM-260918-0081 | Tier: medium | Score: 8.2 | Status: needs_review | Compliance F1: 0.836 | Novelty: 0.552 | Generated: 2026-09-18T19:26:10.095270+00:00
+======================================================================
+
+[PASSAGE]
+
+Political words acquire their authority less from definition than from carriage. They bring an older institution into a new room and let it keep its furniture. Representation arrived in Philadelphia that way, freighted. On the stage the word had meant making present what was absent: a player stands where a king is not. In the councils of the Church it meant something heavier, since a body of Christians was held to be actually present in the persons who deliberated for it, embodied rather than merely signalled. English corporations took the term for their own uses. A borough sent burgesses, and for the purposes of the writ the burgesses were the borough, so that their consent bound the men who had stayed home. Colonial assemblies inherited the practice and added instruction: a town might tell its deputy how to vote and expect obedience, an odd demand to make of a man supposed to be you already. By the summer of 1787 the word had been let out and taken in so many times that the seams showed. It was a garment cut for corporate bodies — towns, guilds, boroughs, chartered colonies — and the delegates were fitting it to a body nobody had yet measured. The shoulders had been made for communities with boundaries and charters. The new wearer was, in the phrase some of them preferred, a people. A tailor can refit a coat. He cannot unmake what it was first cut to fit, and the old darts show under the new ones. The men in that room had no vocabulary for what they wanted that was not already somebody else's.
+
+So the vote of 16 July was not a choice between people and states. The Connecticut proposal did not choose. It divided the word: proportional numbers in one chamber, equal state voices in the other, both called representation, both inside one instrument. The Virginia Plan had asked for proportionality throughout. The New Jersey Plan had answered with equality throughout. A committee sat through the adjournment over the Fourth of July and came back with the split. Madison took it down; Yates, who distrusted where the whole business was tending, took it down differently. Later summaries keep the two plans and lose the committee. What carried on 16 July, by one state's margin, was not a reconciliation of two meanings but the installation of both.
+
+Both sides spoke in the same sentences. Equality was the word on either side of the table; so was representation of the represented. The large-state men meant persons, counted. The small-state men meant political communities, bounded and chartered. The parallel holds in the grammar and nowhere beneath it. Nothing in the surviving notes shows the delegates deciding which object the word named. They decided the seats.
+
+Two traditions have since claimed the settlement as ancestor: one that reads it as balance among constituted communities, another as the arithmetic of persons, imperfectly served but promised. Both are legitimate heirs, which leaves us a lineage that forks. The institutional result is not the part that wants explaining. How a divided meaning came to be spoken of afterward as a single one is the more revealing object, though most of that translation happened far from the room where the division was made.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) The passage traces the long history of the word representation, with the 1787 Convention serving mainly as a convenient illustrative example.
+(B) Lacking any word of their own, the delegates installed two inherited meanings of representation side by side rather than choosing.
+(C) The Connecticut proposal reconciled two rival meanings of representation into a single coherent principle that later traditions correctly inherited.
+(D) Because both factions used identical language, the large-state and small-state positions were finally versions of one shared constitutional argument.
+
+Q2. The central idea of the passage would be undermined if:
+(A) Speeches from both sides are found to use the vocabulary of representation and equality in nearly identical phrasing.
+(B) Later constitutional traditions are shown to have disagreed even more sharply than the passage's brief account of them suggests.
+(C) Newly found notes record the delegates explicitly settling that representation named persons, not communities, before they allotted the seats.
+(D) The committee that met over the Fourth of July is found to have included delegates from nine states.
+
+Q3. Which one of the following findings would most complicate the author's account of how the 16 July settlement came about?
+(A) Textbook summaries of the compromise are found to describe the Virginia and New Jersey plans in unusually accurate detail.
+(B) Yates's notes are found to record the committee's deliberations in far greater detail than Madison's surviving notes do.
+(C) The 16 July vote is found to have carried by two states' margin rather than one state's margin.
+(D) The July committee is found to have merely transcribed a division already voted on the Convention floor in June.
+
+Q4. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?
+(A) Two ministries use the word 'security' in identical phrasing and eventually agree on one shared definition for it.
+(B) A drafting committee meets over a holiday recess and returns with a written compromise that one delegate's vote narrowly carries.
+(C) A legislature borrows an old term and its courts steadily extend it to every new institution they encounter.
+(D) A privacy statute borrows 'trespass' from land law, and its rulings thereafter enforce both the property and the personal sense.
+
+Q5. The primary purpose of the passage is to:
+(A) open with a claim about political language and then illustrate it through a convention, its factions, and its heirs
+(B) argue that the familiar compromise is better understood as an inherited word's two meanings being lodged in one instrument
+(C) show that the large-state and small-state men were advancing equally reasonable claims about a word already settled
+(D) recount how proportional numbers in one chamber and equal state voices in the other were adopted on 16 July
+
+Q6. All of the following are true of the earlier uses of 'representation' described in the passage, EXCEPT:
+(A) For the purposes of the writ the burgesses were the borough, so their consent bound the men at home.
+(B) On the stage the word meant making present what was absent, as a player stands where a king isn't.
+(C) Colonial instruction of deputies fitted smoothly with the older sense in which the deputy already was his town.
+(D) In Church councils the body of Christians was held actually present in the persons deliberating for it.
+
+Q7. If the passage continued, which one of the following would it most likely discuss next?
+(A) An argument that the two traditions claiming the settlement are finally making the same historical claim.
+(B) The later processes outside the Convention through which the divided meaning came to be described as one.
+(C) A comparison of Madison's and Yates's notebooks as rival records of the whole summer's debates and votes.
+(D) A closer reconstruction of the committee's deliberations during the adjournment over the Fourth of July in 1787.
+
+Q8. According to the text, what carried by one state's margin on 16 July is described as:
+(A) a reconciliation of two meanings that the committee had worked out during the adjournment over the Fourth
+(B) a delegates' decision about which object the word representation would finally name in the new instrument
+(C) a choice between people and states, settled in favour of the small-state men's bounded communities
+(D) the installation of both meanings inside one instrument, and not a reconciliation between the two rival senses.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — It joins the opening claim that the word came pre-fitted to corporate bodies with paragraph two's insistence that 16 July installed both senses, and with paragraph three's point that no referent was ever decided.
+  (A) scope_inflation — Inverts the emphasis: the etymological tour in paragraph one exists to explain the Convention's vocabulary problem, not the reverse.
+  (C) premature_closure — Paragraph two denies reconciliation explicitly, and paragraph four calls the resulting lineage one that forks into two legitimate heirs.
+  (D) false_symmetry — Paragraph three says the parallel 'holds in the grammar and nowhere beneath it', since one side meant persons and the other communities.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The argument's load-bearing move is that the delegates 'decided the seats' without deciding which object the word named; a record of that decision collapses it.
+  (A) false_symmetry — The passage already asserts this shared grammar in paragraph three and treats it as evidence for, not against, its case.
+  (B) scope_inflation — Sharper disagreement among heirs reinforces paragraph four's forking lineage rather than damaging the claim about installed meanings.
+  (D) example_promotion — Committee membership is a decorative detail beside the claim about divided meaning; the argument in paragraph two survives untouched.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — The author faults later summaries for keeping the two plans and losing the committee; if the committee only copied a floor decision, that omission costs nothing.
+  (A) example_promotion — Accuracy about the two plans is precisely what the author grants; the complaint concerns the dropped committee, not plan description.
+  (B) example_promotion — Paragraph two already says the two men took the proceedings down differently, so this refines rather than unsettles the account.
+  (C) premature_closure — Correcting the margin leaves intact the claim that what carried was the installation of both meanings.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — This reproduces the passage's mechanism exactly: an old institution's word is fitted to a new object, and both of its meanings end up lodged in one instrument.
+  (A) false_symmetry — Agreement on a single definition is the outcome paragraph three denies: shared phrasing there concealed two different objects.
+  (B) example_promotion — This copies the incidental procedure of paragraph two rather than the passage's mechanism about inherited, undecided vocabulary.
+  (C) scope_inflation — Endless extension of one settled meaning is not the passage's case, which turns on two meanings coexisting unresolved.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The author says the institutional result 'is not the part that wants explaining', and writes the whole piece to redescribe 16 July as divided meaning installed.
+  (A) example_promotion — This describes the passage's structural arrangement rather than the authorial purpose that arrangement serves.
+  (C) false_symmetry — Paragraph three insists the word was never settled and that the two sides' parallel language hid different objects.
+  (D) premature_closure — This is an accurate summary of the settlement's content, which the author expressly calls the part not needing explanation.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The passage calls instruction 'an odd demand to make of a man supposed to be you already' — a stance of friction, not smooth fit.
+  (A) passage_supported — Supported: 'for the purposes of the writ the burgesses were the borough, so that their consent bound the men who had stayed home'.
+  (B) passage_supported — Supported: 'On the stage the word had meant making present what was absent: a player stands where a king is not.'
+  (D) passage_supported — Supported: in Church councils 'a body of Christians was held to be actually present in the persons who deliberated for it'.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — The final sentence names that translation as 'the more revealing object' and notes it happened far from the room, pointing the inquiry outward and forward.
+  (A) false_symmetry — Paragraph four calls both traditions legitimate heirs of a lineage that forks, not two versions of one claim.
+  (C) example_promotion — The notebooks are a passing illustration in paragraph two, not the object the closing sentence hands forward.
+  (D) premature_closure — The close turns away from the room itself, having just said the institutional result is not the part wanting explanation.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — Paragraph two states directly that what carried 'was not a reconciliation of two meanings but the installation of both'.
+  (A) example_promotion — The committee produced the split, but the passage denies that what carried reconciled anything.
+  (B) premature_closure — Paragraph three says nothing in the notes shows the delegates deciding which object the word named; they decided seats.
+  (C) example_promotion — Paragraph two opens by denying that the vote was a choice between people and states at all.
+
+[Inspired by: "Mayor Mamdani on 250 Years of a Grand Experiment in Self-Governance", https://www.thenation.com/article/society/mamdani-july-4-250-anniversary-speech/]

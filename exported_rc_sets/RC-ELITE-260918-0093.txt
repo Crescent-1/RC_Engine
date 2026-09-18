@@ -1,0 +1,116 @@
+RC ID: RC-ELITE-260918-0093 | Tier: elite | Score: 8.0 | Status: needs_review | Compliance F1: 0.802 | Novelty: 0.532 | Screen: green | Generated: 2026-09-18T20:15:54.727327+00:00
+======================================================================
+
+[PASSAGE]
+
+The design dates from 1931, when Harry Beck, an engineering draughtsman then out of regular work with the Underground, drew an unsolicited sketch of the railway's lines at fixed angles and offered it to the publicity office, which doubted it and set it aside. A trial printing of a folded pocket card followed in 1933. The public took it within weeks and asked for more. The manner travelled quickly afterwards: to Sydney, to Moscow, to a hundred metro systems that adopted the angles before they adopted the reasoning; then into the phrase "the Tube-map approach," applied to anything simplified; then to organisational charts and process flows, which kept the clean diagonals and dropped the thing the diagonals had been measuring. Each borrowing shed something. The order of those losses is not obvious.
+
+Two stations in the centre sit a short walk apart, four or five minutes on the pavement. On the card they are stops on different lines, separated by a change and two intervening stations, which is to say they look like a journey. Riders make that journey. They descend, they wait, they ride two stops, they climb, and they arrive where walking would have brought them sooner. The card did not lie to them. It drew what it draws: points at which a decision is available and the cost of boarding, not the distance between one pavement and another. Distance was never on the sheet. Nothing in the card offers it, and nothing in the card withholds it either.
+
+The scale is not one scale. Because the crowded core carries most of the changes and therefore most of the decisions, it is swollen far beyond its true share of ground, while the outer branches, where a passenger does nothing for twenty minutes but sit, are compressed into short evenly ticked runs; so the two halves of the network, which the eye reads as one continuous field, are governed by different rules. The mechanism is four decisions. Lines run only at 45 and 90 degrees. Stations are spaced evenly regardless of the miles between them. Interchanges take a tick or a circle, marking where a choice exists. The Thames is drawn pale and alone, and it is the single element on the sheet no one can travel along — orientation, not route, which makes it a different kind of statement from every coloured line beside it.
+
+Beck drew circuits for a living. A circuit diagram does not say where the wire runs. It says what is joined to what. The passenger is the current. The interchange is the junction. The objection is that the card falsifies London, that a city of curves and river-bends has been flattened into a machine that does not exist. The objection is answerable. The card asks one question — where do I change? — and answers it exactly. Its manner turns dishonest only when lifted onto charts that answer a dozen questions, or none.
+
+So: the 1933 card is honest, and its descendants are honest in proportion to how much of that single question they retain. The walker who rides two stops keeps a genuine claim against it, and the claim does not fall. These observations do not resolve into one another. They sit beside one another on a folded sheet a few inches across, which is the whole of what several million people used to move, daily, beneath streets it declined to draw.
+
+[QUESTIONS]
+
+Q1. The primary purpose of the passage is to:
+(A) To set an objection against the card beside the circuit analogy that answers it.
+(B) To show how Beck's design intentions caused the losses suffered by its many later imitators.
+(C) To assess what a single-question diagram's honesty consists of, and why borrowed versions forfeit it.
+(D) To describe the drawing decisions, the spread abroad, and the objection raised against the card.
+
+Q2. What work does the comparison between the Tube card and a circuit diagram perform in the passage?
+(A) It concedes the objection that London's curves were flattened into a machine that never existed.
+(B) It explains the professional habit from which Beck's fixed angles and even spacing came.
+(C) It supplies the standard by which omitting distance counts as fidelity rather than falsification.
+(D) It settles the walker's complaint by showing the rider's grievance rests on a misreading.
+
+Q3. The passage most directly corrects which one of the following impressions?
+(A) That the card cannot be trusted by a rider choosing between two central stations.
+(B) That a diagram which leaves distance out has thereby concealed it from its readers.
+(C) That Beck intended his angles to travel outward into charts and organisational diagrams.
+(D) That riders sometimes reach a destination later than walking would have brought them there.
+
+Q4. In the context of the passage, the remark that a hundred metro systems "adopted the angles before they adopted the reasoning" is best understood as:
+(A) Taking on the visible manner first and the question it served only later.
+(B) Producing maps that were dishonest from the moment the angles were borrowed abroad.
+(C) Drawing lines at fixed angles without understanding how circuit diagrams are constructed.
+(D) Accepting a foreign design quickly because riders abroad demanded the same pocket convenience.
+
+Q5. Which one of the following findings would most complicate the author's account of the 1933 card's honesty?
+(A) The 1933 card carried a printed line telling riders that spacing reflected true ground distance.
+(B) Beck later drew organisational charts that kept the diagonals and answered a dozen questions.
+(C) Other cities' diagrams placed interchange circles at stations where no line change was available.
+(D) Surveys found most riders in the centre travel underground between stations a short walk apart.
+
+Q6. In context, the closing claim that "These observations do not resolve into one another" most nearly means that:
+(A) The walker's grievance finally gives way once the card's single question is understood.
+(B) The author cannot decide whether the card or its many descendants deserve defending.
+(C) The card's honesty and the walker's grievance both stand, neither cancelling the other.
+(D) The four drawing decisions cannot all be derived from one underlying principle of design.
+
+Q7. Which one of the following research findings would most strengthen the author's conclusion about the card's descendants?
+(A) Flowcharts built around a single decision point were read accurately; multi-purpose ones misled their users.
+(B) Metro diagrams in other cities were adopted faster wherever the folded pocket format was cheapest.
+(C) Organisational charts that kept clean diagonals were judged more attractive than charts drawn freehand.
+(D) Riders who used the 1933 card reported high satisfaction with the journeys it suggested.
+
+Q8. According to the text, the Thames on the card is described as:
+(A) Pale and unbroken, drawn to mark where the coloured lines cross the water.
+(B) A route of its own kind, ticked evenly like the outer branches beside it.
+(C) The fifth of the drawing decisions, added once the angles had been fixed.
+(D) Pale and alone, the one element on the sheet that no one travels along.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — The passage moves from the card's history, through its omissions and its four decisions, to the late verdict that the 1933 card is honest because it answers one question and that descendants keep honesty in proportion to retaining it.
+  (A) level_confusion — This names a structural move inside paragraph four rather than the purpose of the whole passage, whose verdict arrives only afterwards.
+  (B) stage_misattribution — Paragraph one attributes the shedding to each borrowing, not to Beck; the passage assigns him no intention beyond the 1931 sketch.
+  (D) half_truth — This inventories what paragraphs one, three and four contain but never states why the author assembled them, which is the purpose asked for.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — "A circuit diagram does not say where the wire runs. It says what is joined to what" is the licence the author uses to answer the very next sentence's objection that the card falsifies London.
+  (A) stage_misattribution — The flattening charge is the objection the author introduces and then calls answerable; the analogy is what answers it, not an admission of it.
+  (B) level_confusion — "Beck drew circuits for a living" is biographical setup; the analogy's work in paragraph four is justificatory, not an account of where the angles originated.
+  (D) premature_closure — The final paragraph states the walker "keeps a genuine claim against it, and the claim does not fall," so nothing is settled away.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — Paragraph two turns the walkable-stations example against the reader's first inference: "Distance was never on the sheet. Nothing in the card offers it, and nothing in the card withholds it either."
+  (A) premature_closure — This treats the two-station example as a finished verdict, though paragraph two answers that "the card did not lie to them" and the inventory continues.
+  (C) stage_misattribution — Paragraph one narrates the drift without assigning Beck any intention for it, so there is no such impression for the passage to correct.
+  (D) half_truth — The passage asserts exactly this in paragraph two and never withdraws it, so it is affirmed rather than corrected.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — The sentence's sequence — angles, then phrase, then charts that "dropped the thing the diagonals had been measuring" — makes "the reasoning" the single question the geometry was built to answer.
+  (B) premature_closure — Paragraph four locates dishonesty only where the manner is lifted onto charts answering a dozen questions or none, not at borrowing itself.
+  (C) level_confusion — The reasoning at stake is the question the card answers, not draughtsman's technique; the circuit comparison arrives later as justification.
+  (D) half_truth — The public demand belongs to London in 1933; paragraph one credits no such demand to Sydney, Moscow or the hundred systems.
+
+Q5 — Correct answer: (A)
+  (A) CORRECT — The defence rests on "Distance was never on the sheet" and on the card asking one question only; a printed distance claim would make the card answer a second question, and answer it falsely.
+  (B) stage_misattribution — Who produced the descendants is irrelevant to whether the 1933 card answers its one question exactly, the basis of the honesty verdict.
+  (C) level_confusion — A fault in the descendants is exactly what paragraph five expects; the argument grades copies separately from the original card.
+  (D) premature_closure — This enlarges the walker's grievance, which paragraph five already grants as genuine, without touching the claim that the card offers no distance.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The sentence follows immediately on the two verdicts of paragraph five — the card is honest, and "the claim does not fall" — and refuses to let either absorb the other.
+  (A) premature_closure — Paragraph five states the walker's claim "does not fall," so understanding the single question does not dissolve the grievance.
+  (B) half_truth — The descendants are graded by a stated rule — honest in proportion to the single question retained — so this is irresolution, not indecision.
+  (D) level_confusion — This transplants the closing remark onto paragraph three's mechanism, though "these observations" refers to the two verdicts just delivered.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — This tests the proportionality rule stated in paragraph five directly, confirming that retained single-question focus, not inherited geometry, is what keeps a borrowed manner honest.
+  (B) half_truth — Paragraph one already records rapid spread; the speed or cost of adoption bears on diffusion, not on the honesty of what was adopted.
+  (C) level_confusion — Attractiveness measures the manner's look, which paragraph one says the charts kept; the conclusion turns on the question they dropped.
+  (D) premature_closure — Satisfaction concerns the original card, and paragraph two shows satisfied riders can still ride where walking was quicker.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — Paragraph three states the Thames "is drawn pale and alone, and it is the single element on the sheet no one can travel along — orientation, not route."
+  (A) half_truth — "Pale" is accurate, but paragraph three assigns the river orientation, not the marking of crossing points between lines.
+  (B) level_confusion — Paragraph three makes the river "orientation, not route," and even ticking belongs to the compressed outer branches instead.
+  (C) premature_closure — Paragraph three says "the mechanism is four decisions" and lists the Thames among them, with no later addition described.
+
+[Inspired by: "The Theater of Sport: Bill Buford Revisits Among the Thugs", https://www.theparisreview.org/blog/2026/07/29/the-theater-of-sport-bill-buford-revisits-among-the-thugs/]

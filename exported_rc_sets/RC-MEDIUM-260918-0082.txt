@@ -1,0 +1,116 @@
+RC ID: RC-MEDIUM-260918-0082 | Tier: medium | Score: 7.4 | Status: needs_review | Compliance F1: 0.919 | Novelty: 0.486 | Screen: green | Generated: 2026-09-18T20:08:36.426360+00:00
+======================================================================
+
+[PASSAGE]
+
+An old public ritual does not, of itself, determine what modern institution grows out of it. Those of us who spent years explaining Strasbourg's reach by the antiquity of its Christkindelsmärik owe an answer to the obvious reply: Nuremberg's market is documented from the sixteenth century and sits at the center of that city's sense of itself, yet it never spread. The mechanics differ plainly. In Nuremberg a visitor enters the Hauptmarkt, circulates among rows of uniform red-and-white stalls, watches the opening address from the Frauenkirche gallery, and leaves through barriers that mark where the market stops. In Strasbourg the visitor never quite leaves it.
+
+The evidence is easy to lay out. Strasbourg adopted "Capitale de Noël" as an official designation in 1992, and the market since then has occupied Place Broglie, Place Kléber with its great tree, the cathedral square and a chain of smaller places, with hundreds of chalets and lit streets threading between them. Nuremberg kept its roughly two hundred stalls in one square, retained the Christkind's biennial proclamation, and enforced a design code and a list of locally characteristic goods. Anyone counting squares and lights would call the difference obvious. What actually diverged, though, was who held the right to define what the market was.
+
+Strasbourg's city government treated the market as an instrument for moving people. Spread the chalets, spread the spending. Extend the illuminations down a shopping street and the street becomes market. Nuremberg's council treated its market as an object held in trust, something with edges that needed guarding, and its rules read accordingly: what may be sold, how a stall may look, who may hold a pitch. Regulation of that kind does keep a thing recognizable. It also fixes its size. Licensing, stall design and pedestrian routing are the ordinary levers by which an inherited celebration becomes either a network laid across a city or a performance staged inside a square.
+
+None of this made Nuremberg marginal. The Christkindlesmarkt draws crowds that strain the old town for four weeks, including coach parties from across Europe and beyond, and it does so while remaining unmistakably itself — which disposes of the lazy claim that expansion alone produces success. But attendance and institutional transformation are different things. Nuremberg's enormous crowds are pulled into one guarded event and then released; the city around the Hauptmarkt is unchanged by December. Strasbourg's market reorganized the commercial geography of an entire island, and the retailers, hoteliers and tram operators arranged themselves around that fact.
+
+The municipal documents say as much without meaning to. Strasbourg's tourist and city communications have for three decades built themselves around the "Capitale de Noël" label — a claim about the whole city, not about a square — while Nuremberg's market regulations specify permissible merchandise and stall presentation, which is a claim about the contents of a defined space. Set those side by side and the age argument stops doing work; both traditions are old, and only one was authorized to expand. Governance, not authenticity, produced the divergence. Urban historians and municipal archivists are better placed than I am to finish the account, since the budgets, permit registers and pedestrian-flow plans survive and can be read year by year. What those records should show is a city that exported its tradition across its streets and another that preserved the same kind of tradition by refusing to let it move.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) Nuremberg's vast December crowds show that expansion is unnecessary, since attendance alone measures an inherited celebration's success.
+(B) Strict regulation of merchandise and stall design reliably preserves a tradition's authenticity and secures its lasting popular appeal.
+(C) Divergent municipal choices about who could define the market's extent, not differing antiquity, explain the institutional outcomes.
+(D) Strasbourg's greater number of squares, chalets and illuminations demonstrates that scale of display determines a market's civic reach.
+
+Q2. The author uses the label "Capitale de Noël" to mean:
+(A) An official warrant extending market status to the whole city rather than one bounded square.
+(B) A tourism department's description of the seasonal atmosphere found within Place Broglie and Place Kléber.
+(C) An administrative label asserting Strasbourg's precedence over other cities in Christmas tourism.
+(D) A promotional slogan whose appeal by itself drew the crowds that made Strasbourg's market grow.
+
+Q3. Which one of the following positions is described in the passage but not endorsed by the author?
+(A) That the antiquity of Strasbourg's market accounts for the reach it now has.
+(B) That licensing rules and stall codes are the ordinary levers of municipal decision.
+(C) That Nuremberg's immense crowds show the two markets diverged only in outward appearance.
+(D) That barriers in Nuremberg physically mark the point where the visitor's circulation ends.
+
+Q4. Two coastal towns hold fishing festivals of similar age. One council issues permits letting stalls run from the old quay along the promenade and into the shopping streets; the other keeps stalls on the quay under a code governing goods and booth design. Which reading of this scenario best follows the passage's reasoning?
+(A) Vendor codes at the quay will preserve the festival's character and eventually generate comparable town-wide commercial reorganization.
+(B) The older of the two fishing festivals is the one positioned to become a lasting regional institution.
+(C) The town that licensed activity beyond the quay will reshape its commerce; the other stays a bounded event.
+(D) The town drawing the larger crowds to its harbour festival has evidently chosen the stronger model for civic development.
+
+Q5. We can infer from the passage that "an object held in trust, something with edges that needed guarding" refers to:
+(A) A legal duty binding German municipalities to conserve inherited celebrations against commercial pressure.
+(B) A conception of the market as bounded property whose defining features the council must protect.
+(C) The two hundred uniform stalls whose red-and-white design makes Nuremberg's market recognizable to visitors.
+(D) The physical barriers and gallery from which the Christkind delivers the biennial opening proclamation.
+
+Q6. If the passage continued, which one of the following would it most likely discuss next?
+(A) A documentary history of the medieval origins and religious meaning of both cities' Christmas market traditions.
+(B) A year-by-year reading of permit registers and budgets tracing how each city's expansion decisions were made.
+(C) A general theory of how European municipalities everywhere should govern the growth of inherited public festivals.
+(D) A comparison of visitor numbers at the two markets to establish which draws the larger crowds.
+
+Q7. The concession that Nuremberg's market strains the old town with crowds for four weeks is introduced primarily to:
+(A) establish that guarded events everywhere attract bigger audiences than markets dispersed across many city squares.
+(B) soften the author's disapproval of Nuremberg's council before renewing the case for wider municipal expansion.
+(C) keep attendance apart from institutional transformation, so the comparison remains about governance, not relative success.
+(D) credit Nuremberg's regulatory code with producing the coach parties that arrive from across Europe each December.
+
+Q8. According to the text, Nuremberg's market regulations are described as:
+(A) rules specifying sellable goods and stall appearance, amounting to a claim about a defined space.
+(B) statutes obliging the council to restrict pedestrian access throughout the old town in December.
+(C) municipal communications built around a designation asserting the character of the entire old town.
+(D) a biennial proclamation by the Christkind establishing which traders may hold a market pitch.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — It bridges the opening puzzle (two equally old markets, one outcome) to the closing verdict that governance, not authenticity, produced the divergence, taking in the licensing-and-routing middle.
+  (A) half_truth — Paragraph four uses those crowds only to insist attendance and institutional transformation are different things, not to make attendance the measure.
+  (B) scope_inflation — Paragraph three grants only that regulation keeps a thing recognizable while fixing its size; it is not offered as a general guarantee of appeal.
+  (D) example_promotion — Paragraph two calls the counting of squares and lights the obvious difference, then redirects to who held the right to define the market.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Paragraph five glosses the label explicitly as "a claim about the whole city, not about a square," set against Nuremberg's rules for a defined space.
+  (B) level_confusion — This shrinks a city-wide claim back to particular squares, exactly the distinction paragraph five draws when contrasting the two municipalities' documents.
+  (C) scope_inflation — Nothing in paragraph two or five makes the designation a comparative ranking; it functions as a definition of the market's territory.
+  (D) example_promotion — The passage treats the label as an authorization to spread chalets and illuminations, not as publicity that produced growth on its own.
+
+Q3 — Correct answer: (A)
+  (A) CORRECT — Paragraph one reports this as the explanation "those of us" long gave, and paragraph five states that the age argument stops doing work once both traditions are seen as old.
+  (B) stance_misread — Paragraph three asserts this in the author's own voice as the mechanism of divergence, so it is endorsed, not merely reported.
+  (C) example_promotion — This position appears nowhere; paragraph four cites the crowds precisely to affirm a real institutional divergence beneath comparable popularity.
+  (D) level_confusion — Paragraph one offers this as the author's own description of the market's mechanics, not as a contested position attributed to others.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — It applies paragraph three's claim that licensing and routing decide whether an inherited celebration becomes a network across a city or a performance inside a defined space.
+  (A) scope_inflation — Paragraph three says such rules keep a thing recognizable but also fix its size, which blocks the town-wide reorganization claimed here.
+  (B) stance_misread — The whole argument dismisses age as explanatory; paragraph five states both traditions were old and only one was authorized to expand.
+  (D) example_promotion — Paragraph four separates attendance from institutional transformation, refusing to let crowd size settle which governing approach reorganized a place.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The phrase introduces paragraph three's account of Nuremberg's governing attitude, immediately cashed out as rules on what may be sold, how stalls look, and who holds a pitch.
+  (A) scope_inflation — The passage describes one council's chosen stance, not an obligation applying to municipalities generally or to inherited celebrations as a class.
+  (C) example_promotion — Those stalls illustrate the consequence of the guarding attitude; the phrase itself names the governing conception, not its visible products.
+  (D) level_confusion — The phrase names an attitude of the council toward the market, not the concrete fixtures described in paragraphs one and two.
+
+Q6 — Correct answer: (B)
+  (B) CORRECT — The final sentences hand the work to urban historians and archivists precisely because budgets, permit registers and pedestrian-flow plans survive and can be read year by year.
+  (A) stance_misread — The passage has just declared the age argument spent, so returning to origins would reopen the explanation it discards.
+  (C) scope_inflation — The closing gesture is toward two cities' surviving records, not toward prescriptive theory for municipalities across the continent.
+  (D) example_promotion — Paragraph four already sets attendance aside as the wrong measure, so a headcount comparison would abandon the inquiry the ending sets up.
+
+Q7 — Correct answer: (C)
+  (C) CORRECT — The concession opens paragraph four and is immediately followed by "attendance and institutional transformation are different things," protecting the governance thesis from being read as a verdict on which market succeeded.
+  (A) scope_inflation — The sentence disposes of the claim that expansion alone produces success; it makes no general claim about guarded events outdrawing dispersed ones.
+  (B) stance_misread — The author never disapproves of Nuremberg's council or recommends expansion; the argument explains a divergence rather than advocating one path.
+  (D) example_promotion — The crowds are reported, not explained by the design code; the paragraph draws no causal line from regulation to visitor numbers.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — Paragraph five states the regulations specify permissible merchandise and stall presentation, "which is a claim about the contents of a defined space."
+  (B) scope_inflation — Pedestrian routing is listed as an ordinary lever in paragraph three, but no town-wide access restriction is attributed to Nuremberg's regulations.
+  (C) level_confusion — That description belongs to Strasbourg's "Capitale de Noël" communications in paragraph five, which the passage contrasts with Nuremberg's rules.
+  (D) example_promotion — Paragraph two lists the biennial proclamation as a retained custom, separate from the rules governing pitches, goods and stall design.
+
+[Inspired by: "The Atlas Obscura Guide to the World's Strangest Christmas Traditions", https://www.atlasobscura.com/articles/guide-to-strangest-christmas-traditions]

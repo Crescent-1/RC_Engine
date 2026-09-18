@@ -1,0 +1,114 @@
+RC ID: RC-MEDIUM-260918-0077 | Tier: medium | Score: 7.8 | Status: needs_review | Compliance F1: 0.915 | Novelty: 0.501 | Screen: green | Generated: 2026-09-18T17:57:33.045381+00:00
+======================================================================
+
+[PASSAGE]
+
+In the index I helped build, "dolphin conflict" means one thing: a reportable encounter in which a river dolphin causes physical damage, injury, or a documented loss of catch. That is a clean definition. It has to be. A torn gillnet can be photographed, priced, entered. A bite can be dated. I defended that discipline for three seasons and would defend most of it now. Then a family on a middle stretch of the Caquetá stopped bathing at a landing they had used for two generations, because a dolphin surfaced there twice and an older woman read the surfacing as a warning. No net was lost. Nobody was touched. The index recorded nothing, and it was right to record nothing, and a household's day had been rebuilt around the silence. My first instinct was a new column.
+
+A colleague who has run more river surveys than I will said the thing that stopped me: an account of a dolphin who comes ashore in a white shirt and follows a woman home is not evidence unless you can tie it to an observable event. He was defending something real. Our index works the way an airport checkpoint works: it inspects with great accuracy whatever is carried through its gates, and it has no way to register the bag that was repacked at home, the corridor nobody walks any more, the warning a grandmother passed to a child about a room she herself never entered. Those absences are not measurements of a species. They are records of a relation, and the relation has a second party who is treated as a person with intentions rather than an animal with a distribution.
+
+The omission stopped being academic once the rankings began to travel. They set patrol routes, they gate compensation, they are cited when a protected boundary is redrawn, and they quietly determine whose fear an official will call reasonable. That looks like an administrative complaint, and it is not one. The index measures material incidents well; it was designed to and it succeeds. What the Andoque record holds is a danger that runs both ways, in which a dolphin's identity, its capacity to invite, to seduce, to punish a discourtesy, alters what a family does weeks before anything countable happens. The absent object is that agency. Adding a hundred more anecdotes to the file would not supply it.
+
+None of this comes free, and I have stopped pretending otherwise. A survey that asks what people stopped doing, and why, runs several times longer than one that counts nets, and its categories no longer line up across rivers. Money moves more easily when harm arrives as a figure, and an officer obliged to sit through an account of a visit, a warning and an abandoned landing has spent an afternoon that converts into no score. I still think the index owes an answer for what it leaves out, rather than Andoque households owing proof that their dolphins behave as they say. They have been asked for years to render a relation as damage, and the rendering discards precisely the part that governs conduct. The burden sits better with whoever insists the exclusion is harmless, a position that has been assumed far more often than it has been argued.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) An index that counts only material incidents cannot register the dolphin's attributed agency, and that omission, not its accuracy, is what the author now contests.
+(B) The index's accuracy about nets and bites is overstated, since damage figures collected across rivers rest on categories that were never comparable to begin with.
+(C) The conflict index is defined too narrowly, and the remedy the author works toward is a richer set of incident categories capturing near-misses and avoidance.
+(D) Because conflict rankings set patrol routes and gate compensation, the passage's real quarrel is with how measurement is administratively used rather than built.
+
+Q2. Which one of the following is most strongly implied by the way the passage ends?
+(A) Those who treat the exclusion as harmless should have to defend that assumption, which the passage leaves standing as unfinished work.
+(B) Andoque testimony should be accepted as literal proof that these dolphins possess human or supernatural powers beyond ordinary biology.
+(C) Households who report a visit and an abandoned landing should be compensated on the same schedule that now covers torn nets.
+(D) The costs of a longer survey are steep enough that the author concedes the present index will likely remain the workable instrument.
+
+Q3. The author of the passage is likely to disagree with which one of the following statements?
+(A) A survey asking what people stopped doing would cost far more time and yield categories that travel poorly between rivers.
+(B) The Caquetá family's abandoned landing was correctly omitted from the index as it stands, given how that index defines its terms.
+(C) Since the rankings shape patrols and payments, the passage's underlying subject is bureaucratic injustice rather than a particular missing form of personhood.
+(D) An account of a dolphin in a white shirt following a woman home is not evidence in the sense the index requires.
+
+Q4. The author's position on the conflict index he helped build is best characterised as:
+(A) regret at having defended a discipline whose apparent precision has now been shown to rest on unstable field categories
+(B) detachment from the dispute, since the costs on either side appear to him roughly matched and unresolved
+(C) qualified approval of its design, coupled with confidence that added columns for avoidance behaviour would close the gap
+(D) endorsement of its accuracy within its gates, joined to the claim that it owes an account of what falls outside them
+
+Q5. Which one of the following, if established, would most damage the author's central claim?
+(A) Narratives of dolphins arriving in white shirts are recorded across many Amazonian peoples, not among Andoque households alone.
+(B) Households on these rivers alter fishing and bathing only after a countable incident occurs, their stated reasons following rather than preceding the damage.
+(C) Officials redrawing protected boundaries consult community testimony alongside the rankings, and often weight the testimony more heavily than the figures.
+(D) Gillnet damage in the region is routinely under-reported, since many households never bring torn nets to a surveyor at all.
+
+Q6. Which one of the following best describes the role played by the airport checkpoint comparison in the second paragraph?
+(A) It illustrates how surveillance systems of every kind subject vulnerable communities to inspection while offering them little protection in return.
+(B) It rebuts the colleague by showing that his standard of observable evidence collapses once the repacked bag is considered carefully.
+(C) It compares two kinds of institution in order to explain why the index's rankings acquired administrative authority over patrols and payments.
+(D) It converts the colleague's reasonable objection into a statement of the instrument's structural blind spot, reframing accuracy as a limit rather than a defect.
+
+Q7. Which one of the following research findings would most strengthen the author's conclusion about what the index leaves out?
+(A) Compensation claims filed after documented gillnet damage are approved at markedly higher rates than claims filed for other losses.
+(B) Mapping abandoned landings and altered routes shows sustained changes in household conduct at sites where no reportable incident was ever recorded.
+(C) Interviews find that narratives of dolphins who seduce and punish discourtesy remain vivid among older women in these communities.
+(D) Surveys asking what households stopped doing take roughly four times as long to administer as the standard net-counting protocol.
+
+Q8. Regarding the family on the middle Caquetá described in the passage, the author asserts that:
+(A) the abandoned landing produced a loss of catch that went unpriced because no surveyor had visited the stretch.
+(B) the index correctly logged nothing, even though the household had rebuilt its day around an unrecorded surfacing.
+(C) the surfacing was read as a warning by the household generally, which then abandoned two generations of use.
+(D) the episode revealed an error in the index's definition that his first instinct correctly moved to repair.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (A)
+  (A) CORRECT — Holds the whole movement: the clean definition defended, the Caquetá case, the checkpoint analogy naming what cannot be registered, and paragraph three's naming of the absent object as agency.
+  (B) stance_misread — The author repeatedly grants that the index measures material incidents well; the comparability worry belongs to the proposed alternative survey.
+  (C) overqualification — The author explicitly abandons the new-column instinct and says more anecdotes would not supply the missing agency, so recategorising is refused.
+  (D) level_confusion — Paragraph three raises the policy travel and then says outright that it looks like an administrative complaint and is not one.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — The final sentences shift the burden onto whoever insists the exclusion is harmless and note the position has been assumed more than argued, leaving the argument open rather than resolved.
+  (B) moderate_extremism — The passage treats the accounts as records of a relation governing conduct, never as claims about dolphin biology to be verified.
+  (C) adjacent_answer — Compensation gating is mentioned as one downstream effect, but the closing burden-shift concerns argument, not a payout rule.
+  (D) stance_misread — The costs are conceded in paragraph four and then subordinated by 'I still think the index owes an answer.'
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — Paragraph three names the policy travel, then explicitly denies it is an administrative complaint and identifies the absent object as the dolphin's agency.
+  (A) passage_supported — Paragraph four concedes exactly this about duration and cross-river comparability.
+  (B) passage_supported — The author states the index recorded nothing and it was right to record nothing under the definition.
+  (D) passage_supported — This is the colleague's point, which the author endorses as defending something real rather than rejecting.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — The author defends the clean definition and the index's success at material incidents while insisting the index, not the households, bears the burden for the exclusion.
+  (A) stance_misread — He says he would defend most of that discipline now; instability of categories is attributed to the alternative survey, not the index.
+  (B) false_symmetry — He concedes costs but then takes a side, placing the burden on whoever calls the exclusion harmless.
+  (C) overqualification — The first-instinct new column is explicitly stopped, and more anecdotes are said not to supply the absent agency.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The argument's load-bearing move is that attributed dolphin agency alters conduct weeks before anything countable happens; if avoidance always trails incidents, the index captures the behaviour after all.
+  (A) scope_inflation — Wider distribution of the narrative does not bear on whether the index can register the agency it attributes.
+  (C) adjacent_answer — This touches the downstream policy channel the author already says is not his real complaint, leaving the measurement claim intact.
+  (D) half_truth — This faults the index's coverage of countable harm, a different failing from the exclusion of the relation the author argues about.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — The analogy arrives immediately after the author grants the colleague was defending something real, and turns that concession into the passage's thesis about what the gates cannot register.
+  (A) framework_import — The analogy is about registration limits, not about surveillance as a burden on the inspected; the passage imports no such critique.
+  (B) straw_version — The author endorses the colleague's standard as defending something real; the analogy extends it rather than refuting it.
+  (C) stage_misattribution — Administrative travel of the rankings is the following paragraph's business; the analogy precedes and does not explain it.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — The conclusion rests on a danger running both ways that alters what a family does before anything countable happens; documented conduct change without any incident is direct support.
+  (A) level_confusion — This concerns the payout machinery downstream of the index, not the measurement gap the conclusion identifies.
+  (C) example_promotion — Vivid narratives alone do not show the attributed agency governing conduct, which is the specific claim needing support.
+  (D) adjacent_answer — This confirms a cost the author already concedes in paragraph four rather than supporting the claim about what is missing.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — The passage states plainly that no net was lost, nobody was touched, the index recorded nothing and it was right to record nothing, while a household's day had been rebuilt.
+  (A) category_slip — No loss of catch occurred; the passage says no net was lost and nobody was touched.
+  (C) phrase_misuse — The passage attributes the reading specifically to an older woman, not to the household as a body.
+  (D) stance_misread — He calls the omission right under the definition, and the new-column instinct is presented as the impulse his colleague stopped.
+
+[Inspired by: "Dolphins and other lovers", https://aeon.co/essays/why-the-andoque-of-the-amazon-fear-the-seductive-dolphin]
