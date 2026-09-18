@@ -76,7 +76,7 @@ Subject options (test between):
 >
 > We build VARC content where structure is a sampled, audited variable: 32
 > distinct argument skeletons, 20 authorial voices, every set checked against
-> nine statistical channels before it ships. Faculty-reviewed, exam-calibrated.
+> nine statistical channels before it ships. Exam-calibrated.
 >
 > Proof over pitch: send me 6–8 RCs from your current series and I'll return a
 > free structural repetition report — what your repeat-takers have already
@@ -85,7 +85,7 @@ Subject options (test between):
 > Worth a look before your {season, e.g. CAT 2026} series locks?
 >
 > — Ansh Upadhyay
-> {one-line credibility: sets/month currently shipped, faculty-reviewed}
+> {one-line credibility: e.g. RC sets currently shipped weekly — never claim faculty review}
 
 Rules: no attachment on email 1 (deliverability), one CTA only, mention CAT-series
 lock timing Jul–Sep for urgency, never say "AI-generated" — say "engine" and
@@ -109,7 +109,7 @@ Subject: `The 9-channel audit (and a challenge)`
 >
 > And because "our AI is different" is what everyone says, here's the blind
 > audition: I'll send your VARC head five passages — three ours, one written by a
-> professional writer, one from ChatGPT. If they can pick out our three at better
+> professional writer, one from a general-purpose AI tool. If they can pick out our three at better
 > than chance, we walk away and you keep everything.
 >
 > Free repetition audit of your current series is also still open — that one takes
@@ -121,6 +121,7 @@ Subject: `The 9-channel audit (and a challenge)`
 
 Attachment: 9-channel explainer PDF (see nine-channel-explainer.md).
 Day-7 touch: LinkedIn connect + one-liner referencing the audit. Day-14: final
-email with one anonymized repetition-report finding from another audit ("a series
+email with one anonymized repetition-report finding from a REAL completed audit — never
+send the illustrative number below; if no audit has run yet, omit the finding entirely ("a series
 we audited last month reused the same argumentative skeleton in 9 of 20 sets").
 Then stop — recycle the lead next season.

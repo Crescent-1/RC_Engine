@@ -5,6 +5,45 @@ go first; dates use Asia/Calcutta time. `AGENTS.md` instructs Codex to update th
 file whenever it changes project files. Entries are task summaries, not a record
 of every intermediate edit. Git remains the source for exact diffs.
 
+## 2026-09-14 — Week 9 v2 house-style revision and blind re-solve
+
+- Created `exported_rc_sets/2026-09-14-week9-v2-style-fixed/` as a separate
+  ten-set delivery candidate; the original folder was left unchanged.
+- Revised passage openings, argumentative pivots and conclusions to reduce the
+  repeated negation/correction rhythm and the recurring price/cost/debt close.
+  Average explicit negations fell from 11.5 to 7.4 per passage, and passages
+  using the accounting motif fell from six to two. The two retained metaphors
+  are quoted by existing questions.
+- All 80 question stems and options and all 80 keyed letters remain identical.
+  Five elimination logs were adjusted only where they quoted wording removed
+  from a passage. The prohibited "passage stops where it does" stem is absent;
+  the requested continuation form remains in RC-MEDIUM-260914-0074.
+- Follow-up mandate: expanded the revised passages without adding new claims;
+  all ten are 502–538 words by whitespace counting and 500–531 by lexical-word
+  counting, within the required 500–550 range under either method.
+- Checks: fresh blind solve matched 80/80 keys with no new dispute; revised
+  openings had no exact or prefix match across all 86 tracker entries; no exact
+  five-word overlap appeared within the batch or against the 32 shipped full
+  texts available locally. Full-text comparison could not cover the other 54
+  tracker rows because matching local passage files were unavailable.
+- Changes are uncommitted.
+
+## 2026-09-14 — Resumed sets mark their seed used; medium passage recovered
+
+- `retry-questions` never marked a shipped set's seed essay used (the batch does
+  it through the provider callback, which a resume lacks), so
+  RC-MEDIUM-260914-0071's seed stayed drawable. Fixed, with a test; that seed
+  was marked used by hand ($0).
+- BP_260914_18b725c5 ("Chills of the Unsaid") had been rejected at Gate C only
+  on topology 1.00 vs its batch sibling. With topology no longer a gate, its
+  passage was reopened (`questions_failed`) and resumed: topology re-picked
+  QT10 -> QT22 for $0, questions regenerated ($0.1241 + $0.0021 screen), shipped
+  as RC-MEDIUM-260914-0076, needs_review (correct option longest 5/8, passage 556
+  words), screened red vs RC-MEDIUM-260914-0074 and exported to
+  `flagged_similar/`.
+- Full suite 536 passed (one run showed `test_move_audit_rereads_with_the_stored_policy`
+  failing; it passed alone and on a full rerun — flaky, not investigated).
+
 ## 2026-09-14 — Fixes from a step-by-step code review
 
 - Export: `export` with no `--status` wrote every row with text, including
