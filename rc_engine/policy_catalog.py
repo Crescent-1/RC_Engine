@@ -701,9 +701,19 @@ LEGACY_SF2_POLICY = dataclasses.replace(
     coherent_plans=True, render_seed_context=True,
 )
 
+# 2026-09-22. f4 plus the under-delivered beat emphasis. A NEW version rather
+# than a flag on f4, because f4 is registered and plans already carry it.
+CAT_PYQ_F5 = "cat-pyq-f5"
+CAT_PYQ_F5_POLICY = dataclasses.replace(
+    CAT_PYQ_F4_POLICY, version=CAT_PYQ_F5,
+    description="f4 plus naming the planned beats the renderer usually drops",
+    underdelivered_beats=True,
+)
+
 PRODUCTION_POLICIES = (CAT_PYQ_Q1_POLICY, CAT_PYQ_S1_POLICY, CAT_PYQ_S2_POLICY,
                        CAT_PYQ_F1_POLICY, CAT_PYQ_F2_POLICY, CAT_PYQ_F3_POLICY,
-                       LEGACY_SF1_POLICY, CAT_PYQ_F4_POLICY, LEGACY_SF2_POLICY)
+                       LEGACY_SF1_POLICY, CAT_PYQ_F4_POLICY, LEGACY_SF2_POLICY,
+                       CAT_PYQ_F5_POLICY)
 
 # Covers `import rc_engine.policy_catalog` before generation_policy: the
 # registration generation_policy attempted at its own import found this module

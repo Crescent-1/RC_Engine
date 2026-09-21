@@ -153,6 +153,14 @@ class GenerationPolicy:
     # True: the render contract names the seed essay (title, subject, kind,
     # particulars) and keeps cases and analogies inside that subject.
     render_seed_context: bool = False
+    # 2026-09-22, measured over 261 stored plans vs 210 extracted signatures.
+    # True: the render contract names the planned beats this engine usually
+    # drops, with the rate attached (config.UNDERDELIVERED_MOVES). Stated as a
+    # debt owed rather than a habit forbidden, because the contract has
+    # forbidden unplanned operations since 2026-08-29 and intrusion is still
+    # 99% of sets, while the one thing that moved a beat 2/9 -> 5/5 was
+    # prescribing it positionally.
+    underdelivered_beats: bool = False
 
     # -- identity -------------------------------------------------------------
 

@@ -228,3 +228,90 @@ def test_retry_questions_marks_the_seed_used_when_a_resume_ships(tmp_path, monke
                               no_embed=True, no_screen=True, db="x.db", provider="claude")
     assert cli.cmd_retry_questions(args) == 0
     assert marked == [("seed-1", "RC-MEDIUM-X")]
+
+
+# ---- under-delivered beats named in the FIRST render (2026-09-22) -----------
+#
+# Measured over 261 stored plans against 210 extracted signatures: the plan
+# asks for ANALOGY_EXTENDED in 52% of sets and the renderer performs it in
+# 21%, while EASY_READING_DEMOLISHED is asked for 11% and performed 76%. The
+# variety is planned and lost at render, so the beats at risk are named up
+# front — behind a generation policy, never widened in the shared library.
+
+def _bp_with_plan(plan):
+    class _BP:
+        move_plan = list(plan)
+    return _BP()
+
+
+class _Pol:
+    def __init__(self, on=True):
+        self.underdelivered_beats = on
+
+
+def _block(plan, policy=None):
+    from rc_engine.renderer import PassageRenderer
+    return PassageRenderer._underdelivered_block(_bp_with_plan(plan),
+                                                 policy if policy is not None else _Pol())
+
+
+def test_underdelivered_beats_on_the_plan_are_named():
+    block = _block(["ABSTRACT_CLAIM_OPEN", "ANALOGY_EXTENDED",
+                    "MECHANISM_EXPLAINED", "STAKES_RAISED"])
+    assert "ANALOGY_EXTENDED" in block and "STAKES_RAISED" in block
+    assert "21%" in block and "30%" in block
+    assert "MECHANISM_EXPLAINED" not in block   # no measured deficit
+
+
+def test_a_plan_with_no_at_risk_beat_leaves_the_prompt_unchanged():
+    assert _block(["ABSTRACT_CLAIM_OPEN", "MECHANISM_EXPLAINED"]) == ""
+
+
+def test_only_beats_on_this_plan_are_named():
+    """It must never advertise a beat the plan did not ask for — that would be
+    prescribing an unplanned move, which is the defect this targets."""
+    block = _block(["ANALOGY_EXTENDED"])
+    for other in ("STACCATO_TRIAD", "GENEALOGY_TRACED", "SELF_CORRECTION",
+                  "COUNTEREXAMPLE_PRESSED", "STAKES_RAISED"):
+        assert other not in block
+
+
+def test_the_block_is_positive_not_prohibitive():
+    """2026-08-29 measured forbidding as ineffective and prescribing as what
+    moved the opening beat 2/9 -> 5/5. Keep this block prescriptive."""
+    block = _block(["ANALOGY_EXTENDED", "STACCATO_TRIAD"])
+    low = block.lower()
+    assert "perform it" in low
+    for forbid in ("do not", "don't", "avoid", "never "):
+        assert forbid not in low
+
+
+def test_an_empty_table_disables_the_block(monkeypatch):
+    from rc_engine import config
+    monkeypatch.setattr(config, "UNDERDELIVERED_MOVES", {})
+    assert _block(["ANALOGY_EXTENDED"]) == ""
+
+
+def test_a_plan_without_moves_is_safe():
+    assert _block([]) == ""
+
+
+def test_a_repeated_beat_is_named_once():
+    block = _block(["ANALOGY_EXTENDED", "STAKES_RAISED", "ANALOGY_EXTENDED"])
+    assert block.count("ANALOGY_EXTENDED") == 1
+
+
+def test_a_legacy_policy_renders_exactly_as_before():
+    """The pre-policy goldens pin the legacy contract, and elite is legacy by
+    rule, so the block must be invisible unless a policy opts in."""
+    from rc_engine.generation_policy import LEGACY_POLICY
+    assert _block(["ANALOGY_EXTENDED", "STAKES_RAISED"], _Pol(on=False)) == ""
+    assert _block(["ANALOGY_EXTENDED"], LEGACY_POLICY) == ""
+
+
+def test_cat_pyq_f5_turns_it_on_and_f4_does_not():
+    from rc_engine.generation_policy import get_policy
+    assert get_policy("cat-pyq-f5").underdelivered_beats is True
+    assert get_policy("cat-pyq-f4").underdelivered_beats is False
+    assert _block(["ANALOGY_EXTENDED"], get_policy("cat-pyq-f5")) != ""
+    assert _block(["ANALOGY_EXTENDED"], get_policy("cat-pyq-f4")) == ""

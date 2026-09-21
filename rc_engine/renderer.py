@@ -202,6 +202,47 @@ class PassageRenderer:
         # legacy blueprints without a register default to the anti-aphorism form
         return config.CLOSING_REGISTERS[0][2]
 
+    @staticmethod
+    def _underdelivered_block(bp: Blueprint, policy) -> str:
+        """Name the planned beats this engine usually drops (2026-09-22).
+
+        Measured planned-vs-realized shares are in
+        config.UNDERDELIVERED_MOVES. Only beats ON THIS PLAN are named, and
+        only the ones with a measured deficit, so a plan that asks for none of
+        them gets the prompt exactly as it was.
+
+        Positive by design. The block above already forbids unplanned
+        operations and has since 2026-08-29, while intrusion sits at 99% of
+        sets; what moved the opening beat 2/9 -> 5/5 was prescribing it, not
+        prohibiting its alternatives. So this says perform THIS, with the rate
+        attached, rather than avoid that.
+        """
+        # Gated by generation policy, never widened in the shared library:
+        # legacy plans (and therefore every elite plan) render exactly as
+        # before, which is what the pre-policy goldens pin.
+        if not getattr(policy, "underdelivered_beats", False):
+            return ""
+        if not config.UNDERDELIVERED_MOVES:
+            return ""
+        at_risk = [m for m in (bp.move_plan or [])
+                   if m in config.UNDERDELIVERED_MOVES]
+        if not at_risk:
+            return ""
+        seen, ordered = set(), []
+        for m in at_risk:                       # plan order, no duplicates
+            if m not in seen:
+                seen.add(m); ordered.append(m)
+        NL = chr(10)
+        lines = NL.join(
+            f"  - {m}: performed in only {config.UNDERDELIVERED_MOVES[m]:.0%} "
+            f"of passages that were asked for it"
+            for m in ordered)
+        return (f"BEATS THIS ENGINE MOST OFTEN OWES AND DOES NOT PAY — these "
+                f"are on your plan above, and across this corpus they are the "
+                f"ones that go missing. Each is a specific operation, not a "
+                f"flourish; perform it in the paragraph it is assigned to, at "
+                f"full length:{NL}{lines}{NL}{NL}")
+
     def _contract(self, bp: Blueprint, directives: list[str]) -> str:
         policy = policy_for_blueprint(bp)
         vocab = policy.move_vocabulary()
@@ -334,7 +375,8 @@ class PassageRenderer:
                 f"Together they are the whole argument: if you find yourself "
                 f"performing an operation that is not on this list, the beat it "
                 f"displaced is the one you still owe. The full list, in "
-                f"order:{NL}{lines}{NL}{NL}")
+                f"order:{NL}{lines}{NL}{NL}"
+                + self._underdelivered_block(bp, policy))
 
         stance_block = ""
         if stance:

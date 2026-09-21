@@ -2035,6 +2035,42 @@ EXAM_MOVE_SHARES = {
 # the two the measurement actually implicates.
 UNPLANNED_MOVE_EXAM_FLOOR = 0.50
 
+# Beats the plan asks for and the renderer usually does not deliver
+# (2026-09-22). MEASURED over 261 stored move plans against 210 extracted
+# signatures, as planned share -> realized share:
+#
+#   ANALOGY_EXTENDED        52% -> 21%   (-31)
+#   STAKES_RAISED           52% -> 30%   (-23)
+#   COUNTEREXAMPLE_PRESSED  56% -> 34%   (-22)
+#   STACCATO_TRIAD          42% -> 20%   (-22)
+#   GENEALOGY_TRACED        43% -> 22%   (-21)
+#   SELF_CORRECTION         43% -> 26%   (-16)
+#
+# The same measurement found the inverse: EASY_READING_DEMOLISHED is planned
+# 11% of the time and performed 76%, CONCESSION_GRANTED 31% -> 63%. So the
+# variety is in the plan and is lost at render, and the corpus converges on a
+# handful of habitual gestures — five move families now sit past the ban line
+# and a screened pair of unrelated passages (air-pollution counts vs hurricane
+# mortality counts) came back as the same essay beat for beat.
+#
+# STATED POSITIVELY ON PURPOSE. The prompt has forbidden unplanned operations
+# since 2026-08-29 ("if you find yourself performing an operation that is not
+# on this list, the beat it displaced is the one you still owe") and intrusion
+# is still 99% of sets; the note under the stance block records the same
+# lesson from the other side, that prescribing a thing moved the opening beat
+# 2/9 -> 5/5 where forbidding moved nothing. So this names the beat the
+# renderer owes, not the habit it should avoid.
+#
+# Set to {} to remove the emphasis and leave the beat plan as it was.
+UNDERDELIVERED_MOVES = {
+    "ANALOGY_EXTENDED":       0.21,
+    "STAKES_RAISED":          0.30,
+    "COUNTEREXAMPLE_PRESSED": 0.34,
+    "STACCATO_TRIAD":         0.20,
+    "GENEALOGY_TRACED":       0.22,
+    "SELF_CORRECTION":        0.26,
+}
+
 # Free pre-render check on the PLANNED move signature (2026-08-22).
 #
 # 150 of 205 blueprints ever composed died at a novelty gate, and every one of
