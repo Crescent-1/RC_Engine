@@ -22,7 +22,7 @@ import sys
 from . import config
 from .fingerprints import move_signature_similarity
 from .history import HistoryStore
-from .llm import BudgetExceeded, CostLedger, LLMClient, MockLLMClient
+from .llm import APIExhausted, BudgetExceeded, CostLedger, LLMClient, MockLLMClient
 from .models import SeedEssay
 from .novelty import kl_divergence
 from .pipeline import RCPipeline, run_batch
@@ -183,6 +183,11 @@ def cmd_selftest(_args) -> int:
             print("      --claude-code will fall straight through to the API.")
     except Exception as e:
         print(f"      probe errored (non-fatal): {type(e).__name__}: {e}")
+
+    print("[2d] Codex CLI backend (optional lane, $0)...")
+    from .codex_cli import probe as _codex_probe
+    info = _codex_probe()
+    print(f"      {'OK' if info['ok'] else 'not available'}: {info['detail']}")
 
     print("[3/5] Budget guard unit check...")
     ledger = CostLedger(budget_usd=0.01)
@@ -452,11 +457,25 @@ def _setup_provider(args) -> tuple[object | None, int]:
     $0 mock regardless of provider."""
     provider = getattr(args, "provider", "claude")
     config.set_provider(provider)
+    try:
+        _validate_lane(args)
+    except ValueError as e:
+        print(f"[lane] {e}")
+        return None, 1
     if getattr(args, "dry_run", False):
-        # --dry-run --relay is a free rehearsal of the paste loop: the relayed
-        # stages take real pasted text, the rest stay canned. Worth having,
-        # because the first time you meet the loop should not be mid-batch.
-        return _wrap_client(MockLLMClient(), args, provider), 0
+        return MockLLMClient(), 0
+    if getattr(args, "codex_cli", False) or getattr(args, "claude_code", False):
+        from .providers import LazyClient, RoutedClient, provider_key_present
+        # Pins remain paid and must never silently become a different model.
+        if not provider_key_present("openai"):
+            print("[lane] OpenAI API key required for the existing Luna-pinned checks.")
+            return None, 1
+        base = RoutedClient(LazyClient(provider), strict_pins=True)
+        try:
+            return _wrap_client(base, args, provider), 0
+        except ValueError as e:
+            print(f"[lane] {e}")
+            return None, 1
     from .providers import (make_client, provider_key_present,
                             provider_key_source, verify_key)
     var = provider_key_present(provider)
@@ -478,24 +497,11 @@ def _setup_provider(args) -> tuple[object | None, int]:
     # Free pre-flight: fail before the first paid call, not partway through.
     ok, detail = verify_key(provider)
     if not ok:
-        # With --claude-code the Anthropic key is only the FALLBACK's
-        # credential: the generative stages go through the subscription and
-        # the checking stages are pinned to their own provider. A dead key
-        # then means "no safety net", not "cannot run" (2026-09-18).
-        if getattr(args, "claude_code", False):
-            print(f"[provider] !! key check failed - {detail}")
-            print(f"[provider]    --claude-code is on, so this is survivable: "
-                  f"the subscription lane serves the Anthropic-bound stages "
-                  f"and pinned stages use their own provider. THERE IS NO API "
-                  f"FALLBACK - anything Claude Code cannot answer will fail "
-                  f"the attempt rather than quietly costing money.")
-        else:
-            print(f"[provider] !! ABORT: key check failed - {detail}")
-            if config.shadowing_conflicts():
-                print("[provider]    Most likely cause: the shadowing warning "
-                      "above. Clear the stale variable so .env is used, or set "
-                      "it to the correct key, then restart this process.")
-            return None, 1
+        print(f"[provider] !! ABORT: key check failed - {detail}")
+        if config.shadowing_conflicts():
+            print("[provider] Clear the stale environment variable so .env is used, "
+                  "or correct the key, then restart this process.")
+        return None, 1
     else:
         print(f"[provider] key check: {detail}")
     # Wrap so cheap CHECKING stages can run on their own pinned model while
@@ -550,7 +556,17 @@ def _lane_spec(args) -> dict | None:
     Workers are separate processes that never see `args` and never call
     _wrap_client, so anything the parent wrapped has to be described here or
     it silently does not happen in parallel mode (2026-09-19)."""
+    if getattr(args, "dry_run", False):
+        return None
+    if getattr(args, "codex_cli", False):
+        return {"codex_cli": True, "provider": "claude",
+                "effort": _codex_effort(args),
+                "fallback_mode": getattr(args, "codex_fallback", "stop"),
+                **getattr(args, "_codex_runtime", {})}
     if not getattr(args, "claude_code", False):
+        return None
+    if getattr(args, "_claude_code_available", None) is False:
+        # Workers must honor the parent's subscription-auth preflight too.
         return None
     stages = None
     if getattr(args, "claude_code_stages", None):
@@ -575,8 +591,50 @@ def _wrap_client(client, args, provider: str):
     Each wrapper only diverts the Anthropic-bound stages and delegates the
     rest inward, so the luna-pinned checks keep calling their own provider
     however the Anthropic stages are being served."""
+    if getattr(args, "dry_run", False):
+        return client
+    if getattr(args, "codex_cli", False):
+        from .codex_cli import CodexCLIClient, probe
+        info = probe()
+        if not info["ok"]:
+            raise ValueError(f"Codex CLI unavailable: {info['detail']}")
+        effort = _codex_effort(args)
+        levels = set(effort.values()) if isinstance(effort, dict) else {effort}
+        levels.add(config.CODEX_CLI_EFFORT_BASELINE)
+        for model, supported in info["models"].items():
+            if not levels.issubset(supported):
+                raise ValueError(f"{model} lacks requested effort(s): {sorted(levels - set(supported))}")
+        args._codex_runtime = {"binary": info["path"], "version": info["version"],
+                               "models": info["models"]}
+        shown = _fmt_effort_map(effort) if isinstance(effort, dict) else effort
+        print(f"[codex] Opus -> Astra; Sonnet -> Sol; questions={shown}, "
+              f"other stages={config.CODEX_CLI_EFFORT_BASELINE}; "
+              f"fallback={args.codex_fallback}. Luna checks still use the API.")
+        return CodexCLIClient(client, effort=effort, fallback_mode=args.codex_fallback,
+                              **args._codex_runtime)
     client = _maybe_relay(client, args, provider)     # last resort, innermost
     return _maybe_claude_code(client, args, provider)
+
+
+def _codex_effort(args):
+    effort = parse_cc_effort(getattr(args, "codex_effort", None))
+    if effort is None:
+        return dict(config.CODEX_CLI_EFFORT_BY_TIER)
+    levels = effort.values() if isinstance(effort, dict) else [effort]
+    if any(v not in config.CODEX_CLI_EFFORTS for v in levels):
+        raise ValueError("Codex effort must be low|medium|high|xhigh|max (or a tier map)")
+    return effort
+
+
+def _validate_lane(args):
+    if getattr(args, "codex_cli", False):
+        if getattr(args, "claude_code", False) or getattr(args, "relay", False):
+            raise ValueError("--codex-cli cannot be combined with --claude-code or --relay")
+        if getattr(args, "provider", "claude") != "claude":
+            raise ValueError("--codex-cli replaces Claude roles; use --provider claude (the default)")
+        _codex_effort(args)
+    elif getattr(args, "codex_effort", None) or getattr(args, "codex_fallback", "stop") != "stop":
+        raise ValueError("Codex options require --codex-cli")
 
 
 def _maybe_claude_code(client, args, provider: str):
@@ -585,6 +643,7 @@ def _maybe_claude_code(client, args, provider: str):
         return client
     from .claude_code import ClaudeCodeClient, probe
     info = probe()
+    args._claude_code_available = info["ok"]
     if not info["ok"]:
         print(f"[cc] !! Claude Code unusable: {info['detail']}")
         print(f"[cc]    Continuing on the fallback lane for every stage.")
@@ -634,7 +693,8 @@ def _maybe_relay(client, args, provider: str):
           f"Everything else still calls its provider for real.")
     return RelayClient(client, root=getattr(args, "relay_dir", "relay"),
                        system_mode=getattr(args, "relay_system", "inline"),
-                       stages=stages, provider=provider)
+                       stages=stages, provider=provider,
+                       api_first=getattr(args, "claude_code", False))
 
 
 # ---------------------------------------------------------------------------
@@ -745,6 +805,9 @@ def cmd_generate(args) -> int:
     if not tier_counts:
         print("Nothing to generate. Use --medium/--hard/--elite N.")
         return 1
+    if getattr(args, "require_seed", False) and args.no_seed:
+        print("[seeds] --require-seed cannot be combined with --no-seed.")
+        return 1
 
     # A paste loop cannot be shared across a process pool: every worker would
     # block on its own stdin and the operator would be answering prompts from
@@ -793,6 +856,13 @@ def cmd_generate(args) -> int:
     if provider == "empty":
         history.close()
         return 1
+    if getattr(args, "require_seed", False) and not args.dry_run:
+        if provider is None:
+            print("[seeds] Required seed provider unavailable; no generation started.")
+            history.close()
+            return 1
+        # run_slot and parallel dispatch already honor this exhaustion guard.
+        provider.restricted = True
     workers = max(1, min(int(getattr(args, "workers", 1) or 1), config.BATCH_WORKERS_MAX))
     if workers > 1:
         # The parent's client is only used for the key check above; workers
@@ -902,7 +972,11 @@ def cmd_retry_questions(args) -> int:
     for bp_id in targets:
         print(f"\n=== retry-questions {bp_id} ===")
         row = history.load_rendered_passage(bp_id) or {}
-        res = pipe.resume_questions(bp_id, extra_guidance=args.note)
+        try:
+            res = pipe.resume_questions(bp_id, extra_guidance=args.note)
+        except APIExhausted as e:
+            print(f"[STOP] {e}; completed work is committed.")
+            break
         results.append(res)
         print(f"  -> {res.status} rc_id={res.rc_id} "
               f"new spend ${res.cost_usd:.4f}")
@@ -924,6 +998,9 @@ def cmd_retry_questions(args) -> int:
         out_dir = _export_dir(history.client_id, args.dry_run)
         cmd_export(argparse.Namespace(db=args.db, status=None, out=out_dir,
                                       client=history.client_id))
+    if callable(getattr(llm, "usage_report", None)):
+        for line in llm.usage_report():
+            print(line)
     history.close()
     return 0 if shipped else 1
 
@@ -2075,6 +2152,18 @@ def _make_stdout_unicode_safe() -> None:
             pass  # already wrapped, or not reconfigurable — printing still works
 
 
+def _codex_options(parser):
+    parser.add_argument("--codex-cli", action="store_true",
+                        help="use ChatGPT Codex CLI: Opus -> Astra, Sonnet -> Sol; "
+                             "Luna-pinned API checks stay unchanged")
+    parser.add_argument("--codex-effort", default=None, metavar="LEVEL|MAP",
+                        help="questions effort: low|medium|high|xhigh|max or tier=level,...; "
+                             "default medium=high,hard=xhigh,elite=max; other stages low")
+    parser.add_argument("--codex-fallback", choices=("stop", "api"), default="stop",
+                        help="on CLI failure: stop (default) or explicitly allow the "
+                             "mapped Astra/Sol OpenAI API call within dollar limits")
+
+
 def build_parser() -> argparse.ArgumentParser:
     """The whole CLI surface, split out of main() (2026-09-18) so the suite can
     parse argument lists without running a command."""
@@ -2101,6 +2190,8 @@ def build_parser() -> argparse.ArgumentParser:
     g.add_argument("--db", default=config.DB_PATH)
     g.add_argument("--dry-run", action="store_true", help="mock client, $0")
     g.add_argument("--no-seed", action="store_true", help="skip RAG seed essays")
+    g.add_argument("--require-seed", action="store_true",
+                   help="abort if RAG is unavailable; skip slots with no seed rather than run seedless")
     g.add_argument("--seed-ids", default=None, metavar="FILE",
                    help="draw seeds only from these doc ids (JSON list/map or one id per "
                         "line) — e.g. a subject-restricted batch; overrides tier seed pools")
@@ -2167,6 +2258,7 @@ def build_parser() -> argparse.ArgumentParser:
                         "(closer to the API's shape)")
     g.add_argument("--relay-dir", default="relay", metavar="DIR",
                    help="where relay prompts and replies are written (default: relay/)")
+    _codex_options(g)
     _client_opt(g)
 
     pr = sub.add_parser("policy-report",
@@ -2194,6 +2286,7 @@ def build_parser() -> argparse.ArgumentParser:
     r.add_argument("--no-embed", action="store_true", help="disable embedding channel")
     r.add_argument("--no-screen", action="store_true",
                    help="skip the pre-export similarity screen")
+    _codex_options(r)
     _client_opt(r)
 
     ma = sub.add_parser("move-audit",

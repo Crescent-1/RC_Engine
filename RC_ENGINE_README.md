@@ -110,6 +110,111 @@ python -m rc_engine.cli avoid --n 4
 python -m rc_engine.cli vet manual_rc_sets/RC-MANUAL-260707-1.txt --tier elite --ingest
 ```
 
+## Codex CLI: Astra and Sol (2026-09-20)
+
+Add `--codex-cli` to use the saved ChatGPT subscription login for every stage
+that resolves to an Opus or Sonnet model. This is opt-in; the ordinary API and
+Claude Code commands retain their model choices.
+
+| Existing model | Codex model |
+|---|---|
+| Opus | `gpt-6-astra` |
+| Sonnet | `gpt-5.6-sol` |
+| Luna-pinned checks (including medium refine) | Existing Luna API route |
+
+Thinking follows the Claude Code lane: **questions** use `high` for medium,
+`xhigh` for hard and `max` for elite; all other mapped stages use `low`.
+These are matching effort settings, not a claim of identical sampling or quality.
+Haiku or other unmapped calls retain their existing provider.
+
+```bash
+# Free login/config checks. Authenticate once with `codex login` if needed.
+python -m rc_engine.cli selftest
+
+# Real generation: subscription writers + paid Luna API checks.
+python -m rc_engine.cli generate --hard 2 --elite 1 --codex-cli
+python -m rc_engine.cli generate --hard 4 --workers 2 --codex-cli
+
+# Require source essays: fail if RAG is unavailable, skip exhausted seed slots.
+python -m rc_engine.cli generate --hard 1 --elite 1 --codex-cli --require-seed
+
+# Override questions thinking only, globally or per tier.
+python -m rc_engine.cli generate --hard 2 --codex-cli --codex-effort high
+python -m rc_engine.cli generate --hard 2 --elite 1 --codex-cli --codex-effort hard=xhigh,elite=max
+
+# Reuse an already saved passage; replace BP_ID with its blueprint ID.
+python -m rc_engine.cli retry-questions --blueprint BP_ID --codex-cli
+
+# Free mock run: no CLI process, login check, API request or manual paste.
+python -m rc_engine.cli generate --dry-run --hard 2 --codex-cli
+```
+
+Requirements: a native Codex executable on PATH, an active ChatGPT CLI login,
+and the existing OpenAI API key for Luna checks. The CLI preflight verifies
+installed options, subscription login, and Astra/Sol effort support without a
+model call; it does not test remaining quota or actual model entitlement.
+Mapped stages do not require an Anthropic API key. Set `RC_ENGINE_CODEX_BIN`
+to the native executable if auto-discovery fails (`.cmd`/`.bat` shims are
+rejected). `RC_ENGINE_CODEX_TIMEOUT_S` defaults to 600 seconds per stage.
+The installed build validated here was `0.155.0-alpha.9.2`.
+
+By default, any Codex failure stops further work and preserves completed sets.
+`--codex-fallback api` explicitly permits a paid OpenAI API call to the same
+mapped model at the same effort, subject to the existing dollar guard. Its
+reasoning allowance can exceed a tier's budget, in which case the guard refuses
+the call. `--max-usd` limits API spend, not subscription quota. A partial
+`--codex-effort` tier map uses `low` for unlisted tiers. Do not combine
+`--codex-cli` with `--claude-code`, `--relay`, or a non-Claude `--provider`.
+
+Each CLI call starts a fresh ephemeral session in a separate temporary
+`rc-codex-*` directory, with the stage instructions loaded from a UTF-8 file
+and the user turn passed on stdin. User config and project instructions are
+excluded; unrelated tools are disabled, the sandbox is read-only, and an
+unexpected tool event rejects the response. Managed policy still applies.
+The text-only catalog copies the installed Astra/Sol model metadata while
+removing catalog-forced code mode, agent tools, patching and experimental
+tools. This is necessary: on build `0.155.0-alpha.9.2`, feature-disable flags
+alone still advertised tools. Bundled skills, planning/question tools,
+collaboration/environment boilerplate and reasoning summaries are also off.
+The read-only permission notice remains. No global CLI configuration changes.
+`tools/audit_codex_request.py NATIVE_CODEX_EXE [MODEL]` verifies the actual
+serialized request against a credential-free localhost stub without model
+usage. September 20 audits for both Astra and Sol showed zero tool schemas
+and 918 serialized input characters for the synthetic prompt (previous Astra
+configuration: 23,026). This measures request size, not billed token savings.
+Question thinking still uses high/xhigh/max; matching Claude's effort labels
+does not guarantee matching token use. `--codex-effort high` explicitly lowers
+hard/elite question effort when token savings take precedence over that ladder.
+The adapter requires a successful terminal event and reads only the final
+answer file. CLI output ceilings differ from API `max_tokens`; existing
+validators still check the returned content.
+
+Temporary instructions, final answers and metadata are retained under the OS
+temporary folder, respecting the project's no-delete rule. Metadata records
+the stage, model, effort, CLI version, completion status and reported usage.
+Subscription usage is summarized separately from API spend; cached input is
+counted once, and persistent workers return only each slot's new usage.
+Unreported usage on interrupted calls cannot be measured. Live Astra/Sol set
+quality and subscription consumption still need an authorized pilot.
+
+The accompanying Claude CLI fixes remove API credentials from child processes,
+verify saved subscription auth, keep all dry runs on the mock, defer Anthropic
+client creation until needed, and correct worker usage totals. With
+`--claude-code --relay`, fallback order is Claude CLI, API, then manual paste.
+Subscription/manual responses no longer consume hypothetical API budget.
+
+A CLI failure the harness itself calls temporary is retried before the API is
+reached (2026-09-21). Measured that day: 1 live call in 4 died with "Failed to
+refresh OAuth token: another Claude Code process is refreshing it", because the
+engine is driven from a Claude Code session and parent and child share the one
+token under `~/.claude`. That blip was reaching the fallback, turning a $0
+subscription render into a paid Opus call. Two retries at a growing backoff by
+default (`config.CLAUDE_CODE_TRANSIENT_RETRIES` / `..._BACKOFF_S`, or
+`RC_ENGINE_CC_TRANSIENT_RETRIES=0` to restore the old behaviour). A usage limit
+is never retried — that wall is real and still latches for the whole process —
+and the transient test, like the usage-limit test, reads only the error channel,
+never the model's own output.
+
 ## Generation policies (2026-09-13)
 
 A blueprint records the generation policy it was composed under

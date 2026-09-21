@@ -1,5 +1,7 @@
 # secrets — never commit the API key
 .env
+outreach/.env
+outreach/runtime/
 
 # SQLite databases (production, dry-run) — data lives outside VCS
 *.db
