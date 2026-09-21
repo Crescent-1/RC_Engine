@@ -115,6 +115,26 @@ def test_attribute_passthrough(tmp_path):
     assert _relay(tmp_path).probe() == "probed"
 
 
+@pytest.mark.parametrize("api_fails", [False, True])
+def test_cli_fallback_tries_api_before_manual_paste(tmp_path, monkeypatch, api_fails):
+    order = []
+    base = _Base()
+    def api(*args):
+        order.append("api")
+        if api_fails:
+            raise APIExhausted("unavailable")
+        return "API reply", False
+    monkeypatch.setattr(base, "call", api)
+    relay = _relay(tmp_path, base, api_first=True)
+    def manual(*args):
+        order.append("manual")
+        return "manual reply"
+    monkeypatch.setattr(relay, "_relay", manual)
+    result = relay.call(_ledger(), "render", config.OPUS, 100, "s", "u", {"tier": "hard"})
+    assert result[0] == ("manual reply" if api_fails else "API reply")
+    assert order == (["api", "manual"] if api_fails else ["api"])
+
+
 # ---- prompt fidelity -------------------------------------------------------------
 
 def _reply_file(tmp_path, text, name="reply.txt"):
@@ -177,14 +197,12 @@ def test_a_relayed_call_is_free_but_still_audited(tmp_path):
     assert [(l.stage, l.model) for l in led.lines] == [("render", config.OPUS)]
 
 
-def test_the_budget_guard_still_runs(tmp_path):
-    """Contract parity with the API clients: guard, act, record — in that
-    order. A tier budget too small to hold the call fails the same way."""
+def test_manual_reply_does_not_need_api_headroom(tmp_path, monkeypatch):
     led = CostLedger(budget_usd=0.0000001)
     r = _relay(tmp_path, input_fn=_answers("unused"))
-    with pytest.raises(BudgetExceeded):
-        r.call(led, "render", config.OPUS, 1600, "s" * 5000, "u" * 5000,
-               context={"blueprint": _BP()})
+    monkeypatch.setattr(r, "_relay", lambda *a: "manual answer")
+    assert r.call(led, "render", config.OPUS, 1600, "s" * 5000, "u" * 5000,
+                  context={"blueprint": _BP()})[0] == "manual answer"
 
 
 # ---- control flow ----------------------------------------------------------------
@@ -288,15 +306,14 @@ def test_relay_forces_a_single_worker(capsys):
     assert args.workers == 1
 
 
-def test_setup_provider_wraps_dry_run_in_the_relay(tmp_path):
-    """--dry-run --relay is a free rehearsal: the relayed stages take real
-    pasted text while the rest stay canned."""
+def test_dry_run_keeps_the_mock_even_with_relay_selected(tmp_path):
     from rc_engine.cli import build_parser, _setup_provider
     args = build_parser().parse_args(
         ["generate", "--dry-run", "--hard", "1", "--relay",
          "--relay-dir", str(tmp_path / "relay")])
     client, code = _setup_provider(args)
-    assert code == 0 and isinstance(client, RelayClient)
+    from rc_engine.llm import MockLLMClient
+    assert code == 0 and isinstance(client, MockLLMClient)
 
 
 def test_setup_provider_without_relay_is_untouched():

@@ -71,8 +71,13 @@ def _runner(*results):
 
 def _cc(fallback=None, *, runner=None, **kw):
     kw.setdefault("system_mode", "inline")
+    # No test may pay the real backoff: the retry ladder is seconds long.
+    kw.setdefault("sleep", lambda s: _SLEPT.append(s))
     return ClaudeCodeClient(fallback or _Fallback(), runner=runner or _runner(),
                             binary="claude", **kw)
+
+
+_SLEPT: list = []
 
 
 def _ledger():
@@ -210,6 +215,113 @@ def test_an_ordinary_failure_is_not_sticky():
                    context=_ctx())[0] == "fine now"
 
 
+
+# ---- transient failures ----------------------------------------------------------
+#
+# 2026-09-21: 1 live call in 4 lost the OAuth token refresh to the Claude Code
+# session the engine was being driven from, and the stage fell straight through
+# to the paid API. On this lane that is the one outcome that costs money, so a
+# blip the CLI calls temporary is retried before the fallback is reached.
+
+_OAUTH_COLLISION = ("Failed to refresh OAuth token: another Claude Code process "
+                    "is refreshing it or exited mid-refresh. This is usually "
+                    "transient; retry in a minute")
+
+
+def _err_envelope(detail):
+    """What 2.1.276 actually prints for a failed call: rc=1 and is_error."""
+    return _Result(json.dumps({"type": "result", "is_error": True,
+                               "result": detail}), returncode=1)
+
+
+def test_an_oauth_collision_is_retried_instead_of_billed_to_the_api():
+    """The measured failure. It must never reach the fallback on its own."""
+    fb = _Fallback()
+    cc = _cc(fb, runner=_runner(_err_envelope(_OAUTH_COLLISION),
+                                _Result(_envelope("rendered after the retry"))))
+    text, _ = cc.call(_ledger(), "render", config.OPUS, 100, "s", "u",
+                      context=_ctx())
+    assert text == "rendered after the retry"
+    assert fb.calls == [], "a transient blip must not become a paid API call"
+
+
+def test_a_transient_failure_gives_up_after_the_configured_retries(monkeypatch):
+    """Bounded, not infinite: the API is still the backstop."""
+    monkeypatch.setattr(config, "CLAUDE_CODE_TRANSIENT_RETRIES", 2)
+    fb = _Fallback("from the api")
+    run = _runner(*[_err_envelope(_OAUTH_COLLISION)] * 3)
+    cc = _cc(fb, runner=run)
+    assert cc.call(_ledger(), "render", config.OPUS, 100, "s", "u",
+                   context=_ctx())[0] == "from the api"
+    assert len(run.seen) == 3, "1 attempt + 2 retries"
+    assert fb.calls == ["render"]
+
+
+def test_retries_can_be_switched_off(monkeypatch):
+    monkeypatch.setattr(config, "CLAUDE_CODE_TRANSIENT_RETRIES", 0)
+    fb = _Fallback("from the api")
+    run = _runner(_err_envelope(_OAUTH_COLLISION))
+    cc = _cc(fb, runner=run)
+    assert cc.call(_ledger(), "render", config.OPUS, 100, "s", "u",
+                   context=_ctx())[0] == "from the api"
+    assert len(run.seen) == 1
+
+
+def test_the_backoff_grows_between_retries(monkeypatch):
+    monkeypatch.setattr(config, "CLAUDE_CODE_TRANSIENT_RETRIES", 2)
+    monkeypatch.setattr(config, "CLAUDE_CODE_TRANSIENT_BACKOFF_S", 4)
+    slept = []
+    cc = _cc(_Fallback(), sleep=slept.append,
+             runner=_runner(*[_err_envelope(_OAUTH_COLLISION)] * 3))
+    cc.call(_ledger(), "render", config.OPUS, 100, "s", "u", context=_ctx())
+    assert slept == [4, 8]
+
+
+def test_a_usage_limit_is_never_retried():
+    """_LIMIT_RE is tested first, so a real wall latches even if its wording
+    happens to read as temporary. Retrying it would burn the timeout twice."""
+    fb = _Fallback("from the api")
+    run = _runner(_err_envelope("usage limit reached; this is usually transient"))
+    cc = _cc(fb, runner=run)
+    assert cc.call(_ledger(), "render", config.OPUS, 100, "s", "u",
+                   context=_ctx())[0] == "from the api"
+    assert len(run.seen) == 1
+    assert cc._limited is True
+
+
+@pytest.mark.parametrize("outcome", [
+    _Result("", "exit 1: command not found", returncode=1),
+    _Result("", "invalid model name", returncode=2),
+])
+def test_an_ordinary_failure_still_goes_straight_to_the_fallback(outcome):
+    """Only conditions that name themselves temporary are worth a second
+    subprocess; everything else should fail over immediately, as before."""
+    fb = _Fallback("from the api")
+    run = _runner(outcome)
+    cc = _cc(fb, runner=run)
+    assert cc.call(_ledger(), "render", config.OPUS, 100, "s", "u",
+                   context=_ctx())[0] == "from the api"
+    assert len(run.seen) == 1
+
+
+def test_a_timeout_is_not_retried():
+    """A 600s ceiling retried twice is half an hour of a stalled batch."""
+    fb = _Fallback("from the api")
+    run = _runner(subprocess.TimeoutExpired("claude", 600))
+    cc = _cc(fb, runner=run)
+    assert cc.call(_ledger(), "render", config.OPUS, 100, "s", "u",
+                   context=_ctx())[0] == "from the api"
+    assert len(run.seen) == 1
+
+
+def test_a_passage_about_a_dropped_connection_is_not_a_transient_failure():
+    """_TRANSIENT_RE, like _LIMIT_RE, must never read the MODEL'S OWN OUTPUT."""
+    passage = ("The telegraph operators described every connection reset as a "
+               "small death; the line was overloaded and usually transient.")
+    cc = _cc(_Fallback(), runner=_runner(_Result(_envelope(passage))))
+    assert cc.call(_ledger(), "render", config.OPUS, 100, "s", "u",
+                   context=_ctx())[0] == passage
+
 # ---- ledger ----------------------------------------------------------------------
 
 def test_a_subscription_call_books_no_api_money():
@@ -228,14 +340,12 @@ def test_the_notional_cost_is_totalled_for_reporting():
     assert cc.notional_usd == pytest.approx(0.35)
 
 
-def test_the_budget_guard_still_runs():
-    """Contract parity with every other client: guard, act, record."""
-    from rc_engine.llm import BudgetExceeded
+def test_subscription_call_does_not_require_hypothetical_api_headroom():
     led = CostLedger(budget_usd=0.0000001)
     cc = _cc(runner=_runner(_Result(_envelope("x"))))
-    with pytest.raises(BudgetExceeded):
-        cc.call(led, "render", config.OPUS, 1600, "s" * 5000, "u" * 5000,
-                context=_ctx())
+    assert cc.call(led, "render", config.OPUS, 1600, "s" * 5000, "u" * 5000,
+                   context=_ctx())[0] == "x"
+    assert led.spent_usd == 0
 
 
 # ---- invocation ------------------------------------------------------------------
@@ -360,6 +470,23 @@ def test_probe_reports_a_missing_binary():
     assert "@anthropic-ai/claude-code" in info["detail"]
 
 
+@pytest.mark.parametrize("auth,ok", [
+    ({"loggedIn": True, "authMethod": "claude.ai"}, True),
+    ({"loggedIn": True, "authMethod": "api_key"}, False),
+    ({"loggedIn": False}, False),
+])
+def test_probe_verifies_saved_subscription_without_inherited_api_key(monkeypatch, auth, ok):
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "synthetic")
+    monkeypatch.setattr("rc_engine.claude_code.resolve_binary", lambda _: "claude.exe")
+    def run(argv, **kwargs):
+        assert "ANTHROPIC_API_KEY" not in kwargs["env"]
+        if argv[1:] == ["auth", "status", "--json"]:
+            return _Result(json.dumps(auth))
+        return _Result("--print --model --output-format --system-prompt --append-system-prompt")
+    monkeypatch.setattr("rc_engine.claude_code.subprocess.run", run)
+    assert probe()["ok"] is ok
+
+
 # ---- CLI wiring ------------------------------------------------------------------
 
 def test_claude_code_flags_parse():
@@ -379,29 +506,29 @@ def test_claude_code_defaults_off():
 
 def test_an_absent_binary_leaves_the_stack_on_the_fallback(capsys, monkeypatch):
     """No Claude Code on this machine must be a printed note, not a failure."""
-    from rc_engine.cli import build_parser, _setup_provider
+    from rc_engine.cli import build_parser, _wrap_client
     monkeypatch.setattr(config, "CLAUDE_CODE_BIN", "definitely-not-a-real-binary-xyz")
     args = build_parser().parse_args(
-        ["generate", "--dry-run", "--hard", "1", "--claude-code"])
-    client, code = _setup_provider(args)
-    assert code == 0 and not isinstance(client, ClaudeCodeClient)
+        ["generate", "--hard", "1", "--claude-code"])
+    client = _wrap_client(_Fallback(), args, "claude")
+    assert not isinstance(client, ClaudeCodeClient)
     assert "unusable" in capsys.readouterr().out
 
 
 def test_the_chain_order_puts_relay_behind_the_api(monkeypatch):
     """--claude-code --relay means: Claude Code, then the API, then paste."""
-    from rc_engine.cli import build_parser, _setup_provider
+    from rc_engine.cli import build_parser, _wrap_client
     from rc_engine.relay import RelayClient
     monkeypatch.setattr("rc_engine.claude_code.probe",
                         lambda binary=None: {"ok": True, "path": "/x/claude",
                                              "version": "1.0", "flags": {},
                                              "detail": "ok"})
     args = build_parser().parse_args(
-        ["generate", "--dry-run", "--hard", "1", "--claude-code", "--relay"])
-    client, code = _setup_provider(args)
-    assert code == 0
+        ["generate", "--hard", "1", "--claude-code", "--relay"])
+    client = _wrap_client(_Fallback(), args, "claude")
     assert isinstance(client, ClaudeCodeClient)
     assert isinstance(client._fallback, RelayClient)
+    assert client._fallback._api_first is True
 
 
 # ---- effort ----------------------------------------------------------------------
@@ -482,6 +609,27 @@ def test_thinking_tokens_are_counted_when_reported():
     cc = _cc(runner=_runner(_usage_envelope("a", thinking=8000)))
     cc.call(_ledger(), "render", config.OPUS, 100, "s", "u", context=_ctx())
     assert cc.usage["thinking"] == 8000
+
+
+def test_model_usage_includes_helper_models_without_double_counting_primary():
+    """Claude 2.1.276's top-level usage omits its internal Haiku helper."""
+    payload = {
+        "type": "result", "is_error": False, "result": "ok", "total_cost_usd": .2,
+        "usage": {"input_tokens": 2, "cache_creation_input_tokens": 100,
+                  "cache_read_input_tokens": 0, "output_tokens": 20},
+        "modelUsage": {
+            "claude-opus": {"inputTokens": 2, "cacheCreationInputTokens": 100,
+                             "cacheReadInputTokens": 0, "outputTokens": 20,
+                             "thinkingTokens": 5},
+            "claude-haiku": {"inputTokens": 40, "cacheCreationInputTokens": 0,
+                              "cacheReadInputTokens": 0, "outputTokens": 3,
+                              "thinkingTokens": 0},
+        },
+    }
+    cc = _cc(runner=_runner(_Result(json.dumps(payload))))
+    cc.call(_ledger(), "render", config.OPUS, 100, "s", "u", context=_ctx())
+    assert cc.usage == {"calls": 1, "input": 42, "cache_write": 100,
+                        "cache_read": 0, "output": 23, "thinking": 5}
 
 
 def test_usage_is_broken_down_per_stage():
@@ -574,19 +722,19 @@ def test_the_wrong_answers_are_never_sent(flag):
 
 
 def test_full_context_flag_disables_lean(capsys):
-    from rc_engine.cli import build_parser, _setup_provider
+    from rc_engine.cli import build_parser, _wrap_client
     import rc_engine.claude_code as ccmod
     args = build_parser().parse_args(
-        ["generate", "--dry-run", "--hard", "1", "--claude-code",
+        ["generate", "--hard", "1", "--claude-code",
          "--claude-code-full-context"])
     old = ccmod.probe
     ccmod.probe = lambda binary=None: {"ok": True, "path": "/x/claude",
                                        "version": "1", "flags": {}, "detail": "ok"}
     try:
-        client, code = _setup_provider(args)
+        client = _wrap_client(_Fallback(), args, "claude")
     finally:
         ccmod.probe = old
-    assert code == 0 and client._lean is False
+    assert client._lean is False
     assert "lean mode OFF" in capsys.readouterr().out
 
 

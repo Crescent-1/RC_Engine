@@ -15,7 +15,7 @@ from datetime import datetime, timezone
 from . import config
 from .constraints import CompatibilityRules
 from .history import HistoryStore
-from .llm import BudgetExceeded, CostLedger, extract_json
+from .llm import APIExhausted, BudgetExceeded, CostLedger, extract_json
 from .models import Blueprint, ParagraphPlan, SeedEssay
 from .fingerprints import move_signature_similarity
 from .generation_policy import LEGACY_POLICY, policy_for_blueprint, policy_for_new_plan
@@ -1276,7 +1276,7 @@ class BlueprintComposer:
                 text, truncated = self.llm.call(
                     ledger, "refine", model, max_tokens, system, user,
                     context=context)
-            except BudgetExceeded:
+            except (BudgetExceeded, APIExhausted):
                 raise
             except Exception as e:                       # API hiccup on this attempt
                 last_err = f"call error: {e}"

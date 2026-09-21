@@ -5,6 +5,244 @@ go first; dates use Asia/Calcutta time. `AGENTS.md` instructs Codex to update th
 file whenever it changes project files. Entries are task summaries, not a record
 of every intermediate edit. Git remains the source for exact diffs.
 
+## 2026-09-21 — Prepare GA4 visit tracking for Passage Works
+
+- Added an opt-in GA4 tag insertion to the website build, with Measurement ID
+  validation and a `--require-analytics` guard for production builds. Updated
+  the page insertion point and `website/README.md` deployment instructions.
+- Preserved the existing uncommitted contact-address edits in `website/index.html`
+  and `website/js/app.js`. The live domain resolves to Netlify; the saved Sites
+  project has no live deployment. An initial CLI check found no Netlify access,
+  but the browser check confirmed an authenticated Netlify dashboard. The
+  connected Google account opens GA4 account setup, with no Measurement ID yet;
+  production was not published without a destination for visit data.
+- Checks: a synthetic `G-TEST12345` build inserted the expected tag; a required
+  build without an ID failed; a preview build contained no tag; Node syntax and
+  `git diff --check` passed. Live data collection remains unverified. Changes
+  uncommitted.
+
+## 2026-09-21 — Matched-seed philosophy hard CLI comparison
+
+- Generated and exported one hard philosophy set through Claude CLI and one
+  through OpenAI CLI from the exact same unused seed, “Are Doctors Heroes?”
+  (`b208e303-6a7c-4d26-9f4f-716742e027ab`). Both lanes used independent copies
+  of one production database snapshot, RNG seed `20260921`, policy
+  `cat-pyq-f4`, low effort, and the same structural components and Luna gates.
+- Retained the complete comparison under
+  `exported_rc_sets/2026-09-21-philosophy-cli-ab/`, including prefixed text
+  exports, run logs, raw CLI responses, database snapshots, backups, seed
+  metadata, and `comparison.md`. The production corpus was not changed and the
+  shared seed remains unused.
+- Claude finished `solver_dispute` (F1 0.777, novelty 0.629); OpenAI finished
+  `needs_review` with judge score 8.8 (F1 0.839, novelty 0.594) and a red
+  similarity match. Neither artifact is approved for production.
+- Corrected Claude subscription accounting to aggregate every model in
+  `modelUsage`. The original 30,119-token summary omitted 13,796 internal Haiku
+  helper tokens; the complete Claude total is 43,915 versus OpenAI's 20,447.
+  In this run OpenAI reported 53.4% fewer tokens. Notional CLI prices were
+  $0.3305 and $0.3329; real Luna check/screen spend was $0.0090 and $0.0096.
+- Checks: both exports have 8 questions, 8 keyed answers, and no replacement
+  characters; Claude-focused suite **118 passed**; comparison runner compiled;
+  final `git diff --check` passed. Changes uncommitted.
+
+## 2026-09-21 — Seeded lean Codex hard/elite pilot
+
+- Ran one seeded hard and one seeded elite with the text-only Astra/Sol CLI
+  configuration and retained logs/backups under
+  `exported_rc_sets/codex-lean-seeded-20260920-133142/`.
+- Hard completed as `RC-HARD-260920-0105`, status `needs_review`, score 9.2,
+  compliance F1 0.821 and novelty 0.486. Similarity screening marked it red
+  against `RC-ELITE-260919-0094`, so it requires human review and was not
+  exported as a normal deliverable. It was subsequently exported explicitly
+  into the pilot folder as `RC-HARD-260920-0105.txt` for inspection.
+- Elite blueprint `BP_260920_9bf3c253` completed refine/render/compliance and
+  initially remained safely resumable as `awaiting_questions` after its Astra
+  question call exceeded the 600-second timeout. A first resume command did not
+  start because automatic approval review could not run while task usage was
+  exhausted. A later authorized resume reused the passage, lowered elite
+  question effort from `max` to `xhigh`, and completed as
+  `RC-ELITE-260920-0096`: approved, score 8.8, compliance F1 0.784, novelty
+  0.558 and green similarity verdict. It was exported into the pilot folder.
+- Completed Codex CLI calls reported 38,243 total tokens: 22,433 input and
+  15,810 output, including 9,004 reasoning tokens. Luna checks and screening
+  cost $0.0120 total in the initial batch, which shipped the hard while leaving
+  elite questions incomplete. The hard xhigh question call alone used 3,191
+  input plus 10,216 output tokens, including 7,250 reasoning; this was the main
+  avoidable token source after stripping harness context.
+  The later elite resume used 16,757 subscription tokens across questions and
+  solver (5,197 input, 11,560 output, including 8,286 reasoning) and $0.0046
+  Luna API spend including screening. Two sets now exist from this pilot; the
+  hard is red/needs-review and the elite is green/approved. Changes uncommitted.
+
+## 2026-09-20 — Strip Codex harness overhead and record incomplete seeded pilot
+
+- Corrected the earlier assumption that feature flags disabled all CLI tools.
+  Astra/Sol catalog metadata forced code mode and agent schemas back on.
+  `codex_cli.py` now writes a local text-only catalog preserving real model
+  identities/efforts/safety metadata, disables bundled skills and question/plan
+  tools, and omits collaboration/environment boilerplate. Read-only sandbox
+  and managed policy remain. No global CLI config or reasoning ladder change.
+- Added `tools/audit_codex_request.py`: credential-free localhost request
+  capture, no model call. Both Astra and Sol verified with zero top-level or
+  embedded tool schemas. Synthetic input shrank from 23,026 to 918 serialized
+  characters (96.0%); this is not a measured production token reduction.
+  Updated README and catalog/config regression tests.
+- Added `--require-seed`, fail-fast and exhausted-seed tests; restored optional
+  RAG dependencies only in a temporary runtime. Fixed duplicate seed IDs in
+  ancestry embedding lookup, exact disabled-code-host startup notice handling,
+  actual CLI plan-event parsing and retained event-count diagnostics.
+- Pilot: initial seedless refine stopped with no set; user correction followed
+  by seeded runs only. Two seeded refine attempts stopped on the startup
+  notice. Last seeded hard run completed refine/render/questions, then Sol
+  solver hit subscription quota. Elite never started; zero sets shipped.
+  Three successful final-run stages used 68,848 tokens including cache and
+  reasoning once; earlier failed refine calls used 7,035 / 7,723 / 7,993.
+  Luna API checks ran; the failed batch's $0 summary is not total API spend.
+- Preserved hard raw drafts, logs, health/baseline and review under
+  `exported_rc_sets/2026-09-20-codex-seeded-pilot/`; production backups retained.
+  Legacy seeded inspiration drifted from film criticism to restoration, so
+  strict source fidelity and finished-set quality are not established.
+  No paid Astra/Sol fallback, reset credit or live generation during lean audit.
+- Checks: full suite **762 passed, 1 skipped**; final config-assertion rerun
+  **68 passed**; both native CLI wire audits and `git diff --check` passed.
+  Earlier restored-runtime full suite was 760 passed, 1 skipped. The prior
+  optional-dependency failures below are historical and now resolved.
+  Live token savings and completion of the two-set pilot remain unverified.
+  All changes uncommitted.
+
+## 2026-09-20 — Add Codex CLI Astra/Sol generation and fix subscription lanes
+
+- Added opt-in `--codex-cli` to generation and question resume: every resolved
+  Opus stage uses `gpt-6-astra`, Sonnet uses `gpt-5.6-sol`, and Luna API pins
+  remain. Questions match Claude CLI thinking (medium high, hard xhigh, elite
+  max); other mapped stages use low. Added effort overrides and explicit
+  `--codex-fallback api`; the default stops on CLI failure.
+- Added `rc_engine/codex_cli.py` and shared process/usage helpers. Calls use
+  sanitized subscription environments, isolated ephemeral sessions, stdin
+  prompts, instruction/final-answer files, read-only sandboxing, terminal-event
+  validation, retained metadata and process-tree cleanup. Usage counts cached
+  input once and returns per-slot deltas from persistent workers.
+- Fixed the six preceding Claude review findings in CLI/provider setup,
+  Claude/relay wrappers and workers. Saved subscription auth is checked before
+  invoking a CLI, dry-run stays entirely mocked, missing Anthropic credentials
+  no longer block subscription startup, and paid fallback guards itself.
+  Refine now propagates terminal exhaustion. Explicit Astra API fallback
+  preserves max effort, supported by current official docs.
+- Updated regression tests, `RC_ENGINE_README.md` and the review/plan's status.
+  Final focused suite: **236 passed**. Full suite: **747 passed, 2 skipped,
+  3 failed** on imports of the absent optional RAG dependencies (`feedparser`
+  first; neither available Python has the RAG stack). No RAG code or dependency
+  configuration changed. The focused rerun includes the final worker-auth and
+  paid-fallback fixes added after the full run.
+- `selftest` passed; serial and two-worker Codex dry runs each shipped two mock
+  sets in fresh temporary DBs with no exports. Free CLI diagnostics verified
+  ChatGPT login, Astra/Sol effort catalogs and parsing of isolated config /
+  instruction-file settings on Codex `0.155.0-alpha.9.2`. Documentation readback
+  and `git diff --check` passed. No live model call,
+  real generation, production DB/export change or quality pilot. Actual model
+  entitlement, quota use and output quality remain untested. Uncommitted.
+
+## 2026-09-20 — Review Claude CLI generation and plan Codex/Astra support
+
+- Added `2026-09-20-cli-review-and-codex-plan.md`, reviewing commit `32acdaa`
+  and proposing a default-off Codex CLI writer using `gpt-6-astra`.
+- Confirmed six issues with synthetic checks: inherited API credentials,
+  live CLI calls during dry-run, cumulative worker usage overcounting,
+  relay bypassing the API fallback, missing-key startup rejection, and
+  API-price guards blocking subscription calls. No engine fixes applied.
+- Checks: 171 focused Claude/relay/worker/review tests passed. Two initial
+  failures came from a Windows stdin test launcher and passed with `python -c`.
+  Temporary pytest installation only; no project dependency change.
+  Codex CLI 0.155.0-alpha.9.2 is installed, ChatGPT login works outside the
+  restricted shell, and its current catalog lists Astra. Official docs checked.
+- Documentation readback and `git diff --check` passed.
+- No live model call, generation, production data/export edit or full-suite run.
+  Astra quality, quota consumption and minimal harness behavior remain to be
+  validated during implementation and an authorized pilot. Uncommitted.
+
+## 2026-09-19 — Attach the complete four-passage sample pack
+
+- Corrected the earlier interpretation: every initial outreach email now
+  attaches all four curated DOCX sets, numbered with neutral recipient-facing
+  filenames, rather than rotating one set per recipient.
+- Revised the email copy to describe a four-passage pack. Reserved three
+  separate approved passages (`0046`, `0063`, `0057`) for the no-charge
+  follow-up offer and recorded them in every draft manifest entry.
+- A controlled four-attachment test was prepared for
+  `sales@passageworks.in`; no additional lead delivery was authorized in this
+  change. Checks and delivery outcome are recorded in the task response.
+- Changes are uncommitted.
+
+## 2026-09-19 — Route Titan outreach through GoDaddy email servers
+
+- Corrected the sender for a GoDaddy-purchased Professional Email powered by
+  Titan mailbox: SMTP now uses `smtpout.secureserver.net:465` with SSL and IMAP
+  uses `imap.secureserver.net:993` with SSL.
+- Updated the safe example and operating notes to request the mailbox password,
+  not the GoDaddy account password. The ignored credential value was preserved.
+- Authentication was retried without sending; outcome recorded in the task
+  response. Changes are uncommitted.
+
+## 2026-09-19 — Curate the four-passage outreach portfolio
+
+- Reviewed the complete passage, eight questions, keys and rationales in all 16
+  DOCX samples. Selected `RC-ELITE-260914-0086`, `RC-HARD-260912-0094`,
+  `RC-HARD-260912-0091` and `RC-MEDIUM-260810-0024` for complementary literary,
+  economic, scientific and public-health material and distinct reasoning forms.
+- Superseded the earlier folder-based four-group rotation. Outreach now rotates
+  one of the curated four across initial emails and records the other three
+  curated passages as that recipient's promised follow-up set.
+- Checks: all four DOCX files parsed completely; sender unit tests passed; all
+  19 drafts regenerated; attachment hashes and the three-follow-up invariant
+  validated. Visual rendering could not run because the bundled workspace has
+  no LibreOffice `soffice.exe`; no DOCX was edited. No email was sent.
+- Changes are uncommitted.
+
+## 2026-09-19 — Configure Titan outreach with four rotating sample groups
+
+- Added `outreach/` with a Titan SMTP/IMAP sender for
+  `sales@passageworks.in`, personalized copy for all 19 workbook leads, plain
+  text and HTML bodies, local previews, explicit small-batch approval, a send
+  ledger, duplicate protection and optional Sent-folder archiving.
+- Configured the four existing `RC\Sample\Set 1` through `Set 4` groups to
+  rotate across leads. Each initial email attaches the group's HARD passage
+  under a neutral filename; the other three DOCX passages in that folder are
+  recorded as the promised follow-up set.
+- Added a gitignored password file and runtime directory, a safe example
+  configuration, Windows launcher, operating notes and dependency-free tests.
+  The source lead workbook is read-only and was not changed.
+- Checks: four unit tests passed; all 19 recipient addresses and personalized
+  drafts validated; four initial attachments existed and hashed successfully;
+  each manifest entry had exactly three reserved follow-ups; SMTP authentication
+  correctly stopped before network access while the password was blank;
+  `git diff --check` passed before this log entry.
+- No email was sent. Titan authentication and delivery remain untested until
+  the user adds the application password. Changes are uncommitted.
+
+## 2026-09-19 — Repair the 18 September eight-set batch
+
+- Created `exported_rc_sets/2026-09-19-sept18-repaired/` with eight revised TXT
+  sets, rebuilt keys/rationales, a review summary and per-question `audit.json`.
+  Preserved the original exports, database, trackers and existing DOCX.
+- Trimmed overlength passages; relabelled 0093, 0077 and 0081 as Hard while
+  retaining their IDs. Restructured 0077 to distinguish it from 0078; replaced
+  0081 Q5 and 0103 Q8. Preserved the other 62 answer logics; repaired formatting,
+  option lengths and distributions. Converted 0078 Q4's prohibited wording to
+  an explicit strengthening stem with the same evidence and answer logic.
+- User chose to retain all passages and flag genre exceptions. Included these
+  decisions and the final five-Hard/three-Medium mix in the review summary.
+  Added `tools/repair_20260918.py` to reproduce the repairs and machine audit.
+- Checks: all passages 507–547 words (507–545 lexical); all 64 questions below
+  1.30x option spread by characters and words; every key A2/B2/C2/D2; all 256
+  options capitalized and terminated with full stops. Correct longest/shortest
+  counts are at most three by characters including ties, and by unique word
+  extrema. File reparse, key/rationale consistency, original-file hashes,
+  quoted-passage references, UTF-8/LF, script syntax and `git diff --check` passed.
+- Replacement key-hidden re-solve matched both keys, performed by the same
+  editor; no independent cold solver or fresh paid quality/novelty/factual
+  audit was run. No production engine changes or engine test run.
+- Changes are uncommitted.
+
 ## 2026-09-14 — Week 9 v2 house-style revision and blind re-solve
 
 - Created `exported_rc_sets/2026-09-14-week9-v2-style-fixed/` as a separate

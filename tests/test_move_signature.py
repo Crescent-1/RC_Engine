@@ -665,13 +665,13 @@ def test_effort_is_not_silently_downgraded_on_capable_models():
 
 
 def test_clamp_effort_matches_what_the_api_accepts():
-    """Probed against the live API 2026-09-05. Astra refuses BOTH "none" and
-    "max" — no name-shaped test predicts that, which is why the per-model table
-    exists. The "none" case is the expensive one: OPENAI_STAGE_EFFORT pins
+    """The 2026-09-05 probe rejected none and max. Current official Astra
+    documentation adds max (2026-09-20); none remains unsupported.
+    The "none" case is the expensive one: OPENAI_STAGE_EFFORT pins
     "questions" to none, so an unclamped Astra set would 400 at the questions
     stage having already paid for its render."""
     assert config.clamp_effort("gpt-6-astra", "none") == "low"
-    assert config.clamp_effort("gpt-6-astra", "max") == "xhigh"
+    assert config.clamp_effort("gpt-6-astra", "max") == "max"
     for eff in ("low", "medium", "high", "xhigh"):
         assert config.clamp_effort("gpt-6-astra", eff) == eff, eff
     # clamping must never RAISE spend, the sole exception being "none" on a
@@ -1333,6 +1333,7 @@ def test_seed_ancestry_handles_numpy_embeddings(monkeypatch):
 
     class _Store:
         def get(self, ids, include=None):
+            assert len(ids) == len(set(ids)), "Chroma rejects duplicate document IDs"
             return {"ids": list(ids),
                     "embeddings": np.array([[1.0, 0.0, 0.0]] * len(ids))}
 
@@ -1343,7 +1344,7 @@ def test_seed_ancestry_handles_numpy_embeddings(monkeypatch):
     class _Hist:
         @staticmethod
         def recent_seed_ids(limit):
-            return [("RC-X", "doc-1")]
+            return [("RC-X", "doc-1"), ("RC-Y", "doc-1")]
     class _Pipe:
         history = _Hist()
 

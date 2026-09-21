@@ -330,6 +330,37 @@ CLAUDE_CODE_EFFORT_BASELINE = os.environ.get("RC_ENGINE_CC_EFFORT_BASELINE", "lo
 # On by default. Turn it off only to reproduce the old numbers.
 CLAUDE_CODE_LEAN = os.environ.get("RC_ENGINE_CC_LEAN", "1").strip().lower() not in (
     "0", "false", "off", "no")
+# Transient CLI failures are retried before the paid API takes the stage
+# (2026-09-21). MEASURED this session: 1 live call in 4 died with "Failed to
+# refresh OAuth token: another Claude Code process is refreshing it or exited
+# mid-refresh". The cause is structural, not bad luck — the engine is driven
+# FROM a Claude Code session, and parent and child share the one OAuth token
+# under ~/.claude, so they collide whenever it needs refreshing. Claude Code
+# itself calls the condition transient and says to retry.
+#
+# Without a retry the engine treated that blip exactly like a dead binary and
+# fell through to the fallback, silently turning a $0 subscription render into
+# a paid Opus call — the opposite of what this lane exists for. A usage limit
+# is NEVER retried: that wall is real, and _LIMIT_RE is tested first.
+#
+# Two retries at a growing backoff, i.e. ~8s then ~16s. Set the count to 0 to
+# restore the pre-2026-09-21 straight-to-fallback behaviour.
+CLAUDE_CODE_TRANSIENT_RETRIES = int(
+    os.environ.get("RC_ENGINE_CC_TRANSIENT_RETRIES", "2"))
+CLAUDE_CODE_TRANSIENT_BACKOFF_S = float(
+    os.environ.get("RC_ENGINE_CC_TRANSIENT_BACKOFF_S", "8"))
+
+# 2026-09-20 operator decision: the Codex CLI lane substitutes models, not
+# stage policies. Every Opus role becomes Astra and every Sonnet role Sol;
+# Luna pins and Haiku roles are untouched. Match Claude Code's effort ladder.
+# API effort tables below are intentionally separate from CLI capabilities.
+CODEX_CLI_BIN = os.environ.get("RC_ENGINE_CODEX_BIN", "codex")
+CODEX_CLI_TIMEOUT_S = int(os.environ.get("RC_ENGINE_CODEX_TIMEOUT_S", "600"))
+CODEX_CLI_MODEL_MAP = {OPUS: "gpt-6-astra", SONNET: "gpt-5.6-sol"}
+CODEX_CLI_EFFORT_BY_TIER = dict(CLAUDE_CODE_EFFORT_BY_TIER)
+CODEX_CLI_EFFORT_STAGES = tuple(CLAUDE_CODE_EFFORT_STAGES)
+CODEX_CLI_EFFORT_BASELINE = "low"
+CODEX_CLI_EFFORTS = ("low", "medium", "high", "xhigh", "max")
 
 # Conservative input-token estimate: chars // 3 overestimates English text
 # by ~25-30%, which is the safe direction for a budget guard.
@@ -643,7 +674,9 @@ OPENAI_DEFAULT_EFFORT = "medium"
 # has already run.
 EFFORT_LADDER = ("none", "low", "medium", "high", "xhigh", "max")
 OPENAI_EFFORT_SUPPORT = {
-    "gpt-6-astra":   ("low", "medium", "high", "xhigh"),
+    # 2026-09-20: current Astra API documentation includes max; needed to
+    # preserve an explicitly selected CLI effort on opt-in API fallback.
+    "gpt-6-astra":   ("low", "medium", "high", "xhigh", "max"),
     "gpt-5.6-sol":   ("none", "low", "medium", "high", "xhigh", "max"),
     "gpt-5.6-terra": ("none", "low", "medium", "high", "xhigh"),
     "gpt-5.6-luna":  ("none", "low", "medium", "high", "xhigh"),

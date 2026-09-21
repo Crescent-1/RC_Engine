@@ -1264,7 +1264,9 @@ def _seed_ancestry_collision(pipeline: RCPipeline, seed: SeedEssay,
     try:
         import RAG
         store = RAG.get_db()
-        got = store.get(ids=[d for _, d in recent_ids],
+        # 2026-09-20: repaired/reused historical sets may share a seed. Chroma
+        # rejects duplicate IDs in one get; fetch each once, compare every RC.
+        got = store.get(ids=list(dict.fromkeys(d for _, d in recent_ids)),
                         include=["embeddings"]) or {}
         embs = got.get("embeddings")
         ids = got.get("ids")

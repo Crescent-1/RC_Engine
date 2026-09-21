@@ -23,8 +23,8 @@ THE FALLBACK IS THE POINT
 `fallback` is another client (normally providers.RoutedClient). A Claude Code
 call that hits a usage limit, times out, returns nothing usable, or cannot
 find the binary at all is retried once on the fallback, and the reason is
-printed the first time it happens. This mirrors RoutedClient's own rule that
-an unusable pin never stops a batch — it degrades, loudly.
+printed the first time it happens. Subscription runs require their pinned
+checking providers to remain available rather than substituting another model.
 
 `prefer_fallback_after_limit` (default on) makes a usage limit STICKY for the
 rest of the process: once the subscription is out, every later stage goes
@@ -51,18 +51,18 @@ Claude-Code set as an API set:
     "inline": the stage prompt at the top of the stdin turn under a
     "=== SYSTEM ===" rule, the same shape relay.py uses.
   - max_tokens has no CLI equivalent. The stage ceilings still drive the
-    budget guard and the cost estimate, but they do not bound the response.
+    API fallback's budget guard, but they do not bound the CLI response.
     Truncation is still detected — the result envelope reports stop_reason —
     and render/questions still validate what comes back regardless.
-  - thinking / output_config.effort (config.STAGE_EFFORT) have no equivalent.
+  - --effort follows CLAUDE_CODE_EFFORT_BY_TIER for questions, with low effort
+    elsewhere. These harness levels do not reproduce API thinking=disabled.
 
 COST LEDGER
 -----------
 Subscription-billed calls spend no API money, so they book a zero-cost line
 exactly as MockLLMClient and RelayClient do: the audit trail keeps the call,
 and the tier budget guard cannot abort a free run. The notional cost Claude
-Code reports is printed and totalled instead, so `health` and the operator can
-still see what the subscription lane saved. Calls that fall through to the API
+Code reports is printed and totalled in the run summary. Calls that fall through to the API
 book real money through the fallback client, as they should.
 """
 
@@ -73,9 +73,10 @@ import os
 import re
 import shutil
 import subprocess
+import time
 
 from . import config
-from .llm import APIExhausted
+from .cli_runtime import subscription_env
 
 # Usage/rate limits, as they arrive from the CLI. Deliberately broad: the cost
 # of a false positive is one unnecessary fallback to the API, and the cost of a
@@ -85,8 +86,28 @@ _LIMIT_RE = re.compile(
     r"resets? at|upgrade to|out of (?:credits|usage)", re.I)
 
 
+# Failures the CLI itself describes as temporary, which are worth another
+# attempt rather than a fallback to the paid API. Deliberately NARROW — the
+# mirror image of _LIMIT_RE above. A false positive here costs a wasted
+# subprocess and a few seconds; a false positive in _LIMIT_RE costs nothing but
+# one fallback, which is why that one is allowed to be broad and this one is
+# not. Only conditions that name themselves transient belong here.
+_TRANSIENT_RE = re.compile(
+    r"refresh oauth token|another claude code process|usually transient|"
+    r"overloaded|temporarily unavailable|connection (?:reset|refused|error)|"
+    r"socket hang up|ECONNRESET|ETIMEDOUT|EAI_AGAIN|\b5(?:02|03|29)\b", re.I)
+
+
 class ClaudeCodeUnavailable(RuntimeError):
-    """Claude Code could not answer this call; the fallback should."""
+    """Claude Code could not answer this call; the fallback should.
+
+    `transient` marks a condition the CLI calls temporary — an OAuth refresh
+    collision, an overloaded upstream — which _invoke retries before handing
+    the stage to the paid API (2026-09-21)."""
+
+    def __init__(self, *args, transient: bool = False):
+        super().__init__(*args)
+        self.transient = transient
 
 
 def resolve_binary(binary: str | None = None) -> str | None:
@@ -244,7 +265,9 @@ def probe(binary: str | None = None) -> dict:
         # `path`, never `binary`: on Windows the npm shim is claude.CMD, and
         # CreateProcess cannot exec a bare name that resolves through PATHEXT.
         r = subprocess.run([path, "--version"], capture_output=True, text=True,
-                           encoding="utf-8", timeout=30)
+                           encoding="utf-8", timeout=30, env=subscription_env())
+        if r.returncode:
+            raise ClaudeCodeUnavailable(f"version check exited {r.returncode}")
         out["version"] = (r.stdout or r.stderr or "").strip() or None
     except Exception as e:
         out["ok"] = False
@@ -252,7 +275,7 @@ def probe(binary: str | None = None) -> dict:
         return out
     try:
         r = subprocess.run([path, "--help"], capture_output=True, text=True,
-                           encoding="utf-8", timeout=30)
+                           encoding="utf-8", timeout=30, env=subscription_env())
         helptext = (r.stdout or "") + (r.stderr or "")
         for flag in ("--print", "--model", "--output-format",
                      "--append-system-prompt", "--system-prompt"):
@@ -262,6 +285,14 @@ def probe(binary: str | None = None) -> dict:
                              "RC_ENGINE_CC_SYSTEM_MODE=inline")
     except Exception as e:
         out["detail"] = f"version ok, --help failed ({type(e).__name__}: {e})"
+    try:
+        r = subprocess.run([path, "auth", "status", "--json"], capture_output=True,
+                           text=True, encoding="utf-8", timeout=30, env=subscription_env())
+        auth = json.loads(r.stdout)
+        if r.returncode or not auth.get("loggedIn") or auth.get("authMethod") != "claude.ai":
+            raise ClaudeCodeUnavailable("Claude subscription login required (claude auth login)")
+    except Exception:
+        out.update(ok=False, detail="Claude subscription login could not be verified; run claude auth login")
     return out
 
 
@@ -270,7 +301,7 @@ class ClaudeCodeClient:
 
     def __init__(self, fallback, *, binary: str | None = None,
                  model_map: dict | None = None, timeout_s: int | None = None,
-                 system_mode: str | None = None, runner=None,
+                 system_mode: str | None = None, runner=None, sleep=None,
                  prefer_fallback_after_limit: bool = True,
                  stages: set[str] | None = None, provider: str | None = None,
                  effort: str | None = None, lean: bool | None = None):
@@ -290,6 +321,7 @@ class ClaudeCodeClient:
                               or dict(config.CLAUDE_CODE_EFFORT_BY_TIER))) or "auto"
         self._lean = config.CLAUDE_CODE_LEAN if lean is None else lean
         self._run = runner or self._subprocess
+        self._sleep = sleep or time.sleep   # injectable: tests never wait
         self._sticky = prefer_fallback_after_limit
         self._stages = stages
         self._provider = provider or config.ACTIVE_PROVIDER
@@ -326,7 +358,8 @@ class ClaudeCodeClient:
         if not self._should_run(stage, context) or (self._sticky and self._limited):
             return self._fallback.call(ledger, stage, model, max_tokens, system,
                                        user, context)
-        ledger.guard(stage, len(system) + len(user), model, max_tokens)
+        # 2026-09-20: dollar guards belong to the paid fallback. Applying an
+        # API-price estimate here can strand a zero-API-cost subscription call.
         try:
             text, truncated = self._invoke(stage, model, system, user, ledger,
                                            max_tokens, context)
@@ -349,7 +382,8 @@ class ClaudeCodeClient:
         # being able to see the repo even in principle.
         return subprocess.run(argv, input=turn, capture_output=True, text=True,
                               encoding="utf-8", timeout=timeout,
-                              cwd=os.path.expanduser("~"))
+                              cwd=os.path.expanduser("~"),
+                              env=subscription_env())
 
     def _effort_for(self, stage: str, context: dict | None) -> str | None:
         """Effort for this call.
@@ -376,6 +410,27 @@ class ClaudeCodeClient:
 
     def _invoke(self, stage, model, system, user, ledger, max_tokens,
                 context=None) -> tuple[str, bool]:
+        """One stage, with a bounded retry on transient CLI failures.
+
+        MEASURED 2026-09-21: 1 live call in 4 lost the OAuth token refresh to
+        the Claude Code session the operator was driving the engine from, and
+        the stage fell straight through to the API — a paid Opus render on a
+        lane whose entire purpose is to spend no API money. Retried here first;
+        a usage limit still latches and never retries. See
+        config.CLAUDE_CODE_TRANSIENT_RETRIES."""
+        attempts = max(0, config.CLAUDE_CODE_TRANSIENT_RETRIES) + 1
+        for attempt in range(1, attempts + 1):
+            try:
+                return self._attempt(stage, model, system, user, ledger,
+                                     max_tokens, context)
+            except ClaudeCodeUnavailable as e:
+                if attempt == attempts or not getattr(e, "transient", False):
+                    raise
+                print(f"  [cc] {stage}: {e} - retry {attempt}/{attempts - 1}")
+                self._sleep(config.CLAUDE_CODE_TRANSIENT_BACKOFF_S * attempt)
+
+    def _attempt(self, stage, model, system, user, ledger, max_tokens,
+                 context=None) -> tuple[str, bool]:
         cli_model = self._map.get(model, model)
         argv, turn = _argv(self._binary, cli_model, system, user,
                            system_mode=self._system_mode, lean=self._lean,
@@ -416,7 +471,11 @@ class ClaudeCodeClient:
                     "subscription usage limit reached"
                     + (" — every later stage goes straight to the API"
                        if self._sticky else ""))
-            raise ClaudeCodeUnavailable(f"exit {rc}: {detail[:200]}")
+            # Tested AFTER the limit, never before: a real wall must latch even
+            # if its wording happens to look temporary.
+            raise ClaudeCodeUnavailable(
+                f"exit {rc}: {detail[:200]}",
+                transient=bool(_TRANSIENT_RE.search(detail)))
 
         text = _extract(stdout)
         if not text.strip():
@@ -443,7 +502,27 @@ class ClaudeCodeClient:
             reported = 0.0
         self.notional_usd += reported or ledger.worst_case(0, model, max_tokens)
 
-        u = env.get("usage") if isinstance(env.get("usage"), dict) else {}
+        # 2026-09-21 controlled Claude/Codex A/B: Claude's top-level `usage`
+        # covered only the requested Sonnet/Opus response, while `modelUsage`
+        # also reported a Haiku helper on every call. The displayed token total
+        # was therefore 30,119 although the subscription actually processed
+        # 43,915 tokens across models. Prefer the complete per-model ledger;
+        # fall back to `usage` for older/plain envelopes. Never add both.
+        models = env.get("modelUsage")
+        if isinstance(models, dict) and any(isinstance(v, dict) for v in models.values()):
+            values = [v for v in models.values() if isinstance(v, dict)]
+            u = {
+                "input_tokens": sum(int(v.get("inputTokens") or 0) for v in values),
+                "cache_creation_input_tokens": sum(
+                    int(v.get("cacheCreationInputTokens") or 0) for v in values),
+                "cache_read_input_tokens": sum(
+                    int(v.get("cacheReadInputTokens") or 0) for v in values),
+                "output_tokens": sum(int(v.get("outputTokens") or 0) for v in values),
+                "output_tokens_details": {"thinking_tokens": sum(
+                    int(v.get("thinkingTokens") or 0) for v in values)},
+            }
+        else:
+            u = env.get("usage") if isinstance(env.get("usage"), dict) else {}
         agg = self.usage
         agg["calls"] += 1
         for key, field in (("input", "input_tokens"),
@@ -476,7 +555,7 @@ class ClaudeCodeClient:
         breakdown = ", ".join(f"{stage} x{d['calls']}"
                               for stage, d in sorted(self.by_stage.items()))
         lines = [
-            f"--- Claude Code subscription usage (NOT API spend) ---",
+            f"--- {getattr(self, 'usage_label', 'Claude Code')} subscription usage (NOT API spend) ---",
             f"  calls                {a['calls']} ({breakdown})",
             f"  tokens               in {a['input']:,} | cache-write "
             f"{a['cache_write']:,} | cache-read {a['cache_read']:,} | out "

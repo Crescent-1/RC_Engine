@@ -43,6 +43,7 @@ from concurrent.futures import FIRST_COMPLETED, ProcessPoolExecutor, wait
 from datetime import datetime, timezone
 
 from . import config
+from .cli_runtime import usage_snapshot, usage_delta
 from .models import RCResult, SeedEssay
 
 # ---------------------------------------------------------------- worker side
@@ -84,6 +85,10 @@ def _lane_client(base, lane: dict | None):
     key that is a batch of 401s; with a live one it is a surprise bill. The
     lane spec is threaded through initargs so the worker builds what the
     parent promised."""
+    if lane and lane.get("codex_cli"):
+        from .codex_cli import CodexCLIClient
+        return CodexCLIClient(base, **{k: v for k, v in lane.items()
+                                      if k not in ("codex_cli", "provider")})
     if not lane or not lane.get("claude_code"):
         return base
     from .claude_code import ClaudeCodeClient
@@ -103,8 +108,10 @@ class _AggregatedUsage:
                       "cache_read": 0, "output": 0, "thinking": 0}
         self.by_stage: dict[str, dict] = {}
         self.notional_usd = 0.0
+        self.usage_label = "Claude Code"
 
     def add(self, cc: dict) -> None:
+        self.usage_label = cc.get("label", self.usage_label)
         for k, v in (cc.get("usage") or {}).items():
             if k in self.usage:
                 self.usage[k] += v
@@ -139,9 +146,10 @@ def _worker_init(db: str, provider: str, dry_run: bool, embed: bool,
     if dry_run:
         llm = MockLLMClient()
     else:
-        from .providers import RoutedClient, make_client
-        llm = RoutedClient(make_client(provider))
-    llm = _lane_client(llm, lane)
+        from .providers import RoutedClient, make_client, LazyClient
+        llm = RoutedClient(LazyClient(provider) if lane else make_client(provider),
+                           strict_pins=bool(lane))
+        llm = _lane_client(llm, lane)
     _PIPE = RCPipeline(HistoryStore(db, client_id), llm, embed=embed,
                        parallel=True, worker_id=_WORKER_ID)
 
@@ -171,6 +179,7 @@ def _worker_slot(tier: str, slot_no: int, count: int, seeds: list,
         results.append(res)
 
     exhausted = False
+    before = usage_snapshot(getattr(_PIPE, "llm", None))
     try:
         run_slot(_PIPE, tier, slot_no, count,
                  seed_provider if seeds else None, set(forced_bans),
@@ -191,12 +200,7 @@ def _worker_slot(tier: str, slot_no: int, count: int, seeds: list,
     # Ship the counters home as plain dicts or the parent's meter reads zero on
     # every parallel run — the same silent-underreport shape as the lane bug
     # above (2026-09-19).
-    cc = {}
-    llm = getattr(_PIPE, "llm", None)
-    if getattr(llm, "usage", None):
-        cc = {"usage": dict(llm.usage),
-              "by_stage": {k: dict(v) for k, v in llm.by_stage.items()},
-              "notional_usd": llm.notional_usd}
+    cc = usage_delta(before, usage_snapshot(getattr(_PIPE, "llm", None)))
     return {"results": results, "consumed": consumed, "exhausted": exhausted,
             "cc": cc}
 

@@ -130,7 +130,8 @@ class RelayClient:
 
     def __init__(self, base, root: str = "relay", *, system_mode: str = "inline",
                  stages: set[str] | None = None, provider: str | None = None,
-                 input_fn=input, clipboard: bool = True, run_id: str | None = None):
+                 input_fn=input, clipboard: bool = True, run_id: str | None = None,
+                 api_first: bool = False):
         self._base = base
         self._root = root
         self._system_mode = system_mode
@@ -141,6 +142,7 @@ class RelayClient:
         self._run_id = run_id or time.strftime("%Y%m%d-%H%M%S")
         self._n = 0
         self._systems_written: set[str] = set()
+        self._api_first = api_first
 
     # -- routing -------------------------------------------------------------
 
@@ -170,10 +172,13 @@ class RelayClient:
         if not self._should_relay(stage, context):
             return self._base.call(ledger, stage, model, max_tokens, system,
                                    user, context)
-        # Same order as every other client: guard, act, record. The guard can
-        # never trip on a free run, but keeping it means the relay exercises
-        # the identical code path as the API clients.
-        ledger.guard(stage, len(system) + len(user), model, max_tokens)
+        if self._api_first:
+            try:
+                return self._base.call(ledger, stage, model, max_tokens, system,
+                                       user, context)
+            except Exception as e:
+                print(f"  [relay] API unavailable ({type(e).__name__}); manual fallback")
+        # A manual response has no API cost. Paid base clients guard themselves.
         reply = self._relay(ledger, stage, model, max_tokens, system, user, context)
         ledger.record(stage, model, 0, 0)        # zero-cost line keeps the trail
         return reply, False
