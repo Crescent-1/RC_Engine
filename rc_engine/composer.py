@@ -15,10 +15,12 @@ from datetime import datetime, timezone
 from . import config
 from .constraints import CompatibilityRules
 from .history import HistoryStore
-from .llm import BudgetExceeded, CostLedger, extract_json
+from .llm import APIExhausted, BudgetExceeded, CostLedger, extract_json
 from .models import Blueprint, ParagraphPlan, SeedEssay
 from .fingerprints import move_signature_similarity
+from .generation_policy import LEGACY_POLICY, policy_for_blueprint, policy_for_new_plan
 from .registry import ComponentRegistry, posture_class
+from .voice_plan import middle_moves, plan_violations, schema_ids_for_shape
 
 NL = chr(10)
 
@@ -39,6 +41,13 @@ def blueprint_categorical_similarity(a: dict, b: dict) -> float:
     return sim / sum(config.BLUEPRINT_HAMMING_WEIGHTS.values())
 
 
+# coherent_plans (2026-09-14; see GenerationPolicy.coherent_plans for the counts).
+# Beat pairs whose glosses contradict: LEVEL_RELOCATION reframes the question,
+# UNDERLYING_CAUSE_NAMED names a cause "while leaving the question as posed intact".
+CONFLICTING_BEATS = (frozenset({"LEVEL_RELOCATION", "UNDERLYING_CAUSE_NAMED"}),)
+# Posture classes (label prefix) whose close must commit to a position.
+COMMITTED_POSTURE_CLASSES = ("resolution", "affirmation")
+
 REFINE_SYSTEM = """You are the content-planning stage of a CAT VARC generation engine.
 You receive a structural blueprint (argument family, paragraph movement plan, persona,
 revelation pattern, ending type) plus an optional inspiration essay excerpt.
@@ -52,6 +61,12 @@ not call for one, do NOT manufacture one, and do NOT phrase the topic as
 "whether X or Y" or "why X, and what it reveals about Y". Those two forms
 accounted for nearly half of this engine's back catalogue and are the single most
 recognisable thing about it.
+
+The ARGUMENT SCHEMA fixes what the reasoning must accomplish. The family,
+paragraph roles and beats are its implementation, not competing essay briefs.
+Give each paragraph a concrete content brief that performs its assigned beats
+and advances that schema. Do not invent an objection-and-rebuttal sequence
+unless this plan actually calls for one.
 
 Ground the topic in the SOURCE GENRE and the concrete particulars given. A
 technical piece should stay technical; a reconstructed episode should stay an
@@ -98,9 +113,26 @@ class BlueprintComposer:
         want = [i for i in pool if in_cohort(i) == allow]
         return want or pool
 
+    # Set by RCPipeline when running under workers.py; "" means sequential, and
+    # every in-flight lookup below is skipped.
+    inflight_worker: str = ""
+
     def _eligible(self, ctype: str, tier: str,
-                  ban_families: set[str] | None = None) -> list[str]:
-        ids = self.registry.ids(ctype)
+                  ban_families: set[str] | None = None,
+                  allowed_ids: set[str] | None = None,
+                  policy=None) -> list[str]:
+        policy = policy or LEGACY_POLICY
+        # The generation-policy boundary comes first (2026-09-13): no recency,
+        # posture or tier fallback below may re-admit a component that belongs
+        # to another policy. The tier lets a contract policy drop topologies
+        # that cannot carry its negative-slot target (section 4).
+        ids = policy.eligible_ids(self.registry, ctype, tier)
+        # Compatibility comes before recency: an exhausted recency window
+        # may fall back, but must never fall back to an incompatible form.
+        if allowed_ids is not None:
+            ids = [i for i in ids if i in allowed_ids]
+        if not ids:
+            return []
         if ctype == "family":
             floor = TIER_ORDER[tier]
             ids = [i for i in ids
@@ -125,7 +157,7 @@ class BlueprintComposer:
             if recent_ms:
                 usable = []
                 for i in ids:
-                    opts, can_pad = self.family_movement_options(i)
+                    opts, can_pad = self.family_movement_options(i, policy)
                     if can_pad or not opts or (set(opts) - recent_ms):
                         usable.append(i)
                 if usable:            # never empty the pool
@@ -168,6 +200,20 @@ class BlueprintComposer:
         # say so, rather than returning an empty pool.
         window = config.EXCLUSION_WINDOWS[ctype]
         positions = self.history.component_positions(ctype)
+        # A component a live sibling is holding has effectively just been used;
+        # it simply is not in the shipped history yet. Folding it in at position
+        # 0 reuses the whole window mechanism — including the never-empty-pool
+        # fallback below — instead of adding a parallel ban path. Without this a
+        # parallel batch loses every exclusion window except family, which is
+        # what let two workers take topology QT08 on 2026-09-05 and discover it
+        # only after $0.18 of questions.
+        if self.inflight_worker:
+            try:
+                held = self.history.inflight_components(self.inflight_worker)
+                for cid in held.get(ctype, ()):
+                    positions[cid] = 0
+            except Exception:                                # noqa: BLE001
+                pass
         fresh = [i for i in ids if positions.get(i, 10**9) >= window]
         if fresh:
             if ctype == "family":
@@ -201,7 +247,8 @@ class BlueprintComposer:
               f"'{tier}' pool — falling back to the {len(ids)} least-recently-used")
         return ids
 
-    def family_movement_options(self, family_id: str) -> tuple[set[str], bool]:
+    def family_movement_options(self, family_id: str,
+                                policy=None) -> tuple[set[str], bool]:
         """(deterministic movement strings, can_randomize) for this family.
 
         _build_movement pads a family's function sequence with RANDOM generic
@@ -216,9 +263,10 @@ class BlueprintComposer:
         fam = self.registry.get("family", family_id)
         fixed: set[str] = set()
         can_randomize = False
+        rhythms = (policy or LEGACY_POLICY).eligible_ids(self.registry, "rhythm")
         for seq in self._movement_sequences(fam):
             n_functions = len(seq)
-            for rid in self.registry.ids("rhythm"):
+            for rid in rhythms:
                 shape = self.registry.get("rhythm", rid)["shape"]
                 if n_functions < len(shape):
                     can_randomize = True      # fillers are sampled, not fixed
@@ -240,7 +288,8 @@ class BlueprintComposer:
     # F43/F33/F35/F36 being banned in one batch is that they were drawn too
     # often while new, which the usage decay resolves on its own.
 
-    def family_movement_exhausted(self, family_id: str, ban_m: set[str]) -> bool:
+    def family_movement_exhausted(self, family_id: str, ban_m: set[str],
+                                  policy=None) -> bool:
         """True only when the family genuinely cannot produce an unbanned
         movement string — the sole case where a collision justifies barring it.
 
@@ -249,7 +298,7 @@ class BlueprintComposer:
         Being wrong in this direction costs one extra recompose; being wrong the
         other way discards a usable family, which is the bug this replaced.
         """
-        fixed, can_randomize = self.family_movement_options(family_id)
+        fixed, can_randomize = self.family_movement_options(family_id, policy)
         if can_randomize:
             return False
         return not (fixed - set(ban_m or ()))
@@ -310,10 +359,52 @@ class BlueprintComposer:
             kept.add(survivor)
         return [i for i in ids if i in kept]
 
+    def _other_client_counts(self, ctype: str, window: int) -> dict[str, int]:
+        """Trailing usage by every OTHER client — the global house-voice term
+        (config.GLOBAL_DECAY_LAMBDA). {} while only one client exists, and for
+        test doubles that predate clients; either way the term is skipped."""
+        fn = getattr(self.history, "usage_counts_other_clients", None)
+        if fn is None:
+            return {}
+        try:
+            return fn(ctype, window) or {}
+        except Exception:                                    # noqa: BLE001
+            return {}
+
+    def _other_client_move_shares(self) -> dict[str, float]:
+        """Share of each rhetorical move across other clients' recent sets."""
+        fn = getattr(self.history, "fingerprint_window_other_clients", None)
+        if fn is None:
+            return {}
+        try:
+            window = fn(config.GLOBAL_MOVE_WINDOW)
+        except Exception:                                    # noqa: BLE001
+            return {}
+        sigs = [w.move_signature.split("|") for w in window if w.move_signature]
+        if not sigs:
+            return {}
+        counts: dict[str, int] = {}
+        for moves in sigs:
+            for m in set(moves):
+                counts[m] = counts.get(m, 0) + 1
+        return {m: n / len(sigs) for m, n in counts.items()}
+
+    def _global_pressure(self, ctype: str, ids: list[str],
+                         weights: list[float]) -> list[float]:
+        other = self._other_client_counts(ctype, config.GLOBAL_USAGE_WINDOW)
+        if not other:
+            return weights
+        return [w * config.GLOBAL_DECAY_LAMBDA ** other.get(i, 0)
+                for w, i in zip(weights, ids)]
+
     def _weighted_pick(self, ctype: str, ids: list[str],
-                       tier: str | None = None) -> str:
+                       tier: str | None = None, policy=None) -> str:
         counts = self.history.usage_counts_trailing(ctype, 100)
         weights = [config.DECAY_LAMBDA ** counts.get(i, 0) for i in ids]
+        # Global house-voice pressure (2026-09-12): what other clients were
+        # recently given is a slightly rarer draw here. Per-client recency above
+        # still decides; see config.GLOBAL_DECAY_LAMBDA.
+        weights = self._global_pressure(ctype, ids, weights)
         if ctype == "family":
             # Shape pressure (2026-08-22). Without this the 32 legacy families
             # outvote the 14 new shapes 32:14 on every draw, and since all 32
@@ -384,6 +475,9 @@ class BlueprintComposer:
                         f = cap * wo / ((1 - cap) * we)
                         for k in exam:
                             weights[k] *= f
+        # Policy calibration hook (2026-09-13). The legacy policy returns the
+        # same list untouched and consumes no randomness.
+        weights = (policy or LEGACY_POLICY).adjust_weights(ctype, ids, weights, self.registry)
         return self.rng.choices(ids, weights=weights, k=1)[0]
 
     def _move_frequencies(self) -> tuple[dict[str, float], int]:
@@ -424,9 +518,11 @@ class BlueprintComposer:
             return worst, worst_id
         return None
 
-    def _sample_move_plan_checked(self, stance: dict | None) -> list[str]:
+    def _sample_move_plan_checked(self, stance: dict | None,
+                                  tier: str | None = None,
+                                  movement=None, **voice) -> list[str]:
         """Draw a move plan that does not already collide with the corpus."""
-        plan = self._sample_move_plan(stance)
+        plan = self._sample_move_plan(stance, tier, movement, **voice)
         for attempt in range(1, config.MOVE_PLAN_PRECHECK_TRIES):
             hit = self._plan_collides(plan)
             if hit is None:
@@ -434,10 +530,93 @@ class BlueprintComposer:
             worst, rc_id = hit
             print(f"  [move-plan] planned grammar near {rc_id} @ {worst:.2f} "
                   f"- resampling {attempt}/{config.MOVE_PLAN_PRECHECK_TRIES - 1} ($0)")
-            plan = self._sample_move_plan(stance)
+            plan = self._sample_move_plan(stance, tier, movement, **voice)
         return plan
 
-    def _sample_move_plan(self, stance: dict | None) -> list[str]:
+    def _plan_length(self, tier: str | None, movement) -> int:
+        """How many beats this passage can carry.
+
+        Two bounds. The tier sets the ambition (config.MOVE_PLAN_LEN_BY_TIER);
+        the passage's own word budget sets the ceiling, because a beat needs
+        room to happen. Measured 2026-09-05: real exam passages give a move ~62
+        words and ours were giving 52, which is the crowding that made the
+        renderer drop half its planned middle beats.
+        """
+        lo, hi = config.MOVE_PLAN_LEN_BY_TIER.get(
+            tier or "", config.MOVE_PLAN_LEN)
+        want = self.rng.randint(lo, hi)
+        words = sum(p.len_words[1] for p in movement) if movement else 0
+        if words:
+            ceiling = max(3, int(words // config.MIN_WORDS_PER_BEAT))
+            want = min(want, ceiling)
+        return max(3, want)
+
+    @staticmethod
+    def allocate_beats(move_plan: list[str], movement) -> list[list[str]]:
+        """Assign each beat to a paragraph, in order, PROPORTIONAL to that
+        paragraph's word budget.
+
+        Every other constraint in the render contract carries an address -- the
+        word target, the paragraph role, the thesis paragraph, the trap anchor --
+        and every one of them is obeyed. The beat plan was the only instruction
+        with no location ("each beat may span or share paragraphs"), and it was
+        obeyed 51% of the time. The two beats that DID get addresses, the first
+        and last sentence, went from 2/9 to 5/5 the moment they got them.
+
+        Proportional rather than uniform because the rhythm library already
+        varies paragraph length hard (T02 Staircase runs S,M,L,XL; T03 runs the
+        reverse), and real exam passages are back-loaded -- last paragraph 3.4
+        beats against a 2.5-beat opener, 7 of 10 passages carrying their heaviest
+        load last. Riding the rhythm reproduces that where the rhythm calls for
+        it, and front-loads where it does not, without a new component or a
+        fixed rule.
+
+        A paragraph under config.SINGLE_BEAT_PARA_WORDS carries at most one
+        beat, so an S-class paragraph is never handed three operations.
+        """
+        n = len(movement or [])
+        if not move_plan or n == 0:
+            return [list(move_plan or [])]
+        if n == 1:
+            return [list(move_plan)]
+        words = [max(1, p.len_words[1]) for p in movement]
+        total_w = sum(words)
+        # Largest-remainder apportionment, so the beats always sum to the plan.
+        exact = [w * len(move_plan) / total_w for w in words]
+        take = [int(x) for x in exact]
+        for i in sorted(range(n), key=lambda i: exact[i] - take[i], reverse=True):
+            if sum(take) >= len(move_plan):
+                break
+            take[i] += 1
+        # short paragraphs cannot be overloaded; spill into the roomiest one
+        for i in range(n):
+            if words[i] < config.SINGLE_BEAT_PARA_WORDS and take[i] > 1:
+                spill = take[i] - 1
+                take[i] = 1
+                j = max(range(n), key=lambda k: words[k] - take[k] * 40)
+                take[j] += spill
+        # the opening beat belongs to paragraph 1 and the closing to the last
+        take[0] = max(1, take[0])
+        take[-1] = max(1, take[-1])
+        while sum(take) > len(move_plan):
+            j = max((k for k in range(n) if take[k] > 1),
+                    key=lambda k: take[k], default=None)
+            if j is None:
+                break
+            take[j] -= 1
+        out, cur = [], 0
+        for k in take:
+            out.append(move_plan[cur:cur + k])
+            cur += k
+        if cur < len(move_plan):          # rounding leftovers ride the last para
+            out[-1].extend(move_plan[cur:])
+        return out
+
+    def _sample_move_plan(self, stance: dict | None,
+                          tier: str | None = None, movement=None,
+                          schema_id: str = "", ending_id: str = "",
+                          posture: str = "", family_id: str = "",
+                          policy=None) -> list[str]:
         """Prescribe the passage's rhetorical beats, rarest-first.
 
         Replaces the ban list that shipped on 2026-08-21 and did not work. The
@@ -453,40 +632,84 @@ class BlueprintComposer:
         EASY_READING_DEMOLISHED at 86%) become rare draws rather than banned
         ones — they can still appear when a passage genuinely wants them.
         """
+        policy = policy or LEGACY_POLICY
+        groups = policy.move_groups()
+        exam_shares = policy.exam_move_shares()
         shares, n = self._move_frequencies()
+        other_shares = self._other_client_move_shares()
         banned = set((stance or {}).get("forbidden_beats", []))
+        if schema_id:
+            banned.update(policy.family_forbidden_moves(family_id))
+
+        def clashes(m: str, taken: set[str]) -> bool:
+            return policy.coherent_plans and any(
+                m in pair and (pair - {m}) & taken for pair in CONFLICTING_BEATS)
 
         def pick(pool: list[str], k: int, taken: set[str]) -> list[str]:
             out: list[str] = []
             for _ in range(k):
-                cands = [m for m in pool if m not in taken and m not in banned]
+                cands = [m for m in pool if m not in taken and m not in banned
+                         and not clashes(m, taken)]
+                if not cands and schema_id:
+                    break  # fewer useful operations beats repeating or violating the stance
                 if not cands:
                     cands = [m for m in pool if m not in taken] or list(pool)
                 weights = [max(0.01, (1.0 - shares.get(m, 0.0))
                                ** config.MOVE_PLAN_RARITY_POWER) for m in cands]
+                if schema_id:
+                    # The reference distribution is uneven. Recency pressure
+                    # should not turn a rare stylistic trick into a duty.
+                    weights = [w * exam_shares.get(m, 0.08)
+                               for w, m in zip(weights, cands)]
+                if other_shares:
+                    # The house voice is one voice across every client: a beat
+                    # other clients' passages lean on is a softer rarity here.
+                    weights = [w * max(0.01, 1.0 - other_shares.get(m, 0.0))
+                               ** config.GLOBAL_MOVE_RARITY_POWER
+                               for w, m in zip(weights, cands)]
                 choice = self.rng.choices(cands, weights=weights, k=1)[0]
                 out.append(choice)
                 taken.add(choice)
             return out
 
-        lo, hi = config.MOVE_PLAN_LEN
-        total = self.rng.randint(lo, hi)
+        total = self._plan_length(tier, movement)
         taken: set[str] = set()
-        opening = pick(config.MOVE_GROUPS["opening"], 1, taken)
-        closing = pick(config.MOVE_GROUPS["closing"], 1, taken)
-        middles = pick(config.MOVE_GROUPS["middle"], max(1, total - 2), taken)
+        opening = pick(groups["opening"], 1, taken)
+        close_pool = groups["closing"]
+        if schema_id:
+            close_pool = [m for m in close_pool
+                          if m in policy.closing_beats(ending_id, posture, family_id)
+                          and m not in banned]
+            if not close_pool:
+                raise CompositionExhausted("ending and stance have no compatible closing beat")
+        closing = pick(close_pool, 1, taken)
+        required = (list(policy.schema_forms()[schema_id]["required_middle"])
+                    if schema_id else [])
+        if banned & set(required):
+            raise CompositionExhausted("stance forbids a defining operation of the schema")
+        taken.update(required)
+        middle_pool = groups["middle"]
+        if schema_id:
+            middle_pool = [m for m in middle_pool if m in middle_moves(schema_id, policy)]
+        middles = required + pick(middle_pool, max(0, total - 2 - len(required)), taken)
         return opening + middles + closing
 
     def sample_skeleton(self, tier: str,
                         ban_families: set[str] | None = None,
-                        ban_movements: set[str] | None = None) -> dict:
+                        ban_movements: set[str] | None = None,
+                        argument_schema_id: str = "",
+                        policy=None, seed_genre: str = "") -> dict:
         """Returns {"family": ..., "persona": ..., ...} or raises.
 
         ban_families / ban_movements: slot-local bans from a prior movement
         collision (precheck or Gate B). Families are dropped from the pool;
         movement strings are checked after the family's function sequence is
         built (same family + rhythm can still insert fillers — reject those).
+        policy: the generation policy the plan is composed under; None = legacy.
         """
+        policy = policy or LEGACY_POLICY
+        schema_forms = policy.schema_forms()
+        exam_shapes = policy.exam_derived_shapes()
         ban_f = set(ban_families or ())
         ban_m = set(ban_movements or ())
 
@@ -518,7 +741,51 @@ class BlueprintComposer:
             ids: dict[str, str] = {}
             ok = True
             for ctype in order:
-                pool = self._eligible(ctype, tier, ban_families=ban_f)
+                forms = schema_forms.get(argument_schema_id, {})
+                allowed = forms.get(ctype)
+                if ctype == "render_stance" and allowed == set():
+                    ids[ctype] = ""  # the schema itself supplies the writing stance
+                    continue
+                if ctype == "revelation" and argument_schema_id:
+                    # Section 5.2 (2026-09-13): a revelation whose timing the
+                    # schema's directive contradicts is not eligible. Empty for
+                    # every policy without exclusions, which leaves this a no-op.
+                    excluded = policy.revelations_excluded_by(argument_schema_id)
+                    if excluded:
+                        allowed = {i for i in policy.eligible_ids(self.registry, ctype)
+                                   if i not in excluded}
+                pool = self._eligible(ctype, tier, ban_families=ban_f,
+                                      allowed_ids=allowed, policy=policy)
+                if (ctype == "revelation" and policy.coherent_plans and "family" in ids
+                        and self.registry.posture_of(ids["family"]).split("_")[0]
+                        in COMMITTED_POSTURE_CLASSES):
+                    # A thesis that is never stated cannot also be the verdict
+                    # the close must commit to (see GenerationPolicy.coherent_plans).
+                    pool = [i for i in pool
+                            if self.registry.get(ctype, i).get("timing") != "never_stated"]
+                bound = policy.family_bound_components.get(ctype)
+                if bound and "family" in ids:
+                    # e.g. E21 "The Scope Fixed" only closes F61 (2026-09-13);
+                    # a bound component never joins another family.
+                    pool = [i for i in pool if i not in bound or ids["family"] in bound[i]]
+                if ctype == "persona" and policy.genre_filtered_personas and seed_genre \
+                        and seed_genre != "unknown":
+                    # A persona that names the genres it can carry is drawn only
+                    # for those (section 5.3: P21-P23 need compatible material).
+                    # Never empties the pool.
+                    fits = [i for i in pool
+                            if seed_genre in (self.registry.get(ctype, i).get("compatible_genres")
+                                              or [seed_genre])]
+                    pool = fits or pool
+                if ctype == "render_stance" and argument_schema_id:
+                    required = set(forms["required_middle"])
+                    endings = policy.closing_beats(ids["ending"], self.registry.posture_of(ids["family"]),
+                                                   ids["family"])
+                    pool = [i for i in pool
+                            if not required.intersection(self.registry.get(ctype, i)["forbidden_beats"])
+                            and endings.difference(self.registry.get(ctype, i)["forbidden_beats"])
+                            and (i != "RS04" or self.registry.get("persona", ids["persona"]).get(
+                                "pronoun_person") == "first_singular")]
                 # A share ceiling has to steer BOTH ways. Permitting a cohort
                 # on the winning flip and then letting it compete against the
                 # whole pool multiplies the two probabilities: measured
@@ -530,8 +797,7 @@ class BlueprintComposer:
                 if ctype == "family":
                     pool = self._steer_share(
                         pool, allow_exam_form,
-                        lambda i: (self.registry.shape_of(i)
-                                   in config.EXAM_DERIVED_SHAPES))
+                        lambda i: (self.registry.shape_of(i) in exam_shapes))
                 if ctype == "persona":
                     pool = self._steer_share(
                         pool, allow_first_person,
@@ -542,7 +808,7 @@ class BlueprintComposer:
                 if not pool:
                     ok = False
                     break
-                ids[ctype] = self._weighted_pick(ctype, pool, tier)
+                ids[ctype] = self._weighted_pick(ctype, pool, tier, policy)
             if not ok:
                 continue
 
@@ -575,7 +841,7 @@ class BlueprintComposer:
                     # family ban here threw those away and burned through the
                     # pool a family at a time. Only bar the family once EVERY
                     # movement string it can produce is banned.
-                    if self.family_movement_exhausted(ids["family"], ban_m):
+                    if self.family_movement_exhausted(ids["family"], ban_m, policy):
                         ban_f.add(ids["family"])
                     continue
             return ids
@@ -614,6 +880,12 @@ class BlueprintComposer:
         functions = list(self.rng.choice(self._movement_sequences(family)))
         shape = list(rhythm["shape"])
         fillers = list(self.registry.generic_fillers)
+        if rhythm.get("exclude_fillers"):
+            # 2026-09-13 (T21/T22): a rhythm may refuse a filler. CONCESSION_TRAP
+            # pads a short family into the concede-then-pivot spine the beat
+            # plan is fighting; newsroom and explainer cadences do not want it.
+            # Legacy rhythms carry no such field, so their draws are unchanged.
+            fillers = [f for f in fillers if f not in rhythm["exclude_fillers"]] or fillers
         # align paragraph count: pad functions with generic fillers at interior
         # positions, or extend the shape by repeating its middle class
         while len(shape) < len(functions):
@@ -696,7 +968,7 @@ class BlueprintComposer:
     # --------------------------------------------------------------- compose
 
     def classify_and_pick_shape(self, seed: SeedEssay, ledger: CostLedger,
-                                tier: str) -> tuple[dict, str]:
+                                tier: str, policy=None) -> tuple[dict, str]:
         """Read the seed, then choose a topic shape it can actually carry.
 
         Runs before any expensive stage, so a seed whose genre the corpus is
@@ -706,26 +978,144 @@ class BlueprintComposer:
         from .seed_classify import (classify_seed, eligible_topic_shapes,
                                     genre_is_saturated)
 
-        info = classify_seed(seed, self.llm, ledger, tier)
+        policy = policy or policy_for_new_plan(tier)
+        menu = ""
+        if policy.seed_fidelity:
+            from .seed_classify import shape_menu
+            menu = shape_menu(self.registry, policy.eligible_ids(self.registry, "topic_shape"))
+        stored = getattr(seed, "labels", None)
+        if stored:
+            # 2026-09-14: labelled once in the seed store (seed_labels.py); the
+            # stored shapes cover the whole library, filtered per policy below.
+            info = dict(stored)
+            print("  [seed] labels from the seed store")
+        else:
+            info = classify_seed(seed, self.llm, ledger, tier, menu=menu)
         info["saturated"] = genre_is_saturated(self.history, info["genre"])
+        if menu and getattr(seed, "text", ""):
+            print(f"  [seed] shapes this essay can carry: "
+                  f"{', '.join(info.get('carriable_shapes') or []) or 'none reported'}")
 
-        eligible = eligible_topic_shapes(self.registry, info)
+        eligible = eligible_topic_shapes(self.registry, info, policy)
+        # Ceiling on groups of shapes that ask the same question, BEFORE the
+        # inverse-frequency draw below. It has to come first: the decay weight
+        # is a soft preference, and two shapes that are each individually rare
+        # can still be the same passage three times running -- which is exactly
+        # what TS06/TS12 did (see config.TOPIC_SHAPE_COHORT_MAX_SHARE).
+        #
+        # Bidirectional, like every other share ceiling here: restrict TO the
+        # cohort on a winning flip and AWAY from it on a losing one. A
+        # permit-only flip multiplies two probabilities and under-binds; that
+        # is how FIRST_PERSON_MAX_SHARE realised 4-5% against a 20% ceiling.
+        cohorts = list(getattr(config, 'TOPIC_SHAPE_COHORT_MAX_SHARE', []))
+        if policy.seed_fidelity:
+            # 2026-09-14: see config.SEED_FIDELITY_COHORT_MAX_SHARE.
+            cohorts += list(getattr(config, 'SEED_FIDELITY_COHORT_MAX_SHARE', []))
+        for cohort, cap in cohorts:
+            eligible = self._steer_share(
+                eligible, self.rng.random() < cap, lambda i, c=cohort: i in c)
         # Same inverse-frequency logic the move plan and arc shapes use: a
         # shape the recent corpus leans on becomes a rare draw rather than a
         # banned one.
         counts = self.history.usage_counts_trailing("topic_shape", 30) \
             if hasattr(self.history, "usage_counts_trailing") else {}
         weights = [config.DECAY_LAMBDA ** counts.get(i, 0) for i in eligible]
+        weights = self._global_pressure("topic_shape", eligible, weights)
+        weights = policy.adjust_weights("topic_shape", eligible, weights, self.registry)
         shape_id = self.rng.choices(eligible, weights=weights, k=1)[0]
         return info, shape_id
+
+    def sample_argument_schema(self, eligible: list[str] | None = None,
+                               policy=None) -> str:
+        """Draw what the argument will DO, weighted to the exam's measured
+        distribution and damped by recent use.
+
+        Weighted to the EXAM, not to uniform: the exam runs S4 at 30.6% and
+        S2 at 25.8%, and flattening those would be as wrong as the
+        monoculture this replaces. The engine's own last 32 sets ran S1 at
+        46.9% against the exam's 12.9%, while never once producing S5 or S8.
+
+        Damping is multiplicative on top of the exam weight rather than a
+        hard exclusion window, for the same reason: a window would force
+        uniformity on a distribution that is deliberately uneven.
+        """
+        schemas = (policy or LEGACY_POLICY).argument_schemas()
+        ids = list(schemas) if eligible is None else list(eligible)
+        if not ids:
+            raise CompositionExhausted("no argument schema fits the source's topic shape")
+        try:
+            measured = getattr(self.history, "argument_schema_counts", None)
+            counts = (measured(config.ARGUMENT_SCHEMA_WINDOW) if measured else
+                      self.history.usage_counts_trailing(
+                          'argument_schema', config.ARGUMENT_SCHEMA_WINDOW))
+        except Exception:                                    # noqa: BLE001
+            counts = {}
+        lam = config.ARGUMENT_SCHEMA_DECAY_LAMBDA
+        weights = [schemas[i]['exam_share'] * lam ** counts.get(i, 0)
+                   for i in ids]
+        measured = getattr(self.history, "argument_schema_counts", None)
+        if measured:
+            other = measured(config.GLOBAL_USAGE_WINDOW, scope="others")
+            weights = [w * config.GLOBAL_DECAY_LAMBDA ** other.get(i, 0)
+                       for i, w in zip(ids, weights)]
+        else:
+            weights = self._global_pressure("argument_schema", ids, weights)
+        if not any(weights):          # every schema saturated: fall back flat
+            weights = [1.0] * len(ids)
+        return self.rng.choices(ids, weights=weights, k=1)[0]
+
+    def _fallback_topic_shape(self, seed_info, policy, tried: list[str]) -> str | None:
+        from .seed_classify import eligible_topic_shapes
+        options = [t for t in eligible_topic_shapes(self.registry, seed_info or {}, policy)
+                   if t not in tried and schema_ids_for_shape(t, policy)]
+        return self.rng.choice(options) if options else None
 
     def compose(self, tier: str, seed: SeedEssay, ledger: CostLedger,
                 ban_families: set[str] | None = None,
                 ban_movements: set[str] | None = None,
                 seed_info: dict | None = None,
-                topic_shape_id: str = "") -> Blueprint:
-        ids = self.sample_skeleton(tier, ban_families=ban_families,
-                                   ban_movements=ban_movements)
+                topic_shape_id: str = "", policy=None) -> Blueprint:
+        # 2026-09-13: every draw below happens under one generation policy,
+        # resolved once for the plan and stored on it.
+        policy = policy or policy_for_new_plan(tier)
+        # 2026-09-12: choose the reasoning purpose before content exists.
+        # Retry incompatible/exhausted schemas locally, never after a paid
+        # refiner has already committed to a different argument.
+        schemas = schema_ids_for_shape(topic_shape_id, policy)
+        ids = None
+        tried_shapes = [topic_shape_id]
+        while True:
+            while schemas:
+                schema_id = self.sample_argument_schema(schemas, policy)
+                try:
+                    ids = self.sample_skeleton(tier, ban_families=ban_families,
+                                               ban_movements=ban_movements,
+                                               argument_schema_id=schema_id,
+                                               policy=policy,
+                                               seed_genre=(seed_info or {}).get("genre", ""))
+                    break
+                except CompositionExhausted:
+                    schemas.remove(schema_id)
+            if ids is not None or policy.reads_legacy or not topic_shape_id:
+                break
+            # 2026-09-13 (measured in tools/cat_pyq/simulate_policies.py): a
+            # section-5 topic shape can lead to a single schema with a single
+            # family (TS15 -> S9 -> F60). Once that family's revelation and
+            # ending pairs sit in the recent-pair window every skeleton collides,
+            # and the attempt died as failed_composition — 10 of 80 hard attempts
+            # under cat-pyq-s1. A non-legacy plan instead falls back, at most
+            # twice, to another topic shape this seed can carry. Legacy plans
+            # keep failing exactly as before.
+            nxt = self._fallback_topic_shape(seed_info, policy, tried_shapes)
+            if nxt is None or len(tried_shapes) > 2:
+                break
+            print(f"  [composer] topic shape {topic_shape_id} exhausted for {tier} - "
+                  f"falling back to {nxt}")
+            topic_shape_id = nxt
+            tried_shapes.append(nxt)
+            schemas = schema_ids_for_shape(topic_shape_id, policy)
+        if ids is None:
+            raise CompositionExhausted("no compatible schema/family remains for this source and tier")
         family = self.registry.get("family", ids["family"])
         rhythm = self.registry.get("rhythm", ids["rhythm"])
         ending = self.registry.get("ending", ids["ending"])
@@ -734,8 +1124,15 @@ class BlueprintComposer:
 
         movement = self._scale_lengths(self._build_movement(family, rhythm), tier)
         lo, hi = config.TIER_PARAMS[tier]["instability_range"]
-        reg_ids = [r[0] for r in config.CLOSING_REGISTERS]
-        reg_wts = [r[1] for r in config.CLOSING_REGISTERS]
+        stance = self.registry.get("render_stance", ids["render_stance"]) if ids.get("render_stance") else None
+        move_plan = self._sample_move_plan_checked(
+            stance, tier, movement, schema_id=schema_id,
+            ending_id=ids["ending"], posture=family["closing_posture"], family_id=ids["family"],
+            policy=policy)
+        registers = [r for r in config.CLOSING_REGISTERS
+                     if r[0] in policy.closing_registers_by_beat()[move_plan[-1]]]
+        reg_ids = [r[0] for r in registers]
+        reg_wts = [r[1] for r in registers]
         closing_register = self.rng.choices(reg_ids, weights=reg_wts, k=1)[0]
 
         bp = Blueprint(
@@ -746,10 +1143,11 @@ class BlueprintComposer:
             distractor_profile_id=ids["distractor_profile"], topology_id=ids["topology"],
             render_stance_id=ids.get("render_stance", ""),
             topic_shape_id=topic_shape_id,
+            argument_schema_id=schema_id,
+            voice_plan_version="2026-09-12",
+            generation_policy=policy.version,
             seed_genre=(seed_info or {}).get("genre", ""),
-            move_plan=self._sample_move_plan_checked(
-                self.registry.get("render_stance", ids["render_stance"])
-                if ids.get("render_stance") else None),
+            move_plan=move_plan,
             instability=round(self.rng.uniform(lo, hi), 2),
             aperture=ending["aperture"], movement=movement,
             letter_plan=self._letter_plan(),
@@ -760,20 +1158,35 @@ class BlueprintComposer:
                   "domain_hint": seed.domain_hint},
         )
 
+        if policy.seed_fidelity:
+            # 2026-09-14: the anchor rides on the plan so a re-refine or a plan
+            # check later in the attempt reads what this compose read.
+            from .seed_fidelity import anchor_from
+            bp.seed.update(anchor_from(seed, seed_info))
+
+        issues = plan_violations(bp, self.registry)
+        if issues:
+            raise CompositionExhausted("incompatible voice plan: " + "; ".join(issues))
+
         # ---- LLM refinement (fills content, never structure) ----
         model, max_tokens = config.STAGE_CONFIG["refine"][tier]
         mechanisms = [profile["primary"], profile["secondary"]]
         base_user = self._refine_user_prompt(bp, family, revelation, ending, profile, seed)
         refined = self._refine_with_retry(bp, model, max_tokens, base_user,
-                                          mechanisms, ledger)
-        return self._apply_refined(bp, refined, mechanisms)
+                                          mechanisms, ledger, seed)
+        return self._apply_refined(bp, refined, mechanisms, seed)
 
     def refine_only(self, bp: Blueprint, seed: SeedEssay, ledger: CostLedger,
-                    avoid_topics: list[str] | None = None) -> Blueprint:
+                    avoid_topics: list[str] | None = None,
+                    fidelity_failure: str = "") -> Blueprint:
         """Re-run the refine stage on an existing blueprint (structure stays
         fixed), steering the topic away from avoid_topics. Used by the
         pre-render topic-collision precheck: a re-refine costs ~$0.01-0.03 vs
-        ~$0.07 for a render + compliance that novelty would then reject."""
+        ~$0.07 for a render + compliance that novelty would then reject.
+
+        fidelity_failure (seed-fidelity plans, 2026-09-14): why the previous
+        plan failed the seed check, restated so the re-plan returns to the
+        seed's subject."""
         family = self.registry.get("family", bp.family_id)
         revelation = self.registry.get("revelation", bp.revelation_id)
         ending = self.registry.get("ending", bp.ending_id)
@@ -781,46 +1194,89 @@ class BlueprintComposer:
         model, max_tokens = config.STAGE_CONFIG["refine"][bp.tier]
         mechanisms = [profile["primary"], profile["secondary"]]
         user = self._refine_user_prompt(bp, family, revelation, ending, profile, seed)
-        if avoid_topics:
+        fidelity = policy_for_blueprint(bp).seed_fidelity
+        if avoid_topics and fidelity:
+            # Changing domain is exactly what f3 forbids: the collision is
+            # escaped by angle, question or particulars inside the seed's subject.
+            user += ("\n\nCRITICAL: a previous topic for this structure was too "
+                     "semantically close to existing passages. Keep the source essay's "
+                     "subject and kind of material, and choose a different angle, question "
+                     "or set of particulars within it, far from ALL of these:\n  - "
+                     + "\n  - ".join(t for t in avoid_topics if t))
+        elif avoid_topics:
             user += ("\n\nCRITICAL: a previous topic for this structure was too "
                      "semantically close to existing passages. Choose a DIFFERENT "
                      "domain, far from ALL of these:\n  - "
                      + "\n  - ".join(t for t in avoid_topics if t))
+        if fidelity_failure and fidelity:
+            user += ("\n\nCRITICAL: the previous plan left the source essay "
+                     f"({fidelity_failure}). Re-plan on the essay's own subject, as the "
+                     "same kind of material, with the structure unchanged.")
         refined = self._refine_with_retry(bp, model, max_tokens, user,
-                                          mechanisms, ledger)
-        return self._apply_refined(bp, refined, mechanisms)
+                                          mechanisms, ledger, seed)
+        return self._apply_refined(bp, refined, mechanisms, seed)
+
+    def _apply_facts(self, bp: Blueprint, refined: dict, seed) -> None:
+        """Section 6 (2026-09-13): keep the refiner's candidate facts that survive
+        structural validation, and swap planned beats the survivors cannot carry.
+        Only rejection REASONS are recorded; source text never reaches a log."""
+        from .source_facts import replace_unsupported_beats, validate
+        facts, reasons = validate(refined.get("source_facts") or [], seed,
+                                  strict=policy_for_blueprint(bp).strict_source_fact_audit)
+        bp.source_facts = facts
+        notes = [f"source facts: {len(facts)} kept"
+                 + (f", {len(reasons)} rejected ({'; '.join(sorted(set(reasons)))})"
+                    if reasons else "")]
+        if bp.move_plan:
+            policy = policy_for_blueprint(bp)
+            stance = (self.registry.get("render_stance", bp.render_stance_id)
+                      if bp.render_stance_id else {})
+            forbidden = (set(stance.get("forbidden_beats", []))
+                         | policy.family_forbidden_moves(bp.family_id))
+            bp.move_plan, swapped = replace_unsupported_beats(bp.move_plan, facts, forbidden)
+            notes.extend(swapped)
+        bp.source_fact_notes = notes
+        print(f"  [facts] {notes[0]}" + (f"; {'; '.join(notes[1:])}" if notes[1:] else ""))
 
     def _apply_refined(self, bp: Blueprint, refined: dict,
-                       mechanisms: list[str]) -> Blueprint:
+                       mechanisms: list[str], seed=None) -> Blueprint:
         bp.topic = refined.get("topic", "") or bp.topic
         bp.tension_system = refined.get("tension_system") or {}
-        if not bp.tension_system and refined.get("content_frame"):
+        if refined.get("content_frame"):
             # Shapes that do not run on two poles still need their material
             # fixed somewhere the renderer will read. tension_system is
             # consumed with `or {}` downstream, so an absent one is safe.
-            bp.tension_system = {"content_frame": str(refined["content_frame"])}
+            bp.tension_system["content_frame"] = str(refined["content_frame"])
         bp.trap_map = self._sanitize_traps(refined.get("trap_map", []), mechanisms,
                                            len(bp.movement))
         gists = {b.get("para"): b.get("gist", "") for b in refined.get("paragraph_briefs", [])}
         for p in bp.movement:
             p.gist = gists.get(p.para, "")
+        if policy_for_blueprint(bp).source_facts:
+            self._apply_facts(bp, refined, seed)
         return bp
 
     def _refine_with_retry(self, bp: Blueprint, model: str, max_tokens: int,
                            base_user: str, mechanisms: list[str],
-                           ledger: CostLedger) -> dict:
+                           ledger: CostLedger, seed=None) -> dict:
         """One transient empty/truncated/unparseable refine response must never
         crash a batch. Retry with a nudge; if all attempts fail, fall back to a
         deterministic minimal plan so the blueprint is still renderable (the
         structure — the part that matters for novelty — is already fixed)."""
         last_err = "no response"
         user = base_user
+        policy = policy_for_blueprint(bp)
+        system = policy.system_prompt("refine", REFINE_SYSTEM)
+        context = {"blueprint": bp, "mechanisms": mechanisms}
+        if policy.source_facts:
+            from .source_facts import retained_excerpt
+            context["seed_excerpt"] = retained_excerpt(getattr(seed, "text", "") if seed else "")
         for attempt in range(1, config.MAX_REFINE_ATTEMPTS + 1):
             try:
                 text, truncated = self.llm.call(
-                    ledger, "refine", model, max_tokens, REFINE_SYSTEM, user,
-                    context={"blueprint": bp, "mechanisms": mechanisms})
-            except BudgetExceeded:
+                    ledger, "refine", model, max_tokens, system, user,
+                    context=context)
+            except (BudgetExceeded, APIExhausted):
                 raise
             except Exception as e:                       # API hiccup on this attempt
                 last_err = f"call error: {e}"
@@ -864,6 +1320,11 @@ class BlueprintComposer:
         family = self.registry.get("family", bp.family_id)
         n = len(bp.movement)
         domain = bp.seed.get("domain_hint") or (self.rng.choice(config.DOMAIN_POOL))
+        if policy_for_blueprint(bp).seed_fidelity and (bp.seed.get("subject")
+                                                       or bp.seed.get("title")):
+            # 2026-09-14: domain_hint is the PUBLICATION ("a live conceptual
+            # tension in Aeon"), so the legacy fallback topic was never the seed's.
+            domain = bp.seed.get("subject") or bp.seed.get("title")
         return {
             "topic": f"a live conceptual tension in {domain}",
             "tension_system": {
@@ -905,6 +1366,16 @@ class BlueprintComposer:
 
     def _refine_user_prompt(self, bp: Blueprint, family: dict, revelation: dict,
                             ending: dict, profile: dict, seed: SeedEssay) -> str:
+        policy = policy_for_blueprint(bp)
+        vocab = policy.move_vocabulary()
+        schema = policy.argument_schemas().get(bp.argument_schema_id)
+        schema_part = (f"ARGUMENT SCHEMA: {bp.argument_schema_id}\n"
+                       f"  {schema['directive']}\n") if schema else ""
+        stance_part = ""
+        if bp.render_stance_id:
+            stance = self.registry.get("render_stance", bp.render_stance_id)
+            stance_part = f"WRITING STANCE: {stance['name']} — {stance['frame']}\n"
+        allocation = self.allocate_beats(bp.move_plan, bp.movement) if bp.move_plan else []
         shape_part = ""
         if bp.topic_shape_id:
             sh = self.registry.get("topic_shape", bp.topic_shape_id)
@@ -924,7 +1395,18 @@ class BlueprintComposer:
                           f"into a conceptual essay about it.{NL}")
 
         seed_part = ""
-        if seed.text:
+        fidelity = policy.seed_fidelity and bool(seed.text)
+        if fidelity:
+            # 2026-09-14 (seed_fidelity.py): "adapt its territory" is how a
+            # virtue essay became a probate passage. The excerpt keeps its label
+            # (f1/f2 fact spans are quoted "from the INSPIRATION ESSAY EXCERPT").
+            from .seed_fidelity import anchor_block
+            excerpt = " ".join(seed.text.split()[:550])
+            seed_part = (f"\n{anchor_block(bp, seed)}"
+                         f"INSPIRATION ESSAY EXCERPT (stay on its subject and kind of "
+                         f"material; build your own argument, do NOT copy its argument):"
+                         f"\n{excerpt}\n")
+        elif seed.text:
             words = seed.text.split()
             excerpt = " ".join(words[:550])
             seed_part = (f"\nINSPIRATION ESSAY EXCERPT (adapt its domain and intellectual "
@@ -935,17 +1417,26 @@ class BlueprintComposer:
         seed_part = shape_part + genre_part + seed_part
         movement_lines = "\n".join(
             f"  para {p.para}: {p.function} ({p.words_label} words)"
-            for p in bp.movement)
+            + ("; operations: " + "; ".join(
+                f"{m} — {vocab[m]}" for m in allocation[i])
+               if i < len(allocation) and allocation[i] else "")
+            for i, p in enumerate(bp.movement))
         # topical divergence up front (~150 input tokens on the cheap refine
         # model) so passages stop colliding on the embedding channel AFTER the
         # expensive render call; includes recently rejected topics on purpose
         avoid_part = ""
         avoid = self.history.recent_topics(config.REFINE_AVOID_TOPICS)
-        if avoid:
+        if avoid and fidelity:
+            avoid_part = ("\nAVOID these recently used topical territories — take an "
+                          "angle within the source essay's subject that is distant from "
+                          "ALL of them; never leave the essay's subject to escape them:\n  - "
+                          + "\n  - ".join(avoid) + "\n")
+        elif avoid:
             avoid_part = ("\nAVOID these recently used topical territories — invent "
                           "something semantically distant from ALL of them:\n  - "
                           + "\n  - ".join(avoid) + "\n")
-        return f"""STRUCTURAL BLUEPRINT (fixed — invent content for it):
+        return policy.user_prompt("refine", f"""STRUCTURAL BLUEPRINT (fixed — invent content for it):
+{schema_part}{stance_part}Build the paragraph briefs as ONE argument implementing this plan.
 ARGUMENT FAMILY: {family['name']} — {family['core']}
 Difficulty must come from: {family['difficulty_source']}
 PARAGRAPH MOVEMENT PLAN:
@@ -953,9 +1444,9 @@ PARAGRAPH MOVEMENT PLAN:
 THESIS REVELATION: {revelation['name']} — {revelation['mechanism']}
 (thesis first becomes visible around paragraph {bp.revelation_detail['planned_para']})
 ENDING: {ending['name']} — {ending['gesture']} (aperture: {ending['aperture']})
-REQUIRED CLOSING POSTURE: {family['closing_posture']} — {self.registry.closing_postures[family['closing_posture']]}
+REQUIRED CLOSING POSTURE: {family['closing_posture']} — {policy.closing_postures(self.registry)[family['closing_posture']]}
 (the 'fate' fields in tension_system must be consistent with this posture)
 INSTABILITY DEGREE: {bp.instability} (0 = neat closure, 1 = fully suspended; this governs how contested the middle feels — the ending's stance is governed by the closing posture above)
 ALLOWED TRAP MECHANISMS: {profile['primary']}, {profile['secondary']}
 {seed_part}{avoid_part}
-Produce the JSON now."""
+Produce the JSON now.""")

@@ -27,6 +27,8 @@ from .composer import (BlueprintComposer, CompositionExhausted,
 from .constraints import CompatibilityRules
 from .fingerprints import (embed_text, extract_fingerprint, movement_similarity,
                            topology_similarity)
+from .generation_policy import (LEGACY_POLICY, PolicyError, policy_for_blueprint,
+                                policy_for_new_plan)
 from .history import HistoryStore
 from .llm import APIExhausted, BudgetExceeded, CostLedger
 from .models import Blueprint, RCResult, RealizedStructure, SeedEssay
@@ -73,6 +75,8 @@ class RCPipeline:
         self.worker_id = worker_id
         rules = CompatibilityRules(self.registry)
         self.composer = BlueprintComposer(self.registry, history, rules, llm, rng)
+        if parallel:
+            self.composer.inflight_worker = worker_id
         self.renderer = PassageRenderer(self.registry, llm)
         self.auditor = ComplianceAuditor(llm, self.registry)
         self.qengine = QuestionEngine(self.registry, llm)
@@ -111,8 +115,12 @@ class RCPipeline:
         # rather than being discovered after a $0.02 refine. Classified once
         # per RC, not once per movement retry: the seed does not change inside
         # that loop.
+        # One generation policy for this whole attempt (2026-09-13): every
+        # component draw, beat read and prompt below uses it, and the
+        # blueprint stores it for resume. Elite always resolves to legacy.
+        policy = policy_for_new_plan(tier)
         seed_info, topic_shape_id = self.composer.classify_and_pick_shape(
-            seed, ledger, tier)
+            seed, ledger, tier, policy=policy)
         # Seedless attempts have nothing to rotate TO: the pool check below asks
         # whether the RAG store holds another content kind, but rotation draws
         # from the batch's seed provider, and with --no-seed (or an exhausted
@@ -147,7 +155,8 @@ class RCPipeline:
                 bp = self.composer.compose(
                     tier, seed, ledger,
                     ban_families=ban_f, ban_movements=ban_m,
-                    seed_info=seed_info, topic_shape_id=topic_shape_id)
+                    seed_info=seed_info, topic_shape_id=topic_shape_id,
+                    policy=policy)
             except CompositionExhausted as e:
                 return RCResult(None, "", tier, "failed_composition", notes=[str(e)],
                                 ban_families=sorted(ban_f), ban_movements=sorted(ban_m))
@@ -157,6 +166,13 @@ class RCPipeline:
             self.history.record_blueprint(bp, "composed")
             if self.parallel:
                 self.history.reserve_inflight(self.worker_id, bp, seed)
+            # Gate A⅛ (cat-pyq-f3): the plan must stay with its seed essay.
+            try:
+                drifted = self._seed_fidelity_gate(bp, seed, ledger, notes, policy, ban_f, ban_m)
+            except BudgetExceeded as e:
+                return self._abort(bp, ledger, f"budget during seed fidelity check: {e}", notes)
+            if drifted:
+                return drifted
             print(f"  [BP {bp.blueprint_id}] {bp.family_id}/{bp.persona_id}/{bp.ending_id}/"
                   f"{bp.rhythm_id}/{bp.revelation_id}/{bp.distractor_profile_id}/"
                   f"{bp.topology_id} instability={bp.instability}")
@@ -186,6 +202,15 @@ class RCPipeline:
                     except BudgetExceeded as e:
                         return self._abort(bp, ledger, f"budget during re-refine: {e}", notes)
                     self.history.record_blueprint(bp, "composed")
+                    # A collision re-refine is a new plan: it answers to the
+                    # seed check again before its topic is trusted.
+                    try:
+                        drifted = self._seed_fidelity_gate(bp, seed, ledger, notes, policy, ban_f, ban_m)
+                    except BudgetExceeded as e:
+                        return self._abort(bp, ledger,
+                                           f"budget during seed fidelity check: {e}", notes)
+                    if drifted:
+                        return drifted
                     collisions = self._topic_precheck(bp)
                     if not collisions:
                         break
@@ -216,7 +241,7 @@ class RCPipeline:
             # 2026-08-10 hard run that exhausted the pool in 3 recomposes; every
             # family it barred still had 3-4 free movement strings. The family is
             # only barred once all of them are gone.
-            exhausted = self.composer.family_movement_exhausted(bp.family_id, ban_m)
+            exhausted = self.composer.family_movement_exhausted(bp.family_id, ban_m, policy)
             if exhausted:
                 ban_f.add(bp.family_id)
             msg = (f"movement precheck: near {near} lev={lev:.2f} jac={jac:.2f} "
@@ -260,7 +285,8 @@ class RCPipeline:
                     # Blind beat read first: compliance scores the passage
                     # against bp.move_plan, and must not be the thing that
                     # produced the reading (see ComplianceAuditor.move_signature).
-                    cand_moves = self.auditor.move_signature(candidate, ledger, tier)
+                    cand_moves = self.auditor.move_signature(candidate, ledger, tier,
+                                                             policy=policy)
                     audit = self.auditor.audit(candidate, bp, ledger, cand_moves)
                 except TruncatedRender:
                     directives = ["previous attempt was cut off — tighten paragraph lengths"]
@@ -286,9 +312,42 @@ class RCPipeline:
             for w in passage_word_report(passage)["warnings"]:
                 notes.append(f"prevalidate: {w}")
             from .question_engine import texture_report
-            for w in texture_report(passage)["warnings"]:
+            # Same grants the renderer and auditor were given (section 5.3);
+            # None keeps the legacy scan for every other plan.
+            grants = None
+            if policy.passage_permissions:
+                from .passage_permissions import grants_for
+                grants = grants_for(bp, self.registry)
+            supported = None
+            if policy.source_facts:
+                from .source_facts import supported_claims
+                supported = supported_claims(realized.fact_trace, bp.source_facts,
+                                             strict=policy.strict_source_fact_audit)
+                notes.extend(bp.source_fact_notes)
+                for u in realized.unsupported_claims:
+                    notes.append(f"unsupported factual claim ({u['support']}): {u['claim']}")
+            for w in texture_report(passage, grants, supported)["warnings"]:
                 notes.append(f"texture: {w}")
                 print(f"  [texture] {w}")
+
+            # What the argument actually DID, read blind, against what the
+            # blueprint asked for. Reported, not gated: the planned->realised
+            # agreement rate has never been measured, and gating on a number
+            # nobody has seen is how the TS06/TS12 ceiling ended up worth one
+            # point of a twelve-point gap. Measure first, then decide.
+            sch_primary, sch_secondary = self.auditor.argument_schema(
+                passage, ledger, tier, policy=policy)
+            realized.argument_schema = sch_primary
+            realized.argument_schema_secondary = sch_secondary
+            if sch_primary:
+                hit = sch_primary == bp.argument_schema_id
+                notes.append(f"argument_schema planned={bp.argument_schema_id} "
+                             f"realized={sch_primary}"
+                             f"{'/' + sch_secondary if sch_secondary else ''}")
+                print(f"  [arg-schema] planned {bp.argument_schema_id} -> "
+                      f"realized {sch_primary}"
+                      f"{' + ' + sch_secondary if sch_secondary else ''}"
+                      f"  {'HIT' if hit else 'MISS'}")
 
             # realized.rhetorical_moves was filled by the blind read inside the
             # render loop above, before compliance scored the beat plan.
@@ -323,6 +382,24 @@ class RCPipeline:
             print(f"  [gate-b] {pre_report.breached} - re-rendering with directives")
             directives = retry_dirs
 
+        # Free passage floor (cat-pyq-f3): a render can still wander off a plan
+        # that passed its seed check. Rejected before the questions call, the
+        # most expensive one; see config.SEED_FIDELITY_PASSAGE_FLOOR.
+        if policy.seed_fidelity and self.embed and getattr(seed, "text", ""):
+            from .seed_fidelity import passage_cosine
+            cos = passage_cosine(seed.text, passage)
+            if cos is not None:
+                notes.append(f"seed fidelity: passage-seed cosine {cos:.3f} "
+                             f"(floor {config.SEED_FIDELITY_PASSAGE_FLOOR})")
+                if cos < config.SEED_FIDELITY_PASSAGE_FLOOR:
+                    print(f"  [seed-fidelity] passage left its seed: cosine {cos:.3f} < "
+                          f"{config.SEED_FIDELITY_PASSAGE_FLOOR} - rejecting before questions")
+                    self.history.set_blueprint_status(bp.blueprint_id, "rejected_seed_fidelity")
+                    return RCResult(None, bp.blueprint_id, tier, "rejected_seed_fidelity",
+                                    cost_usd=ledger.spent_usd, cost_lines=ledger.lines,
+                                    notes=notes + ["seed fidelity: rendered passage below floor"],
+                                    ban_families=sorted(ban_f), ban_movements=sorted(ban_m))
+
         # persist the novelty-clean passage: a question failure can now resume
         # from here instead of re-paying compose/render/compliance
         self.history.record_rendered_passage(
@@ -347,6 +424,12 @@ class RCPipeline:
             return RCResult(None, blueprint_id, row["tier"], "failed_resume",
                             notes=[f"passage status is '{row['status']}', not resumable"])
         bp = Blueprint.from_json(row["blueprint_json"])
+        # Resume under the policy the plan was composed with (2026-09-13). An
+        # unregistered version is refused, never read as another policy.
+        try:
+            policy = policy_for_blueprint(bp)
+        except PolicyError as e:
+            return RCResult(None, blueprint_id, bp.tier, "failed_resume", notes=[str(e)])
         realized = RealizedStructure.from_json(row["realized_json"])
         passage = row["passage"]
         prior = float(row["spent_usd"] or 0.0)
@@ -363,7 +446,7 @@ class RCPipeline:
             # on the original run) — the read is sub-cent, so just redo it
             try:
                 realized.rhetorical_moves = self.auditor.move_signature(
-                    passage, ledger, bp.tier)
+                    passage, ledger, bp.tier, policy=policy)
             except BudgetExceeded:
                 realized.rhetorical_moves = []
         pre_fp = extract_fingerprint(rc_id, bp, passage, realized,
@@ -383,6 +466,27 @@ class RCPipeline:
                             novelty_composite=pre_report.composite,
                             notes=notes + [f"passage novelty on resume: "
                                            f"{pre_report.breached or pre_report.composite}"])
+
+        # Free topology re-clearance (2026-09-14). The topology was cleared when
+        # the plan was composed, but siblings may have shipped since: BP_260914_
+        # 18b725c5 resumed after RC-MEDIUM-260914-0074 shipped on the same QT10,
+        # paid $0.11 for questions and died at Gate C on "topology 1.00". The
+        # topology is blueprint-derived and fixed before questions, so re-pick it
+        # here for $0, exactly as compose does.
+        old_topology = bp.topology_id
+        bp, topo_notes, topo_ok = self._resolve_topology(bp)
+        notes.extend(topo_notes)
+        if not topo_ok:
+            self.history.set_blueprint_status(bp.blueprint_id, "rejected_novelty")
+            return RCResult(None, bp.blueprint_id, bp.tier, "rejected_novelty",
+                            cost_usd=0.0, notes=notes + [
+                                "topology precheck failed on resume - no questions paid; "
+                                "passage left resumable"])
+        if bp.topology_id != old_topology and bp.question_slots:
+            # Stored slots belong to the old topology; the next questions call
+            # re-resolves them under the plan's own policy.
+            bp.question_slots = []
+            self.history.update_blueprint_json(bp)
 
         return self._questions_and_ship(bp, passage, realized, ledger, notes,
                                         seed, bp_sims, rc_id,
@@ -406,7 +510,15 @@ class RCPipeline:
             return ledger.spent_usd - cost_offset
 
         # ---- Stage 3: questions --------------------------------------------
+        # A non-legacy plan fixes its effective question slots before the first
+        # questions call (2026-09-13), so retries and resumes ask the same
+        # questions even if the libraries change in between. Legacy plans keep
+        # resolving them from the library, as they always have.
+        policy = policy_for_blueprint(bp)
         try:
+            if bp.generation_policy and not bp.question_slots:
+                bp.question_slots = self.qengine.effective_slots(bp)
+                self.history.update_blueprint_json(bp)
             qdata = self.qengine.build(bp, passage, ledger,
                                        extra_guidance=extra_guidance)
         except BudgetExceeded as e:
@@ -427,6 +539,9 @@ class RCPipeline:
             return RCResult(None, bp.blueprint_id, tier, "failed_questions",
                             cost_usd=_spent(), cost_lines=ledger.lines,
                             notes=notes + [str(e)])
+        # Contract plans only (the key is absent otherwise): reported, not gated.
+        for w in qdata.get("contract_warnings", []):
+            notes.append(f"question contract: {w}")
         # Free, strict length-bias audit (no paid rewrite). First-pass questions
         # must satisfy the rule in the question prompt; if they don't, the set
         # routes to needs_review below — never auto-approved, never a second
@@ -474,16 +589,23 @@ class RCPipeline:
         rc_text = assemble_rc_text(bp, passage, qdata)
         solver, judge = None, {"scores": {}, "average": 0.0, "verdict": "skipped"}
         solver_dispute = False
+        answerability_flags: list[str] = []
         # Answerability: asked before the solver, so a question that cannot be
         # settled from the passage is named as such rather than surfacing later
         # as an unexplained dispute. Warnings only — nothing is withheld.
         try:
             from .qa_checks import answerability_warnings, check_answerability
             rows = check_answerability(passage, qdata.get("questions", []),
-                                       self.llm, ledger, bp.tier)
-            for w in answerability_warnings(rows):
+                                       self.llm, ledger, bp.tier, policy=policy)
+            flagged = answerability_warnings(rows)
+            answerability_flags = list(flagged)
+            for w in flagged:
                 notes.append(f"answerability: {w}")
                 print(f"  [answerability] {w}")
+            # Question ambiguity per policy (plan 7.5). Only non-legacy plans
+            # carry it, so legacy fingerprints stay as they were.
+            if bp.generation_policy and rows:
+                fp.stylometry["_answerability_flags"] = len(flagged)
         except BudgetExceeded:
             notes.append("answerability skipped: budget")
         except Exception as e:
@@ -503,7 +625,7 @@ class RCPipeline:
                 from .qa_checks import tiebreak_disputes
                 for t in tiebreak_disputes(passage, qdata.get("questions", []),
                                            solver.get("disputes"), self.llm,
-                                           ledger, bp.tier):
+                                           ledger, bp.tier, policy=policy):
                     line = (f"Q{t['q']}: solver said {t['solver']}, key says "
                             f"{t['key']}, independent read supports "
                             f"{t['supported']} ({t['agrees_with']})")
@@ -525,6 +647,19 @@ class RCPipeline:
             judge = {"scores": {}, "average": 0.0, "verdict": "skipped_budget"}
 
         avg = float(judge.get("average") or 0.0)
+        if solver is None:
+            solver_verified, solver_unverified_reason = False, "blind solve did not run"
+        elif solver.get("verdict") != "ok":
+            solver_verified, solver_unverified_reason = False, "blind solve reply unusable"
+        elif not solver.get("comparable", False):
+            solver_verified, solver_unverified_reason = (
+                False, f"blind solve answered {solver.get('answered', 0)} of "
+                       f"{len(qdata.get('questions', []))} questions")
+        else:
+            solver_verified, solver_unverified_reason = True, ""
+        from .voice_plan import review_reasons
+        voice_reasons = review_reasons(bp, realized)
+        notes.extend(f"voice review: {reason}" for reason in voice_reasons)
         posture_run = any(f.startswith("posture run") for f in report.corpus_flags)
         if solver_dispute:
             status = "solver_dispute"
@@ -540,6 +675,25 @@ class RCPipeline:
             # pre-posture corpus or residual library skew) — a human decides.
             status = "needs_review"
             notes.append("posture run: routed to needs_review")
+        elif realized.unsupported_claims:
+            # Section 6 (2026-09-13): a claim presented as real that the auditor
+            # could not trace to a source-supported fact is a human decision.
+            status = "needs_review"
+            notes.append(f"source facts: {len(realized.unsupported_claims)} unsupported "
+                         f"factual claim(s) - routed to needs_review")
+        elif answerability_flags:
+            # 2026-09-14 review: qa_checks has always said a flagged question "is
+            # routed to review", but nothing here read the flags, so a question
+            # judged unanswerable or double-keyed could ship approved.
+            status = "needs_review"
+            notes.append(f"answerability: {len(answerability_flags)} question(s) flagged "
+                         f"- routed to needs_review")
+        elif not solver_verified:
+            # 2026-09-14 review: a solver reply that failed to parse, answered
+            # only some questions, or was skipped for budget raised no dispute,
+            # so the set could be approved with its keys never blind-checked.
+            status = "needs_review"
+            notes.append(f"solver: {solver_unverified_reason} - routed to needs_review")
         elif not word_report["in_band"]:
             # 500-word standard is mandatory: a passage outside the band never
             # auto-approves, whatever the judge thinks of it.
@@ -570,6 +724,26 @@ class RCPipeline:
                     return self._reject_full(bp, rc_id, passage, qdata, realized, fp,
                                              late, ledger, seed, notes, _spent,
                                              "late sibling novelty")
+            # Cross-client exclusivity (2026-09-12). The composer already
+            # skipped every shipped combo hash, and the RAG store never hands
+            # out a used seed, but both were decided before this set's render:
+            # a concurrent batch can have shipped the same skeleton or seed
+            # since. Under workers this check is atomic (ship lock). A
+            # sequential run stays unlocked — see
+            # test_ship_lock_is_only_armed_in_parallel_mode — and the
+            # millisecond race left there is backstopped by ux_shipped_combo,
+            # which refuses a second ship of the same skeleton outright.
+            taken = []
+            if self.history.combo_hash_taken(bp.combo_hash, bp.blueprint_id):
+                taken.append("combo_hash_taken")
+            if self.history.seed_shipped_to_other_client(seed.doc_id):
+                taken.append("seed_taken_by_other_client")
+            if taken:
+                print(f"  [ship-lock] exclusivity: {taken}")
+                report.breached = list(report.breached or []) + taken
+                return self._reject_full(bp, rc_id, passage, qdata, realized, fp,
+                                         report, ledger, seed, notes, _spent,
+                                         "exclusivity")
             self.history.insert_rc_set(
                 rc_id=rc_id, tier=tier, rc_text=rc_text, status=status, judge=judge,
                 solver=solver, avg=avg, blueprint_id=bp.blueprint_id,
@@ -580,6 +754,7 @@ class RCPipeline:
                 "UPDATE rc_sets SET seed_genre = ?, topic_shape = ? WHERE rc_id = ?",
                 (bp.seed_genre or "", bp.topic_shape_id or "", rc_id))
             self.history.conn.commit()
+            self.history.record_voice_review(rc_id, voice_reasons)
             self.history.record_fingerprint(fp)
             self.history.mark_shipped(bp, rc_id)
             self.history.set_passage_status(bp.blueprint_id, "consumed")
@@ -633,6 +808,55 @@ class RCPipeline:
         f.stylometry["_closing_beat_ok"] = 1 if realized.closing_beat_ok else 0
         f.stylometry["_middle_retention"] = realized.middle_retention
         f.stylometry["_gratuitous_moves"] = len(realized.gratuitous_moves)
+        f.stylometry["_planned_schema"] = bp.argument_schema_id
+        f.stylometry["_argument_schema"] = realized.argument_schema
+        f.stylometry["_argument_schema_secondary"] = realized.argument_schema_secondary
+        f.stylometry["_voice_plan_version"] = bp.voice_plan_version
+        # Only non-legacy plans carry the key, so legacy fingerprints are
+        # byte-identical to what they were before policies existed.
+        if bp.generation_policy:
+            f.stylometry["_generation_policy"] = bp.generation_policy
+        # Planned negation, for per-policy reporting (plan 7.5). Stored slots
+        # exist only on non-legacy plans, so legacy fingerprints are unchanged.
+        if bp.question_slots and all("polarity" in s for s in bp.question_slots):
+            neg = [s for s in bp.question_slots if s["polarity"] == "negative"]
+            f.stylometry["_negated_slots"] = len(neg)
+            f.stylometry["_negated_tasks"] = "|".join(sorted(s["task"] for s in neg))
+
+    def _seed_fidelity_gate(self, bp: Blueprint, seed: SeedEssay, ledger: CostLedger,
+                            notes: list[str], policy, ban_f: set | None = None,
+                            ban_m: set | None = None) -> RCResult | None:
+        """cat-pyq-f3 (2026-09-14): check the refined plan against its seed
+        before any render money is spent; one directed re-refine on failure
+        (config.SEED_FIDELITY_MAX_REREFINES), then reject so run_slot rotates
+        the seed. bp is updated in place. None means go ahead. Plans under any
+        other policy, and seedless attempts, pass untouched."""
+        if not policy.seed_fidelity or not getattr(seed, "text", ""):
+            return None
+        from .seed_fidelity import check_plan
+        ok, reason = check_plan(self.llm, ledger, bp, seed)
+        for i in range(1, config.SEED_FIDELITY_MAX_REREFINES + 1):
+            if ok:
+                break
+            notes.append(f"seed fidelity: plan drifted ({reason}) - re-refine "
+                         f"{i}/{config.SEED_FIDELITY_MAX_REREFINES}")
+            print(f"  [seed-fidelity] plan drifted: {reason} - re-refining "
+                  f"({i}/{config.SEED_FIDELITY_MAX_REREFINES})")
+            self.composer.refine_only(bp, seed, ledger, fidelity_failure=reason)  # in place
+            self.history.record_blueprint(bp, "composed")
+            ok, reason = check_plan(self.llm, ledger, bp, seed)
+        if ok:
+            notes.append("seed fidelity: plan keeps the seed's subject and kind")
+            return None
+        print(f"  [seed-fidelity] plan still off its seed: {reason} - rejecting")
+        self.history.set_blueprint_status(bp.blueprint_id, "rejected_seed_fidelity")
+        # Bans collected earlier in this attempt travel with the reject (2026-09-14
+        # review), exactly as the novelty rejects carry them, so the slot's next
+        # attempt cannot re-draw a skeleton this one already ruled out.
+        return RCResult(None, bp.blueprint_id, bp.tier, "rejected_seed_fidelity",
+                        cost_usd=ledger.spent_usd, cost_lines=ledger.lines,
+                        notes=notes + [f"seed fidelity: plan still drifted ({reason})"],
+                        ban_families=sorted(ban_f or ()), ban_movements=sorted(ban_m or ()))
 
     def _pool_is_single_kind(self, tier: str) -> bool:
         """Can this tier's seed pool offer any alternative content kind?
@@ -699,15 +923,19 @@ class RCPipeline:
         hits.sort(reverse=True)
         return hits
 
-    def _tier_topologies(self, tier: str) -> list[str]:
+    def _tier_topologies(self, tier: str, policy=None) -> list[str]:
         """The plans this tier may draw. Must match the composer's bar exactly —
         this re-pick runs after the composer has chosen, so a looser rule here
-        would quietly hand medium a plan the composer refused it."""
-        return [i for i in self.registry.ids("topology")
-                if self.composer._topology_allowed(i, tier)]
+        would quietly hand medium a plan the composer refused it.
+
+        policy: the blueprint's generation policy (2026-09-13), applied first
+        for the same reason; None = legacy."""
+        ids = (policy or LEGACY_POLICY).eligible_ids(self.registry, "topology", tier)
+        return [i for i in ids if self.composer._topology_allowed(i, tier)]
 
     def _pick_clear_topology(self, bp: Blueprint) -> str | None:
-        ids = [i for i in self._tier_topologies(bp.tier) if i != bp.topology_id]
+        ids = [i for i in self._tier_topologies(bp.tier, policy_for_blueprint(bp))
+               if i != bp.topology_id]
         rng = getattr(self.composer, "rng", None) or random.Random()
         rng.shuffle(ids)
         for tid in ids:
@@ -751,7 +979,7 @@ class RCPipeline:
             sim0, near0 = hits[0]
         # No fully clear topology: pick the least-colliding allowed alternative.
         best_tid, best_sim, best_near = bp.topology_id, sim0, near0
-        for tid in self._tier_topologies(bp.tier):
+        for tid in self._tier_topologies(bp.tier, policy_for_blueprint(bp)):
             th = self._topology_collisions(tid)
             if not th:
                 best_tid, best_sim, best_near = tid, 0.0, ""
@@ -772,6 +1000,12 @@ class RCPipeline:
         # we can do is still above it, the rejection is already decided — bail
         # now (cost: the refine call) instead of after render + questions.
         cap = config.NOVELTY_CAPS["topology_similarity"]
+        if best_sim > cap and not getattr(config, "TOPOLOGY_GATE_ENFORCE", True):
+            # 2026-09-14: Gate C no longer rejects on topology, so a shared
+            # layout is no longer a certain rejection worth bailing for.
+            notes.append(f"topology precheck: best available {best_tid} @ {best_sim:.2f} "
+                         f"vs {best_near} - proceeding (topology is reported, not gated)")
+            return bp, notes, True
         if best_sim > cap:
             notes.append(
                 f"topology precheck: best available {best_tid} @ {best_sim:.2f} "
@@ -847,11 +1081,8 @@ class RCPipeline:
         # attempt a permanent obstacle to the next one — see the note above
         # TOPIC_PRECHECK_ENABLED in config.py. Rejected topics still steer the
         # refine prompt for free through history.recent_topics().
-        rows = self.history.conn.execute(
-            """SELECT blueprint_id, blueprint_json FROM blueprints
-               WHERE status = 'shipped'
-               ORDER BY created_at DESC LIMIT ?""",
-            (config.FINGERPRINT_WINDOW,)).fetchall()
+        rows = [(bpid, bj) for bpid, _rc, _fam, bj
+                in self.history.shipped_blueprint_rows(config.FINGERPRINT_WINDOW)]
         for bpid, bj in rows:
             if bpid == bp.blueprint_id:
                 continue
@@ -896,12 +1127,7 @@ class RCPipeline:
 
     def _blueprint_sims(self, bp: Blueprint) -> dict[str, float]:
         """rc_id -> categorical blueprint similarity for shipped RCs."""
-        rows = self.history.conn.execute(
-            """SELECT rc_id, family_id, persona_id, ending_id, rhythm_id, revelation_id,
-                      distractor_profile_id, topology_id
-               FROM blueprints WHERE status = 'shipped' AND rc_id IS NOT NULL
-               ORDER BY created_at DESC LIMIT ?""",
-            (config.FINGERPRINT_WINDOW,)).fetchall()
+        rows = self.history.shipped_blueprint_components(config.FINGERPRINT_WINDOW)
         mine = bp.component_ids
         out = {}
         keys = ["family", "persona", "ending", "rhythm", "revelation",
@@ -1023,11 +1249,7 @@ def _seed_ancestry_collision(pipeline: RCPipeline, seed: SeedEssay,
     """Compare this seed against the SEEDS of recently shipped sets. $0 — the
     seed embeddings are already in the vector store."""
     try:
-        rows = pipeline.history.conn.execute(
-            """SELECT rc_id, essay_doc_id FROM rc_sets
-               WHERE essay_doc_id IS NOT NULL AND essay_doc_id != ''
-               ORDER BY created_at DESC LIMIT ?""",
-            (config.SEED_ANCESTRY_WINDOW,)).fetchall()
+        rows = pipeline.history.recent_seed_ids(config.SEED_ANCESTRY_WINDOW)
     except Exception:
         return None
     recent_ids = [(rc, doc) for rc, doc in rows if doc and doc != seed.doc_id]
@@ -1042,7 +1264,9 @@ def _seed_ancestry_collision(pipeline: RCPipeline, seed: SeedEssay,
     try:
         import RAG
         store = RAG.get_db()
-        got = store.get(ids=[d for _, d in recent_ids],
+        # 2026-09-20: repaired/reused historical sets may share a seed. Chroma
+        # rejects duplicate IDs in one get; fetch each once, compare every RC.
+        got = store.get(ids=list(dict.fromkeys(d for _, d in recent_ids)),
                         include=["embeddings"]) or {}
         embs = got.get("embeddings")
         ids = got.get("ids")
@@ -1084,6 +1308,12 @@ def run_slot(pipeline: RCPipeline, tier: str, slot_no: int, count: int,
     tried_doc_ids: set[str] = set()
     if seed_provider:
         seed, on_success = seed_provider(tier)
+        if seed is None and getattr(seed_provider, "restricted", False):
+            # 2026-09-14 review: a subject- or list-restricted run that has run
+            # out of essays skips the slot. Running seedless would produce the
+            # off-subject passage the restriction exists to prevent.
+            print(f"[seeds] no matching seed left for {tier} - slot {slot_no} skipped")
+            return False
         if seed is None:
             print(f"[seeds] exhausted - continuing seedless for {tier}")
         elif seed.doc_id:
@@ -1126,8 +1356,10 @@ def run_slot(pipeline: RCPipeline, tier: str, slot_no: int, count: int,
         keep(res, tier, slot_no, attempt + 1)
         ban_families.update(res.ban_families or [])
         ban_movements.update(res.ban_movements or [])
+        # rejected_seed_fidelity (2026-09-14): the plan or passage left its seed;
+        # a fresh seed is the retry, as for a saturated genre.
         if res.status not in ("rejected_novelty", "failed_composition",
-                              "rejected_seed_genre"):
+                              "rejected_seed_genre", "rejected_seed_fidelity"):
             break
         if spent() >= max_usd:
             print(f"[batch] spending cap reached mid-retry - stopping cleanly.")
@@ -1236,22 +1468,22 @@ def run_batch(pipeline: RCPipeline, tier_counts: dict[str, int],
                 if spent() >= max_usd:
                     print(f"[batch] spending cap ${max_usd:.2f} reached "
                           f"(spent ${spent():.4f}) — stopping cleanly.")
-                    summarize_batch(results, batch_id)
+                    summarize_batch(results, batch_id, getattr(pipeline, "llm", None))
                     return results
                 stopped = run_slot(pipeline, tier, i + 1, count, seed_provider,
                                    forced_bans, spent=spent, max_usd=max_usd,
                                    keep=_keep)
                 if stopped:
-                    summarize_batch(results, batch_id)
+                    summarize_batch(results, batch_id, getattr(pipeline, "llm", None))
                     return results
     except APIExhausted as e:
         print(f"\n[STOP] API exhausted ({e}) - batch stopped cleanly; "
               f"completed work is committed. Re-run later to continue.")
-    summarize_batch(results, batch_id)
+    summarize_batch(results, batch_id, getattr(pipeline, "llm", None))
     return results
 
 
-def summarize_batch(results: list[RCResult], batch_id: str) -> None:
+def summarize_batch(results: list[RCResult], batch_id: str, llm=None) -> None:
     """The batch summary and cost telemetry, shared by the sequential and
     parallel runners."""
     total = sum(r.cost_usd for r in results)
@@ -1299,3 +1531,18 @@ def summarize_batch(results: list[RCResult], batch_id: str) -> None:
     if resumable:
         print(f"  resumable passages   {len(resumable)} paid but deferred "
               f"(budget): {', '.join(r.blueprint_id for r in resumable if r.blueprint_id)}")
+    # Subscription usage, when the Claude Code lane served any stage. The cost
+    # telemetry above is API dollars only and reads $0.00 on that lane, which
+    # is true but not the whole story: the quota is finite too (2026-09-18).
+    report = getattr(llm, "usage_report", None)
+    if callable(report):
+        shipped_n = len(shipped)
+        for line in report():
+            print(line)
+        agg = getattr(llm, "usage", {}) or {}
+        if shipped_n and agg.get("calls"):
+            tok = (agg["input"] + agg["cache_write"] + agg["cache_read"]
+                   + agg["output"])
+            print(f"  per shipped set      {agg['calls'] / shipped_n:.1f} calls | "
+                  f"{tok / shipped_n:,.0f} tokens | "
+                  f"${getattr(llm, 'notional_usd', 0.0) / shipped_n:.4f} notional")

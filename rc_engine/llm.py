@@ -124,11 +124,23 @@ class CostLedger:
         if self.spent_usd + worst > self.budget_usd * (1.0 + slack):
             raise BudgetExceeded(stage, worst, self.spent_usd, self.budget_usd)
 
-    def record(self, stage: str, model: str, in_tok: int, out_tok: int) -> float:
+    def record(self, stage: str, model: str, in_tok: int, out_tok: int,
+               cached_in_tok: int = 0) -> float:
+        """Book one call. `cached_in_tok` is the part of `in_tok` served from
+        the provider's prompt cache, billed at a tenth of the usual input rate
+        (see config.MODEL_RATES_CACHED_IN).
+
+        Not modelling this over-recorded the 2026-09-05 Astra batch by 3.7x —
+        $0.9671 booked against ~$0.26 billed — which is not a harmless
+        conservatism: the tier caps are sized against these numbers, so an
+        inflated ledger buys fewer real retries than the cap advertises."""
         rate_in, rate_out = config.MODEL_RATES[model]
-        cost = (in_tok / 1e6) * rate_in + (out_tok / 1e6) * rate_out
+        cached_rate = config.MODEL_RATES_CACHED_IN.get(model)
+        cached = min(max(cached_in_tok, 0), in_tok) if cached_rate else 0
+        cost = ((in_tok - cached) / 1e6) * rate_in + (cached / 1e6) * cached_rate             if cached else (in_tok / 1e6) * rate_in
+        cost += (out_tok / 1e6) * rate_out
         self.spent_usd += cost
-        self.lines.append(CostLine(stage, model, in_tok, out_tok, cost))
+        self.lines.append(CostLine(stage, model, in_tok, out_tok, cost, cached))
         return cost
 
 
@@ -284,7 +296,7 @@ class MockLLMClient:
              "invited_misreading": "the ending resolves more than it does",
              "mechanism": mechs[0]},
         ]
-        return json.dumps({
+        out = {
             "topic": "the credibility of institutional expertise (mock topic)",
             "tension_system": {
                 "primary": {"axis": "expertise versus lived experience", "poles": ["expert", "practitioner"], "fate": "left_open"},
@@ -294,7 +306,15 @@ class MockLLMClient:
             "paragraph_briefs": briefs,
             "trap_map": traps,
             "title_hint": "Mock Essay on Expertise",
-        })
+        }
+        if "seed_excerpt" in ctx:
+            # Source-facts policies (2026-09-13): propose each short sentence of
+            # the excerpt as its own claim, so dry runs exercise validation.
+            sentences = [s.strip() for s in re.split(r"(?<=[.!?])\s+", ctx["seed_excerpt"])
+                         if 3 <= len(s.split()) <= 40]
+            out["source_facts"] = [{"span": s, "claim": s, "attribution": "",
+                                    "qualification": ""} for s in sentences[:4]]
+        return json.dumps(out)
 
     def _render(self, ctx) -> str:
         bp = ctx["blueprint"]
@@ -330,6 +350,15 @@ class MockLLMClient:
             "closing_posture_guess": ctx.get("planned_posture", "resolution_qualified"),
             "final_line_is_aphorism": False,
             "notes": "mock compliance pass",
+            # the mock renderer invents no facts, so there is nothing to trace
+            **({"fact_trace": []} if "source_facts" in ctx else {}),
+            # f2 mock: its filler prose makes no factual claims. Semantic
+            # failures are supplied by adversarial tests, not simulated here.
+            **({"fact_trace_complete": True,
+                "source_fact_checks": [
+                    {"fact_id": fid, "entailed": True, "attribution_ok": True,
+                     "qualification_ok": True} for fid in ctx.get("source_facts", [])]}
+               if ctx.get("strict_source_fact_audit") else {}),
         })
 
     def _seed_classify(self, ctx) -> str:
@@ -339,18 +368,33 @@ class MockLLMClient:
         genres = sorted(g for g in config.SEED_GENRES if g != "unknown")
         rng = random.Random(str(ctx.get("seed", ""))[:200])
         g = rng.choice(genres)
+        # Seed-fidelity plans send a shape menu: the mock calls every listed
+        # shape carriable, so dry runs keep the full draw.
+        carriable = ({"shape_verdicts": {ln.split()[0]: "natural" for ln in ctx["shape_menu"].splitlines()
+                                         if ln.strip()}}
+                     if ctx.get("shape_menu") else {})
         return json.dumps({
+            **carriable,
             "genre": g, "domain": rng.choice(["science", "history", "social"]),
             "concrete_particulars": ["a mock particular"],
             "bipolar_dispute_available": rng.random() < 0.5,
             "one_line": "mock seed classification"})
 
+    def _seed_fidelity(self, ctx) -> str:
+        # The mock refiner writes placeholder content, so there is no subject to
+        # drift from. Drift verdicts are supplied by tests, not simulated here.
+        return json.dumps({"same_subject": True, "same_nature": True,
+                           "source_subject": "mock source", "plan_subject": "mock plan",
+                           "drift": ""})
+
     def _move_signature(self, ctx) -> str:
         # Deterministic per passage, but genuinely varied across passages —
         # a mock that returned one fixed signature would make every selftest
         # set breach the move_signature gate against its siblings.
+        # A non-legacy generation policy passes its own vocabulary (2026-09-13);
+        # without one the draw is exactly the legacy draw.
         from . import config
-        vocab = list(config.RHETORICAL_MOVES)
+        vocab = list(ctx.get("vocabulary") or config.RHETORICAL_MOVES)
         rng = random.Random(ctx.get("passage", "")[:400])
         k = rng.randint(5, 8)
         return json.dumps({"moves": rng.sample(vocab, k)})
@@ -374,6 +418,12 @@ class MockLLMClient:
         rng = random.Random(bp.blueprint_id + "q")
         questions = []
         for i, slot in enumerate(ctx["slots"], start=1):
+            if "contract" in slot:
+                # Contract slots (2026-09-13): a mock that satisfies every
+                # deterministic contract check, so dry runs exercise the path.
+                questions.append(self._contract_question(i, slot, bp, mechs))
+                rng.random()
+                continue
             # EXCEPT slots invert the contract: the wrong options are the
             # statements the passage supports (see question_engine._validate).
             is_except = slot["type"] == "except_scan"
@@ -401,6 +451,35 @@ class MockLLMClient:
             })
             rng.random()
         return json.dumps({"questions": questions})
+
+    @staticmethod
+    def _contract_question(i, slot, bp, mechs) -> dict:
+        name = slot["type"].replace("_", " ")
+        negative = slot["polarity"] == "negative"
+        trap = next((t for t in bp.trap_map if t["trap_id"] == slot.get("trap_id")), None)
+        if slot["type"] == "keyword_set":
+            sep = " → " if slot.get("variant") == "sequence" else ", "
+            texts = [sep.join(f"mock term {i}{k}{j}" for j in range(4)) for k in "abcd"]
+        else:
+            texts = [f"A mock option {k} for question {i}, phrased at matching register and length."
+                     for k in "abcd"]
+        wrong = []
+        for j in range(3):
+            if negative:
+                mech = slot["marker"]
+            elif j == 0 and trap:
+                mech = trap["mechanism"]
+            else:
+                mech = mechs[j % 2]
+            wrong.append({"text": texts[j + 1], "mechanism": mech,
+                          "why_wrong": f"{mech} — mock location for option {j + 1}."})
+        correct = {"text": texts[0], "why_right": "mock: names the precise bridge or failure."}
+        if negative:
+            correct["failure_mode"] = "scope"
+        stem = (f"Mock {name} question {i}: all of the following hold, EXCEPT:" if negative
+                else f"Mock {name} question {i} on the passage's {slot['target']} movement?")
+        return {"q": i, "slot_type": slot["type"], "stem": stem,
+                "correct": correct, "wrong": wrong}
 
     def _solver(self, ctx) -> str:
         key = ctx["letter_plan"]

@@ -1,5 +1,5 @@
 /**
- * Blueprint Psychometrics — faculty pitch interactions
+ * Passage Works — faculty pitch interactions
  * Theme · progress · reveal · sticky CTA · Q demo
  */
 (() => {

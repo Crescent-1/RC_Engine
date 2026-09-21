@@ -46,6 +46,14 @@ manual = read_manual_entries(OUT)
 conn = sqlite3.connect(PROJ + r"\rc_pipeline.db")
 cur = conn.cursor()
 
+# Founding client only (2026-09-12). This workbook tracks what is shared with
+# the founding institute; another client's sets must never appear here as if
+# they were available to send. Before the engine has migrated the DB there is
+# no client_id column, and every row is the founding client's anyway.
+_has_client = "client_id" in [r[1] for r in cur.execute("PRAGMA table_info(rc_sets)")]
+RC_SCOPE = " WHERE r.client_id = 'AA'" if _has_client else ""
+BP_SCOPE = " AND b.client_id = 'AA'" if _has_client else ""
+
 fam_names = {f["id"]: f["name"] for f in
              json.load(open(PROJ + r"\rc_engine\components\families.json",
                             encoding="utf-8"))["items"]}
@@ -57,8 +65,8 @@ fam_postures = {f["id"]: f["closing_posture"] for f in
 cur.execute("""SELECT r.rc_id, r.tier, r.status, r.average_score, r.compliance_f1,
                       r.novelty_composite, r.total_cost_usd, r.created_at,
                       b.family_id, r.domain
-               FROM rc_sets r LEFT JOIN blueprints b ON b.blueprint_id = r.blueprint_id
-               ORDER BY r.created_at""")
+               FROM rc_sets r LEFT JOIN blueprints b ON b.blueprint_id = r.blueprint_id"""
+            + RC_SCOPE + " ORDER BY r.created_at")
 rc_rows = cur.fetchall()
 
 # realized postures from fingerprints
@@ -73,8 +81,8 @@ cur.execute("""SELECT b.blueprint_id, b.tier, b.family_id, b.status, b.created_a
                       (SELECT details FROM novelty_audits n
                        WHERE n.blueprint_id = b.blueprint_id
                        ORDER BY n.created_at DESC LIMIT 1)
-               FROM blueprints b WHERE b.status != 'shipped'
-               ORDER BY b.created_at""")
+               FROM blueprints b WHERE b.status != 'shipped'"""
+            + BP_SCOPE + " ORDER BY b.created_at")
 fail_rows = cur.fetchall()
 conn.close()
 

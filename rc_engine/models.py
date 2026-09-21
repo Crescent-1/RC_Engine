@@ -16,6 +16,9 @@ class SeedEssay:
     title: str | None = None
     text: str | None = None          # trimmed excerpt, not the full essay
     domain_hint: str | None = None
+    # 2026-09-14: the classifier's answer stored in the seed store
+    # (seed_labels.from_metadata); None = classify at draw time.
+    labels: dict | None = None
 
 
 @dataclass
@@ -55,6 +58,27 @@ class Blueprint:
     closing_register: str = ""   # id from config.CLOSING_REGISTERS
     render_stance_id: str = ""   # id from components/render_stances.json
     topic_shape_id: str = ""     # id from components/topic_shapes.json
+    # What the argument DOES, one level above the rhetorical moves and
+    # independent of subject. Key into config.ARGUMENT_SCHEMAS. Deliberately
+    # NOT in component_ids: that property feeds combo_hash, and adding a key
+    # would invalidate every stored hash at once.
+    argument_schema_id: str = ""
+    # Empty on old plans. New coherent contracts can be distinguished from
+    # independently sampled pre-fix plans in before/after corpus reports.
+    voice_plan_version: str = ""
+    # Generation policy the plan was composed under (2026-09-13); "" = legacy.
+    # Resume and question building resolve the policy from this, never from
+    # today's config. Not in component_ids, so combo_hash is unchanged.
+    generation_policy: str = ""
+    # Question slots resolved once for a non-legacy plan and reused on retry
+    # and resume, so a later library edit cannot reinterpret a stored plan.
+    # Empty for legacy plans, which resolve slots exactly as before.
+    question_slots: list[dict] = field(default_factory=list)
+    # Source-supported facts (2026-09-13, source_facts.py): validated spans from
+    # the retained seed excerpt, kept for render and resume and never exported.
+    # Empty for every plan whose policy does not use them.
+    source_facts: list[dict] = field(default_factory=list)
+    source_fact_notes: list[str] = field(default_factory=list)
     seed_genre: str = ""         # from seed_classify; "" = never classified
     # Prescribed rhetorical beats (labels from config.RHETORICAL_MOVES), in
     # order. A PLAN, not a ban list — see BlueprintComposer._sample_move_plan.
@@ -126,6 +150,10 @@ class RealizedStructure:
     f1: float = 0.0
     directives: list[str] = field(default_factory=list)
     closing_posture_guess: str = ""            # blind classifier output ("" = unusable)
+    # Blind read of what the argument DOES, against bp.argument_schema_id.
+    # "" means the read failed, which is "unknown" — never "repeated".
+    argument_schema: str = ""
+    argument_schema_secondary: str = ""
     final_line_is_aphorism: bool | None = None  # None = classifier gave no usable answer
     rhetorical_moves: list[str] = field(default_factory=list)
     # Did the prose open and close on the beats the plan prescribed? Membership
@@ -142,6 +170,14 @@ class RealizedStructure:
     middle_beats_ok: bool = True
     middle_retention: float = 1.0
     gratuitous_moves: list[str] = field(default_factory=list)
+    # Devices the prose used that the plan's permissions do not grant
+    # (2026-09-13, passage_permissions.py). Always [] for plans without
+    # permissions.
+    unpermitted_devices: list[str] = field(default_factory=list)
+    # The auditor's trace of every claim the passage presents as real, and the
+    # ones it could not support (2026-09-13, source_facts.py; [] otherwise).
+    fact_trace: list[dict] = field(default_factory=list)
+    unsupported_claims: list[dict] = field(default_factory=list)
 
     def movement_string(self) -> str:
         return "|".join(self.paragraph_functions)
@@ -189,6 +225,10 @@ class CostLine:
     input_tokens: int
     output_tokens: int
     cost_usd: float
+    # Of input_tokens, how many were served from the provider's prompt cache
+    # and therefore billed at config.MODEL_RATES_CACHED_IN. Defaulted so the
+    # Anthropic and Gemini paths, which do not report it, are unaffected.
+    cached_input_tokens: int = 0
 
 
 @dataclass

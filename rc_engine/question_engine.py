@@ -13,8 +13,15 @@ import json
 import random
 
 from . import config
+from .generation_policy import LEGACY_POLICY, policy_for_blueprint
 from .llm import CostLedger, extract_json
 from .models import Blueprint
+from .question_contracts import (CONTRACT_MARKERS, FAILURE_MODES, NEGATIVE,
+                                 NEGATIVE_CONTRACTS, ContractError,
+                                 bad_paragraph_refs, is_negative,
+                                 keyword_set_problems, missing_quotes,
+                                 negation_count, paragraph_count, resolve_slots,
+                                 stem_key)
 
 # The EXCEPT slot type. Its wrong options are statements the passage supports,
 # so it takes no planted trap and its options carry a marker rather than a
@@ -38,6 +45,16 @@ _MAX_LONGEST = config.MAX_CORRECT_LONGEST
 # options are; they just have to match each other.
 OPTION_LENGTH_SPREAD_TARGET = 3
 
+# 2026-09-14 prompt review. (1) This is an f-string, and the output-discipline
+# line's braces were single, so the model was told the response must begin and
+# end with "'" rather than "{" and "}" (tests/test_prompt_hygiene.py now pins
+# it). (2) Moved out of the prompt into this comment: measured over 94 sets, the
+# per-set correct-longest count was 1.74x more dispersed than chance (chi-square
+# 53.7 on 8 df); mean 25%, but 10% of sets at 5-8 of 8 — errors clustering
+# within a set, which is what a skipped self-check looks like. (3) The
+# closure_reading slot description in topologies.json named the operator who
+# retired the stem "The passage stops where it does in order to:" (2026-09-12,
+# replaced by a continuation question); that history now lives here.
 QUESTION_SYSTEM = f"""You are a senior CAT VARC question architect. You receive a passage,
 its hidden structural blueprint (trap map, tension system, revelation schedule), and a
 QUESTION PLAN of {_N_Q} slots. Write exactly one MCQ per slot, to spec.
@@ -110,12 +127,8 @@ as you wrote them — ignore letters; count the option strings only).
 5. Report the result of step 2 in the "length_audit" field of the JSON — the
    count itself, plus the question numbers where the correct option is strictly
    longest. Writing the count down is the point: a silent tally over {_N_Q}
-   questions is not verifiable by you or by us, and the corpus shows it is not
-   reliably performed. Measured over 94 sets, the per-set correct-longest count
-   is 1.74x MORE dispersed than chance (chi-square 53.7 on 8 df): the mean is
-   exactly the 25% you would get by luck, but 10% of sets land at 5-8 of {_N_Q},
-   where "pick the longest option" becomes a working heuristic. The errors
-   cluster WITHIN a set, which is what a skipped check looks like.
+   questions is not verifiable, and skipped checks leave whole sets where "pick
+   the longest option" works.
 6. Only after this recheck passes, emit the JSON.
 
 OUTPUT DISCIPLINE (this model writes extra visible reasoning when thinking is
@@ -125,7 +138,7 @@ off, and that reasoning competes with the JSON for the output budget):
 - Do not narrate the length-bias recheck in prose. Report it ONLY as the
   structured "length_audit" field below — that is data, not commentary, and it
   does not compete with the questions for the output budget.
-- The first character of your response must be '{' and the last must be '}'.
+- The first character of your response must be '{{' and the last must be '}}'.
 
 Respond ONLY with valid JSON, no markdown fences:
 {{
@@ -151,6 +164,35 @@ class QuestionEngineError(RuntimeError):
     pass
 
 
+def _has_contracts(slots: list[dict] | None) -> bool:
+    return bool(slots) and all("contract" in s for s in slots)
+
+
+def _contract_lines(slot: dict, tier: str) -> str:
+    """Per-slot contract lines for the question plan (contract policies only)."""
+    if slot["polarity"] == NEGATIVE:
+        spec = NEGATIVE_CONTRACTS[slot["task"]]
+        out = (f"\n      polarity: NEGATIVE ({slot['contract']}) — the stem carries one "
+               f"negation. KEY: {spec['key']}. OTHER THREE: {spec['others']}; give each "
+               f"mechanism \"{slot['marker']}\". Set correct.failure_mode.")
+    else:
+        out = ("\n      polarity: affirmative — no NOT, EXCEPT, 'least', 'if false' or "
+               "'none of' in the stem (a lowercase 'not' inside a claim is fine).")
+    if slot["type"] == "keyword_set":
+        variant = slot.get("variant", "keywords")
+        out += (f"\n      variant: {variant} — "
+                + ("4-5 short terms per option, separated by commas."
+                   if variant == "keywords" else
+                   "4-5 phrases per option, separated by ' → ', in the passage's order."))
+    if slot["type"] == "application":
+        out += ("\n      scenarios: four close alternatives that differ in one attribute; "
+                "the key may rest on one passage constraint."
+                if tier == "medium" else
+                "\n      scenarios: four close alternatives that differ in one or two "
+                "attributes; the key needs two passage constraints combined.")
+    return out
+
+
 class QuestionEngine:
     def __init__(self, registry, llm):
         self.registry = registry
@@ -166,29 +208,58 @@ class QuestionEngine:
         stage: which STAGE_CONFIG entry drives model/max_tokens and cost
         labelling (normally 'questions')."""
         model, max_tokens = config.STAGE_CONFIG[stage][bp.tier]
+        # The stored plan's policy, never today's configuration (2026-09-13).
+        policy = policy_for_blueprint(bp)
         topo = self.registry.get("topology", bp.topology_id)
         profile = self.registry.get("distractor_profile", bp.distractor_profile_id)
-        slots = self._retarget_thesis(topo["slots"], bp)
-        slots = self._scale_slots(self._assign_traps(slots, bp), bp.tier)
+        slots = self.effective_slots(bp)
 
-        user = self._prompt(bp, passage, slots, topo, profile)
+        user = policy.user_prompt(stage, self._prompt(bp, passage, slots, topo, profile, policy))
         if extra_guidance:
             user += f"\n\nADDITIONAL DIRECTIVES:\n{extra_guidance}"
+        system = policy.system_prompt(stage, QUESTION_SYSTEM)
         last_err = None
         for _ in range(config.MAX_QUESTION_ATTEMPTS):
             text, truncated = self.llm.call(
-                ledger, stage, model, max_tokens, QUESTION_SYSTEM, user,
+                ledger, stage, model, max_tokens, system, user,
                 context={"blueprint": bp, "slots": slots,
                          "mechanisms": [profile["primary"], profile["secondary"]]})
             try:
                 data = extract_json(text)
-                questions = self._validate(data, truncated, slots)
-                return self._letter_assign(questions, bp)
+                questions = self._validate(data, truncated, slots, passage=passage)
+                qdata = self._letter_assign(questions, bp, slots)
+                if _has_contracts(slots):
+                    qdata["contract_warnings"] = self._contract_warnings(questions, slots, bp)
+                return qdata
             except (ValueError, QuestionEngineError) as e:
                 last_err = e
                 user += ("\n\nYOUR PREVIOUS RESPONSE WAS INVALID: "
                          f"{e}. Emit complete, valid JSON exactly per schema.")
         raise QuestionEngineError(f"question generation failed: {last_err}")
+
+    def effective_slots(self, bp: Blueprint) -> list[dict]:
+        """The slots this plan's questions are asked in: thesis retargeting,
+        trap harvesting and tier scaling applied to the topology.
+
+        2026-09-13: a plan that stored its slots (bp.question_slots, set once
+        for non-legacy policies before the first questions call) reuses them
+        on every retry and resume, so a later library or scaling edit cannot
+        change what a stored plan asks. A plan without stored slots resolves
+        them from the library exactly as before."""
+        if bp.question_slots:
+            return [dict(s) for s in bp.question_slots]
+        topo = self.registry.get("topology", bp.topology_id)
+        slots = self._retarget_thesis(topo["slots"], bp)
+        # Section 4 (2026-09-13): a contract policy resolves task and polarity
+        # BEFORE traps are attached, because a negative slot's wrong options
+        # meet the relation and can carry no planted misreading.
+        policy = policy_for_blueprint(bp)
+        if policy.question_contracts:
+            try:
+                slots = resolve_slots(slots, policy, bp.tier, bp.blueprint_id)
+            except ContractError as e:
+                raise QuestionEngineError(f"question contract: {e}") from e
+        return self._scale_slots(self._assign_traps(slots, bp), bp.tier)
 
     # ------------------------------------------------------------- internals
 
@@ -216,7 +287,9 @@ class QuestionEngine:
 
         except_scan slots are skipped: a trap is a planted misreading offered as
         a wrong option, and that slot's wrong options are statements the passage
-        actually supports.
+        actually supports. 2026-09-13: so is every negative contract slot, for
+        the same reason (question_contracts.is_negative; a legacy slot is
+        negative only as except_scan, so legacy assignment is unchanged).
         """
         slots = [dict(s) for s in slots]
         harvest_pref = {
@@ -225,7 +298,7 @@ class QuestionEngine:
             "stance_misread": ["stance", "author_vs_reported"],
             "level_confusion": ["author_vs_reported", "stance", "primary_purpose"],
         }
-        trappable = [s for s in slots if s["type"] != TRAPLESS_SLOT]
+        trappable = [s for s in slots if not is_negative(s)]
         unassigned = list(bp.trap_map)
         for trap in list(unassigned):
             prefs = harvest_pref.get(trap["mechanism"], [])
@@ -271,7 +344,8 @@ class QuestionEngine:
             hit["target"] = "local"
         return out
 
-    def _stem_shapes(self, slots: list[dict], bp: Blueprint) -> list[str]:
+    def _stem_shapes(self, slots: list[dict], bp: Blueprint,
+                     policy=None) -> list[str]:
         """One authentic CAT stem shape per slot.
 
         Dealt without replacement within a slot type, so a topology that plans
@@ -281,29 +355,39 @@ class QuestionEngine:
 
         Seeded from the blueprint, like the letter plan, so a resumed run
         reproduces its shapes instead of re-rolling them.
+
+        policy: the plan's generation policy; its extra forms are dealt from a
+        copy, never added to the shared pool legacy plans read.
+
+        Contract slots deal from a pool keyed by type AND polarity (and
+        variant), so a negative stem is never paired with an affirmative
+        contract or the reverse. A legacy slot keys by type alone.
         """
         rng = random.Random(f"{bp.blueprint_id}:stems")
-        stem_forms = self.registry.stem_forms
+        stem_forms = (policy or LEGACY_POLICY).stem_pool(self.registry)
         pools: dict[str, list[str]] = {}
         shapes = []
         for s in slots:
-            stype = s["type"]
-            if stype not in stem_forms:
+            key = stem_key(s)
+            if key not in stem_forms:
                 shapes.append("")
                 continue
-            if not pools.get(stype):
-                pools[stype] = rng.sample(stem_forms[stype], len(stem_forms[stype]))
-            shapes.append(pools[stype].pop())
+            if not pools.get(key):
+                pools[key] = rng.sample(stem_forms[key], len(stem_forms[key]))
+            shapes.append(pools[key].pop())
         return shapes
 
     def _prompt(self, bp: Blueprint, passage: str, slots: list[dict],
-                topo: dict, profile: dict) -> str:
-        type_defs = self.registry.slot_type_definitions
-        shapes = self._stem_shapes(slots, bp)
+                topo: dict, profile: dict, policy=None) -> str:
+        policy = policy or LEGACY_POLICY
+        type_defs = policy.slot_type_definitions(self.registry)
+        shapes = self._stem_shapes(slots, bp, policy)
         slot_lines = []
         for i, s in enumerate(slots, start=1):
             line = (f"  Q{i}: type={s['type']} — {type_defs[s['type']]} | "
                     f"target={s['target']} | difficulty={s['difficulty']}")
+            if "contract" in s:
+                line += _contract_lines(s, bp.tier)
             if shapes[i - 1]:
                 line += f"\n      stem shape (adapt to this passage): \"{shapes[i - 1]}\""
             if "trap_id" in s:
@@ -343,7 +427,8 @@ clipped fragments.
 Write the {_N_Q} questions now as JSON."""
 
     def _validate(self, data: dict, truncated: bool,
-                  slots: list[dict] | None = None) -> list[dict]:
+                  slots: list[dict] | None = None,
+                  passage: str | None = None) -> list[dict]:
         if truncated:
             raise QuestionEngineError("output truncated at max_tokens")
         qs = data.get("questions", [])
@@ -371,13 +456,98 @@ Write the {_N_Q} questions now as JSON."""
                     f"Q{i + 1} is an {TRAPLESS_SLOT} slot: all three wrong options "
                     f"must be passage-supported statements with mechanism "
                     f"'{EXCEPT_MECHANISM}', got {bad}")
+        if _has_contracts(slots):
+            self._validate_contracts(qs, slots, passage)
         return qs
 
-    def _letter_assign(self, questions: list[dict], bp: Blueprint) -> dict:
-        """Deterministic letter placement from the blueprint's letter plan."""
+    def _validate_contracts(self, qs: list[dict], slots: list[dict],
+                            passage: str | None) -> None:
+        """Structural checks for contract slots (2026-09-13, plan section 4).
+
+        Everything here is deterministic: marker accounting, stem polarity,
+        failure mode, keyword-set format, quoted spans and paragraph numbers.
+        It cannot tell whether a key is unique or right — that is semantic and
+        stays with answerability QA, the blind solver and human review."""
+        allowed = set(self.registry.mechanisms)
+        for i, slot in enumerate(slots):
+            q, n = qs[i], i + 1
+            stem = q["stem"]
+            negations = negation_count(stem)
+            mechs = [str(w["mechanism"]).strip() for w in q["wrong"]]
+            if slot["polarity"] == NEGATIVE:
+                if negations != 1:
+                    raise QuestionEngineError(
+                        f"Q{n} is a negative {slot['contract']} slot: its stem needs "
+                        f"exactly one negation (NOT, EXCEPT or least), found {negations}")
+                bad = [m for m in mechs if m != slot["marker"]]
+                if bad:
+                    raise QuestionEngineError(
+                        f"Q{n} is a negative {slot['contract']} slot: all three wrong "
+                        f"options must meet the relation and carry mechanism "
+                        f"'{slot['marker']}', got {bad}")
+                if any(not str(w.get("why_wrong") or "").strip() for w in q["wrong"]):
+                    raise QuestionEngineError(
+                        f"Q{n}: each option that meets the relation needs a why_wrong "
+                        f"citing where it is met")
+                mode = str(q["correct"].get("failure_mode") or "").strip().lower()
+                if mode not in FAILURE_MODES:
+                    raise QuestionEngineError(
+                        f"Q{n} is a negative slot: correct.failure_mode must be one of "
+                        f"{'|'.join(FAILURE_MODES)}, got {mode or 'nothing'!r}")
+                if not str(q["correct"].get("why_right") or "").strip():
+                    raise QuestionEngineError(f"Q{n}: the key's why_right must name its failure")
+            else:
+                if negations:
+                    raise QuestionEngineError(
+                        f"Q{n} is an affirmative slot: its stem must not be negated")
+                marked = [m for m in mechs if m in CONTRACT_MARKERS]
+                if marked:
+                    raise QuestionEngineError(
+                        f"Q{n} is an affirmative slot but marks wrong options {marked}")
+                unknown = [m for m in mechs if m not in allowed]
+                if unknown:
+                    raise QuestionEngineError(
+                        f"Q{n} uses mechanisms outside the allowed list: {unknown}")
+            if slot["type"] == "keyword_set":
+                texts = [q["correct"]["text"]] + [w["text"] for w in q["wrong"]]
+                problems = keyword_set_problems(texts, slot.get("variant", "keywords"))
+                if problems:
+                    raise QuestionEngineError(f"Q{n} keyword_set: {problems[0]}")
+            if passage is not None:
+                missing = missing_quotes(stem, passage)
+                if missing:
+                    raise QuestionEngineError(
+                        f"Q{n} quotes words that are not in the passage: {missing[0]!r}")
+                refs = bad_paragraph_refs(stem, passage)
+                if refs:
+                    raise QuestionEngineError(
+                        f"Q{n} refers to paragraph {refs[0]}, but the passage has "
+                        f"{paragraph_count(passage)}")
+
+    def _contract_warnings(self, qs: list[dict], slots: list[dict],
+                           bp: Blueprint) -> list[str]:
+        """Reported, not enforced: a planned trap no wrong option harvests is a
+        weaker question, not a broken one."""
+        traps = {t["trap_id"]: t for t in bp.trap_map}
+        warnings = []
+        for i, slot in enumerate(slots):
+            trap = traps.get(slot.get("trap_id"))
+            if trap and not any(w["mechanism"] == trap["mechanism"] for w in qs[i]["wrong"]):
+                warnings.append(f"Q{i + 1} did not harvest {trap['trap_id']} "
+                                f"({trap['mechanism']})")
+        return warnings
+
+    def _letter_assign(self, questions: list[dict], bp: Blueprint,
+                       slots: list[dict] | None = None) -> dict:
+        """Deterministic letter placement from the blueprint's letter plan.
+
+        slots: when they carry contracts (2026-09-13), every contract marker is
+        kept out of the trap histogram, and each question records the PLANNED
+        slot type and polarity rather than the model's self-report."""
         rng = random.Random(bp.blueprint_id)
         out_questions = []
         trap_usage: dict[str, int] = {}
+        contracts = _has_contracts(slots)
         for i, q in enumerate(questions):
             correct_letter = bp.letter_plan[i]
             letters = ["A", "B", "C", "D"]
@@ -393,9 +563,19 @@ Write the {_N_Q} questions now as JSON."""
                 # passage_supported is not a distractor mechanism — it marks the
                 # true statements in an EXCEPT question. Counting it would put 3
                 # phantom traps per except-bearing set into trap_histogram and
-                # skew the distractor_jsd novelty channel.
-                if w["mechanism"] != EXCEPT_MECHANISM:
+                # skew the distractor_jsd novelty channel. The same holds for
+                # every contract marker.
+                if contracts:
+                    if w["mechanism"] not in CONTRACT_MARKERS:
+                        trap_usage[w["mechanism"]] = trap_usage.get(w["mechanism"], 0) + 1
+                elif w["mechanism"] != EXCEPT_MECHANISM:
                     trap_usage[w["mechanism"]] = trap_usage.get(w["mechanism"], 0) + 1
+            if contracts:
+                out_questions.append({
+                    "q": i + 1, "slot_type": slots[i]["type"],
+                    "polarity": slots[i]["polarity"], "contract": slots[i]["contract"],
+                    "stem": q["stem"], "options": options, "correct": correct_letter})
+                continue
             out_questions.append({
                 "q": i + 1, "slot_type": q.get("slot_type", ""),
                 "stem": q["stem"], "options": options, "correct": correct_letter})
@@ -462,7 +642,8 @@ _SIGNPOST_PATTERNS = [
     (r"\bin (?:this|the) (?:passage|essay|piece)\b", "refers to itself as a text"),
 ]
 
-def texture_report(passage: str) -> dict:
+def texture_report(passage: str, permissions: list[str] | None = None,
+                   supported_claims: list[str] | None = None) -> dict:
     """Free scan for architecture signposting and fabricated scholarly texture.
 
     Both are ways generated prose fakes the surface of serious writing: the
@@ -473,16 +654,46 @@ def texture_report(passage: str) -> dict:
 
     Warnings only. Neither is grounds for rejection, and a real citation will
     sometimes trip the fabrication heuristics.
+
+    permissions: the plan's grants from passage_permissions (2026-09-13,
+    contract policies only). None is the legacy scan, unchanged. With grants,
+    a scope-setting plan may refer to its own inquiry, a content-enumerating
+    plan may number the steps or problems of its subject, and devices used
+    without a grant are reported too.
+
+    supported_claims: passage claims the auditor traced to source-supported
+    facts with a correct attribution (source_facts.supported_claims). A
+    fabrication warning is silenced only when its matched text sits inside one
+    of them — never because a number or surname appears in a whitelist.
     """
     import re as _re
 
     warnings = []
+    grants = set(permissions or ())
     for pat, label in _SIGNPOST_PATTERNS:
         m = _re.search(pat, passage, _re.I)
         if m:
+            if permissions is not None:
+                text = m.group(0).lower()
+                if label == "refers to itself as a text" and "scope_setting" in grants:
+                    continue
+                if (label == "numbers its own argumentative moves"
+                        and "content_enumeration" in grants
+                        and _re.search(r"(?:problem|difficulty|step)$", text)):
+                    continue
             warnings.append(f"signposting: {label} - {m.group(0)!r}")
+    if permissions is not None:
+        from .passage_permissions import texture_findings
+        warnings.extend(f"signposting: {w}" for w in texture_findings(passage, list(grants)))
+    supported = [" ".join(c.lower().split()) for c in (supported_claims or []) if c]
     for pat, label in _FABRICATION_PATTERNS:
-        m = _re.search(pat, passage)
+        if supported:
+            # A supported match must not hide a LATER, unsupported one.
+            m = next((x for x in _re.finditer(pat, passage)
+                      if not any(" ".join(x.group(0).lower().split()) in c for c in supported)),
+                     None)
+        else:
+            m = _re.search(pat, passage)
         if m:
             warnings.append(
                 f"possible fabricated scholarship: {label} - {m.group(0)!r}")

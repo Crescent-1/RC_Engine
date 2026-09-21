@@ -33,7 +33,8 @@ NL = chr(10)
 
 SCREEN_SYSTEM = """You are a quality reader for a CAT VARC reading-comprehension set.
 
-You will be given a NEW passage and several RECENT passages that shipped before it.
+You will be given a NEW passage and several REFERENCE passages: recent sets,
+older structural neighbours, and other members of its completed batch.
 Judge one thing: would an attentive reader working through these in sequence feel
 they were reading the same piece again?
 
@@ -67,7 +68,7 @@ Be strict about shape and lenient about subject.
 Respond ONLY with valid JSON, no markdown fences:
 {
   "verdict": "green" | "red",
-  "nearest": "<rc_id of the recent passage it most resembles, or null>",
+  "nearest": "<rc_id of the reference passage it most resembles, or null>",
   "shared": ["<specific shared move or formula>", ...],
   "reason": "<one sentence, max 40 words>"
 }
@@ -116,8 +117,9 @@ def screen_passage(new_id: str, new_passage: str,
 
     cfg = config.SIMILARITY_SCREEN
     blocks = []
-    for rc_id, text in recent[:cfg["compare_n"]]:
-        blocks.append(f"--- RECENT {rc_id} ---{NL}{text.strip()}")
+    references = recent[:cfg["compare_n"]]
+    for rc_id, text in references:
+        blocks.append(f"--- REFERENCE {rc_id} ---{NL}{text.strip()}")
     user = (f"NEW PASSAGE ({new_id}):{NL}{new_passage.strip()}{NL}{NL}"
             + (NL + NL).join(blocks))
 
@@ -137,23 +139,26 @@ def screen_passage(new_id: str, new_passage: str,
     verdict = str(data.get("verdict", "")).strip().lower()
     if verdict not in ("green", "red"):
         verdict = "unchecked"
+    nearest = data.get("nearest")
+    if nearest is not None and nearest not in {r[0] for r in references}:
+        verdict = "unchecked"
     shared = data.get("shared") or []
     return {
         "verdict": verdict,
-        "nearest": data.get("nearest"),
+        "nearest": nearest,
         "shared": [str(x) for x in shared][:6],
         "reason": str(data.get("reason", ""))[:300],
     }
 
 
 def recent_passages(history, exclude: set[str], limit: int) -> list[tuple[str, str]]:
-    """The last `limit` shipped passages, newest first, excluding this batch."""
+    """The last `limit` passages of this client, newest first, excluding this
+    batch. Per client (2026-09-12): the screen asks whether a set reads like
+    what this client already has."""
     from .cli import _parse_rc_txt
 
     out: list[tuple[str, str]] = []
-    for rc_id, rc_text in history.conn.execute(
-            """SELECT rc_id, rc_text FROM rc_sets
-               WHERE rc_text IS NOT NULL ORDER BY created_at DESC"""):
+    for rc_id, rc_text in history.recent_rc_texts():
         if rc_id in exclude:
             continue
         passage = _parse_rc_txt(rc_text)["passage"]
@@ -164,37 +169,86 @@ def recent_passages(history, exclude: set[str], limit: int) -> list[tuple[str, s
     return out
 
 
-def screen_batch(history, rc_ids: list[str]) -> dict[str, dict]:
-    """Screen every set from this batch against what shipped before it.
+def select_references(candidate: dict, pool: list[dict], batch_ids: set[str],
+                      limit: int) -> list[tuple[str, str]]:
+    """Bounded, deterministic coverage of siblings, recency and old neighbours.
+
+    The pool is a snapshot, newest first. Ranking uses blind moves/schema, not
+    subject matter. Large batches get the closest siblings, not all pairs.
+    Missing measurements fall back to recency. No additional model calls.
+    """
+    from .fingerprints import move_signature_similarity
+
+    if limit <= 0:
+        return []
+    others = [r for r in pool if r['rc_id'] != candidate['rc_id']]
+
+    def score(row):
+        moves = move_signature_similarity(candidate['moves'], row['moves'])
+        schema = bool(candidate['schema'] and candidate['schema'] == row['schema'])
+        return moves + 0.25 * schema
+
+    siblings = sorted((r for r in others if r['rc_id'] in batch_ids),
+                      key=lambda r: (-score(r), r['rc_id']))
+    prior = [r for r in others if r['rc_id'] not in batch_ids]
+    chosen = siblings[:max(1, limit // 3)]
+    remaining = limit - len(chosen)
+    recent = prior[:(remaining + 1) // 2]
+    chosen.extend(recent)
+    used = {r['rc_id'] for r in chosen}
+    older = [r for r in prior if r['rc_id'] not in used]
+    chosen.extend(sorted(older, key=score, reverse=True)[:limit - len(chosen)])
+    used = {r['rc_id'] for r in chosen}
+    chosen.extend(r for r in siblings if r['rc_id'] not in used)
+    return [(r['rc_id'], r['passage']) for r in chosen[:limit]]
+
+
+def sibling_review_pairs(results: dict[str, dict]) -> list[tuple[str, str]]:
+    """One review item per flagged sibling pair, even for reciprocal reds.
+
+    A repeated pair is not two independently unusable passages. Reviewers can
+    retain the stronger member if it otherwise meets the quality requirements.
+    """
+    return sorted({tuple(sorted((rc_id, res['nearest'])))
+                   for rc_id, res in results.items()
+                   if res.get('verdict') == 'red'
+                   and isinstance(res.get('nearest'), str)
+                   and res['nearest'] != rc_id and res['nearest'] in results})
+
+
+def screen_batch(history, rc_ids: list[str]) -> tuple[dict[str, dict], float]:
+    """Screen each set against a fixed snapshot including batch siblings.
 
     Returns (verdicts, spend_usd). The spend is returned, not just printed, so
     the caller can fold it into the batch total — it used to be dropped.
 
-    The comparison window deliberately excludes the batch's own sets: a batch is
-    generated against one corpus state, and letting its members grade each other
-    would make the verdict depend on generation order.
+    Every candidate sees the same completed-batch snapshot; verdict updates do
+    not change reference selection. Calls and reference counts stay bounded by
+    the existing screen budget.
     """
     if not rc_ids:
         return {}, 0.0
     cfg = config.SIMILARITY_SCREEN
-    recent = recent_passages(history, set(rc_ids), cfg["compare_n"])
-    if not recent:
-        print("  [screen] no prior passages to compare against - skipping")
-        return {}, 0.0
-
     from .cli import _parse_rc_txt
+
+    pool = history.voice_reference_pool()
+    for row in pool:
+        row['passage'] = _parse_rc_txt(row['rc_text'])['passage']
+    pool = [r for r in pool if r['passage']]
+    by_id = {r['rc_id']: r for r in pool}
 
     ledger = CostLedger(budget_usd=cfg["max_usd"] * max(1, len(rc_ids)))
     results: dict[str, dict] = {}
-    print(f"  [screen] {cfg['model']} vs the last {len(recent)} shipped set(s)")
+    print(f"  [screen] {cfg['model']}: references from {len(pool)} client sets")
     for rc_id in rc_ids:
-        row = history.conn.execute(
-            "SELECT rc_text FROM rc_sets WHERE rc_id = ?", (rc_id,)).fetchone()
-        if not row or not row[0]:
+        row = by_id.get(rc_id)
+        if not row:
             continue
-        passage = _parse_rc_txt(row[0])["passage"]
+        passage = row['passage']
+        recent = select_references(row, pool, set(rc_ids), cfg['compare_n'])
         before = ledger.spent_usd
         res = screen_passage(rc_id, passage, recent, ledger)
+        res['references'] = [ref_id for ref_id, _ in recent]
         results[rc_id] = res
         # The screen is a paid stage like any other, and until 2026-09-02 its
         # spend was printed and then dropped: outside summarize_batch, outside
@@ -204,9 +258,9 @@ def screen_batch(history, rc_ids: list[str]) -> dict[str, dict]:
         # one call per set, so the attribution is exact rather than averaged.
         history.conn.execute(
             "UPDATE rc_sets SET similarity_verdict = ?, similarity_note = ?, "
-            "screen_cost_usd = ? WHERE rc_id = ?",
+            "screen_cost_usd = ? WHERE rc_id = ? AND client_id = ?",
             (res["verdict"], json.dumps(res, ensure_ascii=False),
-             round(ledger.spent_usd - before, 6), rc_id))
+             round(ledger.spent_usd - before, 6), rc_id, history.client_id))
         mark = {"green": "GREEN", "red": "RED  ", "unchecked": "?????"}[res["verdict"]]
         print(f"    [{mark}] {rc_id}"
               + (f" ~ {res['nearest']}" if res.get("nearest") else ""))
@@ -217,6 +271,9 @@ def screen_batch(history, rc_ids: list[str]) -> dict[str, dict]:
         elif res["verdict"] == "unchecked":
             print(f"             {res['reason']}")
     history.conn.commit()
+    for left, right in sibling_review_pairs(results):
+        print(f"  [screen pair] {left} / {right}: review together; retain the stronger "
+              "usable set if appropriate. A mutual red is not a reason to discard both.")
     if ledger.spent_usd:
         print(f"  [screen] spend ${ledger.spent_usd:.4f}")
     return results, ledger.spent_usd

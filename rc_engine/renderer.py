@@ -5,15 +5,34 @@ nothing structural is hardcoded here."""
 from __future__ import annotations
 
 from . import config
+from .generation_policy import policy_for_blueprint
 from .llm import CostLedger
 from .models import Blueprint
 from .registry import ComponentRegistry
 
 NL = chr(10)
 
-RENDER_SYSTEM = """You are a writer producing intellectually serious long-form prose
-(Aeon / LRB / Boston Review register) that will later be adapted into a CAT VARC
-reading-comprehension passage.
+# Evidence behind rules 10 and 11 (kept here, not in the prompt, since
+# 2026-09-14: a prompt review found dated measurements, rule-numbering history
+# and the banned phrase itself being sent to the model on every render).
+#
+# Rule 10, measured 2026-09-05 against 124 real CAT/XAT/GMAT passages: they use
+# the vocabulary of measurement, procedure, records, categories and
+# classification at 3.4 per 1000 words; this engine's passages used it at 10.0,
+# and the seeds sit at 2.2, below the exam. The register was being added, not
+# inherited. No example phrases are quoted in the prompt on purpose: "no: more
+# precisely" was given as an illustration in rule 11 until 2026-08-22 and was
+# copied verbatim into four passages. Rule 10 is numbered 10 because HUMAN
+# TEXTURE was once mis-numbered 8.
+#
+# Rule 11's placement clause, measured 2026-08-29: the texture instruction alone
+# put a concrete particular in sentence 1 of six of nine consecutive passages;
+# barring the opening moved it to the close in all five of the next batch. A
+# tell that relocates has not been fixed, hence "where the ARGUMENT needs it".
+RENDER_SYSTEM = """You are a writer producing intellectually serious prose that will
+later be adapted into a CAT VARC reading-comprehension passage. Use the source
+genre and assigned persona to set the register: explanation, history, criticism
+and practical description need different sentence behaviour.
 
 You will receive a STRUCTURAL CONTRACT: an authorial persona, a paragraph-by-paragraph
 movement plan, a thesis-revelation schedule, reader-trap directives, and an ending
@@ -58,25 +77,30 @@ HARD RULES:
    - When a beat plan asks you to quote an authority, satisfy it with a real
      source, a described-but-unnamed one, or a document the passage itself
      characterises — never with a plausible-sounding invention.
-8. HUMAN TEXTURE (a touch only — keep the intellect; break factory polish):
-   - Plant one concrete, slightly stubborn particular that is not immediately cashed
-     out as a system-metaphor (a room, job title, tool, dated practice, named place,
-     small physical action). It must earn its place in the argument.
-     It belongs in the BODY: not the opening sentence, not the closing one.
-     Measured 2026-08-29: this instruction alone put a concrete particular in
-     sentence 1 of six of nine consecutive passages, none of which planned it.
-     Barring it from the opening moved it to the close instead — all five of
-     the next batch ended on a named physical object, a higher rate than the
-     fifteen before. A tell that relocates has not been fixed. Place the
-     particular where the ARGUMENT needs it, which is neither of the two
-     positions a reader uses to recognise a writer.
+10. SUBJECT REGISTER — write about the thing, not the apparatus around it.
+   Real exam passages use the vocabulary of measurement, procedure, records,
+   categories and classification sparingly; generated prose tends to use it about
+   three times as often. Do not add that register where the subject does not.
+   - When the topic is a phenomenon, explain the phenomenon. Real exam prose
+     spends its length on how a thing works, what happened, why it changed.
+   - Critiquing how something is known, counted or sorted is a legitimate
+     subject when the topic is genuinely about that. It is not the default
+     subject, and it is where this engine goes when it is not thinking.
+   - Test the finished paragraph on its concrete nouns. If they are mostly the
+     machinery around the subject rather than the people, objects, places and
+     processes the passage is supposed to be about, rewrite toward the latter.
+
+11. HUMAN TEXTURE (a touch only — keep the intellect; break factory polish):
+   - Use concrete particulars where they advance this argument, rather than adding
+     a decorative detail to every passage. A detail added for texture must earn
+     its place instead of becoming a system-metaphor.
+     It belongs in the BODY: not the opening sentence, not the closing one. Place
+     the particular where the ARGUMENT needs it; opening and closing sentences are
+     the two positions a reader uses to recognise a writer.
    - Allow one sentence that is plainer / more workmanlike than its neighbors — not
      every sentence equally epigrammatic. One midstream re-steer is fine, if it
      arises from the argument rather than from a formula. Do NOT use a fixed
-     correction phrase: "no: more precisely" was given here as an illustration
-     until 2026-08-22 and was copied verbatim into four separate passages,
-     where the similarity screen then flagged it as a shared tell. Re-steer in
-     whatever words that sentence needs.
+     correction phrase; re-steer in whatever words that sentence needs.
    - Mix sentence subjects; avoid a run of abstract openers ("The doctrine… The
      residue… The mechanism… The ledger…"). Prefer some agents and concrete nouns
      when the persona allows.
@@ -98,8 +122,9 @@ class PassageRenderer:
                directives: list[str] | None = None) -> str:
         model, max_tokens = config.STAGE_CONFIG["render"][bp.tier]
         user = self._contract(bp, directives or [])
+        system = policy_for_blueprint(bp).system_prompt("render", RENDER_SYSTEM)
         text, truncated = self.llm.call(
-            ledger, "render", model, max_tokens, RENDER_SYSTEM, user,
+            ledger, "render", model, max_tokens, system, user,
             context={"blueprint": bp})
         if truncated:
             raise TruncatedRender("render hit max_tokens")
@@ -107,19 +132,27 @@ class PassageRenderer:
             raise TruncatedRender("render returned an empty response")
         return text.strip()
 
-    def _commitment_instruction(self, posture: str) -> str:
+    def _commitment_instruction(self, posture: str, policy=None) -> str:
         """Say where the passage should END on the commitment scale.
 
         The scale was measured and weighted but never targeted: across 74 real
         curves the planned posture moved the realised endpoint by a spread of
         just 0.20, and refusal_suspended ended at a median of 0.93. Naming the
         band is the cheap half of the fix; ComplianceAuditor audits it.
+
+        policy: bands come from the plan's policy (2026-09-13: the neutral
+        exposition is a policy posture); None = legacy.
         """
-        band = config.POSTURE_END_COMMITMENT.get(posture)
+        bands = policy.posture_end_commitment() if policy is not None else config.POSTURE_END_COMMITMENT
+        band = bands.get(posture)
         if not band:
             return ""
         lo, hi = band
-        if hi <= 0.5:
+        if posture.startswith("exposition"):
+            where = ("Close on the account itself — the classification, the process "
+                     "or the state of knowledge the passage set out — firmly held, "
+                     "but with no verdict on a dispute the passage never staged")
+        elif hi <= 0.5:
             where = ("The passage must NOT arrive at a settled answer to the "
                      "question it opened. Argue the refusal as the correct "
                      "verdict, but do not let the closing paragraph read as a "
@@ -136,6 +169,32 @@ class PassageRenderer:
                 f"{where}.")
 
     @staticmethod
+    def _seed_context(bp: Blueprint, policy) -> str:
+        """render_seed_context (2026-09-14): the writer never saw the seed essay,
+        only the plan, so nothing kept a case or an analogy inside the seed's
+        subject once the plan left room. Empty for every other policy, which
+        leaves their contracts byte-identical."""
+        seed = bp.seed or {}
+        if not policy.render_seed_context or not (seed.get("subject") or seed.get("title")):
+            return ""
+        lines = ["SOURCE ESSAY (the passage stays on its subject):"]
+        head = f"  \"{seed.get('title', '')}\"" if seed.get("title") else "  (untitled)"
+        if seed.get("subject"):
+            head += f" - {seed['subject']}"
+        lines.append(head)
+        kind = [f"subject area: {seed['seed_domain']}"] if seed.get("seed_domain") else []
+        if bp.seed_genre and bp.seed_genre != "unknown":
+            kind.append(f"kind of material: {bp.seed_genre}")
+        if kind:
+            lines.append("  " + "; ".join(kind))
+        if seed.get("particulars"):
+            lines.append("  Particulars from the essay: " + "; ".join(seed["particulars"]))
+        lines.append("  Cases, examples and analogies come from this subject. Another subject "
+                     "may appear only in a passing sentence, never as a paragraph's material. "
+                     "Rule 9 still governs what may be presented as real.")
+        return NL.join(lines) + NL
+
+    @staticmethod
     def _register_instruction(bp: Blueprint) -> str:
         for reg_id, _w, instruction in config.CLOSING_REGISTERS:
             if reg_id == bp.closing_register:
@@ -144,6 +203,8 @@ class PassageRenderer:
         return config.CLOSING_REGISTERS[0][2]
 
     def _contract(self, bp: Blueprint, directives: list[str]) -> str:
+        policy = policy_for_blueprint(bp)
+        vocab = policy.move_vocabulary()
         persona = self.registry.get("persona", bp.persona_id)
         family = self.registry.get("family", bp.family_id)
         ending = self.registry.get("ending", bp.ending_id)
@@ -152,13 +213,31 @@ class PassageRenderer:
         stance = (self.registry.get("render_stance", bp.render_stance_id)
                   if bp.render_stance_id else None)
 
+        # The rhetorical beats are folded INTO the paragraph plan rather than
+        # listed separately. Two parallel plans that never referenced each other
+        # left the model to reconcile 8 beats against 5 paragraphs itself, and
+        # the beat list was the only instruction in the whole contract with no
+        # address. Measured 2026-09-05: every located constraint (word target,
+        # role, thesis paragraph, trap anchor, first/last sentence) is obeyed;
+        # the one unlocated instruction was obeyed 51% of the time.
+        from .composer import BlueprintComposer
+        alloc = BlueprintComposer.allocate_beats(bp.move_plan, bp.movement)             if bp.move_plan else [[] for _ in bp.movement]
         movement_lines = []
-        for p in bp.movement:
+        for i, p in enumerate(bp.movement):
             fn_human = p.function.replace("_", " ").lower()
+            beats = alloc[i] if i < len(alloc) else []
+            # coherent_plans (2026-09-14): the family's paragraph label often
+            # disagreed with that paragraph's brief and beats ("stakes escalation
+            # noted" over a LEVEL_RELOCATION brief); say which one governs.
+            role = (f"arc role = {fn_human} (where the brief or beats differ, they govern)"
+                    if policy.coherent_plans and (beats or p.gist) else f"role = {fn_human}")
             movement_lines.append(
                 f"  Paragraph {p.para} (~{p.words_label} words, "
-                f"cadence: {p.cadence.replace('_', ' ')}): role = {fn_human}."
+                f"cadence: {p.cadence.replace('_', ' ')}): {role}."
                 + (f" Content brief: {p.gist}" if p.gist else ""))
+            for m in beats:
+                movement_lines.append(
+                    f"       BEAT: {m} — {vocab.get(m, '')}")
 
         trap_lines = [
             f"  {t['trap_id']} (paragraph {t['anchor_para']}): invite the misreading that "
@@ -167,8 +246,28 @@ class PassageRenderer:
 
         forbidden = config.GLOBAL_FORBIDDEN_TICS + persona.get("extra_forbidden", [])
         ts = bp.tension_system or {}
-        primary = ts.get("primary", {})
-        secondary = ts.get("secondary", {})
+        primary = ts.get("primary") or {}
+        secondary = ts.get("secondary") or {}
+        # The declared topic shape decides which material is authoritative.
+        # A stray content_frame must not erase a two-pole plan; legacy plans
+        # without a shape preserve an existing tension system as well.
+        shape = (self.registry.get("topic_shape", bp.topic_shape_id)
+                 if bp.topic_shape_id else {})
+        requires_tension = shape.get("requires_tension", bool(primary))
+        if ts.get("content_frame") and not requires_tension:
+            material_block = (f"CONTENT FRAME:\n{ts['content_frame']}\n"
+                              "Use this material to carry the reasoning. No opposing "
+                              "positions are required unless the plan names them.")
+        else:
+            material_block = (
+                f"PRIMARY TENSION: {primary.get('axis', 'n/a')} "
+                f"(poles: {', '.join(primary.get('poles', []))}; "
+                f"fate by the end: {primary.get('fate', 'n/a')})\n"
+                f"SECONDARY TENSION: {secondary.get('axis', 'n/a')} "
+                f"(fate: {secondary.get('fate', 'n/a')})\n"
+                f"INTERACTION: {ts.get('interaction', 'n/a')}")
+            if ts.get("content_frame"):
+                material_block += f"\nSUPPORTING MATERIAL: {ts['content_frame']}"
         # Ask undershooting providers for a higher number than the band that
         # validates — see config.PROVIDER_WORD_TARGET_OFFSET.
         _off = config.PROVIDER_WORD_TARGET_OFFSET.get(config.ACTIVE_PROVIDER, 0)
@@ -185,7 +284,7 @@ class PassageRenderer:
         beat_plan_block = ""
         if bp.move_plan:
             lines = NL.join(
-                f"  {i}. {m} — {config.RHETORICAL_MOVES.get(m, '')}"
+                f"  {i}. {m} — {vocab.get(m, '')}"
                 for i, m in enumerate(bp.move_plan, start=1))
             first, last = bp.move_plan[0], bp.move_plan[-1]
             # The first and last beat are stated again, on their own, ABOVE the
@@ -204,11 +303,11 @@ class PassageRenderer:
             # position a reader hears as voice.
             beat_plan_block = (
                 f"FIRST SENTENCE — {first}: "
-                f"{config.RHETORICAL_MOVES.get(first, '')}.{NL}"
+                f"{vocab.get(first, '')}.{NL}"
                 f"  Do NOT open on a concrete scene, object, or document "
                 f"unless that beat literally says so.{NL}"
                 f"FINAL SENTENCE — {last}: "
-                f"{config.RHETORICAL_MOVES.get(last, '')}.{NL}"
+                f"{vocab.get(last, '')}.{NL}"
                 f"  The passage ENDS on this move. Do NOT land the last "
                 f"sentence on a named physical object, a return to the opening "
                 f"image, or a detachable quotable line, unless that beat "
@@ -220,38 +319,69 @@ class PassageRenderer:
                 f"THE BODY BEATS ARE NOT OPTIONAL EITHER. You may run them in "
                 f"whatever order the argument wants — that part is yours — but "
                 f"every one must actually happen, and you may not substitute. "
-                f"Measured across 13 consecutive passages, this renderer kept "
-                f"only 43% of its planned middle beats and replaced the rest "
-                f"with the same few gestures every time, whatever the plan said: "
-                f"conceding an opposing account at length, then demolishing an "
-                f"easy reading of it. If you feel that shape arriving and the "
+                # 2026-09-14: the measurement behind this (13 passages, 43% of
+                # planned middle beats kept) stays in this comment, not the prompt.
+                f"Writers given a plan like this tend to keep fewer than half of "
+                f"the middle beats and replace the rest with the same few "
+                f"gestures, whatever the plan said: conceding an opposing account "
+                f"at length, then demolishing an easy reading of it. If you feel "
+                f"that shape arriving and the "
                 f"plan below did not ask for it, it is displacing a beat you "
                 f"owe.{NL}{NL}"
-                f"RHETORICAL BEAT PLAN (hard requirement — this is the "
-                f"passage's argumentative shape, in order. Each beat may span "
-                f"or share paragraphs. Together they account for the whole "
-                f"argument: if you find yourself performing an operation that "
-                f"is not on this list, the beat it displaced is the one you "
-                f"still owe):{NL}{lines}{NL}{NL}")
+                f"RHETORICAL BEAT PLAN — {len(bp.move_plan)} beats, and they "
+                f"are assigned to specific paragraphs in the PARAGRAPH "
+                f"MOVEMENT PLAN below. Perform each one where it is assigned. "
+                f"Together they are the whole argument: if you find yourself "
+                f"performing an operation that is not on this list, the beat it "
+                f"displaced is the one you still owe. The full list, in "
+                f"order:{NL}{lines}{NL}{NL}")
 
         stance_block = ""
         if stance:
             stance_block = (
-                f"WRITING STANCE (this governs the SHAPE of the whole piece — obey it "
-                f"even where it makes the movement plan harder to satisfy):{NL}"
+                f"WRITING STANCE (the way this argument is developed within "
+                f"the paragraph plan):{NL}"
                 f"  {stance['name']}: {stance['frame']}{NL}"
                 f"  Arc constraint: {stance['arc_constraint']}{NL}{NL}")
 
-        return f"""STRUCTURAL CONTRACT
+        # Positive prescription, deliberately. The render prompt already told
+        # the model that critiquing how things are known "is not the default
+        # subject", and 47% of the last 32 sets did it anyway — against 12.9%
+        # of real exam passages. Everything this session actually moved was
+        # moved by prescribing a thing, not by forbidding one (the opening beat
+        # went 2/9 to 5/5 the moment it was stated positionally).
+        # Section 5.3 (2026-09-13): the plan's grants, stated once and in the
+        # same words the auditor and texture_report use. Empty for every plan
+        # whose policy does not use permissions, which leaves the prompt as it was.
+        permissions_part = ""
+        if policy.passage_permissions:
+            from .passage_permissions import grants_for, permissions_block
+            permissions_part = permissions_block(grants_for(bp, self.registry)) + NL
+        if policy.source_facts:
+            # Section 6: the only evidence this passage may present as real,
+            # beyond rule 9's well-known references.
+            from .source_facts import facts_block
+            permissions_part += facts_block(
+                bp.source_facts, evidence=policy.strict_source_fact_audit) + NL
 
-{stance_block}TOPIC: {bp.topic}
-TIER: {bp.tier} — {config.TIER_DIFFICULTY_CHARACTER.get(bp.tier, '')}
+        schema = policy.argument_schemas().get(bp.argument_schema_id or "")
+        schema_block = ""
+        if schema:
+            schema_block = (
+                f"WHAT THE ARGUMENT DOES (the shape of the reasoning itself — this "
+                f"is not the topic and not the family arc; it is what the passage "
+                f"is FOR):{NL}  {schema['directive']}{NL}{NL}")
+
+        return policy.user_prompt("render", f"""STRUCTURAL CONTRACT
+
+{schema_block}{stance_block}The schema is the primary reasoning purpose. Paragraph roles and beats
+develop that argument; keep the content briefs consistent with it.
+TOPIC: {bp.topic}
+SOURCE GENRE: {bp.seed_genre or 'unspecified'}
+{self._seed_context(bp, policy)}TIER: {bp.tier} — {config.TIER_DIFFICULTY_CHARACTER.get(bp.tier, '')}
 ARGUMENT FAMILY: {family['name']} — {family['core']}
 
-PRIMARY TENSION: {primary.get('axis', 'n/a')} (poles: {', '.join(primary.get('poles', []))};
-fate by the end: {primary.get('fate', 'n/a')})
-SECONDARY TENSION: {secondary.get('axis', 'n/a')} (fate: {secondary.get('fate', 'n/a')})
-INTERACTION: {ts.get('interaction', 'n/a')}
+{material_block}
 INSTABILITY DEGREE: {bp.instability} (0 = neat closure, 1 = fully suspended; this governs
 how contested the MIDDLE of the passage feels — the ENDING's stance is governed by the
 closing posture directive below, not by this number)
@@ -263,9 +393,8 @@ AUTHORIAL PERSONA: {persona['name']}
   Characteristic moves: {'; '.join(persona['signature_moves'])}
   Pronoun posture: {persona.get('pronoun_posture', 'neutral')}
   Metaphor domains to draw from: {', '.join(persona.get('metaphor_domains', []))}
-  Texture: invent one small voice tell unique to THIS passage (a concrete detail
-  habit, a self-correction tic, or a slightly plainer register dip) so it does not
-  read as the generator's default house polish.
+  Texture: let this subject and persona determine the sentence detail. Perform
+  self-correction when the plan calls for it, rather than adding a recurring tic.
 
 TOTAL LENGTH (hard requirement): {band_lo}-{band_hi} words. Anything outside that
 range is rejected. The per-paragraph targets below are sized to land inside it —
@@ -282,10 +411,10 @@ READER TRAPS (build these into the prose):
 {chr(10).join(trap_lines)}
 
 ENDING DIRECTIVE: {ending['name']} — {ending['gesture']}. Aperture: {ending['aperture']}.
-CLOSING POSTURE (hard requirement): {self.registry.closing_postures[family['closing_posture']]}
-{self._commitment_instruction(family['closing_posture'])}
+CLOSING POSTURE (hard requirement): {policy.closing_postures(self.registry)[family['closing_posture']]}
+{self._commitment_instruction(family['closing_posture'], policy)}
 FINAL SENTENCE: {self._register_instruction(bp)}
-
+{permissions_part}
 FORBIDDEN WORDS/PHRASES (never use any of these): {', '.join(forbidden)}
 {("DIRECTIVES (hard requirements — satisfy every one):" + chr(10) + chr(10).join('  - ' + d for d in directives)) if directives else ''}
 BEFORE YOU RESPOND: count the words in the passage you have written. If the
@@ -293,7 +422,7 @@ total is not between {band_lo} and {band_hi}, revise it into that range —
 expand or compress the argument itself, do not pad with filler or amputate a
 paragraph's function. Emit only the corrected passage.
 
-Write the passage now."""
+Write the passage now.""")
 
 
 class TruncatedRender(RuntimeError):

@@ -16,7 +16,7 @@
   "strengthen": "which new fact would most strengthen a specified claim from the passage",
   "weaken": "which new fact would most weaken a specified claim from the passage",
   "author_vs_reported": "distinguish the author's own view from views the author reports or steelmans",
-  "closure_reading": "what the ending does — why the passage stops where it does and what is implied next",
+  "closure_reading": "what the ending does — what it accomplishes, what it implies, and what the passage would most likely take up next. NOT why the passage stops where it does",
   "phrase_in_context": "the meaning of a specific phrase as used in the passage, not in general usage",
   "detail_check": "a precise factual/claim-level detail from the passage"
  },
@@ -100,7 +100,7 @@
   ],
   "closure_reading": [
    "What does the passage's final sentence accomplish?",
-   "The passage stops where it does in order to:",
+   "If the passage continued, which one of the following would it most likely discuss next?",
    "Which one of the following is most strongly implied by the way the passage ends?"
   ],
   "phrase_in_context": [
@@ -1266,6 +1266,111 @@
     }
    ],
    "style_note": "eight questions of identical moderate difficulty — no rhythm cue about where the danger is"
+  },
+  {
+   "id": "QT25",
+   "name": "The Commitment Map",
+   "curve": "flat_mid",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.62
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.58,
+     "polarity": "negative"
+    },
+    {
+     "type": "evidence_function",
+     "target": "local",
+     "difficulty": 0.63
+    },
+    {
+     "type": "author_would_endorse",
+     "target": "global",
+     "difficulty": 0.61
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.64
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.63,
+     "polarity": "negative"
+    },
+    {
+     "type": "weaken",
+     "target": "span",
+     "difficulty": 0.6
+    },
+    {
+     "type": "keyword_set",
+     "target": "global",
+     "difficulty": 0.57
+    }
+   ],
+   "style_note": "maps what the author is committed to from several sides: two negated checks, one endorsement, and a closing keyword map of the whole argument",
+   "policies": [
+    "cat-pyq-q1"
+   ]
+  },
+  {
+   "id": "QT26",
+   "name": "The Reported Voices",
+   "curve": "rising",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.58
+    },
+    {
+     "type": "except_scan",
+     "target": "span",
+     "difficulty": 0.55
+    },
+    {
+     "type": "author_vs_reported",
+     "target": "span",
+     "difficulty": 0.6
+    },
+    {
+     "type": "keyword_set",
+     "target": "global",
+     "difficulty": 0.62
+    },
+    {
+     "type": "strengthen",
+     "target": "span",
+     "difficulty": 0.66
+    },
+    {
+     "type": "author_would_endorse",
+     "target": "global",
+     "difficulty": 0.72
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.78,
+     "polarity": "negative"
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.84
+    }
+   ],
+   "style_note": "separates the author's commitments from the voices reported around them, then maps the argument; one EXCEPT scan and one negated application, difficulty climbing to the close",
+   "policies": [
+    "cat-pyq-q1"
+   ]
   }
  ]
 }

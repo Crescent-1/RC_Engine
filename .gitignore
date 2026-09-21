@@ -1,5 +1,7 @@
 # secrets — never commit the API key
 .env
+outreach/.env
+outreach/runtime/
 
 # SQLite databases (production, dry-run) — data lives outside VCS
 *.db
@@ -24,3 +26,8 @@ gui/_vet_tmp/
 # local-machine Claude settings
 .claude/settings.local.json
 .claude/scheduled_tasks.lock
+
+# Isolated website publishing repository and generated static output
+.site-publish/
+website/dist/
+website/.sites-runtime/

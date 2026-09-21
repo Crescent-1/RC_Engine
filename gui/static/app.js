@@ -8,6 +8,17 @@ const usd = (v) => v == null ? "—" : "$" + Number(v).toFixed(4);
 const num = (v, d = 2) => v == null ? "—" : Number(v).toFixed(d);
 const when = (iso) => iso ? String(iso).replace("T", " ").slice(0, 16) : "—";
 
+/* ============================= client ============================= */
+// One DB, several clients (2026-09-12). Every read and every job is scoped to
+// the client picked in the sidebar; the pick is remembered per browser.
+
+let currentClient = "";
+try { currentClient = localStorage.getItem("rc-client") || ""; } catch (_) {}
+
+const withClient = (url) => currentClient
+  ? url + (url.includes("?") ? "&" : "?") + "client=" + encodeURIComponent(currentClient)
+  : url;
+
 async function jsonFetch(url, opts = {}) {
   const res = await fetch(url, opts);
   let body = null;
@@ -17,6 +28,26 @@ async function jsonFetch(url, opts = {}) {
     throw new Error(msg);
   }
   return body;
+}
+
+async function loadClients() {
+  const sel = $("#client-select");
+  try {
+    const rows = await jsonFetch("/api/clients");
+    if (!rows.some((c) => c.client_id === currentClient))
+      currentClient = rows.length ? rows[0].client_id : "";
+    sel.innerHTML = rows.map((c) => {
+      const name = c.display_name && c.display_name !== c.client_id ? ` — ${c.display_name}` : "";
+      return `<option value="${esc(c.client_id)}">${esc(c.client_id + name)}</option>`;
+    }).join("");
+    sel.value = currentClient;
+  } catch (_) { sel.innerHTML = ""; }
+}
+
+function setClient(id) {
+  currentClient = id;
+  try { localStorage.setItem("rc-client", id); } catch (_) {}
+  route();
 }
 
 function toast(msg, kind = "") {
@@ -138,7 +169,7 @@ const STATUS_ORDER = ["approved", "needs_review", "solver_dispute",
                       "rejected_novelty", "budget_abort"];
 
 async function loadDashboard() {
-  const d = await jsonFetch("/api/dashboard");
+  const d = await jsonFetch(withClient("/api/dashboard"));
   const un = $("#dash-unavailable");
   if (!d.available) {
     un.hidden = false;
@@ -190,7 +221,7 @@ async function loadDashboard() {
 async function refreshBadges(count) {
   try {
     if (count === undefined) {
-      const rows = await jsonFetch("/api/resumable");
+      const rows = await jsonFetch(withClient("/api/resumable"));
       count = rows.length;
     }
     const b = $("#nav-resume-badge");
@@ -247,6 +278,7 @@ function runGenerate() {
     dry_run: $("#gen-dryrun").checked,
     no_seed: $("#gen-noseed").checked,
     no_embed: $("#gen-noembed").checked,
+    client: currentClient || null,
   };
   const maxUsd = parseFloat($("#gen-maxusd").value);
   if (!isNaN(maxUsd) && maxUsd > 0) body.max_usd = maxUsd;
@@ -268,7 +300,7 @@ async function loadEstimate() {
 async function loadResume() {
   const st = await getSettings();
   fillProviderSelect($("#retry-provider"), st, $("#retry-dryrun").checked);
-  const rows = await jsonFetch("/api/resumable");
+  const rows = await jsonFetch(withClient("/api/resumable"));
   refreshBadges(rows.length);
   const t = $("#resume-table");
   if (!rows.length) {
@@ -294,6 +326,7 @@ function runRetry(blueprintId) {
     provider: $("#retry-provider").value,
     dry_run: $("#retry-dryrun").checked,
     note: $("#retry-note").value || null,
+    client: currentClient || null,
   };
   if (blueprintId) body.blueprint = blueprintId; else body.all = true;
   startJob("retry", "/api/jobs/retry", body);
@@ -325,6 +358,7 @@ async function loadLibrary() {
   const q = new URLSearchParams({ limit: lib.limit, offset: lib.offset });
   if (lib.status) q.set("status", lib.status);
   if (lib.tier) q.set("tier", lib.tier);
+  if (currentClient) q.set("client", currentClient);
   const d = await jsonFetch("/api/rcs?" + q);
   lib.total = d.total;
   $("#lib-table").innerHTML =
@@ -359,7 +393,17 @@ async function openRC(rcId) {
        score ${num(r.average_score, 1)} · f1 ${num(r.compliance_f1, 2)} ·
        novelty ${num(r.novelty_composite, 2)} · ${usd(r.total_cost_usd)} ·
        ${esc(r.provider || "?")}`;
-    $("#modal-body").textContent = r.rc_text || "(no text)";
+    let voiceReasons = [];
+    try { voiceReasons = JSON.parse(r.voice_review_json || "[]"); } catch (_) {}
+    const voiceNote = Array.isArray(voiceReasons) && voiceReasons.length
+      ? `Voice observations (informational):\n${voiceReasons.map(x => `• ${x}`).join("\n")}\n\n`
+      : "";
+    let screen = {};
+    try { screen = JSON.parse(r.similarity_note || "{}") || {}; } catch (_) {}
+    const pairNote = r.similarity_verdict === "red" && typeof screen.nearest === "string"
+      ? `Similarity review: compare with ${screen.nearest}. Retain the stronger usable set if appropriate; a mutual flag does not mean both should be discarded.\n\n`
+      : "";
+    $("#modal-body").textContent = voiceNote + pairNote + (r.rc_text || "(no text)");
     $("#modal").hidden = false;
   } catch (e) { toast(e.message, "bad"); }
 }
@@ -370,7 +414,7 @@ async function runExport() {
   try {
     const res = await jsonFetch("/api/export", {
       method: "POST", headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ status: lib.status || null }),
+      body: JSON.stringify({ status: lib.status || null, client: currentClient || null }),
     });
     toast(res.output.trim().split("\n").pop() || "export finished",
           res.returncode === 0 ? "ok" : "bad");
@@ -393,6 +437,7 @@ async function runVet() {
     fd.append("ingest", $("#vet-ingest").checked);
     fd.append("force", $("#vet-force").checked);
     fd.append("no_embed", !$("#vet-embed").checked);
+    if (currentClient) fd.append("client", currentClient);
     const res = await fetch("/api/vet", { method: "POST", body: fd });
     const body = await res.json().catch(() => null);
     if (!res.ok) throw new Error(body && body.detail || res.statusText);
@@ -416,7 +461,7 @@ function renderVetReport(text, rc) {
 
 async function loadAvoid() {
   const n = parseInt($("#avoid-n").value, 10) || 4;
-  const res = await jsonFetch(`/api/avoid?n=${n}`);
+  const res = await jsonFetch(withClient(`/api/avoid?n=${n}`));
   $("#avoid-out").textContent = res.output.trim();
   $("#manual-note").textContent = "AVOID line only — click “Full prompt” for the complete generator prompt.";
 }
@@ -425,7 +470,7 @@ async function loadManualPrompt() {
   const tier = $("#manual-tier").value;
   $("#avoid-out").textContent = "building full prompt…";
   try {
-    const res = await jsonFetch(`/api/manual-prompt?n=${n}&tier=${tier}`);
+    const res = await jsonFetch(withClient(`/api/manual-prompt?n=${n}&tier=${tier}`));
     $("#avoid-out").textContent = res.full;
     $("#manual-note").textContent = res.avoid_line
       ? `Full ${tier} prompt ready — paste it into claude.ai, then send the first-set message at the bottom.`
@@ -442,7 +487,7 @@ function copyManual() {
 /* ============================= health ============================= */
 
 async function loadHealth() {
-  const d = await jsonFetch("/api/health");
+  const d = await jsonFetch(withClient("/api/health"));
   const hist = d.history || [];
   const latest = hist[hist.length - 1];
   const tiles = latest ? [
@@ -482,7 +527,7 @@ function drawSpark(box, values, alarm) {
     </svg>`;
 }
 
-function runHealthSnapshot() { startJob("health", "/api/jobs/health-snapshot"); }
+function runHealthSnapshot() { startJob("health", withClient("/api/jobs/health-snapshot")); }
 
 /* ============================== seeds ============================= */
 
@@ -576,9 +621,9 @@ async function loadSettings() {
     <div><b>Engine</b><span>${esc(st.engine_version)}</span></div>`;
 }
 
-function runBackfill() { startJob("backfill", "/api/jobs/backfill"); }
+function runBackfill() { startJob("backfill", withClient("/api/jobs/backfill")); }
 
 /* ============================== boot ============================== */
 
 $("#job-pill").addEventListener("click", () => toggleDrawer());
-syncJobState().then(route);
+loadClients().then(syncJobState).then(route);

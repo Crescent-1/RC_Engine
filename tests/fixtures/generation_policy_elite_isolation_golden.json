@@ -1,0 +1,2530 @@
+{
+ "attempts": [
+  {
+   "ban_families": [],
+   "ban_movements": [],
+   "blueprint": {
+    "closing_register": "quiet_qualification",
+    "components": {
+     "distractor_profile": "D11",
+     "ending": "E08",
+     "family": "F51",
+     "persona": "P01",
+     "render_stance": "RS01",
+     "revelation": "R09",
+     "rhythm": "T05",
+     "topology": "QT09"
+    },
+    "effective_slots": [
+     {
+      "difficulty": 0.68,
+      "target": "global",
+      "trap_id": "TR1",
+      "type": "thesis"
+     },
+     {
+      "difficulty": 0.8,
+      "target": "local",
+      "trap_id": "TR2",
+      "type": "contextual_inference"
+     },
+     {
+      "difficulty": 0.73,
+      "target": "local",
+      "trap_id": "TR3",
+      "type": "phrase_in_context"
+     },
+     {
+      "difficulty": 0.67,
+      "target": "span",
+      "type": "strengthen"
+     },
+     {
+      "difficulty": 0.62,
+      "target": "span",
+      "type": "decoy_escape"
+     },
+     {
+      "difficulty": 0.57,
+      "target": "global",
+      "type": "primary_purpose"
+     },
+     {
+      "difficulty": 0.55,
+      "target": "local",
+      "type": "detail_check"
+     },
+     {
+      "difficulty": 0.51,
+      "target": "span",
+      "type": "counterfactual_structure"
+     }
+    ],
+    "instability": 0.57,
+    "letter_plan": [
+     "B",
+     "C",
+     "A",
+     "D",
+     "D",
+     "B",
+     "C",
+     "A"
+    ],
+    "move_plan": [
+     "ABSTRACT_CLAIM_OPEN",
+     "MECHANISM_EXPLAINED",
+     "SYMMETRY_BROKEN",
+     "AUTHORITY_QUOTED",
+     "ANALOGY_EXTENDED",
+     "STAKES_RAISED",
+     "COUNTEREXAMPLE_PRESSED",
+     "BOUND_CONTINUATION"
+    ],
+    "movement": "PROBLEM_POSED|EXPLANATION_WORKED|EXPLANATION_WORKED|EVIDENCE_WEIGHED|ARGUMENT_STILL_RUNNING",
+    "revelation_detail": {
+     "planned_para": 2,
+     "timing": "distributed"
+    },
+    "schema": "S2_RECEIVED_ACCOUNT_REPLACED",
+    "status": "shipped",
+    "stem_shapes": [
+     "Which one of the following statements provides a gist of this passage?",
+     "In context, the claim that {quoted phrase} most nearly means that:",
+     "In the context of the passage, {quoted phrase} is best understood as:",
+     "Which one of the following, if true, would most support the claim made in {the specified paragraph}?",
+     "The passage most directly corrects which one of the following impressions?",
+     "Which one of the following best explains the primary purpose of the discussion of {X}?",
+     "According to the passage, why does {X} happen?",
+     "Had the author omitted {X}, the passage's central claim would:"
+    ],
+    "topic_shape": "TS12"
+   },
+   "blueprint_id": "BP_260913_00000001",
+   "calls": [
+    {
+     "max_tokens": 2600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "seed_classify",
+     "system": "d6234549c275b6d1d5f9204a6d3340c00babe5e0",
+     "user": "aa7cfd3a228d03feadf11924772e3b01a5e8e9fe"
+    },
+    {
+     "max_tokens": 2400,
+     "model": "claude-sonnet-5",
+     "stage": "refine",
+     "system": "3e3e46ee2b8d140f3618b06be2e2a46711581493",
+     "user": "8b70209b285dd87b675f402f7fdcbb06fad828ef"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "e093e923111e38589e657e246c592496aa33751f"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "2951aed37348677a590a7010cf91e59602cc8eda"
+    },
+    {
+     "max_tokens": 2800,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "86297aadbf578bf2a1a730404077d9687c657a4d"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "8a8bac71b564cb09fb017f5ae912c6309ef646f2"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "2951aed37348677a590a7010cf91e59602cc8eda"
+    },
+    {
+     "max_tokens": 2800,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "86297aadbf578bf2a1a730404077d9687c657a4d"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "070b3fbdd39408c2210f78d0072372b9b29de7be",
+     "user": "782d46ab7e3ca8c7a9bdc5a9922b6f1ab3f550dd"
+    },
+    {
+     "max_tokens": 5600,
+     "model": "claude-opus-5",
+     "stage": "questions",
+     "system": "1342ce83173dae53639b238360b27a4fd6ab89a6",
+     "user": "c86fecfc05a89ca13b476cf22f7d86ced6c6d082"
+    },
+    {
+     "max_tokens": 4200,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "answerability",
+     "system": "e0ec49441bc9ab18f9a67fcf4afe560585e310a5",
+     "user": "96b63922507a01afa1758b7343732a1683c25bbe"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-sonnet-5",
+     "stage": "solver",
+     "system": "5c1ca308a65623c60ff9bd473585359ed650e41a",
+     "user": "ab9dee769a85f503e0c6fcc8a30a8ac07abeb6b1"
+    },
+    {
+     "max_tokens": 3200,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "judge",
+     "system": "e52c7194cc6d3ef624fe386d6152842084f83919",
+     "user": "145970b035e37a1e4c58db716c467a5af0447e55"
+    }
+   ],
+   "notes": [
+    "compliance F1=0.726 attempt 1; retrying with directives",
+    "compliance F1=0.726 attempt 2; retrying with directives",
+    "shipping best compliance F1=0.726 (below threshold) -> needs_review",
+    "prevalidate: passage 567 words vs required 500-550",
+    "passage length: passage 567 words vs required 500-550",
+    "voice review: opening beat differs from the plan",
+    "voice review: closing beat differs from the plan",
+    "voice review: body plan retention 33%; unplanned moves: HEDGED_APHORISM, LEVEL_RELOCATION, STACCATO_TRIAD",
+    "voice review: argument schema was not measured",
+    "voice review: closing commitment is outside the planned band",
+    "passage length: 567 words vs required 500-550 \u2014 routed to needs_review"
+   ],
+   "rc_id": "RC-HARD-DATE-0001",
+   "status": "needs_review",
+   "tier": "hard"
+  },
+  {
+   "ban_families": [],
+   "ban_movements": [],
+   "blueprint": {
+    "closing_register": "quiet_qualification",
+    "components": {
+     "distractor_profile": "D02",
+     "ending": "E03",
+     "family": "F12",
+     "persona": "P16",
+     "render_stance": "RS05",
+     "revelation": "R16",
+     "rhythm": "T19",
+     "topology": "QT07"
+    },
+    "effective_slots": [
+     {
+      "difficulty": 0.53,
+      "target": "global",
+      "trap_id": "TR1",
+      "type": "thesis"
+     },
+     {
+      "difficulty": 0.49,
+      "target": "local",
+      "trap_id": "TR2",
+      "type": "structural_function"
+     },
+     {
+      "difficulty": 0.54,
+      "target": "global",
+      "type": "application"
+     },
+     {
+      "difficulty": 0.48,
+      "target": "local",
+      "trap_id": "TR3",
+      "type": "detail_check"
+     },
+     {
+      "difficulty": 0.54,
+      "target": "local",
+      "type": "weaken"
+     },
+     {
+      "difficulty": 0.54,
+      "target": "span",
+      "type": "strengthen"
+     },
+     {
+      "difficulty": 0.54,
+      "target": "local",
+      "type": "contextual_inference"
+     },
+     {
+      "difficulty": 0.52,
+      "target": "global",
+      "type": "stance"
+     }
+    ],
+    "instability": 0.31,
+    "letter_plan": [
+     "A",
+     "B",
+     "D",
+     "A",
+     "C",
+     "C",
+     "D",
+     "A"
+    ],
+    "move_plan": [
+     "QUESTION_POSED",
+     "MECHANISM_EXPLAINED",
+     "UNDERLYING_CAUSE_NAMED",
+     "COUNTEREXAMPLE_PRESSED",
+     "GENEALOGY_TRACED",
+     "BOUND_CONTINUATION"
+    ],
+    "movement": "FAILURE_NARRATED|HIDDEN_SUCCESS_REVEALED|GOAL_INVERSION|REFRAME_QUESTION",
+    "revelation_detail": {
+     "planned_para": 2,
+     "timing": "distributed"
+    },
+    "schema": "S5_PRACTICE_VS_THEORY",
+    "status": "shipped",
+    "stem_shapes": [
+     "The passage is primarily concerned with:",
+     "Which one of the following best describes the role played by {the specified paragraph}?",
+     "Which one of the following situations is most analogous to the mechanism described in the passage?",
+     "According to the passage, why does {X} happen?",
+     "Which one of the following findings would most complicate the author's account of {X}?",
+     "Which one of the following, if true, would most support the claim made in {the specified paragraph}?",
+     "Which one of the following is suggested by the sentence {quoted sentence}?",
+     "The author's position on {X} is best characterised as:"
+    ],
+    "topic_shape": "TS07"
+   },
+   "blueprint_id": "BP_260913_00000002",
+   "calls": [
+    {
+     "max_tokens": 2600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "seed_classify",
+     "system": "d6234549c275b6d1d5f9204a6d3340c00babe5e0",
+     "user": "82b5e271822194dc1d51e4a75b45ccb0c5e725bc"
+    },
+    {
+     "max_tokens": 6100,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "refine",
+     "system": "3e3e46ee2b8d140f3618b06be2e2a46711581493",
+     "user": "fe5120289ff55c825a5a2cd9e07cc2d3eb49f349"
+    },
+    {
+     "max_tokens": 1500,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "ce244de18ec47d29e8fdac60858a4aed4cf86f58"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "d54d28c00bb369e40e39e05bcdd6be1d409d7daf"
+    },
+    {
+     "max_tokens": 2600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "659bcd26a29cae0cc09a18610b1ec14d6236b0c2"
+    },
+    {
+     "max_tokens": 1500,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "a87b6251b7dec4fe0f7702e7b77015e93157947e"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "d54d28c00bb369e40e39e05bcdd6be1d409d7daf"
+    },
+    {
+     "max_tokens": 2600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "659bcd26a29cae0cc09a18610b1ec14d6236b0c2"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "070b3fbdd39408c2210f78d0072372b9b29de7be",
+     "user": "120e5a35661c44a57b25a671b24847b8186eff8e"
+    },
+    {
+     "max_tokens": 5600,
+     "model": "claude-opus-5",
+     "stage": "questions",
+     "system": "1342ce83173dae53639b238360b27a4fd6ab89a6",
+     "user": "e0f43bec03be0d957e492132b22854be53ef6948"
+    },
+    {
+     "max_tokens": 4200,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "answerability",
+     "system": "e0ec49441bc9ab18f9a67fcf4afe560585e310a5",
+     "user": "588e6747b078fb38d8634307ae21d3824e3bb02e"
+    },
+    {
+     "max_tokens": 1400,
+     "model": "claude-sonnet-5",
+     "stage": "solver",
+     "system": "5c1ca308a65623c60ff9bd473585359ed650e41a",
+     "user": "34feb91f01d99cf733b806f0833e2f7d353f86d8"
+    },
+    {
+     "max_tokens": 2700,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "judge",
+     "system": "e85e770f45019a04ecb78adeb725ad701b2e2827",
+     "user": "b22b477274c5ebf2c763f7782dc9b175f90de170"
+    }
+   ],
+   "notes": [
+    "compliance F1=0.695 attempt 1; retrying with directives",
+    "compliance F1=0.695 attempt 2; retrying with directives",
+    "shipping best compliance F1=0.695 (below threshold) -> needs_review",
+    "voice review: opening beat differs from the plan",
+    "voice review: closing beat differs from the plan",
+    "voice review: body plan retention 0%; unplanned moves: INSTANCE_SURVEY",
+    "voice review: argument schema was not measured",
+    "voice review: closing commitment is outside the planned band"
+   ],
+   "rc_id": "RC-MEDIUM-DATE-0001",
+   "status": "needs_review",
+   "tier": "medium"
+  },
+  {
+   "ban_families": [],
+   "ban_movements": [],
+   "blueprint": {
+    "closing_register": "bound_continuation",
+    "components": {
+     "distractor_profile": "D06",
+     "ending": "E18",
+     "family": "F46",
+     "persona": "P13",
+     "render_stance": "RS09",
+     "revelation": "R17",
+     "rhythm": "T09",
+     "topology": "QT23"
+    },
+    "effective_slots": [
+     {
+      "difficulty": 0.6,
+      "target": "global",
+      "trap_id": "TR1",
+      "type": "thesis"
+     },
+     {
+      "difficulty": 0.6,
+      "target": "local",
+      "trap_id": "TR2",
+      "type": "contextual_inference"
+     },
+     {
+      "difficulty": 0.6,
+      "target": "local",
+      "trap_id": "TR3",
+      "type": "detail_check"
+     },
+     {
+      "difficulty": 0.66,
+      "target": "span",
+      "type": "strengthen"
+     },
+     {
+      "difficulty": 0.74,
+      "target": "span",
+      "type": "counterfactual_structure"
+     },
+     {
+      "difficulty": 0.8,
+      "target": "local",
+      "type": "phrase_in_context"
+     },
+     {
+      "difficulty": 0.81,
+      "target": "global",
+      "type": "primary_purpose"
+     },
+     {
+      "difficulty": 0.89,
+      "target": "span",
+      "type": "closure_reading"
+     }
+    ],
+    "instability": 0.53,
+    "letter_plan": [
+     "B",
+     "C",
+     "C",
+     "D",
+     "C",
+     "A",
+     "B",
+     "B"
+    ],
+    "move_plan": [
+     "QUESTION_POSED",
+     "MECHANISM_EXPLAINED",
+     "UNDERLYING_CAUSE_NAMED",
+     "COUNTEREXAMPLE_PRESSED",
+     "STAKES_RAISED",
+     "INSTANCE_SURVEY",
+     "AUTHORITY_QUOTED",
+     "BOUND_CONTINUATION"
+    ],
+    "movement": "PROCEDURE_OPENED|STEP_DESCRIBED|STEP_DESCRIBED|STEP_DESCRIBED|COST_FORCED_BY_PROCEDURE",
+    "revelation_detail": {
+     "planned_para": 4,
+     "timing": "late"
+    },
+    "schema": "S4_MECHANISM_TRACED",
+    "status": "shipped",
+    "stem_shapes": [
+     "Which one of the following best summarises the author's main argument?",
+     "Which one of the following is suggested by the sentence {quoted sentence}?",
+     "According to the text, {X} is described as:",
+     "Which one of the following would best license the inference the author draws from {X}?",
+     "Which one of the following, if replaced, would most change the passage's argument?",
+     "The author uses the word '{X}' to mean:",
+     "The passage as a whole is best understood as an attempt to:",
+     "Which one of the following is most strongly implied by the way the passage ends?"
+    ],
+    "topic_shape": "TS09"
+   },
+   "blueprint_id": "BP_260913_00000003",
+   "calls": [
+    {
+     "max_tokens": 2600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "seed_classify",
+     "system": "d6234549c275b6d1d5f9204a6d3340c00babe5e0",
+     "user": "02ee952f375f2ef93f00ac01cb6e4e356f63f48b"
+    },
+    {
+     "max_tokens": 2400,
+     "model": "claude-sonnet-5",
+     "stage": "refine",
+     "system": "3e3e46ee2b8d140f3618b06be2e2a46711581493",
+     "user": "59abdbe5c520efa6b070172f6c16df05623f9ff2"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "5ebb6b825ec0cea1eb5eac9fefe942940bee57b8"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "57a799dccc7f1a08a6d5f24c694b1b9d079c90a7"
+    },
+    {
+     "max_tokens": 2800,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "3c427ccd2ce92ce850e4b6edfa00820080319018"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "a77278ada0a134b51248e43affc40118e69c2c91"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "57a799dccc7f1a08a6d5f24c694b1b9d079c90a7"
+    },
+    {
+     "max_tokens": 2800,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "3c427ccd2ce92ce850e4b6edfa00820080319018"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "070b3fbdd39408c2210f78d0072372b9b29de7be",
+     "user": "a70b23b4d94c68eff15b3d36e39b11467be37472"
+    },
+    {
+     "max_tokens": 5600,
+     "model": "claude-opus-5",
+     "stage": "questions",
+     "system": "1342ce83173dae53639b238360b27a4fd6ab89a6",
+     "user": "e1b91c2bcfb70019418562422720a4c4c114d8bc"
+    },
+    {
+     "max_tokens": 4200,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "answerability",
+     "system": "e0ec49441bc9ab18f9a67fcf4afe560585e310a5",
+     "user": "31ba5cc58f250a9d9e9999a4baad29b05ee3da03"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-sonnet-5",
+     "stage": "solver",
+     "system": "5c1ca308a65623c60ff9bd473585359ed650e41a",
+     "user": "0a603e3227e4ae27f292e36b392811e2d71b8666"
+    },
+    {
+     "max_tokens": 3200,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "judge",
+     "system": "c6b52009e2fcc388d27b99360c4792e9ea8bf67a",
+     "user": "8d13dc2adb2209fc921793482c1da49a1cedeffc"
+    }
+   ],
+   "notes": [
+    "compliance F1=0.747 attempt 1; retrying with directives",
+    "compliance F1=0.747 attempt 2; retrying with directives",
+    "shipping best compliance F1=0.747 (below threshold) -> needs_review",
+    "prevalidate: passage 575 words vs required 500-550",
+    "passage length: passage 575 words vs required 500-550",
+    "voice review: closing beat differs from the plan",
+    "voice review: body plan retention 17%; unplanned moves: BOTHSIDES_REFUSED, CONCESSION_COSTED, SYMMETRY_BROKEN",
+    "voice review: argument schema was not measured",
+    "voice review: closing commitment is outside the planned band",
+    "passage length: 575 words vs required 500-550 \u2014 routed to needs_review"
+   ],
+   "rc_id": "RC-ELITE-DATE-0001",
+   "status": "needs_review",
+   "tier": "elite"
+  },
+  {
+   "ban_families": [],
+   "ban_movements": [],
+   "blueprint": {
+    "closing_register": "bound_continuation",
+    "components": {
+     "distractor_profile": "D04",
+     "ending": "E17",
+     "family": "F58",
+     "persona": "P14",
+     "render_stance": "RS09",
+     "revelation": "R19",
+     "rhythm": "T10",
+     "topology": "QT04"
+    },
+    "effective_slots": [
+     {
+      "difficulty": 0.55,
+      "target": "global",
+      "trap_id": "TR1",
+      "type": "thesis"
+     },
+     {
+      "difficulty": 0.51,
+      "target": "span",
+      "trap_id": "TR2",
+      "type": "closure_reading"
+     },
+     {
+      "difficulty": 0.6,
+      "target": "local",
+      "trap_id": "TR3",
+      "type": "phrase_in_context"
+     },
+     {
+      "difficulty": 0.61,
+      "target": "local",
+      "type": "detail_check"
+     },
+     {
+      "difficulty": 0.69,
+      "target": "span",
+      "type": "author_vs_reported"
+     },
+     {
+      "difficulty": 0.75,
+      "target": "global",
+      "type": "application"
+     },
+     {
+      "difficulty": 0.83,
+      "target": "local",
+      "type": "structural_function"
+     },
+     {
+      "difficulty": 0.9,
+      "target": "span",
+      "type": "strengthen"
+     }
+    ],
+    "instability": 0.4,
+    "letter_plan": [
+     "A",
+     "D",
+     "C",
+     "C",
+     "D",
+     "C",
+     "D",
+     "B"
+    ],
+    "move_plan": [
+     "QUESTION_POSED",
+     "INSTANCE_SURVEY",
+     "MECHANISM_EXPLAINED",
+     "UNDERLYING_CAUSE_NAMED",
+     "SYMMETRY_BROKEN",
+     "STAKES_RAISED",
+     "BOUND_CONTINUATION"
+    ],
+    "movement": "PROBLEM_CAUSES_LISTED|MOTIVE_CORRECTED|REMEDY_WEIGHED|WORKING_REMEDY_ENDORSED",
+    "revelation_detail": {
+     "planned_para": 3,
+     "timing": "penultimate"
+    },
+    "schema": "S8_REMEDIES_WEIGHED",
+    "status": "shipped",
+    "stem_shapes": [
+     "The passage is primarily concerned with:",
+     "What does the passage's final sentence accomplish?",
+     "In the context of the passage, {quoted phrase} is best understood as:",
+     "According to the text, {X} is described as:",
+     "Which view does the author report or steelman rather than hold?",
+     "Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?",
+     "Which one of the following best describes the role played by {the specified paragraph}?",
+     "Which one of the following would best license the inference the author draws from {X}?"
+    ],
+    "topic_shape": "TS13"
+   },
+   "blueprint_id": "BP_260913_00000004",
+   "calls": [
+    {
+     "max_tokens": 2600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "seed_classify",
+     "system": "d6234549c275b6d1d5f9204a6d3340c00babe5e0",
+     "user": "9bb098b94522cd158f20c314ac7dad48353d8c74"
+    },
+    {
+     "max_tokens": 2400,
+     "model": "claude-sonnet-5",
+     "stage": "refine",
+     "system": "3e3e46ee2b8d140f3618b06be2e2a46711581493",
+     "user": "3e78a26b6a240e610cc0d438bf06dde471dfcc5b"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "c6650736359bc69ee940fba6e867847efe3b2591"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "f5ee52bccb1d83b80bc35ba618672a69048771b5"
+    },
+    {
+     "max_tokens": 2800,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "b481b015c427084bafd980ca50c916c3bb00d72c"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "39f28fb6baa4466b3c9e5156a29c8220d53facba"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "f5ee52bccb1d83b80bc35ba618672a69048771b5"
+    },
+    {
+     "max_tokens": 2800,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "b481b015c427084bafd980ca50c916c3bb00d72c"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "070b3fbdd39408c2210f78d0072372b9b29de7be",
+     "user": "33938c5ebc1c7f868a9d48de49f7c890915fccd6"
+    },
+    {
+     "max_tokens": 5600,
+     "model": "claude-opus-5",
+     "stage": "questions",
+     "system": "1342ce83173dae53639b238360b27a4fd6ab89a6",
+     "user": "6a81eb28b06e89da71206fa9ae7e55c976d77fb0"
+    },
+    {
+     "max_tokens": 4200,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "answerability",
+     "system": "e0ec49441bc9ab18f9a67fcf4afe560585e310a5",
+     "user": "ab32a3ef01ee44aac603b091d91ffed59a26a419"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-sonnet-5",
+     "stage": "solver",
+     "system": "5c1ca308a65623c60ff9bd473585359ed650e41a",
+     "user": "74aaf72c7efebe948d433483e75703b28e27098a"
+    },
+    {
+     "max_tokens": 3200,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "judge",
+     "system": "26f7df2e333fab8dddd4db911b28eb1661a01aa2",
+     "user": "cc9144cbb88c4e00e360ce41fc0ca6b130e8af3b"
+    }
+   ],
+   "notes": [
+    "compliance F1=0.713 attempt 1; retrying with directives",
+    "compliance F1=0.713 attempt 2; retrying with directives",
+    "shipping best compliance F1=0.713 (below threshold) -> needs_review",
+    "prevalidate: passage 567 words vs required 500-550",
+    "passage length: passage 567 words vs required 500-550",
+    "voice review: opening beat differs from the plan",
+    "voice review: closing beat differs from the plan",
+    "voice review: body plan retention 20%; unplanned moves: DISCLAIM_RESTATE, HISTORICAL_ORIGIN, STACCATO_TRIAD",
+    "voice review: argument schema was not measured",
+    "voice review: closing commitment is outside the planned band",
+    "passage length: 567 words vs required 500-550 \u2014 routed to needs_review"
+   ],
+   "rc_id": "RC-HARD-DATE-0002",
+   "status": "needs_review",
+   "tier": "hard"
+  },
+  {
+   "ban_families": [],
+   "ban_movements": [],
+   "blueprint": {
+    "closing_register": "bound_continuation",
+    "components": {
+     "distractor_profile": "D16",
+     "ending": "E09",
+     "family": "F51",
+     "persona": "P15",
+     "render_stance": "RS01",
+     "revelation": "R06",
+     "rhythm": "T02",
+     "topology": "QT15"
+    },
+    "effective_slots": [
+     {
+      "difficulty": 0.48,
+      "target": "global",
+      "trap_id": "TR2",
+      "type": "thesis"
+     },
+     {
+      "difficulty": 0.46,
+      "target": "local",
+      "trap_id": "TR1",
+      "type": "author_vs_reported"
+     },
+     {
+      "difficulty": 0.45,
+      "target": "local",
+      "type": "except_scan"
+     },
+     {
+      "difficulty": 0.46,
+      "target": "global",
+      "trap_id": "TR3",
+      "type": "application"
+     },
+     {
+      "difficulty": 0.42,
+      "target": "span",
+      "type": "weaken"
+     },
+     {
+      "difficulty": 0.7,
+      "target": "local",
+      "type": "detail_check"
+     },
+     {
+      "difficulty": 0.7,
+      "target": "span",
+      "type": "closure_reading"
+     },
+     {
+      "difficulty": 0.7,
+      "target": "local",
+      "type": "evidence_function"
+     }
+    ],
+    "instability": 0.39,
+    "letter_plan": [
+     "A",
+     "C",
+     "C",
+     "D",
+     "A",
+     "D",
+     "C",
+     "B"
+    ],
+    "move_plan": [
+     "ABSTRACT_CLAIM_OPEN",
+     "MECHANISM_EXPLAINED",
+     "AUTHORITY_QUOTED",
+     "STAKES_RAISED",
+     "UNDERLYING_CAUSE_NAMED",
+     "BOUND_CONTINUATION"
+    ],
+    "movement": "PROBLEM_POSED|EXPLANATION_WORKED|EVIDENCE_WEIGHED|EXPLANATION_WORKED|ARGUMENT_STILL_RUNNING",
+    "revelation_detail": {
+     "planned_para": 2,
+     "timing": "mid"
+    },
+    "schema": "S4_MECHANISM_TRACED",
+    "status": "shipped",
+    "stem_shapes": [
+     "The passage is primarily concerned with:",
+     "Which view does the author report or steelman rather than hold?",
+     "{X} is a result of the emergence of all of the following EXCEPT:",
+     "Which reading of the following scenario best follows the passage's reasoning?",
+     "Which one of the following findings would most complicate the author's account of {X}?",
+     "Regarding {X} described in the passage, the author asserts that:",
+     "What does the passage's final sentence accomplish?",
+     "The author cites {X} primarily in order to:"
+    ],
+    "topic_shape": "TS09"
+   },
+   "blueprint_id": "BP_260913_00000005",
+   "calls": [
+    {
+     "max_tokens": 2600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "seed_classify",
+     "system": "d6234549c275b6d1d5f9204a6d3340c00babe5e0",
+     "user": "b33557b85bd91e4f7ef3c3cc1a32bb63436116a4"
+    },
+    {
+     "max_tokens": 6100,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "refine",
+     "system": "3e3e46ee2b8d140f3618b06be2e2a46711581493",
+     "user": "40c775bcbb144f3be33c07e19056744914bc2c40"
+    },
+    {
+     "max_tokens": 1500,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "8add994b728dea1aa6acbc5e9ed1cb1bc9cad76c"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "5ca406cbaec394046834d8a17746ad6d53e0d9fd"
+    },
+    {
+     "max_tokens": 2600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "f1a6440bf9bdc460489754714572e5ccd079864b"
+    },
+    {
+     "max_tokens": 1500,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "207d03d46b4ac1330500bcdbc2f953c803a43fdf"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "5ca406cbaec394046834d8a17746ad6d53e0d9fd"
+    },
+    {
+     "max_tokens": 2600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "f1a6440bf9bdc460489754714572e5ccd079864b"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "070b3fbdd39408c2210f78d0072372b9b29de7be",
+     "user": "e9d54bfe58287f9d37bf303f287612b59c617744"
+    },
+    {
+     "max_tokens": 5600,
+     "model": "claude-opus-5",
+     "stage": "questions",
+     "system": "1342ce83173dae53639b238360b27a4fd6ab89a6",
+     "user": "d7be39084a243c53767dc229b85c28c8afa3e708"
+    },
+    {
+     "max_tokens": 4200,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "answerability",
+     "system": "e0ec49441bc9ab18f9a67fcf4afe560585e310a5",
+     "user": "2027a71007f8e29838917386e486e945ea3bd632"
+    },
+    {
+     "max_tokens": 1400,
+     "model": "claude-sonnet-5",
+     "stage": "solver",
+     "system": "5c1ca308a65623c60ff9bd473585359ed650e41a",
+     "user": "b73dba37b43c87c52e6ca892b262c15718a1175c"
+    },
+    {
+     "max_tokens": 2700,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "judge",
+     "system": "30a2b9aa226d6eda6c59b1fb35cb574efc4626e3",
+     "user": "3803aec3eff9a499258153e05da6e58696d182e2"
+    }
+   ],
+   "notes": [
+    "compliance F1=0.745 attempt 1; retrying with directives",
+    "compliance F1=0.745 attempt 2; retrying with directives",
+    "shipping best compliance F1=0.745 (below threshold) -> needs_review",
+    "voice review: opening beat differs from the plan",
+    "voice review: closing beat differs from the plan",
+    "voice review: body plan retention 0%; unplanned moves: EASY_READING_DEMOLISHED, INSTANCE_SURVEY, QUESTION_POSED, SELF_CORRECTION, STACCATO_TRIAD",
+    "voice review: argument schema was not measured",
+    "voice review: closing commitment is outside the planned band"
+   ],
+   "rc_id": "RC-MEDIUM-DATE-0002",
+   "status": "needs_review",
+   "tier": "medium"
+  },
+  {
+   "ban_families": [],
+   "ban_movements": [],
+   "blueprint": {
+    "closing_register": "bound_continuation",
+    "components": {
+     "distractor_profile": "D15",
+     "ending": "E01",
+     "family": "F41",
+     "persona": "P18",
+     "render_stance": "RS08",
+     "revelation": "R04",
+     "rhythm": "T13",
+     "topology": "QT17"
+    },
+    "effective_slots": [
+     {
+      "difficulty": 0.65,
+      "target": "global",
+      "trap_id": "TR1",
+      "type": "thesis"
+     },
+     {
+      "difficulty": 0.6,
+      "target": "local",
+      "trap_id": "TR2",
+      "type": "contextual_inference"
+     },
+     {
+      "difficulty": 0.87,
+      "target": "local",
+      "trap_id": "TR3",
+      "type": "phrase_in_context"
+     },
+     {
+      "difficulty": 0.86,
+      "target": "local",
+      "type": "evidence_function"
+     },
+     {
+      "difficulty": 0.6,
+      "target": "span",
+      "type": "weaken"
+     },
+     {
+      "difficulty": 0.81,
+      "target": "global",
+      "type": "application"
+     },
+     {
+      "difficulty": 0.86,
+      "target": "span",
+      "type": "strengthen"
+     },
+     {
+      "difficulty": 0.6,
+      "target": "local",
+      "type": "detail_check"
+     }
+    ],
+    "instability": 0.67,
+    "letter_plan": [
+     "A",
+     "B",
+     "A",
+     "C",
+     "B",
+     "B",
+     "A",
+     "C"
+    ],
+    "move_plan": [
+     "DEFINITION_STAKED",
+     "COUNTEREXAMPLE_PRESSED",
+     "MECHANISM_EXPLAINED",
+     "STAKES_RAISED",
+     "CONCESSION_GRANTED",
+     "UNDERLYING_CAUSE_NAMED",
+     "ANALOGY_EXTENDED",
+     "BOUND_CONTINUATION"
+    ],
+    "movement": "OBJECT_SHOWN_PLAIN|DEPARTURE|MATERIAL_GATHERED|OBJECT_SHOWN_AGAIN",
+    "revelation_detail": {
+     "planned_para": 3,
+     "timing": "penultimate"
+    },
+    "schema": "S1_INSTRUMENT_BLIND",
+    "status": "shipped",
+    "stem_shapes": [
+     "Which one of the following statements provides a gist of this passage?",
+     "We can infer from the passage that {X} refers to:",
+     "The author uses the word '{X}' to mean:",
+     "The {study} mentioned in the passage functions to:",
+     "Which one of the following, if true, would most call into question the claim that {X}?",
+     "Which reading of the following scenario best follows the passage's reasoning?",
+     "Which one of the following research findings would most strengthen the author's conclusion?",
+     "Regarding {X} described in the passage, the author asserts that:"
+    ],
+    "topic_shape": "TS04"
+   },
+   "blueprint_id": "BP_260913_00000006",
+   "calls": [
+    {
+     "max_tokens": 2600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "seed_classify",
+     "system": "d6234549c275b6d1d5f9204a6d3340c00babe5e0",
+     "user": "e81c8653b52965ae734bf5747e88f0bc17db7bce"
+    },
+    {
+     "max_tokens": 2400,
+     "model": "claude-sonnet-5",
+     "stage": "refine",
+     "system": "3e3e46ee2b8d140f3618b06be2e2a46711581493",
+     "user": "19869dfd1e85b1058f1dc7ec1d8b760b0982228b"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "aa0618eec90fbd07a42c0696c3dc1e8fa0ae1485"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "3918ae563ba7386bb36190efa722312e8327d84f"
+    },
+    {
+     "max_tokens": 2800,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "b8b8f3874c95e0334f68b9d76568d30115477a83"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "668d7471b4741df0671476d4a4fd722dcdf586ee"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "3918ae563ba7386bb36190efa722312e8327d84f"
+    },
+    {
+     "max_tokens": 2800,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "b8b8f3874c95e0334f68b9d76568d30115477a83"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "070b3fbdd39408c2210f78d0072372b9b29de7be",
+     "user": "6b1e1f02ae52b26d8742f13aaf2d538511fe7f2f"
+    },
+    {
+     "max_tokens": 5600,
+     "model": "claude-opus-5",
+     "stage": "questions",
+     "system": "1342ce83173dae53639b238360b27a4fd6ab89a6",
+     "user": "22c044e970798d45a43a9b166fab7c47020856cf"
+    },
+    {
+     "max_tokens": 4200,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "answerability",
+     "system": "e0ec49441bc9ab18f9a67fcf4afe560585e310a5",
+     "user": "9b826b5c4cda5c5e0c0a75bdf3fb070d5d64e612"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-sonnet-5",
+     "stage": "solver",
+     "system": "5c1ca308a65623c60ff9bd473585359ed650e41a",
+     "user": "38326be32b86662e7b06cec4caad4aafce6f155f"
+    },
+    {
+     "max_tokens": 3200,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "judge",
+     "system": "fe8c048e0148ab62358b18dd19864ce5abd45ff5",
+     "user": "aa666101ebcf4cea0256eff291a77e77b4d1fd81"
+    }
+   ],
+   "notes": [
+    "compliance F1=0.747 attempt 1; retrying with directives",
+    "compliance F1=0.747 attempt 2; retrying with directives",
+    "shipping best compliance F1=0.747 (below threshold) -> needs_review",
+    "corpus flag: persona_leak (reported, not gated): delta 0.35 vs RC-HARD-DATE-0002 across 2 persona(s)",
+    "voice review: opening beat differs from the plan",
+    "voice review: closing beat differs from the plan",
+    "voice review: body plan retention 17%; unplanned moves: EASY_READING_DEMOLISHED, GENEALOGY_TRACED, QUESTION_LEFT_OPEN",
+    "voice review: argument schema was not measured"
+   ],
+   "rc_id": "RC-ELITE-DATE-0002",
+   "status": "needs_review",
+   "tier": "elite"
+  },
+  {
+   "ban_families": [],
+   "ban_movements": [],
+   "blueprint": {
+    "closing_register": "aphoristic",
+    "components": {
+     "distractor_profile": "D07",
+     "ending": "E11",
+     "family": "F38",
+     "persona": "P04",
+     "render_stance": "RS06",
+     "revelation": "R20",
+     "rhythm": "T08",
+     "topology": "QT12"
+    },
+    "effective_slots": [
+     {
+      "difficulty": 0.7,
+      "target": "global",
+      "trap_id": "TR2",
+      "type": "thesis"
+     },
+     {
+      "difficulty": 0.76,
+      "target": "local",
+      "trap_id": "TR3",
+      "type": "phrase_in_context"
+     },
+     {
+      "difficulty": 0.75,
+      "target": "span",
+      "trap_id": "TR1",
+      "type": "author_vs_reported"
+     },
+     {
+      "difficulty": 0.74,
+      "target": "global",
+      "type": "application"
+     },
+     {
+      "difficulty": 0.74,
+      "target": "local",
+      "type": "contextual_inference"
+     },
+     {
+      "difficulty": 0.75,
+      "target": "span",
+      "type": "closure_reading"
+     },
+     {
+      "difficulty": 0.79,
+      "target": "local",
+      "type": "structural_function"
+     },
+     {
+      "difficulty": 0.76,
+      "target": "local",
+      "type": "detail_check"
+     }
+    ],
+    "instability": 0.49,
+    "letter_plan": [
+     "B",
+     "C",
+     "A",
+     "C",
+     "B",
+     "B",
+     "C",
+     "D"
+    ],
+    "move_plan": [
+     "DEFINITION_STAKED",
+     "COUNTEREXAMPLE_PRESSED",
+     "STAKES_RAISED",
+     "SYMMETRY_BROKEN",
+     "ANALOGY_EXTENDED",
+     "CONCESSION_GRANTED",
+     "INSTANCE_SURVEY",
+     "HEDGED_APHORISM"
+    ],
+    "movement": "WIDEST_FRAME|EVIDENCE_LAYER|NARROWED_DOMAIN|SINGLE_CASE|CASE_INTERIOR",
+    "revelation_detail": {
+     "planned_para": 5,
+     "timing": "retrospective"
+    },
+    "schema": "S7_CASE_AGAINST_RULE",
+    "status": "rejected_questions",
+    "stem_shapes": [
+     "Which one of the following best captures the central idea of the passage?",
+     "The author uses the word '{X}' to mean:",
+     "Which view does the author report or steelman rather than hold?",
+     "Which one of the following situations is most analogous to the mechanism described in the passage?",
+     "Which one of the following is suggested by the sentence {quoted sentence}?",
+     "If the passage continued, which one of the following would it most likely discuss next?",
+     "Which one of the following best describes the role played by {the specified paragraph}?",
+     "Regarding {X} described in the passage, the author asserts that:"
+    ],
+    "topic_shape": "TS08"
+   },
+   "blueprint_id": "BP_260913_00000007",
+   "calls": [
+    {
+     "max_tokens": 2600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "seed_classify",
+     "system": "d6234549c275b6d1d5f9204a6d3340c00babe5e0",
+     "user": "93168bd0a4d2e9d99b2c46f81c57e5e9b3b033da"
+    },
+    {
+     "max_tokens": 2400,
+     "model": "claude-sonnet-5",
+     "stage": "refine",
+     "system": "3e3e46ee2b8d140f3618b06be2e2a46711581493",
+     "user": "38525817d11a51aa81e13372ff776e165b610360"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "9c33c99fac153f5261945c769099c0fa2c91eff5"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "4fe97b966c733b9fdd894f191a1b4a1fbd1289b5"
+    },
+    {
+     "max_tokens": 2800,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "66d8afc469e12c7d348efe795548f586c3b5d7b4"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "88c16d9ed4e1fdb02dd69eec4841f2bf99e4d6f1"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "4fe97b966c733b9fdd894f191a1b4a1fbd1289b5"
+    },
+    {
+     "max_tokens": 2800,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "66d8afc469e12c7d348efe795548f586c3b5d7b4"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "070b3fbdd39408c2210f78d0072372b9b29de7be",
+     "user": "fc4ab1598bdc9c66cb9cefbe5bb5df4c10da605b"
+    }
+   ],
+   "notes": [
+    "compliance F1=0.747 attempt 1; retrying with directives",
+    "compliance F1=0.747 attempt 2; retrying with directives",
+    "shipping best compliance F1=0.747 (below threshold) -> needs_review",
+    "prevalidate: passage 553 words vs required 500-550",
+    "forced failure for the resume scenario"
+   ],
+   "rc_id": "",
+   "status": "failed_questions",
+   "tier": "elite"
+  },
+  {
+   "ban_families": [],
+   "ban_movements": [],
+   "blueprint": {
+    "closing_register": "quiet_qualification",
+    "components": {
+     "distractor_profile": "D09",
+     "ending": "E10",
+     "family": "F45",
+     "persona": "P17",
+     "render_stance": "RS07",
+     "revelation": "R12",
+     "rhythm": "T12",
+     "topology": "QT11"
+    },
+    "effective_slots": [
+     {
+      "difficulty": 0.63,
+      "target": "global",
+      "trap_id": "TR1",
+      "type": "thesis"
+     },
+     {
+      "difficulty": 0.72,
+      "target": "local",
+      "trap_id": "TR2",
+      "type": "detail_check"
+     },
+     {
+      "difficulty": 0.6,
+      "target": "span",
+      "trap_id": "TR3",
+      "type": "author_vs_reported"
+     },
+     {
+      "difficulty": 0.75,
+      "target": "span",
+      "type": "strengthen"
+     },
+     {
+      "difficulty": 0.6,
+      "target": "global",
+      "type": "undermine_thesis"
+     },
+     {
+      "difficulty": 0.76,
+      "target": "local",
+      "type": "structural_function"
+     },
+     {
+      "difficulty": 0.6,
+      "target": "local",
+      "type": "phrase_in_context"
+     },
+     {
+      "difficulty": 0.78,
+      "target": "global",
+      "type": "application"
+     }
+    ],
+    "instability": 0.75,
+    "letter_plan": [
+     "C",
+     "B",
+     "D",
+     "C",
+     "D",
+     "A",
+     "A",
+     "D"
+    ],
+    "move_plan": [
+     "ABSTRACT_CLAIM_OPEN",
+     "COUNTEREXAMPLE_PRESSED",
+     "CONCESSION_GRANTED",
+     "SYMMETRY_BROKEN",
+     "MECHANISM_EXPLAINED",
+     "AUTHORITY_QUOTED",
+     "UNDERLYING_CAUSE_NAMED",
+     "BOUND_CONTINUATION"
+    ],
+    "movement": "FIRST_QUESTION|ANSWERED_RAISES_HARDER|ANSWERED_RAISES_HARDER|LAST_QUESTION_STANDS",
+    "revelation_detail": {
+     "planned_para": 2,
+     "timing": "mid"
+    },
+    "schema": "S1_INSTRUMENT_BLIND",
+    "status": "shipped",
+    "stem_shapes": [
+     "Which one of the following best summarises the author's main argument?",
+     "According to the text, {X} is described as:",
+     "Which one of the following positions is described in the passage but not endorsed by the author?",
+     "Which one of the following would best license the inference the author draws from {X}?",
+     "Which one of the following, if established, would most damage the author's central claim?",
+     "What is the structural function of {the specified sentence} within the argument?",
+     "The author uses the word '{X}' to mean:",
+     "Which one of the following situations is most analogous to the mechanism described in the passage?"
+    ],
+    "topic_shape": "TS06"
+   },
+   "blueprint_id": "BP_260913_00000008",
+   "calls": [
+    {
+     "max_tokens": 2600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "seed_classify",
+     "system": "d6234549c275b6d1d5f9204a6d3340c00babe5e0",
+     "user": "cc936a6383aceb9986c4b41d18497566ea3f88aa"
+    },
+    {
+     "max_tokens": 2400,
+     "model": "claude-sonnet-5",
+     "stage": "refine",
+     "system": "3e3e46ee2b8d140f3618b06be2e2a46711581493",
+     "user": "77bb994c0d46982500e03bd00f461eb6192ee656"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "5027cbdf58770d1be897362f83d606319ec9dbef"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "12fb81f527eb5073b60a3ff10eced8a250a4493a"
+    },
+    {
+     "max_tokens": 2800,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "bce4466bb8a698e7afb5b7261e22ddaaee43cb03"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "070b3fbdd39408c2210f78d0072372b9b29de7be",
+     "user": "d63e2d9563cfda57dadc33507dc26737ddbf2e5d"
+    },
+    {
+     "max_tokens": 5600,
+     "model": "claude-opus-5",
+     "stage": "questions",
+     "system": "1342ce83173dae53639b238360b27a4fd6ab89a6",
+     "user": "bb24d07fc15bbd3cfe29b4495a7346cc410fd88e"
+    },
+    {
+     "max_tokens": 4200,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "answerability",
+     "system": "e0ec49441bc9ab18f9a67fcf4afe560585e310a5",
+     "user": "5e5387aace97cfeec322d772b5022652f256ae14"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-sonnet-5",
+     "stage": "solver",
+     "system": "5c1ca308a65623c60ff9bd473585359ed650e41a",
+     "user": "3eecc0563d6565187c183cf7ae3b6573f8663bfb"
+    },
+    {
+     "max_tokens": 3200,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "judge",
+     "system": "c45371784d50a605da9aecfe4e0da009cc7dfb1f",
+     "user": "48089fb0f02cdbe2775e9ebc0825b37023f29282"
+    }
+   ],
+   "notes": [
+    "voice review: opening beat differs from the plan",
+    "voice review: closing beat differs from the plan",
+    "voice review: body plan retention 33%; unplanned moves: HISTORICAL_ORIGIN, QUESTION_POSED, TWO_CAMP_SPLIT",
+    "voice review: argument schema was not measured"
+   ],
+   "rc_id": "RC-ELITE-DATE-0005",
+   "status": "approved",
+   "tier": "elite"
+  },
+  {
+   "ban_families": [],
+   "ban_movements": [],
+   "blueprint": {
+    "closing_register": "quiet_qualification",
+    "components": {
+     "distractor_profile": "D20",
+     "ending": "E07",
+     "family": "F43",
+     "persona": "P10",
+     "render_stance": "RS07",
+     "revelation": "R01",
+     "rhythm": "T06",
+     "topology": "QT16"
+    },
+    "effective_slots": [
+     {
+      "difficulty": 0.63,
+      "target": "global",
+      "trap_id": "TR1",
+      "type": "thesis"
+     },
+     {
+      "difficulty": 0.6,
+      "target": "local",
+      "trap_id": "TR2",
+      "type": "detail_check"
+     },
+     {
+      "difficulty": 0.83,
+      "target": "local",
+      "trap_id": "TR3",
+      "type": "evidence_function"
+     },
+     {
+      "difficulty": 0.85,
+      "target": "global",
+      "type": "undermine_thesis"
+     },
+     {
+      "difficulty": 0.6,
+      "target": "span",
+      "type": "weaken"
+     },
+     {
+      "difficulty": 0.81,
+      "target": "global",
+      "type": "application"
+     },
+     {
+      "difficulty": 0.85,
+      "target": "local",
+      "type": "phrase_in_context"
+     },
+     {
+      "difficulty": 0.6,
+      "target": "span",
+      "type": "strengthen"
+     }
+    ],
+    "instability": 0.94,
+    "letter_plan": [
+     "D",
+     "A",
+     "B",
+     "C",
+     "B",
+     "D",
+     "B",
+     "C"
+    ],
+    "move_plan": [
+     "HISTORICAL_ORIGIN",
+     "COUNTEREXAMPLE_PRESSED",
+     "CONCESSION_GRANTED",
+     "UNDERLYING_CAUSE_NAMED",
+     "SYMMETRY_BROKEN",
+     "MECHANISM_EXPLAINED",
+     "DISCLAIM_RESTATE",
+     "BOUND_CONTINUATION"
+    ],
+    "movement": "JOB_SPECIFIED|CANDIDATE_TESTED|CANDIDATE_TESTED|CANDIDATE_TESTED|SURVIVOR_KEPT_AT_COST",
+    "revelation_detail": {
+     "planned_para": 1,
+     "timing": "early"
+    },
+    "schema": "S1_INSTRUMENT_BLIND",
+    "status": "shipped",
+    "stem_shapes": [
+     "Which one of the following best captures the central idea of the passage?",
+     "Regarding {X} described in the passage, the author asserts that:",
+     "The author cites {X} primarily in order to:",
+     "The central idea of the passage would be undermined if:",
+     "Which one of the following findings would most complicate the author's account of {X}?",
+     "Which reading of the following scenario best follows the passage's reasoning?",
+     "'{quoted phrase}' most nearly means:",
+     "Which one of the following would best license the inference the author draws from {X}?"
+    ],
+    "topic_shape": "TS04"
+   },
+   "blueprint_id": "BP_260913_00000009",
+   "calls": [
+    {
+     "max_tokens": 2600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "seed_classify",
+     "system": "d6234549c275b6d1d5f9204a6d3340c00babe5e0",
+     "user": "d1723096f107fb43f5a344acfcdb6d1d4e49a55a"
+    },
+    {
+     "max_tokens": 2400,
+     "model": "claude-sonnet-5",
+     "stage": "refine",
+     "system": "3e3e46ee2b8d140f3618b06be2e2a46711581493",
+     "user": "1597fa99f3340c0755619b6b0ce29687ade465dd"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "9d86c79bc9ac43d88307cbb4df2f96b12bafd3fc"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "d803c87bedc6a00a25dbd204c9933dccca4ed55f"
+    },
+    {
+     "max_tokens": 2800,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "32c945931d8effc3edd56d3d1ccb49cab6c4f0a0"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "675e4f79bf7fb819dc4980728f9577056a1dc23f"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "d803c87bedc6a00a25dbd204c9933dccca4ed55f"
+    },
+    {
+     "max_tokens": 2800,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "32c945931d8effc3edd56d3d1ccb49cab6c4f0a0"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "070b3fbdd39408c2210f78d0072372b9b29de7be",
+     "user": "b28fdf13024e2e8fa9837cee2a53cada5243d7c5"
+    },
+    {
+     "max_tokens": 5600,
+     "model": "claude-opus-5",
+     "stage": "questions",
+     "system": "1342ce83173dae53639b238360b27a4fd6ab89a6",
+     "user": "a57256a8b20d36b81709bae2e062d33d5c414c8b"
+    },
+    {
+     "max_tokens": 4200,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "answerability",
+     "system": "e0ec49441bc9ab18f9a67fcf4afe560585e310a5",
+     "user": "6590e70e4c595a8842809e6af45cd8ed8d207c12"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-sonnet-5",
+     "stage": "solver",
+     "system": "5c1ca308a65623c60ff9bd473585359ed650e41a",
+     "user": "b2a4117bea87f20690177f597ba190606b81eb09"
+    },
+    {
+     "max_tokens": 3200,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "judge",
+     "system": "a12b604326c0af665da9a4850d77b7443c317c62",
+     "user": "17eb926996f34e6ae05d81afa7b0be868b560e34"
+    }
+   ],
+   "notes": [
+    "compliance F1=0.689 attempt 1; retrying with directives",
+    "compliance F1=0.689 attempt 2; retrying with directives",
+    "shipping best compliance F1=0.689 (below threshold) -> needs_review",
+    "voice review: opening beat differs from the plan",
+    "voice review: closing beat differs from the plan",
+    "voice review: body plan retention 0%; unplanned moves: BOTHSIDES_REFUSED, CONCRETE_RETURN, INSTANCE_SURVEY",
+    "voice review: argument schema was not measured",
+    "voice review: closing commitment is outside the planned band"
+   ],
+   "rc_id": "RC-ELITE-DATE-0006",
+   "status": "needs_review",
+   "tier": "elite"
+  },
+  {
+   "ban_families": [],
+   "ban_movements": [],
+   "blueprint": {
+    "closing_register": "bound_continuation",
+    "components": {
+     "distractor_profile": "D10",
+     "ending": "E13",
+     "family": "F39",
+     "persona": "P11",
+     "render_stance": "RS05",
+     "revelation": "R03",
+     "rhythm": "T01",
+     "topology": "QT18"
+    },
+    "effective_slots": [
+     {
+      "difficulty": 0.6,
+      "target": "global",
+      "trap_id": "TR1",
+      "type": "thesis"
+     },
+     {
+      "difficulty": 0.6,
+      "target": "local",
+      "trap_id": "TR2",
+      "type": "detail_check"
+     },
+     {
+      "difficulty": 0.61,
+      "target": "span",
+      "trap_id": "TR3",
+      "type": "counterfactual_structure"
+     },
+     {
+      "difficulty": 0.66,
+      "target": "global",
+      "type": "undermine_thesis"
+     },
+     {
+      "difficulty": 0.69,
+      "target": "global",
+      "type": "primary_purpose"
+     },
+     {
+      "difficulty": 0.77,
+      "target": "global",
+      "type": "application"
+     },
+     {
+      "difficulty": 0.8,
+      "target": "local",
+      "type": "phrase_in_context"
+     },
+     {
+      "difficulty": 0.89,
+      "target": "local",
+      "type": "contextual_inference"
+     }
+    ],
+    "instability": 0.72,
+    "letter_plan": [
+     "B",
+     "A",
+     "B",
+     "C",
+     "D",
+     "A",
+     "B",
+     "D"
+    ],
+    "move_plan": [
+     "HISTORICAL_ORIGIN",
+     "MECHANISM_EXPLAINED",
+     "STAKES_RAISED",
+     "SYMMETRY_BROKEN",
+     "AUTHORITY_QUOTED",
+     "ANALOGY_EXTENDED",
+     "INSTANCE_SURVEY",
+     "BOUND_CONTINUATION"
+    ],
+    "movement": "PARTICULAR_INTERIOR|FIRST_WIDENING|SECOND_WIDENING|LARGEST_CLAIM_EARNED",
+    "revelation_detail": {
+     "planned_para": 4,
+     "timing": "never_stated"
+    },
+    "schema": "S4_MECHANISM_TRACED",
+    "status": "shipped",
+    "stem_shapes": [
+     "Which one of the following statements provides a gist of this passage?",
+     "According to the passage, why does {X} happen?",
+     "If {the specified paragraph} were removed, the argument would:",
+     "Which one of the following, if established, would most damage the author's central claim?",
+     "The passage as a whole is best understood as an attempt to:",
+     "Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account?",
+     "'{quoted phrase}' most nearly means:",
+     "In context, the claim that {quoted phrase} most nearly means that:"
+    ],
+    "topic_shape": "TS12"
+   },
+   "blueprint_id": "BP_260913_0000000a",
+   "calls": [
+    {
+     "max_tokens": 2600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "seed_classify",
+     "system": "d6234549c275b6d1d5f9204a6d3340c00babe5e0",
+     "user": "34ffd7c7c0e779900a5b386381f9f458aab9a79e"
+    },
+    {
+     "max_tokens": 2400,
+     "model": "claude-sonnet-5",
+     "stage": "refine",
+     "system": "3e3e46ee2b8d140f3618b06be2e2a46711581493",
+     "user": "403d0329dfb7f4076fb29196f6876a620d177f78"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "26390d092635f8b45817cb9991ec87161341fab0"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "b550232736edab4a0ebb74f1a0087c8b895aed05"
+    },
+    {
+     "max_tokens": 2800,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "c1ce1276d8aadf6544f891ea6bf8cffc66faf13c"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-opus-5",
+     "stage": "render",
+     "system": "c5c12ebe3f39c59b5e1083b0490bca552f63051d",
+     "user": "f0a15c1dca4c4ee40c7b9b1be348ed765a5707b5"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "4a29d9090264e62ba49b578ee97a930f9de76d41",
+     "user": "b550232736edab4a0ebb74f1a0087c8b895aed05"
+    },
+    {
+     "max_tokens": 2800,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "compliance",
+     "system": "b9119376dc554f705381633f664cb650c3f7ed7b",
+     "user": "c1ce1276d8aadf6544f891ea6bf8cffc66faf13c"
+    },
+    {
+     "max_tokens": 3600,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "move_signature",
+     "system": "070b3fbdd39408c2210f78d0072372b9b29de7be",
+     "user": "737f009a855ffc7ec9876b79f524e03beccdcbb6"
+    },
+    {
+     "max_tokens": 5600,
+     "model": "claude-opus-5",
+     "stage": "questions",
+     "system": "1342ce83173dae53639b238360b27a4fd6ab89a6",
+     "user": "7f0ae8a2e0da83bd28e5ddb83faba2c250ed5e8c"
+    },
+    {
+     "max_tokens": 4200,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "answerability",
+     "system": "e0ec49441bc9ab18f9a67fcf4afe560585e310a5",
+     "user": "87f011be78088b3a2a05f5f17e798d956ee35d23"
+    },
+    {
+     "max_tokens": 1600,
+     "model": "claude-sonnet-5",
+     "stage": "solver",
+     "system": "5c1ca308a65623c60ff9bd473585359ed650e41a",
+     "user": "22847af7ec76fe64e6377ba1d8b92784a3ebf6f1"
+    },
+    {
+     "max_tokens": 3200,
+     "model": "claude-haiku-4-5-20251001",
+     "stage": "judge",
+     "system": "6f27543a42c8c4a15d3efc3fe5f86f7615e764b4",
+     "user": "87aea51b4073e5423ebfb5bd1a2f57206667c24c"
+    }
+   ],
+   "notes": [
+    "compliance F1=0.726 attempt 1; retrying with directives",
+    "compliance F1=0.726 attempt 2; retrying with directives",
+    "shipping best compliance F1=0.726 (below threshold) -> needs_review",
+    "voice review: opening beat differs from the plan",
+    "voice review: closing beat differs from the plan",
+    "voice review: body plan retention 33%; unplanned moves: CONCRETE_RETURN, SCENE_PARTICULAR",
+    "voice review: argument schema was not measured",
+    "voice review: closing commitment is outside the planned band"
+   ],
+   "rc_id": "RC-ELITE-DATE-0007",
+   "status": "needs_review",
+   "tier": "elite"
+  }
+ ],
+ "probes": [
+  {
+   "eligible_families": [
+    "F01",
+    "F03",
+    "F04",
+    "F06",
+    "F07",
+    "F09",
+    "F10",
+    "F13",
+    "F14",
+    "F16",
+    "F18",
+    "F19",
+    "F21",
+    "F22",
+    "F25",
+    "F27",
+    "F30",
+    "F32",
+    "F33",
+    "F35",
+    "F36",
+    "F37",
+    "F42",
+    "F45",
+    "F39",
+    "F38",
+    "F41"
+   ],
+   "ids": {
+    "distractor_profile": "D02",
+    "ending": "E03",
+    "family": "F41",
+    "persona": "P19",
+    "render_stance": "RS06",
+    "revelation": "R15",
+    "rhythm": "T07",
+    "topology": "QT24"
+   },
+   "schema": "S1_INSTRUMENT_BLIND",
+   "tier": "elite"
+  },
+  {
+   "eligible_families": [
+    "F01",
+    "F03",
+    "F04",
+    "F06",
+    "F07",
+    "F09",
+    "F10",
+    "F13",
+    "F14",
+    "F16",
+    "F18",
+    "F19",
+    "F21",
+    "F22",
+    "F25",
+    "F27",
+    "F30",
+    "F32",
+    "F33",
+    "F35",
+    "F36",
+    "F37",
+    "F42",
+    "F45",
+    "F39",
+    "F38",
+    "F41"
+   ],
+   "ids": {
+    "distractor_profile": "D19",
+    "ending": "E03",
+    "family": "F35",
+    "persona": "P02",
+    "render_stance": "RS03",
+    "revelation": "R05",
+    "rhythm": "T17",
+    "topology": "QT24"
+   },
+   "schema": "S2_RECEIVED_ACCOUNT_REPLACED",
+   "tier": "elite"
+  },
+  {
+   "eligible_families": [
+    "F01",
+    "F03",
+    "F04",
+    "F06",
+    "F07",
+    "F09",
+    "F10",
+    "F13",
+    "F14",
+    "F16",
+    "F18",
+    "F19",
+    "F21",
+    "F22",
+    "F25",
+    "F27",
+    "F30",
+    "F32",
+    "F33",
+    "F35",
+    "F36",
+    "F37",
+    "F42",
+    "F45",
+    "F39",
+    "F38",
+    "F41"
+   ],
+   "ids": {
+    "distractor_profile": "D05",
+    "ending": "E12",
+    "family": "F45",
+    "persona": "P05",
+    "render_stance": "",
+    "revelation": "R08",
+    "rhythm": "T14",
+    "topology": "QT06"
+   },
+   "schema": "S3_TWO_CAMPS_RELOCATED",
+   "tier": "elite"
+  },
+  {
+   "eligible_families": [
+    "F01",
+    "F03",
+    "F04",
+    "F06",
+    "F07",
+    "F09",
+    "F10",
+    "F13",
+    "F14",
+    "F16",
+    "F18",
+    "F19",
+    "F21",
+    "F22",
+    "F25",
+    "F27",
+    "F30",
+    "F32",
+    "F33",
+    "F35",
+    "F36",
+    "F37",
+    "F42",
+    "F45",
+    "F39",
+    "F38",
+    "F41"
+   ],
+   "ids": {
+    "distractor_profile": "D03",
+    "ending": "E20",
+    "family": "F38",
+    "persona": "P19",
+    "render_stance": "RS09",
+    "revelation": "R14",
+    "rhythm": "T18",
+    "topology": "QT06"
+   },
+   "schema": "S4_MECHANISM_TRACED",
+   "tier": "elite"
+  },
+  {
+   "eligible_families": [
+    "F01",
+    "F03",
+    "F04",
+    "F06",
+    "F07",
+    "F09",
+    "F10",
+    "F13",
+    "F14",
+    "F16",
+    "F18",
+    "F19",
+    "F21",
+    "F22",
+    "F25",
+    "F27",
+    "F30",
+    "F32",
+    "F33",
+    "F35",
+    "F36",
+    "F37",
+    "F42",
+    "F45",
+    "F39",
+    "F38",
+    "F41"
+   ],
+   "ids": {
+    "distractor_profile": "D18",
+    "ending": "E19",
+    "family": "F12",
+    "persona": "P05",
+    "render_stance": "RS09",
+    "revelation": "R18",
+    "rhythm": "T16",
+    "topology": "QT02"
+   },
+   "schema": "S5_PRACTICE_VS_THEORY",
+   "tier": "elite"
+  },
+  {
+   "eligible_families": [
+    "F01",
+    "F03",
+    "F04",
+    "F06",
+    "F07",
+    "F09",
+    "F10",
+    "F13",
+    "F14",
+    "F16",
+    "F18",
+    "F19",
+    "F21",
+    "F22",
+    "F25",
+    "F27",
+    "F30",
+    "F32",
+    "F33",
+    "F35",
+    "F36",
+    "F37",
+    "F42",
+    "F45",
+    "F39",
+    "F38",
+    "F41"
+   ],
+   "ids": {
+    "distractor_profile": "D17",
+    "ending": "E20",
+    "family": "F38",
+    "persona": "P19",
+    "render_stance": "RS02",
+    "revelation": "R08",
+    "rhythm": "T10",
+    "topology": "QT03"
+   },
+   "schema": "S6_ORIGIN_AND_DRIFT",
+   "tier": "elite"
+  },
+  {
+   "eligible_families": [
+    "F01",
+    "F03",
+    "F04",
+    "F06",
+    "F07",
+    "F09",
+    "F10",
+    "F13",
+    "F14",
+    "F16",
+    "F18",
+    "F19",
+    "F21",
+    "F22",
+    "F25",
+    "F27",
+    "F30",
+    "F32",
+    "F33",
+    "F35",
+    "F36",
+    "F37",
+    "F42",
+    "F45",
+    "F39",
+    "F38",
+    "F41"
+   ],
+   "ids": {
+    "distractor_profile": "D18",
+    "ending": "E20",
+    "family": "F38",
+    "persona": "P06",
+    "render_stance": "RS03",
+    "revelation": "R10",
+    "rhythm": "T09",
+    "topology": "QT10"
+   },
+   "schema": "S7_CASE_AGAINST_RULE",
+   "tier": "elite"
+  },
+  {
+   "eligible_families": [
+    "F01",
+    "F03",
+    "F04",
+    "F06",
+    "F07",
+    "F09",
+    "F10",
+    "F13",
+    "F14",
+    "F16",
+    "F18",
+    "F19",
+    "F21",
+    "F22",
+    "F25",
+    "F27",
+    "F30",
+    "F32",
+    "F33",
+    "F35",
+    "F36",
+    "F37",
+    "F42",
+    "F45",
+    "F39",
+    "F38",
+    "F41"
+   ],
+   "ids": {
+    "distractor_profile": "D14",
+    "ending": "E16",
+    "family": "F34",
+    "persona": "P05",
+    "render_stance": "RS09",
+    "revelation": "R18",
+    "rhythm": "T16",
+    "topology": "QT20"
+   },
+   "schema": "S8_REMEDIES_WEIGHED",
+   "tier": "elite"
+  }
+ ],
+ "resume": {
+  "attempt": 6,
+  "blueprint": {
+   "closing_register": "aphoristic",
+   "components": {
+    "distractor_profile": "D07",
+    "ending": "E11",
+    "family": "F38",
+    "persona": "P04",
+    "render_stance": "RS06",
+    "revelation": "R20",
+    "rhythm": "T08",
+    "topology": "QT12"
+   },
+   "effective_slots": [
+    {
+     "difficulty": 0.7,
+     "target": "global",
+     "trap_id": "TR2",
+     "type": "thesis"
+    },
+    {
+     "difficulty": 0.76,
+     "target": "local",
+     "trap_id": "TR3",
+     "type": "phrase_in_context"
+    },
+    {
+     "difficulty": 0.75,
+     "target": "span",
+     "trap_id": "TR1",
+     "type": "author_vs_reported"
+    },
+    {
+     "difficulty": 0.74,
+     "target": "global",
+     "type": "application"
+    },
+    {
+     "difficulty": 0.74,
+     "target": "local",
+     "type": "contextual_inference"
+    },
+    {
+     "difficulty": 0.75,
+     "target": "span",
+     "type": "closure_reading"
+    },
+    {
+     "difficulty": 0.79,
+     "target": "local",
+     "type": "structural_function"
+    },
+    {
+     "difficulty": 0.76,
+     "target": "local",
+     "type": "detail_check"
+    }
+   ],
+   "instability": 0.49,
+   "letter_plan": [
+    "B",
+    "C",
+    "A",
+    "C",
+    "B",
+    "B",
+    "C",
+    "D"
+   ],
+   "move_plan": [
+    "DEFINITION_STAKED",
+    "COUNTEREXAMPLE_PRESSED",
+    "STAKES_RAISED",
+    "SYMMETRY_BROKEN",
+    "ANALOGY_EXTENDED",
+    "CONCESSION_GRANTED",
+    "INSTANCE_SURVEY",
+    "HEDGED_APHORISM"
+   ],
+   "movement": "WIDEST_FRAME|EVIDENCE_LAYER|NARROWED_DOMAIN|SINGLE_CASE|CASE_INTERIOR",
+   "revelation_detail": {
+    "planned_para": 5,
+    "timing": "retrospective"
+   },
+   "schema": "S7_CASE_AGAINST_RULE",
+   "status": "shipped",
+   "stem_shapes": [
+    "Which one of the following best captures the central idea of the passage?",
+    "The author uses the word '{X}' to mean:",
+    "Which view does the author report or steelman rather than hold?",
+    "Which one of the following situations is most analogous to the mechanism described in the passage?",
+    "Which one of the following is suggested by the sentence {quoted sentence}?",
+    "If the passage continued, which one of the following would it most likely discuss next?",
+    "Which one of the following best describes the role played by {the specified paragraph}?",
+    "Regarding {X} described in the passage, the author asserts that:"
+   ],
+   "topic_shape": "TS08"
+  },
+  "calls": [
+   {
+    "max_tokens": 5600,
+    "model": "claude-opus-5",
+    "stage": "questions",
+    "system": "1342ce83173dae53639b238360b27a4fd6ab89a6",
+    "user": "79b9d17aa64e1d1454dbafe1cfe229c67eb22e65"
+   },
+   {
+    "max_tokens": 4200,
+    "model": "claude-haiku-4-5-20251001",
+    "stage": "answerability",
+    "system": "e0ec49441bc9ab18f9a67fcf4afe560585e310a5",
+    "user": "1fb5b745c2de033f820680242697f8dbf140f077"
+   },
+   {
+    "max_tokens": 1600,
+    "model": "claude-sonnet-5",
+    "stage": "solver",
+    "system": "5c1ca308a65623c60ff9bd473585359ed650e41a",
+    "user": "1858b60a4a5131a42230bfdcd21bafdc445427e8"
+   },
+   {
+    "max_tokens": 3200,
+    "model": "claude-haiku-4-5-20251001",
+    "stage": "judge",
+    "system": "aa2f4a75abe94a4881a0512dcfa5a2575eb8bf5e",
+    "user": "54caf8369eb8851554ba8e35e288e17b2f57202c"
+   }
+  ],
+  "notes": [
+   "resumed questions (prior spend $0.0000 counts against the cap)",
+   "passage length: passage 553 words vs required 500-550",
+   "voice review: opening beat differs from the plan",
+   "voice review: closing beat differs from the plan",
+   "voice review: body plan retention 17%; unplanned moves: GENEALOGY_TRACED, QUESTION_LEFT_OPEN",
+   "voice review: argument schema was not measured",
+   "passage length: 553 words vs required 500-550 \u2014 routed to needs_review"
+  ],
+  "rc_id": "RC-ELITE-DATE-0004",
+  "status": "needs_review",
+  "tier": "elite"
+ },
+ "topology_repick": [
+  {
+   "from": "QT23",
+   "notes": [
+    "topology precheck: QT23 near RC-FORCED @ 0.99 \u2014 re-pick QT22"
+   ],
+   "ok": true,
+   "tier": "elite",
+   "to": "QT22"
+  }
+ ]
+}

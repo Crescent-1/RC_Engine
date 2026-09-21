@@ -41,6 +41,12 @@
     {"id": "R19", "name": "Convergence", "timing": "penultimate",
      "mechanism": "two independent argumentative lines converge; the thesis is the intersection point, stated once"},
     {"id": "R20", "name": "Erosion Reversal", "timing": "retrospective",
-     "mechanism": "the passage seems to erode a claim; the ending reveals the erosion was to expose its survivable core"}
+     "mechanism": "the passage seems to erode a claim; the ending reveals the erosion was to expose its survivable core"},
+    {"id": "R21", "name": "Stated, Then Tested", "timing": "early",
+     "mechanism": "the central claim is stated flatly in the first two sentences; each later paragraph tests it against a case, and the close says how much of it survived", "policies": ["cat-pyq-s1"]},
+    {"id": "R22", "name": "Paradox Up Front", "timing": "early",
+     "mechanism": "the passage opens on a claim that sounds self-contradictory and spends its length showing the claim is literally true", "policies": ["cat-pyq-s1"]},
+    {"id": "R23", "name": "Received View Named First", "timing": "early",
+     "mechanism": "the first paragraph states what is usually believed and signals doubt; the passage's own position is the correction, visible in outline from paragraph one and in full by the middle", "policies": ["cat-pyq-s1"]}
   ]
 }

@@ -118,7 +118,7 @@ shape for two slots.
     - Which one of the following positions is described in the passage but not endorsed by the author?
 - *closure_reading*
     - What does the passage's final sentence accomplish?
-    - The passage stops where it does in order to:
+    - If the passage continued, which one of the following would it most likely discuss next?
     - Which one of the following is most strongly implied by the way the passage ends?
 - *contextual_inference*
     - We can infer from the passage that {X} refers to:

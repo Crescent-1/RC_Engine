@@ -1,0 +1,974 @@
+# Codex change log
+
+This file records completed project changes and their validation. New entries
+go first; dates use Asia/Calcutta time. `AGENTS.md` instructs Codex to update this
+file whenever it changes project files. Entries are task summaries, not a record
+of every intermediate edit. Git remains the source for exact diffs.
+
+## 2026-09-21 — Prepare GA4 visit tracking for Passage Works
+
+- Added an opt-in GA4 tag insertion to the website build, with Measurement ID
+  validation and a `--require-analytics` guard for production builds. Updated
+  the page insertion point and `website/README.md` deployment instructions.
+- Preserved the existing uncommitted contact-address edits in `website/index.html`
+  and `website/js/app.js`. The live domain resolves to Netlify; the saved Sites
+  project has no live deployment. An initial CLI check found no Netlify access,
+  but the browser check confirmed an authenticated Netlify dashboard. The
+  connected Google account opens GA4 account setup, with no Measurement ID yet;
+  production was not published without a destination for visit data.
+- Checks: a synthetic `G-TEST12345` build inserted the expected tag; a required
+  build without an ID failed; a preview build contained no tag; Node syntax and
+  `git diff --check` passed. Live data collection remains unverified. Changes
+  uncommitted.
+
+## 2026-09-21 — Matched-seed philosophy hard CLI comparison
+
+- Generated and exported one hard philosophy set through Claude CLI and one
+  through OpenAI CLI from the exact same unused seed, “Are Doctors Heroes?”
+  (`b208e303-6a7c-4d26-9f4f-716742e027ab`). Both lanes used independent copies
+  of one production database snapshot, RNG seed `20260921`, policy
+  `cat-pyq-f4`, low effort, and the same structural components and Luna gates.
+- Retained the complete comparison under
+  `exported_rc_sets/2026-09-21-philosophy-cli-ab/`, including prefixed text
+  exports, run logs, raw CLI responses, database snapshots, backups, seed
+  metadata, and `comparison.md`. The production corpus was not changed and the
+  shared seed remains unused.
+- Claude finished `solver_dispute` (F1 0.777, novelty 0.629); OpenAI finished
+  `needs_review` with judge score 8.8 (F1 0.839, novelty 0.594) and a red
+  similarity match. Neither artifact is approved for production.
+- Corrected Claude subscription accounting to aggregate every model in
+  `modelUsage`. The original 30,119-token summary omitted 13,796 internal Haiku
+  helper tokens; the complete Claude total is 43,915 versus OpenAI's 20,447.
+  In this run OpenAI reported 53.4% fewer tokens. Notional CLI prices were
+  $0.3305 and $0.3329; real Luna check/screen spend was $0.0090 and $0.0096.
+- Checks: both exports have 8 questions, 8 keyed answers, and no replacement
+  characters; Claude-focused suite **118 passed**; comparison runner compiled;
+  final `git diff --check` passed. Changes uncommitted.
+
+## 2026-09-21 — Seeded lean Codex hard/elite pilot
+
+- Ran one seeded hard and one seeded elite with the text-only Astra/Sol CLI
+  configuration and retained logs/backups under
+  `exported_rc_sets/codex-lean-seeded-20260920-133142/`.
+- Hard completed as `RC-HARD-260920-0105`, status `needs_review`, score 9.2,
+  compliance F1 0.821 and novelty 0.486. Similarity screening marked it red
+  against `RC-ELITE-260919-0094`, so it requires human review and was not
+  exported as a normal deliverable. It was subsequently exported explicitly
+  into the pilot folder as `RC-HARD-260920-0105.txt` for inspection.
+- Elite blueprint `BP_260920_9bf3c253` completed refine/render/compliance and
+  initially remained safely resumable as `awaiting_questions` after its Astra
+  question call exceeded the 600-second timeout. A first resume command did not
+  start because automatic approval review could not run while task usage was
+  exhausted. A later authorized resume reused the passage, lowered elite
+  question effort from `max` to `xhigh`, and completed as
+  `RC-ELITE-260920-0096`: approved, score 8.8, compliance F1 0.784, novelty
+  0.558 and green similarity verdict. It was exported into the pilot folder.
+- Completed Codex CLI calls reported 38,243 total tokens: 22,433 input and
+  15,810 output, including 9,004 reasoning tokens. Luna checks and screening
+  cost $0.0120 total in the initial batch, which shipped the hard while leaving
+  elite questions incomplete. The hard xhigh question call alone used 3,191
+  input plus 10,216 output tokens, including 7,250 reasoning; this was the main
+  avoidable token source after stripping harness context.
+  The later elite resume used 16,757 subscription tokens across questions and
+  solver (5,197 input, 11,560 output, including 8,286 reasoning) and $0.0046
+  Luna API spend including screening. Two sets now exist from this pilot; the
+  hard is red/needs-review and the elite is green/approved. Changes uncommitted.
+
+## 2026-09-20 — Strip Codex harness overhead and record incomplete seeded pilot
+
+- Corrected the earlier assumption that feature flags disabled all CLI tools.
+  Astra/Sol catalog metadata forced code mode and agent schemas back on.
+  `codex_cli.py` now writes a local text-only catalog preserving real model
+  identities/efforts/safety metadata, disables bundled skills and question/plan
+  tools, and omits collaboration/environment boilerplate. Read-only sandbox
+  and managed policy remain. No global CLI config or reasoning ladder change.
+- Added `tools/audit_codex_request.py`: credential-free localhost request
+  capture, no model call. Both Astra and Sol verified with zero top-level or
+  embedded tool schemas. Synthetic input shrank from 23,026 to 918 serialized
+  characters (96.0%); this is not a measured production token reduction.
+  Updated README and catalog/config regression tests.
+- Added `--require-seed`, fail-fast and exhausted-seed tests; restored optional
+  RAG dependencies only in a temporary runtime. Fixed duplicate seed IDs in
+  ancestry embedding lookup, exact disabled-code-host startup notice handling,
+  actual CLI plan-event parsing and retained event-count diagnostics.
+- Pilot: initial seedless refine stopped with no set; user correction followed
+  by seeded runs only. Two seeded refine attempts stopped on the startup
+  notice. Last seeded hard run completed refine/render/questions, then Sol
+  solver hit subscription quota. Elite never started; zero sets shipped.
+  Three successful final-run stages used 68,848 tokens including cache and
+  reasoning once; earlier failed refine calls used 7,035 / 7,723 / 7,993.
+  Luna API checks ran; the failed batch's $0 summary is not total API spend.
+- Preserved hard raw drafts, logs, health/baseline and review under
+  `exported_rc_sets/2026-09-20-codex-seeded-pilot/`; production backups retained.
+  Legacy seeded inspiration drifted from film criticism to restoration, so
+  strict source fidelity and finished-set quality are not established.
+  No paid Astra/Sol fallback, reset credit or live generation during lean audit.
+- Checks: full suite **762 passed, 1 skipped**; final config-assertion rerun
+  **68 passed**; both native CLI wire audits and `git diff --check` passed.
+  Earlier restored-runtime full suite was 760 passed, 1 skipped. The prior
+  optional-dependency failures below are historical and now resolved.
+  Live token savings and completion of the two-set pilot remain unverified.
+  All changes uncommitted.
+
+## 2026-09-20 — Add Codex CLI Astra/Sol generation and fix subscription lanes
+
+- Added opt-in `--codex-cli` to generation and question resume: every resolved
+  Opus stage uses `gpt-6-astra`, Sonnet uses `gpt-5.6-sol`, and Luna API pins
+  remain. Questions match Claude CLI thinking (medium high, hard xhigh, elite
+  max); other mapped stages use low. Added effort overrides and explicit
+  `--codex-fallback api`; the default stops on CLI failure.
+- Added `rc_engine/codex_cli.py` and shared process/usage helpers. Calls use
+  sanitized subscription environments, isolated ephemeral sessions, stdin
+  prompts, instruction/final-answer files, read-only sandboxing, terminal-event
+  validation, retained metadata and process-tree cleanup. Usage counts cached
+  input once and returns per-slot deltas from persistent workers.
+- Fixed the six preceding Claude review findings in CLI/provider setup,
+  Claude/relay wrappers and workers. Saved subscription auth is checked before
+  invoking a CLI, dry-run stays entirely mocked, missing Anthropic credentials
+  no longer block subscription startup, and paid fallback guards itself.
+  Refine now propagates terminal exhaustion. Explicit Astra API fallback
+  preserves max effort, supported by current official docs.
+- Updated regression tests, `RC_ENGINE_README.md` and the review/plan's status.
+  Final focused suite: **236 passed**. Full suite: **747 passed, 2 skipped,
+  3 failed** on imports of the absent optional RAG dependencies (`feedparser`
+  first; neither available Python has the RAG stack). No RAG code or dependency
+  configuration changed. The focused rerun includes the final worker-auth and
+  paid-fallback fixes added after the full run.
+- `selftest` passed; serial and two-worker Codex dry runs each shipped two mock
+  sets in fresh temporary DBs with no exports. Free CLI diagnostics verified
+  ChatGPT login, Astra/Sol effort catalogs and parsing of isolated config /
+  instruction-file settings on Codex `0.155.0-alpha.9.2`. Documentation readback
+  and `git diff --check` passed. No live model call,
+  real generation, production DB/export change or quality pilot. Actual model
+  entitlement, quota use and output quality remain untested. Uncommitted.
+
+## 2026-09-20 — Review Claude CLI generation and plan Codex/Astra support
+
+- Added `2026-09-20-cli-review-and-codex-plan.md`, reviewing commit `32acdaa`
+  and proposing a default-off Codex CLI writer using `gpt-6-astra`.
+- Confirmed six issues with synthetic checks: inherited API credentials,
+  live CLI calls during dry-run, cumulative worker usage overcounting,
+  relay bypassing the API fallback, missing-key startup rejection, and
+  API-price guards blocking subscription calls. No engine fixes applied.
+- Checks: 171 focused Claude/relay/worker/review tests passed. Two initial
+  failures came from a Windows stdin test launcher and passed with `python -c`.
+  Temporary pytest installation only; no project dependency change.
+  Codex CLI 0.155.0-alpha.9.2 is installed, ChatGPT login works outside the
+  restricted shell, and its current catalog lists Astra. Official docs checked.
+- Documentation readback and `git diff --check` passed.
+- No live model call, generation, production data/export edit or full-suite run.
+  Astra quality, quota consumption and minimal harness behavior remain to be
+  validated during implementation and an authorized pilot. Uncommitted.
+
+## 2026-09-19 — Attach the complete four-passage sample pack
+
+- Corrected the earlier interpretation: every initial outreach email now
+  attaches all four curated DOCX sets, numbered with neutral recipient-facing
+  filenames, rather than rotating one set per recipient.
+- Revised the email copy to describe a four-passage pack. Reserved three
+  separate approved passages (`0046`, `0063`, `0057`) for the no-charge
+  follow-up offer and recorded them in every draft manifest entry.
+- A controlled four-attachment test was prepared for
+  `sales@passageworks.in`; no additional lead delivery was authorized in this
+  change. Checks and delivery outcome are recorded in the task response.
+- Changes are uncommitted.
+
+## 2026-09-19 — Route Titan outreach through GoDaddy email servers
+
+- Corrected the sender for a GoDaddy-purchased Professional Email powered by
+  Titan mailbox: SMTP now uses `smtpout.secureserver.net:465` with SSL and IMAP
+  uses `imap.secureserver.net:993` with SSL.
+- Updated the safe example and operating notes to request the mailbox password,
+  not the GoDaddy account password. The ignored credential value was preserved.
+- Authentication was retried without sending; outcome recorded in the task
+  response. Changes are uncommitted.
+
+## 2026-09-19 — Curate the four-passage outreach portfolio
+
+- Reviewed the complete passage, eight questions, keys and rationales in all 16
+  DOCX samples. Selected `RC-ELITE-260914-0086`, `RC-HARD-260912-0094`,
+  `RC-HARD-260912-0091` and `RC-MEDIUM-260810-0024` for complementary literary,
+  economic, scientific and public-health material and distinct reasoning forms.
+- Superseded the earlier folder-based four-group rotation. Outreach now rotates
+  one of the curated four across initial emails and records the other three
+  curated passages as that recipient's promised follow-up set.
+- Checks: all four DOCX files parsed completely; sender unit tests passed; all
+  19 drafts regenerated; attachment hashes and the three-follow-up invariant
+  validated. Visual rendering could not run because the bundled workspace has
+  no LibreOffice `soffice.exe`; no DOCX was edited. No email was sent.
+- Changes are uncommitted.
+
+## 2026-09-19 — Configure Titan outreach with four rotating sample groups
+
+- Added `outreach/` with a Titan SMTP/IMAP sender for
+  `sales@passageworks.in`, personalized copy for all 19 workbook leads, plain
+  text and HTML bodies, local previews, explicit small-batch approval, a send
+  ledger, duplicate protection and optional Sent-folder archiving.
+- Configured the four existing `RC\Sample\Set 1` through `Set 4` groups to
+  rotate across leads. Each initial email attaches the group's HARD passage
+  under a neutral filename; the other three DOCX passages in that folder are
+  recorded as the promised follow-up set.
+- Added a gitignored password file and runtime directory, a safe example
+  configuration, Windows launcher, operating notes and dependency-free tests.
+  The source lead workbook is read-only and was not changed.
+- Checks: four unit tests passed; all 19 recipient addresses and personalized
+  drafts validated; four initial attachments existed and hashed successfully;
+  each manifest entry had exactly three reserved follow-ups; SMTP authentication
+  correctly stopped before network access while the password was blank;
+  `git diff --check` passed before this log entry.
+- No email was sent. Titan authentication and delivery remain untested until
+  the user adds the application password. Changes are uncommitted.
+
+## 2026-09-19 — Repair the 18 September eight-set batch
+
+- Created `exported_rc_sets/2026-09-19-sept18-repaired/` with eight revised TXT
+  sets, rebuilt keys/rationales, a review summary and per-question `audit.json`.
+  Preserved the original exports, database, trackers and existing DOCX.
+- Trimmed overlength passages; relabelled 0093, 0077 and 0081 as Hard while
+  retaining their IDs. Restructured 0077 to distinguish it from 0078; replaced
+  0081 Q5 and 0103 Q8. Preserved the other 62 answer logics; repaired formatting,
+  option lengths and distributions. Converted 0078 Q4's prohibited wording to
+  an explicit strengthening stem with the same evidence and answer logic.
+- User chose to retain all passages and flag genre exceptions. Included these
+  decisions and the final five-Hard/three-Medium mix in the review summary.
+  Added `tools/repair_20260918.py` to reproduce the repairs and machine audit.
+- Checks: all passages 507–547 words (507–545 lexical); all 64 questions below
+  1.30x option spread by characters and words; every key A2/B2/C2/D2; all 256
+  options capitalized and terminated with full stops. Correct longest/shortest
+  counts are at most three by characters including ties, and by unique word
+  extrema. File reparse, key/rationale consistency, original-file hashes,
+  quoted-passage references, UTF-8/LF, script syntax and `git diff --check` passed.
+- Replacement key-hidden re-solve matched both keys, performed by the same
+  editor; no independent cold solver or fresh paid quality/novelty/factual
+  audit was run. No production engine changes or engine test run.
+- Changes are uncommitted.
+
+## 2026-09-14 — Week 9 v2 house-style revision and blind re-solve
+
+- Created `exported_rc_sets/2026-09-14-week9-v2-style-fixed/` as a separate
+  ten-set delivery candidate; the original folder was left unchanged.
+- Revised passage openings, argumentative pivots and conclusions to reduce the
+  repeated negation/correction rhythm and the recurring price/cost/debt close.
+  Average explicit negations fell from 11.5 to 7.4 per passage, and passages
+  using the accounting motif fell from six to two. The two retained metaphors
+  are quoted by existing questions.
+- All 80 question stems and options and all 80 keyed letters remain identical.
+  Five elimination logs were adjusted only where they quoted wording removed
+  from a passage. The prohibited "passage stops where it does" stem is absent;
+  the requested continuation form remains in RC-MEDIUM-260914-0074.
+- Follow-up mandate: expanded the revised passages without adding new claims;
+  all ten are 502–538 words by whitespace counting and 500–531 by lexical-word
+  counting, within the required 500–550 range under either method.
+- Checks: fresh blind solve matched 80/80 keys with no new dispute; revised
+  openings had no exact or prefix match across all 86 tracker entries; no exact
+  five-word overlap appeared within the batch or against the 32 shipped full
+  texts available locally. Full-text comparison could not cover the other 54
+  tracker rows because matching local passage files were unavailable.
+- Changes are uncommitted.
+
+## 2026-09-14 — Resumed sets mark their seed used; medium passage recovered
+
+- `retry-questions` never marked a shipped set's seed essay used (the batch does
+  it through the provider callback, which a resume lacks), so
+  RC-MEDIUM-260914-0071's seed stayed drawable. Fixed, with a test; that seed
+  was marked used by hand ($0).
+- BP_260914_18b725c5 ("Chills of the Unsaid") had been rejected at Gate C only
+  on topology 1.00 vs its batch sibling. With topology no longer a gate, its
+  passage was reopened (`questions_failed`) and resumed: topology re-picked
+  QT10 -> QT22 for $0, questions regenerated ($0.1241 + $0.0021 screen), shipped
+  as RC-MEDIUM-260914-0076, needs_review (correct option longest 5/8, passage 556
+  words), screened red vs RC-MEDIUM-260914-0074 and exported to
+  `flagged_similar/`.
+- Full suite 536 passed (one run showed `test_move_audit_rereads_with_the_stored_policy`
+  failing; it passed alone and on a full rerun — flaky, not investigated).
+
+## 2026-09-14 — Fixes from a step-by-step code review
+
+- Export: `export` with no `--status` wrote every row with text, including
+  `rejected_novelty` sets; it now writes shipped statuses only. When a set's
+  screen verdict changes, the copy in the other folder is moved to
+  `~\rc_data\export_superseded\<client>\` (never deleted). One-off cleanup
+  (operator approved): 2 rejected exports and 7 stale duplicates (green in the
+  database, still in `flagged_similar/`) moved to
+  `~\rc_data\export_superseded\AA\cleanup-2026-09-14\`.
+- Answerability flags now route a set to `needs_review`; qa_checks already said
+  they did, but the status logic never read them.
+- An incomplete blind solve (unparseable, partial, or skipped for budget) now
+  routes to `needs_review`; `comparable` was computed and never used. The solver
+  reader accepts string question numbers and skips malformed items.
+- `--subject/--genre/--seed-ids` runs skip a slot when no matching seed is left
+  (sequential and parallel) and abort when the labelled pool is empty, instead of
+  generating seedless, off-subject passages.
+- Seed-fidelity rejections carry the attempt's family/movement bans.
+- Compliance scoring tolerates non-object paragraph entries, non-numeric curve
+  points, null trap/tic fields, and audits the closing commitment only when every
+  paragraph has a reading (short curves were padded with 0.0).
+- With `TOPOLOGY_GATE_ENFORCE` off, topology no longer contributes to the novelty
+  composite either.
+- Checked and dismissed with data: never-stated theses scored as missing (17/19
+  audits report the planned paragraph, none null) and zero-padded curves (none).
+- Tests: `tests/test_review_fixes.py` (9); updated the solver stub in
+  `test_voice_plan.py`. Selftest passed; full suite 535 passed; goldens unchanged.
+
+## 2026-09-14 — Prompt fixes, lenient question layout, seed-store labels, f4
+
+- Prompt review of the exact render/questions prompts (RC-HARD-260914-0099),
+  operator-approved for every tier: the questions system prompt told the model
+  to begin and end its JSON with `'` (an f-string ate the braces; in master
+  too); dated measurements, rule-numbering history, a banned phrase quoted as an
+  example and an operator's name in the closure_reading slot text were removed
+  from prompts and kept as code comments. Goldens re-captured after a diff showed
+  only render/questions prompt hashes changed (legacy 72, elite 52). Added
+  `tests/test_prompt_hygiene.py`.
+- Question layout (operator decision): `config.TOPOLOGY_GATE_ENFORCE = False`.
+  Gate C reports a shared topology instead of rejecting (it was 3 of 4 full-gate
+  rejections in the DB and cost a paid medium passage); the free pre-render
+  re-pick stays and no longer rejects. New `rc_engine/question_mix.py`: `health`
+  prints the question-task mix of the last 100 shipped sets against the CAT PYQ
+  task shares, per tier. First read: inference 6.8% vs 15.9%, author-endorse
+  0.2% vs 5.9% under; gist 16.6% vs 8.2%, weaken 13.1% vs 6.2% over. Steering the
+  topology draw toward the gap is not built yet (measure first).
+- Seed store: refreshed (+109 essays, 1,314 total). New `seeds classify|report`
+  and `rc_engine/seed_labels.py`: every unused essay labelled once with
+  gpt-5.6-luna (genre, domain incl. new `literature`, subject, particulars,
+  dispute, topic shapes as natural/possible verdicts), stored as `seed_*`
+  metadata with a label version (`sl3`). 1,167 labelled, 0 failed, $0.96. Draws
+  use stored labels instead of a live classifier call; `generate --subject
+  philosophy,literature --genre criticism` draws by label (essays with fewer than
+  `SEED_MIN_CARRIABLE_SHAPES` = 3 shapes skipped). Shape verdicts went list ->
+  true/false -> three levels after 5-essay tests (2-3 shapes; then 14-16 or 0).
+- `cat-pyq-f4` (f3 + ...) and `legacy-sf2` (legacy-sf1 + ...): `render_seed_context`
+  names the seed essay to the writer and keeps cases inside its subject;
+  `coherent_plans` removes contradictions counted over 135 shipped plans
+  (never-stated thesis under a committed close: 7; LEVEL_RELOCATION with
+  UNDERLYING_CAUSE_NAMED: 9) and marks the family's paragraph role as
+  subordinate to the brief and beats. Tests: `test_coherent_plans.py`,
+  `test_question_mix.py`, `test_seed_labels.py`; f4 added to elite goldens.
+- Validation: selftest passed; dry run f4 + legacy-sf2 shipped (elite misses were
+  mock rhythm collisions); full suite 525 passed; goldens unchanged by f4 and the
+  topology change. No paid generation (operator's generation credits are out).
+
+## 2026-09-14 — Seed fidelity policy `cat-pyq-f3`
+
+- Operator requirement: a passage must preserve its seed essay's topic and
+  nature. The philosophy/literature f2 batch turned two Psyche philosophy essays
+  into probate and promissory-note passages. A $0 measurement over all 134
+  shipped sets (local cosine, seed vs passage) found on-subject passages at
+  0.71-0.86 and most of the corpus drifted at 0.47-0.65; the drift came from
+  refine being told to "adapt" the territory, move "semantically distant" from
+  recent topics, and choose "a DIFFERENT domain" on collisions.
+- Added default-off `cat-pyq-f3` (f2 plus `seed_fidelity`). The plan stores the
+  seed's subject/domain/particulars; refine, AVOID and collision re-refine
+  wording keep the angle inside that subject; a new cheap `seed_fidelity` stage
+  checks the plan before render (fails closed, one directed re-refine, then
+  `rejected_seed_fidelity` with seed rotation); a free passage-vs-seed cosine
+  floor (0.65) rejects before questions. Elite and older policies unchanged.
+- Main areas: new `rc_engine/seed_fidelity.py`; `policy_catalog.py`,
+  `generation_policy.py`, `composer.py`, `pipeline.py`, `config.py` (stage entries,
+  `SEED_FIDELITY_*`), mock handler in `llm.py`. Added `tests/test_seed_fidelity.py`
+  (12 tests) and f3 to the elite golden parametrisation.
+- Causes fixed at the source, not only gated: the classifier (seed-fidelity
+  plans) also returns the topic shapes the essay's own material can carry and
+  only those are drawn; the refine fallback topic uses the seed's subject
+  instead of the publication name.
+- Elite (operator decision, same day): added `legacy-sf1`, the legacy engine plus
+  seed fidelity only, with `legacy_base_errors` refusing any other difference;
+  `policy_for_new_plan("elite")` accepts only a legacy-based policy;
+  `generate --elite-policy` / `RC_ENGINE_ELITE_PLAN_POLICY`. Branches that meant
+  "legacy path" now read `reads_legacy`.
+- Validation: selftest passed; dry run medium/hard f3 + elite legacy-sf1 shipped
+  4/4; `tests/test_seed_fidelity.py` 20 tests; full suite 476 passed.
+- Limits: before the pilot batch the checker's judgement and the refine wording
+  were untested on real models; the floor is calibrated on legacy output.
+- Paid pilot (2/2/2, f3 + elite legacy-sf1, philosophy/literature seeds): 4
+  shipped for $2.45 ($1.41 wasted). Every shipped passage stayed on its seed
+  (cosine 0.81-0.86, against 0.49/0.54 for the drifted f2 sets); one drift was
+  caught by the passage floor. Follow-ups from it: carriable-shape ids are now
+  parsed from "TS01 Name" replies (the restriction had silently lapsed); the
+  shape-menu wording counts material from the essay's whole subject and asks
+  for every fitting shape (the first wording gave 1-3 shapes, TS01 on 6 of 9
+  plans, all shipped sets screened red); `SEED_FIDELITY_COHORT_MAX_SHARE` caps
+  TS01 at 0.20 for seed-fidelity plans; `resume_questions` now re-clears
+  topology for $0 before paying for questions (BP_260914_18b725c5 paid $0.11
+  and died at Gate C on a topology a sibling had shipped meanwhile).
+- Validation after follow-ups: selftest passed; 23 seed-fidelity tests; full
+  suite 479 passed.
+
+## 2026-09-14 — Subject-restricted seed pools (`generate --seed-ids`)
+
+- The Chroma seed store has no subject field and publications mix subjects, so
+  a "philosophy and literature only" batch was impossible. Added
+  `generate --seed-ids FILE`: a JSON list, a grouped `{label: {doc_id: note}}`
+  object, or one id per line. When given, every slot draws an unused, listed
+  essay (overriding the tier publication pools), still honouring exclusions and
+  kind steering; an exhausted list runs that slot seedless.
+- Main areas: `rc_engine/cli.py`; added `tests/test_seed_allowlist.py`.
+- First list (outside the repo): `~\rc_data\seed_lists\2026-09-14-philosophy-literature.json`,
+  17 philosophy + 22 literature essays, all verified present and unused.
+- Validation: the two new tests passed; the list was checked against the live
+  store. Used for a paid 2/2/2 batch with `--generation-policy cat-pyq-f2`.
+- Fixed `retry-questions`: it referenced an undefined `results` after the
+  similarity screen (since 2026-09-02), so every real resume that shipped
+  crashed before exporting. The existing source-count test now also checks the
+  local exists in both screening commands.
+
+## 2026-09-14 — Correct source evidence and incomplete factual audits
+
+- Added default-off `cat-pyq-f2` rather than mutating registered f1. New plans
+  retain original source spans and bounded surrounding context; both renderer
+  and auditor receive them, with extracted interpretations marked unverified.
+- Added explicit per-source entailment, attribution and qualification checks,
+  mandatory audit completion and well-formed passage traces. Missing fields,
+  invalid JSON, truncated responses, failed evidence checks and incomplete
+  attribution route to review. Only source-checked claims may suppress texture
+  warnings. Source evidence survives resume; elite and older policies retain
+  their existing behavior and defaults remain legacy.
+- Main areas: `source_facts.py`, policy catalog/boundary, composer, renderer,
+  compliance, pipeline and mocks. Added `tests/test_source_fact_audit.py` and
+  f2 elite golden coverage; corrected README, validation notes and command docs.
+- Validation: 71 focused tests passed (including source-fact regressions,
+  existing f1 checks, policy/elite goldens, resume and a sampling-test rerun).
+  Selftest and whitespace checks passed. Final full-suite attempt: 447 passed,
+  two skipped, four failed: three RAG imports lack optional `trafilatura` in the
+  isolated test environment; the unseeded legacy exam-share test measured 44.4%
+  against its 44.05% tolerance. That test passed in the focused rerun with
+  `PYTHONHASHSEED=0`; its thresholds and implementation were not changed.
+- Limits: semantic entailment still depends on the real auditor; no paid pilot
+  or production-data changes ran. Extra evidence/prompt size and real-model
+  behavior remain pilot measurements. F1 is retained for stored-plan replay;
+  use f2 for future source-fact pilots. Changes are uncommitted.
+
+## 2026-09-13 — Validation, rollout and pilot preparation (plan sections 7–8), by Claude Code
+
+- `2026-09-13-cat-pyq-validation.md` records:
+  - what exists per plan section;
+  - the five required checks;
+  - a seeded five-policy simulation;
+  - rollout and rollback;
+  - the pilot protocol with a cost estimate;
+  - definition-of-done status.
+- `tools/cat_pyq/pilot_review_pack.py` builds the blinded review pack.
+  - It reads the DB read-only and refuses to write inside the repository.
+  - It mixes pilot and legacy sets of the same tiers, strips RC ids and source
+    lines, pre-lists negated questions in `review_sheet.csv`, and writes a
+    separate key.
+  - Tests: `tests/test_pilot_review_pack.py` (3).
+- `simulate_policies.py` accepts `legacy` as a policy name, since PowerShell drops
+  empty arguments; its default now covers all five policies.
+- README "Generation policies" covers s1/s2/f1 and the new tools. CLAUDE.md gains
+  the `policy-report` and opt-in commands, and the rule that medium/hard changes
+  go into a new policy version.
+- Validation:
+  - `python -m pytest tests -q`: 420 passed.
+  - `selftest`: passed.
+  - Isolated CLI dry runs of legacy, q1, s1, s2 and f1 (f1 with `--workers 2`)
+    into one scratch DB, reported by `policy-report`: all batches shipped.
+  - Simulation table in the validation doc.
+- Not done: the paid pilot, which needs explicit authorization, and the human
+  review it feeds. Every policy stays off by default until that review.
+- Known leftovers:
+  - `.git/worktrees/wt3` (a stale worktree I created for the section-3 commit
+    check) cannot be deleted from here: a sandbox ACL denies delete. Git warns on
+    commit, harmlessly. Remove it by hand.
+  - The pre-existing parallel sibling-topology race is flagged as a separate task.
+- `2026-09-13-cat-pyq-engine-analysis.md` and `2026-09-13-cat-pyq-findings-handoff.md`
+  stay uncommitted: they quote short PYQ fragments, and the plan keeps PYQ text out
+  of git. The baseline and labels files that superseded them are committed.
+
+## 2026-09-13 — Source-supported facts `cat-pyq-f1` (plan section 6), by Claude Code
+
+- Registered policy `cat-pyq-f1`, cumulative on `s2`, medium and hard only,
+  not enabled by default.
+- `rc_engine/source_facts.py`:
+  - Refine proposes at most 8 facts from the same retained excerpt it already
+    reads (first 550 words). No wider scraping and no new model call.
+  - Each kept fact stores an id, source URL and doc id, the excerpt's SHA-256
+    digest, exact span offsets, span, claim, attribution and qualification.
+  - Structural rejection when:
+    - the span is not in the excerpt, or has fewer than 3 or more than 40
+      words;
+    - the claim adds a figure;
+    - the claim drops or inverts a negation (including "denied");
+    - the claim drops a hedge with no qualification;
+    - the claim names someone absent from span and attribution;
+    - the attribution is not near the span;
+    - a quotation is altered.
+- Fact beats NEWS_DATA_HOOK, STUDY_WALKTHROUGH, EXPERT_AS_SPINE and
+  QUOTE_CLOSE become plannable.
+  - A plan whose surviving facts cannot carry one swaps it for its
+    source-independent counterpart, or drops it if that would repeat a beat or
+    break the stance. Nothing is fabricated to complete a beat.
+- Renderer:
+  - SOURCE-SUPPORTED FACTS block in the contract.
+  - Rule 9 amended by a validated rewrite. Real-reference permissions are
+    kept; the block adds nothing beyond itself.
+- Compliance traces every factual claim to fact ids (source_fact /
+  common_knowledge / unsupported, plus attribution).
+  - Unsupported claims become repair directives, an f1 −0.04 and a
+    `needs_review` route.
+  - `texture_report` silences a fabrication warning only when that matched
+    text sits inside a traced, correctly attributed claim.
+  - Fixed during testing: a suppressed first match no longer hides a later
+    match of the same pattern.
+- Evidence lives on the stored blueprint for resume.
+  - Exports omit it.
+  - Logs and notes carry only counts and rejection reasons, never source
+    text.
+  - Elite receives no fields, no prompt text and no extra call.
+- Tests: `tests/test_source_facts.py` (19), using an invented excerpt.
+  - Adversarial fixtures from the plan: altered figure, accurate substring
+    used in a false claim, denied claim restated, qualification dropped,
+    misattributed quotation, altered quotation, invented span, unnamed
+    person; short and missing seeds; resumed plans.
+  - Beat fallback, trace handling, suppression, routing, and exports/elite.
+  - Elite golden with `f1` on the side. Mutation check: 7 breaks, all caught
+    after strengthening the routing test.
+- `simulate_policies.py --invented-seeds` feeds invented excerpts.
+  - 40 medium + 40 hard under f1: shipped 37/53 and 32/73, 4 facts per set,
+    fact-beat swaps 2 medium / 8 hard, 0 composition failures.
+  - Hard exam-form share was 0.406 on 32 ships, against the 35% draw
+    ceiling. Earlier runs gave 0.343 and 0.308, so this is within sampling
+    noise but should be watched.
+- Validation: `python -m pytest tests -q` 417 passed; `selftest` passed.
+- Limits:
+  - Entailment and attribution are semantic and rest on the compliance read;
+    no deterministic check can prove a claim true.
+  - The mock proposes unattributed facts, so attributed-fact beats were
+    exercised only in unit tests.
+  - Refine output grows (~60-80 tokens a fact) against unchanged max_tokens;
+    truncation is a pilot measurement.
+
+## 2026-09-13 — Structure releases `cat-pyq-s1` / `cat-pyq-s2` (plan section 5), by Claude Code
+
+- Two registered policies, neither enabled by default. Both are cumulative on
+  `cat-pyq-q1` and cover medium and hard only.
+  - `s1` plans the first five PYQ beats and recognises all ten.
+  - `s2` makes the other five plannable, so `s1` can be measured first.
+- Families F59–F62, tagged. Each ships with its schema reachability, topic
+  shapes, endings, revelations, closing beats and permissions:
+  - F59 Backfiring Remedy: reached through S4/S5. S8 was rejected because its
+    "each remedy" directive contradicts tracing one fix.
+  - F60 Typology: new S9 and TS15, closing posture `exposition_neutral`.
+  - F61 Framed Inquiry: hard only, new S10 and TS16, new ending E21 "The Scope
+    Fixed" (bound to F61).
+  - F62 Split Verdict: new S11, SPLIT_VERDICT close only.
+  - New arc shapes count toward the exam-form caps (medium 50%, hard 35%).
+- Closing semantics:
+  - Policy overlays for ending beats, posture limits, and family-only closing
+    beats (SPLIT_VERDICT only for F62/F53/F24).
+  - The neutral exposition has its own label, band and render instruction,
+    and is reported apart from refusal. Historical and elite passages are not
+    reclassified.
+- Revelations R21–R23 are tagged, and schema directives exclude contradicting
+  timings.
+  - The R01 audit is recorded in `families.json`: of the 16 R01-excluded
+    families only F01/F04 (R23), F13 (R22, R23) and F33 (R22) can take an
+    early thesis.
+  - Families that withhold their thesis exclude all three.
+- Rhythms T21/T22 exclude CONCESSION_TRAP padding; tested to fit 525 words.
+- Personas P21–P23 carry compatible genres, drawn only for those seed genres.
+  Pronouns are explicit (P22/P23 first person, within the 20% cohort), with no
+  invented credential.
+- Refusal objective of 14%, applied per posture category after normalising
+  within each category.
+  - The early-thesis timing objective is not activated: the section-2
+    baseline already exceeds 40%. This is recorded in `policy_catalog.py`.
+- Permissions (`passage_permissions.py`): one grant table from the plan and
+  family, used by all three readers:
+  - renderer: rules 7, 8 and 11 rewritten through validated anchors, plus a
+    PERMISSIONS block;
+  - compliance: the same block, `unpermitted_devices` turned into repair
+    directives and an f1 −0.04;
+  - `texture_report`: legacy scan unchanged when no grants are passed.
+- Composition fix found by simulation:
+  - TS15→S9→F60 exhausted its pair window and killed 10 of 80 hard attempts.
+  - Non-legacy plans now fall back to another seed-compatible topic shape
+    (at most two), bringing composition failures to 0. Legacy is unchanged.
+- `tools/cat_pyq/simulate_policies.py`: seeded sequential mock simulations
+  that ship into temporary history, reporting planned mix and yield.
+  - 40 medium + 40 hard per policy, `PYTHONHASHSEED=0`:
+
+    | Policy | Medium shipped | Hard shipped | Composition failures | Refusal (medium / hard) |
+    |---|---|---|---|---|
+    | legacy | 38/58 | 37/70 | — | 6/38, 8/37 |
+    | s1 | 37/55 | 35/73 | 0 | 3/37, 4/35 |
+    | s2 | 39/53 | 39/62 | 0 | 4/39, 3/39 |
+
+  - Neutral closes: 1–2 per tier.
+  - Exam-form share: s1 medium 0.459 / hard 0.343; s2 0.462 / 0.308.
+  - Every new component and beat shipped at least once across runs, except
+    FORECAST, which was plannable but not shipped in these 160 sets.
+- Tests:
+  - `tests/test_structure_release.py` (23): visibility, recognised-before-
+    plannable, reachability per tier (elite never), every topic shape
+    composes, closing beats, neutral plans with no rebuttal or open close,
+    the category maths, the R01 audit, schema exclusions, rhythm fit, persona
+    genres, the E21 binding, shared permissions across the three readers, the
+    fallback, and mock batches under both versions.
+  - Elite pre-policy golden tests with s1 and s2 running on the side.
+  - Legacy-view scoping for two older tests that iterated the whole library.
+- Mutation check: 10 deliberate breaks, 9 caught. The exposition-discard
+  mutant is equivalent on today's library (F60, the only neutral family,
+  carries its own closing-beat list).
+- Validation:
+  - `python -m pytest tests -q`: 397 passed.
+  - `selftest`: passed.
+  - Simulations as above.
+- Limits:
+  - Mock plans only; realised prose behaviour of the new families, beats and
+    permissions is unmeasured.
+  - Beat and planning weights are provisional.
+  - Refusal realised on ships sits below the 14% draw objective, because
+    posture runs and rejections still act after the draw.
+
+## 2026-09-13 — Per-policy reporting and re-reads (plan 7.5; section 3 follow-up), by Claude Code
+
+- `policy-report` ($0): planned and realised metrics by client, tier and
+  generation policy. Policies and tiers are never pooled.
+  - Yield, composition failures, novelty rejections, question failures,
+    solver disputes, cost.
+  - Early thesis, planned and realised (realised read is plan-anchored).
+  - Closure as committed / neutral / refusal.
+  - Schema match; family and beat coverage.
+  - Planned negation by task and negated-stem share.
+  - Answerability flags.
+- `attempts.generation_policy` (additive column): every attempt records its
+  policy, including attempts that died before a blueprint existed.
+- Fingerprints of non-legacy sets record `_answerability_flags`.
+- `move-audit` re-reads each set with the vocabulary of the policy its plan
+  was composed under.
+- Tests: `tests/test_policy_reporting.py` (4).
+
+## 2026-09-13 — Question release `cat-pyq-q1` (plan section 4), by Claude Code
+
+- Implemented section 4 as the first production generation policy,
+  `cat-pyq-q1`, for medium and hard only. It is registered in
+  `rc_engine/policy_catalog.py` but not enabled by default:
+  - `config.GENERATION_POLICY_FOR_NEW_PLANS` stays legacy.
+  - A run opts in with `generate --generation-policy cat-pyq-q1` or
+    `RC_ENGINE_NEW_PLAN_POLICY`, and parallel workers inherit it.
+  - Reason: the plan requires a human-reviewed paid pilot before new question
+    forms reach client batches.
+- `rc_engine/question_contracts.py`:
+  - Each slot resolves to task, polarity, contract and marker (plan 4.1 table).
+  - Only the support and application negatives are released. Strengthen,
+    weaken, reported-view and author-endorsement are specified but blocked by
+    validation. There is no double negation.
+  - Exactly two negative slots per set on both tiers. Existing EXCEPT and
+    authored negatives count. Negations are placed deterministically per
+    blueprint and never on Q1.
+  - A topology that cannot carry two is ineligible, in the composer and in the
+    pipeline re-pick, so no inversion is invented. On current libraries that
+    drops QT05 and QT19. Medium's pool stays at 18, the headroom floor.
+  - Deterministic checks: stem negation count, markers, `failure_mode` (never
+    "not mentioned"), `why_wrong` present, allowed mechanisms, keyword-set
+    format (4–5 items, variant separators, equal counts, no duplicates), exact
+    quoted spans (curly quotes, apostrophes, ellipses) and existing paragraph
+    numbers.
+- Question engine (contract plans only; legacy branches unchanged):
+  - Polarity is resolved before traps; negative slots take no trap.
+  - Stems deal from `<type>/negative` and `<type>/<variant>` pools.
+  - Per-slot contract lines are added to the question plan.
+  - Contract validation gets one corrective retry, then `failed_questions`
+    (resumable).
+  - Trap harvests are reported as `question contract:` notes.
+  - Markers are kept out of `trap_usage`.
+  - Questions record the planned slot type and polarity.
+- Policy content:
+  - New slot types `author_would_endorse` (4 forms) and `keyword_set` (3
+    keyword and 3 sequence forms). Negative forms for detail, inference and
+    application.
+  - New stem variants: word purpose, tone of a quoted sentence, reported
+    party vs author, similarity and difference, sense of a quoted sentence.
+    All forms are original paraphrased templates, not PYQ text.
+  - System extensions for questions, answerability, tiebreak, solver and
+    judge. The solver stays blind to keys, traps and rationales.
+- `topologies.json`: added QT25 "The Commitment Map" and QT26 "The Reported
+  Voices", tagged `cat-pyq-q1`.
+  - Each has two authored negatives; the analysis draft of QT26 had three and
+    used unreleased contracts, so it was revised.
+  - Both include `author_would_endorse` and `keyword_set`, and both are
+    medium-eligible.
+  - Maximum topology similarity to the library is 0.56 against the 0.75 cap.
+- Also changed:
+  - `GenerationPolicy` gained contract fields, tier-aware
+    `eligible_ids(..., tier)`, `stem_pool` and contract validation.
+    Registration handles either import order.
+  - Registry: tagged topologies may use their policy's slot types.
+  - Fingerprints of contract plans record `_negated_slots` and
+    `_negated_tasks`.
+  - The mock emits contract-conforming questions.
+  - `cli vet` excludes all contract markers from trap histograms.
+  - `tests/conftest.py` and the harness pin `RC_ENGINE_NEW_PLAN_POLICY=""`.
+  - README section "Generation policies".
+- Tests:
+  - Added `tests/test_question_contracts.py` (47 tests) and
+    `tests/fixtures/question_contracts.json`: an original passage with a valid
+    item per contract and new type, 17 structural counterexamples, and 3
+    semantic counterexamples recorded as NOT caught deterministically.
+  - The tests cover resolution for every eligible topology, capacity
+    refusal, traps, stem polarity, the histogram, a mock end to end, resume
+    under the stored policy after disabling it, retry-then-fail, validation,
+    the CLI opt-in and the env override.
+  - `tests/test_question_blueprint.py` invariants now run per view (legacy and
+    `cat-pyq-q1`), with a policy pool-starvation test.
+  - A new golden test runs the production policy between elite attempts; elite
+    still equals the pre-policy `23e3d49` output.
+  - Mutation check: 10 deliberate breaks, 9 caught. The one survivor only
+    differs when legacy data contains the new marker `rule_satisfied`, which
+    legacy sets never emit.
+- Validation:
+  - `python -m pytest tests -q`: 368 passed on two full runs. One other full
+    run failed `test_run_parallel_dry_run_ships_records_and_cleans_up` (4
+    `rc_sets` rows, not 3).
+    - Cause: two workers took the same topology (or a close rhythm), so a
+      sibling set was rejected at Gate C.
+    - It is pre-existing: the untouched `23e3d49` engine failed 4 of 60 probe
+      runs, the current tree 2 of 60, with the same failure types. It was not
+      fixed here and is flagged as a separate task (in-flight topology
+      reservation race).
+  - `python -m rc_engine.cli selftest`: passed.
+  - `generate --dry-run --hard 2`: legacy, ran.
+  - Isolated scratch-DB simulations:
+    - `--medium 12 --hard 12 --elite 4 --generation-policy cat-pyq-q1`: 28 of
+      36 attempts shipped; the 8 rejections were mock novelty.
+      - Every medium/hard set had exactly 2 negatives: 16 detail, 13
+        inference, 11 application, 8 EXCEPT across 24 sets.
+      - QT25/QT26 were drawn 3 times; elite stayed legacy with no extensions.
+    - `--medium 4 --hard 4 --workers 2` under the policy: 8 of 8 shipped,
+      each with 2 negatives.
+- Limits:
+  - Mock success is not prose or question quality. No paid run; the pilot is
+    pending authorization.
+  - The real-model retry rate from the stricter checks (quotes, allowed
+    mechanisms, `failure_mode`) is unmeasured and could raise question cost.
+  - The new types appear only through QT25/QT26: 3 of 24 simulated sets.
+  - Uniqueness of negated keys is semantic; there is no deterministic check.
+  - Family `question_affinities` is not read anywhere in the engine, so
+    "compatible family affinities" has no mechanism to attach to.
+  - Reporting negation by task in `health` is not built; the fingerprint
+    fields exist.
+  - The `move-audit` follow-up from section 3 is still open.
+- Changes are uncommitted. The plan asks for separate commits for the policy
+  boundary (section 3) and questions (section 4).
+
+## 2026-09-13 — Generation-policy boundary (plan section 3), by Claude Code
+
+- Completed section 3 of `2026-09-13-cat-pyq-implementation-plan.md`. The
+  boundary is dormant: no non-legacy policy is registered, and every tier maps
+  to legacy in `config.GENERATION_POLICY_FOR_NEW_PLANS`.
+- Added `rc_engine/generation_policy.py`:
+  - The legacy version `""` returns the shared objects themselves, with no
+    copies and no extra RNG.
+  - A non-legacy policy may only add. It can own tagged components
+    (`"policies": [version]`), beats, slot types, stem forms, schemas and
+    schema forms, closing registers, prompt/system extensions and a weight
+    hook.
+  - `policy_for_new_plan` always maps elite to legacy.
+  - `policy_for_blueprint` resolves from the stored plan and raises
+    `PolicyError` for an unknown version or a tier the policy does not admit.
+  - `validation_errors` runs inside registry validation.
+- Blueprint fields:
+  - Added `generation_policy` (missing means legacy) and `question_slots`.
+  - Neither is in `component_ids`, so `combo_hash` and pair hashes are
+    unchanged.
+- Plumbing:
+  - The policy is applied first in `_eligible`, topic-shape eligibility and
+    its fallback, rhythm/movement options, and the pipeline topology re-pick
+    and least-colliding fallback.
+  - Move plans, schema forms, closing registers, the refine/render/compliance/
+    question prompts, the blind move-signature and argument-schema vocabularies,
+    compliance scoring, stem shapes and slot definitions all go through it.
+  - Resume resolves the stored policy and returns `failed_resume` on
+    `PolicyError`.
+  - Non-legacy plans store their effective question slots before the first
+    questions call (`history.update_blueprint_json`, client-scoped, status and
+    `created_at` untouched). Retry and resume reuse them.
+  - `_generation_policy` is written to the fingerprint only for non-legacy
+    plans.
+  - History schema counts accept schemas from registered policies.
+  - Tagged topologies may use slot types that every one of their policies adds.
+- Tests:
+  - Added `tests/policy_harness.py`: a deterministic mock scenario run in a
+    subprocess with `PYTHONHASHSEED=0`, pinned ids and clock, and SHA-1 prompt
+    hashes.
+  - Added `tests/policy_fixtures.py`: a test-only policy with one tagged
+    component of each sampled type and a 1e6 weight boost.
+  - Added `tests/test_generation_policy.py` (14 tests).
+  - Two goldens were captured from an untouched `git archive` of `23e3d49`
+    (in the scratchpad, with the repo `.env` loaded into the environment only):
+    - `generation_policy_legacy_golden.json`: 14 interleaved attempts, a
+      forced question failure and resume, topology re-picks, and 24
+      exhausted-pool probes.
+    - `generation_policy_elite_isolation_golden.json`: six mixed attempts, the
+      policy enabled for medium/hard, then four elite attempts with a resume.
+      A side pipeline in the same process runs a policy attempt before each
+      elite attempt.
+  - The current engine matches both goldens, including the legacy golden with
+    the policy registered and tagged libraries present. The export reproduced
+    the first golden exactly.
+  - In-process tests cover:
+    - new plans storing the policy and using its additions;
+    - no shared pool widening;
+    - elite staying legacy even when config names the policy;
+    - disabling the policy;
+    - ban/recency/topic-shape fallbacks never admitting tagged components;
+    - topology re-pick;
+    - resume with stored slots after a library edit;
+    - unknown versions;
+    - hash invariance;
+    - legacy accessor identity;
+    - validation errors.
+  - Mutation check: 7 deliberate boundary breaks were each caught. They were
+    legacy seeing tagged items, the stem pool widened in place, re-pick
+    ignoring the policy, elite following config, stored slots not reused,
+    resume using today's policy, and legacy prompt text altered.
+  - Updated the source-grep assertion in
+    `test_schema_directive_reaches_the_render_contract` to the policy accessor.
+- Found, not changed: `_eligible` re-admits missing arc shapes by iterating a
+  set, so composition depends on `PYTHONHASHSEED` across processes. The
+  harness pins it.
+- Follow-up for section 4: `move-audit` (`cli.py:668`) re-extracts corpus
+  signatures with the legacy vocabulary. It must use each passage's stored
+  policy once policy plans ship.
+- Validation:
+  - `python -m pytest tests -q`: 313 passed.
+  - `python -m rc_engine.cli selftest`: passed.
+  - `generate --dry-run --hard 2`: ran.
+  - `generate --dry-run --hard 2 --medium 2 --workers 2`: ran.
+  - Both dry runs rejected some attempts on mock rhythm-cosine collisions
+    against the dry-run DB.
+- No paid run. No production DB, exports or libraries were changed.
+- Changes are uncommitted.
+
+## 2026-09-13 — CAT PYQ evidence baseline (plan section 2), by Claude Code
+
+- Completed section 2 of `2026-09-13-cat-pyq-implementation-plan.md`.
+- Added `tools/cat_pyq/`:
+  - `parse_pyq.py`: page-aware parse; PYQ text written only outside the repo.
+  - `question_records.py`: task and polarity labelled independently; all 390
+    stems hand-reviewed; 73 recorded overrides.
+  - `engine_baseline.py`: read-only, `mode=ro`; per tier, planned vs realised;
+    shipped stems scanned with the same polarity rules.
+  - `build_baseline.py`: one thesis rubric applied to all 90 passages.
+- Outputs: `2026-09-13-cat-pyq-baseline.json` (text-free) and
+  `2026-09-13-cat-pyq-baseline.md`.
+- Added correction notices, without rewriting the earlier text, to
+  `2026-09-13-cat-pyq-engine-analysis.md` and
+  `2026-09-13-cat-pyq-findings-handoff.md`.
+- Corrected findings:
+  - 390 questions (per passage 4.8/4.8/4.8/4.5/4.0/4.0/4.0/4.0), not the
+    report's 6.3–4.3.
+  - Negation: 35.6% of stems, 41.5% in 2020–24; multiple negation 4.1%.
+  - Shipped engine stems ~7% negated (0.5 per set); the gap holds.
+  - Planned thesis by paragraph 2: medium 52.8%, hard 44.9%, against 74.4% of
+    thesis-bearing PYQs. The "10% early" claim was a label artefact.
+  - The stored compliance thesis read is plan-anchored (`compliance.py:121-122`).
+    A blind 12-set medium/hard check found 10/12 early, so do not activate
+    early-thesis weights yet.
+  - Planned refusal: medium 16.7%, hard 30.6%; realised closure uncertain.
+- Added `tests/test_cat_pyq_tools.py` to pin the classifier corrections.
+- Validation:
+  - `python -m pytest tests -q`: 299 passed (the earlier `feedparser` failures
+    no longer occur in this environment).
+  - Parser re-run is byte-identical; words and paragraph counts match the first
+    analysis on all 90 passages; JSON checked text-free.
+  - `selftest` not run: no engine config or library change.
+- Limits:
+  - Single reader for overrides, rubric and the 12-set check.
+  - Engine baseline is client AA as of this date at `23e3d49`.
+  - No paid extractor run. No engine code, production data or exports changed.
+- Changes are uncommitted.
+
+## 2026-09-13 — CAT PYQ implementation plan with elite preserved
+
+- Added `2026-09-13-cat-pyq-implementation-plan.md` for the requested medium/hard
+  implementation, incorporating the analysis review and the instruction that
+  elite stays unchanged. Staged evidence repair, policy isolation, question
+  contracts, passage compatibility/rendering, and source-supported facts.
+- Specified elite prompt/pool/RNG regression checks, legacy resume, rolling mock
+  validation, provisional calibration objectives, and a separately authorized
+  paid pilot. No engine code, production data, or exports changed.
+- Validation: inspected current composition, compatibility, question, extraction,
+  topology fallback and model contracts; checked documentation whitespace and
+  file readback. Documentation only; no engine tests or paid calls ran.
+- Limits: this is an implementation plan, not a completed implementation or a
+  verified CAT calibration. Changes are uncommitted.
+
+## 2026-09-13 — Soft-launch voice observations after review
+
+- Corrected the earlier hard voice gate after the user reported that its rules
+  flagged all 30 recent AA ships, including all five approved sets. Removed
+  approval-status changes from both `pipeline.py` and `HistoryStore.record_voice_review`.
+  Reasons remain recorded; existing quality and novelty gates still apply.
+- Removed voice-review blocks from client exports, including `clear`. Export
+  no longer reads the review JSON, so malformed review data cannot crash it.
+- Made the renderer follow the topic shape when both material fields arrive:
+  two-pole and legacy tension plans retain their poles, with the frame used as
+  supporting material. Non-bipolar shapes continue to use the content frame.
+- Added one console review item per flagged sibling pair, plus GUI guidance to
+  compare both and retain the stronger usable set when appropriate. Preserved
+  both screen verdicts and existing export routing; no automatic discarding.
+- Health now prints observed flag counts and distinguishes unchecked sets.
+  Updated `RC_ENGINE_README.md` to describe the observational launch and pilot.
+- Validation: 287 tests passed, two skipped; the same three RAG tests failed
+  on the missing `feedparser` dependency. Selftest, JavaScript syntax and
+  whitespace checks passed. Tests cover unchanged approval for schema/closing
+  deviations and unknown reads, malformed export metadata, mixed material fields,
+  reciprocal sibling flags and client-scoped health counts.
+- Limits: no paid pilot ran and no production data or existing exports were
+  modified. The earlier renderer changes had mock tests, not a real prose-quality
+  evaluation. S3/S8 stance pools remain narrow pending compatible designs and
+  evidence; novelty caps are unchanged. Historical statuses are not auto-restored.
+- Commit: `0f6abfe` — Soft-launch voice review as observation and keep QA notes
+  out of exports. This entry supersedes the status-gating and client-export
+  behavior described in the original house-voice entry below.
+
+## 2026-09-13 — Persistent change tracking
+
+- Created `codex.md` and backfilled the recent checkpoint and house-voice work.
+- Added root `AGENTS.md` so future Codex tasks read the project rules and update
+  this log before finishing changes.
+- Validation: checked the existing project rules and Git history; documentation
+  only, so no code tests were needed.
+- Commit: committed together with this log's first tracked version (see Git
+  history for `AGENTS.md`).
+
+## 2026-09-13 — House-voice planning and independent review
+
+- Aligned schema, family, stance, paragraph beats and closing instructions before
+  refinement. Both refinement and rendering now receive the reasoning schema and
+  beat allocation; non-bipolar content frames reach the renderer.
+- Added compatibility rules in `rc_engine/voice_plan.py` and a plan-version field.
+  Preserved legacy blueprint loading and existing novelty caps.
+- Changed schema recency feedback to use realized primary schemas rather than
+  planned labels, with client-scoped history and softer other-client pressure.
+- Added persisted voice-review reasons and routing to `needs_review`, independent
+  of high aggregate scores. Solver disputes retain their status. Reasons appear
+  in console output, the GUI's passage detail and subsequent text exports.
+- Expanded similarity-screen references to include older structural neighbours
+  and completed-batch siblings within the existing reference limit and budget.
+- Added health reporting by plan version, regression tests, test-database
+  isolation, and documentation in `RC_ENGINE_README.md` and
+  `HOUSE_VOICE_REVIEW_2026-09-12.md`.
+- Main areas: `rc_engine/composer.py`, `renderer.py`, `history.py`, `pipeline.py`,
+  `similarity_screen.py`, `models.py`, `cli.py`, `gui/static/app.js`, and tests.
+- Validation: 275 tests passed, two skipped; three existing RAG tests failed
+  because the runtime lacked `feedparser`. Selftest and JavaScript syntax checks
+  passed. All 126 mocked composition trials against a temporary corpus copy
+  succeeded at $0. Final focused checks passed 33 tests.
+- Limits: no paid generation or blinded prose-quality pilot ran. The replay used
+  a frozen corpus; it did not simulate 126 newly shipped passages. Production
+  data and existing exports were untouched by these improvements.
+- Commit: `3828e9c` — Align house-voice plans and persist independent voice review.
+
+## 2026-09-12 — Checkpoints before house-voice changes
+
+- Saved the existing code, client-isolation work, generation controls, Passage
+  Works sites and house-voice review before starting the improvements.
+- Saved the September 12 exports and reconciled delivery records separately.
+- These were checkpoints of work already present, not a claim that all earlier
+  code-review findings had been resolved.
+- Commits: `cede664` — Checkpoint client isolation, generation controls, and
+  Passage Works sites; `e63b9c5` — Checkpoint September 12 exports and reconciled
+  delivery records.

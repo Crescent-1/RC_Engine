@@ -7,6 +7,7 @@ from __future__ import annotations
 import json
 
 from . import config
+from .generation_policy import LEGACY_POLICY, policy_for_blueprint
 from .llm import CostLedger, extract_json
 from .models import Blueprint, RealizedStructure
 
@@ -57,6 +58,22 @@ Respond ONLY with valid JSON, no markdown fences:
 }"""
 
 
+ARGUMENT_SCHEMA_SYSTEM = """You classify the ARGUMENT SHAPE of a reading-
+comprehension passage: what the argument DOES, not what it is about.
+
+Rules:
+- Use ONLY labels from the vocabulary given. Never invent one.
+- Name a `primary`. Name a `secondary` ONLY if a second shape genuinely co-runs;
+  otherwise return null for it. Do not pad.
+- Judge the prose alone. You are shown no plan and there is no intended answer
+  to recover.
+- Two passages about completely different subjects can share a shape, and two
+  passages about the same subject can differ in it. Subject is not the question.
+
+Respond ONLY with valid JSON, no markdown fences:
+{"primary": "LABEL", "secondary": "LABEL or null", "why": "one short sentence"}"""
+
+
 MOVE_SIGNATURE_SYSTEM = """You read a finished essay passage and report the sequence of
 RHETORICAL MOVES it performs, in the order they occur.
 
@@ -99,19 +116,49 @@ class ComplianceAuditor:
         forbidden = ", ".join(config.GLOBAL_FORBIDDEN_TICS)
         # posture labels only — the PLANNED posture is deliberately withheld so
         # the classification stays blind and can detect renderer disobedience
+        policy = policy_for_blueprint(bp)
         posture_lines = "\n".join(
             f"  {name}: {desc}"
-            for name, desc in self.registry.closing_postures.items())
+            for name, desc in policy.closing_postures(self.registry).items())
         user = (f"PLAN:\n{plan_lines}\n\nPLANNED THESIS VISIBILITY: paragraph "
                 f"{bp.revelation_detail.get('planned_para')}\n\nPLANNED TRAPS:\n{trap_lines}\n\n"
                 f"FORBIDDEN PHRASES: {forbidden}\n\n"
                 f"CLOSING POSTURE LABELS:\n{posture_lines}\n\nPASSAGE:\n{passage}")
-        text, _ = self.llm.call(ledger, "compliance", model, max_tokens,
-                                COMPLIANCE_SYSTEM, user,
-                                context={"blueprint": bp, "passage": passage,
-                                         "planned_posture": self.registry.posture_of(bp.family_id)})
-        data = extract_json(text)
-        return self._score(data, passage, bp, realized_moves or [])
+        context = {"blueprint": bp, "passage": passage,
+                   "planned_posture": self.registry.posture_of(bp.family_id)}
+        if policy.passage_permissions:
+            # The same grants the renderer was given (section 5.3), so the
+            # auditor never flags what the contract permitted, nor lets pass
+            # what it did not.
+            from .passage_permissions import grants_for, permissions_block
+            context["permissions"] = grants_for(bp, self.registry)
+            user = permissions_block(context["permissions"]) + "\n\n" + user
+        if policy.source_facts:
+            from .source_facts import facts_block
+            context["source_facts"] = [f["id"] for f in bp.source_facts]
+            if policy.strict_source_fact_audit:
+                context["strict_source_fact_audit"] = True
+            user = facts_block(bp.source_facts, evidence=policy.strict_source_fact_audit) + "\n\n" + user
+        user = policy.user_prompt("compliance", user)
+        text, truncated = self.llm.call(ledger, "compliance", model, max_tokens,
+                                policy.system_prompt("compliance", COMPLIANCE_SYSTEM), user,
+                                context=context)
+        if policy.strict_source_fact_audit:
+            # 2026-09-14: a syntactically complete prefix of a truncated audit
+            # is still incomplete. Never turn absent checks into success.
+            try:
+                data = extract_json(text)
+            except (ValueError, TypeError, AttributeError):
+                data = {}
+            if not isinstance(data, dict):
+                data = {}
+            if truncated:
+                data["fact_trace_complete"] = False
+        else:
+            data = extract_json(text)
+        return self._score(data, passage, bp, realized_moves or [],
+                           grants=context.get("permissions"),
+                           trace_facts=policy.source_facts)
 
     @staticmethod
     def _final_line_is_bound(passage: str) -> str | None:
@@ -174,22 +221,30 @@ class ComplianceAuditor:
         return config.CLOSING_REGISTERS[0][2]
 
     def move_signature(self, passage: str, ledger: CostLedger,
-                       tier: str = "hard") -> list[str]:
+                       tier: str = "hard", policy=None) -> list[str]:
         """Blind rhetorical-move read of the passage. Sees the prose and nothing
         else — no blueprint, no persona, no plan. That blindness is the whole
         point: `movement_string` became a near-duplicate of blueprint similarity
         precisely because its auditor was handed the plan first.
 
         Returns [] on any failure; a missing signature is treated downstream as
-        'unknown structure', never as 'similar structure'."""
+        'unknown structure', never as 'similar structure'.
+
+        policy: the generation policy of the plan being read (2026-09-13). The
+        read stays blind to the plan itself; only the closed vocabulary it may
+        answer from follows the policy. None = legacy vocabulary."""
         model, max_tokens = config.STAGE_CONFIG["move_signature"][tier]
         nl = chr(10)
-        vocab = nl.join(f"  {k}: {v}" for k, v in config.RHETORICAL_MOVES.items())
+        moves_vocab = (policy or LEGACY_POLICY).move_vocabulary()
+        vocab = nl.join(f"  {k}: {v}" for k, v in moves_vocab.items())
         user = f"VOCABULARY:{nl}{vocab}{nl}{nl}PASSAGE:{nl}{passage}"
+        context = {"passage": passage}
+        if moves_vocab is not config.RHETORICAL_MOVES:
+            context["vocabulary"] = list(moves_vocab)
         try:
             text, _ = self.llm.call(ledger, "move_signature", model, max_tokens,
                                     MOVE_SIGNATURE_SYSTEM, user,
-                                    context={"passage": passage})
+                                    context=context)
             data = extract_json(text)
         except Exception as e:
             # Never abort an RC over a sub-cent stage — but never fail quietly
@@ -205,31 +260,86 @@ class ComplianceAuditor:
         # drop anything outside the closed vocabulary — an invented label would
         # never match another passage's and would silently inflate novelty
         return [m for m in (str(x).strip().upper() for x in moves)
-                if m in config.RHETORICAL_MOVES]
+                if m in moves_vocab]
+
+    def argument_schema(self, passage: str, ledger: CostLedger,
+                        tier: str = "hard", policy=None) -> tuple[str, str]:
+        """Blind read of what the passage's argument DOES. Returns
+        (primary, secondary); ("", "") on any failure.
+
+        Blind for the same reason move_signature is: an auditor handed the plan
+        first reports the plan back. This one is checked AGAINST the plan by the
+        caller, so letting it see the plan would make the check circular and the
+        agreement rate meaningless.
+
+        Never aborts a set — this costs about $0.0004 on the Luna pin, and a
+        missing schema means "unknown", never "repeated"."""
+        model, max_tokens = config.STAGE_CONFIG["move_signature"][tier]
+        nl = chr(10)
+        schemas = (policy or LEGACY_POLICY).argument_schemas()
+        vocab = nl.join(f"  {k}: {v['description']}"
+                        for k, v in schemas.items())
+        user = f"VOCABULARY:{nl}{vocab}{nl}{nl}PASSAGE:{nl}{passage}"
+        try:
+            text, _ = self.llm.call(ledger, "move_signature", model, max_tokens,
+                                    ARGUMENT_SCHEMA_SYSTEM, user,
+                                    context={"passage": passage})
+            data = extract_json(text)
+        except Exception as e:                                   # noqa: BLE001
+            print(f"  [arg-schema] extraction failed ({type(e).__name__}: {e}) "
+                  f"- this passage will not be scored on argument shape")
+            return "", ""
+        def _clean(v):
+            v = str(v or "").strip().upper()
+            return v if v in schemas else ""
+        return _clean(data.get("primary")), _clean(data.get("secondary"))
 
     def _score(self, data: dict, passage: str, bp: Blueprint,
-               realized_moves: list[str] | None = None) -> RealizedStructure:
+               realized_moves: list[str] | None = None,
+               grants: list[str] | None = None,
+               trace_facts: bool = False) -> RealizedStructure:
         n = len(bp.movement)
-        paras_report = data.get("paragraphs", [])[:n]
+        policy = policy_for_blueprint(bp)
+        postures = policy.closing_postures(self.registry)
+        vocab = policy.move_vocabulary()
+        exam_shares = policy.exam_move_shares()
+        paras_report = data.get("paragraphs", [])
+        paras_report = paras_report[:n] if isinstance(paras_report, list) else []
         real_paras = [p for p in passage.split("\n\n") if p.strip()]
 
         functions, matches = [], []
         for i, p in enumerate(bp.movement):
             rep = paras_report[i] if i < len(paras_report) else {}
+            # 2026-09-14 review: a non-object entry raised AttributeError, which
+            # the render loop does not catch; it now reads as an unmatched paragraph.
+            rep = rep if isinstance(rep, dict) else {}
             guess = rep.get("function_guess", "OTHER")
             match = bool(rep.get("matches_plan", False))
             functions.append(guess if guess else "OTHER")
             matches.append(match)
 
-        curve = [float(x) for x in data.get("commitment_curve", [])][:n]
+        # 2026-09-14 review: one non-numeric point used to raise (a paid
+        # re-render), and a short curve was padded with 0.0, which the posture
+        # band then read as a real endpoint. Unreadable points are dropped, and
+        # the close is only audited when every paragraph has a reading.
+        curve = []
+        raw_curve = data.get("commitment_curve", [])
+        for x in (raw_curve if isinstance(raw_curve, list) else [])[:n]:
+            try:
+                curve.append(float(x))
+            except (TypeError, ValueError):
+                continue
+        curve_measured = len(curve) == n
         while len(curve) < n:
             curve.append(0.0)
 
         planned_thesis = bp.revelation_detail.get("planned_para", n)
         realized_thesis = data.get("thesis_first_visible_para")
-        traps_present = [t for t in data.get("traps_present", [])
+        raw_traps = data.get("traps_present")
+        traps_present = [t for t in (raw_traps if isinstance(raw_traps, list) else [])
                          if t in {x["trap_id"] for x in bp.trap_map}]
-        tics = data.get("forbidden_tics_found", [])
+        tics = data.get("forbidden_tics_found")
+        tics = [t for t in tics if t] if isinstance(tics, list) else []
 
         # ---- beat-plan compliance (2026-08-22) -----------------------------
         # Scored from the BLIND extraction, so this measures the prose and not a
@@ -283,7 +393,7 @@ class ComplianceAuditor:
             floor = config.UNPLANNED_MOVE_EXAM_FLOOR
             gratuitous = sorted(
                 m for m in (real_mid - planned_mid)
-                if config.EXAM_MOVE_SHARES.get(m, 0.0) < floor)
+                if exam_shares.get(m, 0.0) < floor)
 
         # weighted structural score
         fn_score = sum(matches) / n if n else 0.0
@@ -324,13 +434,13 @@ class ComplianceAuditor:
             directives.append(f"remove forbidden phrases: {', '.join(map(str, tics))}")
         if missing_beats and beat_score < config.MOVE_PLAN_MIN_REALIZED:
             named = "; ".join(
-                f"{m} ({config.RHETORICAL_MOVES.get(m, '')})" for m in missing_beats)
+                f"{m} ({vocab.get(m, '')})" for m in missing_beats)
             directives.append(
                 f"the passage must perform these planned rhetorical moves, which "
                 f"a blind reading of it could not find: {named}")
 
         posture_guess = str(data.get("closing_posture_guess", "")).strip()
-        if posture_guess not in self.registry.closing_postures:
+        if posture_guess not in postures:
             posture_guess = ""   # junk -> unusable; downstream checks skip
         # An aphorism needs BOTH legs of the test. Before 2026-08-22 this was a
         # single "is it terse and quotable" judgement, and it over-fired badly:
@@ -376,7 +486,7 @@ class ComplianceAuditor:
             posture_ok = False
             directives.append(
                 f"the closing posture must be {planned_posture} "
-                f"({self.registry.closing_postures.get(planned_posture, '')}), "
+                f"({postures.get(planned_posture, '')}), "
                 f"not {posture_guess}")
         # NOT capped below the threshold, deliberately — reverted 2026-08-22.
         # Capping forced a dedicated re-render whenever the register was broken,
@@ -398,19 +508,19 @@ class ComplianceAuditor:
             want = bp.move_plan[0]
             directives.append(
                 f"the FIRST SENTENCE must perform {want} — "
-                f"{config.RHETORICAL_MOVES.get(want, '')}. "
+                f"{vocab.get(want, '')}. "
                 f"The passage opened on {realized_moves[0]} instead")
         if not closing_ok:
             want = bp.move_plan[-1]
             directives.append(
                 f"the FINAL SENTENCE must perform {want} — "
-                f"{config.RHETORICAL_MOVES.get(want, '')}. "
+                f"{vocab.get(want, '')}. "
                 f"The passage closed on {realized_moves[-1]} instead")
 
         middle_ok = True
         if middle_missing and middle_retention < config.MOVE_PLAN_MIN_MIDDLE_RETAINED:
             middle_ok = False
-            named = "; ".join(f"{m} ({config.RHETORICAL_MOVES.get(m, '')})"
+            named = "; ".join(f"{m} ({vocab.get(m, '')})"
                               for m in middle_missing)
             directives.append(
                 f"the BODY paragraphs dropped {len(middle_missing)} of "
@@ -433,8 +543,8 @@ class ComplianceAuditor:
         # median of 0.93. Audited the same way the beats and the register are:
         # a directive that rides an existing retry, never a forced re-render.
         commitment_ok = True
-        band = config.POSTURE_END_COMMITMENT.get(planned_posture or "")
-        if band and curve:
+        band = policy.posture_end_commitment().get(planned_posture or "")
+        if band and curve and curve_measured:
             lo, hi = band
             tol = config.POSTURE_END_TOLERANCE
             end = curve[-1]
@@ -450,11 +560,50 @@ class ComplianceAuditor:
                        "question." if hi <= 0.5 else
                        "The final paragraph must actually land on a position."))
 
+        # ---- permissions (2026-09-13, section 5.3; permission plans only) ----
+        # The auditor reports devices the prose used; only those the plan's
+        # grants do not cover become repair directives, worded from the same
+        # table the renderer was given.
+        found: list[str] = []
+        if grants is not None:
+            from .passage_permissions import DEVICE_GRANT, GRANT_TEXT, unpermitted
+            found = unpermitted(data.get("unpermitted_devices") or [], grants)
+            for device in found:
+                grant = DEVICE_GRANT.get(device)
+                directives.append(
+                    f"remove the {device.replace('_', ' ')}: this plan does not grant it"
+                    + (f" (it would need: {GRANT_TEXT[grant]})" if grant else
+                       " — announcing the passage's own argumentative moves is never permitted"))
+
+        # ---- source-supported facts (2026-09-13, section 6) -------------------
+        # Every claim the prose presents as real is traced to fact ids by the
+        # auditor; what it cannot trace becomes a repair directive and routes
+        # the set to review. Well-known references stay allowed (rule 9).
+        trace: list[dict] = []
+        unsupported_claims: list[dict] = []
+        if trace_facts:
+            from .source_facts import audit_evidence, unsupported
+            if policy.strict_source_fact_audit:
+                trace, unsupported_claims = audit_evidence(data, bp.source_facts, passage)
+            else:
+                trace = [t for t in (data.get("fact_trace") or []) if isinstance(t, dict)][:20]
+                unsupported_claims = unsupported(trace, bp.source_facts)
+            for u in unsupported_claims[:4]:
+                if u["support"] == "audit_incomplete":
+                    directives.append(u["claim"] + "; require a complete evidence audit before approval")
+                    continue
+                directives.append(
+                    f"the passage presents \"{u['claim']}\" as real without support in "
+                    f"SOURCE-SUPPORTED FACTS: remove it, or restate it from a listed fact "
+                    f"with that fact's attribution and qualification")
+
         f1 = round(f1 - (0.0 if (register_ok and posture_ok) else 0.05)
                    - (0.0 if opening_ok else 0.04)
                    - (0.0 if closing_ok else 0.04)
                    - (0.0 if commitment_ok else 0.04)
-                   - (0.0 if middle_ok else 0.06), 3)
+                   - (0.0 if middle_ok else 0.06)
+                   - (0.04 if found else 0.0)
+                   - (0.04 if unsupported_claims else 0.0), 3)
 
         return RealizedStructure(
             paragraph_functions=functions, matches=matches,
@@ -470,4 +619,7 @@ class ComplianceAuditor:
             commitment_in_band=commitment_ok,
             middle_beats_ok=middle_ok,
             middle_retention=round(middle_retention, 3),
-            gratuitous_moves=gratuitous)
+            gratuitous_moves=gratuitous,
+            unpermitted_devices=found,
+            fact_trace=trace,
+            unsupported_claims=unsupported_claims)

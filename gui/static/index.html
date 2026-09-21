@@ -29,6 +29,11 @@
     <a href="#settings" data-nav="settings"><span class="ni">⚙</span> Settings</a>
   </nav>
   <div class="sidebar-foot">
+    <div class="form-row" style="margin-bottom:10px">
+      <label for="client-select">Client</label>
+      <select id="client-select" onchange="setClient(this.value)"
+              title="Every page, job and export is scoped to this client"></select>
+    </div>
     <div id="job-pill" class="job-pill idle">idle</div>
   </div>
 </aside>

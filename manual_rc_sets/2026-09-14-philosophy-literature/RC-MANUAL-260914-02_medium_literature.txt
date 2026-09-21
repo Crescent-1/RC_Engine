@@ -1,0 +1,111 @@
+[PASSAGE]
+
+Repetition in fiction need not delay a story. A scene can recur with nearly the same actions and still move the reader somewhere new, because the meaning of an action depends partly on what surrounds it. The repeated scene supplies a stable point against which changed circumstances become visible. If everything changes, the reader must first work out what connects the moments. If a few details remain recognisable, attention can settle on the difference. Repetition is useful, then, not because a second description strengthens the first, but because familiarity can make a small alteration carry unusual force.
+
+A story might show a daughter visiting her father every Sunday. He lays two cups on a kitchen table and asks whether her train was late. In the first scene, his question sounds like ordinary conversation; the daughter complains about the journey and changes the subject. Later, after their disagreement about her decision to leave the town, the same question can sound like an attempt to speak without renewing the quarrel. The cups need not acquire a secret symbolic meaning. Their continued presence helps the reader recognise the routine within which speech has become difficult. The kettle still needs filling.
+
+For that change to register, the writer must leave enough of the earlier scene intact. Replacing the kitchen, the visitors, the question and the mood at once would produce another encounter, but its relation to the first would be harder to feel. Conversely, copying the whole scene without changing its circumstances would supply recognition with little interpretive work to do. Effective repetition lies between these possibilities. It maintains a pattern while altering something that matters within it. The reader participates by recalling the earlier occasion, rather than receiving a separate explanation that the relationship has changed.
+
+This technique can also reveal a difference between what a character knows and what a reader knows. After seeing the father practise the question alone, the reader may hear its next delivery as carefully prepared. The daughter, who has not witnessed the rehearsal, may still hear an irritating routine. Neither response requires different words to be spoken. The same exchange now belongs to two histories of attention. A writer who immediately explains the father's intention to the daughter would remove this temporary difference, even if the eventual reconciliation became clearer. Keeping it allows the scene to contain concern and annoyance together without declaring either response foolish.
+
+There is a limit to what recurring details can accomplish. If every return introduces a conspicuous reversal, the reader begins to wait for the reversal rather than attend to the people. A cup that changes meaning on every appearance soon resembles a signal operated from outside the scene. Some returns can remain ordinary, allowing the routine to have the persistence that routines have for their participants. The decisive variation then appears among actions that do not all demand interpretation. In the Sunday visits, the father's question can remain unchanged while the daughter finally answers it without turning away, and the story can leave the reader to hear the difference in that familiar exchange.
+
+[QUESTIONS]
+
+Q1. Which statement best captures the central idea of the passage?
+(A) Repeated scenes help readers understand characters by steadily making the symbolic meanings of familiar objects more explicit.
+(B) Repeated scenes move stories forward chiefly by allowing writers to omit explanations of changes in a character's circumstances.
+(C) Repeated scenes can develop meaning through significant variations that become perceptible against a recognisable, persistent pattern.
+(D) Repeated scenes achieve their strongest effects when each return reverses the emotional meaning established by the earlier encounter.
+
+Q2. In paragraph 1, “a stable point” refers to:
+(A) A recognisable element that helps readers perceive the significance of changes in the circumstances surrounding an action.
+(B) A fixed interpretation that prevents later developments from altering how readers understand the action in an earlier scene.
+(C) An unchanged emotional relationship that helps characters recognise the significance of differences in their increasingly familiar surroundings.
+(D) A familiar object whose symbolic importance allows readers to predict the eventual resolution of a recurring personal disagreement.
+
+Q3. Which proposed revision does NOT follow the principle of effective repetition described in paragraph 3?
+(A) The second visit retains the kitchen and question, while the recent quarrel changes the daughter's response to them.
+(B) The later visit repeats the father's greeting, while the daughter's newly revealed plans change its emotional significance considerably.
+(C) The return preserves the table and cups, while an earlier confession changes how readers understand the father's silence.
+(D) The later visit replaces the place, participants and conversation, while adding an explanation that their relationship has changed.
+
+Q4. Why can the reader and daughter understand the father's question differently in paragraph 4?
+(A) The father changes the question's wording so that readers can recognise a meaning concealed from his daughter.
+(B) The reader has witnessed the father's preparation, while the daughter hears the question without that additional knowledge.
+(C) The daughter remembers the earlier disagreement, while the reader encounters the repeated question without that personal history.
+(D) The reader recognises the cups' symbolic meaning, while the daughter treats them as objects with merely practical uses.
+
+Q5. What is the function of the sentence “The kettle still needs filling”?
+(A) It retains an ordinary practical action within a scene whose familiar conversation has acquired a changed significance.
+(B) It identifies the father's main purpose in asking a question that the daughter has begun to find irritating.
+(C) It supplies a symbolic explanation for the emotional distance that the repeated kitchen objects are intended to represent.
+(D) It interrupts the scene to suggest that practical household duties matter more than the unresolved disagreement between characters.
+
+Q6. According to paragraph 5, all the following are supported, EXCEPT:
+(A) Conspicuous changes on every return can encourage readers to anticipate a device rather than attend to characters.
+(B) Ordinary returns can preserve the persistence of a routine as it is experienced by the people involved.
+(C) A recurring object becomes more convincing when every appearance gives it a newly reversed and conspicuous significance.
+(D) A small change in a character's response can make an otherwise familiar exchange carry a different significance.
+
+Q7. The author's attitude towards explaining the father's intention immediately to the daughter is best described as:
+(A) Approval, because making the intention explicit would preserve both characters' different interpretations while clarifying their eventual reconciliation.
+(B) Caution, because the clarification would remove a temporary difference of knowledge that permits two responses to coexist.
+(C) Dismissal, because an intention that requires explanation cannot be adequately expressed through the familiar words of a conversation.
+(D) Suspicion, because the explanation would establish the father's interpretation as mistaken and give the daughter greater narrative authority.
+
+Q8. Which development would most naturally extend the final paragraph's discussion?
+(A) An account of how recurring objects acquire a fixed symbolic meaning that remains stable throughout a completed story.
+(B) A comparison showing why dramatic reversals reveal changes in relationships more reliably than small alterations in familiar behaviour.
+(C) An explanation of how readers can identify the father's correct intention without considering the daughter's different experience of events.
+(D) An examination of how an unchanged greeting gains significance when a character begins responding to it with greater attention.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+(A) example_promotion — The passage explicitly says the cups need not acquire a secret symbolic meaning.
+(B) half_truth — Reduced explanation is one effect; the central mechanism is the contrast between a stable pattern and meaningful variation.
+(C) CORRECT — Paragraphs 1, 3 and 5 explain how recognition makes changes perceptible without requiring every return to be dramatic.
+(D) stance_misread — Paragraph 5 warns that conspicuous reversals on every return can make the device dominate the people.
+
+Q2 — Correct answer: (A)
+(A) CORRECT — The stable element provides the recognisable pattern against which changes in surrounding circumstances can register.
+(B) causal_inversion — Stability in the action enables changed interpretation; it does not freeze the earlier interpretation.
+(C) terminological_twin — The repeated scene is stable in selected details, not necessarily in its emotional relationship.
+(D) framework_import — Paragraph 2 refuses the need for a secret symbolic meaning or a predictable resolution.
+
+Q3 — Correct answer: (D)
+(A) rule_satisfied — The revision preserves recognisable details while changing the relationship that gives them significance.
+(B) rule_satisfied — The unchanged greeting is interpreted against newly available information.
+(C) rule_satisfied — Stable objects support a meaningful change in how the silence is understood.
+(D) CORRECT — It removes the recognisable pattern and substitutes an explicit explanation for the reader's comparison of recurring details.
+
+Q4 — Correct answer: (B)
+(A) causal_inversion — Paragraph 4 says the different responses do not require different spoken words.
+(B) CORRECT — The reader sees the rehearsal, while the daughter does not; their knowledge of the same question differs.
+(C) half_truth — The daughter knows the disagreement, but the reader's distinguishing advantage is knowledge of the rehearsal.
+(D) adjacent_answer — The paragraph explains the difference through preparation and attention, not privileged access to symbolism.
+
+Q5 — Correct answer: (A)
+(A) CORRECT — The plain practical detail keeps the scene inhabited while its repeated conversation becomes emotionally difficult.
+(B) level_confusion — The practical action is part of the setting, not an explanation of why the father asks about the train.
+(C) stance_misread — The preceding sentences expressly resist turning the objects into a secret symbolic scheme.
+(D) scope_inflation — Retaining practical life does not rank household duties above the relationship.
+
+Q6 — Correct answer: (C)
+(A) passage_supported — Paragraph 5 says readers can begin waiting for the reversal rather than attending to the people.
+(B) passage_supported — Paragraph 5 allows ordinary returns so the routine retains its persistence for its participants.
+(C) CORRECT — Paragraph 5 says this treatment makes the cup resemble an externally operated signal, weakening the scene's ordinary life.
+(D) passage_supported — The final sentence leaves the question unchanged while altering the daughter's response.
+
+Q7 — Correct answer: (B)
+(A) false_symmetry — Immediate explanation would remove, not preserve, the difference in knowledge.
+(B) CORRECT — Paragraph 4 values the temporary coexistence of the father's concern and the daughter's annoyance.
+(C) scope_inflation — The passage describes a cost of immediate explanation, not a general inability to express intentions through conversation.
+(D) stance_misread — The explanation would reveal the father's preparation; it would not establish his interpretation as mistaken.
+
+Q8 — Correct answer: (D)
+(A) stance_misread — The final paragraph resists fixing recurring details into a mechanically legible symbolic code.
+(B) causal_inversion — The final paragraph warns against continual dramatic reversals and values a small alteration in response.
+(C) half_truth — Knowing the father's intention matters earlier, but the passage also preserves the daughter's distinct experience.
+(D) CORRECT — This extends the final example of a familiar question gaining significance through a changed response.

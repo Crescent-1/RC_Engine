@@ -38,6 +38,21 @@ def make_client(provider: str):
     raise ValueError(f"unknown provider {provider!r}; expected one of {config.PROVIDERS}")
 
 
+class LazyClient:
+    """Subscription lanes need API credentials only when a stage uses them."""
+
+    def __init__(self, provider):
+        self.provider = provider
+        self._client = None
+
+    def call(self, *args, **kwargs):
+        if not provider_key_present(self.provider):
+            raise APIExhausted(f"{self.provider} API key missing for an API stage/fallback")
+        if self._client is None:
+            self._client = make_client(self.provider)
+        return self._client.call(*args, **kwargs)
+
+
 class RoutedClient:
     """Dispatches individual stages to their pinned provider/model.
 
@@ -46,14 +61,16 @@ class RoutedClient:
     STAGE_CONFIG, and this overrides it only where a pin applies and is usable.
 
     Two invariants:
-      - a pin NEVER stops a batch. Missing key, missing SDK, or a construction
-        error all fall back to the wrapped client, once, with a printed note.
+      - by default, missing keys/SDKs or construction errors fall back to the
+        wrapped client with a printed note. Subscription lanes set strict_pins
+        so an unavailable checking provider stops instead of changing models.
       - the ledger records the model that actually ran, so cost telemetry and
         the pre-call budget guard stay truthful.
     """
 
-    def __init__(self, base, pins: dict | None = None):
+    def __init__(self, base, pins: dict | None = None, *, strict_pins=False):
         self._base = base
+        self._strict_pins = strict_pins
         self._pins = pins if pins is not None else config.STAGE_MODEL_PINS
         self._clients: dict[str, object] = {}
         self._unavailable: dict[str, str] = {}
@@ -92,6 +109,8 @@ class RoutedClient:
                           + f" -> {pinned_model}")
                 return client.call(ledger, stage, pinned_model, max_tokens,
                                    system, user, context)
+            if self._strict_pins:
+                raise APIExhausted(f"{stage}: pinned {provider} client unavailable")
             if stage not in self._announced:
                 self._announced.add(stage)
                 print(f"  [pin] {stage}: {provider} unavailable "
@@ -167,16 +186,27 @@ class OpenAIClient:
         # default is what broke the first live batch — see OPENAI_STAGE_EFFORT.
         bp = (context or {}).get("blueprint")
         tier = getattr(bp, "tier", None)
-        effort = (resolve_effort(stage, context)
+        # Model overrides come FIRST: they exist to say "this model needs
+        # different treatment", which is exactly what the tier and stage tables
+        # below cannot express (see config.OPENAI_MODEL_STAGE_EFFORT).
+        effort = ((context or {}).get("cli_reasoning_effort")
+                  or config.OPENAI_MODEL_STAGE_EFFORT.get(model, {}).get(stage)
+                  or resolve_effort(stage, context)
                   or config.OPENAI_TIER_STAGE_EFFORT.get(tier, {}).get(stage)
                   or config.OPENAI_STAGE_EFFORT.get(stage,
                                                     config.OPENAI_DEFAULT_EFFORT))
-        if effort in ("xhigh", "max") and not model.startswith("gpt-5.6"):
-            effort = "high"
-        # "max" exists only on Sol; Terra and Luna return HTTP 400 for it.
         # Clamp rather than fail: an unsupported effort must never cost a run.
-        if effort == "max" and not model.endswith("-sol"):
-            effort = "xhigh"
+        # This was two hand-written string tests (startswith gpt-5.6, endswith
+        # -sol) that encoded the 5.6 family's capabilities inline. GPT-6 Astra
+        # broke both: it is not "gpt-5.6*" so xhigh was being downgraded to high
+        # for no reason. Its original API probe rejected none and max;
+        # current documentation adds max (2026-09-20). Keep capabilities in
+        # the per-model table instead of predicting them from model names.
+        asked = effort
+        effort = config.clamp_effort(model, effort)
+        if effort != asked:
+            print(f"  [openai] {stage}: {model} does not accept effort "
+                  f"{asked!r} - clamped to {effort!r}")
 
         ceiling = max_tokens
         for attempt in (1, 2):
@@ -199,8 +229,10 @@ class OpenAIClient:
                                      if isinstance(e, openai.APIStatusError) else None),
                 label="openai")
             choice = resp.choices[0]
+            _det = getattr(resp.usage, "prompt_tokens_details", None)
             ledger.record(stage, model, resp.usage.prompt_tokens,
-                          resp.usage.completion_tokens)
+                          resp.usage.completion_tokens,
+                          getattr(_det, "cached_tokens", 0) or 0)
             if choice.message.content or attempt == 2:
                 break
             if choice.finish_reason != "length":
