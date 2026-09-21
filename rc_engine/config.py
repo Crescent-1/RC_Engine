@@ -316,6 +316,27 @@ CLAUDE_CODE_EFFORT_STAGES = ("questions",)
 # THINKING tokens answering six MCQs, a gate capped at 1,600 output tokens on
 # the API path. Set to None to send no flag at all instead.
 CLAUDE_CODE_EFFORT_BASELINE = os.environ.get("RC_ENGINE_CC_EFFORT_BASELINE", "low")
+# Per-stage exceptions to that floor, for a stage that wants more than the
+# baseline but has no business on the questions tier-ladder.
+#
+# render -> medium (2026-09-21, operator decision). The baseline note above is
+# still right that render is prose generation rather than reasoning work, so
+# the tier ladder would be wrong here — "max" on render was measured in 2026-08
+# as tripling the cost of every attempt and buying nothing. Medium is the step
+# between: it costs subscription quota, not API dollars, and the 2026-09-21
+# batch gave a reason to spend it. Five move families are past the ban
+# threshold (MECHANISM_EXPLAINED 88%, EASY_READING_DEMOLISHED 67%,
+# CONCESSION_GRANTED 66%, AUTHORITY_QUOTED 63%, SYMMETRY_BROKEN 56%), every
+# set landed at 0.489-0.622 novelty, three attempts were rejected outright and
+# one shipped set came back RED. Those are all render-stage outcomes: the
+# passage's argument shape is chosen when it is written, not when it is
+# questioned. Worth measuring whether more deliberation at render widens the
+# move vocabulary; revert to the baseline if the next batch says it does not.
+#
+# Stages listed in CLAUDE_CODE_EFFORT_STAGES ignore this map and keep the
+# per-tier ladder. Everything absent here stays on the baseline — solver in
+# particular, which once spent 50,092 thinking tokens answering six MCQs.
+CLAUDE_CODE_EFFORT_BY_STAGE = {"render": "medium"}
 # Lean mode: run Claude Code with `--tools "" --safe-mode` so a generation call
 # costs roughly what the same call costs on the API.
 #

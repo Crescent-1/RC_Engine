@@ -403,7 +403,10 @@ class ClaudeCodeClient:
         # else sits on the baseline floor. See CLAUDE_CODE_EFFORT_STAGES — this
         # mirrors THINKING_STAGES, which reached the same answer by measurement.
         if stage not in config.CLAUDE_CODE_EFFORT_STAGES:
-            return config.CLAUDE_CODE_EFFORT_BASELINE or None
+            # A stage may sit above the floor without joining the tier ladder;
+            # render does (2026-09-21). See CLAUDE_CODE_EFFORT_BY_STAGE.
+            return (config.CLAUDE_CODE_EFFORT_BY_STAGE.get(stage)
+                    or config.CLAUDE_CODE_EFFORT_BASELINE or None)
         if isinstance(eff, dict):
             return eff.get(self._tier_of(context)) or None
         return eff

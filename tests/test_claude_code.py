@@ -558,6 +558,64 @@ def test_an_explicit_level_overrides_every_tier():
         assert seen["argv"][seen["argv"].index("--effort") + 1] == "max"
 
 
+def test_render_sits_above_the_baseline_without_joining_the_tier_ladder():
+    """2026-09-21 operator decision: render runs at medium.
+
+    The distinction that matters is render vs solver. Both are outside
+    CLAUDE_CODE_EFFORT_STAGES, so before this they shared one floor; render
+    now has its own level and solver must NOT follow it up there."""
+    run = _runner(*[_Result(_envelope("ok"))] * 4)
+    cc = _cc(runner=run)
+    for stage in ("render", "solver", "refine"):
+        cc.call(_ledger(), stage, config.OPUS, 100, "s", "u", context=_ctx("hard"))
+    render, solver, refine = run.seen
+    assert render["argv"][render["argv"].index("--effort") + 1] == "medium"
+    assert solver["argv"][solver["argv"].index("--effort") + 1] == "low"
+    assert refine["argv"][refine["argv"].index("--effort") + 1] == "low"
+
+
+def test_render_takes_the_same_level_on_every_tier():
+    """It is a floor, not a ladder: the tier map belongs to questions alone."""
+    run = _runner(*[_Result(_envelope("ok"))] * 3)
+    cc = _cc(runner=run)
+    for tier in ("medium", "hard", "elite"):
+        cc.call(_ledger(), "render", config.OPUS, 100, "s", "u", context=_ctx(tier))
+    for seen in run.seen:
+        assert seen["argv"][seen["argv"].index("--effort") + 1] == "medium"
+
+
+def test_the_per_stage_map_is_configurable(monkeypatch):
+    monkeypatch.setattr(config, "CLAUDE_CODE_EFFORT_BY_STAGE", {"solver": "high"})
+    run = _runner(_Result(_envelope("ok")), _Result(_envelope("ok")))
+    cc = _cc(runner=run)
+    cc.call(_ledger(), "solver", config.OPUS, 100, "s", "u", context=_ctx())
+    cc.call(_ledger(), "render", config.OPUS, 100, "s", "u", context=_ctx())
+    solver, render = run.seen
+    assert solver["argv"][solver["argv"].index("--effort") + 1] == "high"
+    assert render["argv"][render["argv"].index("--effort") + 1] == "low"  # baseline
+
+
+def test_questions_ignores_the_per_stage_map(monkeypatch):
+    """CLAUDE_CODE_EFFORT_STAGES wins: questions keeps its per-tier ladder even
+    if someone adds it to the per-stage map by mistake."""
+    monkeypatch.setattr(config, "CLAUDE_CODE_EFFORT_BY_STAGE",
+                        {"questions": "low", "render": "medium"})
+    run = _runner(_Result(_envelope("ok")))
+    cc = _cc(runner=run)
+    cc.call(_ledger(), "questions", config.OPUS, 100, "s", "u", context=_ctx("elite"))
+    seen = run.seen[0]
+    assert seen["argv"][seen["argv"].index("--effort") + 1] == "max"
+
+
+def test_auto_still_bypasses_the_per_stage_map():
+    """'auto' hands the whole question to STAGE_EFFORT, as it always did."""
+    run = _runner(_Result(_envelope("ok")))
+    cc = _cc(effort="auto", runner=run)
+    cc.call(_ledger(), "render", config.OPUS, 100, "s", "u", context=_ctx("medium"))
+    seen = run.seen[0]
+    assert seen["argv"][seen["argv"].index("--effort") + 1] == "low"
+
+
 def test_auto_honours_the_engines_own_stage_effort_table():
     """STAGE_EFFORT pins medium render to 'low' as an API cost trade; 'auto'
     is the way back to that behaviour."""
@@ -906,18 +964,24 @@ def test_the_lane_spec_defaults_to_the_configured_map():
 # ---- effort applies to the questions stage only -----------------------------------
 
 @pytest.mark.parametrize("stage", ["solver", "refine", "render"])
-def test_non_reasoning_stages_sit_on_the_baseline(stage):
+def test_the_tier_ladder_never_reaches_a_non_questions_stage(stage):
     """REGRESSION (2026-09-19). The first per-tier map applied the tier's level
     to EVERY Anthropic-bound stage. On the aborted 3-worker run one Sonnet
     solver call spent 50,092 thinking tokens answering six MCQs (a gate capped
     at 1,600 output tokens on the API path), and one render at "max" spent
-    85,300. render is here deliberately: THINKING_STAGES measured thinking on
-    render as tripling cost and buying nothing."""
+    85,300.
+
+    render is still here after it moved to its own "medium" level on
+    2026-09-21: what this guards is that the ELITE tier's "max" never lands on
+    it, which is the expensive half of that regression."""
     run = _runner(_usage_envelope("ok"))
     cc = _cc(effort=dict(config.CLAUDE_CODE_EFFORT_BY_TIER), runner=run)
     cc.call(_ledger(), stage, config.OPUS, 100, "s", "u", context=_ctx("elite"))
     argv = run.seen[0]["argv"]
-    assert argv[argv.index("--effort") + 1] == config.CLAUDE_CODE_EFFORT_BASELINE
+    expected = (config.CLAUDE_CODE_EFFORT_BY_STAGE.get(stage)
+                or config.CLAUDE_CODE_EFFORT_BASELINE)
+    assert argv[argv.index("--effort") + 1] == expected
+    assert argv[argv.index("--effort") + 1] != "max"
 
 
 @pytest.mark.parametrize("tier,level", [("medium", "high"), ("hard", "xhigh"),
@@ -938,7 +1002,7 @@ def test_a_bare_level_also_respects_the_stage_split():
     cc.call(_ledger(), "render", config.OPUS, 100, "s", "u", context=_ctx("hard"))
     cc.call(_ledger(), "questions", config.OPUS, 100, "s", "u", context=_ctx("hard"))
     render, questions = run.seen
-    assert render["argv"][render["argv"].index("--effort") + 1] == "low"
+    assert render["argv"][render["argv"].index("--effort") + 1] == "medium"
     assert questions["argv"][questions["argv"].index("--effort") + 1] == "max"
 
 
@@ -958,8 +1022,19 @@ def test_the_effort_stages_agree_with_thinking_stages():
 
 
 def test_a_none_baseline_sends_no_flag(monkeypatch):
+    """solver, not render: render carries its own level and so would still
+    send a flag with the baseline cleared (2026-09-21)."""
+    monkeypatch.setattr(config, "CLAUDE_CODE_EFFORT_BASELINE", None)
+    run = _runner(_usage_envelope("ok"))
+    cc = _cc(effort=dict(config.CLAUDE_CODE_EFFORT_BY_TIER), runner=run)
+    cc.call(_ledger(), "solver", config.OPUS, 100, "s", "u", context=_ctx("elite"))
+    assert "--effort" not in run.seen[0]["argv"]
+
+
+def test_a_none_baseline_does_not_silence_a_per_stage_level(monkeypatch):
     monkeypatch.setattr(config, "CLAUDE_CODE_EFFORT_BASELINE", None)
     run = _runner(_usage_envelope("ok"))
     cc = _cc(effort=dict(config.CLAUDE_CODE_EFFORT_BY_TIER), runner=run)
     cc.call(_ledger(), "render", config.OPUS, 100, "s", "u", context=_ctx("elite"))
-    assert "--effort" not in run.seen[0]["argv"]
+    argv = run.seen[0]["argv"]
+    assert argv[argv.index("--effort") + 1] == "medium"
