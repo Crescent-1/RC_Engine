@@ -174,17 +174,17 @@
     const body = enquiryBody(data);
     $('#prepared-brief').value = body;
     $('#enquiry-result').hidden = false;
-    $('#enquiry-status').textContent = 'Your email draft is ready. If your email app did not open, copy your brief and email it to ansh@passageworks.in.';
+    $('#enquiry-status').textContent = 'Your email draft is ready. If your email app did not open, copy your brief and email it to sales@passageworks.in.';
     const subject = `Passage Works enquiry: ${data.get('interest')}`;
-    window.location.href = `mailto:ansh@passageworks.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    window.location.href = `mailto:sales@passageworks.in?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
   });
   $('#copy-enquiry').addEventListener('click', async () => {
     try {
       await navigator.clipboard.writeText($('#prepared-brief').value);
-      $('#enquiry-status').textContent = 'Enquiry copied. Paste it into an email to ansh@passageworks.in and send when you’re ready.';
+      $('#enquiry-status').textContent = 'Enquiry copied. Paste it into an email to sales@passageworks.in and send when you’re ready.';
     } catch (_) {
       $('#prepared-brief').focus(); $('#prepared-brief').select();
-      $('#enquiry-status').textContent = 'Your brief is selected. Copy it and paste it into an email to ansh@passageworks.in.';
+      $('#enquiry-status').textContent = 'Your brief is selected. Copy it and paste it into an email to sales@passageworks.in.';
     }
   });
 })();
