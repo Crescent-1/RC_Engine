@@ -13,6 +13,14 @@ __pycache__/
 # Chroma vector store (binary, regenerable from RAG.py)
 essay_rc_db/
 
+# Client deliverables. NEVER commit these (2026-09-21, operator decision).
+# They were public on GitHub from 2026-07-13 until the history rewrite of
+# 2026-09-21 removed them from every commit. Exclusivity is part of what the
+# client pays for, so the shipped sets live on disk and in ~/rc_data/backups/,
+# not in version control. exported_rc_sets_dryrun/ below is mock output and
+# was always excluded.
+exported_rc_sets/
+
 # dry-run export folder (mock output only)
 exported_rc_sets_dryrun/
 
