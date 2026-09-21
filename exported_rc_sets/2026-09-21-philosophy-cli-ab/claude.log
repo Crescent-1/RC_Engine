@@ -1,0 +1,57 @@
+{"lane": "claude", "seed": {"id": "b208e303-6a7c-4d26-9f4f-716742e027ab", "title": "Are Doctors Heroes?", "url": "https://www.thenewatlantis.com/practicing-medicine/are-doctors-heroes", "domain": "philosophy", "genre": "conceptual_essay", "kind": "idea_essay", "selected_unused": true}, "rng_seed": 20260921, "policy": "cat-pyq-f4", "effort": "low"}
+[cc] Claude Code 2.1.276 (Claude Code) at C:\Users\anshu\AppData\Roaming\npm\node_modules\@anthropic-ai\claude-code\bin\claude.exe (system=replace, effort=low, lean=True); Anthropic-bound stages run there first, the API catches anything it cannot answer.
+[policy] new plans: hard=cat-pyq-f4
+[client] AA - novelty window and exports are this client's; skeletons and seed essays are exclusive across clients
+[seeds] restricted to 1 listed seed essays (C:\Users\anshu\OneDrive - eLitmus\RC Gen Project\exported_rc_sets\2026-09-21-philosophy-cli-ab\seed-ids.json)
+Loading local embedding model (BAAI/bge-small-en-v1.5)...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2447.08it/s]
+C:\Users\anshu\OneDrive - eLitmus\RC Gen Project\RAG.py:325: LangChainDeprecationWarning: The class `Chroma` was deprecated in LangChain 0.2.9 and will be removed in 1.0. An updated version of the class exists in the `langchain-chroma package and should be used instead. To use it run `pip install -U `langchain-chroma` and import as `from `langchain_chroma import Chroma``.
+  _db_instance = Chroma(persist_directory=PERSIST_DIR, embedding_function=embedding_function)
+[batch] spending cap: $0.45 (per-RC caps: {'medium': 0.34, 'hard': 0.36, 'elite': 0.42})
+[seeds] hard <- [New Atlantis] Are Doctors Heroes? (listed)
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2282.81it/s]
+
+=== [hard] 1/1 ===
+  [seed] labels from the seed store
+  [seed] shapes this essay can carry: TS01, TS02, TS08, TS15, TS16
+  [seed] conceptual_essay / philosophy -> topic shape TS01
+  [move-plan] planned grammar near RC-HARD-260821-0052 @ 0.56 - resampling 1/3 ($0)
+  [move-plan] planned grammar near RC-HARD-260918-0102 @ 0.64 - resampling 2/3 ($0)
+  [move-plan] planned grammar near RC-HARD-260914-0099 @ 0.68 - resampling 3/3 ($0)
+  [cc] refine answered by Claude Code (no API spend)
+  [facts] source facts: 3 kept, 2 rejected (claim has a figure the span does not)
+  [pin] seed_fidelity (hard) -> gpt-5.6-luna
+  [BP BP_260920_8ad40e0a] F04/P15/E13/T19/R02/D12/QT10 instability=0.42
+  [cc] render answered by Claude Code (no API spend)
+  [pin] move_signature -> gpt-5.6-luna
+  [pin] compliance (hard) -> gpt-5.6-luna
+  [texture] signposting: unpermitted hypothetical case - 'Consider a '
+  [arg-schema] planned S3_TWO_CAMPS_RELOCATED -> realized S3_TWO_CAMPS_RELOCATED  HIT
+  [cc] questions answered by Claude Code (no API spend)
+  [length-bias] correct-longest 6/8 thesis_longest=False — will not auto-approve
+  [pin] answerability -> gpt-5.6-luna
+  [cc] solver answered by Claude Code (no API spend)
+  [pin] solver_tiebreak -> gpt-5.6-luna
+  [tiebreak] Q6: solver said D, key says A, independent read supports A (key)
+  [RC-HARD-260920-0106] status=solver_dispute f1=0.777 novelty=0.629 avg=0.0 words=528 cost=$0.0070 (budget $0.36)
+
+--- Batch 20260920-195927 summary: 1 shipped, 1 attempts, total $0.0070 ---
+  RC-HARD-260920-0106 | hard   | solver_dispute   | f1=0.777 novelty=0.629 score=0.0 $0.0070
+--- Cost telemetry ---
+  shipped spend        $0.0070 over 1 sets
+  wasted spend         $0.0000 (0% of total) — paid $0.0000 in 0 attempts, 0 free precheck saves
+  $/shipped set        $0.0070 (shipped-only) | $0.0070 (all-in incl. waste)
+  status counts        solver_dispute=1
+--- Claude Code subscription usage (NOT API spend) ---
+  calls                4 (questions x1, refine x1, render x1, solver x1)
+  tokens               in 8 | cache-write 23,477 | cache-read 0 | out 6,634 (thinking 178)
+  total tokens         30,119
+  notional list price  $0.3305 — what these calls WOULD have cost on the API; the subscription is metered in usage, not dollars, so treat this as a relative meter between runs, not a bill
+  per shipped set      4.0 calls | 30,119 tokens | $0.3305 notional
+  [screen] gpt-5.6-luna: references from 149 client sets
+    [?????] RC-HARD-260920-0106 ~ RC-ELITE-260920-0094
+             The passage repeats 0094's distinctive sequence almost point for point: opposed readings, a diagnosis that both ask the wrong question, a revealing case, incompatible offices for one term, and a final refusal of closure.
+  [screen] spend $0.0020
+  all-in incl. screen  $0.0090 (generation $0.0070 + screen $0.0020) | $0.0090 per shipped set
+[backup] DB -> C:\Users\anshu\OneDrive - eLitmus\RC Gen Project\exported_rc_sets\2026-09-21-philosophy-cli-ab\backups\claude\rc_pipeline-20260920-200206.db (integrity: ok; keeping last 1000)
+{"lane": "claude", "exit_code": 0, "seed": {"id": "b208e303-6a7c-4d26-9f4f-716742e027ab", "title": "Are Doctors Heroes?", "url": "https://www.thenewatlantis.com/practicing-medicine/are-doctors-heroes", "domain": "philosophy", "genre": "conceptual_essay", "kind": "idea_essay", "selected_unused": true}, "rng_seed": 20260921, "policy": "cat-pyq-f4", "effort": "low", "exported": [{"rc_id": "RC-HARD-260920-0106", "tier": "hard", "status": "solver_dispute", "average_score": 0.0, "compliance_f1": 0.777, "novelty_composite": 0.629, "similarity_verdict": "unchecked", "file": "C:\\Users\\anshu\\OneDrive - eLitmus\\RC Gen Project\\exported_rc_sets\\2026-09-21-philosophy-cli-ab\\claude-RC-HARD-260920-0106.txt"}], "finished_utc": "2026-09-20T20:02:06.163027+00:00"}

@@ -1,0 +1,119 @@
+RC-MANUAL-260919-PHI
+Subject: Philosophy | Tier: Hard | Editorial candidate
+Title: What a Generalisation Commits Us To
+
+[PASSAGE]
+
+Someone waiting beside a bus stop expects an approaching bus to stop when signalled. A full bus may pass, and the expectation survives the disappointment. This is an ordinary form of intelligence: past experience makes a new event manageable without requiring its observer to inspect every available detail. Yet a remarkably similar tolerance of exceptions can sustain a prejudice. A person meets several members of a group who contradict a stereotype and continues to apply it. The resemblance makes it tempting either to condemn both habits as careless thinking or to defend both as the inevitable economy of a limited mind.
+
+The philosopher Frank Ramsey offers a way of making the comparison more exact. On his account, believing a generalisation involves a disposition to respond to cases one has yet to encounter. Two people can agree about every recorded human death while disagreeing about whether a future human could be immortal. Their difference concerns the expectations they carry forward, rather than the inventory of events they accept. A general belief consequently does work that a list of observations cannot complete. It prepares someone to act under conditions that the evidence already collected does not fully determine.
+
+The kind of preparation matters. The statement that every cat has fur is defeated by one hairless cat. The ordinary claim that cats are furry can survive that encounter because it expresses a generic expectation rather than a universal rule. Demanding that the second claim behave like the first would remove much of its practical use. Constantly adding exceptions would make the expectation cumbersome precisely where its simplicity helps. But tolerance of exceptions also makes the belief harder to discipline: discovering a contrary instance no longer tells us, by itself, that the expectation should be abandoned. Its convenience and its resistance to correction arise from the same feature.
+
+This is where the defence of mental economy reaches its limit. Explaining why a habit is useful establishes neither its reliability in a particular setting nor the acceptability of the decisions it informs. Consider, as an illustration, two expectations that produce mistakes equally often: one about whether a bus will stop, another about whether a job applicant will be dependable because of membership in a social group. A missed bus and an unfairly rejected applicant are different consequences. The applicant may bear the greater harm while the person making the judgment experiences little inconvenience. Measuring a shortcut by the ease it gives its user would overlook precisely this difference.
+
+Evaluating a generic belief therefore requires attention to the errors it produces, their seriousness, and who bears them. These considerations do not provide a numerical boundary separating justified expectations from prejudices. They do explain why two equally accurate habits may deserve different treatment, and why contrary cases remain worth seeking even when no single case decisively refutes the belief. An exception can reveal the practical damage concealed by an otherwise useful simplification. Generalisation remains necessary for dealing with unfamiliar situations; that necessity gives particular generalisations no automatic entitlement to guide a decision. In the employment example, the demand for closer attention to the applicant follows from the consequences of applying the expectation, even if the employer's overall rate of correct predictions is comparatively high.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) Generic beliefs should be retained when their practical advantages compensate their users for the errors that such beliefs produce.
+(B) Generic beliefs become defensible when systematic comparison with individual cases establishes the circumstances in which their predictions remain accurate.
+(C) Generalisation enables practical judgment, but particular expectations require assessment through their errors, consequences and the people who bear them.
+(D) Generalisation becomes prejudicial when tolerance of exceptions prevents a useful expectation from being reformulated into a more precise universal rule.
+
+Q2. The disagreement about a future immortal human is used primarily to show that:
+(A) General beliefs include expectations about new cases that agreement on recorded observations does not by itself settle.
+(B) Agreement on recorded observations supports general beliefs more securely than speculation about events that have yet to occur.
+(C) General beliefs become more reliable when possible future cases are treated as exceptions to patterns in recorded observations.
+(D) Disagreement about future cases exposes differences in how observers assess the reliability of the historical evidence they share.
+
+Q3. Which one of the following can be inferred from the distinction between generic and universal claims?
+(A) A generic claim requires a larger collection of counterexamples before it can be conclusively rejected as a universal claim.
+(B) A generic claim derives its practical usefulness from covering more observed instances accurately than a carefully formulated universal claim.
+(C) A universal claim and a generic claim express similar expectations but differ chiefly in the evidence available for assessing them.
+(D) A counterexample can defeat a universal claim while leaving a related generic expectation available to guide a person's behaviour.
+
+Q4. Which one of the following uses of a generalisation best reflects the author's evaluative approach?
+(A) A librarian keeps using reading categories because most visitors find suitable books and the categories simplify recommendations at busy times.
+(B) A teacher reconsiders a grouping rule after finding that its occasional errors deny certain pupils access to more demanding work.
+(C) An editor replaces a broad expectation about manuscripts with a detailed rule designed to accommodate each exception previously encountered.
+(D) A recruiter compares the prediction rates of two screening rules and adopts the more accurate one for selecting interview candidates.
+
+Q5. Which one of the following is NOT supported by the passage?
+(A) An expectation's usefulness can help explain its persistence while leaving open whether its influence on a particular decision is justified.
+(B) Two habits with similar prediction records may warrant different treatment because their errors impose different burdens on those they affect.
+(C) A habit may benefit the person applying it while imposing consequences that this person's convenience fails to adequately take into account.
+(D) A generic belief's high overall accuracy warrants retaining it when counterexamples reveal occasional harmful errors in its practical application.
+
+Q6. Which one of the following, if true, would most directly challenge the comparison made in paragraph 4?
+(A) In decisions of this kind, people often find it difficult to estimate how frequently their expectations will lead them into error.
+(B) In decisions of this kind, reliable evidence of equal error frequency also establishes equal seriousness and distribution of resulting harms.
+(C) In decisions of this kind, the people applying a shortcut sometimes suffer inconvenience alongside those directly affected by their judgments.
+(D) In decisions of this kind, more detailed attention to individuals sometimes consumes resources that could have improved the decision-making process elsewhere.
+
+Q7. Why does the author retain a role for seeking counterexamples to generic beliefs?
+(A) Counterexamples can disclose consequential errors that warrant reconsidering an expectation even when they do not conclusively establish its falsity.
+(B) Counterexamples identify the observed cases that can safely be excluded before a generic expectation is applied to future decisions.
+(C) Counterexamples establish whether an expectation simplifies judgment sufficiently to justify retaining it despite its tendency to misclassify individuals.
+(D) Counterexamples help replace flexible expectations with precise rules that preserve their usefulness while reducing their resistance to correction.
+
+Q8. Which one of the following best describes the author's attitude towards the defence of generalisation as mental economy?
+(A) The author accepts its explanatory force and treats a sufficiently high prediction rate as the main qualification on its practical authority.
+(B) The author questions its explanatory force because sensitivity to individual differences is a necessary condition of useful judgment in unfamiliar situations.
+(C) The author accepts its explanatory force while questioning whether the convenience it provides can justify the particular decisions it helps produce.
+(D) The author questions its explanatory force while accepting that unavoidable limits on attention can excuse its harmful effects on particular individuals.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (A) level_confusion — Paragraph 4 specifically rejects measuring a shortcut by advantages to its user; people subjected to it may bear the main burden.
+  (B) half_truth — Reliability matters, but paragraphs 4 and 5 explain why equally accurate expectations may deserve different treatment. Accuracy alone is incomplete.
+  (C) CORRECT — The opening establishes cognitive utility; the final two paragraphs require scrutiny of errors, seriousness and their distribution before an expectation guides a decision.
+  (D) stance_misread — Paragraph 3 preserves the value of generic expectations rather than requiring their conversion into precise universal rules.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Paragraph 2 distinguishes the shared inventory of recorded cases from different expectations about cases not yet encountered.
+  (B) adjacent_answer — The example concerns what belief involves, not the comparative evidential security of observation and speculation.
+  (C) framework_import — It neither establishes a method for improving reliability nor treats hypothetical immortality as an observed exception to accommodate.
+  (D) causal_inversion — The example stipulates agreement on recorded events; it locates the disagreement in forward expectations rather than historical evidence.
+
+Q3 — Correct answer: (D)
+  (A) terminological_twin — Paragraph 3 distinguishes kinds of claim, not merely the number of counterexamples needed to apply the same refutation procedure.
+  (B) nec_suff_swap — Simplicity and tolerance of exceptions provide usefulness; superior accuracy over precise universal claims is not the basis offered.
+  (C) level_confusion — The contrast is between the claims' commitments, not differences in access to evidence. The same hairless cat affects them differently.
+  (D) CORRECT — The hairless-cat example directly illustrates how the universal can fail while the generic survives as an expectation.
+
+Q4 — Correct answer: (B)
+  (A) half_truth — Accuracy and convenience explain the categories' utility, but this evaluation omits the seriousness and distribution of errors.
+  (B) CORRECT — The teacher examines what occasional errors do to the people affected and revises the expectation accordingly, matching paragraphs 4 and 5.
+  (C) stance_misread — Paragraph 3 notes the practical difficulty of accumulating exceptions; the author does not make exhaustive reformulation the evaluative method.
+  (D) half_truth — Comparative accuracy is relevant, but the employment discussion specifically shows why it cannot settle the choice without attention to harms.
+
+Q5 — Correct answer: (D)
+  (A) passage_supported — Paragraph 4 distinguishes explaining usefulness from establishing the acceptability of the decisions a habit informs.
+  (B) passage_supported — Paragraphs 4 and 5 explicitly compare equal accuracy with unequal consequences and resulting differences in treatment.
+  (C) passage_supported — Paragraph 4 contrasts an applicant's harm with the decision-maker's limited inconvenience and warns against measuring only the latter.
+  (D) CORRECT — This makes high aggregate accuracy sufficient reason to retain the belief despite harmful errors. The final paragraph expressly requires closer attention even when the prediction rate is comparatively high.
+
+Q6 — Correct answer: (B)
+  (A) adjacent_answer — Difficulty estimating frequency complicates evaluation but does not challenge the possibility of equal frequency with unequal consequences.
+  (B) CORRECT — The comparison depends on equal error frequency leaving room for unequal seriousness or distribution of harm. This finding removes that separation in the relevant decisions.
+  (C) half_truth — The author allows different distributions of harm; some shared inconvenience does not establish equal burdens across the two cases.
+  (D) adjacent_answer — Attention's resource costs reinforce the opening case for mental economy, but do not refute the specific distinction made in paragraph 4.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — The final paragraph distinguishes revealing a harmful error from conclusively refuting a generic claim, preserving the value of contrary cases.
+  (B) premature_closure — Excluding inconvenient cases protects the expectation; the final paragraph instead asks what those cases reveal about its practical damage.
+  (C) level_confusion — This returns evaluation to simplifying judgment, whereas paragraphs 4 and 5 require examination of consequences for affected people.
+  (D) stance_misread — Paragraph 3 rejects treating generic expectations as universal rules that must absorb each exception through greater precision.
+
+Q8 — Correct answer: (C)
+  (A) half_truth — The defence has explanatory force, but the employment example explicitly denies that a high prediction rate settles its practical authority.
+  (B) stance_misread — The opening and conclusion both preserve the necessity of generalisation; the author does not reject the explanation of its usefulness.
+  (C) CORRECT — The author accepts limited attention and cognitive utility while separating that explanation from justification of particular decisions.
+  (D) false_symmetry — This reverses both parts of the author's position: cognitive economy is accepted as explanation, while it supplies no automatic excuse for harmful application.
+
+[Inspired by: How we meet the future — Aeon]
+https://aeon.co/essays/when-is-stereotyping-a-handy-tool-and-when-is-it-a-sin
+Retrieved from the project's stored RAG essay; original RC adaptation, not an extract. The employment comparison is an illustrative extension, not a reported study.

@@ -1,0 +1,116 @@
+A/B lane: claude | Seed ID: b208e303-6a7c-4d26-9f4f-716742e027ab | Seed: Are Doctors Heroes?
+Seed URL: https://www.thenewatlantis.com/practicing-medicine/are-doctors-heroes
+RC ID: RC-HARD-260920-0106 | Tier: hard | Score: 0.0 | Status: solver_dispute | Compliance F1: 0.777 | Novelty: 0.629 | Screen: unchecked | Generated: 2026-09-20T20:02:00.819071+00:00
+======================================================================
+
+[PASSAGE]
+
+A society does not discover its heroes so much as ratify them, and the ratification is conducted in a vocabulary nobody has been asked to approve. Two parties presented themselves during the pandemic, each with its credentials in order. The first held that nurses and physicians who reported to contaminated wards, in insufficient gowns, with no prospect of relief, had earned the honorific outright; the template offered was Omaha Beach, the 116th Infantry Regiment walking into fire on the morning of June 6, 1944, and the argument was that fire is fire whatever its chemistry. The second party, no less courteous, observed that a shift is a shift. One clocks in. One is compensated, insured, and scheduled. To confer on paid attendance the laurel reserved for men who crossed a beach knowing the arithmetic is, this party suggested, an act of generosity so lavish it impoverishes the recipient. Both sides conducted themselves as though the matter were a question of measurement — as though there existed some agreed threshold of heroism, and the only remaining business were to determine whether the wards cleared it. They were not measuring against the same mark. Each had brought its own, unpacked it without ceremony, and proceeded.
+
+The quarrel did not stay in the seminar. Mattel produced a #ThankYouHeroes toy line of nurses, physicians, EMTs and delivery workers. Signs went into windows. At seven each evening the quarantined populace clanged pots and pans through the streets in honor of essential workers. Millions of people were thereby assenting, nightly, to a proposition most of them had never stated. Some of the honored resented it. The volume of an endorsement is not an argument for its accuracy, and a word applauded on schedule can still be the wrong word; what the pots established was not the meaning but the cost of leaving it unsettled.
+
+Consider a nurse who chose none of it. She entered the profession in a quiet year, signed a contract, took on a code of professional duty, and then found the year had changed around her while the obligations stayed where they were. Thomas Carlyle, lecturing on heroes in the mid-nineteenth century, treated the visible world as the embodiment of Thoughts that dwelt in Great Men; the hero, on that account, alters the trajectory of mankind and changes the soul of humanity. Such a figure acts from outside any institution's claim on him — that is nearly the point of him. The nurse acts from inside one. Both are at risk; only one is at liberty. So the word has been assigned two incompatible offices, marking exceptional choice in the one case and exceptional endurance in the other, and it cannot discharge both in a single sentence.
+
+Which suggests that the tribunal was convened on the wrong charge. Nobody needed to know whether the wards cleared a bar. What the clanging pots were really adjudicating, without knowing it, was a prior preference: whether a public means to honor the act freely undertaken or the post not abandoned. That choice is the thing being made, and it is being made in a word too worn to register that it is making it.
+
+[QUESTIONS]
+
+Q1. Which one of the following statements provides a gist of this passage?
+(A) Public rituals such as toy lines, window signs and nightly pot-clanging gradually determine what a contested word will mean.
+(B) The dispute over calling health workers heroes hid an unmade choice between honouring free acts and honouring endurance.
+(C) Health workers doing paid, insured, scheduled shifts cannot claim a laurel reserved for those who chose exceptional danger.
+(D) Health workers who reported to contaminated wards under contract did earn the honorific that soldiers at Omaha Beach earned.
+
+Q2. The author refers to the Mattel toy line, the window signs and the nightly clanging of pots in order to:
+(A) show that an unsettled word was being endorsed at scale, making the confusion expensive.
+(B) show that the honoured workers largely welcomed the recognition offered them each evening.
+(C) show that commercial interests exploited a wartime vocabulary for straightforward promotional profit.
+(D) show that widespread public usage had effectively resolved what the contested word means.
+
+Q3. If the passage continued, which one of the following would it most likely discuss next?
+(A) How contracts and professional codes should be redrafted to compensate risk more fairly.
+(B) What a public gains and loses by choosing to honour endurance rather than free choice.
+(C) Why Carlyle's great-man standard remains the correct test for judging modern professional courage.
+(D) Whether the pandemic wards did finally clear the traditional threshold set by wartime valour.
+
+Q4. Which one of the following, if established, would most damage the author's central claim?
+(A) Carlyle's lectures were criticised in his own century for overstating the influence of Great Men on history.
+(B) The 116th Infantry Regiment contained many conscripts who had not freely elected to cross that beach.
+(C) Ordinary usage of 'hero' has long carried one settled criterion that covers chosen risk and contractual endurance alike.
+(D) Most nurses interviewed during the pandemic reported that they found the nightly applause sincere and sustaining.
+
+Q5. Based on the passage, each of the following is a reasonable inference about the phrase "an act of generosity so lavish it impoverishes the recipient," EXCEPT:
+(A) It suggests that praise can devalue the very distinction it is meant to confer.
+(B) It belongs to a party that treats paid, scheduled attendance as different in kind.
+(C) It assumes a laurel whose value depends on being withheld from most claimants.
+(D) The author advances the phrase as his own verdict on what the pandemic tributes accomplished.
+
+Q6. Which one of the following claims about the nurse described in paragraph 3 is NOT supported by the passage?
+(A) She accepted her duties after the conditions of the year had already changed around her.
+(B) She had taken on a code of professional duty before the crisis arrived.
+(C) She shares exposure to risk with the hero but lacks his liberty.
+(D) She acts from inside an institution's claim upon her, unlike Carlyle's figure.
+
+Q7. The author's attitude towards the two parties in the heroism dispute can best be described as:
+(A) respectful of both, but convinced each argued past the other by using an unexamined standard.
+(B) confident that continued debate between them will eventually fix the threshold of heroism.
+(C) broadly sympathetic to the second party, whose scepticism about paid attendance he finally shares.
+(D) dismissive of both, treating the exchange as a self-serving performance of moral seriousness.
+
+Q8. Which one of the following best expresses both a similarity and a difference between Carlyle's hero and the nurse, as the author presents them?
+(A) Both are honoured by publics, though only the hero was honoured with organised nightly ritual.
+(B) Both face danger, but only the hero's danger is chosen rather than institutionally owed.
+(C) Both alter humanity's trajectory, though only the nurse does so under contractual obligation.
+(D) Both deserve the honorific equally, though only the nurse was denied it by sceptical observers.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — Integrates the two-camp opening, the Carlyle contrast in paragraph 3, and the closing claim that a prior preference was being adjudicated unawares.
+  (A) half_truth — Paragraph 2 says volume establishes cost, not meaning, so popular endorsement settles nothing.
+  (C) prior_belief — Adopts the second party's verdict; the author declines to settle the bar question at all in paragraph 4.
+  (D) prior_belief — Adopts the first party's verdict, which the author treats as one of two unmeasured marks rather than endorsing.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — Paragraph 2 turns the seminar quarrel into a mass practice and states that the pots established the cost of leaving the meaning unsettled.
+  (B) half_truth — The text notes instead that some of the honoured resented it.
+  (C) example_promotion — Mattel appears as evidence of scale, not as a target of commercial critique.
+  (D) prior_belief — The passage denies this: volume of endorsement is not an argument for accuracy.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The close names the prior preference as 'the thing being made', so the next move is examining that choice's terms.
+  (A) level_confusion — Shifts from the semantics of honour to employment policy, a level the argument never occupies.
+  (C) framework_import — Carlyle is introduced to expose an incompatibility, not endorsed as the governing test.
+  (D) premature_closure — Paragraph 4 declares that bar-clearing was the wrong charge and nobody needed to know it.
+
+Q4 — Correct answer: (C)
+  (C) CORRECT — The argument rests on the word holding two incompatible offices; a single settled criterion dissolves that load-bearing incompatibility.
+  (A) framework_import — Carlyle's historical reputation is decorative here; the passage uses only his model of unconstrained action.
+  (B) adjacent_answer — Damages one illustrative template while leaving the two-offices claim about the word intact.
+  (D) half_truth — Recipient approval bears on reception, not on whether the word discharges two offices.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The phrase is explicitly attributed to the second party ('this party suggested'), not owned by the author, who withholds a verdict.
+  (A) passage_supported — The phrase's logic is that lavish conferral impoverishes, i.e. drains the laurel's worth.
+  (B) passage_supported — The second party's premise is 'a shift is a shift': one clocks in, is compensated, insured, scheduled.
+  (C) passage_supported — The 'laurel reserved for men who crossed a beach' presupposes scarcity of the honorific.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The passage states she entered in a quiet year and then found the year had changed while obligations stayed put, reversing this sequence.
+  (B) passage_supported — She 'signed a contract, took on a code of professional duty' in a quiet year.
+  (C) passage_supported — 'Both are at risk; only one is at liberty.'
+  (D) passage_supported — Stated directly: 'The nurse acts from inside one.'
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — The author calls the second party 'no less courteous' yet diagnoses that they were not measuring against the same mark.
+  (B) premature_closure — Paragraph 4 denies that a threshold question needed answering at all.
+  (C) prior_belief — The author never adopts the shift-is-a-shift verdict; he declares the whole charge misconceived.
+  (D) moderate_extremism — He grants both sides credentials in order and courtesy, so 'dismissive' misreads his register.
+
+Q8 — Correct answer: (B)
+  (B) CORRECT — Paragraph 3's hinge — 'Both are at risk; only one is at liberty' — is the author's own contrast, not a reported party's.
+  (A) category_slip — The pots honoured workers, not Carlyle's figure; this scrambles who received which tribute.
+  (C) framework_import — Trajectory-altering is Carlyle's criterion alone; the passage never extends it to the nurse.
+  (D) prior_belief — The author settles no desert question and reports scepticism without endorsing or refuting it.
+
+[Inspired by: "Are Doctors Heroes?", https://www.thenewatlantis.com/practicing-medicine/are-doctors-heroes]

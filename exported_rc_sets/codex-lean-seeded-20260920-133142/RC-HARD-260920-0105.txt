@@ -1,0 +1,116 @@
+RC ID: RC-HARD-260920-0105 | Tier: hard | Score: 9.2 | Status: needs_review | Compliance F1: 0.821 | Novelty: 0.486 | Screen: red | Generated: 2026-09-20T13:41:49.485480+00:00
+======================================================================
+
+[PASSAGE]
+
+A catalogue category is a claim about what an item is, not merely an address at which it has been filed. Its rule is exclusive assignment: each item receives a medium and a cultural function. The Golden Record, assembled under Carl Sagan’s committee and carried aboard both Voyagers in 1977, divides terrestrial life into images, greetings, music and sounds. Photographs show; greetings address; music performs; sounds present audible activity. No continuous narration connects them. Yet within Sounds of Earth lies a Morse rendering of “Per aspera ad astra,” the Latin sentence conventionally translated as “through hardships to the stars.” Greetings would seem its natural destination. But its pulses remain technological sound while conveying language through a signal code. Its unsettled status constitutes the catalogue’s hidden addressee.
+
+The division now extends beyond the sequence cut into the gold-plated disc. Across NASA webpages, streaming releases, museum displays and classroom editions, its branches become tabs, track labels and routes of discovery. A heading determines where a search arrives. What could operate aboard the spacecraft as a convenience of sequence acquires authority over contemporary listening: the same pulses become available as an earthly noise before their verbal content is encountered.
+
+NASA’s published contents list places “Morse Code” under “The Sounds of Earth.” That placement, joined to the sentence’s linguistic content, proves the exception to exclusive assignment. Sagan’s description of the mission as launching a “bottle” into the cosmic “ocean” supplies an explanation, not that proof. A compact Earth has been prepared for an indefinitely distant reception; tidy compartments make the offering seem complete. The compression is severe. Whale song enters beside environmental noise. Human brainwaves, converted into sound, occupy a route between bodily activity and audible representation. A Navajo night chant is filed as music. Blind Willie Johnson’s wordless “Dark Was the Night, Cold Was the Ground” carries vocal expression without a spoken greeting. These crossings recur inside the selection; the Morse sentence is not an isolated filing accident.
+
+The arrangement resembles a customs declaration, with Earth presented as luggage and each article entered in one box. During inspection, a sound becomes a sentence; a bodily trace becomes a performance. The declaration secures passage by holding those identities still. Its hidden addressee is the human auditor requiring a clean inventory before imagining extraterrestrial reception. The boxes describe an itinerary of attention, rather than stable properties of their contents.
+
+Exclusive classification thus imposes boundaries that the material repeatedly crosses, but the Record’s physical encoding and its editorial divisions do not have equivalent tasks. On the pictorial decoding cover, binary instructions must discriminate reliably enough for playback; an uncertain numerical value can prevent the recovery of an image. Curatorial labels have no corresponding requirement to make chant, speech, signal and music parallel, mutually exclusive kinds. Their overlap does not corrupt the recording. For this Voyager catalogue, overlapping descriptions and the original sequence are necessary evidence: one preserves the sentence’s several operations, the other its placement among earthly sounds. That correction carries its price in less elegant menus, duplicated entries and the loss of the lucid four-part Earth through which this particular selection was prepared for outward transmission.
+
+[QUESTIONS]
+
+Q1. Which one of the following best captures the central idea of the passage?
+(A) The Record’s categories provide a defensible simplification of Earth for distant receivers, since preserving a coherent public inventory matters more than representing every overlap among the selected sounds and signals.
+(B) The Record’s overlapping contents expose the limits of exclusive distinctions in both cataloguing and decoding, so a more faithful representation of Earth requires loosening editorial categories and technical instructions together.
+(C) The Record’s exclusive categories organize human attention rather than identify stable kinds, so its overlapping contents require multiple descriptions alongside preserved sequence, without relaxing the demands of physical decoding.
+(D) The Record’s catalogue remains adequate for representing Earth, but the Morse sentence belongs among greetings; moving it there would resolve the difficulty while preserving clear categories and the original organizing scheme.
+
+Q2. What does the passage’s final sentence accomplish?
+(A) It generalizes the Record’s failure into a rejection of archival classification, treating the costs of correction as evidence against cataloguing itself.
+(B) It concedes that overlapping descriptions would undermine the Record’s coherence, making the original four divisions preferable despite the crossings documented earlier.
+(C) It identifies the cost of overlapping descriptions as a threat to successful playback, extending the concern about unreliable binary instructions to menus.
+(D) It acknowledges the practical and representational costs of correction while preserving the case for overlapping descriptions in this particular catalogue.
+
+Q3. What is the purpose of invoking Sagan’s description of the mission as launching a “bottle” into the cosmic “ocean”?
+(A) It establishes the failure of exclusive assignment by depicting Earth as compressed cargo, while the Morse item supplies a concrete illustration of that conclusion.
+(B) It explains the appeal of packaging Earth as a complete offering, while the Morse item’s placement and linguistic content establish the classificatory exception.
+(C) It identifies extraterrestrial listeners as the inventory’s hidden addressees, since the bottle image places the recipient beyond the human institutions that now reproduce its categories.
+(D) It suggests that tidy categories are justified by the prospect of distant reception, making compression an answer to the apparent difficulties posed by overlapping contents.
+
+Q4. Which one of the following findings, if true, would most seriously undermine the passage’s central argument?
+(A) An audit of the catalogue and its reproductions found that the four headings function as nonexclusive sequence markers, with overlapping descriptions displayed before item selection.
+(B) A reception study found that many present listeners reach individual recordings through direct links rather than catalogue headings, reducing the divisions’ influence on initial encounters.
+(C) Committee records revealed that the divisions reflected severe production constraints rather than a settled theory of cultural kinds, making the arrangement a practical editorial compromise.
+(D) Playback experiments showed that receivers can reconstruct some damaged binary instructions from redundant information, allowing successful image recovery despite occasional uncertainty in the Record’s numerical encoding.
+
+Q5. Based on information provided in the passage, all of the following are true, EXCEPT:
+(A) The catalogue’s hidden addressee is the human auditor who demands a clean inventory as a preliminary to imagining reception beyond the Earth.
+(B) The contemporary headings derive their authority over listening from their ability to distinguish stable properties already present in the recorded material.
+(C) The Record assigns images, greetings, music and sounds distinct presentational roles, while supplying no continuous narration that connects these divisions into a running account.
+(D) Across contemporary webpages and editions, the Record’s divisions organize discovery, making Morse pulses available as earthly noise before their verbal content is encountered.
+
+Q6. Regarding overlapping descriptions and the original sequence in the Voyager catalogue, the author asserts that:
+(A) Overlapping descriptions preserve the Morse sentence’s several operations, while the original sequence preserves evidence of its placement among earthly sounds.
+(B) Overlapping descriptions preserve the Morse sentence’s historical placement, while the original sequence preserves evidence of its simultaneous operation as sound and language.
+(C) Overlapping descriptions preserve the Morse sentence’s several operations, while the original sequence remains necessary principally because changing it would jeopardize the recording’s playback.
+(D) Overlapping descriptions might replace the original sequence as evidence, since they preserve both the Morse sentence’s linguistic operation and its status as sound.
+
+Q7. Which view does the author reconstruct as the catalogue’s operating rationale, rather than endorse as an adequate account of its contents?
+(A) Earth’s selected contents should receive distinct, exclusive identities, because a clean inventory provides the appropriate basis for imagining their reception beyond the planet.
+(B) The central fault lies with Sagan’s committee for simplifying Earth, not with exclusive cataloguing for imposing identities that the selected materials themselves repeatedly cross.
+(C) Reliable distinctions are necessary for decoding the Record’s images, but editorial divisions need not impose equally exclusive identities on chant, speech, signal and music.
+(D) Earth’s selected contents cross the catalogue’s divisions, so preserving their several operations requires overlapping descriptions alongside evidence of where the original sequence placed them.
+
+Q8. A reader who concluded that recognizing the Morse phrase as language settles its proper location in Greetings would have misread the passage because:
+(A) The phrase’s original position should be retained as its sole description, since duplicated entries would weaken the lucid image of Earth prepared for outward transmission.
+(B) The phrase may belong under Sounds because its pulses are heard before their verbal content is recognized, giving acoustic presentation priority over linguistic function.
+(C) The phrase’s coded form makes its assignment a decoding decision, so placing it with greetings would blur distinctions required for retrieving the Record’s recorded contents.
+(D) The phrase remains technological sound while conveying language, and its original placement is evidence to preserve rather than an error to erase through relocation.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — The catalogue moves from organizing the Record to governing human encounters with it, while recurring crossings expose exclusive identities as imposed. The ending preserves those crossings and their sequence without confusing curatorial flexibility with technical ambiguity.
+  (A) stance_misread — This endorses the inventory’s organizing rationale from paragraphs 3–4, although paragraph 5 requires correction despite its representational costs.
+  (B) level_confusion — Paragraph 5 distinguishes necessary technical discrimination from unnecessary editorial exclusivity; this transfers the criticism of one to the other.
+  (D) straw_version — The relocation remedy reduces recurring internal crossings in paragraphs 3–5 to the isolated filing error the author explicitly rejects.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — Following the insistence that overlapping descriptions and original sequence are necessary evidence, the ending registers their costs. It qualifies the correction’s convenience, not its validity or its catalogue-specific scope.
+  (A) straw_version — The final paragraph limits its correction to this Voyager catalogue; it does not turn one arrangement’s difficulties into a rejection of archival classification.
+  (B) stance_misread — The final sentence acknowledges a price, but the preceding sentence still calls overlapping descriptions necessary evidence.
+  (C) level_confusion — Paragraph 5 explicitly separates playback requirements from curatorial overlap; the closing costs concern menus and representation, not recovery of recordings.
+
+Q3 — Correct answer: (B)
+  (B) CORRECT — The metaphor explains the pressure toward a compact, orderly Earth for distant reception. The argument’s evidentiary bridge instead joins the published classification to the sentence’s simultaneous linguistic operation.
+  (A) level_confusion — Paragraph 3 distinguishes explanation from proof; this promotes the explanatory metaphor into evidence and demotes the actual evidentiary conjunction.
+  (C) level_confusion — Paragraph 4 distinguishes imagined extraterrestrial reception from the human auditor whose demand for an inventory makes that reception imaginable.
+  (D) stance_misread — Paragraph 3 explains why tidy compartments appeal; paragraphs 4–5 challenge their adequacy rather than defend them through the mission’s purpose.
+
+Q4 — Correct answer: (A)
+  (A) CORRECT — The argument depends on the headings imposing exclusive identities and directing attention before overlapping functions are encountered. This finding would show that the actual catalogue already operates as the author’s proposed correction requires.
+  (B) half_truth — Bypassing headings would limit the contemporary effect described in paragraph 2, but leave the catalogue’s exclusive assignments and internal crossings intact.
+  (C) stance_misread — Practical motives would explain the arrangement, but paragraphs 2–5 criticize its classificatory effects rather than the committee’s intentions.
+  (D) level_confusion — Tolerance within physical decoding would qualify paragraph 5’s technical example without undermining its case against exclusive editorial identities.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — This is a level error: the headings organize an itinerary of attention, not stable intrinsic properties. Paragraphs 2 and 4 locate their authority in directing encounters rather than accurately discriminating kinds.
+  (A) passage_supported — Paragraph 4 supports this: “Its hidden addressee is the human auditor requiring a clean inventory before imagining extraterrestrial reception.”
+  (C) passage_supported — Paragraph 1 supports this: “Photographs show; greetings address; music performs; sounds present audible activity. No continuous narration connects them.”
+  (D) passage_supported — Paragraph 2 supports this: “the same pulses become available as an earthly noise before their verbal content is encountered.”
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The final paragraph assigns complementary evidentiary tasks to descriptions and sequence: preserving multiple operations and preserving original placement. Neither substitutes for the other.
+  (B) level_confusion — This confuses semantic operations with documentary placement, reversing the complementary evidentiary roles assigned in paragraph 5.
+  (C) level_confusion — Paragraph 5 preserves sequence for its evidentiary value, not because editorial rearrangement would threaten physical decoding.
+  (D) half_truth — Multiple descriptions preserve several operations, but paragraph 5 separately requires the original sequence as evidence of placement.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — The customs-declaration analogy reconstructs the auditor’s demand for an orderly Earth before imagining reception. The author challenges treating that organizing demand as an adequate account of the contents’ identities.
+  (B) stance_misread — Paragraphs 3–5 criticize exclusive cataloguing through internal overlaps, not the committee’s simplification; this condemnation is neither endorsed nor staged.
+  (C) stance_misread — This is the author’s explicit distinction in paragraph 5, not a rationale attributed to the catalogue’s demand for exclusive identities.
+  (D) stance_misread — This states the author’s own correction in paragraph 5, not the exclusive inventory’s reconstructed rationale.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — The initial appeal of Greetings is displaced by recurring crossings and the final requirement to preserve both operations and placement. Relocation would repeat exclusive assignment rather than correct it.
+  (A) stance_misread — The ending accepts duplication and lost elegance as correction’s costs; it does not use them to justify retaining a sole description.
+  (B) half_truth — Paragraph 2 describes an effect of the heading, not a reason to rank acoustic presentation above the linguistic operation identified in paragraph 1.
+  (C) level_confusion — Paragraph 5 separates editorial assignment from physical decoding; moving a catalogue entry does not blur the binary instructions needed for recovery.
+
+[Inspired by: "‘A Fury of Dark Energies’", https://www.nybooks.com/articles/2026/09/24/a-fury-of-dark-energies-peter-matthiessen-true-nature/]

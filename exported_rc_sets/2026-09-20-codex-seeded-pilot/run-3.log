@@ -1,0 +1,35 @@
+[codex] Opus -> Astra; Sonnet -> Sol; questions=medium=high,hard=xhigh,elite=max, other stages=low; fallback=stop. Luna checks still use the API.
+[policy] new plans: hard=legacy, elite=legacy
+[client] AA - novelty window and exports are this client's; skeletons and seed essays are exclusive across clients
+Loading local embedding model (BAAI/bge-small-en-v1.5)...
+[batch] spending cap: $0.98 (per-RC caps: {'medium': 0.34, 'hard': 0.36, 'elite': 0.42})
+[seeds] hard <- [Hedgehog Review] She Also Found It at the Movies
+
+=== [hard] 1/1 ===
+  [seed] labels from the seed store
+  [seed] criticism / arts -> topic shape TS05
+  [codex] refine -> gpt-5.6-sol (CLI usage recorded; no API spend)
+  [BP BP_260920_b787f706] F48/P05/E20/T03/R20/D06/QT03 instability=0.61
+  [codex] render -> gpt-6-astra (CLI usage recorded; no API spend)
+  [pin] move_signature -> gpt-5.6-luna
+  [pin] compliance (hard) -> gpt-5.6-luna
+  [arg-schema] planned S2_RECEIVED_ACCOUNT_REPLACED -> realized S4_MECHANISM_TRACED + S2_RECEIVED_ACCOUNT_REPLACED  MISS
+  [codex] questions -> gpt-6-astra (CLI usage recorded; no API spend)
+  [pin] answerability -> gpt-5.6-luna
+  [codex] solver -> gpt-5.6-sol (CLI usage recorded; no API spend)
+
+[STOP] API exhausted (Codex CLI stopped at solver: Codex reported a failed turn or error) - batch stopped cleanly; completed work is committed. Re-run later to continue.
+
+--- Batch 20260920-082414 summary: 0 shipped, 0 attempts, total $0.0000 ---
+--- Cost telemetry ---
+  shipped spend        $0.0000 over 0 sets
+  wasted spend         $0.0000 (0% of total) — paid $0.0000 in 0 attempts, 0 free precheck saves
+  $/shipped set        $0.0000 (shipped-only) | $0.0000 (all-in incl. waste)
+  status counts        
+--- Codex CLI subscription usage (NOT API spend) ---
+  calls                4 (questions x1, refine x1, render x1, solver x1)
+  tokens               in 30,908 | cache-write 0 | cache-read 15,360 | out 22,580 (thinking 15,878)
+  total tokens         68,848
+  notional list price  $1.3718 — what these calls WOULD have cost on the API; the subscription is metered in usage, not dollars, so treat this as a relative meter between runs, not a bill
+[backup] DB -> C:\Users\anshu\rc_data\backups\codex-seeded-pilot-20260920\rc_pipeline-20260920-083646.db (integrity: ok; keeping last 10)
+PILOT_EXIT_CODE 1

@@ -1,0 +1,31 @@
+[backup] DB -> C:\Users\anshu\rc_data\backups\codex-lean-seeded-20260920-133142\rc_pipeline-20260920-192104.db (integrity: ok; keeping last 1000)
+[codex] Opus -> Astra; Sonnet -> Sol; questions=elite=xhigh, other stages=low; fallback=stop. Luna checks still use the API.
+
+=== retry-questions BP_260920_9bf3c253 ===
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  52%|█████▏    | 103/199 [00:00<00:00, 1021.99it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 1917.45it/s]
+  [codex] questions -> gpt-6-astra (CLI usage recorded; no API spend)
+  [pin] answerability -> gpt-5.6-luna
+  [codex] solver -> gpt-5.6-sol (CLI usage recorded; no API spend)
+  [pin] judge -> gpt-5.6-luna
+  [RC-ELITE-260920-0096] status=approved f1=0.784 novelty=0.558 avg=8.8 words=534 cost=$0.0067 (budget $0.42)
+  -> approved rc_id=RC-ELITE-260920-0096 new spend $0.0026
+     resumed questions (prior spend $0.0041 counts against the cap)
+     voice review: opening beat differs from the plan
+     voice review: body plan retention 67%; unplanned moves: EASY_READING_DEMOLISHED, SELF_CORRECTION, TWO_CAMP_SPLIT
+     voice review: schema planned S7_CASE_AGAINST_RULE, realized S4_MECHANISM_TRACED
+Loading local embedding model (BAAI/bge-small-en-v1.5)...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2579.31it/s]
+C:\Users\anshu\OneDrive - eLitmus\RC Gen Project\RAG.py:325: LangChainDeprecationWarning: The class `Chroma` was deprecated in LangChain 0.2.9 and will be removed in 1.0. An updated version of the class exists in the `langchain-chroma package and should be used instead. To use it run `pip install -U `langchain-chroma` and import as `from `langchain_chroma import Chroma``.
+  _db_instance = Chroma(persist_directory=PERSIST_DIR, embedding_function=embedding_function)
+  [seeds] seed f7f46be3-5bd1-4865-9042-93ae2e4eaa9d marked used by RC-ELITE-260920-0096
+  [screen] gpt-5.6-luna: references from 148 client sets
+    [GREEN] RC-ELITE-260920-0096 ~ RC-ELITE-260919-0094
+  [screen] spend $0.0020
+  all-in incl. screen  $0.0046 (generation $0.0026 + screen $0.0020) | $0.0046 per shipped set
+Exported RC-ELITE-260920-0096 to C:\Users\anshu\OneDrive - eLitmus\RC Gen Project\exported_rc_sets\codex-lean-seeded-20260920-133142\RC-ELITE-260920-0096.txt
+--- Codex CLI subscription usage (NOT API spend) ---
+  calls                2 (questions x1, solver x1)
+  tokens               in 5,197 | cache-write 0 | cache-read 0 | out 11,560 (thinking 8,286)
+  total tokens         16,757
+  notional list price  $0.6090 — what these calls WOULD have cost on the API; the subscription is metered in usage, not dollars, so treat this as a relative meter between runs, not a bill
+[backup] DB -> C:\Users\anshu\rc_data\backups\codex-lean-seeded-20260920-133142\rc_pipeline-20260920-192749.db (integrity: ok; keeping last 1000)

@@ -1,0 +1,116 @@
+RC ID: RC-MEDIUM-260918-0080 | Tier: medium | Status: revised_candidate | Revised: 2026-09-19 (Asia/Calcutta)
+======================================================================
+
+[PASSAGE]
+
+Summer Time, in the sense Parliament gave the phrase in May 1916, named a legal operation and nothing more: an instruction that clocks should read one hour later than the sun over Greenwich warranted, so that the hands moved while the light stayed where astronomy had left it. The Act fixed a prescribed period. On the appointed night, the twenty-first of May, two in the morning became three. After that instant every institution keeping official time — post offices, the courts, the whole apparatus of published hours — had to treat the advanced clock as the true one, and the country's evenings gained their famous extra hour of light.
+
+The cause was coal, or the argument that it would be. Germany and Austria-Hungary went first, on the thirtieth of April 1916; Britain followed on the twenty-first of May; France came round on the fourteenth of June. William Willett had been pressing the scheme since 1907 and had got nowhere; he died the year before the Act that carried his idea. What changed was not the arithmetic but the war. A factory working to daylight burned less gas at the bench. A household that went to bed earlier lit fewer lamps. Every scuttle of coal not burned in a parlour was one the Admiralty might have.
+
+The Act's operative words are worth reading slowly. During the prescribed period, it says, the time for general purposes shall be "one hour in advance of Greenwich mean time", and any hour named in an Act, deed, or instrument is to be read accordingly. The sentence works instantly wherever time is written down. Railway timetables, bank hours, court summonses, factory gates governed by printed rule — by the morning of the twenty-second the public face of the country agreed to the minute. Elsewhere the same sentence does nothing by itself. A statute cannot reach into a kitchen and turn the hands; somebody has to stand on a chair and do it.
+
+The arrangement worked like an extra gear dropped into a running train of wheels. Parliament turned the first one. The railways meshed with it at once; they had to, since a timetable is only agreement in print. Factories took the next tooth, then offices, then shops adjusting their shutters. Households came last, and unevenly. A farm hand still went out when the dew lifted; the cows knew nothing of the prescribed period. Milk trains ran to the new hour and were met by men working to the old one. Appointments were missed. Some village clocks kept stubbornly to the sun, which had not moved.
+
+What the summer of 1916 demonstrated, read back from the end of it, was the reach of a coordinating instrument. Institutions were swung onto a new hour overnight, held there nineteen weeks, and swung back, with a precision the fuel argument never had to match. Economy was the language of the debates, the renewals, the imitations abroad; economy is not a measurement. I have looked for a wartime figure that separates the hour from the blackout and the shortage running alongside it, and have not found one. Parliament could advance the clock by decree and compel every institution that published an hour to follow. The coal had to be weighed, and no statute has ever weighed anything.
+
+[QUESTIONS]
+
+Q1. The passage moves from the Act's operative words, through the uneven spread of the new hour across railways, factories, shops and farms, to a verdict delivered in retrospect at the end of the nineteen weeks. Which one of the following best summarises the author's main argument?
+(A) The failure of farm hands and village clocks to comply rendered the national scheme unworkable.
+(B) Because every institution obeyed instantly, the coal argument was vindicated across the prescribed period.
+(C) What 1916 proved was a decree's control over published hours, rather than measured savings in fuel.
+(D) By redistributing daylight toward the evening, the Act shortened the nation's hours of lamplight.
+
+Q2. The passage ends: 'The coal had to be weighed, and no statute has ever weighed anything.' Given that the preceding sentences credit Parliament with compelling every institution that published an hour, what does this final sentence accomplish?
+(A) It blames the blackout and shortage for hiding the hour's real fuel effect.
+(B) It condemns statutes generally as instruments unfit for any wartime economic purpose.
+(C) It marks the limit of decree: savings require measurement that legislation cannot supply.
+(D) It confirms that one official time produced uniform obedience in homes and workplaces.
+
+Q3. Regarding the fuel-economy rationale described in the passage — the argument that supplied the language of the debates, the renewals, and the imitations abroad — the author asserts that:
+(A) Measured fuel savings across the nineteen weeks proved smaller than debates claimed.
+(B) Repeated renewals and foreign imitation establish that the promised savings were achieved.
+(C) Willett's campaign failed before 1916 because his arithmetic of savings was faulty.
+(D) No wartime figure separates the hour's effect from the blackout and shortage.
+
+Q4. The passage rests its verdict on what the summer of 1916 is said to have demonstrated: institutions swung onto a new hour overnight, held there, and swung back with a precision the fuel argument never matched. Which one of the following statements, if true, would best invalidate the main argument of the passage?
+(A) Willett's 1907 proposal already contained every calculation Parliament afterwards adopted without change.
+(B) Railway timetables and published court hours remained unchanged for weeks after the Act took effect.
+(C) Household clocks in some villages were never advanced across the entire nineteen weeks.
+(D) Germany's earlier adoption, not the coal shortage, prompted Britain's decision to follow.
+
+Q5. 'I have looked for a wartime figure that separates the hour from the blackout and the shortage running alongside it, and have not found one.' We can infer from this statement that the author is being:
+(A) Personally aggrieved: his failed search convinces him the savings never occurred.
+(B) Evidentially scrupulous: he reports an absence rather than declaring the claim false.
+(C) Methodologically sceptical: he doubts that any wartime statistic could be trusted.
+(D) Quietly dismissive: he treats the economy argument as deliberate wartime propaganda throughout.
+
+Q6. In the third paragraph, after quoting the provision that any hour named in an Act, deed, or instrument is to be read accordingly, the author remarks: 'The sentence works instantly wherever time is written down.' Which one of the following is suggested by this sentence?
+(A) Writing time down is what makes an hour astronomically correct for Greenwich.
+(B) Documents drafted before 1916 became void unless their hours were rewritten.
+(C) Written schedules ensured that households and farms adopted the hour within days.
+(D) Legal force attaches to printed hours, not to clocks in private rooms.
+
+Q7. Paragraph four traces the new hour through railways, factories, offices and shops before turning to farm hands who went out when the dew lifted, milk trains met by men working to the old time, and village clocks that kept to the sun. Which one of the following best explains the primary purpose of that closing discussion?
+(A) To mark the boundary where decree ends and manual compliance must begin.
+(B) To describe the missed appointments and rural confusion of the summer of 1916.
+(C) To complete the sequence of wheels by naming the last, slowest ones.
+(D) To argue that the Act's coordinating claim collapses outside the railway network.
+
+Q8. Based only on information provided in the passage, which one of the following hypothetical cases would best fit the author's account of what a coordinating decree can accomplish immediately and what it cannot accomplish at all?
+(A) A ministry renumbers postal codes; sorting offices and printed forms comply immediately, while villagers keep old addresses.
+(B) A university shifts lecture hours; students resist, and the registrar abandons the printed timetable entirely.
+(C) A council bans street lighting; households immediately abandon lamps and the town's fuel bills vanish.
+(D) A regulator caps fuel prices; refiners and retailers obey at once, and consumption falls measurably within weeks.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — The passage's whole movement — instant legal effect on written hours, patchy household adoption, and the closing verdict that economy was never measured — resolves into the contrast between demonstrated coordination and unverified economy.
+  (A) scope_inflation — Expands paragraph four's uneven household adoption into wholesale failure, though paragraph five reports institutions held to the new hour throughout.
+  (B) missing_link — Converts institutional compliance into fuel savings, the very step paragraph five refuses because no figure isolates the hour's effect.
+  (D) category_slip — Treats a legal operation on clock readings as an operation on daylight, which paragraph one explicitly says stayed where astronomy left it.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — The sentence displaces the argument from what law can command to what only weighing can establish, sealing the paragraph's contrast between an instrument of coordination and a quantity nobody measured.
+  (A) half_truth — Paragraph five says no figure separates the hour from blackout and shortage; it never asserts a concealed real effect.
+  (B) scope_inflation — Widens a claim about weighing coal into a verdict on statutes generally, contradicting the passage's admiration for the Act's coordinating reach.
+  (D) missing_link — Assumes the statute's definition of official time carried into kitchens, which paragraph three denies: somebody has to turn the hands.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — Paragraph five states directly that the author looked for such a figure and found none, which is why economy remains language rather than measurement.
+  (A) scope_inflation — Supplies a measured quantity where paragraph five reports the absence of any figure at all for the hour.
+  (B) missing_link — Paragraph five names renewals and imitations as the language of debate, explicitly distinguishing that language from any measurement of savings.
+  (C) half_truth — Paragraph two says what changed was not the arithmetic but the war, locating Willett's failure outside the calculations.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The thesis's load-bearing evidence is that institutions publishing hours obeyed to the minute; if the exemplar institutions lagged, the demonstrated reach of the coordinating instrument collapses.
+  (A) missing_link — A fact about the scheme's origins leaves untouched paragraph five's claim about what the summer's coordination demonstrated.
+  (C) scope_inflation — Restates a point paragraph four already concedes about stubborn village clocks, so it strengthens rather than damages the argument.
+  (D) half_truth — Redescribes why the Act passed, which the argument about decree versus measurement in paragraph five does not depend on.
+
+Q5 — Correct answer: (B)
+  (B) CORRECT — The first-person admission of a failed search registers missing evidence without pronouncing on whether coal was saved, which is why the closing sentence turns on weighing rather than on falsity.
+  (A) missing_link — Converts an unfound measurement into a denial of savings, a step paragraph five conspicuously declines to take.
+  (C) scope_inflation — Extends a search for one specific figure into blanket distrust of wartime statistics, a position the passage never takes.
+  (D) half_truth — Paragraph two presents the coal case seriously; the author doubts its measurement, not the sincerity of those making it.
+
+Q6 — Correct answer: (D)
+  (D) CORRECT — The remark is immediately glossed by the contrast that follows — a statute cannot reach into a kitchen — so its force is confined to where hours are recorded in documents.
+  (A) category_slip — Confuses a legal reading of clocks with astronomical fact, though paragraph one says the sun stayed where astronomy left it.
+  (B) half_truth — The quoted provision says such hours are to be read accordingly, which preserves the instruments rather than voiding them.
+  (C) missing_link — Paragraph four shows households coming last and unevenly, with milk trains met by men keeping the old hour.
+
+Q7 — Correct answer: (A)
+  (A) CORRECT — These cases exist to show the point past which the statute's automatic operation stops, preparing the final paragraph's distinction between what law can command and what it cannot produce.
+  (B) half_truth — Accurately summarises the content of the sentences but names no reason the author placed that content in the argument.
+  (C) half_truth — Correctly identifies the paragraph's structural role in the gear figure while leaving the authorial purpose behind it unstated.
+  (D) scope_inflation — Paragraph four has factories, offices and shops meshing too; only households are said to follow late and unevenly.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — It reproduces the passage's structure exactly: instant effect wherever obligations are written down, with slow uneven adoption where someone must act by hand.
+  (B) half_truth — Makes the published institution capitulate, whereas the passage has institutions held to the new hour for nineteen weeks.
+  (C) scope_inflation — Has private households obeying instantly and savings realised, contradicting paragraph four's slow households and paragraph five's missing figures.
+  (D) missing_link — Grants the decree a measured physical outcome, which is precisely the step the closing paragraph says no statute performs.
+
+[Inspired by: "How TV learned to sell itself", https://worksinprogress.co/issue/how-tv-learned-to-sell-itself/]

@@ -1,0 +1,216 @@
+{
+  "questions": [
+    {
+      "q": 1,
+      "slot_type": "thesis",
+      "stem": "Which one of the following best summarises the author’s main argument?",
+      "correct": {
+        "text": "Restoration’s evidential methods remain valuable, but historical plurality narrows its promise to recovering damaged films through declared choices whose sources and excluded alternatives remain recoverable.",
+        "why_right": "The opening’s careful reconstruction remains legitimate, but the intervening plurality of releases defeats its assumption of one recoverable ancestor. The ending therefore retains restoration with accountable choices and recoverable alternatives."
+      },
+      "wrong": [
+        {
+          "text": "Restoration’s careful comparison of surviving materials and precise reconstruction of damaged passages generally supplies sufficient evidence to recover the uniquely authentic film behind divergent surviving copies.",
+          "mechanism": "nec_suff_swap",
+          "why_wrong": "Treats the opening’s evidential care as sufficient for unique authenticity, ignoring paragraph 2’s historically legitimate differences and the ending’s reduced promise."
+        },
+        {
+          "text": "Restoration should replace the pursuit of a finished master with equal circulation of historically attested versions, allowing audiences rather than archivists to determine a film’s historical identity.",
+          "mechanism": "scope_inflation",
+          "why_wrong": "Expands the ending’s requirement of recoverability into equal distribution and audience adjudication, although paragraph 4 still assigns selection to archivists."
+        },
+        {
+          "text": "Restoration’s claim to historical authority rests on transparent documentation of decisions, which makes retaining excluded versions unnecessary once viewers can reconstruct the archive’s reasoning.",
+          "mechanism": "nec_suff_swap",
+          "why_wrong": "Treats documentation as sufficient accountability, whereas paragraphs 4–5 require retaining excluded variants as well as recording the chosen route."
+        }
+      ]
+    },
+    {
+      "q": 2,
+      "slot_type": "undermine_thesis",
+      "stem": "Which one of the following, if established, would most damage the author’s central claim?",
+      "correct": {
+        "text": "Comprehensive source comparisons establish that the apparently distinct authorized releases preserve different damaged portions of one independently recoverable version, rather than historically intended alternative arrangements.",
+        "why_right": "This would turn apparently legitimate version differences into ordinary losses from a recoverable common film, reinstating the opening workflow’s premise. It therefore attacks the historical plurality that makes the closing promise necessary."
+      },
+      "wrong": [
+        {
+          "text": "Controlled trials find that FIAF-compliant digital repairs of identical source material yield several equally defensible reconstructions, without identifying any of them as the definitive original.",
+          "mechanism": "nec_suff_swap",
+          "why_wrong": "Mistakes the digital repair concession and FIAF quotation for endorsement of a definitive original; paragraph 3 denies that repair settles version selection."
+        },
+        {
+          "text": "Controlled screenings find that viewers understand historical variation less accurately after consulting preserved variants than after watching a single restoration without archival supplements.",
+          "mechanism": "scope_inflation",
+          "why_wrong": "Confuses the ending’s requirement of recoverable histories with a promise of improved viewer understanding; audience comprehension does not determine historical plurality."
+        },
+        {
+          "text": "Longitudinal archive surveys find that retaining excluded versions consumes resources that would otherwise restore more damaged films, significantly reducing the number returned to public view.",
+          "mechanism": "scope_inflation",
+          "why_wrong": "Expands the closing promise into maximizing restoration output; the resource cost does not resolve the historical choice identified in paragraph 2."
+        }
+      ]
+    },
+    {
+      "q": 3,
+      "slot_type": "evidence_function",
+      "stem": "What is the purpose of the examples of Metropolis, Touch of Evil and Napoléon in the passage?",
+      "correct": {
+        "text": "They show that restorations draw authority from different kinds of historical evidence, making explicit selection and preserved alternatives essential to the archive’s revised promise.",
+        "why_right": "The examples distinguish recovered footage, intended revision and exhibition variation, extending paragraph 2’s challenge to a single ancestor. They support the subsequent requirement to declare the governing choice and retain alternatives."
+      },
+      "wrong": [
+        {
+          "text": "They show how modern restoration generated rival versions from previously settled originals, making archival intervention the source of the historical plurality now confronting audiences.",
+          "mechanism": "causal_inversion",
+          "why_wrong": "Reverses the causal relation: paragraph 2 locates differences in initial circulation, while paragraph 4 shows restoration bringing those histories back into view."
+        },
+        {
+          "text": "They suggest that a maker’s recorded intentions should generally take precedence over surviving releases when archives decide which restored version should represent a title.",
+          "mechanism": "scope_inflation",
+          "why_wrong": "Promotes Welles’s intended revision into a general hierarchy of authority, although paragraph 4 calls it 'not an uncontested original'."
+        },
+        {
+          "text": "They show that varied historical evidence enables archives to resolve disputes about a film’s definitive form, provided their digital repairs are sourced and documented.",
+          "mechanism": "nec_suff_swap",
+          "why_wrong": "Treats sourced repair as sufficient to settle version authority, despite paragraph 3’s distinction between legitimate repair and the choice of completeness."
+        }
+      ]
+    },
+    {
+      "q": 4,
+      "slot_type": "detail_check",
+      "stem": "According to the text, the use of early and later prints in reconstruction is described as:",
+      "correct": {
+        "text": "An early print could guide the film’s arrangement while a later, cleaner copy supplied images, without either age or condition determining every editorial choice.",
+        "why_right": "Paragraph 1 separates evidence about arrangement from usable image material and expressly denies that age or condition decides every choice."
+      },
+      "wrong": [
+        {
+          "text": "An early print could guide arrangement while a later, cleaner copy supplied images, making chronological priority sufficient to settle disagreements about shot order.",
+          "mechanism": "nec_suff_swap",
+          "why_wrong": "Turns age from evidence into a sufficient rule for arrangement, contradicting paragraph 1’s statement that neither age nor condition decides every choice."
+        },
+        {
+          "text": "An early print could guide arrangement while a later, cleaner copy supplied images, making physical condition sufficient to establish the images’ historical authority.",
+          "mechanism": "nec_suff_swap",
+          "why_wrong": "Turns cleanliness into sufficient historical authority, although paragraph 1 distinguishes a copy’s usable image from evidence about the film’s arrangement."
+        },
+        {
+          "text": "An early print could guide arrangement while a later, cleaner copy supplied images, provided the completed restoration reproduced one surviving print’s configuration.",
+          "mechanism": "scope_inflation",
+          "why_wrong": "Extends paragraph 1’s source requirement for each replacement into a whole-film matching requirement, despite its description of a master assembled from several elements."
+        }
+      ]
+    },
+    {
+      "q": 5,
+      "slot_type": "counterfactual_structure",
+      "stem": "If the third paragraph, beginning “Digital repair can recover lost information,” were removed, how would the argument change?",
+      "correct": {
+        "text": "It would retain its historical case for plurality but lose the direct explanation of why ethical repair cannot determine a restoration’s governing version.",
+        "why_right": "Paragraph 2 and the later examples would still establish historical variation. What would disappear is the explicit bridge from legitimate technical repair and necessary ethical restraint to the unresolved selection of a governing release."
+      },
+      "wrong": [
+        {
+          "text": "It would lose the evidence needed to establish historical plurality, leaving the later demand to preserve excluded versions without an independent argumentative foundation.",
+          "mechanism": "scope_inflation",
+          "why_wrong": "Inflates paragraph 3’s contribution: the evidence for distinct initial releases already appears in paragraph 2 and receives further illustration in paragraph 4."
+        },
+        {
+          "text": "It would shift toward rejecting digital restoration, because the examples of variant releases would then function as evidence that digital tools distort film history.",
+          "mechanism": "stance_misread",
+          "why_wrong": "Misreads the remaining stance: paragraph 2 distinguishes technical improvement from historical choice, while paragraph 4 integrates repair into responsible archival practice."
+        },
+        {
+          "text": "It would lose the ethical authority that makes the archive’s chosen version historically definitive, reducing the closing defence of restoration to mere pragmatic convenience.",
+          "mechanism": "nec_suff_swap",
+          "why_wrong": "Treats ethical restraint as sufficient historical authorization, although paragraph 3 expressly denies that the FIAF rule selects a definitive release."
+        }
+      ]
+    },
+    {
+      "q": 6,
+      "slot_type": "author_vs_reported",
+      "stem": "Which one of the following positions is described in the passage but not endorsed by the author?",
+      "correct": {
+        "text": "Restoration properly aims to recover the maker’s single authorized work by assembling dispersed material evidence into the complete state underlying a film’s surviving copies.",
+        "why_right": "The opening reconstructs restoration’s inherited ideal before paragraph 2 challenges its single-ancestor assumption. The ending endorses returning films to view, not recovering one work that supersedes their other histories."
+      },
+      "wrong": [
+        {
+          "text": "Restoration can make a damaged film available again without settling its historical identity, provided the selected route and excluded versions remain recoverable beside it.",
+          "mechanism": "stance_misread",
+          "why_wrong": "Mistakes the author’s own narrowed endorsement in paragraph 5 for the inherited position being reported in paragraph 1."
+        },
+        {
+          "text": "Restoration can accurately repair missing information within a selected release, although ethical restraint does not itself establish which historically attested release should govern completion.",
+          "mechanism": "stance_misread",
+          "why_wrong": "Mistakes the author’s explicit distinction in paragraph 3 between legitimate repair and unresolved version choice for a merely reported view."
+        },
+        {
+          "text": "Restoration can acknowledge several historical authorities by declaring its governing release or intention, documenting interventions, and preserving variants excluded from the resulting master.",
+          "mechanism": "stance_misread",
+          "why_wrong": "Misattributes paragraph 4’s endorsed archival procedure to the superseded ideal; preserving excluded variants directly anticipates the ending’s requirement."
+        }
+      ]
+    },
+    {
+      "q": 7,
+      "slot_type": "except_scan",
+      "stem": "The passage supports all of the following claims about restoration EXCEPT:",
+      "correct": {
+        "text": "Archives must keep excluded versions in active circulation alongside the selected restoration, since preserving recoverable alternatives would fall short of the revised promise.",
+        "why_right": "The ending requires the chosen route and excluded versions to remain recoverable, not simultaneously in distribution. The option inflates that preservation obligation into the circulation requirement discussed, but not prescribed, in paragraph 2."
+      },
+      "wrong": [
+        {
+          "text": "An archive’s master can become the film available to audiences unable to inspect sources, while alternative releases cease to circulate as widely.",
+          "mechanism": "passage_supported",
+          "why_wrong": "Paragraph 2 says the selection became available to audiences 'who could not inspect its sources'; the next sentence says alternatives 'lost circulation'."
+        },
+        {
+          "text": "Digital repairs can have a determinate object even though the ethical requirement to complete an incomplete film does not select the release that defines completeness.",
+          "mechanism": "passage_supported",
+          "why_wrong": "Paragraph 3 says repairs 'have an ascertainable object,' but restraint 'does not identify which historically attested release supplies the completeness'."
+        },
+        {
+          "text": "Archivists should identify the release or intention directing selection, repair damage within that framework, and preserve unused variants together with records of their interventions.",
+          "mechanism": "passage_supported",
+          "why_wrong": "Paragraph 4 says archivists 'declare which release or intention governs shot selection' and 'retain unused variants with an account of interventions'."
+        }
+      ]
+    },
+    {
+      "q": 8,
+      "slot_type": "decoy_escape",
+      "stem": "Which one of the following best explains why the early impression of a uniquely recoverable film does not survive the argument?",
+      "correct": {
+        "text": "The opening workflow repairs material deterioration, whereas differences between authorized initial releases require a historical choice that greater technical accuracy cannot itself settle.",
+        "why_right": "The first paragraph treats differences as damage to an underlying complete film. Paragraphs 2–4 expose differences between historical versions, which require a declared choice rather than merely more exact repair."
+      },
+      "wrong": [
+        {
+          "text": "The opening workflow assembles a single master, but its wider circulation encourages competing releases whose subsequent differences make a uniquely authentic film harder to recover.",
+          "mechanism": "causal_inversion",
+          "why_wrong": "Reverses paragraph 2’s causality: competing initial releases precede the master’s wider distribution; that distribution marginalizes alternatives rather than originating their differences."
+        },
+        {
+          "text": "The opening workflow lacks digital precision, whereas later repairs provide the accuracy required to distinguish an authentic original from the versions introduced during circulation.",
+          "mechanism": "nec_suff_swap",
+          "why_wrong": "Treats digital accuracy as sufficient to identify an original, despite paragraphs 2–3 separating technical improvement from the unresolved historical choice."
+        },
+        {
+          "text": "The opening workflow leaves variants unexamined, so its original promise becomes defensible once excluded versions are preserved and compared with the master.",
+          "mechanism": "nec_suff_swap",
+          "why_wrong": "Treats preservation and comparison as sufficient for unique authenticity, whereas paragraphs 4–5 require them to keep choices and alternative histories recoverable."
+        }
+      ]
+    }
+  ],
+  "length_audit": {
+    "correct_longest_count": 1,
+    "correct_longest_questions": [4]
+  }
+}

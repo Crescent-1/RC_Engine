@@ -1,0 +1,25 @@
+[codex] Opus -> Astra; Sonnet -> Sol; questions=medium=high,hard=xhigh,elite=max, other stages=low; fallback=stop. Luna checks still use the API.
+[policy] new plans: hard=legacy, elite=legacy
+[client] AA - novelty window and exports are this client's; skeletons and seed essays are exclusive across clients
+[seeds] RAG unavailable (No module named 'feedparser') - running seedless
+[batch] spending cap: $0.98 (per-RC caps: {'medium': 0.34, 'hard': 0.36, 'elite': 0.42})
+
+=== [hard] 1/1 ===
+  [seed] unknown / social -> topic shape TS09
+  [codex] refine -> gpt-5.6-sol (CLI usage recorded; no API spend)
+
+[STOP] API exhausted (Codex CLI stopped at refine: unexpected tool use in a text-generation call) - batch stopped cleanly; completed work is committed. Re-run later to continue.
+
+--- Batch 20260920-031346 summary: 0 shipped, 0 attempts, total $0.0000 ---
+--- Cost telemetry ---
+  shipped spend        $0.0000 over 0 sets
+  wasted spend         $0.0000 (0% of total) — paid $0.0000 in 0 attempts, 0 free precheck saves
+  $/shipped set        $0.0000 (shipped-only) | $0.0000 (all-in incl. waste)
+  status counts        
+--- Codex CLI subscription usage (NOT API spend) ---
+  calls                1 (refine x1)
+  tokens               in 5,720 | cache-write 0 | cache-read 0 | out 1,315 (thinking 516)
+  total tokens         7,035
+  notional list price  $0.0492 — what these calls WOULD have cost on the API; the subscription is metered in usage, not dollars, so treat this as a relative meter between runs, not a bill
+[backup] DB -> C:\Users\anshu\rc_data\backups\codex-pilot-20260920-031343\rc_pipeline-20260920-031431.db (integrity: ok; keeping last 10)
+PILOT_EXIT_CODE 1

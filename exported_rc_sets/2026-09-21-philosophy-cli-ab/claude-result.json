@@ -1,0 +1,29 @@
+{
+  "lane": "claude",
+  "exit_code": 0,
+  "seed": {
+    "id": "b208e303-6a7c-4d26-9f4f-716742e027ab",
+    "title": "Are Doctors Heroes?",
+    "url": "https://www.thenewatlantis.com/practicing-medicine/are-doctors-heroes",
+    "domain": "philosophy",
+    "genre": "conceptual_essay",
+    "kind": "idea_essay",
+    "selected_unused": true
+  },
+  "rng_seed": 20260921,
+  "policy": "cat-pyq-f4",
+  "effort": "low",
+  "exported": [
+    {
+      "rc_id": "RC-HARD-260920-0106",
+      "tier": "hard",
+      "status": "solver_dispute",
+      "average_score": 0.0,
+      "compliance_f1": 0.777,
+      "novelty_composite": 0.629,
+      "similarity_verdict": "unchecked",
+      "file": "C:\\Users\\anshu\\OneDrive - eLitmus\\RC Gen Project\\exported_rc_sets\\2026-09-21-philosophy-cli-ab\\claude-RC-HARD-260920-0106.txt"
+    }
+  ],
+  "finished_utc": "2026-09-20T20:02:06.163027+00:00"
+}

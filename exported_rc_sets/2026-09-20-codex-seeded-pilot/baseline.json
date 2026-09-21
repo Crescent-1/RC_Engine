@@ -1,0 +1,14 @@
+{
+  "started_utc": "2026-09-20T08:15:04.737250+00:00",
+  "client": "AA",
+  "db": "C:\\Users\\anshu\\OneDrive - eLitmus\\RC Gen Project\\rc_pipeline.db",
+  "max_rc_rowid": 150,
+  "max_attempt_rowid": 81,
+  "policies": {
+    "medium": "",
+    "hard": "",
+    "elite": ""
+  },
+  "require_seed": true,
+  "backup_before": "C:\\Users\\anshu\\rc_data\\backups\\codex-seeded-pilot-20260920\\rc_pipeline-20260920-081504.db"
+}

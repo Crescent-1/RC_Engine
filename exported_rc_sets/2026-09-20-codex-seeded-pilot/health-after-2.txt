@@ -1,0 +1,95 @@
+Corpus health for client AA (trailing 100 shipped):
+  family KL vs design uniform:   0.556  (alarm > 0.15 once corpus > 100)
+  topology KL vs design uniform: 0.076
+
+  question-task mix vs CAT PYQ (last 100 shipped; flag = under half / over double):
+  all tiers: 100 sets, 800 questions
+    task                  engine   exam
+    detail                 16.4%  24.6%
+    inference               6.6%  15.9%  <- under
+    meaning                 6.2%   9.5%
+    gist                   16.6%   8.2%  <- over
+    purpose_of_part         8.2%   7.9%
+    reported_view           6.6%   6.2%
+    weaken                 13.4%   6.2%  <- over
+    author_endorse          0.2%   5.9%  <- under
+    application             7.4%   5.9%
+    consistency             0.0%   3.1%  <- no engine type
+    keyword_set             0.2%   2.3%
+    tone_stance             2.2%   2.1%
+    argument_evaluation     0.0%   1.0%
+    strengthen              6.2%   1.0%
+    relation_pair           0.0%   0.3%
+    engine_only             9.5%      -
+  medium: 37 sets; engine-only types 8%; flagged: inference 5% vs 16% (under), gist 17% vs 8% (over), weaken 16% vs 6% (over), author_endorse 0% vs 6% (under), consistency 0% vs 3% (no engine type)
+  hard: 34 sets; engine-only types 11%; flagged: inference 7% vs 16% (under), gist 17% vs 8% (over), author_endorse 1% vs 6% (under), consistency 0% vs 3% (no engine type)
+  elite: 29 sets; engine-only types 9%; flagged: inference 8% vs 16% (under), weaken 13% vs 6% (over), author_endorse 0% vs 6% (under), consistency 0% vs 3% (no engine type)
+  ARC-SHAPE KL vs design uniform: 0.795  (the family-level number that actually tracks how a passage reads)
+    staged_turn_settled         28 sets   28%  (32 families)  <-- the legacy arc
+    enumerative_flat             6 sets    6%  (2 families)
+    interrogative_serial         4 sets    4%  (1 family)
+    expository_bound             4 sets    4%  (1 family)
+    definitional_process         4 sets    4%  (1 family)
+    traced_development           4 sets    4%  (1 family)
+    posed_problem                4 sets    4%  (1 family)
+    thesis_first_defended        3 sets    3%  (1 family)
+    sustained_no_concession      3 sets    3%  (1 family)
+    descending_scale             3 sets    3%  (1 family)
+    ascending_scale              3 sets    3%  (1 family)
+    chronological_no_verdict     3 sets    3%  (1 family)
+    circular_return              3 sets    3%  (1 family)
+    analytic_definitional        3 sets    3%  (1 family)
+    compressed_three             3 sets    3%  (1 family)
+    procedural_consequence       3 sets    3%  (1 family)
+    surveyed_account             3 sets    3%  (1 family)
+    asymmetry_noted              3 sets    3%  (1 family)
+    enumerated_remedies          3 sets    3%  (1 family)
+    accretive_no_turn            2 sets    2%  (1 family)
+    parallel_unresolved          2 sets    2%  (1 family)
+    tested_thesis                2 sets    2%  (1 family)
+    reviewed_study               1 sets    1%  (1 family)
+    superseded_explanation       1 sets    1%  (1 family)
+    anomaly_explained            1 sets    1%  (1 family)
+    narrowing_survey             1 sets    1%  (1 family)
+    never shipped: backfiring_remedy, scholarly_introduction, split_verdict_review, typology_enumerated
+  answer-letter chi2 (df=3):     2.50  (alarm > 11.34)
+  correct-is-longest:            1.90/8 per set (24% of questions)  (chance ~25%; alarm > 45%, n=100)
+  thesis-longest:                7/90 keyed sets (budget: at most 3 in 9)
+  family usage: {'F02': 1, 'F03': 1, 'F04': 1, 'F06': 1, 'F07': 1, 'F08': 1, 'F09': 1, 'F10': 4, 'F11': 1, 'F12': 1, 'F13': 1, 'F14': 2, 'F17': 1, 'F18': 1, 'F19': 1, 'F20': 1, 'F21': 1, 'F22': 2, 'F23': 1, 'F24': 1, 'F25': 1, 'F27': 1, 'F28': 1, 'F33': 2, 'F34': 3, 'F35': 3, 'F36': 3, 'F37': 2, 'F38': 3, 'F39': 3, 'F40': 3, 'F41': 3, 'F42': 3, 'F43': 3, 'F44': 3, 'F45': 4, 'F46': 3, 'F47': 4, 'F48': 3, 'F49': 4, 'F50': 4, 'F51': 4, 'F52': 3, 'F53': 1, 'F54': 1, 'F55': 2, 'F56': 1, 'F57': 1, 'F58': 3}
+  closing postures (realized): {'affirmation_endorsed': 4, 'reframe_displace': 16, 'refusal_dissolved': 7, 'refusal_suspended': 22, 'resolution_costed': 28, 'resolution_qualified': 23}
+  fingerprints by source:        {'engine': 150, 'legacy': 22, 'manual': 24}
+  aphorism endings:              15/100 keyed sets (register-rotation baseline ~12.5%)
+  move saturation (100 keyed sets, ban > 55%, warn > 40%):
+    [BAN ] MECHANISM_EXPLAINED          87%
+    [BAN ] EASY_READING_DEMOLISHED      70%
+    [BAN ] CONCESSION_GRANTED           65%
+    [BAN ] AUTHORITY_QUOTED             60%
+    [warn] SYMMETRY_BROKEN              55%
+    [warn] UNDERLYING_CAUSE_NAMED       55%
+    [warn] SCENE_PARTICULAR             50%
+    [warn] INSTANCE_SURVEY              44%
+    [warn] LEVEL_RELOCATION             43%
+    under-used (<10%): HEDGED_APHORISM
+  voice plan 2026-09-12: 24 ships (blind model reads)
+    observational voice flags 24/24 checked; 0 unreviewed (voice observations do not change approval status)
+    schema measured 24/24 planned; primary matches 15/24, primary or secondary 19/24
+    moves measured 24/24 planned; opening/closing/body pass 24/11/1 of 24
+  voice plan legacy: 76 ships (blind model reads)
+    observational voice flags 0/0 checked; 76 unreviewed (voice observations do not change approval status)
+    schema measured 11/11 planned; primary matches 1/11, primary or secondary 4/11
+    moves measured 76/76 planned; opening/closing/body pass 45/19/0 of 76
+  seed genres                    86 keyed | conceptual_essay 32, criticism 18, reportage 13, narrative_history 11, technical_explainer 7, investigation 2
+  topic shapes                   86 keyed | TS08 12, TS05 10, TS02 10, TS04 8, TS09 7, TS12 6
+  judge score by arc-shape group (guardrail on the exam-derived families):
+    medium  legacy arc 8.5 (n=14) | arc-shape 8.3 (n=10) | exam-derived 8.3 (n=14)
+    hard    legacy arc 8.4 (n=29) | arc-shape 7.9 (n=17) | exam-derived 8.2 (n=6)
+    elite   legacy arc 8.7 (n=24) | arc-shape 7.8 (n=19)
+    (exam-derived groups still under n=10 — not yet decisive)
+  novelty window                 100 live | needs_review 77, approved 23
+    hidden: 16 by status ['solver_dispute', 'rejected_novelty'], 15 quarantined
+  recent batches (attempts table):
+    20260919-074830  1/1 shipped (100%) | paid rejects 0 ($0.00) | free 0 | spend $0.01
+    20260918-200255  3/4 shipped (75%) | paid rejects 0 ($0.00) | free 1 | spend $0.04
+    20260918-192023  2/2 shipped (100%) | paid rejects 0 ($0.00) | free 0 | spend $0.03
+    20260918-184442  1/2 shipped (50%) | paid rejects 0 ($0.00) | free 1 | spend $0.02
+    20260918-180906  1/1 shipped (100%) | paid rejects 0 ($0.00) | free 0 | spend $0.01

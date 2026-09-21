@@ -1,0 +1,114 @@
+RC ID: RC-ELITE-260920-0096 | Tier: elite | Score: 8.8 | Status: approved | Compliance F1: 0.784 | Novelty: 0.558 | Screen: green | Generated: 2026-09-20T19:27:40.081330+00:00
+======================================================================
+
+[PASSAGE]
+
+Whether a defendant’s self-interested autobiography can be her biographer’s best document depends initially on a rule that seems to exclude it: testimony nearest the accused is ordinarily least trustworthy where her interests are engaged. Mary Carleton’s The Case of Madam Mary Carleton, published in London in 1663 amid her bigamy trial, puts unusual pressure on that rule. Her claimed noble origins, travels and persecution arrive with the assurance missing from much hostile reporting. Even an unverifiable incident has its appointed place. Foreignness, displayed through cultivated speech and courtship, acquires a consistency that invites belief, though consistency alone cannot establish where she was born or whom she married.
+
+Her husband John’s rebuttal offers accusations against her assertions. Both publications seek a verdict beyond the courtroom. Both have an interest in discrediting the other. Yet setting charge beside counterclaim misses what her ordered life accomplishes. Claimed birth establishes rank; travel accounts for displacement; letters sustain distant connections; jewels make wealth portable and visible. Speech and restrained conduct then let the woman before her hosts appear continuous with the absent noble family. She need not produce that family. Granted that none of this proves noble descent or innocence, her pamphlet nevertheless deserves treatment as the most exact surviving biography of her achieved credibility: its repetitions, selected particulars and silences preserve how the German Princess became recognizable. Ordinary domestic history would introduce other tests. Dates and accessible witnesses could interrupt the succession of mutually supporting impressions. Their absence belongs to the evidence for this reading; London’s appetite for printed scandal explains the occasion for producing it, not the grounds for accepting it.
+
+Printers and booksellers certainly helped shape the public object; a hired writer may also have shaped its sentences. We cannot recover an unassisted voice by removing the title page. Even the composure attributed to Carleton might owe something to someone who knew how a dignified defendant should sound. Much of the pamphlet therefore belongs, in its manufacture, to the publishing trade. But manufacture became an event in her life. Once available for purchase, this account supplied a version of her that witnesses could encounter, purchasers could repeat and later narrators could inherit. Influence on any particular witness would require separate evidence; the publication itself establishes that her self-presentation had acquired a reach beyond her presence. Her credibility was now partly entrusted to sentences she did not have to speak. Before transportation, return and execution hardened the competing image of the habitual criminal, the printed princess was already available to organize recollection, including recollection by people who had never met her.
+
+As a paper passport, the pamphlet gives noble birth as its place of issue, lets jewels and overseas letters serve as stamps, and offers composed prose as the bearer’s likeness, while its blank spaces cover journeys no accessible authority certifies. Such a passport could explain its bearer’s reception without establishing her entitlement to travel under that name. The useful finding is a smaller inventory of what counted as credentials in this particular presentation. We can begin with the prominently displayed letters, whose contents the pamphlet never supplies: their asserted existence supports her connections, although the reader is not given enough to test what those connections were.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with establishing which one of the following?
+(A) Carleton's pamphlet supplies a general model of how early modern defendants acquired credibility, with portable signs of status replacing independent verification in public judgment.
+(B) Carleton's pamphlet documents the assembly and public extension of a credible persona through selected credentials, without verifying the noble life it claims.
+(C) Carleton's pamphlet and John's rebuttal require equivalent treatment as partisan biographies, with their competing factual assertions balanced to recover a defensible account of her life.
+(D) Carleton's pamphlet overturns conventional distrust of autobiographical testimony by offering an internally coherent narrative whose detailed credentials establish the factual reliability of her autobiographical claims.
+
+Q2. Which one of the following research findings would most weaken the third paragraph's conclusion that publication extended Carleton's self-presentation beyond her presence before her transportation?
+(A) Private correspondence reveals that several readers rejected the pamphlet's assertions of noble descent, even while discussing its portrait of Carleton with their own acquaintances.
+(B) A printer's account book identifies a professional writer as the composer of several passages previously attributed to Carleton, including the pamphlet's most dignified descriptions.
+(C) Archival comparison found both spouses' pamphlets equally self-interested, making a balanced assessment of their opposing factual claims the appropriate basis for judging either account.
+(D) The edition remained locked in the printer's warehouse throughout Carleton's lifetime, with surviving records showing neither sales nor access by outside readers.
+
+Q3. The author cites the possible involvement of a hired writer primarily in order to do what?
+(A) The reference suggests that the pamphlet should belong to publishing history rather than Carleton's biography, since its apparent personal voice may be manufactured.
+(B) The reference may explain the pamphlet's dignified tone by locating its source in professional authorship, thereby reducing the credibility achieved by the published persona.
+(C) The reference concedes uncertainty about direct authorship while preparing the distinction between the pamphlet's collaborative manufacture and its consequences within Carleton's life.
+(D) The reference supports a distinction between polished language and underlying testimony, enabling biographers to recover Carleton's own account beneath the pamphlet's professionally supplied style.
+
+Q4. In context, the claim that "manufacture became an event in her life" most nearly means that:
+(A) The pamphlet's production entered Carleton's biography because her participation in composing its dignified sentences supplied documentary evidence of her own cultivated speech and conduct.
+(B) The pamphlet's production entered Carleton's biography because its availability allowed a version of her identity to circulate independently of her personal presence.
+(C) The pamphlet's publication probably entered Carleton's biography because its persuasive language changed the testimony of witnesses who encountered it before appearing in court.
+(D) The pamphlet's production entered Carleton's biography because commercial demand for scandal provided grounds for accepting its portrayal of the accused as a credible princess.
+
+Q5. Which one of the following, if established, would most damage the author's central claim?
+(A) Parish registers establish that Carleton's noble ancestry was invented and that her account of earlier marriages suppressed facts that would have damaged her legal defence.
+(B) Correspondence establishes that a hired writer devised the pamphlet's orderly narrative and selected its recurring details, while Carleton merely authorized the final published version.
+(C) The surviving text was produced decades after Carleton's death by adapting an unrelated romance, and no corresponding account circulated during her lifetime.
+(D) Court records show that witnesses questioned after publication relied on personal encounters rather than the pamphlet when describing Carleton's speech, possessions, and apparent social standing.
+
+Q6. Regarding the overseas letters described in the pamphlet, the author asserts that:
+(A) The letters support the appearance of distant connections through their asserted existence, while the omission of their contents prevents readers from adequately testing those connections.
+(B) The letters support a finding of distant connections through their displayed presence, while the omission of their contents leaves the nature of those connections uncertain.
+(C) The letters support an inference that her distant connections were fabricated, while the omission of their contents shows how that fabrication was protected from scrutiny.
+(D) The letters support the appearance of distant connections through passages selected for quotation, while their incomplete reproduction leaves readers unable to assess those connections fully.
+
+Q7. The author of the passage is likely to disagree with which one of the following statements?
+(A) A defendant's personal interest gives biographers reason to distrust her factual assertions, even when the resulting narrative presents an internally coherent account of her origins.
+(B) A defendant's stake in her own testimony makes that testimony less valuable for explaining her achieved credibility than independently produced accounts of her public identity.
+(C) A pamphlet's commercial production can be acknowledged as part of its history without excluding its circulation and public availability from the biography of its subject.
+(D) A pamphlet's orderly self-presentation can illuminate how credibility was constructed while leaving claims about noble ancestry and legal innocence unresolved by the narrative's internal consistency.
+
+Q8. "The useful finding is a smaller inventory of what counted as credentials in this particular presentation." We can infer from this statement that:
+(A) The author is evidentially doubtful, treating the inventory as a record of attempted persuasion whose contribution to understanding Carleton's actual reception must await independent corroboration.
+(B) The author is broadly diagnostic, treating this inventory as a representative account of the credentials through which early modern society recognized and validated aristocratic identity.
+(C) The author is provisionally confident, treating the signs as evidence of noble status while reserving judgment about those biographical details that remain inaccessible to verification.
+(D) The author is analytically restrained, limiting the inquiry to how particular signs supported credibility rather than treating them as verified facts or general social rules.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — The passage moves from doubts about autobiographical truth to the pamphlet's evidence of constructed credibility, then to publication's extension of that persona. Its closing inventory preserves this distinction between functioning credentials and verified facts.
+  (A) scope_inflation — It generalizes from one presentation to early modern defendants, whereas paragraph 4 explicitly narrows the finding to this particular inventory.
+  (C) false_symmetry — It turns shared partisanship into equivalent biographical value, overlooking paragraph 2's distinction between balancing allegations and explaining achieved credibility.
+  (D) half_truth — It converts the narrative consistency acknowledged in paragraph 1 into factual reliability, which paragraphs 1, 2, and 4 explicitly withhold.
+
+Q2 — Correct answer: (D)
+  (D) CORRECT — The paragraph bridges publication and biographical consequence through public availability. An inaccessible edition would break that bridge during the specified period, even if its manufacture had been completed.
+  (A) level_confusion — It confuses acceptance of noble descent with circulation of self-presentation; the reported discussions actually support paragraph 3's claim about reach.
+  (B) half_truth — It confirms the editorial mediation conceded in paragraph 3 without weakening the distinction between collaborative manufacture and public availability.
+  (C) false_symmetry — Paragraph 2 distinguishes partisan interests from biographical functions; balancing factual claims does not challenge paragraph 3's conclusion about circulation.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — The concession blocks recovery of an unassisted voice, but the following pivot makes publication itself biographically significant. Authorship uncertainty therefore qualifies, rather than cancels, the pamphlet's evidentiary value.
+  (A) half_truth — It retains paragraph 3's concession about manufacture but drops the immediate reversal that makes manufacture an event in Carleton's life.
+  (B) level_confusion — It mistakes uncertainty about the source of composure for diminished social credibility, a consequence paragraph 3 does not draw.
+  (D) half_truth — It turns acknowledged mediation into a recoverable stylistic layer, contradicting paragraph 3's warning that an unassisted voice cannot be extracted.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The phrase bridges the pamphlet's commercial production and its existence as a publicly available version of Carleton. This biographical consequence does not require proof that any particular witness changed an opinion.
+  (A) level_confusion — It treats the manufactured voice as evidence of personal composition and conduct, although paragraph 3 expressly leaves its source uncertain.
+  (C) scope_inflation — It expands public availability into demonstrated witness influence, which paragraph 3 explicitly says would require separate evidence.
+  (D) half_truth — It converts the commercial occasion into evidentiary grounds, reversing paragraph 2's distinction between why the pamphlet appeared and why it merits acceptance.
+
+Q5 — Correct answer: (C)
+  (C) CORRECT — The argument depends on this text preserving Carleton's situated construction of credibility and becoming an event in her life. A later fictional reconstruction would undermine both connections, not merely expose false autobiographical assertions.
+  (A) level_confusion — It attacks factual ancestry and innocence, which paragraph 2 separates from the pamphlet's value as a biography of achieved credibility.
+  (B) half_truth — It strengthens paragraph 3's concession about mediation without severing the published persona's connection to Carleton's life.
+  (D) half_truth — It excludes influence on particular witnesses, a claim paragraph 3 explicitly distinguishes from the public reach established by availability.
+
+Q6 — Correct answer: (A)
+  (A) CORRECT — The closing example makes the passport metaphor concrete: an asserted credential can sustain a presentation without supplying the information needed to verify it.
+  (B) level_confusion — It promotes asserted connections into an established finding, whereas paragraph 4 distinguishes their credential function from their verifiability.
+  (C) level_confusion — It converts insufficient evidence for testing connections into evidence of fabrication, exceeding paragraph 4's deliberately restricted conclusion.
+  (D) half_truth — It substitutes selective quotation for withheld contents; paragraph 4 says the pamphlet never supplies the letters' contents.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — This extends the opening rule about factual trustworthiness into a ranking of biographical usefulness. Paragraph 2 reverses that extension: interested self-presentation can be especially revealing about how credibility was achieved.
+  (A) half_truth — It states the factual caution endorsed in paragraph 1, not the broader dismissal of biographical value that the author challenges.
+  (C) half_truth — It states the author's own reconciliation in paragraph 3; acknowledging commercial manufacture does not exclude biographical consequences.
+  (D) half_truth — It reproduces paragraph 2's endorsed distinction between achieved credibility and verified ancestry or innocence, rather than a position the author rejects.
+
+Q8 — Correct answer: (D)
+  (D) CORRECT — The ending narrows the passport metaphor into a specific evidentiary inventory. This preserves explanatory usefulness while withholding factual authentication and broader generalization.
+  (A) level_confusion — It transfers paragraph 3's requirement for proof of particular witness influence to paragraph 4's already warranted analysis of credentials.
+  (B) scope_inflation — It expands a finding about this particular presentation into a representative social account, reversing the narrowing movement of paragraph 4.
+  (C) half_truth — It mistakes credentials supporting a presentation for evidence establishing noble status, contrary to paragraph 4's distinction between reception and entitlement.
+
+[Inspired by: "“You Think Me a Bold Cheat”: Mary Carleton, Counterfeit Princess", https://publicdomainreview.org/essay/mary-carleton-counterfeit-princess]

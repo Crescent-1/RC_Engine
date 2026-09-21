@@ -1,0 +1,58 @@
+{"lane": "openai", "seed": {"id": "b208e303-6a7c-4d26-9f4f-716742e027ab", "title": "Are Doctors Heroes?", "url": "https://www.thenewatlantis.com/practicing-medicine/are-doctors-heroes", "domain": "philosophy", "genre": "conceptual_essay", "kind": "idea_essay", "selected_unused": true}, "rng_seed": 20260921, "policy": "cat-pyq-f4", "effort": "low"}
+[codex] Opus -> Astra; Sonnet -> Sol; questions=low, other stages=low; fallback=stop. Luna checks still use the API.
+[policy] new plans: hard=cat-pyq-f4
+[client] AA - novelty window and exports are this client's; skeletons and seed essays are exclusive across clients
+[seeds] restricted to 1 listed seed essays (C:\Users\anshu\OneDrive - eLitmus\RC Gen Project\exported_rc_sets\2026-09-21-philosophy-cli-ab\seed-ids.json)
+Loading local embedding model (BAAI/bge-small-en-v1.5)...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2281.80it/s]
+C:\Users\anshu\OneDrive - eLitmus\RC Gen Project\RAG.py:325: LangChainDeprecationWarning: The class `Chroma` was deprecated in LangChain 0.2.9 and will be removed in 1.0. An updated version of the class exists in the `langchain-chroma package and should be used instead. To use it run `pip install -U `langchain-chroma` and import as `from `langchain_chroma import Chroma``.
+  _db_instance = Chroma(persist_directory=PERSIST_DIR, embedding_function=embedding_function)
+[batch] spending cap: $0.45 (per-RC caps: {'medium': 0.34, 'hard': 0.36, 'elite': 0.42})
+[seeds] hard <- [New Atlantis] Are Doctors Heroes? (listed)
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  44%|████▍     | 88/199 [00:00<00:00, 871.81it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 1645.37it/s]
+
+=== [hard] 1/1 ===
+  [seed] labels from the seed store
+  [seed] shapes this essay can carry: TS01, TS02, TS08, TS15, TS16
+  [seed] conceptual_essay / philosophy -> topic shape TS01
+  [move-plan] planned grammar near RC-HARD-260821-0052 @ 0.56 - resampling 1/3 ($0)
+  [move-plan] planned grammar near RC-HARD-260918-0102 @ 0.64 - resampling 2/3 ($0)
+  [move-plan] planned grammar near RC-HARD-260914-0099 @ 0.68 - resampling 3/3 ($0)
+  [codex] refine -> gpt-5.6-sol (CLI usage recorded; no API spend)
+  [facts] source facts: 6 kept, 2 rejected (claim has a figure the span does not; claim introduces a name the span and attribution do not)
+  [pin] seed_fidelity (hard) -> gpt-5.6-luna
+  [BP BP_260920_5a8f21ae] F04/P15/E13/T19/R02/D12/QT10 instability=0.42
+  [codex] render -> gpt-6-astra (CLI usage recorded; no API spend)
+  [pin] move_signature -> gpt-5.6-luna
+  [pin] compliance (hard) -> gpt-5.6-luna
+  [arg-schema] planned S3_TWO_CAMPS_RELOCATED -> realized S3_TWO_CAMPS_RELOCATED + S1_INSTRUMENT_BLIND  HIT
+  [codex] questions -> gpt-6-astra (CLI usage recorded; no API spend)
+  [pin] answerability -> gpt-5.6-luna
+  [codex] solver -> gpt-5.6-sol (CLI usage recorded; no API spend)
+  [pin] judge -> gpt-5.6-luna
+  [RC-HARD-260920-0106] status=needs_review f1=0.839 novelty=0.594 avg=8.8 words=526 cost=$0.0073 (budget $0.36)
+
+--- Batch 20260920-200348 summary: 1 shipped, 1 attempts, total $0.0073 ---
+  RC-HARD-260920-0106 | hard   | needs_review     | f1=0.839 novelty=0.594 score=8.8 $0.0073
+--- Cost telemetry ---
+  shipped spend        $0.0073 over 1 sets
+  wasted spend         $0.0000 (0% of total) — paid $0.0000 in 0 attempts, 0 free precheck saves
+  $/shipped set        $0.0073 (shipped-only) | $0.0073 (all-in incl. waste)
+  status counts        needs_review=1
+--- Codex CLI subscription usage (NOT API spend) ---
+  calls                4 (questions x1, refine x1, render x1, solver x1)
+  tokens               in 14,883 | cache-write 0 | cache-read 0 | out 5,564 (thinking 578)
+  total tokens         20,447
+  notional list price  $0.3329 — what these calls WOULD have cost on the API; the subscription is metered in usage, not dollars, so treat this as a relative meter between runs, not a bill
+  per shipped set      4.0 calls | 20,447 tokens | $0.3329 notional
+  [screen] gpt-5.6-luna: references from 149 client sets
+    [RED  ] RC-HARD-260920-0106 ~ RC-ELITE-260914-0089
+             shared: Two reasonable camps are introduced with contrasting standards
+             shared: An apparent dispute over classification is reframed as a dispute over what the classification does
+             shared: A concrete case destabilizes both stricter positions
+             shared: The conclusion rejects a final verdict in favour of tracing who bears the consequences
+             The passage repeats the distinctive camps–apparent comparison–purpose-based reframing–illustrative case–unresolved consequence sequence used by the children’s-book essay.
+  [screen] spend $0.0023
+  all-in incl. screen  $0.0096 (generation $0.0073 + screen $0.0023) | $0.0096 per shipped set
+[backup] DB -> C:\Users\anshu\OneDrive - eLitmus\RC Gen Project\exported_rc_sets\2026-09-21-philosophy-cli-ab\backups\openai\rc_pipeline-20260920-200802.db (integrity: ok; keeping last 1000)
+{"lane": "openai", "exit_code": 0, "seed": {"id": "b208e303-6a7c-4d26-9f4f-716742e027ab", "title": "Are Doctors Heroes?", "url": "https://www.thenewatlantis.com/practicing-medicine/are-doctors-heroes", "domain": "philosophy", "genre": "conceptual_essay", "kind": "idea_essay", "selected_unused": true}, "rng_seed": 20260921, "policy": "cat-pyq-f4", "effort": "low", "exported": [{"rc_id": "RC-HARD-260920-0106", "tier": "hard", "status": "needs_review", "average_score": 8.8, "compliance_f1": 0.839, "novelty_composite": 0.594, "similarity_verdict": "red", "file": "C:\\Users\\anshu\\OneDrive - eLitmus\\RC Gen Project\\exported_rc_sets\\2026-09-21-philosophy-cli-ab\\openai-RC-HARD-260920-0106.txt"}], "finished_utc": "2026-09-20T20:08:02.264497+00:00"}

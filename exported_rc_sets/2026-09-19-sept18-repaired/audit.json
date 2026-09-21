@@ -1,0 +1,1834 @@
+[
+  {
+    "id": "RC-MEDIUM-260918-0077",
+    "tier": "hard",
+    "genre": "Anthropology with philosophical/epistemological argument — borderline; retained by instruction.",
+    "source_file": "exported_rc_sets/RC-MEDIUM-260918-0077.txt",
+    "original_sha256": "18a28e8a2f37fe2865dc8cb4f48de0a6811129cf5caf8f10dbd4bada789b9564",
+    "passage_words": 507,
+    "passage_lexical_words": 507,
+    "key": "AACDCDBB",
+    "distribution": {
+      "A": 2,
+      "B": 2,
+      "C": 2,
+      "D": 2
+    },
+    "questions": [
+      {
+        "question": 1,
+        "correct": "A",
+        "characters": {
+          "A": 142,
+          "B": 162,
+          "C": 158,
+          "D": 161
+        },
+        "words": {
+          "A": 20,
+          "B": 25,
+          "C": 25,
+          "D": 23
+        },
+        "character_ratio": 1.1408450704225352,
+        "word_ratio": 1.25,
+        "character_position": "shortest",
+        "word_position": "shortest"
+      },
+      {
+        "question": 2,
+        "correct": "A",
+        "characters": {
+          "A": 134,
+          "B": 135,
+          "C": 124,
+          "D": 132
+        },
+        "words": {
+          "A": 21,
+          "B": 19,
+          "C": 21,
+          "D": 22
+        },
+        "character_ratio": 1.0887096774193548,
+        "word_ratio": 1.1578947368421053,
+        "character_position": "middle",
+        "word_position": "middle"
+      },
+      {
+        "question": 3,
+        "correct": "C",
+        "characters": {
+          "A": 122,
+          "B": 129,
+          "C": 131,
+          "D": 112
+        },
+        "words": {
+          "A": 20,
+          "B": 21,
+          "C": 17,
+          "D": 22
+        },
+        "character_ratio": 1.1696428571428572,
+        "word_ratio": 1.2941176470588236,
+        "character_position": "longest",
+        "word_position": "shortest"
+      },
+      {
+        "question": 4,
+        "correct": "D",
+        "characters": {
+          "A": 120,
+          "B": 105,
+          "C": 121,
+          "D": 117
+        },
+        "words": {
+          "A": 19,
+          "B": 17,
+          "C": 18,
+          "D": 21
+        },
+        "character_ratio": 1.1523809523809523,
+        "word_ratio": 1.2352941176470589,
+        "character_position": "middle",
+        "word_position": "longest"
+      },
+      {
+        "question": 5,
+        "correct": "C",
+        "characters": {
+          "A": 127,
+          "B": 154,
+          "C": 134,
+          "D": 123
+        },
+        "words": {
+          "A": 18,
+          "B": 20,
+          "C": 19,
+          "D": 20
+        },
+        "character_ratio": 1.2520325203252032,
+        "word_ratio": 1.1111111111111112,
+        "character_position": "middle",
+        "word_position": "middle"
+      },
+      {
+        "question": 6,
+        "correct": "D",
+        "characters": {
+          "A": 147,
+          "B": 132,
+          "C": 142,
+          "D": 144
+        },
+        "words": {
+          "A": 20,
+          "B": 20,
+          "C": 21,
+          "D": 19
+        },
+        "character_ratio": 1.1136363636363635,
+        "word_ratio": 1.105263157894737,
+        "character_position": "middle",
+        "word_position": "shortest"
+      },
+      {
+        "question": 7,
+        "correct": "B",
+        "characters": {
+          "A": 131,
+          "B": 147,
+          "C": 130,
+          "D": 129
+        },
+        "words": {
+          "A": 19,
+          "B": 21,
+          "C": 19,
+          "D": 19
+        },
+        "character_ratio": 1.1395348837209303,
+        "word_ratio": 1.105263157894737,
+        "character_position": "longest",
+        "word_position": "longest"
+      },
+      {
+        "question": 8,
+        "correct": "B",
+        "characters": {
+          "A": 110,
+          "B": 113,
+          "C": 108,
+          "D": 106
+        },
+        "words": {
+          "A": 18,
+          "B": 17,
+          "C": 18,
+          "D": 17
+        },
+        "character_ratio": 1.0660377358490567,
+        "word_ratio": 1.0588235294117647,
+        "character_position": "longest",
+        "word_position": "tied_shortest"
+      }
+    ],
+    "replaced_questions": [],
+    "letter_maps": {
+      "1": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "2": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "3": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "4": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "5": {
+        "A": "A",
+        "B": "C",
+        "C": "B",
+        "D": "D"
+      },
+      "6": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "7": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "8": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      }
+    },
+    "revised_sha256": "bcd96277896779b73c9bcd094319d6275e4671c6535a5ef12203caadaff67a3b"
+  },
+  {
+    "id": "RC-MEDIUM-260918-0078",
+    "tier": "medium",
+    "genre": "Social policy/statistics — genre exception retained by instruction.",
+    "source_file": "exported_rc_sets/flagged_similar/RC-MEDIUM-260918-0078.txt",
+    "original_sha256": "6924bfc2a558338b9086bada569f27bbe174f024ac6f350a535e0a148deb528f",
+    "passage_words": 545,
+    "passage_lexical_words": 545,
+    "key": "BACDDCBA",
+    "distribution": {
+      "A": 2,
+      "B": 2,
+      "C": 2,
+      "D": 2
+    },
+    "questions": [
+      {
+        "question": 1,
+        "correct": "B",
+        "characters": {
+          "A": 119,
+          "B": 127,
+          "C": 124,
+          "D": 137
+        },
+        "words": {
+          "A": 20,
+          "B": 17,
+          "C": 21,
+          "D": 22
+        },
+        "character_ratio": 1.1512605042016806,
+        "word_ratio": 1.2941176470588236,
+        "character_position": "middle",
+        "word_position": "shortest"
+      },
+      {
+        "question": 2,
+        "correct": "A",
+        "characters": {
+          "A": 104,
+          "B": 110,
+          "C": 111,
+          "D": 114
+        },
+        "words": {
+          "A": 17,
+          "B": 17,
+          "C": 17,
+          "D": 18
+        },
+        "character_ratio": 1.0961538461538463,
+        "word_ratio": 1.0588235294117647,
+        "character_position": "shortest",
+        "word_position": "tied_shortest"
+      },
+      {
+        "question": 3,
+        "correct": "C",
+        "characters": {
+          "A": 84,
+          "B": 90,
+          "C": 85,
+          "D": 90
+        },
+        "words": {
+          "A": 14,
+          "B": 14,
+          "C": 15,
+          "D": 16
+        },
+        "character_ratio": 1.0714285714285714,
+        "word_ratio": 1.1428571428571428,
+        "character_position": "middle",
+        "word_position": "middle"
+      },
+      {
+        "question": 4,
+        "correct": "D",
+        "characters": {
+          "A": 135,
+          "B": 149,
+          "C": 116,
+          "D": 147
+        },
+        "words": {
+          "A": 19,
+          "B": 21,
+          "C": 20,
+          "D": 21
+        },
+        "character_ratio": 1.2844827586206897,
+        "word_ratio": 1.105263157894737,
+        "character_position": "middle",
+        "word_position": "tied_longest"
+      },
+      {
+        "question": 5,
+        "correct": "D",
+        "characters": {
+          "A": 114,
+          "B": 121,
+          "C": 124,
+          "D": 139
+        },
+        "words": {
+          "A": 18,
+          "B": 20,
+          "C": 18,
+          "D": 20
+        },
+        "character_ratio": 1.219298245614035,
+        "word_ratio": 1.1111111111111112,
+        "character_position": "longest",
+        "word_position": "tied_longest"
+      },
+      {
+        "question": 6,
+        "correct": "C",
+        "characters": {
+          "A": 101,
+          "B": 125,
+          "C": 105,
+          "D": 102
+        },
+        "words": {
+          "A": 17,
+          "B": 19,
+          "C": 17,
+          "D": 17
+        },
+        "character_ratio": 1.2376237623762376,
+        "word_ratio": 1.1176470588235294,
+        "character_position": "middle",
+        "word_position": "tied_shortest"
+      },
+      {
+        "question": 7,
+        "correct": "B",
+        "characters": {
+          "A": 110,
+          "B": 107,
+          "C": 100,
+          "D": 103
+        },
+        "words": {
+          "A": 15,
+          "B": 15,
+          "C": 18,
+          "D": 17
+        },
+        "character_ratio": 1.1,
+        "word_ratio": 1.2,
+        "character_position": "middle",
+        "word_position": "tied_shortest"
+      },
+      {
+        "question": 8,
+        "correct": "A",
+        "characters": {
+          "A": 114,
+          "B": 102,
+          "C": 106,
+          "D": 97
+        },
+        "words": {
+          "A": 17,
+          "B": 17,
+          "C": 16,
+          "D": 17
+        },
+        "character_ratio": 1.175257731958763,
+        "word_ratio": 1.0625,
+        "character_position": "longest",
+        "word_position": "tied_longest"
+      }
+    ],
+    "replaced_questions": [],
+    "letter_maps": {
+      "1": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "2": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "3": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "4": {
+        "A": "A",
+        "B": "D",
+        "C": "C",
+        "D": "B"
+      },
+      "5": {
+        "A": "D",
+        "B": "B",
+        "C": "C",
+        "D": "A"
+      },
+      "6": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "7": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "8": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      }
+    },
+    "revised_sha256": "007170a60ddfe5fe6cba7470d81629fcb9809bdbd81a732f9be04f66b335603a"
+  },
+  {
+    "id": "RC-MEDIUM-260918-0080",
+    "tier": "medium",
+    "genre": "Legislative/administrative history — genre exception retained by instruction.",
+    "source_file": "exported_rc_sets/RC-MEDIUM-260918-0080.txt",
+    "original_sha256": "da2d0e0244675862114e8ca67f0a6e324928dc892302901a7368a1800ee60b81",
+    "passage_words": 547,
+    "passage_lexical_words": 544,
+    "key": "CCDBBDAA",
+    "distribution": {
+      "A": 2,
+      "B": 2,
+      "C": 2,
+      "D": 2
+    },
+    "questions": [
+      {
+        "question": 1,
+        "correct": "C",
+        "characters": {
+          "A": 95,
+          "B": 106,
+          "C": 99,
+          "D": 97
+        },
+        "words": {
+          "A": 15,
+          "B": 14,
+          "C": 16,
+          "D": 14
+        },
+        "character_ratio": 1.1157894736842104,
+        "word_ratio": 1.1428571428571428,
+        "character_position": "middle",
+        "word_position": "longest"
+      },
+      {
+        "question": 2,
+        "correct": "C",
+        "characters": {
+          "A": 75,
+          "B": 85,
+          "C": 89,
+          "D": 86
+        },
+        "words": {
+          "A": 13,
+          "B": 12,
+          "C": 13,
+          "D": 13
+        },
+        "character_ratio": 1.1866666666666668,
+        "word_ratio": 1.0833333333333333,
+        "character_position": "longest",
+        "word_position": "tied_longest"
+      },
+      {
+        "question": 3,
+        "correct": "D",
+        "characters": {
+          "A": 84,
+          "B": 90,
+          "C": 83,
+          "D": 77
+        },
+        "words": {
+          "A": 12,
+          "B": 12,
+          "C": 12,
+          "D": 12
+        },
+        "character_ratio": 1.1688311688311688,
+        "word_ratio": 1.0,
+        "character_position": "shortest",
+        "word_position": "all_equal"
+      },
+      {
+        "question": 4,
+        "correct": "B",
+        "characters": {
+          "A": 105,
+          "B": 100,
+          "C": 87,
+          "D": 89
+        },
+        "words": {
+          "A": 12,
+          "B": 15,
+          "C": 13,
+          "D": 12
+        },
+        "character_ratio": 1.206896551724138,
+        "word_ratio": 1.25,
+        "character_position": "middle",
+        "word_position": "longest"
+      },
+      {
+        "question": 5,
+        "correct": "B",
+        "characters": {
+          "A": 81,
+          "B": 85,
+          "C": 82,
+          "D": 95
+        },
+        "words": {
+          "A": 11,
+          "B": 12,
+          "C": 11,
+          "D": 12
+        },
+        "character_ratio": 1.1728395061728396,
+        "word_ratio": 1.0909090909090908,
+        "character_position": "middle",
+        "word_position": "tied_longest"
+      },
+      {
+        "question": 6,
+        "correct": "D",
+        "characters": {
+          "A": 77,
+          "B": 76,
+          "C": 81,
+          "D": 70
+        },
+        "words": {
+          "A": 12,
+          "B": 11,
+          "C": 12,
+          "D": 12
+        },
+        "character_ratio": 1.1571428571428573,
+        "word_ratio": 1.0909090909090908,
+        "character_position": "shortest",
+        "word_position": "tied_longest"
+      },
+      {
+        "question": 7,
+        "correct": "A",
+        "characters": {
+          "A": 72,
+          "B": 78,
+          "C": 68,
+          "D": 81
+        },
+        "words": {
+          "A": 12,
+          "B": 13,
+          "C": 12,
+          "D": 12
+        },
+        "character_ratio": 1.1911764705882353,
+        "word_ratio": 1.0833333333333333,
+        "character_position": "middle",
+        "word_position": "tied_shortest"
+      },
+      {
+        "question": 8,
+        "correct": "A",
+        "characters": {
+          "A": 124,
+          "B": 110,
+          "C": 102,
+          "D": 113
+        },
+        "words": {
+          "A": 17,
+          "B": 15,
+          "C": 15,
+          "D": 17
+        },
+        "character_ratio": 1.2156862745098038,
+        "word_ratio": 1.1333333333333333,
+        "character_position": "longest",
+        "word_position": "tied_longest"
+      }
+    ],
+    "replaced_questions": [],
+    "letter_maps": {
+      "1": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "2": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "3": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "4": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "5": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "6": {
+        "A": "A",
+        "B": "B",
+        "C": "D",
+        "D": "C"
+      },
+      "7": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "8": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      }
+    },
+    "revised_sha256": "92e3c9cc4914d7e06d9d9142a5e330d1c2d9522b421af9a5795a395956a67ad7"
+  },
+  {
+    "id": "RC-MEDIUM-260918-0081",
+    "tier": "hard",
+    "genre": "Political philosophy/intellectual history — defensible within brief.",
+    "source_file": "exported_rc_sets/RC-MEDIUM-260918-0081.txt",
+    "original_sha256": "fdec7798501e225d72fd5d0b7d3df4a37d19ae73f0553b498b385469ee86fc11",
+    "passage_words": 544,
+    "passage_lexical_words": 542,
+    "key": "BCDDACBA",
+    "distribution": {
+      "A": 2,
+      "B": 2,
+      "C": 2,
+      "D": 2
+    },
+    "questions": [
+      {
+        "question": 1,
+        "correct": "B",
+        "characters": {
+          "A": 141,
+          "B": 130,
+          "C": 148,
+          "D": 149
+        },
+        "words": {
+          "A": 21,
+          "B": 20,
+          "C": 19,
+          "D": 19
+        },
+        "character_ratio": 1.146153846153846,
+        "word_ratio": 1.105263157894737,
+        "character_position": "shortest",
+        "word_position": "middle"
+      },
+      {
+        "question": 2,
+        "correct": "C",
+        "characters": {
+          "A": 117,
+          "B": 128,
+          "C": 119,
+          "D": 100
+        },
+        "words": {
+          "A": 18,
+          "B": 19,
+          "C": 16,
+          "D": 18
+        },
+        "character_ratio": 1.28,
+        "word_ratio": 1.1875,
+        "character_position": "middle",
+        "word_position": "shortest"
+      },
+      {
+        "question": 3,
+        "correct": "D",
+        "characters": {
+          "A": 122,
+          "B": 120,
+          "C": 95,
+          "D": 112
+        },
+        "words": {
+          "A": 19,
+          "B": 18,
+          "C": 18,
+          "D": 19
+        },
+        "character_ratio": 1.2842105263157895,
+        "word_ratio": 1.0555555555555556,
+        "character_position": "middle",
+        "word_position": "tied_longest"
+      },
+      {
+        "question": 4,
+        "correct": "D",
+        "characters": {
+          "A": 114,
+          "B": 129,
+          "C": 108,
+          "D": 128
+        },
+        "words": {
+          "A": 18,
+          "B": 20,
+          "C": 18,
+          "D": 20
+        },
+        "character_ratio": 1.1944444444444444,
+        "word_ratio": 1.1111111111111112,
+        "character_position": "middle",
+        "word_position": "tied_longest"
+      },
+      {
+        "question": 5,
+        "correct": "A",
+        "characters": {
+          "A": 137,
+          "B": 127,
+          "C": 128,
+          "D": 138
+        },
+        "words": {
+          "A": 20,
+          "B": 19,
+          "C": 19,
+          "D": 21
+        },
+        "character_ratio": 1.0866141732283465,
+        "word_ratio": 1.105263157894737,
+        "character_position": "middle",
+        "word_position": "middle"
+      },
+      {
+        "question": 6,
+        "correct": "C",
+        "characters": {
+          "A": 100,
+          "B": 98,
+          "C": 111,
+          "D": 103
+        },
+        "words": {
+          "A": 19,
+          "B": 19,
+          "C": 18,
+          "D": 17
+        },
+        "character_ratio": 1.1326530612244898,
+        "word_ratio": 1.1176470588235294,
+        "character_position": "longest",
+        "word_position": "middle"
+      },
+      {
+        "question": 7,
+        "correct": "B",
+        "characters": {
+          "A": 105,
+          "B": 105,
+          "C": 105,
+          "D": 112
+        },
+        "words": {
+          "A": 16,
+          "B": 17,
+          "C": 17,
+          "D": 17
+        },
+        "character_ratio": 1.0666666666666667,
+        "word_ratio": 1.0625,
+        "character_position": "tied_shortest",
+        "word_position": "tied_longest"
+      },
+      {
+        "question": 8,
+        "correct": "A",
+        "characters": {
+          "A": 111,
+          "B": 106,
+          "C": 99,
+          "D": 106
+        },
+        "words": {
+          "A": 17,
+          "B": 16,
+          "C": 15,
+          "D": 17
+        },
+        "character_ratio": 1.121212121212121,
+        "word_ratio": 1.1333333333333333,
+        "character_position": "longest",
+        "word_position": "tied_longest"
+      }
+    ],
+    "replaced_questions": [
+      5
+    ],
+    "letter_maps": {
+      "1": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "2": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "3": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "4": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "6": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "7": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "8": {
+        "A": "D",
+        "B": "B",
+        "C": "C",
+        "D": "A"
+      }
+    },
+    "revised_sha256": "16927f22522cb731a127bfd38a80bb4e2848ee52433fe10ede4646e6936c309e"
+  },
+  {
+    "id": "RC-MEDIUM-260918-0082",
+    "tier": "medium",
+    "genre": "Urban/cultural governance — genre exception retained by instruction.",
+    "source_file": "exported_rc_sets/RC-MEDIUM-260918-0082.txt",
+    "original_sha256": "0c77a59a93a0fdfa27938d40ba4f8e8a6be4e1722712a19e626611776440fc0b",
+    "passage_words": 547,
+    "passage_lexical_words": 544,
+    "key": "CADCBBDA",
+    "distribution": {
+      "A": 2,
+      "B": 2,
+      "C": 2,
+      "D": 2
+    },
+    "questions": [
+      {
+        "question": 1,
+        "correct": "C",
+        "characters": {
+          "A": 136,
+          "B": 135,
+          "C": 132,
+          "D": 135
+        },
+        "words": {
+          "A": 17,
+          "B": 18,
+          "C": 17,
+          "D": 18
+        },
+        "character_ratio": 1.0303030303030303,
+        "word_ratio": 1.0588235294117647,
+        "character_position": "shortest",
+        "word_position": "tied_shortest"
+      },
+      {
+        "question": 2,
+        "correct": "A",
+        "characters": {
+          "A": 112,
+          "B": 106,
+          "C": 97,
+          "D": 95
+        },
+        "words": {
+          "A": 15,
+          "B": 15,
+          "C": 12,
+          "D": 15
+        },
+        "character_ratio": 1.1789473684210525,
+        "word_ratio": 1.25,
+        "character_position": "longest",
+        "word_position": "tied_longest"
+      },
+      {
+        "question": 3,
+        "correct": "D",
+        "characters": {
+          "A": 90,
+          "B": 83,
+          "C": 89,
+          "D": 76
+        },
+        "words": {
+          "A": 13,
+          "B": 13,
+          "C": 13,
+          "D": 13
+        },
+        "character_ratio": 1.1842105263157894,
+        "word_ratio": 1.0,
+        "character_position": "shortest",
+        "word_position": "all_equal"
+      },
+      {
+        "question": 4,
+        "correct": "C",
+        "characters": {
+          "A": 119,
+          "B": 102,
+          "C": 107,
+          "D": 121
+        },
+        "words": {
+          "A": 18,
+          "B": 17,
+          "C": 18,
+          "D": 19
+        },
+        "character_ratio": 1.1862745098039216,
+        "word_ratio": 1.1176470588235294,
+        "character_position": "middle",
+        "word_position": "middle"
+      },
+      {
+        "question": 5,
+        "correct": "B",
+        "characters": {
+          "A": 106,
+          "B": 96,
+          "C": 108,
+          "D": 103
+        },
+        "words": {
+          "A": 13,
+          "B": 15,
+          "C": 14,
+          "D": 14
+        },
+        "character_ratio": 1.125,
+        "word_ratio": 1.1538461538461537,
+        "character_position": "shortest",
+        "word_position": "longest"
+      },
+      {
+        "question": 6,
+        "correct": "B",
+        "characters": {
+          "A": 112,
+          "B": 109,
+          "C": 114,
+          "D": 94
+        },
+        "words": {
+          "A": 16,
+          "B": 16,
+          "C": 16,
+          "D": 16
+        },
+        "character_ratio": 1.2127659574468086,
+        "word_ratio": 1.0,
+        "character_position": "middle",
+        "word_position": "all_equal"
+      },
+      {
+        "question": 7,
+        "correct": "D",
+        "characters": {
+          "A": 114,
+          "B": 110,
+          "C": 113,
+          "D": 122
+        },
+        "words": {
+          "A": 15,
+          "B": 15,
+          "C": 16,
+          "D": 15
+        },
+        "character_ratio": 1.1090909090909091,
+        "word_ratio": 1.0666666666666667,
+        "character_position": "longest",
+        "word_position": "tied_shortest"
+      },
+      {
+        "question": 8,
+        "correct": "A",
+        "characters": {
+          "A": 97,
+          "B": 96,
+          "C": 99,
+          "D": 93
+        },
+        "words": {
+          "A": 15,
+          "B": 14,
+          "C": 14,
+          "D": 14
+        },
+        "character_ratio": 1.064516129032258,
+        "word_ratio": 1.0714285714285714,
+        "character_position": "middle",
+        "word_position": "longest"
+      }
+    ],
+    "replaced_questions": [],
+    "letter_maps": {
+      "1": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "2": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "3": {
+        "A": "D",
+        "B": "B",
+        "C": "C",
+        "D": "A"
+      },
+      "4": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "5": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "6": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "7": {
+        "A": "A",
+        "B": "B",
+        "C": "D",
+        "D": "C"
+      },
+      "8": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      }
+    },
+    "revised_sha256": "4b8a2d4ac3bd856c4a1c889c1a793d6a50329392076d27040ca46ecfeacaf0e9"
+  },
+  {
+    "id": "RC-ELITE-260918-0093",
+    "tier": "hard",
+    "genre": "Art/design history — within brief.",
+    "source_file": "exported_rc_sets/RC-ELITE-260918-0093.txt",
+    "original_sha256": "068cca074dcf1fc0977e500c75b451182e559582c5cd8e15fb2a48e30ce59788",
+    "passage_words": 547,
+    "passage_lexical_words": 544,
+    "key": "CDBABCAD",
+    "distribution": {
+      "A": 2,
+      "B": 2,
+      "C": 2,
+      "D": 2
+    },
+    "questions": [
+      {
+        "question": 1,
+        "correct": "C",
+        "characters": {
+          "A": 80,
+          "B": 92,
+          "C": 87,
+          "D": 96
+        },
+        "words": {
+          "A": 14,
+          "B": 15,
+          "C": 13,
+          "D": 15
+        },
+        "character_ratio": 1.2,
+        "word_ratio": 1.1538461538461537,
+        "character_position": "middle",
+        "word_position": "shortest"
+      },
+      {
+        "question": 2,
+        "correct": "D",
+        "characters": {
+          "A": 96,
+          "B": 88,
+          "C": 89,
+          "D": 97
+        },
+        "words": {
+          "A": 15,
+          "B": 14,
+          "C": 14,
+          "D": 14
+        },
+        "character_ratio": 1.1022727272727273,
+        "word_ratio": 1.0714285714285714,
+        "character_position": "longest",
+        "word_position": "tied_shortest"
+      },
+      {
+        "question": 3,
+        "correct": "B",
+        "characters": {
+          "A": 81,
+          "B": 83,
+          "C": 88,
+          "D": 91
+        },
+        "words": {
+          "A": 14,
+          "B": 14,
+          "C": 13,
+          "D": 14
+        },
+        "character_ratio": 1.123456790123457,
+        "word_ratio": 1.0769230769230769,
+        "character_position": "middle",
+        "word_position": "tied_longest"
+      },
+      {
+        "question": 4,
+        "correct": "A",
+        "characters": {
+          "A": 73,
+          "B": 83,
+          "C": 89,
+          "D": 94
+        },
+        "words": {
+          "A": 13,
+          "B": 13,
+          "C": 12,
+          "D": 13
+        },
+        "character_ratio": 1.2876712328767124,
+        "word_ratio": 1.0833333333333333,
+        "character_position": "shortest",
+        "word_position": "tied_longest"
+      },
+      {
+        "question": 5,
+        "correct": "B",
+        "characters": {
+          "A": 93,
+          "B": 96,
+          "C": 97,
+          "D": 95
+        },
+        "words": {
+          "A": 14,
+          "B": 15,
+          "C": 14,
+          "D": 15
+        },
+        "character_ratio": 1.043010752688172,
+        "word_ratio": 1.0714285714285714,
+        "character_position": "middle",
+        "word_position": "tied_longest"
+      },
+      {
+        "question": 6,
+        "correct": "C",
+        "characters": {
+          "A": 87,
+          "B": 84,
+          "C": 87,
+          "D": 89
+        },
+        "words": {
+          "A": 13,
+          "B": 13,
+          "C": 13,
+          "D": 14
+        },
+        "character_ratio": 1.0595238095238095,
+        "word_ratio": 1.0769230769230769,
+        "character_position": "middle",
+        "word_position": "tied_shortest"
+      },
+      {
+        "question": 7,
+        "correct": "A",
+        "characters": {
+          "A": 108,
+          "B": 98,
+          "C": 103,
+          "D": 88
+        },
+        "words": {
+          "A": 15,
+          "B": 15,
+          "C": 14,
+          "D": 14
+        },
+        "character_ratio": 1.2272727272727273,
+        "word_ratio": 1.0714285714285714,
+        "character_position": "longest",
+        "word_position": "tied_longest"
+      },
+      {
+        "question": 8,
+        "correct": "D",
+        "characters": {
+          "A": 74,
+          "B": 73,
+          "C": 73,
+          "D": 71
+        },
+        "words": {
+          "A": 13,
+          "B": 14,
+          "C": 13,
+          "D": 14
+        },
+        "character_ratio": 1.0422535211267605,
+        "word_ratio": 1.0769230769230769,
+        "character_position": "shortest",
+        "word_position": "tied_longest"
+      }
+    ],
+    "replaced_questions": [],
+    "letter_maps": {
+      "1": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "2": {
+        "A": "A",
+        "B": "B",
+        "C": "D",
+        "D": "C"
+      },
+      "3": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "4": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "5": {
+        "A": "B",
+        "B": "A",
+        "C": "C",
+        "D": "D"
+      },
+      "6": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "7": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "8": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      }
+    },
+    "revised_sha256": "d05f849632deef1dccc49126e42faebff91dc5b91616d2acf967fdbb36e04f57"
+  },
+  {
+    "id": "RC-HARD-260918-0102",
+    "tier": "hard",
+    "genre": "Law/public policy — genre exception retained by instruction.",
+    "source_file": "exported_rc_sets/RC-HARD-260918-0102.txt",
+    "original_sha256": "948c07d9c90ca1093aee03ecebed344dcd2be0faca8f61895efaabeef0e3d0d6",
+    "passage_words": 546,
+    "passage_lexical_words": 544,
+    "key": "CABDBCDA",
+    "distribution": {
+      "A": 2,
+      "B": 2,
+      "C": 2,
+      "D": 2
+    },
+    "questions": [
+      {
+        "question": 1,
+        "correct": "C",
+        "characters": {
+          "A": 125,
+          "B": 125,
+          "C": 104,
+          "D": 115
+        },
+        "words": {
+          "A": 18,
+          "B": 19,
+          "C": 19,
+          "D": 20
+        },
+        "character_ratio": 1.2019230769230769,
+        "word_ratio": 1.1111111111111112,
+        "character_position": "shortest",
+        "word_position": "middle"
+      },
+      {
+        "question": 2,
+        "correct": "A",
+        "characters": {
+          "A": 106,
+          "B": 99,
+          "C": 106,
+          "D": 99
+        },
+        "words": {
+          "A": 15,
+          "B": 14,
+          "C": 14,
+          "D": 16
+        },
+        "character_ratio": 1.0707070707070707,
+        "word_ratio": 1.1428571428571428,
+        "character_position": "tied_longest",
+        "word_position": "middle"
+      },
+      {
+        "question": 3,
+        "correct": "B",
+        "characters": {
+          "A": 95,
+          "B": 102,
+          "C": 105,
+          "D": 94
+        },
+        "words": {
+          "A": 13,
+          "B": 16,
+          "C": 14,
+          "D": 13
+        },
+        "character_ratio": 1.1170212765957446,
+        "word_ratio": 1.2307692307692308,
+        "character_position": "middle",
+        "word_position": "longest"
+      },
+      {
+        "question": 4,
+        "correct": "D",
+        "characters": {
+          "A": 91,
+          "B": 103,
+          "C": 101,
+          "D": 88
+        },
+        "words": {
+          "A": 14,
+          "B": 14,
+          "C": 14,
+          "D": 14
+        },
+        "character_ratio": 1.1704545454545454,
+        "word_ratio": 1.0,
+        "character_position": "shortest",
+        "word_position": "all_equal"
+      },
+      {
+        "question": 5,
+        "correct": "B",
+        "characters": {
+          "A": 96,
+          "B": 92,
+          "C": 88,
+          "D": 109
+        },
+        "words": {
+          "A": 14,
+          "B": 13,
+          "C": 14,
+          "D": 15
+        },
+        "character_ratio": 1.2386363636363635,
+        "word_ratio": 1.1538461538461537,
+        "character_position": "middle",
+        "word_position": "shortest"
+      },
+      {
+        "question": 6,
+        "correct": "C",
+        "characters": {
+          "A": 98,
+          "B": 103,
+          "C": 91,
+          "D": 101
+        },
+        "words": {
+          "A": 14,
+          "B": 16,
+          "C": 15,
+          "D": 14
+        },
+        "character_ratio": 1.1318681318681318,
+        "word_ratio": 1.1428571428571428,
+        "character_position": "shortest",
+        "word_position": "middle"
+      },
+      {
+        "question": 7,
+        "correct": "D",
+        "characters": {
+          "A": 111,
+          "B": 98,
+          "C": 102,
+          "D": 108
+        },
+        "words": {
+          "A": 16,
+          "B": 14,
+          "C": 14,
+          "D": 15
+        },
+        "character_ratio": 1.1326530612244898,
+        "word_ratio": 1.1428571428571428,
+        "character_position": "middle",
+        "word_position": "middle"
+      },
+      {
+        "question": 8,
+        "correct": "A",
+        "characters": {
+          "A": 99,
+          "B": 95,
+          "C": 83,
+          "D": 89
+        },
+        "words": {
+          "A": 14,
+          "B": 14,
+          "C": 13,
+          "D": 13
+        },
+        "character_ratio": 1.1927710843373494,
+        "word_ratio": 1.0769230769230769,
+        "character_position": "longest",
+        "word_position": "tied_longest"
+      }
+    ],
+    "replaced_questions": [],
+    "letter_maps": {
+      "1": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "2": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "3": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "4": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "5": {
+        "A": "A",
+        "B": "D",
+        "C": "C",
+        "D": "B"
+      },
+      "6": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "7": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "8": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      }
+    },
+    "revised_sha256": "eef3cbe8b8b30fcad083f4990f3cfe20cffa31ae04b9fa544a8ca000eae85a81"
+  },
+  {
+    "id": "RC-HARD-260918-0103",
+    "tier": "hard",
+    "genre": "Applied philosophy/institutional ethics — within brief.",
+    "source_file": "exported_rc_sets/flagged_similar/RC-HARD-260918-0103.txt",
+    "original_sha256": "2002529b51af34dda35ad9c692263885fafab722993438e2e17434f7cfe25746",
+    "passage_words": 545,
+    "passage_lexical_words": 541,
+    "key": "ACCDABDB",
+    "distribution": {
+      "A": 2,
+      "B": 2,
+      "C": 2,
+      "D": 2
+    },
+    "questions": [
+      {
+        "question": 1,
+        "correct": "A",
+        "characters": {
+          "A": 123,
+          "B": 146,
+          "C": 123,
+          "D": 126
+        },
+        "words": {
+          "A": 19,
+          "B": 20,
+          "C": 18,
+          "D": 18
+        },
+        "character_ratio": 1.1869918699186992,
+        "word_ratio": 1.1111111111111112,
+        "character_position": "tied_shortest",
+        "word_position": "middle"
+      },
+      {
+        "question": 2,
+        "correct": "C",
+        "characters": {
+          "A": 122,
+          "B": 125,
+          "C": 115,
+          "D": 106
+        },
+        "words": {
+          "A": 19,
+          "B": 18,
+          "C": 19,
+          "D": 18
+        },
+        "character_ratio": 1.179245283018868,
+        "word_ratio": 1.0555555555555556,
+        "character_position": "middle",
+        "word_position": "tied_longest"
+      },
+      {
+        "question": 3,
+        "correct": "C",
+        "characters": {
+          "A": 91,
+          "B": 87,
+          "C": 89,
+          "D": 104
+        },
+        "words": {
+          "A": 15,
+          "B": 14,
+          "C": 14,
+          "D": 13
+        },
+        "character_ratio": 1.1954022988505748,
+        "word_ratio": 1.1538461538461537,
+        "character_position": "middle",
+        "word_position": "middle"
+      },
+      {
+        "question": 4,
+        "correct": "D",
+        "characters": {
+          "A": 98,
+          "B": 117,
+          "C": 104,
+          "D": 94
+        },
+        "words": {
+          "A": 15,
+          "B": 16,
+          "C": 14,
+          "D": 15
+        },
+        "character_ratio": 1.2446808510638299,
+        "word_ratio": 1.1428571428571428,
+        "character_position": "shortest",
+        "word_position": "middle"
+      },
+      {
+        "question": 5,
+        "correct": "A",
+        "characters": {
+          "A": 136,
+          "B": 133,
+          "C": 137,
+          "D": 129
+        },
+        "words": {
+          "A": 18,
+          "B": 18,
+          "C": 17,
+          "D": 19
+        },
+        "character_ratio": 1.062015503875969,
+        "word_ratio": 1.1176470588235294,
+        "character_position": "middle",
+        "word_position": "middle"
+      },
+      {
+        "question": 6,
+        "correct": "B",
+        "characters": {
+          "A": 127,
+          "B": 120,
+          "C": 135,
+          "D": 121
+        },
+        "words": {
+          "A": 17,
+          "B": 18,
+          "C": 19,
+          "D": 18
+        },
+        "character_ratio": 1.125,
+        "word_ratio": 1.1176470588235294,
+        "character_position": "shortest",
+        "word_position": "middle"
+      },
+      {
+        "question": 7,
+        "correct": "D",
+        "characters": {
+          "A": 109,
+          "B": 86,
+          "C": 106,
+          "D": 96
+        },
+        "words": {
+          "A": 14,
+          "B": 16,
+          "C": 15,
+          "D": 14
+        },
+        "character_ratio": 1.2674418604651163,
+        "word_ratio": 1.1428571428571428,
+        "character_position": "middle",
+        "word_position": "tied_shortest"
+      },
+      {
+        "question": 8,
+        "correct": "B",
+        "characters": {
+          "A": 164,
+          "B": 163,
+          "C": 159,
+          "D": 150
+        },
+        "words": {
+          "A": 19,
+          "B": 21,
+          "C": 19,
+          "D": 22
+        },
+        "character_ratio": 1.0933333333333333,
+        "word_ratio": 1.1578947368421053,
+        "character_position": "middle",
+        "word_position": "middle"
+      }
+    ],
+    "replaced_questions": [
+      8
+    ],
+    "letter_maps": {
+      "1": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "2": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "3": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "4": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "5": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      },
+      "6": {
+        "A": "A",
+        "B": "C",
+        "C": "B",
+        "D": "D"
+      },
+      "7": {
+        "A": "A",
+        "B": "B",
+        "C": "C",
+        "D": "D"
+      }
+    },
+    "revised_sha256": "ac05a4adee6340d46f08888f214add9e9df021d0d8c44a537108f2bb2dc03cf7"
+  }
+]

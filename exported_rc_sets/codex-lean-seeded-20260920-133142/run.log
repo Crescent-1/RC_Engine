@@ -1,0 +1,70 @@
+[backup] DB -> C:\Users\anshu\rc_data\backups\codex-lean-seeded-20260920-133142\rc_pipeline-20260920-133143.db (integrity: ok; keeping last 1000)
+[codex] Opus -> Astra; Sonnet -> Sol; questions=medium=high,hard=xhigh,elite=max, other stages=low; fallback=stop. Luna checks still use the API.
+[policy] new plans: hard=legacy, elite=legacy
+[client] AA - novelty window and exports are this client's; skeletons and seed essays are exclusive across clients
+Loading local embedding model (BAAI/bge-small-en-v1.5)...
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights:  35%|███▌      | 70/199 [00:00<00:00, 698.47it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 1468.60it/s]
+C:\Users\anshu\OneDrive - eLitmus\RC Gen Project\RAG.py:325: LangChainDeprecationWarning: The class `Chroma` was deprecated in LangChain 0.2.9 and will be removed in 1.0. An updated version of the class exists in the `langchain-chroma package and should be used instead. To use it run `pip install -U `langchain-chroma` and import as `from `langchain_chroma import Chroma``.
+  _db_instance = Chroma(persist_directory=PERSIST_DIR, embedding_function=embedding_function)
+[batch] spending cap: $0.98 (per-RC caps: {'medium': 0.34, 'hard': 0.36, 'elite': 0.42})
+[seeds] hard <- [NYRB] ‘A Fury of Dark Energies’
+Loading weights:   0%|          | 0/199 [00:00<?, ?it/s]Loading weights: 100%|██████████| 199/199 [00:00<00:00, 2050.86it/s]
+
+=== [hard] 1/1 ===
+  [seed] labels from the seed store
+  [seed] criticism / literature -> topic shape TS04
+  [move-plan] planned grammar near RC-HARD-260912-0092 @ 0.61 - resampling 1/3 ($0)
+  [move-plan] planned grammar near RC-MEDIUM-260918-0078 @ 0.58 - resampling 2/3 ($0)
+  [move-plan] planned grammar near RC-ELITE-260914-0091 @ 0.59 - resampling 3/3 ($0)
+  [codex] refine -> gpt-5.6-sol (CLI usage recorded; no API spend)
+  [BP BP_260920_c37b561b] F36/P04/E17/T11/R18/D10/QT14 instability=0.53
+  [codex] render -> gpt-6-astra (CLI usage recorded; no API spend)
+  [pin] move_signature -> gpt-5.6-luna
+  [pin] compliance (hard) -> gpt-5.6-luna
+  [codex] render -> gpt-6-astra (CLI usage recorded; no API spend)
+  [arg-schema] planned S7_CASE_AGAINST_RULE -> realized S7_CASE_AGAINST_RULE + S1_INSTRUMENT_BLIND  HIT
+  [codex] questions -> gpt-6-astra (CLI usage recorded; no API spend)
+  [pin] answerability -> gpt-5.6-luna
+  [codex] solver -> gpt-5.6-sol (CLI usage recorded; no API spend)
+  [pin] judge -> gpt-5.6-luna
+  [RC-HARD-260920-0105] status=needs_review f1=0.821 novelty=0.486 avg=9.2 words=521 cost=$0.0099 (budget $0.36)
+[seeds] elite <- [Public Domain Review] “You Think Me a Bold Cheat”: Mary Carleton, Counterfeit Princess
+
+=== [elite] 1/1 ===
+  [seed] labels from the seed store
+  [seed] biography / history -> topic shape TS04
+  [move-plan] planned grammar near RC-MEDIUM-260918-0078 @ 0.56 - resampling 1/3 ($0)
+  [move-plan] planned grammar near RC-HARD-260912-0092 @ 0.58 - resampling 2/3 ($0)
+  [move-plan] planned grammar near RC-HARD-260912-0092 @ 0.64 - resampling 3/3 ($0)
+  [codex] refine -> gpt-5.6-sol (CLI usage recorded; no API spend)
+  [BP BP_260920_9bf3c253] F38/P12/E04/T14/R12/D13/QT21 instability=0.55
+  [codex] render -> gpt-6-astra (CLI usage recorded; no API spend)
+  [pin] compliance (elite) -> gpt-5.6-luna
+  [arg-schema] planned S7_CASE_AGAINST_RULE -> realized S4_MECHANISM_TRACED + S1_INSTRUMENT_BLIND  MISS
+  [codex] questions -> gpt-6-astra (CLI usage recorded; no API spend)
+
+[STOP] API exhausted (Codex CLI stopped at questions: TimeoutExpired) - batch stopped cleanly; completed work is committed. Re-run later to continue.
+
+--- Batch 20260920-133206 summary: 1 shipped, 1 attempts, total $0.0099 ---
+  RC-HARD-260920-0105 | hard   | needs_review     | f1=0.821 novelty=0.486 score=9.2 $0.0099
+--- Cost telemetry ---
+  shipped spend        $0.0099 over 1 sets
+  wasted spend         $0.0000 (0% of total) — paid $0.0000 in 0 attempts, 0 free precheck saves
+  $/shipped set        $0.0099 (shipped-only) | $0.0099 (all-in incl. waste)
+  status counts        needs_review=1
+--- Codex CLI subscription usage (NOT API spend) ---
+  calls                8 (questions x2, refine x2, render x3, solver x1)
+  tokens               in 22,433 | cache-write 0 | cache-read 0 | out 15,810 (thinking 9,004)
+  total tokens         38,243
+  notional list price  $0.8645 — what these calls WOULD have cost on the API; the subscription is metered in usage, not dollars, so treat this as a relative meter between runs, not a bill
+  per shipped set      8.0 calls | 38,243 tokens | $0.8645 notional
+  [screen] gpt-5.6-luna: references from 147 client sets
+    [RED  ] RC-HARD-260920-0105 ~ RC-ELITE-260919-0094
+             shared: Opens by defining a category and then presents a case that unsettles its exclusive logic
+             shared: Moves from the individual work to the institutional labels and boxes imposed on it
+             shared: Uses classification as an itinerary of attention rather than a stable property
+             shared: Closes by distinguishing overlapping functions and accepting a cost for resisting tidy classification
+             The sequence from exclusive classification, through a revealing exception and institutional filing systems, to a qualified rejection of tidy boxes closely repeats the reference's essay architecture.
+  [screen] spend $0.0021
+  all-in incl. screen  $0.0120 (generation $0.0099 + screen $0.0021) | $0.0120 per shipped set
+[backup] DB -> C:\Users\anshu\rc_data\backups\codex-lean-seeded-20260920-133142\rc_pipeline-20260920-135419.db (integrity: ok; keeping last 1000)

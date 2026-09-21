@@ -1,0 +1,116 @@
+RC ID: RC-ELITE-260919-0094 | Tier: elite | Score: 8.4 | Status: needs_review | Compliance F1: 0.941 | Novelty: 0.542 | Screen: red | Generated: 2026-09-19T07:55:49.156783+00:00
+======================================================================
+
+[PASSAGE]
+
+A work a person makes about her own life must either report that life or shape it, and a viewer needs to know which before deciding what is owed to it. Two camps, both reasonable, have settled on Charlotte Salomon's painted sequence. The first treats it as evidence. A young woman in Villefranche-sur-Mer, between 1941 and 1942, set down a Berlin household, a line of suicides, an exile, a closing year — a witness's record, to be checked, catalogued, believed. The second treats it as invention. The gouaches are small, fast, ruthless about colour; scenes repeat like refrains; sheets of tracing paper carry captions and speech across the images, and named songs and pieces are called for, to be heard while looking. The names are changed. Painters do that. Both camps can point at the same paper and find their reasons there.
+
+Read the quarrel again and it wobbles. Each side asks what the finished object is and whom it addresses. But the sequence behaves less like an object than like a procedure its maker was conducting while it grew — a way of getting through a year. What the making was doing for her at the time, neither camp touches.
+
+Her title offers two alternatives, and they are not alternatives. On the pages the theatre is the only place where the life can be staged at all, which makes the second term the condition of the first rather than its rival. The apparatus is a production's: a prompter's script on the overlays, a score supplied by the cues, a cast under altered names, a curtain of tracing paper lowered over every image. Productions, though, are mounted for someone, and the house here is dark; no informant can say who was meant to be sitting in it. The late textual admission, the disturbing one near the close, stays unsettled for exactly this reason. A stage can confess without confessing. The confession is performed, and performance is not the opposite of truth, only a different claim on it.
+
+The institutions have each built a shrine of their own. A Jewish museum holds the work as Holocaust-era testimony; a London art academy hung it as painting; archivists number it as a gouache series; directors have made an opera of it; critics file it beside picture-narrative and graphic memoir. Every box answers a question about what a maker claims on a viewer. None was built for work made to stay alive by.
+
+She handed the pages over, according to the account long attached to them, to the friend who had sheltered her, with the words that this was her whole life; a year later she was murdered at Auschwitz. The sentence is reported, not annotated, and it will not do the work a label does. It does not say whether the pages were addressed to a reader, a doctor, a future, or nobody. Leaving the work unclassified is therefore the correct verdict on what survives: the sheets, an ending that is not dated, and no testimony from the one person who could fix the intention. That refusal is not a posture but a limit, and it holds until either a category exists for work performed as a means of continuing to live, or something turns up that settles it — and even then the darkened house she painted towards would still be unaccounted for.
+
+[QUESTIONS]
+
+Q1. The passage is primarily concerned with:
+(A) adjudicating between the testimony reading and the painting reading by weighing the physical evidence that each camp finds on the same sheets of paper
+(B) showing that the theatre supplies a fiction the painter escaped into, so the invention camp finally captures these pages better than the witness camp does
+(C) arguing that the sequence is best left unclassified, since existing categories ask what a maker claims on viewers, not what making did for her
+(D) establishing that institutions distort every difficult artwork, since museums, academies and archives each impose boxes built for their own narrow professional purposes
+
+Q2. Based on the passage, we can infer that a reader who correctly grasped the phrase "the house here is dark" would most likely conclude that:
+(A) the choice between a witness's record and a painter's invention is the only genuine question the sheets pose
+(B) Salomon painted for nobody at all, which settles the addressee question in favour of a purely private document
+(C) the sequence carries a production's full apparatus while its intended audience remains unrecoverable from anything that survives
+(D) Salomon worked in deliberate secrecy, painting at night so that no viewer could approach the finished pages
+
+Q3. Which one of the following views does the author report or steelman rather than hold as his own?
+(A) that the sequence behaved like a procedure its maker conducted while getting through a year
+(B) that the work is a hybrid form which several existing categories together cover well enough
+(C) that performance and truth are not opposites, so a staged confession still makes a claim on us
+(D) that altered names and repeated refrains mark the sequence as invention, since painters routinely do such things
+
+Q4. The primary purpose of the passage is to:
+(A) restate a critical quarrel, dissolve its shared premise, survey the institutional boxes, and close on a reported final sentence
+(B) justify withholding a verdict about the work's kind, by showing that every available category asks a question this work does not answer
+(C) settle the dispute in favour of testimony, since the artist's own last words about the pages describe her whole life
+(D) describe in order how two rival camps, several institutions, and one reported sentence have each handled Salomon's painted sequence since her death
+
+Q5. According to the passage, why does the disturbing textual admission near the close remain unsettled?
+(A) Because performance is the opposite of truth, a confession delivered on a stage cannot be taken as factual
+(B) Because the names in the sequence were changed, claims on the overlays cannot be checked against records
+(C) Because the institutions holding the work have each filed it under a category that suppresses the admission
+(D) Because the work's apparatus is a production's while no one can say for whom the production was mounted
+
+Q6. Based on information provided in the passage, all of the following are true EXCEPT:
+(A) A Jewish museum keeps the work as testimony while a London academy hung it as painting
+(B) Sheets of tracing paper carry captions and spoken words across the images in the sequence
+(C) The author treats the refusal to classify as a chosen posture rather than an imposed limit
+(D) The work names songs and pieces that are meant to be heard while it is viewed
+
+Q7. Which one of the following findings, if reported by researchers, would most weaken the author's conclusion in the final paragraph?
+(A) Art historians now agree that the graphic-memoir category postdates Salomon's sequence by at least three decades
+(B) A letter in Salomon's hand names whom the pages were for and why she made them
+(C) A second, independent account from the friend's family confirms that Salomon called these pages her whole life
+(D) Conservators date the unfinished final sheet precisely, establishing the exact month in which the sequence was completed
+
+Q8. Which one of the following, if established, would most damage the author's central claim?
+(A) An established curatorial category for work made to keep its maker alive already exists, and this sequence is filed under it
+(B) Salomon's letters describe the daily painting as the practice that kept her from the family's line of suicides
+(C) The friend who sheltered Salomon later denied that the reported sentence about her whole life was ever spoken
+(D) Musicologists show that every song cued on the overlays belonged to ordinary Berlin household repertoire of the period
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (C)
+  (C) CORRECT — It joins paragraph 2's diagnosis (neither camp touches what the making was doing for her at the time) to paragraph 4's finding that every box asks what a maker claims on a viewer, and paragraph 5's verdict that the work stays unclassified.
+  (A) half_truth — Paragraph 2 dissolves rather than settles the quarrel, noting both sides share the assumption that the finished object and its addressee are the question.
+  (B) premature_closure — Paragraph 3 makes theatre the condition of staging the life, not a fiction opposed to it, and refuses to award either camp the work.
+  (D) half_truth — Paragraph 4 faults the boxes for asking about a maker's claim on a viewer, not for distorting art generally; the claim inflates to institutions at large.
+
+Q2 — Correct answer: (C)
+  (C) CORRECT — Paragraph 3 lists the production apparatus — prompter's script, score, cast, curtain — then withholds the audience: "no informant can say who was meant to be sitting in it," a gap paragraph 5 confirms nothing surviving can close.
+  (A) half_truth — Paragraph 2 says the two camps share a question that wobbles; the dark house raises address, not a forced choice between record and invention.
+  (B) premature_closure — Paragraph 5 lists "nobody" as one unexcluded possibility among reader, doctor and future; the passage refuses to settle which one holds.
+  (D) adjacent_answer — The phrase concerns an unknown addressee in paragraph 3, not working conditions; the passage reports nothing about concealment while painting.
+
+Q3 — Correct answer: (D)
+  (D) CORRECT — Paragraph 1 voices this as the second camp's reasoning ("The names are changed. Painters do that"), and paragraph 2 declines to adopt it, saying each side asks the wrong question.
+  (A) level_confusion — Paragraph 2 offers this as the author's corrective to both camps, the claim on which his later verdict rests.
+  (B) half_truth — Paragraph 4 reports rival single claims, not a hybrid verdict, and insists none of the boxes was built for work made to stay alive by.
+  (C) level_confusion — This is the author's own assertion closing paragraph 3, not a camp's position he merely relays.
+
+Q4 — Correct answer: (B)
+  (B) CORRECT — The material exists to license the refusal in paragraph 5: the camps and the boxes are surveyed only to establish that each asks about a maker's claim on a viewer, which this work leaves unanswerable.
+  (A) level_confusion — This correctly maps the passage's structure while omitting why the author built it — to defend leaving the work unclassified.
+  (C) half_truth — Paragraph 5 says that sentence "is reported, not annotated" and "will not do the work a label does," so it settles nothing.
+  (D) level_confusion — This accurately summarises the passage's contents but names no purpose; the author uses these handlings as evidence, not as his subject.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — Paragraph 3 says the admission "stays unsettled for exactly this reason" — the reason just given, that productions are mounted for someone and here no informant can identify the audience.
+  (A) half_truth — Paragraph 3 states the reverse: performance is "not the opposite of truth, only a different claim on it."
+  (B) adjacent_answer — Changed names appear in paragraph 1 as the invention camp's evidence, not as the stated reason the admission stays unsettled.
+  (C) level_confusion — The institutional boxes are discussed in paragraph 4, after the admission; the passage never makes them the cause of its unsettledness.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — Paragraph 5 reverses this stance exactly: "That refusal is not a posture but a limit," imposed by what survives — sheets, an undated ending, and no testimony from Salomon.
+  (A) passage_supported — Paragraph 4 reports both: a Jewish museum holds it as Holocaust-era testimony, a London art academy hung it as painting.
+  (B) passage_supported — Paragraph 1 states that "sheets of tracing paper carry captions and speech across the images."
+  (D) passage_supported — Paragraph 1 says "named songs and pieces are called for, to be heard while looking."
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — The conclusion rests on there being "no testimony from the one person who could fix the intention"; a letter in her own hand supplies precisely that testimony and closes the addressee gap.
+  (A) level_confusion — This concerns when a critical category arose, not whether surviving evidence can fix Salomon's intention, which is the paragraph's actual ground.
+  (C) half_truth — Corroborating the reported sentence changes nothing, since paragraph 5 says that sentence still does not say whom the pages addressed.
+  (D) adjacent_answer — Dating removes one item from the list of gaps in paragraph 5 but leaves intention and addressee exactly as unfixed.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — The argument's load-bearing premise is paragraph 4's "None was built for work made to stay alive by," and paragraph 5 names the existence of such a category as the very condition that would end the refusal.
+  (B) half_truth — This confirms the author's paragraph 2 claim that the making was a way of getting through a year rather than damaging it.
+  (C) adjacent_answer — Paragraph 5 already discounts that sentence as doing no label's work, so removing it leaves the unclassifiability argument intact.
+  (D) level_confusion — The cues are cited in paragraph 1 as descriptive detail; their provenance bears on neither the missing addressee nor the missing category.
+
+[Inspired by: "The Many Sides of Shame", https://dissentmagazine.org/online_articles/gisele-pelicot-trial-memoirs/]

@@ -1,0 +1,114 @@
+RC ID: RC-MEDIUM-260918-0078 | Tier: medium | Status: revised_candidate | Revised: 2026-09-19 (Asia/Calcutta)
+======================================================================
+
+[PASSAGE]
+
+Any count of a moving population is a bargain between what matters and what can be seen. I fixed a definition first and worked outward: a person is homeless when there is no stable, private place to which they can reliably return. A man in a shop doorway fails that test in every clause. Take a family rotating between two aunts and a friend on a six-week loop. Every night they have a roof, a door, a floor they are welcome on. Nothing they can return to. By my definition they are homeless. By the street count they do not exist. By the statutory returns they exist only if they walk into a council office and are found to be owed a duty. England runs both. The Ministry of Housing, Communities and Local Government publishes them apart: the single-night rough sleeping snapshot in one release, the statutory homelessness statistics, households owed a prevention or relief duty, in the other, and its own notes warn that the two do not measure the same population. The second number is many times the first. It counts households rather than people, and by legal test rather than by sighting.
+
+On counting night in London the outreach teams walk routes they know by heart and find fewer people than the week before, some taken into a night shelter, some riding a bus, some simply moved on, while the council records fill with households in hotel rooms, hostels and flats too small for them, none visible from any pavement. Others appear in neither, having learned to avoid both.
+
+Beds follow the number. So do outreach shifts and the grant money a council can argue for. Meanwhile rents climb, nightly lets churn, and people cross between the two categories faster than either system records them. I came to this expecting an argument about arithmetic. It is an argument about which kind of instability the state is built to notice, and whose therefore gets a bed.
+
+Side by side they look like two imperfect estimates of one thing. They are not the same kind of object. The snapshot records an absence of people from places on one night: checkable, local, stale within the week. The statutory figure records a relationship: a household asked, a council assessed, a duty attached. That catches insecurity with no visible form, the aunt's back room, the notice expiring on Friday. It catches only those who ask, and asking takes a working phone and a free afternoon. Neither number is the condition I set out. Both miss it, and each looks foolish beside the other. They fail in opposite directions, and the failures do not cost the same. Which would I print as the national figure? The records-based one. Its errors are the sort more staff and better intake can shrink; the snapshot's error is built in, since it only counts what stands in view. Keep the snapshot regardless; it is the only instrument that answers tonight. And keep it ready: when the case-level records behind the second figure change shape again, and the contracts on the hotels and nightly lets that absorbed the last surge run out, the gap between the two will move for reasons unconnected to how many people lost a place they could return to.
+
+[QUESTIONS]
+
+Q1. Which one of the following best summarises the author's main argument?
+(A) Because its blind spot is built in, the snapshot should be dropped once councils improve the intake behind the records.
+(B) England's counts capture different objects; the records-based figure should lead because better practice can reduce its errors.
+(C) Both counts fall short of the author's own definition, so any national figure drawn from them misleads about the true scale.
+(D) Because the statutory total far exceeds the street count, it must be inflated by councils classifying too many households as owed duties.
+
+Q2. According to the passage, why is the statutory homelessness figure many times larger than the rough sleeping snapshot?
+(A) It counts households assessed against a legal test, not individuals sighted in public on a single night.
+(B) Climbing rents and churning nightly lets push more households into the statutory system than onto the streets.
+(C) Statutory returns run continuously through the year, while the snapshot covers the single night the teams walk.
+(D) Everyone the outreach teams fail to find is hidden homelessness, and those missed people swell the council totals.
+
+Q3. The author of the passage is most likely to disagree with which one of the following statements?
+(A) Approaching a council for help demands a working phone and a free weekday afternoon.
+(B) The snapshot remains worth keeping because it is the only instrument that answers tonight.
+(C) Since both counts are flawed, neither has a stronger claim to be the national figure.
+(D) The two counts fail in opposite directions, and those failures do not cost the same thing.
+
+Q4. Which one of the following findings would most strengthen the author's claim that the records-based figure's errors are more fixable than the snapshot's?
+(A) Local councils receiving larger grants after high snapshot counts opened additional night shelter beds during the winter that followed.
+(B) Boroughs that added outreach shifts saw snapshot totals rise sharply, showing that counting effort, rather than housing pressure, drives the numbers.
+(C) The ministry's own notes repeat that the two releases do not measure the same population and should not be combined.
+(D) Boroughs that lengthened intake hours recorded many households previously missing, while extra outreach shifts added almost no one to the snapshot.
+
+Q5. The central idea of the passage would be most undermined if:
+(A) The rough sleeping snapshot undercounts people who ride buses overnight or are briefly taken into a night shelter.
+(B) Most households owed a relief duty are placed into hotel rooms and cramped hostels that no pavement survey could observe.
+(C) Annual grant allocations in most English local authorities now follow the statutory returns rather than the snapshot totals.
+(D) Councils doubled staff and eased applications but still missed the same share of qualifying households, who continued to avoid approaching.
+
+Q6. Which one of the following best describes the role played by the second paragraph of the passage?
+(A) It accounts for why funding follows visible counts, setting up the later claim about beds and grants.
+(B) It reports that outreach teams found fewer people than the previous week while council records filled with placed households.
+(C) It shows the two instruments diverging on one night, and names a group that neither instrument registers.
+(D) It traces how the night's movements between shelters and buses cause the statutory records to fill up.
+
+Q7. In the context of the passage, the claim that the snapshot 'is the only instrument that answers tonight' is best understood as meaning that:
+(A) The snapshot's nightly urgency explains why councils fund outreach rather than improving their intake systems.
+(B) The snapshot alone reports tonight's visible situation, a use the slower records-based figure cannot serve.
+(C) The snapshot gives an accurate count on the night it is taken, though that count soon becomes stale.
+(D) The snapshot determines which households the council must assess as being owed a legal duty by morning.
+
+Q8. A health authority measures untreated illness two ways: a one-day audit of everyone waiting in emergency rooms, and a register of patients who applied and were granted a care plan. Six months after a free triage phone line opens, the register total climbs steeply while the audit total falls. Which reading of the scenario best follows the passage's reasoning?
+(A) The divergence reflects the instruments' changed reach, so the register leads while the audit still reports today.
+(B) The phone line reduced untreated illness, since fewer patients now wait in the rooms the audit covers.
+(C) Both instruments should be averaged, since each captured part of the same underlying population that week.
+(D) The audit should be dropped, since a register reachable by phone now covers the ground it walked.
+
+[ANSWER KEY & ELIMINATION LOGIC]
+
+Q1 — Correct answer: (B)
+  (B) CORRECT — It holds the full movement: the definitional test set in paragraph one, the 'not the same kind of object' turn, and the closing ranking by remediability rather than by size.
+  (A) half_truth — Takes the true diagnosis of a built-in error and draws a disposal the author refuses: 'Keep the snapshot regardless.'
+  (C) level_confusion — Slides from 'neither number is the condition I set out' to refusing any headline, missing the author's explicit choice of the records-based one.
+  (D) nec_suff_swap — Treats the size gap as sufficient evidence of overclassification, ignoring the stated cause: households counted by legal test rather than by sighting.
+
+Q2 — Correct answer: (A)
+  (A) CORRECT — This restates the passage's own explanation closing paragraph one: 'It counts households rather than people, and by legal test rather than by sighting.'
+  (B) half_truth — Paragraph three cites rent pressure as moving people between categories, not as the reason for the counts' different magnitudes.
+  (C) level_confusion — Substitutes a time-window difference for the passage's stated unit difference: households by legal test versus people by sighting.
+  (D) causal_inversion — Reverses the relation: the passage says some people appear in neither system, so unfound people cannot be assumed into council records.
+
+Q3 — Correct answer: (C)
+  (C) CORRECT — The final paragraph concedes both miss the author's condition, then breaks the symmetry: 'the failures do not cost the same,' and names the records-based one for print.
+  (A) half_truth — The author supplies this limitation himself when describing what the statutory figure catches and whom it misses.
+  (B) half_truth — This is the author's own retention argument, offered immediately after he declines to print the snapshot nationally.
+  (D) nec_suff_swap — A reader who read shared imperfection as equal unreliability will wrongly think the author rejects this ranking; he states it himself.
+
+Q4 — Correct answer: (D)
+  (D) CORRECT — Improved intake reaches previously missing households, whereas additional looking adds little to the visible count. This supports the author's comparative claim about remediable access barriers.
+  (A) level_confusion — Addresses the funding consequence in paragraph three, leaving the comparative fixability of the two errors untouched.
+  (B) causal_inversion — A sharp response to additional counting effort would suggest a remediable snapshot error, weakening the contrast the author draws.
+  (C) half_truth — Supports the different-objects claim in paragraph one, not the later claim about which instrument's errors better repair.
+
+Q5 — Correct answer: (D)
+  (D) CORRECT — The ranking rests on 'more staff and better intake can shrink' the statutory error; if capacity changes nothing, that error is built in too and the asymmetry collapses.
+  (A) half_truth — Repeats a weakness the author already concedes in paragraph two, which strengthens rather than damages his ranking.
+  (B) level_confusion — Confirms the passage's point that statutory insecurity has no visible form; it disturbs no load-bearing step in the argument.
+  (C) causal_inversion — Concerns which count money follows, a consequence the passage notes, not whether the statutory count's errors can be reduced.
+
+Q6 — Correct answer: (C)
+  (C) CORRECT — The paragraph converts paragraph one's definitional contrast into simultaneous observation, and its last line adds the residue both systems lose, preparing the 'different kinds of object' turn.
+  (A) level_confusion — Attributes to paragraph two the resource argument that paragraph three makes with 'Beds follow the number.'
+  (B) half_truth — Summarises the paragraph's content accurately but names no structural role, which is what the question asks for.
+  (D) causal_inversion — Invents a causal link; the paragraph places the two fillings side by side without making one produce the other.
+
+Q7 — Correct answer: (B)
+  (B) CORRECT — The phrase justifies retention right after the author declines to print the snapshot: it answers a different question, one of immediacy, that the assessment-based figure cannot.
+  (A) causal_inversion — Turns a reason for retaining the snapshot into a cause of funding choices, which the passage attributes to the numbers themselves.
+  (C) half_truth — Borrows 'checkable, local, stale within the week' to make the phrase about accuracy, when it concerns which question gets answered.
+  (D) level_confusion — Assigns the statutory instrument's job, the assessed duty, to the sighting-based count the author describes as recording absence from places.
+
+Q8 — Correct answer: (A)
+  (A) CORRECT — It applies the closing warning that the gap moves for reasons unconnected to the condition, plus the ranking rule: the askable register improves with access, the sighting audit cannot.
+  (B) causal_inversion — Reads a change in what the instrument can see as a change in the underlying condition, the error the passage's final sentence warns against.
+  (C) level_confusion — Treats two different kinds of object as partial estimates of one thing, which the passage denies with 'They are not the same kind of object.'
+  (D) half_truth — Ignores the author's insistence on keeping the immediate instrument regardless, because only it answers the question of tonight.
+
+[Inspired by: "How changes to Endangered Species Act regulations could hurt wildlife", https://www.scientificamerican.com/podcast/episode/how-changes-to-endangered-species-act-regulations-could-hurt-wildlife/]

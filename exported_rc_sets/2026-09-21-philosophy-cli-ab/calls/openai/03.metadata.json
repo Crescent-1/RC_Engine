@@ -1,0 +1,10 @@
+{
+  "stage": "questions",
+  "model": "gpt-6-astra",
+  "effort": "low",
+  "transport": "codex-cli",
+  "cli_version": "codex-cli 0.155.0-alpha.9.2",
+  "tier": "hard",
+  "blueprint_id": "BP_260920_5a8f21ae",
+  "status": "started"
+}
