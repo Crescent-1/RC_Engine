@@ -48,6 +48,13 @@ GENRES = os.path.join(PROJ, "rc_genres.json")
 SENT_INDEX = os.path.join(PROJ, "sent_index.json")
 OUT = os.path.join(PROJ, "RC_Shipping_Tracker.xlsx")
 
+# This workbook is single-client by design (2026-09-12): the DB reads below
+# filter to the founding client, so every row on every sheet belongs to it.
+# The Client column states that rather than leaving the operator to remember
+# it, and exists so a second client's workbook is a change of one constant
+# rather than a re-read of the whole file.
+CLIENT = "AA"
+
 # Notes and manifests that live alongside the sets but are not sets.
 SKIP_NAMES = {"_MANIFEST.txt", "_SELECTED_MANIFEST.txt", "_TRIAGE.txt"}
 
@@ -322,13 +329,56 @@ if os.path.exists(DB):
     # another client's sets as shippable to this one. No client_id column means
     # the engine has not migrated the DB yet, and every row is the founding
     # client's.
-    has_client = "client_id" in [r[1] for r in conn.execute("PRAGMA table_info(rc_sets)")]
+    _rc_cols = [r[1] for r in conn.execute("PRAGMA table_info(rc_sets)")]
+    has_client = "client_id" in _rc_cols
+    # 2026-09-21: the similarity screen already stores its verdict per set, so
+    # the tracker reads it rather than re-running a paid screen. An older DB
+    # predates these columns; those rows simply show no flag.
+    has_screen = "similarity_verdict" in _rc_cols
+    extra = ((", similarity_verdict, similarity_note" if has_screen else "")
+             + (", client_id" if has_client else ""))
+    if has_screen:
+        cols += ("verdict", "note")
+    if has_client:
+        cols += ("client",)
     for row in conn.execute("""SELECT rc_id, tier, status, average_score, compliance_f1,
-                                      novelty_composite, created_at, domain
-                               FROM rc_sets"""
-                            + (" WHERE client_id = 'AA'" if has_client else "")):
+                                      novelty_composite, created_at, domain"""
+                            + extra + " FROM rc_sets"
+                            + (" WHERE client_id = '%s'" % CLIENT if has_client else "")):
         db[row[0]] = dict(zip(cols, row))
     conn.close()
+
+def screen_cells(meta):
+    """(Flag, Flag_Against, Flag_Remark) from the stored similarity screen.
+
+    2026-09-21. The screen is the last gate before a set leaves the building:
+    GREEN means its argument moves are as alike as two real exam passages
+    normally are, RED means a reviewer should look before it ships again.
+    Only RED carries the against/remark pair, because that is the only case
+    the operator has to act on — a green nearest-neighbour is noise in a
+    tracker column and would bury the six rows that matter.
+
+    A set generated before the screen existed, or one it could not reach, has
+    no verdict at all; that reads as blank rather than as a pass.
+    """
+    verdict = (meta.get("verdict") or "").strip().lower()
+    if verdict not in ("red", "green"):
+        return "", "", ""
+    if verdict == "green":
+        return "GREEN", "", ""
+    try:
+        note = json.loads(meta.get("note") or "{}")
+    except (ValueError, TypeError):
+        note = {}
+    against = note.get("nearest") or ""
+    # The model's own sentence on WHY, with the shared moves behind it. Both
+    # are already in the note; neither is recomputed here.
+    reason = (note.get("reason") or "").strip()
+    shared = [s for s in (note.get("shared") or []) if s]
+    if shared:
+        reason = (reason + "  Shared: " + "; ".join(shared)).strip()
+    return "RED", against, reason
+
 
 # Subject-matter genre, assigned by reading each passage (see rc_genres.json).
 # Nothing in the engine carries this: domain is a topic line, families are
@@ -391,6 +441,7 @@ for (wk, sent), s in sorted(shipped_files.items(),
     variants = sorted(src.get("variants", []),
                       key=lambda v: variant_rank(v, src.get("nq", {}).get(v)),
                       reverse=True)
+    _flag = screen_cells(meta)
     shipped.append({
         "Week": wk,
         "Send_Date": week_date(wk),
@@ -407,6 +458,8 @@ for (wk, sent), s in sorted(shipped_files.items(),
                    "Legacy" if rc else ""),
         "Status": meta.get("status") or src.get("hdr_status", ""),
         "Score": meta.get("score") or src.get("hdr_score", ""),
+        "Flag": _flag[0], "Flag_Against": _flag[1], "Flag_Remark": _flag[2],
+        "Client": meta.get("client") or CLIENT,
         "Match": method,
         "Export_File": variants[0] if variants else "",
         "Delivered_Files": " | ".join(s["paths"]),
@@ -442,6 +495,7 @@ for rc, rec in sorted(exported.items()):
     if remarks.get(canon(rc)) and reject is None:
         note.append(remarks[canon(rc)][:200])
     nq = rec["nq"].get(variants[0], 0) if variants else 0
+    _flag = screen_cells(meta)
     available.append({
         "RC_ID": rc,
         "Genre": genre_by_canon.get(canon(rc), ""),
@@ -455,6 +509,8 @@ for rc, rec in sorted(exported.items()):
         "Score": meta.get("score") or rec.get("hdr_score", ""),
         "Compliance_F1": meta.get("f1") or rec.get("hdr_f1", ""),
         "Novelty": meta.get("novelty") or rec.get("hdr_novelty", ""),
+        "Flag": _flag[0], "Flag_Against": _flag[1], "Flag_Remark": _flag[2],
+        "Client": meta.get("client") or CLIENT,
         "Generated": (meta.get("created") or "")[:10] or rec.get("generated", ""),
         "Words": rec.get("words", ""),
         "Best_File": variants[0] if variants else "",
@@ -498,9 +554,14 @@ FILLS = {"approved": PatternFill("solid", start_color="C6EFCE"),
          "blocked": PatternFill("solid", start_color="FFC7CE"),
          "unrated": PatternFill("solid", start_color="F2F2F2")}
 YES = PatternFill("solid", start_color="C6EFCE")
+# The similarity screen's own two states. Deliberately louder than the status
+# fills: a RED set is the one thing on this sheet that must not ship unread.
+VERDICT_FILL = {"RED": PatternFill("solid", start_color="FFC7CE"),
+                "GREEN": PatternFill("solid", start_color="C6EFCE")}
 
 
-def sheet(wb, title, rows, cols, widths, status_col=None, flag_col=None, first=False):
+def sheet(wb, title, rows, cols, widths, status_col=None, flag_col=None,
+          verdict_col=None, first=False):
     ws = wb.active if first else wb.create_sheet(title)
     ws.title = title
     ws.append(cols)
@@ -521,6 +582,11 @@ def sheet(wb, title, rows, cols, widths, status_col=None, flag_col=None, first=F
             c = row[cols.index(flag_col)]
             if str(c.value).upper() == "Y":
                 c.fill = YES
+        if verdict_col:
+            c = row[cols.index(verdict_col)]
+            if c.value in VERDICT_FILL:
+                c.fill = VERDICT_FILL[c.value]
+                c.alignment = Alignment(horizontal="center")
     for i, w in enumerate(widths, start=1):
         ws.column_dimensions[ws.cell(row=1, column=i).column_letter].width = w
     ws.freeze_panes = "A2"
@@ -532,10 +598,12 @@ def sheet(wb, title, rows, cols, widths, status_col=None, flag_col=None, first=F
 wb = Workbook()
 sheet(wb, "Shipped", shipped,
       ["Week", "Send_Date", "Sent_id", "Qs", "RC_ID", "Tier", "Genre", "Origin",
-       "Status", "Score", "Match", "Delivery", "Export_File", "Delivered_Files",
+       "Client", "Status", "Score", "Flag", "Flag_Against", "Flag_Remark",
+       "Match", "Delivery", "Export_File", "Delivered_Files",
        "Old_Tracker_ID", "Notes"],
-      [15, 12, 24, 5, 24, 8, 26, 10, 15, 7, 18, 34, 44, 60, 22, 46],
-      status_col="Status", first=True)
+      [15, 12, 24, 5, 24, 8, 26, 10, 8, 15, 7, 7, 24, 80,
+       18, 34, 44, 60, 22, 46],
+      status_col="Status", verdict_col="Flag", first=True)
 
 # Most useful first: what you can send today, then the best of the review queue.
 STATUS_ORDER = {"approved": 0, "needs_review": 1, "solver_dispute": 2,
@@ -554,11 +622,12 @@ def bench_key(a):
 available.sort(key=bench_key)
 
 sheet(wb, "Available", available,
-      ["RC_ID", "Tier", "Genre", "Status", "Ship_Ready", "Qs", "To_8Q", "Score",
-       "Compliance_F1", "Novelty", "Generated", "Words", "Best_File",
+      ["RC_ID", "Tier", "Genre", "Client", "Status", "Ship_Ready", "Qs", "To_8Q",
+       "Score", "Compliance_F1", "Novelty", "Flag", "Flag_Against",
+       "Flag_Remark", "Generated", "Words", "Best_File",
        "Full_Path", "All_Variants", "Notes"],
-      [24, 8, 26, 16, 11, 5, 14, 7, 13, 9, 11, 7, 46, 74, 70, 46],
-      status_col="Status", flag_col="Ship_Ready")
+      [24, 8, 26, 8, 16, 11, 5, 14, 7, 13, 9, 7, 24, 80, 11, 7, 46, 74, 70, 46],
+      status_col="Status", flag_col="Ship_Ready", verdict_col="Flag")
 
 weeks = []
 for wk in sorted({s["Week"] for s in shipped}, key=week_date):
@@ -657,6 +726,19 @@ lines = [
     ("Weeks of runway at 10/week (approved only)", round(ready / 10.0, 1)),
     ("Weeks of runway at 10/week (approved + needs_review)",
      round((ready + av.get("needs_review", 0)) / 10.0, 1)),
+    ("", ""),
+    # The similarity screen, read back from the DB rather than re-run. A RED
+    # bench set is the one that costs money to discover late: it looks
+    # shippable on every other column.
+    ("Bench flagged RED by the similarity screen",
+     sum(1 for a in available if a.get("Flag") == "RED")),
+    ("  of those, otherwise ready to ship",
+     sum(1 for a in available if a.get("Flag") == "RED" and a["Ship_Ready"] == "Y")),
+    ("Bench passed GREEN", sum(1 for a in available if a.get("Flag") == "GREEN")),
+    ("Bench never screened (predates the screen)",
+     sum(1 for a in available if not a.get("Flag"))),
+    ("Already-shipped sets that were RED",
+     sum(1 for r in shipped if r.get("Flag") == "RED")),
     ("", ""),
     ("Old tracker rows with no delivered file", len(reconcile)),
     ("Folder-vs-mail discrepancies", len(reconcile_rows)),
