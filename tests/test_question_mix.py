@@ -31,7 +31,14 @@ def test_mix_counts_stored_slots_else_topology_slots_and_flags_skew():
     hard = mix([json.dumps(stored)], reg, "hard")
     assert hard["tasks"]["gist"]["share"] == 1.0 and hard["tasks"]["gist"]["flag"] == "over"
     assert hard["tasks"]["detail"]["flag"] == "under"
-    assert hard["tasks"]["consistency"]["flag"] == "no engine type"
+    # 2026-09-22: consistency and argument_evaluation gained slot types under
+    # cat-pyq-f6, so no task reports "no engine type" any more. Every exam task
+    # at or above the 3% reporting threshold is now buildable; the only one
+    # still unmapped is relation_pair (0.3%, n=1 in 389), which sits below the
+    # threshold and is deliberately not built.
+    assert hard["tasks"]["consistency"]["flag"] == "under"
+    assert not [t for t, r in hard["tasks"].items() if r["flag"] == "no engine type"]
+    assert hard["tasks"]["relation_pair"]["flag"] == ""
     assert any("gist" in line for line in format_mix(hard, "hard"))
 
 

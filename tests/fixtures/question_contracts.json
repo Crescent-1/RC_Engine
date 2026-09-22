@@ -92,6 +92,19 @@
      {"text": "Only pilots were ever allowed to cross the bar.", "mechanism": "scope_inflation", "why_wrong": "Masters were advised to consult a pilot, not required to."}
     ]
    }
+  },
+  {
+   "name": "consistency_negative",
+   "slot": {"type": "consistency", "target": "global", "difficulty": 0.66, "task": "consistency", "polarity": "negative", "contract": "consistency_negative", "marker": "passage_consistent"},
+   "question": {
+    "stem": "All of the following could be true alongside the passage's account of Kellmouth harbour, EXCEPT:",
+    "correct": {"text": "The 1878 survey concluded that the official tide tables were in error.", "why_right": "The passage states the opposite in so many words: the survey did not conclude that the tables were wrong, only that they answered a different question. This is the one option that cannot be true alongside the passage.", "failure_mode": "contradiction"},
+    "wrong": [
+     {"text": "Some pilots also kept notes for stretches of coast well beyond the bar.", "mechanism": "passage_consistent", "why_wrong": "The passage says what the notes recorded at the bar; it never says that is all they recorded. Unmentioned is not inconsistent."},
+     {"text": "The gauge near the customs house was rebuilt at some point after 1878.", "mechanism": "passage_consistent", "why_wrong": "The account closes with the commissioners still printing the tables. A later rebuild of the gauge contradicts nothing the passage claims."},
+     {"text": "A few masters ignored the added line and crossed the bar without consulting a pilot.", "mechanism": "passage_consistent", "why_wrong": "The passage says the advisory line was added, not that it was obeyed. Masters ignoring it sits beside every claim the passage makes."}
+    ]
+   }
   }
  ],
  "semantic_counterexamples": [

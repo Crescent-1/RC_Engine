@@ -51,6 +51,13 @@ TASK_OF_TYPE = {
     "strengthen": "strengthen",
     "weaken": "weaken",
     "author_would_endorse": "author_endorsement",
+    # 2026-09-22 (cat-pyq-f6). consistency is where CAT puts most of its
+    # negation: 10 of its 12 stems (83%) are negated, against 59% for detail
+    # and 48% for inference (2026-09-13-cat-pyq-baseline.md section 2).
+    # argument_evaluation is deliberately absent — the exam negates 2 of its 4
+    # stems, but n=4 is too thin to write a contract against, so f6 plans it
+    # affirmative only.
+    "consistency": "consistency",
 }
 
 # The table in plan section 4.1. `released` gates what a policy may enable.
@@ -70,6 +77,20 @@ NEGATIVE_CONTRACTS = {
                "mechanism the passage sets out",
         "others": "each a NEW scenario (not a paraphrase of the passage) that "
                   "satisfies that rule or mechanism",
+    },
+    # Released 2026-09-22 for cat-pyq-f6. Consistency is NOT support, which is
+    # why the baseline asks for it separately: support means the passage
+    # asserts the option, consistency means the passage does not rule it out.
+    # An option can be consistent with the passage and never appear in it, so
+    # the "others" contract here cannot be the support one.
+    "consistency": {
+        "released": True,
+        "marker": "passage_consistent",
+        "key": "contradicts something the passage states or clearly implies, "
+               "so it cannot be true alongside the passage's account",
+        "others": "each can be true alongside everything the passage asserts; "
+                  "they need NOT be stated in the passage, and an option the "
+                  "passage never addresses belongs here, not in the key",
     },
     "reported_view": {
         "released": False,

@@ -35,6 +35,12 @@ TASK_OF_SLOT = {
     "author_would_endorse": "author_endorse",
     "application": "application",
     "keyword_set": "keyword_set",
+    # 2026-09-22 (cat-pyq-f6): the two exam tasks that had no slot type. Without
+    # these the new slots would report as engine_only and the mix would say the
+    # gap is still open. No shipped set before f6 carries either type, so every
+    # earlier corpus reports exactly as it did.
+    "consistency": "consistency",
+    "argument_evaluation": "argument_evaluation",
     "stance": "tone_stance",
     "strengthen": "strengthen",
 }

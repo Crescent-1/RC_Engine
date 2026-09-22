@@ -1372,5 +1372,319 @@
     "cat-pyq-q1"
    ]
   }
+,
+  {
+   "id": "QT27",
+   "name": "The Compatibility Test",
+   "curve": "flat_mid",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.58
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.6
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.64
+    },
+    {
+     "type": "consistency",
+     "target": "global",
+     "difficulty": 0.66,
+     "polarity": "negative"
+    },
+    {
+     "type": "evidence_function",
+     "target": "local",
+     "difficulty": 0.62
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.68
+    },
+    {
+     "type": "contextual_inference",
+     "target": "span",
+     "difficulty": 0.7
+    },
+    {
+     "type": "keyword_set",
+     "target": "global",
+     "difficulty": 0.6
+    }
+   ],
+   "style_note": "asks twice what the passage licenses a reader to infer, then once what it refuses to sit beside; the negated slot is the consistency check, not another support scan",
+   "policies": [
+    "cat-pyq-f6"
+   ]
+  },
+  {
+   "id": "QT28",
+   "name": "The Argument Weighed",
+   "curve": "rising",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.55
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.6
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.62
+    },
+    {
+     "type": "argument_evaluation",
+     "target": "global",
+     "difficulty": 0.66
+    },
+    {
+     "type": "author_vs_reported",
+     "target": "span",
+     "difficulty": 0.68
+    },
+    {
+     "type": "consistency",
+     "target": "global",
+     "difficulty": 0.72,
+     "polarity": "negative"
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.76
+    },
+    {
+     "type": "contextual_inference",
+     "target": "span",
+     "difficulty": 0.8
+    }
+   ],
+   "style_note": "steps back from what the passage says to how it is built - which strand carries the most weight - before testing the edges of the claim; no weaken slot, so the set is not another attack-the-thesis flow",
+   "policies": [
+    "cat-pyq-f6"
+   ]
+  },
+  {
+   "id": "QT29",
+   "name": "The Rule and Its Edges",
+   "curve": "rising",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.56
+    },
+    {
+     "type": "except_scan",
+     "target": "span",
+     "difficulty": 0.6
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.64
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.7
+    },
+    {
+     "type": "consistency",
+     "target": "global",
+     "difficulty": 0.68
+    },
+    {
+     "type": "phrase_in_context",
+     "target": "local",
+     "difficulty": 0.62
+    },
+    {
+     "type": "argument_evaluation",
+     "target": "global",
+     "difficulty": 0.72
+    },
+    {
+     "type": "contextual_inference",
+     "target": "span",
+     "difficulty": 0.78
+    }
+   ],
+   "style_note": "works the passage's rule outward: what it excludes, what it covers, what it merely tolerates; the consistency slot is left affirmative so the EXCEPT scan carries the set's authored negation",
+   "policies": [
+    "cat-pyq-f6"
+   ]
+  },
+  {
+   "id": "QT30",
+   "name": "The Author's Commitments",
+   "curve": "flat_mid",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.6
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.62
+    },
+    {
+     "type": "author_would_endorse",
+     "target": "global",
+     "difficulty": 0.66
+    },
+    {
+     "type": "consistency",
+     "target": "global",
+     "difficulty": 0.7,
+     "polarity": "negative"
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.58
+    },
+    {
+     "type": "structural_function",
+     "target": "local",
+     "difficulty": 0.64
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.72
+    },
+    {
+     "type": "contextual_inference",
+     "target": "span",
+     "difficulty": 0.68
+    }
+   ],
+   "style_note": "holds the author's own position steady across four angles - what follows from it, what it would back, what it cannot sit beside, where it is built - with no gist question after Q1",
+   "policies": [
+    "cat-pyq-f6"
+   ]
+  }
+,
+  {
+   "id": "QT31",
+   "name": "The Unstated Commitment",
+   "curve": "flat_high",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.68
+    },
+    {
+     "type": "contextual_inference",
+     "target": "span",
+     "difficulty": 0.74,
+     "polarity": "negative"
+    },
+    {
+     "type": "author_would_endorse",
+     "target": "global",
+     "difficulty": 0.78
+    },
+    {
+     "type": "consistency",
+     "target": "global",
+     "difficulty": 0.8,
+     "polarity": "negative"
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.7
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.82
+    },
+    {
+     "type": "author_vs_reported",
+     "target": "span",
+     "difficulty": 0.76
+    },
+    {
+     "type": "argument_evaluation",
+     "target": "global",
+     "difficulty": 0.72
+    }
+   ],
+   "style_note": "elite only: nothing here is answerable from a stated sentence - every slot asks what the author is committed to without having said it, and two of them ask it in the negative",
+   "policies": [
+    "cat-pyq-e1"
+   ]
+  },
+  {
+   "id": "QT32",
+   "name": "The Rule Under Pressure",
+   "curve": "rising",
+   "slots": [
+    {
+     "type": "thesis",
+     "target": "global",
+     "difficulty": 0.62
+    },
+    {
+     "type": "detail_check",
+     "target": "local",
+     "difficulty": 0.68
+    },
+    {
+     "type": "except_scan",
+     "target": "span",
+     "difficulty": 0.72
+    },
+    {
+     "type": "contextual_inference",
+     "target": "local",
+     "difficulty": 0.76
+    },
+    {
+     "type": "consistency",
+     "target": "global",
+     "difficulty": 0.8
+    },
+    {
+     "type": "application",
+     "target": "global",
+     "difficulty": 0.86,
+     "polarity": "negative"
+    },
+    {
+     "type": "keyword_set",
+     "target": "global",
+     "difficulty": 0.7
+    },
+    {
+     "type": "contextual_inference",
+     "target": "span",
+     "difficulty": 0.9
+    }
+   ],
+   "style_note": "elite only: the passage's rule is taken to its edge and past it - an EXCEPT scan, a negated application and a closing cross-paragraph inference at the library's hardest calibration",
+   "policies": [
+    "cat-pyq-e1"
+   ]
+  }
  ]
 }

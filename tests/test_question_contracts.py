@@ -34,7 +34,7 @@ sys.path.insert(0, str(ROOT))
 from rc_engine import config  # noqa: E402
 from rc_engine.generation_policy import (LEGACY_POLICY, GenerationPolicy, _ro,  # noqa: E402
                                          get_policy, temporary_policy, validation_errors)
-from rc_engine.policy_catalog import CAT_PYQ_Q1  # noqa: E402
+from rc_engine.policy_catalog import CAT_PYQ_F6, CAT_PYQ_Q1  # noqa: E402
 from rc_engine.question_contracts import (CONTRACT_MARKERS, NEGATIVE_CONTRACTS,  # noqa: E402
                                           STAGED_NEGATIVE_STEM_FORMS, TASK_OF_TYPE,
                                           ContractError, bad_paragraph_refs,
@@ -78,7 +78,13 @@ def test_fixture_covers_every_released_contract_and_new_type():
     types = {(v["slot"]["type"], v["slot"].get("variant")) for v in FIXTURE["valid"]}
     assert {("author_would_endorse", None), ("keyword_set", "keywords"),
             ("keyword_set", "sequence")} <= types
-    assert set(POLICY.negative_tasks) == {t for t, c in NEGATIVE_CONTRACTS.items() if c["released"]}
+    # 2026-09-22: consistency was released for cat-pyq-f6, so q1 no longer
+    # enables every released task. The invariants that still must hold are that
+    # no policy enables an UNRELEASED one, and that some registered policy
+    # exercises each release — otherwise a contract could rot unused.
+    released = {t for t, c in NEGATIVE_CONTRACTS.items() if c["released"]}
+    assert set(POLICY.negative_tasks) <= released
+    assert set(get_policy(CAT_PYQ_F6).negative_tasks) == released
 
 
 @pytest.mark.parametrize("name", list(VALID))

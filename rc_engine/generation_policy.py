@@ -143,6 +143,12 @@ class GenerationPolicy:
     # system text). Such a policy reads every legacy path and is the one kind of
     # non-legacy policy elite may use; validation_errors enforces "only".
     legacy_base: bool = False
+    # 2026-09-22 (operator decision): elite may also take an ELITE-based
+    # policy — the legacy passage engine plus the question release, source
+    # facts and seed fidelity, and nothing that changes how a passage reads.
+    # elite_base_errors refuses every other difference, so families,
+    # personas, beats, schemas, permissions and the render prompt stay legacy.
+    elite_base: bool = False
     # 2026-09-14 prompt review (RC-HARD-260914-0099's contract), measured over
     # 135 shipped plans. True: no never-stated revelation under a committed
     # closing posture (7 of 135 plans told the writer the thesis is never stated
@@ -384,11 +390,14 @@ def policy_for_new_plan(tier: str) -> GenerationPolicy:
 
     Elite is legacy unless config names a legacy-based policy for it
     (2026-09-14, operator decision: elite passages must keep their seed's
-    subject too). Any other version named for elite still resolves to legacy."""
+    subject too) or an ELITE-based one (2026-09-22: the legacy passage engine
+    plus the question release, source facts and seed fidelity). Any other
+    version named for elite still resolves to legacy."""
     if tier == "elite":
         version = getattr(config, "GENERATION_POLICY_FOR_NEW_PLANS", {}).get("elite", LEGACY)
         policy = _POLICIES.get(version or LEGACY)
-        if policy is not None and policy.legacy_base and "elite" in policy.tiers:
+        if (policy is not None and "elite" in policy.tiers
+                and (policy.legacy_base or policy.elite_base)):
             return policy
         return LEGACY_POLICY
     version = getattr(config, "GENERATION_POLICY_FOR_NEW_PLANS", {}).get(tier, LEGACY)
@@ -453,9 +462,10 @@ def validation_errors(registry) -> list[str]:
             errors.append(f"GENERATION_POLICY_FOR_NEW_PLANS has unknown tier {tier!r}")
         if version not in _POLICIES:
             errors.append(f"GENERATION_POLICY_FOR_NEW_PLANS[{tier!r}] names unknown policy {version!r}")
-        elif tier == "elite" and version != LEGACY and not _POLICIES[version].legacy_base:
+        elif (tier == "elite" and version != LEGACY
+              and not (_POLICIES[version].legacy_base or _POLICIES[version].elite_base)):
             errors.append("elite must stay on the legacy generation policy "
-                          "(or a legacy-based one)")
+                          "(or a legacy-based or elite-based one)")
         elif tier in TIERS and tier not in _POLICIES[version].tiers:
             errors.append(f"policy {version!r} does not admit tier {tier!r}")
     for ctype, items in registry.libraries.items():
@@ -487,10 +497,15 @@ def validation_errors(registry) -> list[str]:
             for m in moves:
                 if m not in vocab:
                     errors.append(f"policy {version!r} plans beat {m!r} with no gloss")
-        if "elite" in p.tiers and not p.is_legacy and not p.legacy_base:
+        if ("elite" in p.tiers and not p.is_legacy
+                and not (p.legacy_base or p.elite_base)):
             errors.append(f"policy {version!r} must not admit elite")
+        if p.legacy_base and p.elite_base:
+            errors.append(f"policy {version!r} cannot be both legacy-based and elite-based")
         if p.legacy_base:
             errors.extend(legacy_base_errors(p))
+        if p.elite_base:
+            errors.extend(elite_base_errors(p))
         if p.question_contracts:
             errors.extend(_contract_errors(version, p, registry))
         errors.extend(_structure_errors(version, p, registry))
@@ -500,6 +515,56 @@ def validation_errors(registry) -> list[str]:
 # Fields a legacy-based policy may set away from LEGACY_POLICY (2026-09-14).
 _LEGACY_BASE_FREE = {"version", "tiers", "description", "legacy_base", "seed_fidelity",
                      "system_extensions", "coherent_plans", "render_seed_context"}
+
+
+# Fields an ELITE-based policy may set away from LEGACY_POLICY (2026-09-22).
+# Everything absent from this set is refused, which is what keeps section B of
+# the 2026-09-22 review — families, personas, endings, rhythms, revelations,
+# topic shapes, beats, argument schemas, closing postures, structure weights,
+# genre-filtered personas, passage permissions and the RENDER prompt — out of
+# elite. Widening this set is a deliberate act, not a convenience.
+_ELITE_QUESTION_FREE = {"question_contracts", "negative_tasks",
+                        "negative_slots_per_set", "keyed_stem_forms",
+                        "slot_variants", "extra_slot_types", "extra_stem_forms",
+                        "component_tags"}
+_ELITE_BASE_FREE = (_LEGACY_BASE_FREE | _ELITE_QUESTION_FREE |
+                    {"elite_base", "source_facts", "strict_source_fact_audit",
+                     "underdelivered_beats", "system_rewrites",
+                     "prompt_extensions"})
+# Stages an elite-based policy may add system text to. render and compliance
+# are absent: those are how the passage reads and how it is audited for reading.
+_ELITE_SYSTEM_STAGES = {"refine", "questions", "answerability", "solver",
+                        "solver_tiebreak", "judge"}
+# It may rewrite the compliance RESPONSE SCHEMA (source_facts needs a
+# "fact_trace" key) but never the render prompt.
+_ELITE_REWRITE_STAGES = {"compliance"}
+_ELITE_PROMPT_STAGES = {"refine"}
+
+
+def elite_base_errors(p: GenerationPolicy) -> list[str]:
+    """An elite-based policy is the legacy PASSAGE engine plus the question
+    release, source facts and seed fidelity. Every field outside
+    _ELITE_BASE_FREE must equal legacy's, so nothing that changes how an elite
+    passage reads can ride in on a question change."""
+    import dataclasses
+    errors = []
+    for f in dataclasses.fields(GenerationPolicy):
+        if f.name in _ELITE_BASE_FREE:
+            continue
+        if getattr(p, f.name) != getattr(LEGACY_POLICY, f.name):
+            errors.append(f"elite-based policy {p.version!r} changes {f.name!r}")
+    if set(p.tiers) != {"elite"}:
+        errors.append(f"elite-based policy {p.version!r} must admit elite and "
+                      f"no other tier")
+    for label, got, allowed in (
+            ("extends system prompts", set(p.system_extensions), _ELITE_SYSTEM_STAGES),
+            ("rewrites system prompts", set(p.system_rewrites), _ELITE_REWRITE_STAGES),
+            ("extends user prompts", set(p.prompt_extensions), _ELITE_PROMPT_STAGES)):
+        extra = got - allowed
+        if extra:
+            errors.append(f"elite-based policy {p.version!r} {label} "
+                          f"{sorted(extra)}; allowed: {sorted(allowed)}")
+    return errors
 
 
 def legacy_base_errors(p: GenerationPolicy) -> list[str]:

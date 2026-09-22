@@ -782,7 +782,9 @@ def _apply_generation_policy(version: str) -> int:
 
 def _apply_elite_policy(version: str) -> int:
     """2026-09-14: opt this run's new elite plans into a legacy-based policy
-    (legacy-sf1). Anything else is refused, not silently read as legacy."""
+    (legacy-sf1). 2026-09-22: or an ELITE-based one (cat-pyq-e1) — the legacy
+    passage engine plus the question release, source facts and seed fidelity.
+    Anything else is refused, not silently read as legacy."""
     from .generation_policy import PolicyError, get_policy
     version = (version or "").strip()
     try:
@@ -790,8 +792,10 @@ def _apply_elite_policy(version: str) -> int:
     except PolicyError as e:
         print(f"[policy] {e}")
         return 2
-    if version and not (policy.legacy_base and "elite" in policy.tiers):
-        print(f"[policy] {version!r} is not a legacy-based policy; elite may only take one")
+    if version and not ((policy.legacy_base or policy.elite_base)
+                        and "elite" in policy.tiers):
+        print(f"[policy] {version!r} is neither a legacy-based nor an elite-based "
+              f"policy; elite may only take one of those")
         return 2
     os.environ["RC_ENGINE_ELITE_PLAN_POLICY"] = version
     config.GENERATION_POLICY_FOR_NEW_PLANS = {**config.GENERATION_POLICY_FOR_NEW_PLANS,

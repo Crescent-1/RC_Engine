@@ -710,10 +710,225 @@ CAT_PYQ_F5_POLICY = dataclasses.replace(
     underdelivered_beats=True,
 )
 
+# 2026-09-22. f5 plus the two exam tasks the engine had no slot type for at
+# all, and CAT's application option design.
+#
+# Why now. `health`'s question-task mix over the 36 sets shipped since the
+# topology release reads: inference 7.7% against an exam 15.9%, gist 16.3%
+# against 8.2%, weaken 12.5% against 6.2%, consistency 0.0% against 3.1% and
+# argument_evaluation 0.0% against 1.0%. The q1 release added
+# author_would_endorse and keyword_set but reached them through two topologies
+# out of twenty-six, so both landed near 2% instead of the exam's 5.9% and
+# 2.3%. Adding slot types without topologies that draw them does not move the
+# mix; QT27-QT30 are the other half of that change.
+#
+# consistency (3.1% of PYQ stems, 83% of them negated) is released with its own
+# negative contract. It is NOT support: support means the passage asserts the
+# option, consistency means the passage does not rule it out, so the three
+# non-key options need not appear in the passage at all. Merging the two is the
+# mistake 2026-09-13-cat-pyq-baseline.md section 2 flags.
+#
+# argument_evaluation (1.0%) is released affirmative only. The exam negates 2 of
+# its 4 stems, which is too thin to write an option contract against.
+#
+# relation_pair (0.3%, n=1 in 389) is deliberately NOT added. One stem is not
+# evidence of a form worth building.
+#
+# Not touched: double negation stays unsupported, and Q1 stays pinned to thesis
+# (client requirement 2026-08-10), which puts a hard floor of 12.5% on gist
+# whatever the exam's 8.2% says. QT27-QT30 therefore carry no primary_purpose,
+# which is the only part of the gist over-share that is actually reducible.
+CAT_PYQ_F6 = "cat-pyq-f6"
+
+_CONSISTENCY_FORMS = [
+    "Which one of the following statements about {X} is most consistent with the passage?",
+    "Which one of the following, if true, would be most consistent with the author's account of {X}?",
+    "Which one of the following claims could be true alongside everything the passage asserts about {X}?",
+]
+_CONSISTENCY_NEGATIVE_FORMS = [
+    "All of the following are consistent with the passage's account of {X}, EXCEPT:",
+    "Which one of the following is NOT consistent with the passage's argument about {X}?",
+    "Each of the following could be true alongside the passage's claims about {X}, EXCEPT:",
+]
+# No "least depth" form: "least" is a negation operator to question_contracts,
+# so an affirmative stem carrying it fails policy validation. These are the
+# same task read from the affirmative side.
+_ARGUMENT_EVALUATION_FORMS = [
+    "Which one of the following is the most direct extension of the author's argument?",
+    "The passage places the greatest emphasis on which one of the following?",
+    "Which one of the following does the passage treat in the greatest depth?",
+    "Which one of the following best describes how the author's argument develops from its opening claim?",
+]
+
+_F6_QUESTIONS_SYSTEM = """
+
+ADDITIONS UNDER POLICY cat-pyq-f6:
+
+consistency: the question is what the passage can SIT BESIDE, not what it
+states. An option is consistent when it could be true alongside everything the
+passage asserts, whether or not the passage mentions it; it is inconsistent only
+when it contradicts something the passage states or clearly implies. So:
+- Do not write non-key options that merely restate the passage. They should be
+  new claims the passage leaves room for.
+- An option the passage never addresses is CONSISTENT. It can never be the key
+  of a negated consistency question.
+- The key of a negated consistency slot contradicts the passage; name what it
+  contradicts and where.
+This is the one slot type where "not mentioned" counts in the option's favour.
+
+argument_evaluation: the question is about the shape of the argument, not its
+content - which strand carries the most weight, how far a claim extends, what
+the passage develops most fully. Wrong options name real material from the
+passage that carries less weight, or extend the argument past what it will bear.
+Answer it from the passage's proportions, not from what matters most in general.
+
+application option design: give the four options the SAME shape and let them
+differ in one or two attributes, the way the exam does - four protocols that
+differ by which symbol and which food, four plans that differ by unit count and
+price. The key should require TWO of the passage's constraints combined, so an
+option satisfying only one is a live wrong answer. Four scenarios drawn from
+four unrelated domains make the question easy to eliminate through and should be
+avoided."""
+
+CAT_PYQ_F6_POLICY = dataclasses.replace(
+    CAT_PYQ_F5_POLICY, version=CAT_PYQ_F6,
+    description="f5 plus the consistency and argument_evaluation tasks, "
+                "QT27-QT30, and CAT's application option design",
+    extra_slot_types=_ro({
+        **CAT_PYQ_F5_POLICY.extra_slot_types,
+        "consistency":
+            "which claim could, or could not, be true alongside everything the "
+            "passage asserts; consistency is not support - an option the passage "
+            "never mentions is consistent with it",
+        "argument_evaluation":
+            "which strand the passage develops most fully, or how far the "
+            "author's argument directly extends; answered from the passage's "
+            "own proportions, not from general importance",
+    }),
+    extra_stem_forms=_ro({
+        **CAT_PYQ_F5_POLICY.extra_stem_forms,
+        "consistency": _CONSISTENCY_FORMS,
+        "argument_evaluation": _ARGUMENT_EVALUATION_FORMS,
+        "application": [
+            "Which one of the following cases would the author's account cover?",
+            "Which one of the following scenarios best satisfies the conditions the passage sets out?",
+        ],
+    }),
+    keyed_stem_forms=_ro({
+        **CAT_PYQ_F5_POLICY.keyed_stem_forms,
+        "consistency/negative": _CONSISTENCY_NEGATIVE_FORMS,
+    }),
+    negative_tasks=frozenset({"support", "application", "consistency"}),
+    system_extensions=_ro({
+        **CAT_PYQ_F5_POLICY.system_extensions,
+        "questions": (CAT_PYQ_F5_POLICY.system_extensions["questions"]
+                      + _F6_QUESTIONS_SYSTEM),
+    }),
+)
+
+# ---------------------------------------------------------------------------
+# cat-pyq-e1 (2026-09-22) — the ELITE question release. Operator decision the
+# same day, amending the 2026-09-14 rule that elite may only take a
+# legacy-based policy.
+#
+# What it takes from f6: the question release (contracts, negation, the four
+# slot types, QT25-QT30), source-supported facts, and seed fidelity.
+# What it refuses, structurally, via generation_policy.elite_base_errors:
+# every field that changes how a PASSAGE reads — families, personas, endings,
+# rhythms, revelations, topic shapes, the fourteen new beats, argument schemas,
+# closing postures, structure weights, genre-filtered personas, passage
+# permissions and the render prompt. Elite prose stays the legacy engine's.
+#
+# The differentiator from hard. Hard and elite already draw the SAME topology
+# pool (config.TIER_TOPOLOGY_BAR is {} for both; the hand-picked per-tier list
+# was removed because its mean slot difficulty was LOWER than what it excluded,
+# see config.py TIER_TOPOLOGY_BAR). What separates them is instability range
+# (0.45-0.95 vs 0.35-0.70), slot scaling (elite alone has a 0.60 difficulty
+# FLOOR and a 0.95 cap), four elite-only families and a narrower seed pool. This
+# policy adds two more separators rather than narrowing anything:
+#   - THREE negative slots per set (37.5%) against hard's two (25%). CAT
+#     2020-24 runs 41.5% negated, so elite sits closer to the recent exam than
+#     hard does, which is the right ordering.
+#   - QT31/QT32, tagged to this version alone, authored at elite calibration
+#     (every slot >= the 0.60 floor, mean 0.75 against the library's ~0.69).
+# Differentiation by ADDITION is deliberate: config.py records that narrowing a
+# topology pool toward EXCLUSION_WINDOWS["topology"] (12) dead-ends
+# sample_skeleton. At a three-negative target elite draws from 19 topologies.
+#
+# NOT taken: double negation stays unsupported on every tier.
+CAT_PYQ_E1 = "cat-pyq-e1"
+
+# The source-fact ask, without f6's closing preference for the four fact beats:
+# elite plans legacy moves and can never carry NEWS_DATA_HOOK, STUDY_WALKTHROUGH,
+# EXPERT_AS_SPINE or QUOTE_CLOSE, so naming them here would be dead text.
+_E1_REFINE_PROMPT = """SOURCES AND VOICES: a reviewed work, a reported writer or a school may be described in the paragraph briefs but not named, and invent no real study, statistic or quotation for it.
+
+SOURCE-SUPPORTED FACTS: also return "source_facts", at most 8 (fewer is fine; [] when the
+excerpt holds none), each the shortest exact passage of the INSPIRATION ESSAY EXCERPT that
+supports one factual claim the passage could use:
+  {"span": "<words copied exactly from the excerpt, 3-40 words>",
+   "claim": "<the claim, max 25 words, adding nothing the span does not say>",
+   "attribution": "<who says or found it, as the excerpt states, or ''>",
+   "qualification": "<the excerpt's own hedge or condition, or ''>"}
+Keep every number, negation and hedge the span has. Name nobody the excerpt does not name."""
+
+# Only the fact_trace key. f6's rewrite also adds "unpermitted_devices", which
+# belongs to passage_permissions — a section B field elite does not take.
+_E1_COMPLIANCE_REWRITE = ((
+    '  "notes": "max 30 words"\n}',
+    '  "fact_trace": [],\n  "notes": "max 30 words"\n}'),)
+
+_E1_QUESTIONS_SYSTEM = CAT_PYQ_F6_POLICY.system_extensions["questions"] + """
+
+ELITE (cat-pyq-e1): this set carries THREE negative slots, not two. Vary how the
+negation is written across them — an EXCEPT list, a NOT stem, a "least" stem —
+rather than repeating one frame three times. Each still carries exactly one
+negation; never combine two."""
+
+CAT_PYQ_E1_POLICY = GenerationPolicy(
+    version=CAT_PYQ_E1,
+    tiers=frozenset({"elite"}),
+    description="elite question release: f6's question contracts, source facts "
+                "and seed fidelity on the legacy passage engine",
+    elite_base=True,
+    # --- A. questions ------------------------------------------------------
+    question_contracts=True,
+    extra_slot_types=CAT_PYQ_F6_POLICY.extra_slot_types,
+    extra_stem_forms=CAT_PYQ_F6_POLICY.extra_stem_forms,
+    keyed_stem_forms=CAT_PYQ_F6_POLICY.keyed_stem_forms,
+    slot_variants=CAT_PYQ_F6_POLICY.slot_variants,
+    negative_tasks=CAT_PYQ_F6_POLICY.negative_tasks,
+    negative_slots_per_set=_ro({"elite": 3}),
+    # q1 and f6 tag topologies ONLY (verified 2026-09-22); s1 is the tag that
+    # carries families, personas, endings, rhythms, revelations and topic
+    # shapes, and is deliberately absent so none of them reach elite.
+    component_tags=frozenset({CAT_PYQ_Q1, CAT_PYQ_F6}),
+    # --- C. source facts ---------------------------------------------------
+    source_facts=True,
+    strict_source_fact_audit=True,
+    system_rewrites=_ro({"compliance": _E1_COMPLIANCE_REWRITE}),
+    prompt_extensions=_ro({"refine": _E1_REFINE_PROMPT}),
+    # --- D. seed handling and beats ---------------------------------------
+    seed_fidelity=True,
+    coherent_plans=True,
+    render_seed_context=True,
+    underdelivered_beats=True,
+    system_extensions=_ro({
+        "questions": _E1_QUESTIONS_SYSTEM,
+        "answerability": CAT_PYQ_F6_POLICY.system_extensions["answerability"],
+        "solver": CAT_PYQ_F6_POLICY.system_extensions["solver"],
+        "solver_tiebreak": CAT_PYQ_F6_POLICY.system_extensions["solver_tiebreak"],
+        "judge": CAT_PYQ_F6_POLICY.system_extensions["judge"],
+        "refine": _SEED_FIDELITY_REFINE,
+    }),
+)
+
 PRODUCTION_POLICIES = (CAT_PYQ_Q1_POLICY, CAT_PYQ_S1_POLICY, CAT_PYQ_S2_POLICY,
                        CAT_PYQ_F1_POLICY, CAT_PYQ_F2_POLICY, CAT_PYQ_F3_POLICY,
                        LEGACY_SF1_POLICY, CAT_PYQ_F4_POLICY, LEGACY_SF2_POLICY,
-                       CAT_PYQ_F5_POLICY)
+                       CAT_PYQ_F5_POLICY,
+                       CAT_PYQ_F6_POLICY,
+                       CAT_PYQ_E1_POLICY)
 
 # Covers `import rc_engine.policy_catalog` before generation_policy: the
 # registration generation_policy attempted at its own import found this module
